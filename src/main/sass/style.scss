@@ -1,0 +1,61 @@
+@import "normalize.scss";
+@import "variables.scss";
+
+* {
+	box-sizing: border-box; 
+}
+
+body {
+	color: $text-color;
+	font: 16px "Source Sans Pro", Helvetica, sans-serif;
+	line-height: 22px;
+	background-color: white;
+	
+	a {
+		color: $text-color;
+		text-decoration: none;
+	}
+
+	& > header > nav, & > main, & > footer {
+		width: 1000px;
+		margin: 0 auto;
+		padding: 5px 10px;
+	}
+	
+	& > header {
+		background-color: $header-color;
+		color: $text-header-color;
+		a {
+			color: $text-header-color;
+			&:hover {
+				color: $primary-color;
+			}
+		}
+		& > nav > ul { 
+			display: flex;
+			align-items: center;
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			li {
+				margin: 0 25px;
+				font-size: 18px;
+			}
+		}	
+	}
+	
+	& > main {
+		background-color: $background-color;
+	}
+	
+	& > footer {
+		padding-bottom: 35px;
+		background-color: $footer-color;
+		color: $text-footer-color;
+		text-align: center;
+		a {
+			color: $text-footer-color;
+		}
+	}
+
+}
