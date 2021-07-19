@@ -1,7 +1,10 @@
 package armybuilder.model.dok;
 
+import java.util.Arrays;
+import java.util.List;
+
 import armybuilder.model.ArmyRuleType;
-import armybuilder.model.i.IArmyRule;
+import armybuilder.model.rule.IArmyRule;
 
 public enum DokRule implements IArmyRule {
 	RitesDeSang(ArmyRuleType.TraisDeBataille),
@@ -16,15 +19,15 @@ public enum DokRule implements IArmyRule {
 	TueusesHerisseesDeLames(ArmyRuleType.TraisDeBataille),
 	;
 
-	private ArmyRuleType type;
+	private List<ArmyRuleType> types;
 
-	DokRule(ArmyRuleType type) {
-		this.type = type;
+	DokRule(ArmyRuleType... types) {
+		this.types = Arrays.asList(types);
 	}
 
 	@Override
-	public ArmyRuleType getType() {
-		return type;
+	public List<ArmyRuleType> getTypes() {
+		return types;
 	}
 
 }

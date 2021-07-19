@@ -1,6 +1,15 @@
 package armybuilder.model;
 
 public enum ArmyRuleType {
-	TraisDeBataille
+	TraisDeBataille,
+
+	ActionsHeroiques,
+	AptitudesDeCommandement,
+
+	PhaseDeCharge,
+	PhaseDesHeros, 
+	PhaseDeMouvement,
+	PhaseDeTir,
+	PhaseDeCombat,
 
 }

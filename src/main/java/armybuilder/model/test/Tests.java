@@ -2,9 +2,9 @@ package armybuilder.model.test;
 
 import java.util.function.Function;
 
-import armybuilder.model.Allegiance;
 import armybuilder.model.Army;
-import armybuilder.model.ArmyOptionType;
+import armybuilder.model.option.Allegiance;
+import armybuilder.model.option.ArmyOptionType;
 
 public interface Tests {
 	public static Function<Army, Boolean> isAllegiance(Allegiance allegiance) {

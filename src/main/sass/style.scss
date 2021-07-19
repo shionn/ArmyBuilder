@@ -46,6 +46,12 @@ body {
 	
 	& > main {
 		background-color: $background-color;
+		p {
+			text-align: justify;
+		}
+		strong {
+			font-variant: small-caps;
+		}
 	}
 	
 	& > footer {

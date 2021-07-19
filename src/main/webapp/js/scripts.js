@@ -21,6 +21,9 @@ _q.prototype.attr = function(attr, value) {
 }
 
 _q.prototype.value = function() {
+	if('checkbox' === this.attr('type')) {
+		return this.obj[0].checked;
+	}
 	return this.obj[0].value;
 }
 

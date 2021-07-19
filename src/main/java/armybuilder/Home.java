@@ -8,9 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import armybuilder.model.Allegiance;
 import armybuilder.model.Army;
-import armybuilder.model.SubAllegiance;
+import armybuilder.model.option.Allegiance;
+import armybuilder.model.option.SubAllegiance;
 
 @Controller
 public class Home {
