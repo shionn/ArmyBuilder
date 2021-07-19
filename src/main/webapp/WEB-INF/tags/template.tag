@@ -35,7 +35,6 @@
 	</header>
 	<main>
 		<jsp:invoke fragment="content" />
-		<button>truc</button>
 	</main>
 	<footer>
 		ArmyBuilder by <a href="mailto:shionn@gmail.com">shionn</a>

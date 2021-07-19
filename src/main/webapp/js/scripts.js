@@ -9,9 +9,19 @@ _q.prototype._each = function(callback) {
 }
 
 _q.prototype.css = function(attr, value) {
-	if (!value) return obj[0].style[attr];
+	if (!value) return this.obj[0].style[attr];
 	this._each(o => o.style[attr] = value);
 	return this;
+}
+
+_q.prototype.attr = function(attr, value) {
+	if (!value) return this.obj[0].getAttribute(attr);
+	this._each(o => o.setAttribute(attr, value));
+	return this;
+}
+
+_q.prototype.value = function() {
+	return this.obj[0].value;
 }
 
 _q.prototype.find = function(selector) {
@@ -22,10 +32,20 @@ _q.prototype.find = function(selector) {
 
 _q.prototype.on = function(type, selector, callback) {
 	this.find(selector)._each(child => child.addEventListener(type, callback));
-	this._each(o => o.addEventListener("DOMNodeInserted", function() {
-		o.querySelectorAll(selector).forEach(c => c.removeEventListener(type, callback));
-		o.querySelectorAll(selector).forEach(c => c.addEventListener(type, callback));
-	}));
+	this._each(o => {
+		new MutationObserver(function() {
+			o.querySelectorAll(selector).forEach(c => c.removeEventListener(type, callback));
+			o.querySelectorAll(selector).forEach(c => c.addEventListener(type, callback));
+		}).observe(o, { childList: true, subtree: true });
+	});
+	return this;
+}
+
+_q.prototype.replaceWith = function(elems) {
+	for (let i = 0; i < Math.min(this.obj.length, elems.obj.length); i++) {
+		this.obj[i].replaceWith(elems.obj[i]);
+	}
+	return this;
 }
 
 let q = function(selector) {
@@ -35,35 +55,48 @@ let q = function(selector) {
 		return this;
 	} else if (typeof selector === "string") {
 		return new _q(document.querySelectorAll(selector));
-	} else {
+	} else if (Array.isArray(selector)) {
 		return new _q(selector);
+	} else {
+		return new _q([selector]);
 	}
 };
 
-q.ajax = function(url, success) {
-	let req = new XMLHttpRequest();
-	req.onreadystatechange = function() {
-		if (req.readyState === XMLHttpRequest.DONE) {
-			if (req.status === 200) {
-				success(req.response);
+let _ajax = function(url, method = "GET") {
+	this.req = new XMLHttpRequest();
+	this.req.open(method, url);
+	this.req.setRequestHeader("Content-Type", "text/html");
+};
+
+_ajax.prototype.header = function(name, value) {
+	this.req.setRequestHeader(name, value);
+	return this;
+};
+
+_ajax.prototype.success = function(success) {
+	this.req.onreadystatechange = function() {
+		if (this.readyState === XMLHttpRequest.DONE) {
+			if (this.status === 200) {
+				try {
+					let contentType = this.getResponseHeader("Content-Type").split(';')[0];
+					success(q(new DOMParser().parseFromString(this.response, contentType)));
+				} catch (error) {
+					console.log(error);
+					success(this.response);
+				}
 			} else {
-				document.write(req.response);
+				document.write(this.response);
 			}
 		}
 	};
-	req.open('GET', url);
-	req.send();
+	return this;
 };
 
+_ajax.prototype.process = function() {
+	this.req.send();
+};
 
-
-//
-//q.prototype.css = function(attr, value) {
-//	obj.style[attr] = value;
-//};
-
-//q.prototype.find = function(selector) {
-//	return new q(obj.querySelectorAll(selector));
-//};
-
+q.ajax = function(url, method = "GET" ) {
+	return new _ajax(url, method);
+};
 
