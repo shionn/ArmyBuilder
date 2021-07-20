@@ -1,10 +1,9 @@
-package armybuilder.model.dok;
+package armybuilder.model.rule;
 
 import java.util.Arrays;
 import java.util.List;
 
 import armybuilder.model.ArmyRuleType;
-import armybuilder.model.rule.IArmyRule;
 
 public enum DokRule implements IArmyRule {
 	RitesDeSang(ArmyRuleType.TraisDeBataille),
@@ -17,6 +16,16 @@ public enum DokRule implements IArmyRule {
 	FrapperEtSeRetirer(ArmyRuleType.TraisDeBataille),
 	LessenceDeKhaine(ArmyRuleType.TraisDeBataille),
 	TueusesHerisseesDeLames(ArmyRuleType.TraisDeBataille),
+
+	CoeurDeFerDeKhaine(ArmyRuleType.Aptitude),
+	DeuxCorpsUneSeuleAme(ArmyRuleType.Aptitude),
+	DeuxCorpsUneSeuleAme_Shadow(ArmyRuleType.Aptitude),
+	FureurDeLaReineDeLOmbre(ArmyRuleType.Aptitude),
+	PresenceIntimidante(ArmyRuleType.Aptitude),
+
+	VenerationParLeSang(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDesHeros),
+
+	HorreurNoireDUlgu(ArmyRuleType.Sort),
 	;
 
 	private List<ArmyRuleType> types;

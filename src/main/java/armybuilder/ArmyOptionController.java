@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import armybuilder.model.Army;
 import armybuilder.model.option.Allegiance;
 import armybuilder.model.option.ArmyOptionType;
-import armybuilder.model.option.Generique;
+import armybuilder.model.option.GrandeStrategie;
+import armybuilder.model.option.PackDeBataille;
 import armybuilder.model.option.SubAllegiance;
 
 @Controller
@@ -17,22 +18,27 @@ public class ArmyOptionController {
 	@Autowired
 	private Army army;
 
-	@GetMapping(path = "/allegiance")
-	public String setAllegiance(@RequestHeader("allegiance") Allegiance allegiance) {
+	@GetMapping(path = "/Allegiance")
+	public String setAllegiance(@RequestHeader("Allegiance") Allegiance allegiance) {
 		army.setOption(ArmyOptionType.Allegiance, allegiance);
-		army.setOption(ArmyOptionType.SubAllegiance, null);
 		return "redirect:/";
 	}
 
-	@GetMapping(path = "/suballegiance")
-	public String setSubAllegiance(@RequestHeader("suballegiance") SubAllegiance subAllegiance) {
+	@GetMapping(path = "/SubAllegiance")
+	public String setSubAllegiance(@RequestHeader("SubAllegiance") SubAllegiance subAllegiance) {
 		army.setOption(ArmyOptionType.SubAllegiance, subAllegiance);
 		return "redirect:/";
 	}
 
-	@GetMapping(path = "/generique")
-	public String setGenerique(@RequestHeader("generique") boolean generique) {
-		army.setOption(ArmyOptionType.Generique, generique ? Generique.Yes : Generique.No);
+	@GetMapping(path = "/PackDeBataille")
+	public String setPackDeBataille(@RequestHeader("PackDeBataille") PackDeBataille pack) {
+		army.setOption(ArmyOptionType.PackDeBataille, pack);
+		return "redirect:/";
+	}
+
+	@GetMapping(path = "/GrandeStrategie")
+	public String setPackDeBataille(@RequestHeader("GrandeStrategie") GrandeStrategie pack) {
+		army.setOption(ArmyOptionType.GrandeStrategie, pack);
 		return "redirect:/";
 	}
 

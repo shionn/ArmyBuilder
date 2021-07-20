@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import armybuilder.model.Army;
 import armybuilder.model.option.Allegiance;
+import armybuilder.model.option.ArmyOptionType;
 import armybuilder.model.option.SubAllegiance;
 
 @Controller
@@ -21,6 +22,7 @@ public class Home {
 	public ModelAndView home() {
 		army.rebuild();
 		return new ModelAndView("army")
+				.addObject("armyOptions", ArmyOptionType.values())
 				.addObject("allegiances", Allegiance.values()).addObject("subAllegiances", Arrays
 						.stream(SubAllegiance.values()).filter(s -> s.isOptionDisplayed(army))
 						.sorted()
