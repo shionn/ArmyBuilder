@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 
 import armybuilder.model.Army;
-import armybuilder.model.unit.DokUnit;
 import armybuilder.model.unit.Unit;
+import armybuilder.model.unit.dok.DokUnit;
 
 @Controller
 public class ArmyUnitController {

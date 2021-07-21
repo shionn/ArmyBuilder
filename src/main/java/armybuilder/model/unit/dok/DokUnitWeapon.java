@@ -1,6 +1,9 @@
-package armybuilder.model.unit;
+package armybuilder.model.unit.dok;
 
-public enum UnitWeapon implements IUnitWeapon {
+import armybuilder.model.unit.IUnitWeapon;
+import armybuilder.model.unit.WeaponType;
+
+public enum DokUnitWeapon implements IUnitWeapon {
 	AilesLamees("Ailes Lamées", WeaponType.Melee, "2", "6", "3+", "3+", "-1", "1"),
 	CouronneDeSerpents("Couronne de Serpents", WeaponType.Melee, "1", "2D6", "3+", "3+", "-", "1"),
 	EcorcheCoeur("Écorche-cœur", WeaponType.Melee, "2", "3", "3+", "3+", "-1", "D3"),
@@ -20,7 +23,7 @@ public enum UnitWeapon implements IUnitWeapon {
 	private String[] stats;
 	private WeaponType type;
 
-	private UnitWeapon(String displayName, WeaponType type, String... stats) {
+	private DokUnitWeapon(String displayName, WeaponType type, String... stats) {
 		this.displayName = displayName;
 		this.type = type;
 		this.stats = stats;

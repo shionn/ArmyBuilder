@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
-import armybuilder.model.modifier.Modifiers;
 import armybuilder.model.option.ArmyOptionType;
 import armybuilder.model.option.IArmyOption;
 import armybuilder.model.rule.GeneriqueRule;
@@ -34,9 +33,11 @@ public class Army {
 
 	public void rebuild() {
 		rules.clear();
-		Modifiers.rules(GeneriqueRule.values()).accept(null, this);
+		rules.addAll(Arrays.asList(GeneriqueRule.values()));
+
 		options.values().stream().filter(Objects::nonNull).forEach(o -> o.rebuild(this));
 		units.stream().forEach(o -> o.rebuild(this));
+
 	}
 
 	public void setOption(ArmyOptionType type, IArmyOption<?> value) {

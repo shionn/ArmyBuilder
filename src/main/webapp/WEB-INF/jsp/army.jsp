@@ -29,16 +29,16 @@
 				</c:if>
 			</c:forEach>
 		</div>
-		<div>
-			<c:if test="${not empty army.unitChoices}">
+		<c:if test="${not empty army.unitChoices}">
+			<div>
 				<select name="unitChoice" class="ajax" data-url="<spring:url value="/add-unit"/>" data-update="body>main">
 					<option value="" selected="selected">Ajouter une Unité</option>
 					<c:forEach items="${army.unitChoices}" var="f">
 						<option value="${f}">${f.displayName}</option>
 					</c:forEach>
 				</select>
-			</c:if>
-		</div>
+			</div>
+		</c:if>
 		<div>
 			<h1>Profile d'Armée</h1>
 			<c:if test="${not empty army.getOption('GrandeStrategie')}">
@@ -137,6 +137,8 @@
 									</c:forEach>
 								</tbody>
 							</table>
+						</c:if>
+						<c:if test="${not empty unit.options }">
 						</c:if>
 						<div>
 							<c:forEach items="${unit.rules}" var="rule">

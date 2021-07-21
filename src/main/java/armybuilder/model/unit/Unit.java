@@ -30,6 +30,11 @@ public class Unit {
 		return model.getRules();
 	}
 
+	public List<IUnitOption<?>> getOptions() {
+		return model.getOptions();
+	}
+	
+	
 	public List<KeyWord> getKeyWords() {
 		return model.getKeyWords();
 	}

@@ -18,4 +18,6 @@ public interface IUnit {
 
 	List<IArmyRule> getRules();
 
+	List<IUnitOption<?>> getOptions();
+
 }

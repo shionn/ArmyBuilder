@@ -10,6 +10,7 @@ public enum GrandeStrategie implements IArmyOption<GrandeStrategie> {
 	private GrandeStrategie(String displayName) {
 		this.displayName = displayName;
 	}
+
 	@Override
 	public String getDisplayName() {
 		return displayName;
