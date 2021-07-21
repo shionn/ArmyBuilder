@@ -31,7 +31,7 @@
 		</div>
 		<c:if test="${not empty army.unitChoices}">
 			<div>
-				<select name="unitChoice" class="ajax" data-url="<spring:url value="/add-unit"/>" data-update="body>main">
+				<select name="unitChoice" class="ajax" data-url="<spring:url value="/unit/add"/>" data-update="body>main">
 					<option value="" selected="selected">Ajouter une Unité</option>
 					<c:forEach items="${army.unitChoices}" var="f">
 						<option value="${f}">${f.displayName}</option>
@@ -55,103 +55,7 @@
 		<div>
 			<h2>Composition</h2>
 			<c:forEach items="${army.units}" var="unit">
-				<article>
-					<header>${unit.displayName} 
-					<span><i class="fa fa-walking"></i> ${unit.mouvement}&quot; 
-						<i class="fa fa-heart"></i> ${unit.blessures} 
-						<i class="fa fa-flag"></i> ${unit.bravoure} 
-						<i class="fa fa-shield-alt"></i> ${unit.sauvegarde}</span>
-					</header>
-					<main>
-						<table>
-							<c:if test="${not empty unit.getWeapons('Projectil')}">
-								<thead>
-									<tr>
-										<th>Armes à Projectiles</th>
-										<th>Portée</th>
-										<th>Attaques</th>
-										<th>Toucher</th>
-										<th>Blesser</th>
-										<th>Perf.</th>
-										<th>Dégâts</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach items="${unit.getWeapons('Projectil')}" var="w">
-										<tr>
-											<td>${w.displayName}</td>
-											<td>${w.portee}</td>
-											<td>${w.attaques}</td>
-											<td>${w.toucher}</td>
-											<td>${w.blesser}</td>
-											<td>${w.perf}</td>
-											<td>${w.degats}</td>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</c:if>
-							<c:if test="${not empty unit.getWeapons('Melee')}">
-								<thead>
-									<tr>
-										<th>Armes de Mêlée</th>
-										<th>Portée</th>
-										<th>Attaques</th>
-										<th>Toucher</th>
-										<th>Blesser</th>
-										<th>Perf.</th>
-										<th>Dégâts</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach items="${unit.getWeapons('Melee')}" var="w">
-										<tr>
-											<td>${w.displayName}</td>
-											<td>${w.portee}</td>
-											<td>${w.attaques}</td>
-											<td>${w.toucher}</td>
-											<td>${w.blesser}</td>
-											<td>${w.perf}</td>
-											<td>${w.degats}</td>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</c:if>
-						</table>
-						<c:if test="${not empty unit.profileDegressif}">
-							<table>
-								<thead>
-									<tr>
-										<th colspan="${unit.profileDegressif.titles.size()}">Tableau de Dégâts</th>
-									</tr>
-									<tr>
-										<c:forEach items="${unit.profileDegressif.titles}" var="t">
-											<th>${t}</th>
-										</c:forEach>
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach items="${unit.profileDegressif.lines}" var="l">
-										<tr>
-											<c:forEach items="${l}" var="c"><td>${c}</td></c:forEach>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</table>
-						</c:if>
-						<c:if test="${not empty unit.options }">
-						</c:if>
-						<div>
-							<c:forEach items="${unit.rules}" var="rule">
-								<jsp:include page="rule/${rule}.jsp"/>
-							</c:forEach>
-						</div>
-					</main>
-					<footer>
-						<c:forEach items="${unit.keyWords}" var="k">
-							<span>${k.displayName} </span>
-						</c:forEach>
-					</footer>
-				</article>
+				<t:unit army="${army}" unit="${unit}"/>
 			</c:forEach>
 		</div>
 		<div>

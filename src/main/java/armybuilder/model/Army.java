@@ -18,7 +18,7 @@ import armybuilder.model.option.IArmyOptionValue;
 import armybuilder.model.rule.ArmyRuleType;
 import armybuilder.model.rule.GeneriqueRule;
 import armybuilder.model.rule.IArmyRule;
-import armybuilder.model.unit.IUnit;
+import armybuilder.model.unit.IUnitModel;
 import armybuilder.model.unit.Unit;
 
 @Component
@@ -28,9 +28,10 @@ public class Army {
 	private Map<ArmyOption, IArmyOptionValue<?>> options = new HashMap<>();
 
 	private Set<IArmyRule> rules = new LinkedHashSet<>();
-	private Set<IUnit> unitChoices = new LinkedHashSet<>();
+	private Set<IUnitModel> unitChoices = new LinkedHashSet<>();
 
 	private List<Unit> units = new ArrayList<>();
+
 
 	public void rebuild() {
 		rules.clear();
@@ -41,17 +42,17 @@ public class Army {
 
 	}
 
-	public void setOption(ArmyOption type, IArmyOptionValue<?> value) {
-		this.options.put(type, value);
-		if (type == ArmyOption.Allegiance) {
+	public void setOption(ArmyOption option, IArmyOptionValue<?> value) {
+		this.options.put(option, value);
+		if (option == ArmyOption.Allegiance) {
 			this.options.remove(ArmyOption.SubAllegiance);
 			this.unitChoices.clear();
 			this.units.clear();
 		}
 	}
 
-	public IArmyOptionValue<?> getOption(ArmyOption type) {
-		return options.get(type);
+	public IArmyOptionValue<?> getOption(ArmyOption option) {
+		return options.get(option);
 	}
 
 	public Set<IArmyRule> getRules() {
@@ -67,11 +68,11 @@ public class Army {
 		this.rules.add(rule);
 	}
 
-	public void addUnitChoice(IUnit unit) {
+	public void addUnitChoice(IUnitModel unit) {
 		this.unitChoices.add(unit);
 	}
 
-	public Set<IUnit> getUnitChoices() {
+	public Set<IUnitModel> getUnitChoices() {
 		return unitChoices;
 	}
 

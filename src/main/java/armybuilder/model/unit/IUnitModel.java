@@ -4,7 +4,7 @@ import java.util.List;
 
 import armybuilder.model.rule.IArmyRule;
 
-public interface IUnit {
+public interface IUnitModel {
 
 	public String getDisplayName();
 
@@ -17,7 +17,5 @@ public interface IUnit {
 	List<KeyWord> getKeyWords();
 
 	List<IArmyRule> getRules();
-
-	List<IUnitOption<?>> getOptions();
 
 }

@@ -6,14 +6,14 @@ import java.util.List;
 import armybuilder.model.Army;
 import armybuilder.model.modifier.IArmyModifier;
 import armybuilder.model.rule.IArmyRule;
-import armybuilder.model.unit.IUnit;
+import armybuilder.model.unit.IUnitModel;
 
 public class AllegianceModifier implements IArmyModifier {
 
-	private List<IUnit> units;
+	private List<IUnitModel> units;
 	private List<IArmyRule> rules;
 
-	public AllegianceModifier(IUnit[] units, IArmyRule... rules) {
+	public AllegianceModifier(IUnitModel[] units, IArmyRule... rules) {
 		this.units = Arrays.asList(units);
 		this.rules = Arrays.asList(rules);
 	}

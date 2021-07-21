@@ -64,4 +64,44 @@ body {
 		}
 	}
 
+	article.unit {
+		border: 1px dashed $primary-color ;
+		margin-bottom: 10px;
+		& > header {
+			background-color: $primary-color;
+			text-align: center;
+			color: $secondary-color;
+			font-size: larger;
+			padding: 10px;
+			& > span {
+				float: right;
+			}
+		}
+		&> main {
+			padding: 5px;
+			& > table {
+				margin: 0 auto 10px;
+				border-collapse: collapse;
+				border: 1px dashed $secondary-color ;
+				& > thead {
+					background-color: $secondary-color;
+				}
+				th, td {
+					padding: 3px 10px 2px;
+				}
+				tr td:not(:first-child), tr th:not(:first-child) {
+					text-align: center;
+				}
+			}
+		}
+		& > footer {
+			padding: 5px;
+			background-color: $secondary-color;
+			& > span:not(:last-child)::after{ 
+				content : ',';
+			}
+		}
+		
+	}
+
 }

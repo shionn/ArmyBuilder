@@ -1,16 +1,24 @@
 package armybuilder.model.unit;
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import armybuilder.model.Army;
 import armybuilder.model.rule.IArmyRule;
+import armybuilder.model.unit.option.OptimisationsUniverselles;
+import armybuilder.model.unit.option.UnitOption;
 
 public class Unit {
 
-	private IUnit model;
+	private Army army;
+	private IUnitModel model;
+	private Map<UnitOption, Object> options = new HashMap<UnitOption, Object>();
 
-	public Unit(IUnit model) {
+	public Unit(Army army, IUnitModel model) {
+		this.army = army;
 		this.model = model;
 	}
 
@@ -26,15 +34,33 @@ public class Unit {
 		return model.getProfileDegressif();
 	}
 
+	public List<UnitOption> getOptions() {
+		return Arrays.stream(UnitOption.values()).filter(u -> u.isAvailable(this))
+				.collect(Collectors.toList());
+	}
+
+	public void addOption(UnitOption option, Object value) {
+		options.put(option, value);
+	}
+
+	public void removeOption(UnitOption option) {
+		options.remove(option);
+	}
+
+	public Object getOption(UnitOption option) {
+		return options.get(option);
+	}
+
+	public List<?> getOptionValues(UnitOption option) {
+		return Arrays.stream(OptimisationsUniverselles.values())
+				.filter(o -> o.getOption() == option)
+				.filter(o -> o.isAvailable(army, this)).collect(Collectors.toList());
+	}
+
 	public List<IArmyRule> getRules() {
 		return model.getRules();
 	}
 
-	public List<IUnitOption<?>> getOptions() {
-		return model.getOptions();
-	}
-	
-	
 	public List<KeyWord> getKeyWords() {
 		return model.getKeyWords();
 	}
@@ -59,5 +85,12 @@ public class Unit {
 		return model.getProfile().getSvg();
 	}
 
+	public boolean is(KeyWord keyWord) {
+		return getKeyWords().contains(keyWord);
+	}
+
+	public boolean is(UnitOption opt) {
+		return getOption(opt) != null;
+	}
 
 }

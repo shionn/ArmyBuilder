@@ -1,23 +1,20 @@
 package armybuilder.model.unit.dok;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import armybuilder.model.rule.DokRule;
 import armybuilder.model.rule.GeneriqueRule;
 import armybuilder.model.rule.GeneriqueUnitRule;
 import armybuilder.model.rule.IArmyRule;
-import armybuilder.model.unit.IUnit;
-import armybuilder.model.unit.IUnitOption;
+import armybuilder.model.unit.IUnitModel;
 import armybuilder.model.unit.IUnitWeapon;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.ProfileDegressif;
 import armybuilder.model.unit.RoleTatcique;
-import armybuilder.model.unit.UnitOption;
 import armybuilder.model.unit.UnitProfile;
 
-public enum DokUnit implements IUnit {
+public enum DokUnitModel implements IUnitModel {
 
 	MorathiKhaine(
 			"Morathi-Khaine",
@@ -30,9 +27,8 @@ public enum DokUnit implements IUnit {
 					GeneriqueRule.TraitMagique, GeneriqueRule.BouclierMystique,
 					DokRule.HorreurNoireDUlgu, DokRule.VenerationParLeSang,
 					GeneriqueUnitRule.Sorcier_3_2_1),
-			Arrays.asList(UnitOption.General),
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.Heros,
-					KeyWord.Sorcier, KeyWord.MorathiKhaine)),
+					KeyWord.Sorcier, KeyWord.MorathiKhaine, KeyWord.Unique)),
 	LaShadowQueen(
 			"La Shadow Queen",
 			330,
@@ -47,10 +43,8 @@ public enum DokUnit implements IUnit {
 			Arrays.asList(GeneriqueUnitRule.Vol, DokRule.FureurDeLaReineDeLOmbre,
 					DokRule.DeuxCorpsUneSeuleAme_Shadow,
 					DokRule.CoeurDeFerDeKhaine),
-			Collections.emptyList(),
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.Monstre,
-					KeyWord.Heros, KeyWord.LaShadowQueen))
-
+					KeyWord.Heros, KeyWord.LaShadowQueen, KeyWord.Unique))
 	;
 
 	private String displayName;
@@ -61,12 +55,10 @@ public enum DokUnit implements IUnit {
 	private List<IArmyRule> rules;
 	private List<KeyWord> keyWords;
 	private List<RoleTatcique> roleTactiques;
-	private List<IUnitOption<?>> options;
 
-	private DokUnit(String displayName, int value, UnitProfile profile,
+	private DokUnitModel(String displayName, int value, UnitProfile profile,
 			List<RoleTatcique> roleTactiques, List<IUnitWeapon> weapons,
-			ProfileDegressif profileDegressif, List<IArmyRule> rules, List<IUnitOption<?>> options,
-			List<KeyWord> keyWords) {
+			ProfileDegressif profileDegressif, List<IArmyRule> rules, List<KeyWord> keyWords) {
 		this.displayName = displayName;
 		this.value = value;
 		this.profile = profile;
@@ -74,7 +66,6 @@ public enum DokUnit implements IUnit {
 		this.weapons = weapons;
 		this.profileDegressif = profileDegressif;
 		this.rules = rules;
-		this.options = options;
 		this.keyWords = keyWords;
 	}
 
@@ -106,11 +97,6 @@ public enum DokUnit implements IUnit {
 	@Override
 	public List<KeyWord> getKeyWords() {
 		return keyWords;
-	}
-
-	@Override
-	public List<IUnitOption<?>> getOptions() {
-		return options;
 	}
 
 }

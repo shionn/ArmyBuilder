@@ -9,6 +9,10 @@ public enum KeyWord {
 	MorathiKhaine("Morathi-Khaine"),
 	Ordre("Ordre"),
 	Sorcier("Sorcier"),
+	Unique("Unique"),
+	Pretre("Prêtre"),
+	BloodwrackMedusa("Bloodwrack Medusa"),
+	MelusaiIronscale("Melusai Ironscale"),
 	;
 
 	private String displayName;
