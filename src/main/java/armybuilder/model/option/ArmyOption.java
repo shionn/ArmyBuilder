@@ -12,7 +12,6 @@ public enum ArmyOption {
 	PackDeBataille("Pack de Bataille", true, armybuilder.model.option.PackDeBataille.values()),
 	GrandeStrategie("Grande Strategie", true, armybuilder.model.option.GrandeStrategie.values()),
 	// MortalRealm,
-	// GrandStrategy
 	;
 
 	private boolean select;
