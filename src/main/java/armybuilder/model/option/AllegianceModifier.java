@@ -19,7 +19,7 @@ public class AllegianceModifier implements IArmyModifier<Allegiance> {
 	}
 
 	@Override
-	public void accept(Allegiance t, Army u) {
+	public void accept(Army u) {
 		rules.stream().forEach(u::addRule);
 		units.stream().forEach(u::addUnitChoice);
 	}

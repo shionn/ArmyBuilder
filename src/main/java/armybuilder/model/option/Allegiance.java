@@ -37,7 +37,7 @@ public enum Allegiance implements IArmyOptionValue<Allegiance> {
 	@Override
 	public void rebuild(Army army) {
 		if (modifier != null) {
-			modifier.accept(this, army);
+			modifier.accept(army);
 		}
 	}
 
