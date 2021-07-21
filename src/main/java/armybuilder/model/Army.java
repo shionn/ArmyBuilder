@@ -15,6 +15,7 @@ import org.springframework.web.context.annotation.SessionScope;
 
 import armybuilder.model.option.ArmyOption;
 import armybuilder.model.option.IArmyOptionValue;
+import armybuilder.model.rule.ArmyRuleType;
 import armybuilder.model.rule.GeneriqueRule;
 import armybuilder.model.rule.IArmyRule;
 import armybuilder.model.unit.IUnit;

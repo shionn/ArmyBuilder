@@ -3,8 +3,6 @@ package armybuilder.model.rule;
 import java.util.Arrays;
 import java.util.List;
 
-import armybuilder.model.ArmyRuleType;
-
 public enum GeneriqueUnitRule implements IArmyRule {
 
 	Sorcier_3_2_1(ArmyRuleType.Aptitude),

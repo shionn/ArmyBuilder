@@ -3,8 +3,6 @@ package armybuilder.model.rule;
 import java.util.Arrays;
 import java.util.List;
 
-import armybuilder.model.ArmyRuleType;
-
 public enum GeneriqueRule implements IArmyRule {
 
 	CommandementHeroique(ArmyRuleType.ActionsHeroiques),

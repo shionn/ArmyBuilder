@@ -1,4 +1,4 @@
-package armybuilder.model;
+package armybuilder.model.rule;
 
 public enum ArmyRuleType {
 	TraisDeBataille,
