@@ -94,14 +94,15 @@
 							${o.displayName} 
 							<input type="checkbox" name="value" class="ajax" 
 								data-url='<spring:url value="/unit/${unit.hashCode()}/${o.name()}"/>' data-update="body>main"
-								<c:if test="${unit.getOption(o)}"> checked="checked"</c:if>>
+								<c:if test="${not empty unit.get(o)}"> checked="checked"</c:if>>
 						</c:when>
 						<c:when test="${o.type == 'select'}">
 							${o.displayName}
-							<select name="value">
+							<select name="value" class="ajax"
+									data-url='<spring:url value="/unit/${unit.hashCode()}/${o.name()}"/>' data-update="body>main">
 								<option value="null">----</option>
 								<c:forEach items="${unit.getOptionValues(o)}" var="v">
-									<option value="${v}">${v.displayName}</option>
+									<option value="${v}" <c:if test="${v == unit.get(o)}">selected="selected"</c:if>>${v.displayName}</option>
 								</c:forEach>
 							</select>
 						</c:when>

@@ -16,6 +16,6 @@ public interface IUnitModel {
 
 	List<KeyWord> getKeyWords();
 
-	List<IArmyRule> getRules();
+	List<IArmyRule<?>> getRules();
 
 }

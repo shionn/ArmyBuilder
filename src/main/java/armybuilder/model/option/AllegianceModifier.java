@@ -11,9 +11,9 @@ import armybuilder.model.unit.IUnitModel;
 public class AllegianceModifier implements IArmyModifier {
 
 	private List<IUnitModel> units;
-	private List<IArmyRule> rules;
+	private List<IArmyRule<?>> rules;
 
-	public AllegianceModifier(IUnitModel[] units, IArmyRule... rules) {
+	public AllegianceModifier(IUnitModel[] units, IArmyRule<?>... rules) {
 		this.units = Arrays.asList(units);
 		this.rules = Arrays.asList(rules);
 	}

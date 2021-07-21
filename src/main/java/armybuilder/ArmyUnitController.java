@@ -37,7 +37,12 @@ public class ArmyUnitController {
 					u.removeOption(option);
 				}
 			} else {
-				throw new IllegalStateException("Not Implemented");
+				if ("null".equals(value)) {
+					u.removeOption(option);
+				} else {
+					u.getOptionValues(option).stream().filter(v -> v.name().equals(value))
+							.forEach(v -> u.addOption(option, v));
+				}
 			}
 		});
 		return "redirect:/";

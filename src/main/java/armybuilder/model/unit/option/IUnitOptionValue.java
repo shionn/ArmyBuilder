@@ -11,4 +11,8 @@ public interface IUnitOptionValue<T extends Enum<T> & IUnitOptionValue<T>> {
 
 	String getDisplayName();
 
+	String name();
+
+	void rebuild(Unit unit);
+
 }

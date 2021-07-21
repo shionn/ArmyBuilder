@@ -3,13 +3,14 @@ package armybuilder.model.rule;
 public enum ArmyRuleType {
 	TraisDeBataille,
 
-	ActionsHeroiques,
-	AptitudesDeCommandement,
+	Aptitude,
+	TraitsDeCommandement,
+	Artefact,
 	Sort,
 	Priere,
 	FureursMonstrueuses,
-
-	Aptitude,
+	ActionsHeroiques,
+	AptitudesDeCommandement,
 
 	PhaseDeCharge,
 	PhaseDesHeros, 

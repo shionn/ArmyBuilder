@@ -52,13 +52,13 @@ public enum DokUnitModel implements IUnitModel {
 	private UnitProfile profile;
 	private List<IUnitWeapon> weapons;
 	private ProfileDegressif profileDegressif;
-	private List<IArmyRule> rules;
+	private List<IArmyRule<?>> rules;
 	private List<KeyWord> keyWords;
 	private List<RoleTatcique> roleTactiques;
 
 	private DokUnitModel(String displayName, int value, UnitProfile profile,
 			List<RoleTatcique> roleTactiques, List<IUnitWeapon> weapons,
-			ProfileDegressif profileDegressif, List<IArmyRule> rules, List<KeyWord> keyWords) {
+			ProfileDegressif profileDegressif, List<IArmyRule<?>> rules, List<KeyWord> keyWords) {
 		this.displayName = displayName;
 		this.value = value;
 		this.profile = profile;
@@ -90,7 +90,7 @@ public enum DokUnitModel implements IUnitModel {
 	}
 
 	@Override
-	public List<IArmyRule> getRules() {
+	public List<IArmyRule<?>> getRules() {
 		return rules;
 	}
 

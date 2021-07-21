@@ -75,10 +75,10 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 	private UnitOption option;
 	private BiFunction<Army, Unit, Boolean> available;
 
-	OptimisationsUniverselles(String displayName, UnitOption type,
+	OptimisationsUniverselles(String displayName, UnitOption option,
 			BiFunction<Army, Unit, Boolean> available) {
 		this.displayName = displayName;
-		this.option = type;
+		this.option = option;
 		this.available = available;
 	}
 
@@ -95,6 +95,11 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 	@Override
 	public boolean isAvailable(Army army, Unit unit) {
 		return available.apply(army, unit);
+	}
+
+	@Override
+	public void rebuild(Unit unit) {
+
 	}
 
 }
