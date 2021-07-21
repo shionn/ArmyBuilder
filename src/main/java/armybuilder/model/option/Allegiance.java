@@ -5,7 +5,7 @@ import armybuilder.model.modifier.IArmyModifier;
 import armybuilder.model.rule.DokRule;
 import armybuilder.model.unit.dok.DokUnit;
 
-public enum Allegiance implements IArmyOption<Allegiance> {
+public enum Allegiance implements IArmyOptionValue<Allegiance> {
 	CoS("Order : City of Sigmar", null),
 	DoK(
 			"Order : Daughters of Khaine",
@@ -25,8 +25,8 @@ public enum Allegiance implements IArmyOption<Allegiance> {
 	}
 
 	@Override
-	public ArmyOptionType getType() {
-		return ArmyOptionType.Allegiance;
+	public ArmyOption getOption() {
+		return ArmyOption.Allegiance;
 	}
 
 	@Override

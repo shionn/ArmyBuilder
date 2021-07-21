@@ -9,7 +9,7 @@ import armybuilder.model.modifier.Modifiers;
 import armybuilder.model.rule.DokRule;
 import armybuilder.model.test.Tests;
 
-public enum SubAllegiance implements IArmyOption<SubAllegiance>, Comparator<SubAllegiance> {
+public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator<SubAllegiance> {
 	HaggNar(
 			"Temple : Hagg Nar",
 			Modifiers.rules(DokRule.FillesDuPremierTemple),
@@ -52,8 +52,8 @@ public enum SubAllegiance implements IArmyOption<SubAllegiance>, Comparator<SubA
 	}
 
 	@Override
-	public ArmyOptionType getType() {
-		return ArmyOptionType.SubAllegiance;
+	public ArmyOption getOption() {
+		return ArmyOption.SubAllegiance;
 	}
 
 	@Override

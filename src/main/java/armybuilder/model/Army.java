@@ -13,8 +13,8 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
-import armybuilder.model.option.ArmyOptionType;
-import armybuilder.model.option.IArmyOption;
+import armybuilder.model.option.ArmyOption;
+import armybuilder.model.option.IArmyOptionValue;
 import armybuilder.model.rule.GeneriqueRule;
 import armybuilder.model.rule.IArmyRule;
 import armybuilder.model.unit.IUnit;
@@ -24,7 +24,7 @@ import armybuilder.model.unit.Unit;
 @SessionScope
 public class Army {
 
-	private Map<ArmyOptionType, IArmyOption<?>> options = new HashMap<>();
+	private Map<ArmyOption, IArmyOptionValue<?>> options = new HashMap<>();
 
 	private Set<IArmyRule> rules = new LinkedHashSet<>();
 	private Set<IUnit> unitChoices = new LinkedHashSet<>();
@@ -40,16 +40,16 @@ public class Army {
 
 	}
 
-	public void setOption(ArmyOptionType type, IArmyOption<?> value) {
+	public void setOption(ArmyOption type, IArmyOptionValue<?> value) {
 		this.options.put(type, value);
-		if (type == ArmyOptionType.Allegiance) {
-			this.options.remove(ArmyOptionType.SubAllegiance);
+		if (type == ArmyOption.Allegiance) {
+			this.options.remove(ArmyOption.SubAllegiance);
 			this.unitChoices.clear();
 			this.units.clear();
 		}
 	}
 
-	public IArmyOption<?> getOption(ArmyOptionType type) {
+	public IArmyOptionValue<?> getOption(ArmyOption type) {
 		return options.get(type);
 	}
 

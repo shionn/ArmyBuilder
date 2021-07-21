@@ -2,10 +2,10 @@ package armybuilder.model.option;
 
 import armybuilder.model.Army;
 
-public interface IArmyOption<T extends Enum<T> & IArmyOption<T>> {
+public interface IArmyOptionValue<T extends Enum<T> & IArmyOptionValue<T>> {
 	String getDisplayName();
 
-	ArmyOptionType getType();
+	ArmyOption getOption();
 
 	boolean isOptionDisplayed(Army army);
 

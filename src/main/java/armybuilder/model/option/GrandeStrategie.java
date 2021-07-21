@@ -2,7 +2,7 @@ package armybuilder.model.option;
 
 import armybuilder.model.Army;
 
-public enum GrandeStrategie implements IArmyOption<GrandeStrategie> {
+public enum GrandeStrategie implements IArmyOptionValue<GrandeStrategie> {
 	CoupezLaTete("Coupez la Tête"), Vendetta("Vendetta"), TenezLaLigne("Tenez la Ligne");
 
 	private String displayName;
@@ -17,13 +17,13 @@ public enum GrandeStrategie implements IArmyOption<GrandeStrategie> {
 	}
 
 	@Override
-	public ArmyOptionType getType() {
-		return ArmyOptionType.PackDeBataille;
+	public ArmyOption getOption() {
+		return ArmyOption.PackDeBataille;
 	}
 
 	@Override
 	public boolean isOptionDisplayed(Army army) {
-		return army.getOption(ArmyOptionType.PackDeBataille) == PackDeBataille.LutteDeGeneraux;
+		return army.getOption(ArmyOption.PackDeBataille) == PackDeBataille.LutteDeGeneraux;
 	}
 
 	@Override

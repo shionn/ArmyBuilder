@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import armybuilder.model.Army;
 
-public enum ArmyOptionType {
+public enum ArmyOption {
 	Allegiance("Allegiance", true, armybuilder.model.option.Allegiance.values()),
 	SubAllegiance("Sous Allegiance", true, armybuilder.model.option.SubAllegiance.values()),
 	PackDeBataille("Pack de Bataille", true, armybuilder.model.option.PackDeBataille.values()),
@@ -17,15 +17,15 @@ public enum ArmyOptionType {
 
 	private boolean select;
 	private String displayName;
-	private List<IArmyOption<?>> values;
+	private List<IArmyOptionValue<?>> values;
 
-	private ArmyOptionType(String displayName, boolean select, IArmyOption<?>... values) {
+	private ArmyOption(String displayName, boolean select, IArmyOptionValue<?>... values) {
 		this.displayName = displayName;
 		this.select = select;
 		this.values = Arrays.asList(values);
 	}
 
-	public List<IArmyOption<?>> getValues(Army army) {
+	public List<IArmyOptionValue<?>> getValues(Army army) {
 		return values.stream().filter(o -> o.isOptionDisplayed(army)).collect(Collectors.toList());
 	}
 

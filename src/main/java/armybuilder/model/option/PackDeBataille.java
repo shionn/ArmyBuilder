@@ -2,7 +2,7 @@ package armybuilder.model.option;
 
 import armybuilder.model.Army;
 
-public enum PackDeBataille implements IArmyOption<PackDeBataille> {
+public enum PackDeBataille implements IArmyOptionValue<PackDeBataille> {
 	LutteDeGeneraux("Lutte de Généraux");
 
 	private String displayName;
@@ -16,8 +16,8 @@ public enum PackDeBataille implements IArmyOption<PackDeBataille> {
 	}
 
 	@Override
-	public ArmyOptionType getType() {
-		return ArmyOptionType.PackDeBataille;
+	public ArmyOption getOption() {
+		return ArmyOption.PackDeBataille;
 	}
 
 	@Override
