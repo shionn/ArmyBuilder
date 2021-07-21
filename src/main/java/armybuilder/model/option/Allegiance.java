@@ -12,9 +12,9 @@ public enum Allegiance implements IArmyOptionValue<Allegiance> {
 			new AllegianceModifier(DokUnit.values(), DokRule.RitesDeSang, DokRule.FoiFanatique));
 
 	private String displayName;
-	private IArmyModifier<Allegiance> modifier;
+	private IArmyModifier modifier;
 
-	private Allegiance(String displayName, IArmyModifier<Allegiance> modifier) {
+	private Allegiance(String displayName, IArmyModifier modifier) {
 		this.displayName = displayName;
 		this.modifier = modifier;
 	}

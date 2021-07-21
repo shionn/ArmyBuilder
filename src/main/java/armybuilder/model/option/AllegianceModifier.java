@@ -8,7 +8,7 @@ import armybuilder.model.modifier.IArmyModifier;
 import armybuilder.model.rule.IArmyRule;
 import armybuilder.model.unit.IUnit;
 
-public class AllegianceModifier implements IArmyModifier<Allegiance> {
+public class AllegianceModifier implements IArmyModifier {
 
 	private List<IUnit> units;
 	private List<IArmyRule> rules;

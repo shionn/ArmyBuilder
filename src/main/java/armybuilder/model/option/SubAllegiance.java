@@ -36,10 +36,10 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 			Tests.isAllegiance(Allegiance.DoK));
 
 	private String displayName;
-	private IArmyModifier<SubAllegiance> modifier;
+	private IArmyModifier modifier;
 	private Function<Army, Boolean> isDisplay;
 
-	private SubAllegiance(String displayName, IArmyModifier<SubAllegiance> modifier,
+	private SubAllegiance(String displayName, IArmyModifier modifier,
 			Function<Army, Boolean> isDisplay) {
 		this.displayName = displayName;
 		this.modifier = modifier;
@@ -69,7 +69,7 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 	@Override
 	public void rebuild(Army army) {
 		if (modifier != null) {
-			modifier.accept(this, army);
+			modifier.accept(army);
 		}
 	}
 
