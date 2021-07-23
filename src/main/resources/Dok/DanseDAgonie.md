@@ -1,0 +1,1 @@
+Si cette prière est entendue, à la phase de combat, après que cette figurine a combattu à cette phase pour la première fois, quand vient votre tour de choisir une unité pour combattre, cette figurine peut être choisie pour combattre une seconde fois si elle est à 3" ou moins d'une unité ennemie. 

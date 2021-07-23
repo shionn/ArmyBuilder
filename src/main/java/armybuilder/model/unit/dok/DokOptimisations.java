@@ -241,6 +241,10 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
 					&& u.is(KeyWord.Pretre)), 
 
+	Hag("Hag", UnitOption.Chef, (a, u) -> u.is(KeyWord.WitchAelves)),
+	PorteEtendard("Porte-Étendard", UnitOption.Banniere, (a, u) -> u.is(KeyWord.WitchAelves)),
+	SonneuseDeCor("Sonneuse de Cor", UnitOption.Musicien, (a, u) -> u.is(KeyWord.WitchAelves)),
+
 	;
 
 	private String displayName;

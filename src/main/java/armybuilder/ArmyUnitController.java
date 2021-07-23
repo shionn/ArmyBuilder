@@ -32,7 +32,7 @@ public class ArmyUnitController {
 		army.getUnits().stream().filter(u -> u.hashCode() == hash).forEach(u -> {
 			if (option.getType() == UnitOptionType.bool) {
 				if (Boolean.valueOf(value)) {
-					u.addOption(option, option);
+					u.addOption(option, u.getOptionValues(option).get(0));
 				} else {
 					u.removeOption(option);
 				}

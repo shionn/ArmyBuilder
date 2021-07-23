@@ -80,6 +80,10 @@
 			<c:forEach items="${army.getRules('Sort')}" var="rule">
 				<t:rule rule="${rule}" army="${army}"/>
 			</c:forEach>
+			<h2>1.4 Priere</h2>
+			<c:forEach items="${army.getRules('Priere')}" var="rule">
+				<t:rule rule="${rule}" army="${army}"/>
+			</c:forEach>
 			<h1>2 Phase de Mouvement</h1>
 			<c:forEach items="${army.getRules('AptitudesDeCommandement', 'PhaseDeMouvement')}" var="rule">
 				<t:rule rule="${rule}" army="${army}"/>

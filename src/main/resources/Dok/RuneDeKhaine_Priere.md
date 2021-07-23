@@ -1,0 +1,1 @@
+Si cette prière est entendue, jusqu'à votre prochaine phase des héros, l'arme de mêlée de cette figurine a une caractéristique de Dégâts de D3 au lieu de 1.

@@ -41,11 +41,10 @@ public enum DokUnitModel implements IUnitModel {
 							.add("4-6", "12", "7", "5").add("7-8", "10", "6", "4")
 							.add("9-10", "8", "5", "3").add("11+", "6", "4", "2"),
 			Arrays.asList(GeneriqueUnitRule.Vol, DokRule.FureurDeLaReineDeLOmbre,
-					DokRule.DeuxCorpsUneSeuleAme_Shadow,
-					DokRule.CoeurDeFerDeKhaine),
+					DokRule.DeuxCorpsUneSeuleAme_Shadow, DokRule.CoeurDeFerDeKhaine),
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.Monstre,
 					KeyWord.Heros, KeyWord.LaShadowQueen, KeyWord.Unique)),
-	
+
 	BloodwrackShrine(
 			"Bloodwrack Shrine",
 			190,
@@ -63,11 +62,66 @@ public enum DokUnitModel implements IUnitModel {
 					GeneriqueRule.BouclierMystique, GeneriqueUnitRule.Sorcier_1_2),
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.Melusai,
 					KeyWord.Heros, KeyWord.Sorcier, KeyWord.Totem, KeyWord.BloodwrackMedusa,
-					KeyWord.BloodwrackShrine)
+					KeyWord.BloodwrackShrine)),
 
-			
-			
-	);
+	MelusaiIronscale(
+			"Melusai Ironscale",
+			115,
+			UnitProfile._8_6_9_5,
+			Arrays.asList(RoleTatcique.Leader),
+			Arrays.asList(DokUnitWeapon.Keldrisaith_Projectil, DokUnitWeapon.Keldrisaith_Melee),
+			null,
+			Arrays.asList(DokRule.SangDeLOracle, DokRule.OffrandeSanguinolente,
+					DokRule.TransmuteEnCristal, DokRule.ColereDesMoirenees),
+			Arrays.asList(KeyWord.Ordre, KeyWord.DaughtersOfKhaine, KeyWord.Melusai, KeyWord.Heros,
+					KeyWord.MelusaiIronscale)),
+
+	MorgwaethTheBloodied(
+			"Morgwaeth the Bloodied",
+			175,
+			UnitProfile._6_1_7_6,
+			Arrays.asList(RoleTatcique.Leader),
+			Arrays.asList(DokUnitWeapon.VougeDeKhaine),
+			null,
+			Arrays.asList(DokRule.RuneDeKhaine_Priere, DokRule.BrouetDeSang),
+			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.HaggNar,
+					KeyWord.Heros, KeyWord.Pretre, KeyWord.HagQueen, KeyWord.MorgwaethTheBloodied)),
+
+	LeBladeCoven(
+			"Le Blade-Coven",
+			0,
+			UnitProfile._6_1_7_6,
+			Arrays.asList(RoleTatcique.None),
+			Arrays.asList(DokUnitWeapon.ArcCherchecoeur, DokUnitWeapon.ArmesSacrificielles),
+			null,
+			Arrays.asList(DokRule.Cherchecoeurs, DokRule.ZelotesDuPremierTemple),
+			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.Melusai,
+					KeyWord.DaughtersOfKhaine, KeyWord.HaggNar, KeyWord.LaBladeCoven)),
+
+	SlaughterQueen(
+			"Slaughter Queen",
+			120,
+			UnitProfile._6_5_8_5,
+			Arrays.asList(RoleTatcique.Leader),
+			Arrays.asList(DokUnitWeapon.EpeeDeMort, DokUnitWeapon.LameDeKhaine),
+			null,
+			Arrays.asList(DokRule.DanseDAgonie, DokRule.RuneDeKhaine_Priere,
+					DokRule.CaresseDeLaMort, DokRule.OrgieDeMassacre),
+			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.Heros,
+					KeyWord.Pretre, KeyWord.SlaughterQueen)),
+
+	WitchAelves(
+			"Witch Aelves",
+			120,
+			UnitProfile._6_1_7_6,
+			Arrays.asList(RoleTatcique.Ligne),
+			Arrays.asList(DokUnitWeapon.CouteauOuCouteauxSacrificiels),
+			null,
+			Arrays.asList(DokRule.FerveurFrenetique),
+			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine,
+					KeyWord.WitchAelves))
+
+	;
 
 	private String displayName;
 	private int value;

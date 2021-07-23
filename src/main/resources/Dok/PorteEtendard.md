@@ -1,0 +1,1 @@
+1 figurine de cette unité sur 5 peut être un Porte-étendard. Vous pouvez relancer les tests de déroute mtés pour les unités qui contiennent au moins un Porte-étendard.

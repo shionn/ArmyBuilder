@@ -1,0 +1,1 @@
+Si cette prière est entendue, choisissez 1 unité ennemie à 3" ou m oins de cette figurine. Prenez un dé et cachez-le dans une main. L'adversaire doit choisir une de vos mains. Si la main choisie contient le dé, l'unité ennemie subit D3 blessures mortell es. 

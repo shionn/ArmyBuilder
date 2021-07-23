@@ -17,13 +17,12 @@ import armybuilder.model.unit.dok.DokOptimisations;
 import armybuilder.model.unit.option.IUnitOptionValue;
 import armybuilder.model.unit.option.OptimisationsUniverselles;
 import armybuilder.model.unit.option.UnitOption;
-import armybuilder.model.unit.option.UnitOptionType;
 
 public class Unit {
 
 	private Army army;
 	private IUnitModel model;
-	private Map<UnitOption, Object> options = new HashMap<UnitOption, Object>();
+	private Map<UnitOption, IUnitOptionValue<?>> options = new HashMap<UnitOption, IUnitOptionValue<?>>();
 	private SortedSet<IArmyRule<?>> rules = new TreeSet<>(new UnitRuleComparator());
 	private Set<KeyWord> keyWords = new TreeSet<>();
 
@@ -35,14 +34,14 @@ public class Unit {
 	public void clear() {
 		rules.clear();
 		rules.addAll(model.getRules());
+		army.addRules(rules);
+
 		keyWords.clear();
 		keyWords.addAll(model.getKeyWords());
 	}
 
 	public void rebuild(Army army) {
-		options.entrySet().stream().filter(e -> e.getKey().getType() != UnitOptionType.bool)
-				.map(e -> (IUnitOptionValue<?>) e.getValue()).forEach(o -> o.rebuild(this));
-		army.addRules(rules);
+		options.values().stream().forEach(o -> o.rebuild(this));
 	}
 
 	public List<IUnitWeapon> getWeapons(WeaponType type) {
@@ -59,7 +58,7 @@ public class Unit {
 				.collect(Collectors.toList());
 	}
 
-	public void addOption(UnitOption option, Object value) {
+	public void addOption(UnitOption option, IUnitOptionValue<?> value) {
 		options.put(option, value);
 	}
 
@@ -130,7 +129,5 @@ public class Unit {
 	public void addKeyWord(KeyWord keyWord) {
 		keyWords.add(keyWord);
 	}
-
-
 
 }

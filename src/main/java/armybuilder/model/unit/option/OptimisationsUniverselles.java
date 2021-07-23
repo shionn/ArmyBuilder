@@ -69,6 +69,8 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 			UnitOption.Priere,
 			(a, u) -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique)),
 
+	General("Général", UnitOption.General, (a, u) -> u.getKeyWords().contains(KeyWord.Heros));
+
 	;
 
 	private String displayName;

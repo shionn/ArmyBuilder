@@ -7,7 +7,6 @@ import java.util.List;
 public enum DokRule implements IArmyRule<DokRule> {
 	RitesDeSang("Rites de Sang", ArmyRuleType.TraisDeBataille),
 	FoiFanatique("Foi Fanatique", ArmyRuleType.TraisDeBataille),
-
 	CrypteDesAinee(ArmyRuleType.TraisDeBataille),
 	DisciplesDuMassacre(ArmyRuleType.TraisDeBataille),
 	DissimulationEtDiscretion(ArmyRuleType.TraisDeBataille),
@@ -50,13 +49,46 @@ public enum DokRule implements IArmyRule<DokRule> {
 			ArmyRuleType.Aptitude,
 			ArmyRuleType.PhaseDeCombat,
 			ArmyRuleType.TraisUnitee),
+	TransmuteEnCristal(
+			"Transmuté en Cristal",
+			ArmyRuleType.Aptitude,
+			ArmyRuleType.PhaseDeCombat,
+			ArmyRuleType.TraisUnitee),
+	OffrandeSanguinolente(
+			"Offrande Sanguinolente",
+			ArmyRuleType.Aptitude,
+			ArmyRuleType.PhaseDeCombat,
+			ArmyRuleType.TraisUnitee),
+	SangDeLOracle("Sang de l'Oracle", ArmyRuleType.Aptitude),
+	BrouetDeSang(
+			"Brouet de Sang",
+			ArmyRuleType.Aptitude,
+			ArmyRuleType.PhaseDesHeros,
+			ArmyRuleType.TraisUnitee),
+	ZelotesDuPremierTemple("Zélotes du Premier Temple", ArmyRuleType.Aptitude),
+	Cherchecoeurs("Cherchecœurs", ArmyRuleType.Aptitude),
+	FerveurFrenetique("Ferveur Frénétique", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeCombat),
+	Hag("Hag", ArmyRuleType.Aptitude),
+	PorteEtendard("Porte-Étendard", ArmyRuleType.Aptitude),
+	SonneuseDeCor("Sonneuse de Cor", ArmyRuleType.Aptitude),
+	
 
+	AvancezLesChaudrons(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeMouvement),
+	ColereDesMoirenees(
+			"Colère des Moirenées",
+			ArmyRuleType.AptitudesDeCommandement,
+			ArmyRuleType.PhaseDesHeros,
+			ArmyRuleType.TraisUnitee),
 	VenerationParLeSang(
 			"Vénération par le Sang",
 			ArmyRuleType.AptitudesDeCommandement,
 			ArmyRuleType.PhaseDesHeros,
 			ArmyRuleType.TraisUnitee),
-	AvancezLesChaudrons(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeMouvement),
+	OrgieDeMassacre(
+			"Orgie de Massacre",
+			ArmyRuleType.AptitudesDeCommandement,
+			ArmyRuleType.PhaseDesHeros,
+			ArmyRuleType.TraisUnitee),
 
 	BainDeSang(ArmyRuleType.TraitsDeCommandement),
 	OrateurZele(ArmyRuleType.TraitsDeCommandement),
@@ -64,15 +96,12 @@ public enum DokRule implements IArmyRule<DokRule> {
 	BeauteTerrifiante(ArmyRuleType.TraitsDeCommandement),
 	MaitreDesPoisons(ArmyRuleType.TraitsDeCommandement),
 	VraiCroyant(ArmyRuleType.TraitsDeCommandement),
-
 	MaitriseDesArcanes(ArmyRuleType.TraitsDeCommandement),
 	AnneauxOndulants(ArmyRuleType.TraitsDeCommandement),
 	PresenceEffrayante(ArmyRuleType.TraitsDeCommandement),
-
 	VeteranDeLaCathtrarDhule(ArmyRuleType.TraitsDeCommandement),
 	EcaillesImpenetrables(ArmyRuleType.TraitsDeCommandement),
 	AnimeParLaVengeance(ArmyRuleType.TraitsDeCommandement),
-
 	DisciplesDevots("Disciples Dévots", ArmyRuleType.TraitsDeCommandement),
 
 	CouronneDeDouleur(ArmyRuleType.Artefact),
@@ -81,21 +110,18 @@ public enum DokRule implements IArmyRule<DokRule> {
 	LameSorciere(ArmyRuleType.Artefact),
 	MilleEtUneSombresMaledictions(ArmyRuleType.Artefact),
 	VeninFleauDuSang(ArmyRuleType.Artefact),
-
 	PierreDOmbre(ArmyRuleType.Artefact),
 	RuneDUlgu(ArmyRuleType.Priere),
 	LeVougeMiroir(ArmyRuleType.Artefact),
 	OmbreSeptFoisDrapee(ArmyRuleType.Artefact),
 	CoeurDeCristal(ArmyRuleType.Artefact),
 	GriffeDOmbre(ArmyRuleType.Artefact),
-
 	SymboleSanglant(ArmyRuleType.Artefact),
 	DiademeDeFer(ArmyRuleType.Artefact),
-	RuneDeKhaine(ArmyRuleType.Artefact),
+	RuneDeKhaine("Rune de Khaine", ArmyRuleType.Artefact),
 	EclatPourpre(ArmyRuleType.Artefact),
 	PendentifKhainite(ArmyRuleType.Artefact),
 	BreuvageDeMatriarche(ArmyRuleType.Artefact),
-
 	LUlfuri(
 			"L'Ulfuri",
 			ArmyRuleType.Artefact,
@@ -117,6 +143,10 @@ public enum DokRule implements IArmyRule<DokRule> {
 	ResurrectionPourpre(ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	CouventDuCoeurDeFer(ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	SacreDeSang(ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+	CaresseDeLaMort("Caresse de la Mort", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+	RuneDeKhaine_Priere("Rune de Khaine", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+	DanseDAgonie("Danse d'Agonie", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+
 
 	;
 

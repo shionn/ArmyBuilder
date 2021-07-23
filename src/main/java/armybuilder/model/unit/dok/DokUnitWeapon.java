@@ -18,12 +18,27 @@ public enum DokUnitWeapon implements IUnitWeapon {
 			"2+",
 			"-3",
 			"D6"),
-
 	RegardIncarnat("Regard Incarnat", WeaponType.Projectil, "12", "--", "--", "*", "--", "--"),
 	LanceIncarnate("Lance Incarnate", WeaponType.Melee, "2", "3", "3+", "3+", "-1", "D3"),
 	Aiguillons("Aiguillons", WeaponType.Melee, "2", "*", "3+", "3+", "-", "1"),
 	GriffeMurmure("Griffe-murmure ", WeaponType.Melee, "1", "4", "4+", "3+", "-", "1"),
 	QueueDeSerpents("Queue de Serpents", WeaponType.Melee, "2", "D6", "4+", "4+", "-", "1"),
+	Keldrisaith_Projectil("Keldrisaith", WeaponType.Projectil, "18", "3", "3+", "3+", "-1", "1"),
+	Keldrisaith_Melee("Keldrisaith", WeaponType.Melee, "2", "3", "3+", "3+", "-1", "D3"),
+	ArcCherchecoeur("Arc Cherchecœur", WeaponType.Projectil, "24", "2", "3+", "3+", "-1", "1"),
+	ArmesSacrificielles("Armes Sacrificielles", WeaponType.Melee, "1", "3", "3+", "4+", "-", "1"),
+	VougeDeKhaine("Vouge de Khaine", WeaponType.Melee, "2", "3", "3+", "3+", "-1", "1"),
+	LameDeKhaine("Lame de Khaine", WeaponType.Melee, "1", "4", "3+", "4+", "-1", "1"),
+	EpeeDeMort("Épée de mort", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "D3"),
+	CouteauOuCouteauxSacrificiels(
+			"Couteau ou Couteaux Sacrificiels",
+			WeaponType.Melee,
+			"1",
+			"2",
+			"3+",
+			"4+",
+			"-",
+			"1"),
 
 	;
 

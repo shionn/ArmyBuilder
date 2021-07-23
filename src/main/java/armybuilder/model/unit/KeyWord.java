@@ -17,6 +17,11 @@ public enum KeyWord {
 	Totem("Totem"),
 	BloodwrackShrine("Bloodwrack Shrine"),
 	HaggNar("Hagg Nar"),
+	LaBladeCoven("La Blade-Coven"),
+	MorgwaethTheBloodied("Morgwaeth the Bloodied"),
+	HagQueen("Hag Queen"),
+	SlaughterQueen("Slaughter Queen"),
+	WitchAelves("Witch Aelves"),
 	;
 
 	private String displayName;

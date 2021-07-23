@@ -23,7 +23,16 @@ public enum UnitOption {
 			u -> u.getKeyWords().contains(KeyWord.Heros)
 					&& !u.getKeyWords().contains(KeyWord.Unique)),
 	Sort("Sort", UnitOptionType.select, u -> u.getKeyWords().contains(KeyWord.Sorcier)),
-	Priere("Prière", UnitOptionType.select, u -> u.getKeyWords().contains(KeyWord.Pretre));
+	Priere("Prière", UnitOptionType.select, u -> u.getKeyWords().contains(KeyWord.Pretre)),
+
+	Chef("Chef", UnitOptionType.bool, u -> u.getKeyWords().contains(KeyWord.WitchAelves)),
+	Banniere(
+			"Porte-Étendard",
+			UnitOptionType.bool,
+			u -> u.getKeyWords().contains(KeyWord.WitchAelves)),
+	Musicien("Musicien", UnitOptionType.bool, u -> u.getKeyWords().contains(KeyWord.WitchAelves)),
+
+	;
 
 	private String displayName;
 	private Function<Unit, Boolean> available;
