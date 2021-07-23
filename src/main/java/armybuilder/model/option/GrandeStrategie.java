@@ -30,4 +30,9 @@ public enum GrandeStrategie implements IArmyOptionValue<GrandeStrategie> {
 	public void rebuild(Army army) {
 	}
 
+	@Override
+	public void verify(Army army) {
+
+	}
+
 }

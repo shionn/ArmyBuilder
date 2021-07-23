@@ -13,6 +13,9 @@ public enum KeyWord {
 	Pretre("Prêtre"),
 	BloodwrackMedusa("Bloodwrack Medusa"),
 	MelusaiIronscale("Melusai Ironscale"),
+	Melusai("Melusai"),
+	Totem("Totem"),
+	BloodwrackShrine("Bloodwrack Shrine"),
 	;
 
 	private String displayName;

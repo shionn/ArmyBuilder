@@ -29,4 +29,9 @@ public enum PackDeBataille implements IArmyOptionValue<PackDeBataille> {
 	public void rebuild(Army army) {
 	}
 
+	@Override
+	public void verify(Army army) {
+
+	}
+
 }

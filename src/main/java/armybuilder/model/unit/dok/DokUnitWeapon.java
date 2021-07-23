@@ -17,7 +17,15 @@ public enum DokUnitWeapon implements IUnitWeapon {
 			"2+",
 			"2+",
 			"-3",
-			"D6");
+			"D6"),
+
+	RegardIncarnat("Regard Incarnat", WeaponType.Projectil, "12", "--", "--", "*", "--", "--"),
+	LanceIncarnate("Lance Incarnate", WeaponType.Melee, "2", "3", "3+", "3+", "-1", "D3"),
+	Aiguillons("Aiguillons", WeaponType.Melee, "2", "*", "3+", "3+", "-", "1"),
+	GriffeMurmure("Griffe-murmure ", WeaponType.Melee, "1", "4", "4+", "3+", "-", "1"),
+	QueueDeSerpents("Queue de Serpents", WeaponType.Melee, "2", "D6", "4+", "4+", "-", "1"),
+
+	;
 
 	private String displayName;
 	private String[] stats;

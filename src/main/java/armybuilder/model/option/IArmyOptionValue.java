@@ -10,4 +10,7 @@ public interface IArmyOptionValue<T extends Enum<T> & IArmyOptionValue<T>> {
 	boolean isOptionDisplayed(Army army);
 
 	void rebuild(Army army);
+
+	void verify(Army army);
+
 }

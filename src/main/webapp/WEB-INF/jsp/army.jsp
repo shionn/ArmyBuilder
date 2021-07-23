@@ -40,6 +40,11 @@
 			</div>
 		</c:if>
 		<div>
+			<c:forEach items="${army.errors}" var="e">
+				<div class="error">${e}</div>
+			</c:forEach>
+		</div>
+		<div>
 			<h1>Profile d'Armée</h1>
 			<c:if test="${not empty army.getOption('GrandeStrategie')}">
 				<h2>Grande Strategie</h2>
@@ -60,12 +65,19 @@
 		</div>
 		<div>
 			<h1>1 Phase des Héros</h1>
+			<c:forEach items="${army.getRules('Aptitude', 'PhaseDesHeros')}" var="rule">
+				<jsp:include page="rule/${rule}.jsp"/>
+			</c:forEach>
 			<h2>1.1 Actions Héroique</h2>
 			<c:forEach items="${army.getRules('ActionsHeroiques')}" var="rule">
 				<jsp:include page="rule/${rule}.jsp"/>
 			</c:forEach>
 			<h2>1.2 Aptitudes de Commandement</h2>
 			<c:forEach items="${army.getRules('AptitudesDeCommandement', 'PhaseDesHeros')}" var="rule">
+				<jsp:include page="rule/${rule}.jsp"/>
+			</c:forEach>
+			<h2>1.3 Magie</h2>
+			<c:forEach items="${army.getRules('Sort')}" var="rule">
 				<jsp:include page="rule/${rule}.jsp"/>
 			</c:forEach>
 			<h1>2 Phase de Mouvement</h1>

@@ -44,8 +44,30 @@ public enum DokUnitModel implements IUnitModel {
 					DokRule.DeuxCorpsUneSeuleAme_Shadow,
 					DokRule.CoeurDeFerDeKhaine),
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.Monstre,
-					KeyWord.Heros, KeyWord.LaShadowQueen, KeyWord.Unique))
-	;
+					KeyWord.Heros, KeyWord.LaShadowQueen, KeyWord.Unique)),
+	
+	BloodwrackShrine(
+			"Bloodwrack Shrine",
+			190,
+			UnitProfile._S_13_8_5,
+			Arrays.asList(RoleTatcique.Leader, RoleTatcique.Behemoth),
+			Arrays.asList(DokUnitWeapon.RegardIncarnat, DokUnitWeapon.LanceIncarnate,
+					DokUnitWeapon.Aiguillons, DokUnitWeapon.GriffeMurmure,
+					DokUnitWeapon.QueueDeSerpents),
+			new ProfileDegressif("Mouvement", DokUnitWeapon.Aiguillons.getDisplayName(),
+					DokRule.AuraDAgonie.getDisplayName()).add("0-3", "6", "6", "2+")
+							.add("4-6", "5", "5", "3+").add("7-10", "4", "4", "4+")
+							.add("11+", "3", "3", "5+"),
+			Arrays.asList(DokRule.AuraDAgonie, DokRule.ImpactLame, DokRule.RegardIncarnat,
+					DokRule.GriffeMurmure, DokRule.Deperissement, GeneriqueRule.TraitMagique,
+					GeneriqueRule.BouclierMystique),
+			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.Melusai,
+					KeyWord.Heros, KeyWord.Sorcier, KeyWord.Totem, KeyWord.BloodwrackMedusa,
+					KeyWord.BloodwrackShrine)
+
+			
+			
+	);
 
 	private String displayName;
 	private int value;
@@ -97,6 +119,14 @@ public enum DokUnitModel implements IUnitModel {
 	@Override
 	public List<KeyWord> getKeyWords() {
 		return keyWords;
+	}
+
+	public List<RoleTatcique> getRoleTactiques() {
+		return roleTactiques;
+	}
+
+	public int getValue() {
+		return value;
 	}
 
 }

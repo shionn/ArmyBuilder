@@ -41,4 +41,8 @@ public enum Allegiance implements IArmyOptionValue<Allegiance> {
 		}
 	}
 
+	@Override
+	public void verify(Army army) {
+	}
+
 }

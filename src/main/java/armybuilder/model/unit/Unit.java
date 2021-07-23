@@ -37,6 +37,8 @@ public class Unit {
 
 		options.entrySet().stream().filter(e -> e.getKey().getType() != UnitOptionType.bool)
 				.map(e -> (IUnitOptionValue<?>) e.getValue()).forEach(o -> o.rebuild(this));
+
+		army.addRules(rules);
 	}
 
 	public List<IUnitWeapon> getWeapons(WeaponType type) {
@@ -68,7 +70,9 @@ public class Unit {
 		values.addAll((Collection<? extends T>) Arrays.asList(OptimisationsUniverselles.values()));
 		values.addAll((Collection<? extends T>) Arrays.asList(DokOptimisations.values()));
 		return values.stream().filter(o -> o.getOption() == option)
-				.filter(o -> o.isAvailable(army, this)).collect(Collectors.toList());
+				.filter(o -> o.isAvailable(army, this))
+				.sorted((a, b) -> a.getDisplayName().compareTo(b.getDisplayName()))
+				.collect(Collectors.toList());
 	}
 
 	public void addRule(IArmyRule<?> rule) {
