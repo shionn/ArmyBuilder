@@ -7,7 +7,7 @@ import armybuilder.model.rule.IArmyRule;
 
 public class Modifiers {
 
-	public static IArmyModifier rules(IArmyRule... rules) {
+	public static IArmyModifier rules(IArmyRule<?>... rules) {
 		return (Army a) -> Arrays.stream(rules).forEach(a::addRule);
 	}
 

@@ -1,0 +1,2 @@
+Choisissez 1 **Monstre** ennemi à 3" de cette figurine. Ajoutez 1 aux jets de touche pour les 
+attaques de cette figurine qui ciblent le **Monstre** choisi jusqu’à la fin de la prochaine phase de combat.

@@ -1,37 +1,61 @@
 package armybuilder.model.rule;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
-import org.commonmark.node.Node;
-import org.commonmark.parser.Parser;
-import org.commonmark.renderer.html.HtmlRenderer;
-
 public enum DokRule implements IArmyRule<DokRule> {
-	RitesDeSang(ArmyRuleType.TraisDeBataille),
-	FoiFanatique(ArmyRuleType.TraisDeBataille),
+	RitesDeSang("Rites de Sang", ArmyRuleType.TraisDeBataille),
+	FoiFanatique("Foi Fanatique", ArmyRuleType.TraisDeBataille),
 
 	CrypteDesAinee(ArmyRuleType.TraisDeBataille),
 	DisciplesDuMassacre(ArmyRuleType.TraisDeBataille),
 	DissimulationEtDiscretion(ArmyRuleType.TraisDeBataille),
-	FillesDuPremierTemple(ArmyRuleType.TraisDeBataille),
+	FillesDuPremierTemple("Filles du Premier Temple", ArmyRuleType.TraisDeBataille),
 	FrapperEtSeRetirer(ArmyRuleType.TraisDeBataille),
 	LessenceDeKhaine(ArmyRuleType.TraisDeBataille),
 	TueusesHerisseesDeLames(ArmyRuleType.TraisDeBataille),
 
-	CoeurDeFerDeKhaine(ArmyRuleType.Aptitude),
-	DeuxCorpsUneSeuleAme(ArmyRuleType.Aptitude),
-	DeuxCorpsUneSeuleAme_Shadow(ArmyRuleType.Aptitude),
-	FureurDeLaReineDeLOmbre(ArmyRuleType.Aptitude),
-	PresenceIntimidante(ArmyRuleType.Aptitude),
-	AuraDAgonie("Aura d'Agonie", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDesHeros),
-	ImpactLame(ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeCharge),
-	RegardIncarnat(ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeTir),
-	GriffeMurmure(ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeCombat),
+	CoeurDeFerDeKhaine("Cœur de Fer de Khaine", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	DeuxCorpsUneSeuleAme(
+			"Deux corps, une seule âme",
+			ArmyRuleType.Aptitude,
+			ArmyRuleType.TraisUnitee),
+	DeuxCorpsUneSeuleAme_Shadow(
+			"Deux corps, une seule âme",
+			ArmyRuleType.Aptitude,
+			ArmyRuleType.TraisUnitee),
+	FureurDeLaReineDeLOmbre(
+			"Fureur de la Reine de l'Ombre",
+			ArmyRuleType.Aptitude,
+			ArmyRuleType.TraisUnitee),
+	PresenceIntimidante("Présence Intimidante", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	AuraDAgonie(
+			"Aura d'Agonie",
+			ArmyRuleType.Aptitude,
+			ArmyRuleType.PhaseDesHeros,
+			ArmyRuleType.TraisUnitee),
+	ImpactLame(
+			"Impact Lamé",
+			ArmyRuleType.Aptitude,
+			ArmyRuleType.PhaseDeCharge,
+			ArmyRuleType.TraisUnitee),
+	RegardIncarnat(
+			"Regard Incarnat",
+			ArmyRuleType.Aptitude,
+			ArmyRuleType.PhaseDeTir,
+			ArmyRuleType.TraisUnitee),
+	GriffeMurmure(
+			"Griffe-murmure",
+			ArmyRuleType.Aptitude,
+			ArmyRuleType.PhaseDeCombat,
+			ArmyRuleType.TraisUnitee),
 
-	VenerationParLeSang(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDesHeros),
+	VenerationParLeSang(
+			"Vénération par le Sang",
+			ArmyRuleType.AptitudesDeCommandement,
+			ArmyRuleType.PhaseDesHeros,
+			ArmyRuleType.TraisUnitee),
 	AvancezLesChaudrons(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeMouvement),
 
 	BainDeSang(ArmyRuleType.TraitsDeCommandement),
@@ -49,7 +73,7 @@ public enum DokRule implements IArmyRule<DokRule> {
 	EcaillesImpenetrables(ArmyRuleType.TraitsDeCommandement),
 	AnimeParLaVengeance(ArmyRuleType.TraitsDeCommandement),
 
-	DisciplesDevots(ArmyRuleType.TraitsDeCommandement),
+	DisciplesDevots("Disciples Dévots", ArmyRuleType.TraitsDeCommandement),
 
 	CouronneDeDouleur(ArmyRuleType.Artefact),
 	CrocDeShadracar(ArmyRuleType.Artefact),
@@ -72,23 +96,27 @@ public enum DokRule implements IArmyRule<DokRule> {
 	PendentifKhainite(ArmyRuleType.Artefact),
 	BreuvageDeMatriarche(ArmyRuleType.Artefact),
 
-	LUlfuri(ArmyRuleType.Artefact, ArmyRuleType.PhaseDeCharge),
+	LUlfuri(
+			"L'Ulfuri",
+			ArmyRuleType.Artefact,
+			ArmyRuleType.PhaseDeCharge,
+			ArmyRuleType.TraisUnitee),
 
-	HorreurNoireDUlgu(ArmyRuleType.Sort),
-	DestrierDOmbres(ArmyRuleType.Sort),
-	PuitsDeTenebres(ArmyRuleType.Sort),
-	DanseSymetrique(ArmyRuleType.Sort),
-	Affaiblissement(ArmyRuleType.Sort),
-	RasoirMental(ArmyRuleType.Sort),
-	SuaireDeDesespoir(ArmyRuleType.Sort),
-	Deperissement(ArmyRuleType.Sort),
+	HorreurNoireDUlgu("Horreur Noire d'Ulgu", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	DestrierDOmbres(ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	PuitsDeTenebres(ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	DanseSymetrique(ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	Affaiblissement(ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	RasoirMental(ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	SuaireDeDesespoir(ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	Deperissement("Dépérissement", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 
-	CatechismeDuMeurtre(ArmyRuleType.Priere),
-	BenedictionDeKhaine(ArmyRuleType.Priere),
-	SacrificeDuMartyr(ArmyRuleType.Priere),
-	ResurrectionPourpre(ArmyRuleType.Priere),
-	CouventDuCoeurDeFer(ArmyRuleType.Priere),
-	SacreDeSang(ArmyRuleType.Priere),
+	CatechismeDuMeurtre(ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+	BenedictionDeKhaine(ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+	SacrificeDuMartyr(ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+	ResurrectionPourpre(ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+	CouventDuCoeurDeFer(ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+	SacreDeSang(ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 
 	;
 
@@ -109,6 +137,7 @@ public enum DokRule implements IArmyRule<DokRule> {
 		return types;
 	}
 
+	@Override
 	public String getDisplayName() {
 		if (displayName == null) {
 			return name();
@@ -117,12 +146,7 @@ public enum DokRule implements IArmyRule<DokRule> {
 	}
 
 	@Override
-	public String description() throws IOException {
-		try (InputStream is = Thread.currentThread().getContextClassLoader()
-				.getResourceAsStream("Dok/" + name() + ".md");
-				java.io.InputStreamReader isr = new java.io.InputStreamReader(is)) {
-			Node node = Parser.builder().build().parseReader(isr);
-			return HtmlRenderer.builder().build().render(node);
-		}
+	public String getDescription() throws IOException {
+		return new DescriptionReader().read("Dok/", name());
 	}
 }

@@ -18,4 +18,8 @@ public interface IUnitModel {
 
 	List<IArmyRule<?>> getRules();
 
+	List<RoleTatcique> getRoleTactiques();
+
+	int getValue();
+
 }

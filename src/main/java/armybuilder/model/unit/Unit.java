@@ -25,19 +25,23 @@ public class Unit {
 	private IUnitModel model;
 	private Map<UnitOption, Object> options = new HashMap<UnitOption, Object>();
 	private SortedSet<IArmyRule<?>> rules = new TreeSet<>(new UnitRuleComparator());
+	private Set<KeyWord> keyWords = new TreeSet<>();
 
 	public Unit(Army army, IUnitModel model) {
 		this.army = army;
 		this.model = model;
 	}
 
-	public void rebuild(Army army) {
+	public void clear() {
 		rules.clear();
 		rules.addAll(model.getRules());
+		keyWords.clear();
+		keyWords.addAll(model.getKeyWords());
+	}
 
+	public void rebuild(Army army) {
 		options.entrySet().stream().filter(e -> e.getKey().getType() != UnitOptionType.bool)
 				.map(e -> (IUnitOptionValue<?>) e.getValue()).forEach(o -> o.rebuild(this));
-
 		army.addRules(rules);
 	}
 
@@ -83,8 +87,8 @@ public class Unit {
 		return rules;
 	}
 
-	public List<KeyWord> getKeyWords() {
-		return model.getKeyWords();
+	public Set<KeyWord> getKeyWords() {
+		return keyWords;
 	}
 
 	public String getDisplayName() {
@@ -118,6 +122,15 @@ public class Unit {
 	public boolean is(UnitOption opt) {
 		return get(opt) != null;
 	}
+
+	public boolean is(IArmyRule<?> rule) {
+		return rules.contains(rule);
+	}
+
+	public void addKeyWord(KeyWord keyWord) {
+		keyWords.add(keyWord);
+	}
+
 
 
 }

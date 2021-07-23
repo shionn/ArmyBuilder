@@ -177,7 +177,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	LUlfuri(
 			"L'Ulfuri",
 			UnitOption.Artefact,
-			(a, u) -> u.is(KeyWord.Heros) && a.is(SubAllegiance.HaggNar)),
+			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.HaggNar)),
 	
 	DestrierDOmbres(
 			"Destrier d'Ombres",

@@ -60,7 +60,7 @@ public enum DokUnitModel implements IUnitModel {
 							.add("11+", "3", "3", "5+"),
 			Arrays.asList(DokRule.AuraDAgonie, DokRule.ImpactLame, DokRule.RegardIncarnat,
 					DokRule.GriffeMurmure, DokRule.Deperissement, GeneriqueRule.TraitMagique,
-					GeneriqueRule.BouclierMystique),
+					GeneriqueRule.BouclierMystique, GeneriqueUnitRule.Sorcier_1_2),
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.Melusai,
 					KeyWord.Heros, KeyWord.Sorcier, KeyWord.Totem, KeyWord.BloodwrackMedusa,
 					KeyWord.BloodwrackShrine)
@@ -121,10 +121,12 @@ public enum DokUnitModel implements IUnitModel {
 		return keyWords;
 	}
 
+	@Override
 	public List<RoleTatcique> getRoleTactiques() {
 		return roleTactiques;
 	}
 
+	@Override
 	public int getValue() {
 		return value;
 	}

@@ -2,6 +2,7 @@ package armybuilder.model.rule;
 
 public enum ArmyRuleType {
 	TraisDeBataille,
+	TraisUnitee,
 
 	Aptitude,
 	TraitsDeCommandement,

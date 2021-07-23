@@ -34,14 +34,20 @@ public class Army {
 
 	private Set<IArmyRule<?>> rules = new LinkedHashSet<>();
 	private List<String> errors = new ArrayList<>();
-	private Set<IUnitModel> unitChoices = new TreeSet<>(
-			(a, b) -> a.getDisplayName().compareTo(b.getDisplayName()));
+	private Set<IUnitModel> unitChoices = new TreeSet<>((a, b) -> {
+		int compare = a.getRoleTactiques().get(0).compareTo(b.getRoleTactiques().get(0));
+		if (compare == 0) {
+			compare = a.getDisplayName().compareTo(b.getDisplayName());
+		}
+		return compare;
+	});
 
 	private List<Unit> units = new ArrayList<>();
 
 	public void rebuild() {
 		rules.clear();
 		errors.clear();
+		units.stream().forEach(u -> u.clear());
 
 		rules.addAll(Arrays.asList(GeneriqueRule.values()));
 
@@ -67,8 +73,7 @@ public class Army {
 
 	public List<IArmyRule<?>> getRules(ArmyRuleType... types) {
 		return rules.stream().filter(r -> r.getTypes().containsAll(Arrays.asList(types)))
-				.sorted((a, b) -> a.name().compareTo(b.name()))
-				.collect(Collectors.toList());
+				.sorted((a, b) -> a.name().compareTo(b.name())).collect(Collectors.toList());
 	}
 
 	public void addRule(IArmyRule<?> rule) {
@@ -105,6 +110,10 @@ public class Army {
 
 	public List<Unit> units(UnitOption opt) {
 		return units.stream().filter(u -> u.is(opt)).collect(Collectors.toList());
+	}
+
+	public List<Unit> units(IArmyRule<?> rule) {
+		return units.stream().filter(u -> u.is(rule)).collect(Collectors.toList());
 	}
 
 	public List<Unit> units(UnitOption opt, IUnitOptionValue<?> value) {

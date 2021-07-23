@@ -12,13 +12,15 @@ import armybuilder.model.modifier.IArmyModifier;
 import armybuilder.model.modifier.Modifiers;
 import armybuilder.model.rule.DokRule;
 import armybuilder.model.test.Tests;
+import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.dok.DokOptimisations;
 import armybuilder.model.unit.option.UnitOption;
 
 public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator<SubAllegiance> {
 	HaggNar(
 			"Temple : Hagg Nar",
-			Modifiers.rules(DokRule.FillesDuPremierTemple, DokRule.AvancezLesChaudrons),
+			Arrays.asList(
+					Modifiers.rules(DokRule.FillesDuPremierTemple, DokRule.AvancezLesChaudrons)),
 			Tests.isAllegiance(Allegiance.DoK),
 			Arrays.asList(
 					Checkers.unitWithOption(UnitOption.TraisDeCommandement,
@@ -26,39 +28,39 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 					Checkers.unitWithOption(UnitOption.Artefact, DokOptimisations.LUlfuri))),
 	DraichiGaneth(
 			"Temple : Draichi Ganeth",
-			Modifiers.rules(DokRule.TueusesHerisseesDeLames),
+			Arrays.asList(Modifiers.rules(DokRule.TueusesHerisseesDeLames)),
 			Tests.isAllegiance(Allegiance.DoK),
 			Arrays.asList()),
 	Kraith(
 			"Temple : Kraith",
-			Modifiers.rules(DokRule.DisciplesDuMassacre),
+			Arrays.asList(Modifiers.rules(DokRule.DisciplesDuMassacre)),
 			Tests.isAllegiance(Allegiance.DoK),
 			Arrays.asList()),
 	Khailebron(
 			"Temple : Khailebron",
-			Modifiers.rules(DokRule.DissimulationEtDiscretion),
+			Arrays.asList(Modifiers.rules(DokRule.DissimulationEtDiscretion)),
 			Tests.isAllegiance(Allegiance.DoK),
 			Arrays.asList()),
 	KheltNar(
 			"Temple : Khelt Nar",
-			Modifiers.rules(DokRule.FrapperEtSeRetirer),
+			Arrays.asList(Modifiers.rules(DokRule.FrapperEtSeRetirer)),
 			Tests.isAllegiance(Allegiance.DoK),
 			Arrays.asList()),
 	ZaintharKai(
 			"Temple : Zainthar Kai",
-			Modifiers.rules(DokRule.LessenceDeKhaine, DokRule.CrypteDesAinee),
+			Arrays.asList(Modifiers.rules(DokRule.LessenceDeKhaine, DokRule.CrypteDesAinee)),
 			Tests.isAllegiance(Allegiance.DoK),
 			Arrays.asList());
 
 	private String displayName;
-	private IArmyModifier modifier;
+	private List<IArmyModifier> modifiers;
 	private Function<Army, Boolean> isDisplay;
 	private List<Consumer<Army>> checkers;
 
-	private SubAllegiance(String displayName, IArmyModifier modifier,
+	private SubAllegiance(String displayName, List<IArmyModifier> modifiers,
 			Function<Army, Boolean> isDisplay, List<Consumer<Army>> checkers) {
 		this.displayName = displayName;
-		this.modifier = modifier;
+		this.modifiers = modifiers;
 		this.isDisplay = isDisplay;
 		this.checkers = checkers;
 	}
@@ -85,7 +87,8 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 
 	@Override
 	public void rebuild(Army army) {
-		modifier.accept(army);
+		modifiers.stream().forEach(m -> m.accept(army));
+		army.getUnits().stream().forEach(u -> u.addKeyWord(KeyWord.valueOf(name())));
 	}
 
 	@Override

@@ -9,5 +9,11 @@ public interface IArmyRule<T extends Enum<T> & IArmyRule<T>> {
 
 	String name();
 
-	String description() throws IOException;
+	String getDisplayName();
+
+	String getDescription() throws IOException;
+
+	default boolean is(ArmyRuleType type) {
+		return getTypes().contains(type);
+	}
 }

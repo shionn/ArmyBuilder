@@ -69,6 +69,22 @@ body {
 		padding: 5px;
 		margin: 10px;
 	}
+	
+	div.rule {
+		margin-bottom: 10px;
+		h3 {
+			display: inline;
+		}
+		p:first-of-type {
+			display: inline;
+		}
+		&:after {
+			clear: both;
+		}
+		&>em:not(:last-of-type)::after {
+			content: ', ';
+		}
+	}
 
 	article.unit {
 		border: 1px dashed $primary-color ;

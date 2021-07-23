@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ attribute name="unit" type="armybuilder.model.unit.Unit"%>
 <%@ attribute name="army" type="armybuilder.model.Army"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="t"%>
 <article class="unit">
 	<header>${unit.displayName}
 		<span>
@@ -112,7 +113,7 @@
 		</div>
 		</c:if>
 		<div>
-			<c:forEach items="${unit.rules}" var="rule"><jsp:include page="rule/${rule}.jsp" /></c:forEach>
+			<c:forEach items="${unit.rules}" var="rule"><t:rule rule="${rule}" army="${army}" displayUnit="false"/></c:forEach>
 		</div>
 	</main>
 	<footer>

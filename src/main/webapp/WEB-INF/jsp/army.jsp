@@ -48,12 +48,12 @@
 			<h1>Profile d'Armée</h1>
 			<c:if test="${not empty army.getOption('GrandeStrategie')}">
 				<h2>Grande Strategie</h2>
-				<jsp:include page="rule/${army.getOption('GrandeStrategie')}.jsp"/>
+				<t:rule rule="${army.getOption('GrandeStrategie')}" army="${army}"/>
 			</c:if>
 			<c:if test="${not empty army.getRules('TraisDeBataille')}">
 				<h2>Aptitudes D'Allégeance</h2>
 				<c:forEach items="${army.getRules('TraisDeBataille')}" var="rule">
-					<jsp:include page="rule/${rule}.jsp"/>
+					<t:rule rule="${rule}" army="${army}"/>
 				</c:forEach>
 			</c:if>
 		</div>
@@ -66,39 +66,44 @@
 		<div>
 			<h1>1 Phase des Héros</h1>
 			<c:forEach items="${army.getRules('Aptitude', 'PhaseDesHeros')}" var="rule">
-				<jsp:include page="rule/${rule}.jsp"/>
+				<t:rule rule="${rule}" army="${army}"/>
 			</c:forEach>
 			<h2>1.1 Actions Héroique</h2>
 			<c:forEach items="${army.getRules('ActionsHeroiques')}" var="rule">
-				<jsp:include page="rule/${rule}.jsp"/>
+				<t:rule rule="${rule}" army="${army}"/>
 			</c:forEach>
 			<h2>1.2 Aptitudes de Commandement</h2>
 			<c:forEach items="${army.getRules('AptitudesDeCommandement', 'PhaseDesHeros')}" var="rule">
-				<jsp:include page="rule/${rule}.jsp"/>
+				<t:rule rule="${rule}" army="${army}"/>
 			</c:forEach>
 			<h2>1.3 Magie</h2>
 			<c:forEach items="${army.getRules('Sort')}" var="rule">
-				<jsp:include page="rule/${rule}.jsp"/>
+				<t:rule rule="${rule}" army="${army}"/>
 			</c:forEach>
 			<h1>2 Phase de Mouvement</h1>
 			<c:forEach items="${army.getRules('AptitudesDeCommandement', 'PhaseDeMouvement')}" var="rule">
-				<jsp:include page="rule/${rule}.jsp"/>
+				<t:rule rule="${rule}" army="${army}"/>
 			</c:forEach>
 			<h1>3 Phase de Tir</h1>
 			<c:forEach items="${army.getRules('AptitudesDeCommandement', 'PhaseDeTir')}" var="rule">
-				<jsp:include page="rule/${rule}.jsp"/>
+				<t:rule rule="${rule}" army="${army}"/>
 			</c:forEach>
 			<h1>4 Phase de Charge</h1>
+			<h2>4.1 Aptitudes de Commandement</h2>
 			<c:forEach items="${army.getRules('AptitudesDeCommandement', 'PhaseDeCharge')}" var="rule">
-				<jsp:include page="rule/${rule}.jsp"/>
+				<t:rule rule="${rule}" army="${army}"/>
+			</c:forEach>
+			<h2>4.2 Artefact</h2>
+			<c:forEach items="${army.getRules('Artefact', 'PhaseDeCharge')}" var="rule">
+				<t:rule rule="${rule}" army="${army}"/>
 			</c:forEach>
 			<h1>5 Phase de Combat</h1>
 			<c:forEach items="${army.getRules('AptitudesDeCommandement', 'PhaseDeCombat')}" var="rule">
-				<jsp:include page="rule/${rule}.jsp"/>
+				<t:rule rule="${rule}" army="${army}"/>
 			</c:forEach>
 			<h1>6 Phase de Deroute</h1>
 			<c:forEach items="${army.getRules('AptitudesDeCommandement', 'PhaseDeDeroute')}" var="rule">
-				<jsp:include page="rule/${rule}.jsp"/>
+				<t:rule rule="${rule}" army="${army}"/>
 			</c:forEach>
 		</div>
 	</jsp:attribute>

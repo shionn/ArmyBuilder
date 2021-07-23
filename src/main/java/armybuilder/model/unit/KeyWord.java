@@ -16,6 +16,7 @@ public enum KeyWord {
 	Melusai("Melusai"),
 	Totem("Totem"),
 	BloodwrackShrine("Bloodwrack Shrine"),
+	HaggNar("Hagg Nar"),
 	;
 
 	private String displayName;
