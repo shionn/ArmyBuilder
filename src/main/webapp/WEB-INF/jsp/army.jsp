@@ -45,7 +45,7 @@
 			</c:forEach>
 		</div>
 		<div>
-			<h1>Profile d'Armée</h1>
+			<h1>Profile d'Armée <span>${army.value}</span></h1>
 			<c:if test="${not empty army.getOption('GrandeStrategie')}">
 				<h2>Grande Strategie</h2>
 				<t:rule rule="${army.getOption('GrandeStrategie')}" army="${army}"/>

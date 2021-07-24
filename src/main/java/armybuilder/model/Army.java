@@ -49,7 +49,10 @@ public class Army {
 		errors.clear();
 		units.stream().forEach(u -> u.clear());
 
-		rules.addAll(Arrays.asList(GeneriqueRule.values()));
+		Arrays.stream(GeneriqueRule.values())
+				.filter(r -> r.getTypes().contains(ArmyRuleType.AptitudesDeCommandement)
+						|| r.getTypes().contains(ArmyRuleType.ActionsHeroiques))
+				.forEach(rules::add);
 
 		options.values().stream().filter(Objects::nonNull).forEach(o -> o.rebuild(this));
 		units.stream().forEach(o -> o.rebuild(this));
@@ -97,7 +100,7 @@ public class Army {
 	}
 
 	public List<Unit> getUnits() {
-		return units;
+		return units.stream().sorted().collect(Collectors.toList());
 	}
 
 	public void addError(String string) {
@@ -122,6 +125,11 @@ public class Army {
 
 	public boolean is(IArmyOptionValue<?> opt) {
 		return options.containsValue(opt);
+	}
+
+	public int getValue() {
+		return units.stream().map(u -> u.getValue()).collect(Collectors.reducing((a, b) -> a + b))
+				.orElse(0);
 	}
 
 }

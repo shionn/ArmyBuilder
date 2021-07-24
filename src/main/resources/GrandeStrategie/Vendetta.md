@@ -1,0 +1,1 @@
+Quand la bataille prend fin, vous appliquez cette grande stratégie si la figurine que votre adversaire a choisie pour général a été tuée et si la figurine que vous avez choisie pour général n'a pas été tuée.

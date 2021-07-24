@@ -1,0 +1,1 @@
+1 figurine de cette unité peut être une Handmaiden. Ajoutez 1 à la caractéristique d'Attaques des armes de mêlée de cette figurine.

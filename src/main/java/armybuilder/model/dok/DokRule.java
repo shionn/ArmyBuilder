@@ -1,8 +1,12 @@
-package armybuilder.model.rule;
+package armybuilder.model.dok;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+
+import armybuilder.model.rule.ArmyRuleType;
+import armybuilder.model.rule.DescriptionReader;
+import armybuilder.model.rule.IArmyRule;
 
 public enum DokRule implements IArmyRule<DokRule> {
 	RitesDeSang("Rites de Sang", ArmyRuleType.TraisDeBataille),
@@ -14,6 +18,13 @@ public enum DokRule implements IArmyRule<DokRule> {
 	FrapperEtSeRetirer(ArmyRuleType.TraisDeBataille),
 	LessenceDeKhaine(ArmyRuleType.TraisDeBataille),
 	TueusesHerisseesDeLames(ArmyRuleType.TraisDeBataille),
+
+	Hag("Hag", ArmyRuleType.Composition),
+	Handmaiden("Handmaiden", ArmyRuleType.Composition),
+	PorteEtendard("Porte-Étendard", ArmyRuleType.Composition),
+	SonneuseDeCor("Sonneuse de Cor", ArmyRuleType.Composition),
+	Gorgai("Gorgaï", ArmyRuleType.Composition),
+	Krone("Krone", ArmyRuleType.Composition),
 
 	CoeurDeFerDeKhaine("Cœur de Fer de Khaine", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	DeuxCorpsUneSeuleAme(
@@ -68,12 +79,15 @@ public enum DokRule implements IArmyRule<DokRule> {
 	ZelotesDuPremierTemple("Zélotes du Premier Temple", ArmyRuleType.Aptitude),
 	Cherchecoeurs("Cherchecœurs", ArmyRuleType.Aptitude),
 	FerveurFrenetique("Ferveur Frénétique", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeCombat),
-	Hag("Hag", ArmyRuleType.Aptitude),
-	PorteEtendard("Porte-Étendard", ArmyRuleType.Aptitude),
-	SonneuseDeCor("Sonneuse de Cor", ArmyRuleType.Aptitude),
-	
+	PaireDeCouteauxSacrificiels("Paire de Couteaux Sacrificiels", ArmyRuleType.Aptitude),
+	RondacheTranchante("Rondache Tranchante", ArmyRuleType.Aptitude),
+	DanseDeLaMort("Danse de la Mort", ArmyRuleType.Aptitude),
 
-	AvancezLesChaudrons(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeMouvement),
+
+	AvancezLesChaudrons(
+			"Avancez les Chaudrons",
+			ArmyRuleType.AptitudesDeCommandement,
+			ArmyRuleType.PhaseDeMouvement),
 	ColereDesMoirenees(
 			"Colère des Moirenées",
 			ArmyRuleType.AptitudesDeCommandement,
@@ -137,7 +151,7 @@ public enum DokRule implements IArmyRule<DokRule> {
 	SuaireDeDesespoir(ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 	Deperissement("Dépérissement", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 
-	CatechismeDuMeurtre(ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+	CatechismeDuMeurtre("Catéchisme Du Meurtre", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	BenedictionDeKhaine(ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	SacrificeDuMartyr(ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	ResurrectionPourpre(ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
@@ -146,7 +160,6 @@ public enum DokRule implements IArmyRule<DokRule> {
 	CaresseDeLaMort("Caresse de la Mort", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	RuneDeKhaine_Priere("Rune de Khaine", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	DanseDAgonie("Danse d'Agonie", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
-
 
 	;
 

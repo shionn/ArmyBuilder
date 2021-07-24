@@ -1,4 +1,4 @@
-package armybuilder.model.unit;
+package armybuilder.model.unit.weapon;
 
 public interface IUnitWeapon {
 

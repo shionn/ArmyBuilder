@@ -1,0 +1,1 @@
+Quand la bataille prend fin, vous appliquez cette grande stratégie s'il n'y a pas de **Héros** de l'armée de départ de votre adversaire sur le champ de bataille.

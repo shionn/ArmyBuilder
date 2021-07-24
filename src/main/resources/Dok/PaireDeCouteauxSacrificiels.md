@@ -1,0 +1,1 @@
+Ajoutez 1 à la caractéristique d'Attaques d'un Couteau Sacrificiel pour les figurines armées d'une paire de Couteaux Sacrificiels. 

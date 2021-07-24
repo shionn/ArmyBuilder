@@ -1,9 +1,9 @@
 package armybuilder.model.option;
 
 import armybuilder.model.Army;
+import armybuilder.model.dok.DokRule;
+import armybuilder.model.dok.DokUnitModel;
 import armybuilder.model.modifier.IArmyModifier;
-import armybuilder.model.rule.DokRule;
-import armybuilder.model.unit.dok.DokUnitModel;
 
 public enum Allegiance implements IArmyOptionValue<Allegiance> {
 	CoS("Order : City of Sigmar", null),

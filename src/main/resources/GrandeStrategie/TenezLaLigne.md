@@ -1,0 +1,1 @@
+Quand la bataille prend fin, vous appliquez cette grande stratégie s'il y a une ou plusieurs unité de Ligne de votre armée de départ sur le champ de bataille.

@@ -1,0 +1,1 @@
+1 figurine de cette unité peut être une Gorgai. Ajoutez 1 à la caractéristique d'Attaques du Vouge Brisecœur de cette figurine

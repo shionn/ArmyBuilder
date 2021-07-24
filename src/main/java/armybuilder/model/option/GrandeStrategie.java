@@ -1,8 +1,18 @@
 package armybuilder.model.option;
 
-import armybuilder.model.Army;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 
-public enum GrandeStrategie implements IArmyOptionValue<GrandeStrategie> {
+import armybuilder.model.Army;
+import armybuilder.model.rule.ArmyRuleType;
+import armybuilder.model.rule.DescriptionReader;
+import armybuilder.model.rule.IArmyRule;
+
+public enum GrandeStrategie
+		implements
+		IArmyOptionValue<GrandeStrategie>,
+		IArmyRule<GrandeStrategie> {
 	CoupezLaTete("Coupez la Tête"), Vendetta("Vendetta"), TenezLaLigne("Tenez la Ligne");
 
 	private String displayName;
@@ -33,6 +43,17 @@ public enum GrandeStrategie implements IArmyOptionValue<GrandeStrategie> {
 	@Override
 	public void verify(Army army) {
 
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<ArmyRuleType> getTypes() {
+		return Collections.EMPTY_LIST;
+	}
+
+	@Override
+	public String getDescription() throws IOException {
+		return new DescriptionReader().read("GrandeStrategie/", name());
 	}
 
 }

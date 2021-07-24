@@ -1,0 +1,1 @@
+1 figurine de cette unité peut être une Krone. Une Krone est armée d'une Guivre de Sang en plus de ses autres armes. 

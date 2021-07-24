@@ -3,6 +3,9 @@ package armybuilder.model.unit;
 import java.util.List;
 
 import armybuilder.model.rule.IArmyRule;
+import armybuilder.model.unit.option.IUnitOptionValue;
+import armybuilder.model.unit.option.UnitOption;
+import armybuilder.model.unit.weapon.IUnitWeapon;
 
 public interface IUnitModel {
 
@@ -21,5 +24,9 @@ public interface IUnitModel {
 	List<RoleTatcique> getRoleTactiques();
 
 	int getValue();
+
+	List<UnitOption> getOptions();
+
+	List<IUnitOptionValue<?>> getOptionValues();
 
 }

@@ -1,18 +1,22 @@
-package armybuilder.model.unit.dok;
+package armybuilder.model.dok;
 
 import java.util.Arrays;
 import java.util.List;
 
-import armybuilder.model.rule.DokRule;
+import org.apache.commons.collections.ListUtils;
+
 import armybuilder.model.rule.GeneriqueRule;
 import armybuilder.model.rule.GeneriqueUnitRule;
 import armybuilder.model.rule.IArmyRule;
 import armybuilder.model.unit.IUnitModel;
-import armybuilder.model.unit.IUnitWeapon;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.ProfileDegressif;
 import armybuilder.model.unit.RoleTatcique;
 import armybuilder.model.unit.UnitProfile;
+import armybuilder.model.unit.option.IUnitOptionValue;
+import armybuilder.model.unit.option.OptimisationsUniverselles;
+import armybuilder.model.unit.option.UnitOption;
+import armybuilder.model.unit.weapon.IUnitWeapon;
 
 public enum DokUnitModel implements IUnitModel {
 
@@ -27,8 +31,11 @@ public enum DokUnitModel implements IUnitModel {
 					GeneriqueRule.TraitMagique, GeneriqueRule.BouclierMystique,
 					DokRule.HorreurNoireDUlgu, DokRule.VenerationParLeSang,
 					GeneriqueUnitRule.Sorcier_3_2_1),
+			Arrays.asList(UnitOption.General, UnitOption.Sort),
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.Heros,
-					KeyWord.Sorcier, KeyWord.MorathiKhaine, KeyWord.Unique)),
+					KeyWord.Sorcier, KeyWord.MorathiKhaine,
+					KeyWord.Unique)
+			),
 	LaShadowQueen(
 			"La Shadow Queen",
 			330,
@@ -42,6 +49,7 @@ public enum DokUnitModel implements IUnitModel {
 							.add("9-10", "8", "5", "3").add("11+", "6", "4", "2"),
 			Arrays.asList(GeneriqueUnitRule.Vol, DokRule.FureurDeLaReineDeLOmbre,
 					DokRule.DeuxCorpsUneSeuleAme_Shadow, DokRule.CoeurDeFerDeKhaine),
+			Arrays.asList(),
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.Monstre,
 					KeyWord.Heros, KeyWord.LaShadowQueen, KeyWord.Unique)),
 
@@ -60,6 +68,8 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(DokRule.AuraDAgonie, DokRule.ImpactLame, DokRule.RegardIncarnat,
 					DokRule.GriffeMurmure, DokRule.Deperissement, GeneriqueRule.TraitMagique,
 					GeneriqueRule.BouclierMystique, GeneriqueUnitRule.Sorcier_1_2),
+			Arrays.asList(UnitOption.General, UnitOption.Sort, UnitOption.TraisDeCommandement,
+					UnitOption.Artefact),
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.Melusai,
 					KeyWord.Heros, KeyWord.Sorcier, KeyWord.Totem, KeyWord.BloodwrackMedusa,
 					KeyWord.BloodwrackShrine)),
@@ -73,6 +83,8 @@ public enum DokUnitModel implements IUnitModel {
 			null,
 			Arrays.asList(DokRule.SangDeLOracle, DokRule.OffrandeSanguinolente,
 					DokRule.TransmuteEnCristal, DokRule.ColereDesMoirenees),
+			Arrays.asList(UnitOption.General, UnitOption.TraisDeCommandement,
+					UnitOption.Artefact),
 			Arrays.asList(KeyWord.Ordre, KeyWord.DaughtersOfKhaine, KeyWord.Melusai, KeyWord.Heros,
 					KeyWord.MelusaiIronscale)),
 
@@ -84,6 +96,8 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(DokUnitWeapon.VougeDeKhaine),
 			null,
 			Arrays.asList(DokRule.RuneDeKhaine_Priere, DokRule.BrouetDeSang),
+			Arrays.asList(UnitOption.General, UnitOption.Priere, UnitOption.TraisDeCommandement,
+					UnitOption.Artefact),
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.HaggNar,
 					KeyWord.Heros, KeyWord.Pretre, KeyWord.HagQueen, KeyWord.MorgwaethTheBloodied)),
 
@@ -95,6 +109,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(DokUnitWeapon.ArcCherchecoeur, DokUnitWeapon.ArmesSacrificielles),
 			null,
 			Arrays.asList(DokRule.Cherchecoeurs, DokRule.ZelotesDuPremierTemple),
+			Arrays.asList(),
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.Melusai,
 					KeyWord.DaughtersOfKhaine, KeyWord.HaggNar, KeyWord.LaBladeCoven)),
 
@@ -107,6 +122,8 @@ public enum DokUnitModel implements IUnitModel {
 			null,
 			Arrays.asList(DokRule.DanseDAgonie, DokRule.RuneDeKhaine_Priere,
 					DokRule.CaresseDeLaMort, DokRule.OrgieDeMassacre),
+			Arrays.asList(UnitOption.General, UnitOption.Priere, UnitOption.TraisDeCommandement,
+					UnitOption.Artefact),
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.Heros,
 					KeyWord.Pretre, KeyWord.SlaughterQueen)),
 
@@ -115,11 +132,51 @@ public enum DokUnitModel implements IUnitModel {
 			120,
 			UnitProfile._6_1_7_6,
 			Arrays.asList(RoleTatcique.Ligne),
-			Arrays.asList(DokUnitWeapon.CouteauOuCouteauxSacrificiels),
+			Arrays.asList(DokUnitWeapon.CouteauxSacrificiels),
 			null,
 			Arrays.asList(DokRule.FerveurFrenetique),
+			Arrays.asList(UnitOption.Chef, UnitOption.Banniere, UnitOption.Musicien,
+					UnitOption.Armes),
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine,
-					KeyWord.WitchAelves))
+					KeyWord.WitchAelves)),
+
+	SistersOfSlaughter(
+			"Sisters of Slaughter",
+			135,
+			UnitProfile._6_1_7_6,
+			Arrays.asList(RoleTatcique.Ligne),
+			Arrays.asList(DokUnitWeapon.FouetBarbele),
+			null,
+			Arrays.asList(DokRule.DanseDeLaMort),
+			Arrays.asList(UnitOption.Chef, UnitOption.Banniere, UnitOption.Musicien,
+					UnitOption.Armes),
+			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine,
+					KeyWord.SisterOfSlaughter)),
+	
+	BloodSisters(
+			"Blood Sisters",
+			140,
+			UnitProfile._8_2_8_5,
+			Arrays.asList(RoleTatcique.None),
+			Arrays.asList(DokUnitWeapon.VougeBrisecoeur),
+			null,
+			Arrays.asList(DokRule.TransmuteEnCristal),
+			Arrays.asList(UnitOption.Chef),
+			Arrays.asList(KeyWord.Ordre, KeyWord.DaughtersOfKhaine, KeyWord.Melusai,
+					KeyWord.BloodSister)),
+	
+	BloodStalkers(
+			"Blood Stalkers",
+			170,
+			UnitProfile._8_2_8_5,
+			Arrays.asList(RoleTatcique.None),
+			Arrays.asList(DokUnitWeapon.ArcCherchecoeur, DokUnitWeapon.Scianlar),
+			null,
+			Arrays.asList(DokRule.Cherchecoeurs),
+			Arrays.asList(UnitOption.Chef),
+			Arrays.asList(KeyWord.Ordre, KeyWord.DaughtersOfKhaine, KeyWord.Melusai,
+					KeyWord.BloodStalkers))
+
 
 	;
 
@@ -131,10 +188,12 @@ public enum DokUnitModel implements IUnitModel {
 	private List<IArmyRule<?>> rules;
 	private List<KeyWord> keyWords;
 	private List<RoleTatcique> roleTactiques;
+	private List<UnitOption> options;
 
 	private DokUnitModel(String displayName, int value, UnitProfile profile,
 			List<RoleTatcique> roleTactiques, List<IUnitWeapon> weapons,
-			ProfileDegressif profileDegressif, List<IArmyRule<?>> rules, List<KeyWord> keyWords) {
+			ProfileDegressif profileDegressif, List<IArmyRule<?>> rules, List<UnitOption> options,
+			List<KeyWord> keyWords) {
 		this.displayName = displayName;
 		this.value = value;
 		this.profile = profile;
@@ -142,6 +201,7 @@ public enum DokUnitModel implements IUnitModel {
 		this.weapons = weapons;
 		this.profileDegressif = profileDegressif;
 		this.rules = rules;
+		this.options = options;
 		this.keyWords = keyWords;
 	}
 
@@ -178,6 +238,18 @@ public enum DokUnitModel implements IUnitModel {
 	@Override
 	public List<RoleTatcique> getRoleTactiques() {
 		return roleTactiques;
+	}
+
+	@Override
+	public List<UnitOption> getOptions() {
+		return options;
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<IUnitOptionValue<?>> getOptionValues() {
+		return ListUtils.union(Arrays.asList(OptimisationsUniverselles.values()),
+				Arrays.asList(DokOptimisations.values()));
 	}
 
 	@Override

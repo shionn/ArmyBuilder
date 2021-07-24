@@ -1,0 +1,1 @@
+Cette unité est éligible pour combattre à la phase de combat si elle est à 6" ou moins d'une unité ennemie au lieu de 3", et elle peut se déplacer de 3" supplémentaires lorsqu'elle engage.

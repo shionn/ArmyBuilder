@@ -22,6 +22,9 @@ public enum KeyWord {
 	HagQueen("Hag Queen"),
 	SlaughterQueen("Slaughter Queen"),
 	WitchAelves("Witch Aelves"),
+	SisterOfSlaughter("Sisters of Slaughter"),
+	BloodSister("Blood Sister"),
+	BloodStalkers("Blood Stalkers"),
 	;
 
 	private String displayName;

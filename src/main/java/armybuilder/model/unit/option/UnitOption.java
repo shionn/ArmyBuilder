@@ -10,27 +10,22 @@ public enum UnitOption {
 	TraisDeCommandement(
 			"Traits de Commandement",
 			UnitOptionType.select,
-			u -> u.getKeyWords().contains(KeyWord.Heros)
-					&& !u.getKeyWords().contains(KeyWord.Unique)),
+			u -> !u.getKeyWords().contains(KeyWord.Unique)),
 	TraisDeMonstre(
 			"TODO",
 			UnitOptionType.select,
-			u -> u.getKeyWords().contains(KeyWord.Monstre)
-					&& !u.getKeyWords().contains(KeyWord.Unique)),
+			u -> !u.getKeyWords().contains(KeyWord.Unique)),
 	Artefact(
 			"Artéfacts de Pouvoir",
 			UnitOptionType.select,
-			u -> u.getKeyWords().contains(KeyWord.Heros)
-					&& !u.getKeyWords().contains(KeyWord.Unique)),
+			u -> !u.getKeyWords().contains(KeyWord.Unique)),
 	Sort("Sort", UnitOptionType.select, u -> u.getKeyWords().contains(KeyWord.Sorcier)),
 	Priere("Prière", UnitOptionType.select, u -> u.getKeyWords().contains(KeyWord.Pretre)),
 
-	Chef("Chef", UnitOptionType.bool, u -> u.getKeyWords().contains(KeyWord.WitchAelves)),
-	Banniere(
-			"Porte-Étendard",
-			UnitOptionType.bool,
-			u -> u.getKeyWords().contains(KeyWord.WitchAelves)),
-	Musicien("Musicien", UnitOptionType.bool, u -> u.getKeyWords().contains(KeyWord.WitchAelves)),
+	Chef("Chef", UnitOptionType.bool, u -> true),
+	Banniere("Porte-Étendard", UnitOptionType.bool, u -> true),
+	Musicien("Musicien", UnitOptionType.bool, u -> true),
+	Armes("Armes", UnitOptionType.select, u -> true),
 
 	;
 

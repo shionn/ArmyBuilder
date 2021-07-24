@@ -4,6 +4,7 @@ public enum ArmyRuleType {
 	TraisDeBataille,
 	TraisUnitee,
 
+	Composition,
 	Aptitude,
 	TraitsDeCommandement,
 	Artefact,
@@ -18,6 +19,6 @@ public enum ArmyRuleType {
 	PhaseDeMouvement,
 	PhaseDeTir,
 	PhaseDeCombat,
-	PhaseDeDeroute,
+	PhaseDeDeroute, 
 
 }

@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 
 import armybuilder.model.Army;
+import armybuilder.model.dok.DokUnitModel;
 import armybuilder.model.unit.Unit;
-import armybuilder.model.unit.dok.DokUnitModel;
 import armybuilder.model.unit.option.UnitOption;
 import armybuilder.model.unit.option.UnitOptionType;
 

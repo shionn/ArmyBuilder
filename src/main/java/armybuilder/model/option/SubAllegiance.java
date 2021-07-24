@@ -8,12 +8,12 @@ import java.util.function.Function;
 
 import armybuilder.model.Army;
 import armybuilder.model.check.Checkers;
+import armybuilder.model.dok.DokOptimisations;
+import armybuilder.model.dok.DokRule;
 import armybuilder.model.modifier.IArmyModifier;
 import armybuilder.model.modifier.Modifiers;
-import armybuilder.model.rule.DokRule;
 import armybuilder.model.test.Tests;
 import armybuilder.model.unit.KeyWord;
-import armybuilder.model.unit.dok.DokOptimisations;
 import armybuilder.model.unit.option.UnitOption;
 
 public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator<SubAllegiance> {
@@ -88,7 +88,7 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 	@Override
 	public void rebuild(Army army) {
 		modifiers.stream().forEach(m -> m.accept(army));
-		army.getUnits().stream().forEach(u -> u.addKeyWord(KeyWord.valueOf(name())));
+		army.getUnits().stream().forEach(u -> u.add(KeyWord.valueOf(name())));
 	}
 
 	@Override

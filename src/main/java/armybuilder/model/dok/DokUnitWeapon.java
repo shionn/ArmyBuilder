@@ -1,7 +1,7 @@
-package armybuilder.model.unit.dok;
+package armybuilder.model.dok;
 
-import armybuilder.model.unit.IUnitWeapon;
-import armybuilder.model.unit.WeaponType;
+import armybuilder.model.unit.weapon.IUnitWeapon;
+import armybuilder.model.unit.weapon.WeaponType;
 
 public enum DokUnitWeapon implements IUnitWeapon {
 	AilesLamees("Ailes Lamées", WeaponType.Melee, "2", "6", "3+", "3+", "-1", "1"),
@@ -30,15 +30,12 @@ public enum DokUnitWeapon implements IUnitWeapon {
 	VougeDeKhaine("Vouge de Khaine", WeaponType.Melee, "2", "3", "3+", "3+", "-1", "1"),
 	LameDeKhaine("Lame de Khaine", WeaponType.Melee, "1", "4", "3+", "4+", "-1", "1"),
 	EpeeDeMort("Épée de mort", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "D3"),
-	CouteauOuCouteauxSacrificiels(
-			"Couteau ou Couteaux Sacrificiels",
-			WeaponType.Melee,
-			"1",
-			"2",
-			"3+",
-			"4+",
-			"-",
-			"1"),
+	CouteauxSacrificiels("Couteaux Sacrificiels", WeaponType.Melee, "1", "2", "3+", "4+", "-", "1"),
+	CouteauxSacrificiel("Couteaux Sacrificiel", WeaponType.Melee, "1", "1", "3+", "4+", "-", "1"),
+	FouetBarbele("Fouet Barbelé", WeaponType.Melee, "2", "2", "3+", "4+", "-", "1"),
+	VougeBrisecoeur("Vouge Brisecœur", WeaponType.Melee, "2", "3", "3+", "3+", "-1", "1"),
+	Scianlar("Scianlar", WeaponType.Melee, "1", "2", "3+", "4+", "-", "1"),
+	GuivreDeSang("Guivre de Sang", WeaponType.Melee, "1", "1", "3+", "3+", "-", "1"),
 
 	;
 
