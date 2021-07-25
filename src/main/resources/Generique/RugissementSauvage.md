@@ -1,0 +1,1 @@
+Vous pouvez utiliser cette apitude de commandement au début de la phase de combat. L'unité qui reçoit l'ordre doit être un **Monstre**. Jusqu'à la fin de la phase, lorsque vous consultez une valeur dans le tableau de dégâts de l'unité, elle est traitée comme ayant subi 0 blessure.

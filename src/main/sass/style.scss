@@ -41,7 +41,11 @@ body {
 				margin: 0 25px;
 				font-size: 18px;
 			}
-		}	
+		}
+		
+		@media print {
+			display: none;
+		}
 	}
 	
 	& > main {
@@ -74,6 +78,12 @@ body {
 		float: right;
 	}
 	
+	div.options {
+		@media print {
+			display: none;
+		}
+	}
+	
 	div.rule {
 		margin-bottom: 10px;
 		h3 {
@@ -99,8 +109,13 @@ body {
 			color: $secondary-color;
 			font-size: larger;
 			padding: 10px;
-			& > span {
-				float: right;
+			display: flex;
+			justify-content: space-between;
+			a {
+				color : $secondary-color;
+				@media print {
+					display: none;
+				}
 			}
 		}
 		&> main {
@@ -129,5 +144,7 @@ body {
 		}
 		
 	}
-
 }
+
+
+

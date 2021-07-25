@@ -11,6 +11,7 @@ public enum ArmyOption {
 	SubAllegiance("Sous Allegiance", true, armybuilder.model.option.SubAllegiance.values()),
 	PackDeBataille("Pack de Bataille", true, armybuilder.model.option.PackDeBataille.values()),
 	GrandeStrategie("Grande Strategie", true, armybuilder.model.option.GrandeStrategie.values()),
+	Triomphes("Triomphe", true, armybuilder.model.option.Triomphes.values())
 	// MortalRealm,
 	;
 

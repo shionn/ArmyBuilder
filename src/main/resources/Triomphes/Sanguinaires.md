@@ -1,0 +1,1 @@
+Une fois par bataille, après avoir fait un jet de charge pour une unité amie, vous pouvez dire qu’elle est sanguinaire. Si vous le faites, vous pouvez relancer le jet de charge.

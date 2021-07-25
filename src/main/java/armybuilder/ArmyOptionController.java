@@ -11,6 +11,7 @@ import armybuilder.model.option.ArmyOption;
 import armybuilder.model.option.GrandeStrategie;
 import armybuilder.model.option.PackDeBataille;
 import armybuilder.model.option.SubAllegiance;
+import armybuilder.model.option.Triomphes;
 
 @Controller
 public class ArmyOptionController {
@@ -39,6 +40,12 @@ public class ArmyOptionController {
 	@GetMapping(path = "/GrandeStrategie")
 	public String setPackDeBataille(@RequestHeader("GrandeStrategie") GrandeStrategie pack) {
 		army.setOption(ArmyOption.GrandeStrategie, pack);
+		return "redirect:/";
+	}
+
+	@GetMapping(path = "/Triomphes")
+	public String setPackDeBataille(@RequestHeader("Triomphes") Triomphes triomphes) {
+		army.setOption(ArmyOption.Triomphes, triomphes);
 		return "redirect:/";
 	}
 

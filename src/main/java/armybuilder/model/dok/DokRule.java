@@ -124,7 +124,7 @@ public enum DokRule implements IArmyRule<DokRule> {
 	LameSorciere(ArmyRuleType.Artefact),
 	MilleEtUneSombresMaledictions(ArmyRuleType.Artefact),
 	VeninFleauDuSang(ArmyRuleType.Artefact),
-	PierreDOmbre(ArmyRuleType.Artefact),
+	PierreDOmbre("Pierre d'Ombre", ArmyRuleType.Artefact),
 	RuneDUlgu(ArmyRuleType.Priere),
 	LeVougeMiroir(ArmyRuleType.Artefact),
 	OmbreSeptFoisDrapee(ArmyRuleType.Artefact),
@@ -192,4 +192,10 @@ public enum DokRule implements IArmyRule<DokRule> {
 	public String getDescription() throws IOException {
 		return new DescriptionReader().read("Dok/", name());
 	}
+
+	@Override
+	public String toString() {
+		return name() + getTypes();
+	}
+
 }

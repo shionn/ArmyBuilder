@@ -2,6 +2,7 @@ package armybuilder.model.unit;
 
 import java.util.List;
 
+import armybuilder.model.Army;
 import armybuilder.model.rule.IArmyRule;
 import armybuilder.model.unit.option.IUnitOptionValue;
 import armybuilder.model.unit.option.UnitOption;
@@ -21,12 +22,14 @@ public interface IUnitModel {
 
 	List<IArmyRule<?>> getRules();
 
-	List<RoleTatcique> getRoleTactiques();
+	List<RoleTactique> getRoleTactiques();
 
 	int getValue();
 
 	List<UnitOption> getOptions();
 
 	List<IUnitOptionValue<?>> getOptionValues();
+
+	void rebuild(Army army, Unit unit);
 
 }

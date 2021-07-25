@@ -1,0 +1,1 @@
+Une fois par bataille, après avoir fait un test de déroute pour une unité amie, vous pouvez dire qu’elle est indomptable. Si vous le faites, aucune figurine de l’unité ne fuit à cette phase de déroute

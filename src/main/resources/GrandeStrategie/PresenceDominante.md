@@ -1,0 +1,1 @@
+A la fin de la bataille, cette grande stratégie est accomplie si'il y a plus d'unités de votre armée de départ sur le champ de batille que d'unités de l'armée de départ adverse sur le champ de bataille.

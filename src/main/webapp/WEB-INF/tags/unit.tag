@@ -5,8 +5,10 @@
 <%@ attribute name="unit" type="armybuilder.model.unit.Unit"%>
 <%@ attribute name="army" type="armybuilder.model.Army"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="t"%>
-<article class="unit">
-	<header>${unit.displayName}
+<article class="unit" style="page-break-inside:avoid;">
+	<header>
+		<span><a href='<spring:url value="/unit/remove/${unit.hashCode()}"/>'>X</a> ${unit.value}</span>
+		${unit.displayName}
 		<span>
 			<i class="fa fa-walking"></i> ${unit.mouvement}&quot; 
 			<i class="fa fa-heart"></i> ${unit.blessures} 
@@ -86,7 +88,7 @@
 				</tbody>
 			</table>
 		</c:if>
-		<c:if test="${not empty unit.options }">
+		<c:if test="${not empty unit.options}">
 		<div class="options">
 			<c:forEach items="${unit.options}" var="o">
 				<span>

@@ -23,6 +23,7 @@ public class Unit implements Comparable<Unit> {
 	private SortedSet<IArmyRule<?>> rules = new TreeSet<>(new UnitRuleComparator());
 	private Set<KeyWord> keyWords = new TreeSet<>();
 	private Set<IUnitWeapon> weapons = new TreeSet<>();
+	private Set<RoleTactique> roleTatciques = new TreeSet<>();
 
 	public Unit(Army army, IUnitModel model) {
 		this.army = army;
@@ -36,10 +37,13 @@ public class Unit implements Comparable<Unit> {
 		weapons.addAll(model.getWeapons());
 		keyWords.clear();
 		keyWords.addAll(model.getKeyWords());
+		roleTatciques.clear();
+		roleTatciques.addAll(model.getRoleTactiques());
 	}
 
 	public void rebuild(Army army) {
 		options.values().stream().forEach(o -> o.rebuild(this));
+		model.rebuild(army, this);
 		army.addRules(rules);
 	}
 
@@ -82,6 +86,10 @@ public class Unit implements Comparable<Unit> {
 		weapons.add(weapon);
 	}
 
+	public void add(RoleTactique role) {
+		roleTatciques.add(role);
+	}
+
 	public Set<IArmyRule<?>> getRules() {
 		return rules;
 	}
@@ -108,6 +116,10 @@ public class Unit implements Comparable<Unit> {
 
 	public boolean is(IUnitModel model) {
 		return this.model == model;
+	}
+
+	public boolean is(RoleTactique role) {
+		return roleTatciques.contains(role);
 	}
 
 	public int getValue() {

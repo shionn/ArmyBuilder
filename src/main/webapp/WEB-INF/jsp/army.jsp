@@ -1,4 +1,5 @@
 <%@ page pageEncoding="UTF-8"%>
+<%@ page import="armybuilder.model.rule.ArmyRuleType" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -6,7 +7,7 @@
 <t:template>
 	<jsp:attribute name="title">Home</jsp:attribute>
 	<jsp:attribute name="content">
-		<div>
+		<div class="options">
 			<c:forEach items="${armyOptions}" var="opt">
 				<c:if test="${opt.select and not empty opt.getValues(army)}">
 					<select name="${opt}" class="ajax" data-url="<spring:url value="/${opt}"/>" data-update="body>main">
@@ -20,7 +21,7 @@
 				</c:if>
 			</c:forEach>
 		</div>
-		<div>
+		<div class="options">
 			<c:forEach items="${armyOptions}" var="opt">
 				<c:if test="${not opt.select and not empty opt.getValues(army)}">
 					<input type="checkbox" name="${opt}" class="ajax" data-url="<spring:url value="/${opt}"/>"
@@ -30,7 +31,7 @@
 			</c:forEach>
 		</div>
 		<c:if test="${not empty army.unitChoices}">
-			<div>
+			<div class="options">
 				<select name="unitChoice" class="ajax" data-url="<spring:url value="/unit/add"/>" data-update="body>main">
 					<option value="" selected="selected">Ajouter une Unité</option>
 					<c:forEach items="${army.unitChoices}" var="f">
@@ -44,7 +45,7 @@
 				<div class="error">${e}</div>
 			</c:forEach>
 		</div>
-		<div>
+		<div style="page-break-after:always">
 			<h1>Profile d'Armée <span>${army.value}</span></h1>
 			<c:if test="${not empty army.getOption('GrandeStrategie')}">
 				<h2>Grande Strategie</h2>
@@ -57,58 +58,44 @@
 				</c:forEach>
 			</c:if>
 		</div>
-		<div>
+		<div style="page-break-after:always">
 			<h2>Composition</h2>
 			<c:forEach items="${army.units}" var="unit">
 				<t:unit army="${army}" unit="${unit}"/>
 			</c:forEach>
 		</div>
-		<div>
+		<div style="page-break-inside:avoid">
 			<h1>1 Phase des Héros</h1>
-			<c:forEach items="${army.getRules('Aptitude', 'PhaseDesHeros')}" var="rule">
-				<t:rule rule="${rule}" army="${army}"/>
-			</c:forEach>
-			<h2>1.1 Actions Héroique</h2>
-			<c:forEach items="${army.getRules('ActionsHeroiques')}" var="rule">
-				<t:rule rule="${rule}" army="${army}"/>
-			</c:forEach>
-			<h2>1.2 Aptitudes de Commandement</h2>
-			<c:forEach items="${army.getRules('AptitudesDeCommandement', 'PhaseDesHeros')}" var="rule">
-				<t:rule rule="${rule}" army="${army}"/>
-			</c:forEach>
-			<h2>1.3 Magie</h2>
-			<c:forEach items="${army.getRules('Sort')}" var="rule">
-				<t:rule rule="${rule}" army="${army}"/>
-			</c:forEach>
-			<h2>1.4 Priere</h2>
-			<c:forEach items="${army.getRules('Priere')}" var="rule">
-				<t:rule rule="${rule}" army="${army}"/>
-			</c:forEach>
+			<t:rule-group types="${[ArmyRuleType.Aptitude, ArmyRuleType.PhaseDesHeros]}"/>
+			<t:rule-group types="${[ArmyRuleType.ActionsHeroiques]}"/>
+			<t:rule-group types="${[ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDesHeros]}"/>
+			<t:rule-group types="${[ArmyRuleType.Sort]}"/>
+			<t:rule-group types="${[ArmyRuleType.Priere]}"/>
+		</div>
+		<div style="page-break-inside:avoid">
 			<h1>2 Phase de Mouvement</h1>
-			<c:forEach items="${army.getRules('AptitudesDeCommandement', 'PhaseDeMouvement')}" var="rule">
-				<t:rule rule="${rule}" army="${army}"/>
-			</c:forEach>
+			<t:rule-group types="${[ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeMouvement]}"/>
+		</div>
+		<div style="page-break-inside:avoid">
 			<h1>3 Phase de Tir</h1>
-			<c:forEach items="${army.getRules('AptitudesDeCommandement', 'PhaseDeTir')}" var="rule">
-				<t:rule rule="${rule}" army="${army}"/>
-			</c:forEach>
+			<t:rule-group types="${[ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeTir]}"/>
+			<t:rule-group types="${[ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeTir]}"/>
+		</div>
+		<div style="page-break-inside:avoid">
 			<h1>4 Phase de Charge</h1>
-			<h2>4.1 Aptitudes de Commandement</h2>
-			<c:forEach items="${army.getRules('AptitudesDeCommandement', 'PhaseDeCharge')}" var="rule">
-				<t:rule rule="${rule}" army="${army}"/>
-			</c:forEach>
-			<h2>4.2 Artefact</h2>
-			<c:forEach items="${army.getRules('Artefact', 'PhaseDeCharge')}" var="rule">
-				<t:rule rule="${rule}" army="${army}"/>
-			</c:forEach>
+			<t:rule-group types="${[ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCharge]}"/>
+			<t:rule-group types="${[ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeCharge]}"/>
+			<t:rule-group types="${[ArmyRuleType.Artefact, ArmyRuleType.PhaseDeCharge]}"/>
+		</div>
+		<div style="page-break-inside:avoid">
 			<h1>5 Phase de Combat</h1>
-			<c:forEach items="${army.getRules('AptitudesDeCommandement', 'PhaseDeCombat')}" var="rule">
-				<t:rule rule="${rule}" army="${army}"/>
-			</c:forEach>
+			<t:rule-group types="${[ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCombat]}"/>
+			<t:rule-group types="${[ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeCombat]}"/>
+		</div>
+		<div style="page-break-inside:avoid">
 			<h1>6 Phase de Deroute</h1>
-			<c:forEach items="${army.getRules('AptitudesDeCommandement', 'PhaseDeDeroute')}" var="rule">
-				<t:rule rule="${rule}" army="${army}"/>
-			</c:forEach>
+			<t:rule-group types="${[ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCharge]}"/>
+			<t:rule-group types="${[ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeDeroute]}"/>
 		</div>
 	</jsp:attribute>
 	<jsp:attribute name="scripts">

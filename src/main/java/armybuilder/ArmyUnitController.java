@@ -21,7 +21,7 @@ public class ArmyUnitController {
 	@GetMapping(path = "/unit/add")
 	public String addUnit(@RequestHeader("unitChoice") String modelName) {
 		// Todo a rendre generique
-		army.addUnit(new Unit(army, DokUnitModel.valueOf(modelName)));
+		army.add(new Unit(army, DokUnitModel.valueOf(modelName)));
 		return "redirect:/";
 	}
 
@@ -44,6 +44,14 @@ public class ArmyUnitController {
 							.forEach(v -> u.addOption(option, v));
 				}
 			}
+		});
+		return "redirect:/";
+	}
+
+	@GetMapping(path = "/unit/remove/{hash}")
+	public String remove(@PathVariable("hash") int hash) {
+		army.getUnits().stream().filter(u -> u.hashCode() == hash).forEach(u -> {
+			army.remove(u);
 		});
 		return "redirect:/";
 	}

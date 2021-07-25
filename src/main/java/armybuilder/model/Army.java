@@ -22,6 +22,8 @@ import armybuilder.model.rule.ArmyRuleType;
 import armybuilder.model.rule.GeneriqueRule;
 import armybuilder.model.rule.IArmyRule;
 import armybuilder.model.unit.IUnitModel;
+import armybuilder.model.unit.KeyWord;
+import armybuilder.model.unit.RoleTactique;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.option.IUnitOptionValue;
 import armybuilder.model.unit.option.UnitOption;
@@ -79,6 +81,11 @@ public class Army {
 				.sorted((a, b) -> a.name().compareTo(b.name())).collect(Collectors.toList());
 	}
 
+	public List<IArmyRule<?>> getRules(Collection<ArmyRuleType> types) {
+		return rules.stream().filter(r -> r.getTypes().containsAll(types))
+				.sorted((a, b) -> a.name().compareTo(b.name())).collect(Collectors.toList());
+	}
+
 	public void addRule(IArmyRule<?> rule) {
 		this.rules.add(rule);
 	}
@@ -95,8 +102,12 @@ public class Army {
 		return unitChoices;
 	}
 
-	public void addUnit(Unit unit) {
+	public void add(Unit unit) {
 		this.units.add(unit);
+	}
+
+	public void remove(Unit unit) {
+		this.units.remove(unit);
 	}
 
 	public List<Unit> getUnits() {
@@ -115,12 +126,25 @@ public class Army {
 		return units.stream().filter(u -> u.is(opt)).collect(Collectors.toList());
 	}
 
+	public Unit unit(UnitOption opt) {
+		return units.stream().filter(u -> u.is(opt)).findFirst().orElse(null);
+	}
+
+
 	public List<Unit> units(IArmyRule<?> rule) {
 		return units.stream().filter(u -> u.is(rule)).collect(Collectors.toList());
 	}
 
 	public List<Unit> units(UnitOption opt, IUnitOptionValue<?> value) {
 		return units.stream().filter(u -> u.get(opt) == value).collect(Collectors.toList());
+	}
+
+	public List<Unit> units(RoleTactique role) {
+		return units.stream().filter(u -> u.is(role)).collect(Collectors.toList());
+	}
+
+	public List<Unit> units(KeyWord keyWord) {
+		return units.stream().filter(u -> u.is(keyWord)).collect(Collectors.toList());
 	}
 
 	public boolean is(IArmyOptionValue<?> opt) {
@@ -131,5 +155,7 @@ public class Army {
 		return units.stream().map(u -> u.getValue()).collect(Collectors.reducing((a, b) -> a + b))
 				.orElse(0);
 	}
+
+
 
 }

@@ -1,0 +1,1 @@
+Métamorphose est un sort ayant une valeur de lancement de 5 et une portée de 12". S'il est lancé avecv succès, choisissez 1 **Héros** ami qui n'est pas un **Monstre**, et qui est visible et à portée du lanceur. Le Héros choisi gagne le mot-clé **Monstre** jusqu'à votre prochaine phase des héros.

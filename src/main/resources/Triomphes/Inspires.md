@@ -1,0 +1,1 @@
+Une fois par bataille, après avoir choisi une unité amie pour tirer ou combattre, vous pouvez dire qu’elle est inspirée. Si vous le faites, ajoutez 1 aux jets de blessure pour les attaques de l’unité choisie jusqu’à la fin de la phase.

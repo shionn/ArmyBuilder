@@ -36,6 +36,10 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 			ArmyRuleType.AptitudesDeCommandement,
 			ArmyRuleType.PhaseDeTir,
 			ArmyRuleType.PhaseDeCombat),
+	RugissementSauvage(
+			"Rugissement Sauvage",
+			ArmyRuleType.AptitudesDeCommandement,
+			ArmyRuleType.PhaseDeCombat),
 
 	PresenceExaltante(
 			"Présence Exaltante",
@@ -44,6 +48,7 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 
 	TraitMagique("Trait Magique", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 	BouclierMystique("Bouclier Mystique", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	Metamorphose("Métamorphose", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 
 	Benediction("Bénédiction", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	Chatiment("Châtiment", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
@@ -83,6 +88,11 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 			return name();
 		}
 		return displayName;
+	}
+
+	@Override
+	public String toString() {
+		return name() + getTypes();
 	}
 
 }

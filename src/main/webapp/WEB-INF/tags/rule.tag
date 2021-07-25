@@ -8,7 +8,7 @@
 <c:if test="${empty displayUnit}">
 	<c:set var="displayUnit" value="true"/>
 </c:if>
-<div class="rule">
+<div class="rule" style="page-break-inside: avoid;">
 	<h3>${rule.displayName}</h3>
 	<c:if test="${rule.is('TraisUnitee') && displayUnit}">
 		<c:forEach items="${army.units(rule)}" var="u">

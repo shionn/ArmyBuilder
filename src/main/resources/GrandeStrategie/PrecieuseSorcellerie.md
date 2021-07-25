@@ -1,0 +1,1 @@
+A la fin de la bataille, cette grande stratégie est accomplie si'il y a encore un ou plusieurs **Sorciers** de votre armée de départ sur le champ de bataille.
