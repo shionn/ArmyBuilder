@@ -1,11 +1,11 @@
 <%@ page pageEncoding="UTF-8"%>
 <%@ page import="armybuilder.model.rule.ArmyRuleType" %>
+<%@ page import="armybuilder.model.unit.RoleTactique" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="t"%>
 <t:template>
-	<jsp:attribute name="title">Home</jsp:attribute>
 	<jsp:attribute name="content">
 		<div class="options">
 			<c:forEach items="${armyOptions}" var="opt">
@@ -33,8 +33,26 @@
 		<c:if test="${not empty army.unitChoices}">
 			<div class="options">
 				<select name="unitChoice" class="ajax" data-url="<spring:url value="/unit/add"/>" data-update="body>main">
-					<option value="" selected="selected">Ajouter une Unité</option>
-					<c:forEach items="${army.unitChoices}" var="f">
+					<option value="" selected="selected">Leader</option>
+					<c:forEach items="${army.unitChoices(RoleTactique.Leader)}" var="f">
+						<option value="${f}">${f.displayName}</option>
+					</c:forEach>
+				</select>
+				<select name="unitChoice" class="ajax" data-url="<spring:url value="/unit/add"/>" data-update="body>main">
+					<option value="" selected="selected">Troupe</option>
+					<c:forEach items="${army.unitChoices(RoleTactique.Ligne, RoleTactiques.None)}" var="f">
+						<option value="${f}">${f.displayName}</option>
+					</c:forEach>
+				</select>
+				<select name="unitChoice" class="ajax" data-url="<spring:url value="/unit/add"/>" data-update="body>main">
+					<option value="" selected="selected">Behemoth</option>
+					<c:forEach items="${army.unitChoices(RoleTactique.Behemoth)}" var="f">
+						<option value="${f}">${f.displayName}</option>
+					</c:forEach>
+				</select>
+				<select name="unitChoice" class="ajax" data-url="<spring:url value="/unit/add"/>" data-update="body>main">
+					<option value="" selected="selected">SortsPersistants</option>
+					<c:forEach items="${army.unitChoices(RoleTactique.SortsPersistantsEtInvocation)}" var="f">
 						<option value="${f}">${f.displayName}</option>
 					</c:forEach>
 				</select>

@@ -1,9 +1,22 @@
 package armybuilder;
 
+import java.io.StringWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.springframework.aop.framework.Advised;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import armybuilder.model.Army;
 import armybuilder.model.option.Allegiance;
@@ -14,10 +27,35 @@ import armybuilder.model.option.SubAllegiance;
 import armybuilder.model.option.Triomphes;
 
 @Controller
-public class ArmyOptionController {
+public class ArmyController {
 
 	@Autowired
 	private Army army;
+
+	@GetMapping(path = "/reset")
+	public String reset() {
+		army.reset();
+		return "redirect:/";
+	}
+
+	@GetMapping(path = "/save")
+	@ResponseBody
+	public HttpEntity<String> save() throws Exception {
+		StringWriter w = new StringWriter();
+		new ObjectMapper().writeValue(w, ((Advised) army).getTargetSource().getTarget());
+		HttpHeaders header = new HttpHeaders();
+		header.set(HttpHeaders.CONTENT_DISPOSITION,
+				"attachment; filename=" + army.getOption(ArmyOption.Allegiance).getDisplayName()
+						+ "-" + new SimpleDateFormat("yyyy-MM-dd").format(new Date())
+						+ ".txt");
+		return new HttpEntity<String>(w.toString(), header);
+	}
+
+	@PostMapping(path = "/load")
+	public String load(@RequestParam("file") MultipartFile file) {
+		return "redirect:/";
+		
+	}
 
 	@GetMapping(path = "/Allegiance")
 	public String setAllegiance(@RequestHeader("Allegiance") Allegiance allegiance) {

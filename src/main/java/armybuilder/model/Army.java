@@ -15,6 +15,10 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import armybuilder.model.check.GenericCheck;
 import armybuilder.model.option.ArmyOption;
 import armybuilder.model.option.IArmyOptionValue;
@@ -30,12 +34,17 @@ import armybuilder.model.unit.option.UnitOption;
 
 @Component
 @SessionScope
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE)
 public class Army {
 
 	private Map<ArmyOption, IArmyOptionValue<?>> options = new HashMap<>();
+	private List<Unit> units = new ArrayList<>();
 
-	private Set<IArmyRule<?>> rules = new LinkedHashSet<>();
+	@JsonIgnore
 	private List<String> errors = new ArrayList<>();
+	@JsonIgnore
+	private Set<IArmyRule<?>> rules = new LinkedHashSet<>();
+	@JsonIgnore
 	private Set<IUnitModel> unitChoices = new TreeSet<>((a, b) -> {
 		int compare = a.getRoleTactiques().get(0).compareTo(b.getRoleTactiques().get(0));
 		if (compare == 0) {
@@ -44,7 +53,10 @@ public class Army {
 		return compare;
 	});
 
-	private List<Unit> units = new ArrayList<>();
+	public void reset() {
+		this.options.clear();
+		this.units.clear();
+	}
 
 	public void rebuild() {
 		rules.clear();
@@ -98,8 +110,13 @@ public class Army {
 		this.unitChoices.add(unit);
 	}
 
+	@JsonIgnore
 	public Set<IUnitModel> getUnitChoices() {
 		return unitChoices;
+	}
+
+	public List<IUnitModel> unitChoices(RoleTactique... roles) {
+		return unitChoices.stream().filter(u -> u.isOneOf(roles)).collect(Collectors.toList());
 	}
 
 	public void add(Unit unit) {
@@ -117,6 +134,7 @@ public class Army {
 	public void addError(String string) {
 		this.errors.add(string);
 	}
+
 
 	public List<String> getErrors() {
 		return errors;
@@ -155,7 +173,5 @@ public class Army {
 		return units.stream().map(u -> u.getValue()).collect(Collectors.reducing((a, b) -> a + b))
 				.orElse(0);
 	}
-
-
 
 }

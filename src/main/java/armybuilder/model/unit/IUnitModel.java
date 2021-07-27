@@ -1,5 +1,6 @@
 package armybuilder.model.unit;
 
+import java.util.Arrays;
 import java.util.List;
 
 import armybuilder.model.Army;
@@ -31,5 +32,10 @@ public interface IUnitModel {
 	List<IUnitOptionValue<?>> getOptionValues();
 
 	void rebuild(Army army, Unit unit);
+
+	public default boolean isOneOf(RoleTactique... roles) {
+		return Arrays.stream(roles).filter(r -> getRoleTactiques().contains(r)).findAny()
+				.isPresent();
+	}
 
 }

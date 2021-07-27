@@ -43,6 +43,19 @@ body {
 			}
 		}
 		
+		span.load {
+			position: relative;
+			input[type=file] {
+				opacity: 0;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		
 		@media print {
 			display: none;
 		}
@@ -69,6 +82,7 @@ body {
 	}
 
 	div.error {
+		color: $text-header-color;
 		background-color: $header-color;
 		padding: 5px;
 		margin: 10px;
@@ -79,6 +93,7 @@ body {
 	}
 	
 	div.options {
+		margin-top: 5px;
 		@media print {
 			display: none;
 		}

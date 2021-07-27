@@ -4,7 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ attribute name="content" fragment="true"%>
 <%@ attribute name="scripts" fragment="true"%>
-<%@ attribute name="title" type="java.lang.String" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +14,7 @@
 <link rel="shortcut icon" type="image/x-icon" href='<spring:url value="/img/favicon.ico"/>'/>
 <link rel="stylesheet" href="<spring:url value="/css/style.css"/>" />
 <script src="https://kit.fontawesome.com/064a1a2fe3.js" crossorigin="anonymous"></script>
-<title>ArmyBuilder - ${title} - by Shionn</title>
+<title>ArmyBuilder - by Shionn</title>
 </head>
 <body>
 	<header>
@@ -25,10 +24,13 @@
 					<a href='<spring:url value="/reset"/>'><i class="fas fa-file-alt"></i> Reset</a>
 				</li>
 				<li>
-					<a href='<spring:url value="/upload"/>'><i class="fas fa-upload"></i> Load</a>
+					<span class="load">
+						<input type="file" name="file" data-url='<spring:url value="/load"/>'>
+						<i class="fas fa-upload"></i> Load
+					</span>
 				</li>
 				<li>
-					<a href='<spring:url value="/download"/>'><i class="fas fa-download"></i> Save</a>
+					<a href='<spring:url value="/save"/>'><i class="fas fa-download"></i> Save</a>
 				</li>
 			</ul>
 		</nav>

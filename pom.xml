@@ -88,7 +88,7 @@
 			<version>3.2.1</version>
 		</dependency>
 
-		<!-- Persistence / MyBatis -->
+		<!-- Persistence / MyBatis  / Serialisation-->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
@@ -99,6 +99,11 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.25</version>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.12.4</version>
 		</dependency>
 
 		<!-- logging -->

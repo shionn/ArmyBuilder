@@ -8,6 +8,10 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import armybuilder.model.Army;
 import armybuilder.model.rule.IArmyRule;
 import armybuilder.model.unit.option.IUnitOptionValue;
@@ -15,15 +19,23 @@ import armybuilder.model.unit.option.UnitOption;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.model.unit.weapon.WeaponType;
 
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE)
 public class Unit implements Comparable<Unit> {
 
-	private Army army;
 	private IUnitModel model;
 	private Map<UnitOption, IUnitOptionValue<?>> options = new HashMap<UnitOption, IUnitOptionValue<?>>();
-	private SortedSet<IArmyRule<?>> rules = new TreeSet<>(new UnitRuleComparator());
-	private Set<KeyWord> keyWords = new TreeSet<>();
+
+	@JsonIgnore
 	private Set<IUnitWeapon> weapons = new TreeSet<>();
+	@JsonIgnore
+	private Army army;
+	@JsonIgnore
+	private SortedSet<IArmyRule<?>> rules = new TreeSet<>(new UnitRuleComparator());
+	@JsonIgnore
+	private Set<KeyWord> keyWords = new TreeSet<>();
+	@JsonIgnore
 	private Set<RoleTactique> roleTatciques = new TreeSet<>();
+
 
 	public Unit(Army army, IUnitModel model) {
 		this.army = army;
@@ -51,6 +63,7 @@ public class Unit implements Comparable<Unit> {
 		return weapons.stream().filter(w -> w.getType() == type).collect(Collectors.toList());
 	}
 
+	@JsonIgnore
 	public ProfileDegressif getProfileDegressif() {
 		return model.getProfileDegressif();
 	}
@@ -155,4 +168,7 @@ public class Unit implements Comparable<Unit> {
 		return model.getProfile().getSvg();
 	}
 
+	public IUnitModel getModel() {
+		return model;
+	}
 }
