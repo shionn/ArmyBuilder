@@ -72,7 +72,14 @@ public enum PackDeBataille implements IArmyOptionValue<PackDeBataille> {
 							RoleTactique.SortsPersistantsEtInvocation)),
 			Arrays.asList(
 					a -> a.units(KeyWord.Sorcier).forEach(u -> u.add(GeneriqueRule.Metamorphose)),
-					a -> a.addRule(GeneriqueRule.RugissementSauvage)))
+					a -> a.addRule(GeneriqueRule.RugissementSauvage))),
+
+	PourLaGloire(
+			"Pour la Gloire",
+			Arrays.asList(Checkers.armySize(0, 600, 6), Checkers.armySize(0, 1000, 8),
+					Checkers.armySize(0, 1500, 12), Checkers.armySize(0, 2000, 16),
+					Checkers.generalCantBe(KeyWord.Unique)),
+			Arrays.asList())
 
 	;
 

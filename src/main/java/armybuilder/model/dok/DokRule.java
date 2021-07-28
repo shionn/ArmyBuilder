@@ -146,7 +146,7 @@ public enum DokRule implements IArmyRule<DokRule> {
 	EclatPourpre("Éclat Pourpre", ArmyRuleType.Artefact),
 	GriffeDOmbre("Griffe d'Ombre", ArmyRuleType.Artefact),
 	LameSorciere("Lame Sorcière", ArmyRuleType.Artefact),
-	LeFaixDeGaisa("Le Faix de Gaisa", ArmyRuleType.Artefact),
+	LaFaixDeGalisa("Le Faix de Galisa", ArmyRuleType.Artefact),
 	LeVougeMiroir("Le Vouge Miroir", ArmyRuleType.Artefact),
 	LUlfuri("L'Ulfuri", ArmyRuleType.Artefact),
 	MilleEtUneSombresMaledictions("Mille et Une Sombres Malédictions", ArmyRuleType.Artefact),

@@ -12,6 +12,7 @@ import armybuilder.model.unit.option.UnitOption;
 
 public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 
+	// TraisDeCommandement
 	BainDeSang(
 			"Bain de Sang",
 			UnitOption.TraisDeCommandement,
@@ -87,6 +88,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 					&& u.is(KeyWord.MelusaiIronscale),
 			null),
 
+	// TraisDeCommandement de Sous allegiance
 	DisciplesDevots(
 			"Disciples Dévots",
 			UnitOption.TraisDeCommandement,
@@ -98,6 +100,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.KheltNar),
 			null),
 
+	// Artefact
 	CouronneDeDouleur(
 			"Couronne de Douleur",
 			UnitOption.Artefact,
@@ -209,17 +212,19 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre),
 			null),
 
+	// Artefact de sous allegiance
 	LUlfuri(
 			"L'Ulfuri",
 			UnitOption.Artefact,
-			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.HaggNar),
+			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.HaggNar) && !u.is(KeyWord.Unique),
 			null),
-	LaFalxDeGalisa(
+	LaFaixDeGalisa(
 			"Le Faix de Gaisa",
 			UnitOption.Artefact,
-			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.KheltNar),
+			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.KheltNar) && !u.is(KeyWord.Unique),
 			null),
 
+	// Sort
 	DestrierDOmbres(
 			"Destrier d'Ombres",
 			UnitOption.Sort,
@@ -257,6 +262,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 					&& u.is(KeyWord.Sorcier),
 			null),
 
+	// Priere
 	CatechismeDuMeurtre(
 			"Catéchisme du Meurtre",
 			UnitOption.Priere,
