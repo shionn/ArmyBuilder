@@ -1,0 +1,1 @@
+Choisissez 1 des armes de mêlée du porteur. Si le jet de touche non modifié pour une attaque de l'arme est 6, l'attaque cause 2 touches au lieu de 1 à la cible. Faites un jet de blessure et de sauvegarde séparé pour chaque touche. 

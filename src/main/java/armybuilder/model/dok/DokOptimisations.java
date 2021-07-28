@@ -92,6 +92,11 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.HaggNar),
 			null),
+	VolEnCercle(
+			"Vol en Cercle",
+			UnitOption.TraisDeCommandement,
+			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.KheltNar),
+			null),
 
 	CouronneDeDouleur(
 			"Couronne de Douleur",
@@ -209,6 +214,11 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.HaggNar),
 			null),
+	LaFalxDeGalisa(
+			"Le Faix de Gaisa",
+			UnitOption.Artefact,
+			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.KheltNar),
+			null),
 
 	DestrierDOmbres(
 			"Destrier d'Ombres",
@@ -322,7 +332,9 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 			"Fouet Barbelé et Rondache Tranchante",
 			UnitOption.Armes,
 			(a, u) -> u.is(KeyWord.SisterOfSlaughter),
-			u -> u.add(DokRule.RondacheTranchante)),;
+			u -> u.add(DokRule.RondacheTranchante)),
+
+	;
 
 	private String displayName;
 	private UnitOption option;

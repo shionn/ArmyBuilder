@@ -1,0 +1,1 @@
+Une fois par bataille, à la fin de votre phase de mouve­ment, vous pouvez déclarer que ce général invoque un vol de Khinerai sur le champ de bataille. Dans ce cas, vous pouvez ajouter 1 unité de **Khinerai Harpies** de 5 figurines à votre armée et la placer n'importe où sur le champ de bataille à plus de 9" de toute unité ennemie. 

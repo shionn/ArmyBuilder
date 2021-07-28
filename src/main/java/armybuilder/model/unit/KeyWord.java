@@ -12,6 +12,7 @@ public enum KeyWord {
 	HagQueen("Hag Queen"),
 	HaggNar("Hagg Nar"),
 	Heros("Héros"),
+	KheltNar("Khelt Nar"),
 	KhineraiHarpies("Khinerai Harpies"),
 	KhineraiHeartrenders("Khinerai Heartrenders"),
 	LaBladeCoven("La Blade-Coven"),

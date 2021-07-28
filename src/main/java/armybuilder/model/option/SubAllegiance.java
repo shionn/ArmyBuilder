@@ -43,9 +43,11 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 			Arrays.asList()),
 	KheltNar(
 			"Temple : Khelt Nar",
-			Arrays.asList(Modifiers.rules(DokRule.FrapperEtSeRetirer)),
+			Arrays.asList(Modifiers.rules(DokRule.FrapperEtSeRetirer, DokRule.SaignerLEsprit)),
 			Tests.isAllegiance(Allegiance.DoK),
-			Arrays.asList()),
+			Arrays.asList(Checkers.unitWithOption(UnitOption.TraisDeCommandement,
+					DokOptimisations.VolEnCercle),Checkers.unitWithOption(UnitOption.Artefact,
+							DokOptimisations.LaFalxDeGalisa))),
 	ZaintharKai(
 			"Temple : Zainthar Kai",
 			Arrays.asList(Modifiers.rules(DokRule.LessenceDeKhaine, DokRule.CrypteDesAinee)),
@@ -88,7 +90,8 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 	@Override
 	public void rebuild(Army army) {
 		modifiers.stream().forEach(m -> m.accept(army));
-		army.getUnits().stream().forEach(u -> u.add(KeyWord.valueOf(name())));
+		army.getUnits().stream().filter(u -> u.is(KeyWord.HaggNar))
+				.forEach(u -> u.add(KeyWord.valueOf(name())));
 	}
 
 	@Override
