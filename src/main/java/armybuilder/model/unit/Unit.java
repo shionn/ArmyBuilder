@@ -59,6 +59,10 @@ public class Unit implements Comparable<Unit> {
 		army.addRules(rules);
 	}
 
+	public void verify(Army army) {
+		model.check(army, this);
+	}
+
 	public List<IUnitWeapon> getWeapons(WeaponType type) {
 		return weapons.stream().filter(w -> w.getType() == type).collect(Collectors.toList());
 	}
@@ -171,4 +175,5 @@ public class Unit implements Comparable<Unit> {
 	public IUnitModel getModel() {
 		return model;
 	}
+
 }

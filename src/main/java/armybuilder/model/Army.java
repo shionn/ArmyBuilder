@@ -73,6 +73,7 @@ public class Army {
 
 		Arrays.stream(GenericCheck.values()).forEach(c -> c.verify(this));
 		options.values().stream().forEach(o -> o.verify(this));
+		units.stream().forEach(u -> u.verify(this));
 	}
 
 	public void setOption(ArmyOption option, IArmyOptionValue<?> value) {
@@ -165,6 +166,11 @@ public class Army {
 		return units.stream().filter(u -> u.is(keyWord)).collect(Collectors.toList());
 	}
 
+	public List<Unit> units(IUnitModel model) {
+		return units.stream().filter(u -> u.is(model)).collect(Collectors.toList());
+	}
+
+
 	public boolean is(IArmyOptionValue<?> opt) {
 		return options.containsValue(opt);
 	}
@@ -173,5 +179,6 @@ public class Army {
 		return units.stream().map(u -> u.getValue()).collect(Collectors.reducing((a, b) -> a + b))
 				.orElse(0);
 	}
+
 
 }

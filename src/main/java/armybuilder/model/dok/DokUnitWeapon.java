@@ -36,6 +36,27 @@ public enum DokUnitWeapon implements IUnitWeapon {
 	VougeBrisecoeur("Vouge Brisecœur", WeaponType.Melee, "2", "3", "3+", "3+", "-1", "1"),
 	Scianlar("Scianlar", WeaponType.Melee, "1", "2", "3+", "4+", "-", "1"),
 	GuivreDeSang("Guivre de Sang", WeaponType.Melee, "1", "1", "3+", "3+", "-", "1"),
+	TorrentdeSangBrulant(
+			"Torrent de Sang Brûlant",
+			WeaponType.Projectil,
+			"10",
+			"6",
+			"3+",
+			"3+",
+			"-1",
+			"1"),
+	EpeeDAvatar("Épée d'Avatar", WeaponType.Melee, "2", "4", "3+", "3+", "-2", "3"),
+	CouteauxSacrificiels_Chaudron(
+			"Couteaux Sacrificiels",
+			WeaponType.Melee,
+			"1",
+			"*",
+			"3+",
+			"4+",
+			"-",
+			"1"),
+	JavelineBarbelee_M("Javeline Barbelée", WeaponType.Melee, "2+", "1", "4+", "4+", "-1", "1"),
+	JavelineBarbelee_P("Javeline Barbelée", WeaponType.Projectil, "12", "1", "3+", "3+", "-1", "1"),
 
 	;
 

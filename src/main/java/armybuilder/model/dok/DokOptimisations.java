@@ -167,7 +167,6 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 					&& u.is(KeyWord.BloodwrackMedusa),
 			null),
 
-
 	SymboleSanglant(
 			"Symbole Sanglant",
 			UnitOption.Artefact,
@@ -210,7 +209,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.HaggNar),
 			null),
-	
+
 	DestrierDOmbres(
 			"Destrier d'Ombres",
 			UnitOption.Sort,
@@ -285,6 +284,11 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 					&& u.is(KeyWord.Pretre),
 			null),
 
+	Krone("Krone", UnitOption.Chef, (a, u) -> u.is(DokUnitModel.BloodStalkers), u -> {
+		u.add(DokRule.Krone);
+		u.add(DokUnitWeapon.GuivreDeSang);
+	}),
+	Gorgai("Gorgaï", UnitOption.Chef, (a, u) -> u.is(DokUnitModel.BloodSisters), null),
 	Hag("Hag", UnitOption.Chef, (a, u) -> u.is(KeyWord.WitchAelves), null),
 	Handmaiden("Handmaiden", UnitOption.Chef, (a, u) -> u.is(KeyWord.SisterOfSlaughter), null),
 	PorteEtendard(
@@ -292,16 +296,12 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 			UnitOption.Banniere,
 			(a, u) -> u.is(KeyWord.WitchAelves) || u.is(KeyWord.SisterOfSlaughter),
 			null),
+	Shryke("Shryke", UnitOption.Chef, (a, u) -> u.is(KeyWord.KhineraiHeartrenders), null),
 	SonneuseDeCor(
 			"Sonneuse de Cor",
 			UnitOption.Musicien,
 			(a, u) -> u.is(KeyWord.WitchAelves) || u.is(KeyWord.SisterOfSlaughter),
 			null),
-	Gorgai("Gorgaï", UnitOption.Chef, (a, u) -> u.is(DokUnitModel.BloodSisters), null),
-	Krone("Krone", UnitOption.Chef, (a, u) -> u.is(DokUnitModel.BloodStalkers), u -> {
-		u.add(DokRule.Krone);
-		u.add(DokUnitWeapon.GuivreDeSang);
-	}),
 
 	CouteauSacrificielEtRondacheTranchante(
 			"Couteau Sacrificiel et Rondache Tranchante",
@@ -322,16 +322,14 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 			"Fouet Barbelé et Rondache Tranchante",
 			UnitOption.Armes,
 			(a, u) -> u.is(KeyWord.SisterOfSlaughter),
-			u -> u.add(DokRule.RondacheTranchante)),
-	;
+			u -> u.add(DokRule.RondacheTranchante)),;
 
 	private String displayName;
 	private UnitOption option;
 	private BiFunction<Army, Unit, Boolean> available;
 	private Consumer<Unit> modifier;
 
-	DokOptimisations(String displayName, UnitOption type,
-			BiFunction<Army, Unit, Boolean> available,
+	DokOptimisations(String displayName, UnitOption type, BiFunction<Army, Unit, Boolean> available,
 			Consumer<Unit> modifier) {
 		this.displayName = displayName;
 		this.option = type;
