@@ -1,5 +1,6 @@
 <%@ tag pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ attribute name="content" fragment="true"%>
@@ -24,10 +25,13 @@
 					<a href='<spring:url value="/reset"/>'><i class="fas fa-file-alt"></i> Reset</a>
 				</li>
 				<li>
-					<span class="load">
-						<input type="file" name="file" data-url='<spring:url value="/load"/>'>
-						<i class="fas fa-upload"></i> Load
-					</span>
+					<spring:url value="/load" var="url"/>
+					<form:form method="POST" action="${url}" enctype="multipart/form-data">
+						<span class="load">
+							<input type="file" name="file">
+							<i class="fas fa-upload"></i> Load
+						</span>
+					</form:form>
 				</li>
 				<li>
 					<a href='<spring:url value="/save"/>'><i class="fas fa-download"></i> Save</a>

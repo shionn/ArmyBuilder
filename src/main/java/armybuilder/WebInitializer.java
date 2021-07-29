@@ -1,5 +1,6 @@
 package armybuilder;
 
+import java.io.IOException;
 import java.util.TimeZone;
 
 import javax.servlet.ServletContext;
@@ -9,6 +10,7 @@ import javax.servlet.ServletRegistration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -39,12 +41,6 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 	protected String[] getServletMappings() {
 		return new String[] { "/" };
 	}
-	//
-	// @Override
-	// protected Filter[] getServletFilters() {
-	// return new Filter[] { new CharacterEncodingFilter("UTF-8"), new RequestContextFilter(),
-	// new DelegatingFilterProxy("springSecurityFilterChain") };
-	// }
 
 	@Override
 	public void customizeRegistration(ServletRegistration.Dynamic registration) {
@@ -64,6 +60,13 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 			viewResolver.setPrefix("/WEB-INF/jsp/");
 			viewResolver.setSuffix(".jsp");
 			return viewResolver;
+		}
+
+		@Bean(name = "multipartResolver")
+		public CommonsMultipartResolver getResolver() throws IOException {
+			CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+			resolver.setMaxUploadSizePerFile(1024 * 1024);// 1MB
+			return resolver;
 		}
 
 		@Override

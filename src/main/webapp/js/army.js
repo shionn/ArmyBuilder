@@ -17,5 +17,8 @@ q(function() {
 			});
 		}).process();
 	});
+	q("body").on("change","[type=file]", function() {
+		q("form").fire("submit");
+	});
 });
 

@@ -1,5 +1,6 @@
 package armybuilder;
 
+import java.io.IOException;
 import java.io.StringWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,6 +26,7 @@ import armybuilder.model.option.GrandeStrategie;
 import armybuilder.model.option.PackDeBataille;
 import armybuilder.model.option.SubAllegiance;
 import armybuilder.model.option.Triomphes;
+import armybuilder.model.unit.Unit;
 
 @Controller
 public class ArmyController {
@@ -42,17 +44,24 @@ public class ArmyController {
 	@ResponseBody
 	public HttpEntity<String> save() throws Exception {
 		StringWriter w = new StringWriter();
-		new ObjectMapper().writeValue(w, ((Advised) army).getTargetSource().getTarget());
+		new ObjectMapper().writeValue(w, getNotProxifiedArmy());
 		HttpHeaders header = new HttpHeaders();
 		header.set(HttpHeaders.CONTENT_DISPOSITION,
 				"attachment; filename=" + army.getOption(ArmyOption.Allegiance).getDisplayName()
 						+ "-" + new SimpleDateFormat("yyyy-MM-dd").format(new Date())
-						+ ".txt");
+						+ ".json");
 		return new HttpEntity<String>(w.toString(), header);
 	}
 
+
 	@PostMapping(path = "/load")
-	public String load(@RequestParam("file") MultipartFile file) {
+	public String load(@RequestParam("file") MultipartFile file) throws IOException, Exception {
+		army.reset();
+		new ObjectMapper().readerForUpdating(getNotProxifiedArmy())
+				.readValue(file.getInputStream());
+		for (Unit u : army.getUnits()) {
+			u.setArmy(army);
+		}
 		return "redirect:/";
 		
 	}
@@ -85,6 +94,10 @@ public class ArmyController {
 	public String setPackDeBataille(@RequestHeader("Triomphes") Triomphes triomphes) {
 		army.setOption(ArmyOption.Triomphes, triomphes);
 		return "redirect:/";
+	}
+
+	private Army getNotProxifiedArmy() throws Exception {
+		return (Army) ((Advised) army).getTargetSource().getTarget();
 	}
 
 }

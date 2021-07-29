@@ -21,7 +21,7 @@ _q.prototype.attr = function(attr, value) {
 }
 
 _q.prototype.value = function() {
-	if('checkbox' === this.attr('type')) {
+	if ('checkbox' === this.attr('type')) {
 		return this.obj[0].checked;
 	}
 	return this.obj[0].value;
@@ -42,6 +42,12 @@ _q.prototype.on = function(type, selector, callback) {
 		}).observe(o, { childList: true, subtree: true });
 	});
 	return this;
+}
+
+_q.prototype.fire = function(type) {
+	this._each(o => {
+		o.dispatchEvent(new Event(type));
+	});
 }
 
 _q.prototype.replaceWith = function(elems) {
@@ -99,7 +105,7 @@ _ajax.prototype.process = function() {
 	this.req.send();
 };
 
-q.ajax = function(url, method = "GET" ) {
+q.ajax = function(url, method = "GET") {
 	return new _ajax(url, method);
 };
 

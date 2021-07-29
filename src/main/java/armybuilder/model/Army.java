@@ -18,6 +18,7 @@ import org.springframework.web.context.annotation.SessionScope;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import armybuilder.model.check.GenericCheck;
 import armybuilder.model.option.ArmyOption;
@@ -25,6 +26,7 @@ import armybuilder.model.option.IArmyOptionValue;
 import armybuilder.model.rule.ArmyRuleType;
 import armybuilder.model.rule.GeneriqueRule;
 import armybuilder.model.rule.IArmyRule;
+import armybuilder.model.serialisation.ArmyOptionJsonDeserializer;
 import armybuilder.model.unit.IUnitModel;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.RoleTactique;
@@ -37,6 +39,7 @@ import armybuilder.model.unit.option.UnitOption;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE)
 public class Army {
 
+	@JsonDeserialize(contentConverter = ArmyOptionJsonDeserializer.class)
 	private Map<ArmyOption, IArmyOptionValue<?>> options = new HashMap<>();
 	private List<Unit> units = new ArrayList<>();
 
