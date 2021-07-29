@@ -24,6 +24,7 @@ public enum DokRule implements IArmyRule<DokRule> {
 	PorteEtendard("Porte-Étendard", ArmyRuleType.Composition),
 	SonneuseDeCor("Sonneuse de Cor", ArmyRuleType.Composition),
 	Gorgai("Gorgaï", ArmyRuleType.Composition),
+	ShroudQueen("Shroud Queen", ArmyRuleType.Composition),
 	Krone("Krone", ArmyRuleType.Composition),
 	Shryke("Shryke", ArmyRuleType.Composition),
 
@@ -34,6 +35,11 @@ public enum DokRule implements IArmyRule<DokRule> {
 			ArmyRuleType.TraisUnitee),
 	BouclierDeSang("Bouclier de Sang", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	BouclierPerceCoeur("Bouclier Perce-coeur", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	BondDeLOmbre(
+			"Bond de l'Ombre",
+			ArmyRuleType.Aptitude,
+			ArmyRuleType.PhaseDeMouvement,
+			ArmyRuleType.TraisUnitee),
 	BrouetDeSang(
 			"Brouet de Sang",
 			ArmyRuleType.Aptitude,
@@ -78,7 +84,9 @@ public enum DokRule implements IArmyRule<DokRule> {
 			ArmyRuleType.Aptitude,
 			ArmyRuleType.PhaseDeMouvement,
 			ArmyRuleType.TraisUnitee),
-	PresenceIntimidante("Présence Intimidante", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	PresenceIntimidante("Présence Intimidante", ArmyRuleType.Aptitude),
+	ProfiterDeLOmbre("Profiter de l'Ombre", ArmyRuleType.Aptitude),
+	ProjectilesMaudits("Projectiles Maudits", ArmyRuleType.Aptitude),
 	RegardIncarnat(
 			"Regard Incarnat",
 			ArmyRuleType.Aptitude,

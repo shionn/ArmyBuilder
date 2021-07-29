@@ -1,5 +1,6 @@
 package armybuilder.model.check;
 
+import java.util.List;
 import java.util.function.Consumer;
 
 import armybuilder.model.Army;
@@ -14,7 +15,7 @@ public class Checkers {
 	public static Consumer<Army> oneUnitWithOption(UnitOption opt) {
 		return (Army a) -> {
 			if (a.units(opt).size() != 1) {
-				a.addError("Votre armée doit avoir un : " + opt.getDisplayName());
+				a.addError("Votre armée doit avoir un seul : " + opt.getDisplayName());
 			}
 		};
 	}
@@ -25,6 +26,15 @@ public class Checkers {
 			if (a.units(opt, value).isEmpty()) {
 				a.addError("Votre armée doit avoir : " + opt.getDisplayName() + " "
 						+ value.getDisplayName());
+			}
+		};
+	}
+
+	public static Consumer<Army> oneUniteLike(KeyWord keyWord, UnitOption option) {
+		return (Army a) -> {
+			List<Unit> units = a.units(keyWord);
+			if (units.stream().filter(u->u.is(option)).count() !=1) {
+				a.addError("Votre armée doit avoir un : " + keyWord + ", " + option);
 			}
 		};
 	}
@@ -63,5 +73,6 @@ public class Checkers {
 			}
 		};
 	}
+
 
 }

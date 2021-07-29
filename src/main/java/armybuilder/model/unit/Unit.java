@@ -35,6 +35,8 @@ public class Unit implements Comparable<Unit> {
 	private Set<KeyWord> keyWords = new TreeSet<>();
 	@JsonIgnore
 	private Set<RoleTactique> roleTatciques = new TreeSet<>();
+	@JsonIgnore
+	private int value;
 
 
 	public Unit(Army army, IUnitModel model) {
@@ -51,6 +53,7 @@ public class Unit implements Comparable<Unit> {
 		keyWords.addAll(model.getKeyWords());
 		roleTatciques.clear();
 		roleTatciques.addAll(model.getRoleTactiques());
+		value = model.getValue();
 	}
 
 	public void rebuild(Army army) {
@@ -73,7 +76,9 @@ public class Unit implements Comparable<Unit> {
 	}
 
 	public List<UnitOption> getOptions() {
-		return model.getOptions();
+		return model.getOptions().stream().filter(o -> o.isAvailable(this))
+				.filter(o -> this.getOptionValues(o).size() > 0)
+				.collect(Collectors.toList());
 	}
 
 	public void addOption(UnitOption option, IUnitOptionValue<?> value) {
@@ -140,7 +145,7 @@ public class Unit implements Comparable<Unit> {
 	}
 
 	public int getValue() {
-		return model.getValue();
+		return value;
 	}
 
 	@Override
@@ -174,6 +179,10 @@ public class Unit implements Comparable<Unit> {
 
 	public IUnitModel getModel() {
 		return model;
+	}
+
+	public void setValue(int value) {
+		this.value = value;
 	}
 
 }

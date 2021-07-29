@@ -83,6 +83,24 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(),
 			Arrays.asList()),
 
+	BloodwrackMedusa(
+			"Bloodwrack Medusa",
+			120,
+			UnitProfile._8_6_8_5,
+			Arrays.asList(RoleTactique.Leader),
+			Arrays.asList(DokUnitWeapon.RegardIncarnat, DokUnitWeapon.LanceIncarnate,
+					DokUnitWeapon.GriffeMurmure, DokUnitWeapon.QueueDeSerpents),
+			null,
+			Arrays.asList(DokRule.RegardIncarnat, DokRule.GriffeMurmure, DokRule.Deperissement,
+					GeneriqueRule.TraitMagique, GeneriqueRule.BouclierMystique,
+					GeneriqueUnitRule.Sorcier_1_2),
+			Arrays.asList(UnitOption.General, UnitOption.Sort, UnitOption.TraisDeCommandement,
+					UnitOption.Artefact),
+			Arrays.asList(KeyWord.Ordre, KeyWord.DaughtersOfKhaine, KeyWord.Melusai, KeyWord.Heros,
+					KeyWord.Sorcier, KeyWord.BloodwrackMedusa),
+			Arrays.asList(),
+			Arrays.asList()),
+
 	MelusaiIronscale(
 			"Melusai Ironscale",
 			115,
@@ -213,6 +231,21 @@ public enum DokUnitModel implements IUnitModel {
 					KeyWord.SisterOfSlaughter),
 			Arrays.asList(),
 			Arrays.asList()),
+	
+	KhainiteShadowstalkers(
+			"Khainite Shadowstalkers",
+			120,
+			UnitProfile._6_1_7_5,
+			Arrays.asList(RoleTactique.None),
+			Arrays.asList(DokUnitWeapon.ProjectilesMaudits, DokUnitWeapon.LameDAssassin),
+			null,
+			Arrays.asList(DokRule.BondDeLOmbre, DokRule.ProjectilesMaudits,
+					DokRule.ProfiterDeLOmbre),
+			Arrays.asList(UnitOption.Chef),
+			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine,
+					KeyWord.KhainiteShadowstalkers),
+			Arrays.asList(),
+			Arrays.asList()),
 
 	BloodSisters(
 			"Blood Sisters",
@@ -255,7 +288,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(GeneriqueUnitRule.Vol, DokRule.LaMortVientDuCiel,
 					DokRule.PlongeonDansLaBataille, DokRule.VoleeEtVolteFace,
 					DokRule.BouclierPerceCoeur),
-			Arrays.asList(UnitOption.Chef),
+			Arrays.asList(UnitOption.Chef, UnitOption.Gratuit),
 			Arrays.asList(KeyWord.Ordre, KeyWord.DaughtersOfKhaine, KeyWord.KhineraiHarpies,
 					KeyWord.KhineraiHeartrenders),
 			Arrays.asList(),

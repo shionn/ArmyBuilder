@@ -1,0 +1,1 @@
+Si le jet de touche non modifié pour une attaque de Projectiles Maudits est 6, l'attaque inflige 1 blessure mortelle à la cible et la séquence d'attaque s'achève (ne faites pas de jet d e blessure ni de sauvegarde). 

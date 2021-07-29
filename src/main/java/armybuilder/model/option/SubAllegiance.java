@@ -45,9 +45,11 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 			"Temple : Khelt Nar",
 			Arrays.asList(Modifiers.rules(DokRule.FrapperEtSeRetirer, DokRule.SaignerLEsprit)),
 			Tests.isAllegiance(Allegiance.DoK),
-			Arrays.asList(Checkers.unitWithOption(UnitOption.TraisDeCommandement,
-					DokOptimisations.VolEnCercle),Checkers.unitWithOption(UnitOption.Artefact,
-							DokOptimisations.LaFaixDeGalisa))),
+			Arrays.asList(
+					Checkers.unitWithOption(UnitOption.TraisDeCommandement,
+							DokOptimisations.VolEnCercle),
+					Checkers.unitWithOption(UnitOption.Artefact, DokOptimisations.LaFaixDeGalisa),
+					Checkers.oneUniteLike(KeyWord.KhineraiHarpies, UnitOption.Gratuit))),
 	ZaintharKai(
 			"Temple : Zainthar Kai",
 			Arrays.asList(Modifiers.rules(DokRule.LessenceDeKhaine, DokRule.CrypteDesAinee)),

@@ -312,6 +312,14 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 			UnitOption.Banniere,
 			(a, u) -> u.is(KeyWord.WitchAelves) || u.is(KeyWord.SisterOfSlaughter),
 			null),
+	ShroudQueen(
+			"Shroud Queen",
+			UnitOption.Chef,
+			(a, u) -> u.is(KeyWord.KhainiteShadowstalkers),
+			u -> {
+				u.add(DokUnitWeapon.LameObscures);
+				u.add(DokRule.ShroudQueen);
+			}),
 	Shryke("Shryke", UnitOption.Chef, (a, u) -> u.is(KeyWord.KhineraiHeartrenders), null),
 	SonneuseDeCor(
 			"Sonneuse de Cor",
@@ -319,6 +327,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 			(a, u) -> u.is(KeyWord.WitchAelves) || u.is(KeyWord.SisterOfSlaughter),
 			null),
 
+	// Armes
 	CouteauSacrificielEtRondacheTranchante(
 			"Couteau Sacrificiel et Rondache Tranchante",
 			UnitOption.Armes,
@@ -339,6 +348,13 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 			UnitOption.Armes,
 			(a, u) -> u.is(KeyWord.SisterOfSlaughter),
 			u -> u.add(DokRule.RondacheTranchante)),
+
+	// Cout
+	Gratuit(
+			"Gratuit",
+			UnitOption.Gratuit,
+			(a, u) -> u.is(KeyWord.KheltNar) && u.is(KeyWord.KhineraiHarpies),
+			u -> u.setValue(0))
 
 	;
 

@@ -1,0 +1,1 @@
+À votre phase de mouvement, au lieu d'effectuer un mou vement normal avec cette unité, vous pouvez déclarer qu'elle va effectuer un bond de l'ombre. Dans ce cas, retirez cette unité du champ de bataille et replacez-la n'importe où sur le champ de bataille à plus de 9" de toute unité ennemie.

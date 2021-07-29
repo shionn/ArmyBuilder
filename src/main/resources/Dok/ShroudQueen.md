@@ -1,0 +1,1 @@
+Une Shroud Queen est armée de Lames Obscures et de Projectiles Maudits. En outre, une Shroud Queen a une caractéristique de Blessures de 3. 
