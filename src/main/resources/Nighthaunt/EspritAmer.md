@@ -1,0 +1,1 @@
+Jetez un dé chaque fois que vous allouez à ce général une blessure qui a été infligée par une arme de mêlée. Sur 5+, l'unité atlaquante subit 1 blessure mortelle une fois toutes ses attaques résolues. 

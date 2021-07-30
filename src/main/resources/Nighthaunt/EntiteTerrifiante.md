@@ -1,0 +1,1 @@
+Au début de la phase de mouvement ennemie, jetez un dé pour chaque unité ennemie à 3" ou moins de cette figurine. Si le jet est supérieur ou égal à la caractéristique de Bravoure de cette unité ennemie, celle-ci doit se replier à cette phase de mouvement. 

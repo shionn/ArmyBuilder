@@ -75,6 +75,13 @@
 					<t:rule rule="${rule}" army="${army}"/>
 				</c:forEach>
 			</c:if>
+			<c:forEach items="${army.units}" var="unit">
+				<div>
+					<a href='<spring:url value="/unit/remove/${unit.hashCode()}"/>'>X</a>
+					${unit.displayName}
+					${unit.value}
+				</div>
+			</c:forEach>
 		</div>
 		<div style="page-break-after:always">
 			<h2>Composition</h2>

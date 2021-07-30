@@ -14,292 +14,201 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 
 	// TraisDeCommandement
 	BainDeSang(
-			"Bain de Sang",
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Aelf),
-			null),
+					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Aelf)),
 	OrateurZele(
-			"Orateur Zélé",
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Aelf),
-			null),
+					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Aelf)),
 	SacrificateurSanglant(
-			"Sacrificateur Sanglant",
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Aelf),
-			null),
+					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Aelf)),
 	BeauteTerrifiante(
-			"Beauté Terrifiante",
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Aelf),
-			null),
+					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Aelf)),
 	MaitreDesPoisons(
-			"Maître des Poisons",
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Aelf),
-			null),
+					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Aelf)),
 	VraiCroyant(
-			"Vrai Croyant",
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Aelf),
-			null),
+					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Aelf)),
 
 	MaitriseDesArcanes(
-			"Maîtrise des Arcanes",
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.BloodwrackMedusa),
-			null),
+					&& u.is(KeyWord.BloodwrackMedusa)),
 	AnneauxOndulants(
-			"Anneaux Ondulants",
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.BloodwrackMedusa),
-			null),
+					&& u.is(KeyWord.BloodwrackMedusa)),
 	PresenceEffrayante(
-			"Présence Effrayante",
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.BloodwrackMedusa),
-			null),
+					&& u.is(KeyWord.BloodwrackMedusa)),
 
 	VeteranDeLaCathtrarDhule(
-			"Vétéran de la Cathtrar Dhule",
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.MelusaiIronscale),
-			null),
+					&& u.is(KeyWord.MelusaiIronscale)),
 	EcaillesImpenetrables(
-			"Écailles Impénétrables",
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.MelusaiIronscale),
-			null),
+					&& u.is(KeyWord.MelusaiIronscale)),
 	AnimeParLaVengeance(
-			"Animé par la Vengeance",
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.MelusaiIronscale),
-			null),
+					&& u.is(KeyWord.MelusaiIronscale)),
 
 	// TraisDeCommandement de Sous allegiance
 	DisciplesDevots(
-			"Disciples Dévots",
 			UnitOption.TraisDeCommandement,
-			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.HaggNar),
-			null),
+			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.HaggNar)),
 	VolEnCercle(
-			"Vol en Cercle",
 			UnitOption.TraisDeCommandement,
-			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.KheltNar),
-			null),
+			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.KheltNar)),
 
 	// Artefact
 	CouronneDeDouleur(
-			"Couronne de Douleur",
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine),
-			null),
+					&& u.is(KeyWord.DaughtersOfKhaine)),
 	CrocDeShadracar(
-			"Croc de Shadracar",
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine),
-			null),
+					&& u.is(KeyWord.DaughtersOfKhaine)),
 	AmuletteDeFeuNoir(
-			"Amulette de Feu Noir",
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine),
-			null),
+					&& u.is(KeyWord.DaughtersOfKhaine)),
 	LameSorciere(
-			"Lame Sorcière",
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine),
-			null),
+					&& u.is(KeyWord.DaughtersOfKhaine)),
 	MilleEtUneSombresMaledictions(
-			"Mille et Une Sombres Malédictions",
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine),
-			null),
+					&& u.is(KeyWord.DaughtersOfKhaine)),
 	VeninFleauDuSang(
-			"Venin Fléau du Sang",
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine),
-			null),
+					&& u.is(KeyWord.DaughtersOfKhaine)),
 
 	PierreDOmbre(
-			"Pierre d'Ombre",
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.BloodwrackMedusa),
-			null),
+					&& u.is(KeyWord.BloodwrackMedusa)),
 	RuneDUlgu(
-			"Rune d'Ulgu",
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.BloodwrackMedusa),
-			null),
+					&& u.is(KeyWord.BloodwrackMedusa)),
 	LeVougeMiroir(
-			"Le Vouge Miroir",
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.BloodwrackMedusa),
-			null),
+					&& u.is(KeyWord.BloodwrackMedusa)),
 	OmbreSeptFoisDrapee(
-			"Ombre Sept-fois-drapée",
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.BloodwrackMedusa),
-			null),
+					&& u.is(KeyWord.BloodwrackMedusa)),
 	CoeurDeCristal(
-			"Cœur de Cristal",
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.BloodwrackMedusa),
-			null),
+					&& u.is(KeyWord.BloodwrackMedusa)),
 	GriffeDOmbre(
-			"Griffe d'Ombre",
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.BloodwrackMedusa),
-			null),
+					&& u.is(KeyWord.BloodwrackMedusa)),
 
 	SymboleSanglant(
-			"Symbole Sanglant",
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre),
-			null),
+					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
 	DiademeDeFer(
-			"Diadème de Fer",
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre),
-			null),
+					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
 	RuneDeKhaine(
-			"Rune de Khaine",
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre),
-			null),
+					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
 	EclatPourpre(
-			"Éclat Pourpre",
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre),
-			null),
+					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
 	PendentifKhainite(
-			"Pendentif Khainite",
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre),
-			null),
+					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
 	BreuvageDeMatriarche(
-			"Breuvage de Matriarche",
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre),
-			null),
+					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
 
 	// Artefact de sous allegiance
 	LUlfuri(
-			"L'Ulfuri",
 			UnitOption.Artefact,
-			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.HaggNar) && !u.is(KeyWord.Unique),
-			null),
+			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.HaggNar) && !u.is(KeyWord.Unique)),
 	LaFaixDeGalisa(
-			"Le Faix de Gaisa",
 			UnitOption.Artefact,
-			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.KheltNar) && !u.is(KeyWord.Unique),
-			null),
+			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.KheltNar) && !u.is(KeyWord.Unique)),
 
 	// Sort
 	DestrierDOmbres(
-			"Destrier d'Ombres",
 			UnitOption.Sort,
 			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Sorcier),
-			null),
+					&& u.is(KeyWord.Sorcier)),
 	PuitsDeTenebres(
-			"Puits de Ténèbres",
 			UnitOption.Sort,
 			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Sorcier),
-			null),
+					&& u.is(KeyWord.Sorcier)),
 	DanseSymetrique(
-			"Danse Symétrique",
 			UnitOption.Sort,
 			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Sorcier),
-			null),
+					&& u.is(KeyWord.Sorcier)),
 	Affaiblissement(
-			"Affaiblissement",
 			UnitOption.Sort,
 			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Sorcier),
-			null),
+					&& u.is(KeyWord.Sorcier)),
 	RasoirMental(
-			"Rasoir Mental",
 			UnitOption.Sort,
 			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Sorcier),
-			null),
+					&& u.is(KeyWord.Sorcier)),
 	SuaireDeDesespoir(
-			"Suaire de Désespoir",
 			UnitOption.Sort,
 			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Sorcier),
-			null),
+					&& u.is(KeyWord.Sorcier)),
 
 	// Priere
 	CatechismeDuMeurtre(
-			"Catéchisme du Meurtre",
 			UnitOption.Priere,
 			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Pretre),
-			null),
+					&& u.is(KeyWord.Pretre)),
 	BenedictionDeKhaine(
-			"Bénédiction de Khaine",
 			UnitOption.Priere,
 			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Pretre),
-			null),
+					&& u.is(KeyWord.Pretre)),
 	SacrificeDuMartyr(
-			"Sacrifice du Martyr",
 			UnitOption.Priere,
 			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Pretre),
-			null),
+					&& u.is(KeyWord.Pretre)),
 	ResurrectionPourpre(
-			"Résurrection Pourpre",
 			UnitOption.Priere,
 			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Pretre),
-			null),
+					&& u.is(KeyWord.Pretre)),
 	CouventDuCoeurDeFer(
-			"Couvent du Cœur de Fer",
 			UnitOption.Priere,
 			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Pretre),
-			null),
+					&& u.is(KeyWord.Pretre)),
 	SacreDeSang(
-			"Sacre de Sang",
 			UnitOption.Priere,
 			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Pretre),
-			null),
+					&& u.is(KeyWord.Pretre)),
 
+	// Compositioon
 	Krone("Krone", UnitOption.Chef, (a, u) -> u.is(DokUnitModel.BloodStalkers), u -> {
 		u.add(DokRule.Krone);
 		u.add(DokUnitWeapon.GuivreDeSang);
@@ -369,6 +278,12 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 		this.option = type;
 		this.available = available;
 		this.modifier = modifier;
+	}
+
+	DokOptimisations(UnitOption type, BiFunction<Army, Unit, Boolean> available) {
+		this.displayName = DokRule.valueOf(name()).getDisplayName();
+		this.option = type;
+		this.available = available;
 	}
 
 	@Override

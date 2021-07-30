@@ -1,0 +1,1 @@
+Au début de votre pnase des héros, vous pouvez chois ir une unité **Nighthaunt Invocable** amie à 9" ou moins de ce général et restituer D3 figurines tuées à cette unité. Les figurines restituées doivent être placées à 9" ou moins de ce général. 

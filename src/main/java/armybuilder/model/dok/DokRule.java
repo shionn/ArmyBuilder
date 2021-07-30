@@ -11,13 +11,13 @@ import armybuilder.model.rule.IArmyRule;
 public enum DokRule implements IArmyRule<DokRule> {
 	RitesDeSang("Rites de Sang", ArmyRuleType.TraisDeBataille),
 	FoiFanatique("Foi Fanatique", ArmyRuleType.TraisDeBataille),
-	CrypteDesAinee(ArmyRuleType.TraisDeBataille),
-	DisciplesDuMassacre(ArmyRuleType.TraisDeBataille),
-	DissimulationEtDiscretion(ArmyRuleType.TraisDeBataille),
+	CrypteDesAinee("Crypte des Aînée", ArmyRuleType.TraisDeBataille),
+	DisciplesDuMassacre("Disciples du Massacre", ArmyRuleType.TraisDeBataille),
+	DissimulationEtDiscretion("Dissimulation et Discrétion", ArmyRuleType.TraisDeBataille),
 	FillesDuPremierTemple("Filles du Premier Temple", ArmyRuleType.TraisDeBataille),
 	FrapperEtSeRetirer("Frapper et se Retirer", ArmyRuleType.TraisDeBataille),
-	LessenceDeKhaine(ArmyRuleType.TraisDeBataille),
-	TueusesHerisseesDeLames(ArmyRuleType.TraisDeBataille),
+	LessenceDeKhaine("L'essence de Khaine", ArmyRuleType.TraisDeBataille),
+	TueusesHerisseesDeLames("Tueuses Hérissées de Lames", ArmyRuleType.TraisDeBataille),
 
 	Hag("Hag", ArmyRuleType.Composition),
 	Handmaiden("Handmaiden", ArmyRuleType.Composition),

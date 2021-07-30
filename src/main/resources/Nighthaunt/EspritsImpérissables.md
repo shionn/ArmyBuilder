@@ -1,0 +1,1 @@
+Jetez un dé chaque fois que vous allouez une blessure ou blessure mortelle à une figurine **Nighthaunt** amie d'une unité entièrement à 12" ou moins de votre général ou d'un **Héros Nighthaunt** ami. Sur 6+, cette blessure ou blessure mortelle est annulée. 

@@ -1,0 +1,1 @@
+Vous pouvez relancer les jets de touche ratés pour les attaques effectuées avec les armes de mêlée de ce général sauf si la cible à le mot-clé **Mort**.

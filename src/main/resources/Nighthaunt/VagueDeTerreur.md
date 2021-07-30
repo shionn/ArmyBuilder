@@ -1,0 +1,1 @@
+Si un jet de charge non modifié pour une unité **Nighthaunt** amie donne 10+, elle peut combattre immédiatement après avoir achevé ce mouvement de charge. Cela n'empêche pas l'unité d'être choisie pour combattre à la phase de combat du même tour. 

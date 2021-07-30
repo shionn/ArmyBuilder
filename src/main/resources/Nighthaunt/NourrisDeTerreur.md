@@ -1,0 +1,1 @@
+Chaque fois qu'une unité ennemie rate un test de déroute, choisissez 1 **Héros Nighthaunt** ami à 6" ou moins de cette unité ennemie. Guérissez 1 blessure qui a été allouée à ce **Héros**. 

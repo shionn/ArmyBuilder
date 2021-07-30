@@ -1,0 +1,1 @@
+Soustrayez 1aux jets de touche pour les attaques d 'armes à projectiles qui c iblent ce général. 
