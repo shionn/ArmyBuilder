@@ -1,0 +1,1 @@
+Choisissez une des armes de mêlée du porteur. Ajoutez 1 à sa caractéristique de Dégâts. 

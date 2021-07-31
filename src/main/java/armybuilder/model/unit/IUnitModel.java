@@ -43,4 +43,6 @@ public interface IUnitModel {
 
 	void check(Army army, Unit unit);
 
+	String name();
+
 }

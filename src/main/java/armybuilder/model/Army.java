@@ -49,11 +49,7 @@ public class Army {
 	private Set<IArmyRule<?>> rules = new LinkedHashSet<>();
 	@JsonIgnore
 	private Set<IUnitModel> unitChoices = new TreeSet<>((a, b) -> {
-		int compare = a.getRoleTactiques().get(0).compareTo(b.getRoleTactiques().get(0));
-		if (compare == 0) {
-			compare = a.getDisplayName().compareTo(b.getDisplayName());
-		}
-		return compare;
+		return a.getDisplayName().compareTo(b.getDisplayName());
 	});
 
 	public void reset() {

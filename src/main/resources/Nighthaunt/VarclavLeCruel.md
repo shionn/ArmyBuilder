@@ -1,0 +1,1 @@
+Le champion de cette unité est Varclav le Cruel. Ajoutez 1 à la caractéristique Attaques de son Arme de Malignant. De plus, cette unité a une Bravoure de 10 au lieu de 6 tant qu’elle comprend Varclav le Cruel.

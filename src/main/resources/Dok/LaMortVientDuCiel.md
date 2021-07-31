@@ -1,1 +1,1 @@
-Cette unité peut courir et néanmoins tirer au même tour. En o ut re, améliorez de 1 la caractéristique de Perforation des Javelines Barbelées de cette unité si cette unité a été placée sur le champ de bataille au même  tour. 
+Cette unité peut courir et néanmoins tirer au même tour. En outre, améliorez de 1 la caractéristique de Perforation des Javelines Barbelées de cette unité si cette unité a été placée sur le champ de bataille au même  tour. 

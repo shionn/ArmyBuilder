@@ -1,0 +1,1 @@
+Après avoir choisi le porteur pour combattre mais avant de le faire engager, vous pouvez choisir 1 figurine ennemie à 1" ou moins du porteur et jeter un dé; si le jet est supérieur à la caractéristique de Blessures de la figurine choisie, elle est tuée.

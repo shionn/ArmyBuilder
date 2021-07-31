@@ -1,0 +1,1 @@
+Ignorez les modificateurs (positifs ou négatifs) quand vous effectuez des jets de sauvega rde contre des attaques qui ciblent cette unité. 

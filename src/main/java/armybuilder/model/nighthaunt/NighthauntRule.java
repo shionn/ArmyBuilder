@@ -1,9 +1,11 @@
 package armybuilder.model.nighthaunt;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 import armybuilder.model.rule.ArmyRuleType;
+import armybuilder.model.rule.DescriptionReader;
 import armybuilder.model.rule.IArmyRule;
 
 public enum NighthauntRule implements IArmyRule<NighthauntRule> {
@@ -12,7 +14,7 @@ public enum NighthauntRule implements IArmyRule<NighthauntRule> {
 			"Convocation Spectrale",
 			ArmyRuleType.TraisDeBataille,
 			ArmyRuleType.AptitudesDeCommandement),
-	EspritsImpérissables("Esprits Impérissables", ArmyRuleType.TraisDeBataille),
+	EspritsImperissables("Esprits Impérissables", ArmyRuleType.TraisDeBataille),
 	IlsViennentDesSousMondes(
 			"Ils Viennent des Sous-Mondes",
 			ArmyRuleType.TraisDeBataille,
@@ -28,26 +30,50 @@ public enum NighthauntRule implements IArmyRule<NighthauntRule> {
 	HaineDesVivants("Haine des Vivants", ArmyRuleType.TraitsDeCommandement),
 	MaitreDesOstsDEsprits("Maître des Osts d'Esprits", ArmyRuleType.TraitsDeCommandement),
 
-	BrumeSepulcrale("Brume Sépulcrale", ArmyRuleType.Sort),
-	CageAAmes("Cage à Âmes", ArmyRuleType.Sort),
-	CanuleSpectrale("Canule Spectrale", ArmyRuleType.Sort),
-	DrainDEsprit("Drain d'Esprit", ArmyRuleType.Sort),
-	FauxGlaneuse("Faux Glaneuse", ArmyRuleType.Sort),
-	VoleurDeVie("Voleur de Vie", ArmyRuleType.Sort),
+	BrumeSepulcrale("Brume Sépulcrale", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	CageAAmes("Cage à Âmes", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	CanuleSpectrale("Canule Spectrale", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	DrainDEsprit("Drain d'Esprit", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	FauxGlaneuse("Faux Glaneuse", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	VoleurDeVie("Voleur de Vie", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	VortexHurlant("Vortex Hurlant", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+
+	FaucheLesPeines("Fauche-les-Peines", ArmyRuleType.Artefact),
+	FilDeLOmbre("Fil de l'Ombre", ArmyRuleType.Artefact),
+	Inciseur("Inciseur", ArmyRuleType.Artefact),
+	JugementDuBourreau("Jugement du Bourreau", ArmyRuleType.Artefact),
+	LameDeFeuMaudit("Lame de Feu Maudit", ArmyRuleType.Artefact),
+	LameStridente("Lame Stridente", ArmyRuleType.Artefact),
+
+	ChainesEtrangleuses("Chaînes Étrangleuses", ArmyRuleType.Aptitude),
+	Etheres("Éthérés", ArmyRuleType.Aptitude),
+	HordeEffroyable("Horde Effroyable", ArmyRuleType.Aptitude),
+	LaPointeDeLaMort("La Pointe de la Mort", ArmyRuleType.Aptitude),
+	MangeSorts(
+			"Mange-sorts",
+			ArmyRuleType.Aptitude,
+			ArmyRuleType.PhaseDesHeros,
+			ArmyRuleType.TraisUnitee),
+
+	// Composition
+	Dreadwarden("Dreadwarden", ArmyRuleType.Composition),
+	TambourDArythmie("Tambour d'Arythmie", ArmyRuleType.Composition),
+	VarclavLeCruel("Varclav le Cruel", ArmyRuleType.Composition),
 
 	;
 
 	private String displayName;
+	private List<ArmyRuleType> types;
 
 	private NighthauntRule(String displayName, ArmyRuleType... types) {
 		this.displayName = displayName;
+		this.types = Arrays.asList(types);
 
 	}
 
 	@Override
 	public List<ArmyRuleType> getTypes() {
-		// TODO Auto-generated method stub
-		return null;
+		return types;
 	}
 
 	@Override
@@ -57,7 +83,12 @@ public enum NighthauntRule implements IArmyRule<NighthauntRule> {
 
 	@Override
 	public String getDescription() throws IOException {
-		// TODO Auto-generated method stub
-		return null;
+		return new DescriptionReader().read("Nighthaunt/", name());
 	}
+
+	@Override
+	public String toString() {
+		return name() + getTypes();
+	}
+
 }

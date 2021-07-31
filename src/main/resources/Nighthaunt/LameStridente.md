@@ -1,0 +1,1 @@
+Soustrayez 1 aux jets de touche pour les attaques effectuées avec des armes de mêlée qui ciblent le porteur. 

@@ -1,0 +1,1 @@
+Vous pouvez relancer les jets de blessure de 1 des attaques de cette unité qui visent une unité ennemie à 3" ou moins de deux figurines ou plus de cette unité.

@@ -1,0 +1,1 @@
+Choisissez une des armes de mêlée du porteur.  Avant d'attaquer avec cette arme, jetez 2D6.  Si le jet est supérieur à la Bravoure de la cible,  la caractéristique Perforation de cette arme  devient -3 pour les attaques contre l'unité cible.  

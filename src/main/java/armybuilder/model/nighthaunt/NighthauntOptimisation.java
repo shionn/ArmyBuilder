@@ -30,24 +30,24 @@ public enum NighthauntOptimisation implements IUnitOptionValue<NighthauntOptimis
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)),
 
-	BrumeSepulcrale(
-			UnitOption.Sort,
-			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
-	CageAAmes(
-			UnitOption.Sort,
-			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
-	CanuleSpectrale(
-			UnitOption.Sort,
-			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
-	DrainDEsprit(
-			UnitOption.Sort,
-			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
-	FauxGlaneuse(
-			UnitOption.Sort,
-			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
-	VoleurDeVie(
-			UnitOption.Sort,
-			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
+	BrumeSepulcrale(UnitOption.Sort, (a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
+	CageAAmes(UnitOption.Sort, (a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
+	CanuleSpectrale(UnitOption.Sort, (a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
+	DrainDEsprit(UnitOption.Sort, (a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
+	FauxGlaneuse(UnitOption.Sort, (a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
+	VoleurDeVie(UnitOption.Sort, (a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
+
+	FaucheLesPeines(UnitOption.Artefact, (a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
+	FilDeLOmbre(UnitOption.Artefact, (a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
+	Inciseur(UnitOption.Artefact, (a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
+	JugementDuBourreau(UnitOption.Artefact, (a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
+	LameDeFeuMaudit(UnitOption.Artefact, (a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
+	LameStridente(UnitOption.Artefact, (a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
+
+	// Composition
+	Dreadwarden(UnitOption.Chef, (a, u) -> u.is(NighthauntUnitModel.ChainraspHorde)),
+	TambourDArythmie(UnitOption.Chef, (a, u) -> u.is(NighthauntUnitModel.GlaivewraithStalkers)),
+	VarclavLeCruel(UnitOption.Chef, (a, u) -> u.is(NighthauntUnitModel.ThornsOfTheBriarQueen)),
 
 	;
 

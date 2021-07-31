@@ -1,0 +1,1 @@
+Choisissez une des armes de mêlée du porteur. Si le  jet de touche non modifié pour une attaque avec cette arme donne 6, cette attaque inflige D3 blessures mortelles et la  séquence d'attaque se termine (n'effectuez pas de jet de blessure ni de sauvegarde). 

@@ -4,12 +4,23 @@ import armybuilder.model.Army;
 import armybuilder.model.dok.DokRule;
 import armybuilder.model.dok.DokUnitModel;
 import armybuilder.model.modifier.IArmyModifier;
+import armybuilder.model.nighthaunt.NighthauntRule;
+import armybuilder.model.nighthaunt.NighthauntUnitModel;
 
 public enum Allegiance implements IArmyOptionValue<Allegiance> {
 	CoS("Order : City of Sigmar", null),
 	DoK(
 			"Order : Daughters of Khaine",
-			new AllegianceModifier(DokUnitModel.values(), DokRule.RitesDeSang, DokRule.FoiFanatique));
+			new AllegianceModifier(DokUnitModel.values(), DokRule.RitesDeSang,
+					DokRule.FoiFanatique)),
+	Nighthaunt(
+			"Mort : Nighthaunt",
+			new AllegianceModifier(NighthauntUnitModel.values(), NighthauntRule.AuraDEffroi,
+					NighthauntRule.ConvocationSpectrale, NighthauntRule.EspritsImperissables,
+					NighthauntRule.IlsViennentDesSousMondes, NighthauntRule.NourrisDeTerreur,
+					NighthauntRule.RestituerLesFigurinesTuees, NighthauntRule.VagueDeTerreur))
+	
+	;
 
 	private String displayName;
 	private IArmyModifier modifier;

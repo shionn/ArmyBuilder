@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 
 import armybuilder.model.Army;
-import armybuilder.model.dok.DokUnitModel;
+import armybuilder.model.unit.IUnitModel;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.option.UnitOption;
 import armybuilder.model.unit.option.UnitOptionType;
@@ -20,8 +20,9 @@ public class ArmyUnitController {
 
 	@GetMapping(path = "/unit/add")
 	public String addUnit(@RequestHeader("unitChoice") String modelName) {
-		// Todo a rendre generique
-		army.add(new Unit(army, DokUnitModel.valueOf(modelName)));
+		IUnitModel model = army.getUnitChoices().stream().filter(u -> modelName.equals(u.name()))
+				.findFirst().get();
+		army.add(new Unit(army, model));
 		return "redirect:/";
 	}
 

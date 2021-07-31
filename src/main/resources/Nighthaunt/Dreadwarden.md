@@ -1,0 +1,1 @@
+Le leader de cette unité est un Dreadwarden. Ajoutez 1 à la caractéristique d’Attaques de son Arme de Malignant. En outre, une Chainrasp Horde a une caractéristique de Bravoure de 10 au lieu de 6 tant qu’elle inclut un Dreadwarden.

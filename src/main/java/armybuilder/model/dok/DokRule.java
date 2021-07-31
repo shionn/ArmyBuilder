@@ -71,7 +71,7 @@ public enum DokRule implements IArmyRule<DokRule> {
 			ArmyRuleType.Aptitude,
 			ArmyRuleType.PhaseDeCharge,
 			ArmyRuleType.TraisUnitee),
-	LaMortVientDuCiel("Aptitude", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	LaMortVientDuCiel("La Mort Vient du Ciel", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	ObjetDAdoration("Objet d'Adoration", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeDeroute),
 	OffrandeSanguinolente(
 			"Offrande Sanguinolente",
@@ -171,7 +171,7 @@ public enum DokRule implements IArmyRule<DokRule> {
 	PuitsDeTenebres(ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 	DanseSymetrique(ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 	Affaiblissement(ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
-	RasoirMental(ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	RasoirMental("Rasoir Mental", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 	SuaireDeDesespoir(ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 	Deperissement("Dépérissement", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 

@@ -1,0 +1,1 @@
+Voleur de Vie a une valeur de lancement de 7.  S'il est lancé avec succès, choisissez une unité  ennemie à 12" ou moins et visible du lanceur.  L'unité choisie subit 03 blessures mortelles. Pour  chaque blessure mortelle subie par l'unité, vous  pouvez guérir 1 blessure allouée au lanceur.  

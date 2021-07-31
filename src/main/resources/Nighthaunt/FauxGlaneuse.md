@@ -1,0 +1,1 @@
+Faux Glaneuse a une valeur de lancement de 4. S'il est lancé avec succès, choisissez une des armes du lanceur. Jusqu'au début de votre prochaine phase des héros, vous pouvez relancer les Jets de touche et de blessure ratés pour les attaques effectuées avec cette arme.

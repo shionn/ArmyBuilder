@@ -1,0 +1,1 @@
+Vous pouvez relancer les jets de touche ratés pour les attaques effectuées avec les Vouges de Chasseurs de cette unité, si cette unité ou l'unité ciblée a effectué un mouvement de charge au même tour.
