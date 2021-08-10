@@ -1,6 +1,6 @@
 package armybuilder.model.unit;
 
 public enum RoleTactique {
-	Leader, Ligne, None, Behemoth, Artillerie, SortsPersistantsEtInvocation,
+	Leader, Ligne, Elite, Behemoth, Artillerie, SortsPersistantsEtInvocation,
 
 }

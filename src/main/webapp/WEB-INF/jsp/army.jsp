@@ -39,8 +39,14 @@
 					</c:forEach>
 				</select>
 				<select name="unitChoice" class="ajax" data-url="<spring:url value="/unit/add"/>" data-update="body>main">
-					<option value="" selected="selected">Troupe</option>
-					<c:forEach items="${army.unitChoices(RoleTactique.Ligne, RoleTactique.None)}" var="f">
+					<option value="" selected="selected">Troupe : Ligne</option>
+					<c:forEach items="${army.unitChoices(RoleTactique.Ligne)}" var="f">
+						<option value="${f}">${f.displayName} ${f.value}</option>
+					</c:forEach>
+				</select>
+				<select name="unitChoice" class="ajax" data-url="<spring:url value="/unit/add"/>" data-update="body>main">
+					<option value="" selected="selected">Troupe : Autres</option>
+					<c:forEach items="${army.unitChoices(RoleTactique.Elite)}" var="f">
 						<option value="${f}">${f.displayName} ${f.value}</option>
 					</c:forEach>
 				</select>

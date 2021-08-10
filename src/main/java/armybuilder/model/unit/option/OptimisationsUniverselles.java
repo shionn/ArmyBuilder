@@ -75,12 +75,12 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 	RenforceesUneFois(
 			"Renforcées 1x",
 			UnitOption.Renforcees,
-			(a, u) -> u.is(RoleTactique.Ligne) || u.is(RoleTactique.None),
+			(a, u) -> u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite),
 			u -> u.setValue(u.getValue() * 2)),
 	RenforceesDeuxFois(
 			"Renforcées 2x",
 			UnitOption.Renforcees,
-			(a, u) -> u.is(RoleTactique.Ligne) || u.is(RoleTactique.None), 
+			(a, u) -> u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite), 
 			u -> u.setValue(u.getValue() * 3)),
 
 	;
