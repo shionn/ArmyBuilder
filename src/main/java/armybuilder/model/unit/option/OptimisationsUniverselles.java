@@ -1,9 +1,11 @@
 package armybuilder.model.unit.option;
 
 import java.util.function.BiFunction;
+import java.util.function.Consumer;
 
 import armybuilder.model.Army;
 import armybuilder.model.unit.KeyWord;
+import armybuilder.model.unit.RoleTactique;
 import armybuilder.model.unit.Unit;
 
 public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsUniverselles> {
@@ -69,19 +71,38 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 			UnitOption.Priere,
 			(a, u) -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique)),
 
-	General("Général", UnitOption.General, (a, u) -> u.getKeyWords().contains(KeyWord.Heros));
+	General("Général", UnitOption.General, (a, u) -> u.getKeyWords().contains(KeyWord.Heros)),
+	RenforceesUneFois(
+			"Renforcées 1x",
+			UnitOption.Renforcees,
+			(a, u) -> u.is(RoleTactique.Ligne) || u.is(RoleTactique.None),
+			u -> u.setValue(u.getValue() * 2)),
+	RenforceesDeuxFois(
+			"Renforcées 2x",
+			UnitOption.Renforcees,
+			(a, u) -> u.is(RoleTactique.Ligne) || u.is(RoleTactique.None), 
+			u -> u.setValue(u.getValue() * 3)),
 
 	;
 
 	private String displayName;
 	private UnitOption option;
 	private BiFunction<Army, Unit, Boolean> available;
+	private Consumer<Unit> modifier;
 
 	OptimisationsUniverselles(String displayName, UnitOption option,
 			BiFunction<Army, Unit, Boolean> available) {
 		this.displayName = displayName;
 		this.option = option;
 		this.available = available;
+	}
+
+	OptimisationsUniverselles(String displayName, UnitOption option,
+			BiFunction<Army, Unit, Boolean> available, Consumer<Unit> modifier) {
+		this.displayName = displayName;
+		this.option = option;
+		this.available = available;
+		this.modifier = modifier;
 	}
 
 	@Override
@@ -101,7 +122,9 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 
 	@Override
 	public void rebuild(Unit unit) {
-
+		if (modifier != null) {
+			modifier.accept(unit);
+		}
 	}
 
 }

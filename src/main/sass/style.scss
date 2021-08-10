@@ -100,6 +100,9 @@ body {
 		@media print {
 			display: none;
 		}
+		span {
+			display: inline-block;
+		}
 	}
 	
 	div.rule {
