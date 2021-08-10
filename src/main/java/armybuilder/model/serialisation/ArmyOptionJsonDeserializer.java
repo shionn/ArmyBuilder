@@ -16,8 +16,7 @@ public class ArmyOptionJsonDeserializer extends StdConverter<String, IArmyOption
 	@Override
 	public IArmyOptionValue<?> convert(String value) {
 		for (Class<? extends Enum<?>> type : Arrays.asList(Allegiance.class, GrandeStrategie.class,
-				PackDeBataille.class,
-				SubAllegiance.class, Triomphes.class)) {
+				PackDeBataille.class, SubAllegiance.class, Triomphes.class)) {
 			for (Enum<?> instance : type.getEnumConstants()) {
 				if (value.equals(instance.name())) {
 					return (IArmyOptionValue<?>) instance;

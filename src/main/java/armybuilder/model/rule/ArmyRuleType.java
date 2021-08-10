@@ -14,14 +14,15 @@ public enum ArmyRuleType {
 	ActionsHeroiques("Actions Heroique"),
 	Triomphes(null),
 	AptitudesDeCommandement("Aptitudes de Commandement"),
+	EndLessSpell(""),
 
 	PhaseDeCharge(null),
 	PhaseDesHeros(null),
 	PhaseDeMouvement(null),
 	PhaseDeTir(null),
 	PhaseDeCombat(null),
-	PhaseDeDeroute(null);
-
+	PhaseDeDeroute(null),
+	;
 	private String displayName;
 
 	private ArmyRuleType(String displayName) {

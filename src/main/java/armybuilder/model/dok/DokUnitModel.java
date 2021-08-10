@@ -292,7 +292,48 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Ordre, KeyWord.DaughtersOfKhaine, KeyWord.KhineraiHarpies,
 					KeyWord.KhineraiHeartrenders),
 			Arrays.asList(),
-			Arrays.asList())
+			Arrays.asList()),
+	
+	BloodwrackViper(
+			"Bloodwrack Viper",
+			95,
+			UnitProfile.None,
+			Arrays.asList(RoleTactique.SortsPersistantsEtInvocation),
+			Arrays.asList(),
+			null,
+			Arrays.asList(GeneriqueUnitRule.Vol, DokRule.BloodWrackViperConv,
+					GeneriqueUnitRule.Predateur_9, DokRule.AttaqueDeCrochets),
+			Arrays.asList(),
+			Arrays.asList(),
+			Arrays.asList(),
+			Arrays.asList()),
+
+	Bladewind(
+			"Bladewind",
+			80,
+			UnitProfile.None,
+			Arrays.asList(RoleTactique.SortsPersistantsEtInvocation),
+			Arrays.asList(),
+			null,
+			Arrays.asList(GeneriqueUnitRule.Vol, DokRule.BladewindConv,
+					GeneriqueUnitRule.Predateur_12, DokRule.TranchantSurnaturel),
+			Arrays.asList(),
+			Arrays.asList(),
+			Arrays.asList(),
+			Arrays.asList()),
+
+	HeartOfFury(
+			"Heart of Fury",
+			55,
+			UnitProfile.None,
+			Arrays.asList(RoleTactique.SortsPersistantsEtInvocation),
+			Arrays.asList(),
+			null,
+			Arrays.asList(DokRule.HeartOfFuryConv, DokRule.PrivilegeDuDieuDuMeurtre),
+			Arrays.asList(),
+			Arrays.asList(),
+			Arrays.asList(),
+			Arrays.asList()),
 
 	;
 

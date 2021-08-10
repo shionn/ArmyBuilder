@@ -1,0 +1,1 @@
+Cette invocation est convoquée grâce à une prière qui a une valeur d’exaucement de 3 et une portée de 12". Si elle est exaucée, placez cette invocation entièrement à portée et visible du prêtre. Seuls les **Prêtres Daughters of Khaine** peuvent tenter de convoquer cette invocation.

@@ -1,0 +1,1 @@
+Ce sort persistant est convoqué grâce à un sort qui a une valeur de lancement de 7 et une portée de 9". S’il est lancé avec succès, placez 1 Bloodwrack Viper entièrement à portée du lanceur. Seuls les **Sorciers Daughters of Khaine** peuvent tenter de convoquer ce sort persistant.

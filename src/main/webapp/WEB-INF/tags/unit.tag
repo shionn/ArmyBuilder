@@ -1,4 +1,5 @@
 <%@ tag pageEncoding="UTF-8"%>
+<%@ tag import="armybuilder.model.unit.RoleTactique" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -10,10 +11,12 @@
 		<span><a href='<spring:url value="/unit/remove/${unit.hashCode()}"/>'>X</a> ${unit.value}</span>
 		${unit.displayName}
 		<span>
-			<i class="fa fa-walking"></i> ${unit.mouvement}&quot; 
-			<i class="fa fa-heart"></i> ${unit.blessures} 
-			<i class="fa fa-flag"></i> ${unit.bravoure} 
-			<i class="fa fa-shield-alt"></i> ${unit.sauvegarde}
+			<c:if test="${not unit.is(RoleTactique.SortsPersistantsEtInvocation)}">
+				<i class="fa fa-walking"></i> ${unit.mouvement}&quot; 
+				<i class="fa fa-heart"></i> ${unit.blessures} 
+				<i class="fa fa-flag"></i> ${unit.bravoure} 
+				<i class="fa fa-shield-alt"></i> ${unit.sauvegarde}
+			</c:if>
 		</span>
 	</header>
 	<main>
@@ -118,10 +121,12 @@
 			<c:forEach items="${unit.rules}" var="rule"><t:rule rule="${rule}" army="${army}" displayUnit="false"/></c:forEach>
 		</div>
 	</main>
-	<footer>
-		<c:forEach items="${unit.keyWords}" var="k">
-			<span>${k.displayName}</span>
-		</c:forEach>
-	</footer>
+	<c:if test="${not empty unit.keyWords}">
+		<footer>
+			<c:forEach items="${unit.keyWords}" var="k">
+				<span>${k.displayName}</span>
+			</c:forEach>
+		</footer>
+	</c:if>
 </article>
 

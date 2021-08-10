@@ -63,7 +63,7 @@
 				<div class="error">${e}</div>
 			</c:forEach>
 		</div>
-		<div style="page-break-after:always">
+		<div style="page-break-inside:avoid">
 			<h1>Profile d'Armée <span>${army.value}</span></h1>
 			<c:if test="${not empty army.getOption('GrandeStrategie')}">
 				<h2>Grande Strategie</h2>
@@ -75,16 +75,18 @@
 					<t:rule rule="${rule}" army="${army}"/>
 				</c:forEach>
 			</c:if>
-			<c:forEach items="${army.units}" var="unit">
-				<div>
-					<a href='<spring:url value="/unit/remove/${unit.hashCode()}"/>'>X</a>
-					${unit.displayName}
-					${unit.value}
-				</div>
-			</c:forEach>
 		</div>
 		<div style="page-break-after:always">
 			<h2>Composition</h2>
+			<div style="padding-bottom: 10px">
+				<c:forEach items="${army.units}" var="unit">
+					<div>
+						<a href='<spring:url value="/unit/remove/${unit.hashCode()}"/>'>X</a>
+						${unit.displayName}
+						${unit.value}
+					</div>
+				</c:forEach>
+			</div>
 			<c:forEach items="${army.units}" var="unit">
 				<t:unit army="${army}" unit="${unit}"/>
 			</c:forEach>

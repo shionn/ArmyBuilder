@@ -184,7 +184,15 @@ public enum DokRule implements IArmyRule<DokRule> {
 	ResurrectionPourpre("Résurrection Pourpre", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	RuneDeKhaine_Priere("Rune de Khaine", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	SacreDeSang("Sacre de Sang",ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
-	SacrificeDuMartyr("Sacrifice du Martyr",ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+	SacrificeDuMartyr("Sacrifice du Martyr", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+
+	// sort persistant et aptitude
+	AttaqueDeCrochets("Attaque de Crochets", ArmyRuleType.Aptitude),
+	BloodWrackViperConv("Convocation", ArmyRuleType.Aptitude),
+	BladewindConv("Convocation", ArmyRuleType.Aptitude),
+	HeartOfFuryConv("Convocation", ArmyRuleType.Aptitude),
+	TranchantSurnaturel("Tranchant Surnaturel", ArmyRuleType.Aptitude),
+	PrivilegeDuDieuDuMeurtre("Privilège du Dieu du Meurtre", ArmyRuleType.Aptitude),
 
 	;
 

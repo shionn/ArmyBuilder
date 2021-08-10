@@ -1,0 +1,1 @@
+Ce sort est un sort persistant prédateur. Il peut se déplacer de jusqu’à 9" et peut voler.

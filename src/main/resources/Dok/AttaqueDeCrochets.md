@@ -1,0 +1,1 @@
+Après que ce sort persistant s’est déplacé, le joueur qui le contrôle doit choisir 1 unité à 1" de lui et jetez 3 dés. Pour chaque jet supérieur ou égal à la caractéristique de Blessures de l’unité choisie, 1 figurine de l’unité est tuée.
