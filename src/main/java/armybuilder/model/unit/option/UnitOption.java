@@ -27,6 +27,7 @@ public enum UnitOption {
 	Musicien("Musicien", UnitOptionType.bool, u -> true),
 	Armes("Armes", UnitOptionType.select, u -> true),
 	Gratuit("Gratuit", UnitOptionType.bool, u -> true),
+	Renfor("Renforcé", UnitOptionType.select, u -> true),
 
 	;
 
