@@ -4,6 +4,7 @@ import java.util.function.BiFunction;
 import java.util.function.Consumer;
 
 import armybuilder.model.Army;
+import armybuilder.model.option.PackDeBataille;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.RoleTactique;
 import armybuilder.model.unit.Unit;
@@ -70,6 +71,17 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 			"Guérison",
 			UnitOption.Priere,
 			(a, u) -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique)),
+
+	VoleeMortelle(
+			"Volée Mortelle",
+			UnitOption.AptitudeDeVeteran,
+			(a, u) -> a.is(PackDeBataille.PourLaGloire) && !u.is(RoleTactique.Leader),
+			u -> u.add(AptitudeDeVeteran.VoleeMortelle)),
+	FormationDefensive(
+			"Formation Défensive",
+			UnitOption.AptitudeDeVeteran,
+			(a, u) -> a.is(PackDeBataille.PourLaGloire) && !u.is(RoleTactique.Leader),
+			u -> u.add(AptitudeDeVeteran.FormationDefensive)),
 
 	General("Général", UnitOption.General, (a, u) -> u.getKeyWords().contains(KeyWord.Heros)),
 	RenforceesUneFois(

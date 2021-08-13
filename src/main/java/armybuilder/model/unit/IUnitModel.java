@@ -41,8 +41,13 @@ public interface IUnitModel {
 		return false;
 	}
 
+	default boolean is(RoleTactique role) {
+		return getRoleTactiques().contains(role);
+	}
+
 	void check(Army army, Unit unit);
 
 	String name();
+
 
 }

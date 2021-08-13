@@ -1,0 +1,1 @@
+Cette unité peut utiliser cette aptitude de vétéran une fois par bataille quand elle est choisie pour tirer à la phase de tir. Ajouter 1 aux jet de blessure pour les attaques effectuées par l'unité choisie jusqu'à la fin de la phase.

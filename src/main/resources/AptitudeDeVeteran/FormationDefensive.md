@@ -1,0 +1,1 @@
+Cette unité peut utiliser cette aptitude de vétéran une fois par bataille quand elle est choisie comme cible d'une attaque à la phaser de combat. Soustrayer 1 aux jet de blessue pour les attaques qui ciblent cette unité jusqu'à la fin de la phase.

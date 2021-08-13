@@ -115,8 +115,13 @@ public class Army {
 		return unitChoices;
 	}
 
-	public List<IUnitModel> unitChoices(RoleTactique... roles) {
-		return unitChoices.stream().filter(u -> u.isOneOf(roles)).collect(Collectors.toList());
+	public List<IUnitModel> unitChoices(RoleTactique role, RoleTactique exclude) {
+		return unitChoices.stream().filter(u -> u.is(role) && !u.is(exclude))
+				.collect(Collectors.toList());
+	}
+
+	public List<IUnitModel> unitChoices(RoleTactique role) {
+		return unitChoices.stream().filter(u -> u.is(role)).collect(Collectors.toList());
 	}
 
 	public void add(Unit unit) {

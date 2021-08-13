@@ -52,7 +52,7 @@
 				</select>
 				<select name="unitChoice" class="ajax" data-url="<spring:url value="/unit/add"/>" data-update="body>main">
 					<option value="" selected="selected">Behemoth</option>
-					<c:forEach items="${army.unitChoices(RoleTactique.Behemoth)}" var="f">
+					<c:forEach items="${army.unitChoices(RoleTactique.Behemoth, RoleTactique.Leader)}" var="f">
 						<option value="${f}">${f.displayName} ${f.value}</option>
 					</c:forEach>
 				</select>
@@ -113,6 +113,7 @@
 			<h1>3 Phase de Tir</h1>
 			<t:rule-group types="${[ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeTir]}"/>
 			<t:rule-group types="${[ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeTir]}"/>
+			<t:rule-group types="${[ArmyRuleType.AptitudeDeVeteran, ArmyRuleType.PhaseDeTir]}"/>
 		</div>
 		<div style="page-break-inside:avoid">
 			<h1>4 Phase de Charge</h1>
@@ -124,6 +125,7 @@
 			<h1>5 Phase de Combat</h1>
 			<t:rule-group types="${[ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCombat]}"/>
 			<t:rule-group types="${[ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeCombat]}"/>
+			<t:rule-group types="${[ArmyRuleType.AptitudeDeVeteran, ArmyRuleType.PhaseDeCombat]}"/>
 		</div>
 		<div style="page-break-inside:avoid">
 			<h1>6 Phase de Deroute</h1>
