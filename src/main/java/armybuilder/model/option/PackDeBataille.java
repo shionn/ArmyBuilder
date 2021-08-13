@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 
 import armybuilder.model.Army;
 import armybuilder.model.check.Checkers;
-import armybuilder.model.rule.GeneriqueRule;
+import armybuilder.model.rule.PackDeBataille2021Rule;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.RoleTactique;
 
@@ -52,8 +52,7 @@ public enum PackDeBataille implements IArmyOptionValue<PackDeBataille> {
 						a.getUnits().stream().filter(u -> u.getValue() > v).findFirst()
 								.ifPresent(u -> a.addError(
 										"Vous ne pouvez pas dépenser plus de la moitier de vos points pour une seule unité."));
-					}
-			),
+					}),
 			Arrays.asList()),
 
 	BataillesRangees2021(
@@ -71,8 +70,10 @@ public enum PackDeBataille implements IArmyOptionValue<PackDeBataille> {
 					Checkers.composition(1001, 2000, 0, 3,
 							RoleTactique.SortsPersistantsEtInvocation)),
 			Arrays.asList(
-					a -> a.units(KeyWord.Sorcier).forEach(u -> u.add(GeneriqueRule.Metamorphose)),
-					a -> a.addRule(GeneriqueRule.RugissementSauvage))),
+					a -> a.units(KeyWord.Sorcier)
+							.forEach(u -> u.add(PackDeBataille2021Rule.Metamorphose)),
+					a -> a.units(KeyWord.Monstre)
+							.forEach(u -> a.addRule(PackDeBataille2021Rule.RugissementSauvage)))),
 
 	PourLaGloire(
 			"Pour la Gloire",
@@ -93,6 +94,7 @@ public enum PackDeBataille implements IArmyOptionValue<PackDeBataille> {
 		this.checks = checks;
 		this.modifiers = modifiers;
 	}
+
 	@Override
 	public String getDisplayName() {
 		return displayName;

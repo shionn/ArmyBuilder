@@ -63,8 +63,7 @@ public class Army {
 		units.stream().forEach(u -> u.clear());
 
 		Arrays.stream(GeneriqueRule.values())
-				.filter(r -> r.getTypes().contains(ArmyRuleType.AptitudesDeCommandement)
-						|| r.getTypes().contains(ArmyRuleType.ActionsHeroiques))
+				.filter(r -> r.isUsable(this))
 				.forEach(rules::add);
 
 		options.values().stream().filter(Objects::nonNull).forEach(o -> o.rebuild(this));
@@ -95,8 +94,16 @@ public class Army {
 
 	public List<IArmyRule<?>> getRules(Collection<ArmyRuleType> types) {
 		return rules.stream().filter(r -> r.getTypes().containsAll(types))
+				// .filter(r -> isUsable(r))
 				.sorted((a, b) -> a.name().compareTo(b.name())).collect(Collectors.toList());
 	}
+
+	// private boolean isUsable(IArmyRule<?> rule) {
+	// if (rule.is(ArmyRuleType.FureursMonstrueuses)) {
+	// return !units(KeyWord.Monstre).isEmpty();
+	// }
+	// return true;
+	// }
 
 	public void addRule(IArmyRule<?> rule) {
 		this.rules.add(rule);

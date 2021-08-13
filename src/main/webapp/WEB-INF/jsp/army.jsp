@@ -120,6 +120,7 @@
 			<t:rule-group types="${[ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCharge]}"/>
 			<t:rule-group types="${[ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeCharge]}"/>
 			<t:rule-group types="${[ArmyRuleType.Artefact, ArmyRuleType.PhaseDeCharge]}"/>
+			<t:rule-group types="${[ArmyRuleType.FureursMonstrueuses]}"/>
 		</div>
 		<div style="page-break-inside:avoid">
 			<h1>5 Phase de Combat</h1>

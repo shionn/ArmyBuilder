@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+import armybuilder.model.Army;
+
 public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 
 	CommandementHeroique("Commandement Héroïque", ArmyRuleType.ActionsHeroiques),
@@ -36,10 +38,6 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 			ArmyRuleType.AptitudesDeCommandement,
 			ArmyRuleType.PhaseDeTir,
 			ArmyRuleType.PhaseDeCombat),
-	RugissementSauvage(
-			"Rugissement Sauvage",
-			ArmyRuleType.AptitudesDeCommandement,
-			ArmyRuleType.PhaseDeCombat),
 
 	PresenceExaltante(
 			"Présence Exaltante",
@@ -48,7 +46,6 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 
 	TraitMagique("Trait Magique", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 	BouclierMystique("Bouclier Mystique", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
-	Metamorphose("Métamorphose", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 
 	Benediction("Bénédiction", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	Chatiment("Châtiment", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
@@ -70,6 +67,14 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 	GeneriqueRule(String displayName, ArmyRuleType... types) {
 		this.displayName = displayName;
 		this.types = Arrays.asList(types);
+	}
+
+	public boolean isUsable(Army army) {
+		boolean usable = true;
+		for (ArmyRuleType type : types) {
+			usable &= type.isUsable(army);
+		}
+		return usable;
 	}
 
 	@Override
@@ -94,5 +99,6 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 	public String toString() {
 		return name() + getTypes();
 	}
+
 
 }
