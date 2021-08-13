@@ -1,0 +1,1 @@
+Choisissez 1 des armes de mêlée du porteur. Une fois par bataille, au début de la phase de combat , vous pouvez déclarer que Je porteur enduit l'arme du Venin de Nagendra. Dans ce cas, choisissez 1 unité ennemie à 1" ou moins du porteur. L'unité choisie subit 06 bless ures mortelles, mais le porteur ne peut pas combattre avec l'arme de mêlée enduite à cette phase de combat. 

@@ -68,6 +68,18 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	DisciplesDevots(
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.HaggNar)),
+	MaitresseDeLIllusion(
+			UnitOption.TraisDeCommandement,
+			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.Khailebron)),
+	MaledictionDeLaMainSanglante(
+			UnitOption.TraisDeCommandement,
+			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.ZaintharKai)),
+	SeBaignerDansLeurSang(
+			UnitOption.TraisDeCommandement,
+			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.Kraith)),
+	VainqueurDuYaithRil(
+			UnitOption.TraisDeCommandement,
+			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.DraichiGaneth)),
 	VolEnCercle(
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.KheltNar)),
@@ -149,12 +161,24 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
 
 	// Artefact de sous allegiance
+	BaiserDeLaMort(
+			UnitOption.Artefact,
+			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.DraichiGaneth) && !u.is(KeyWord.Unique)),
 	LUlfuri(
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.HaggNar) && !u.is(KeyWord.Unique)),
 	LaFaixDeGalisa(
 			UnitOption.Artefact,
 			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.KheltNar) && !u.is(KeyWord.Unique)),
+	Mormurmure(
+			UnitOption.Artefact,
+			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.Khailebron) && !u.is(KeyWord.Unique)),
+	VeninDeNagendra(
+			UnitOption.Artefact,
+			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.Kraith) && !u.is(KeyWord.Unique)),
+	TalismanEcarlate(
+			UnitOption.Artefact,
+			(a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.ZaintharKai) && !u.is(KeyWord.Unique)),
 
 	// Sort
 	DestrierDOmbres(
@@ -263,7 +287,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 			"Gratuit",
 			UnitOption.Gratuit,
 			(a, u) -> u.is(KeyWord.KheltNar) && u.is(KeyWord.KhineraiHarpies),
-			u -> u.setValue(0))
+			u -> u.setValue(0)),
 
 	;
 

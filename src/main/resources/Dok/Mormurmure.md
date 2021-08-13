@@ -1,0 +1,1 @@
+Choisissez 1 des armes de mêlée du porteur. Si le jet Choisissez 1 des armes de mêlée du porteur. Si le jet 6, l'attaque inflige 1 blessure mortelle à la cible en plus de tout autre dégât normal.

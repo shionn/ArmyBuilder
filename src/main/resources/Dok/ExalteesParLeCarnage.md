@@ -1,0 +1,1 @@
+Vous pouvez utiliser cette aptitude de commandement à la phase de combat. Dans ce cas, choisissez 1 unité **Sisters of Slaughter Kraith** amie entièrement à 12" ou moins d'un **Héros Kraith** ami. Ajoutez 1 aux jets de blessure pour les attaques de l'unité à cette phase. Une même unité ne peut pas bénéficier de cette aptitude de Commandement plus d'une fois par phase. 

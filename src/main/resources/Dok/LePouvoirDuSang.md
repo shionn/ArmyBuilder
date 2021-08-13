@@ -1,0 +1,1 @@
+Vous pouvez utiliser cette aptitude de commandement une fois par phase quand vous choisissez une unité amie **Melusai Zainthar Kai** ou **Khinerai Harpies Zainthar Kai** pour combattre et que cette unité est entièrement à 12" ou moins d'un **Héros Zainthar Kai** ami. Dans ce cas, ajoutez 1 à la caractéristique d'Attaques des armes de mêlée de l'unité jusqu'à la fin de la phase

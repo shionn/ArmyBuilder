@@ -1,0 +1,1 @@
+À la fin de la phase de combat, jetez un dé pour chaque unité ennemie à 3" ou moins de ce général. Sur 5+, l'unité subit D3 blessures mortelles. 

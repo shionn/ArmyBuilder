@@ -1,5 +1,6 @@
 package armybuilder.model.unit.option;
 
+import java.util.Arrays;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 
@@ -119,6 +120,9 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 
 	@Override
 	public String getDisplayName() {
+		if (Arrays.asList(UnitOption.AptitudeDeVeteran, UnitOption.Renforcees).contains(option)) {
+			return displayName;
+		}
 		return "Universel : " + displayName;
 	}
 

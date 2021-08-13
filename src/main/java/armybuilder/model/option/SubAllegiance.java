@@ -17,6 +17,15 @@ import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.option.UnitOption;
 
 public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator<SubAllegiance> {
+	DraichiGaneth(
+			"Temple : Draichi Ganeth",
+			Arrays.asList(
+					Modifiers.rules(DokRule.TueusesHerisseesDeLames, DokRule.UnMillierDeStyles)),
+			Tests.isAllegiance(Allegiance.DoK),
+			Arrays.asList(
+					Checkers.unitWithOption(UnitOption.TraisDeCommandement,
+							DokOptimisations.VainqueurDuYaithRil),
+					Checkers.unitWithOption(UnitOption.Artefact, DokOptimisations.BaiserDeLaMort))),
 	HaggNar(
 			"Temple : Hagg Nar",
 			Arrays.asList(
@@ -26,21 +35,6 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 					Checkers.unitWithOption(UnitOption.TraisDeCommandement,
 							DokOptimisations.DisciplesDevots),
 					Checkers.unitWithOption(UnitOption.Artefact, DokOptimisations.LUlfuri))),
-	DraichiGaneth(
-			"Temple : Draichi Ganeth",
-			Arrays.asList(Modifiers.rules(DokRule.TueusesHerisseesDeLames)),
-			Tests.isAllegiance(Allegiance.DoK),
-			Arrays.asList()),
-	Kraith(
-			"Temple : Kraith",
-			Arrays.asList(Modifiers.rules(DokRule.DisciplesDuMassacre)),
-			Tests.isAllegiance(Allegiance.DoK),
-			Arrays.asList()),
-	Khailebron(
-			"Temple : Khailebron",
-			Arrays.asList(Modifiers.rules(DokRule.DissimulationEtDiscretion)),
-			Tests.isAllegiance(Allegiance.DoK),
-			Arrays.asList()),
 	KheltNar(
 			"Temple : Khelt Nar",
 			Arrays.asList(Modifiers.rules(DokRule.FrapperEtSeRetirer, DokRule.SaignerLEsprit)),
@@ -50,11 +44,35 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 							DokOptimisations.VolEnCercle),
 					Checkers.unitWithOption(UnitOption.Artefact, DokOptimisations.LaFaixDeGalisa),
 					Checkers.oneUniteLike(KeyWord.KhineraiHarpies, UnitOption.Gratuit))),
+	Khailebron(
+			"Temple : Khailebron",
+			Arrays.asList(Modifiers.rules(DokRule.DissimulationEtDiscretion,
+					DokRule.MaitressesDesOmbrevoies)),
+			Tests.isAllegiance(Allegiance.DoK),
+			Arrays.asList(
+					Checkers.unitWithOption(UnitOption.TraisDeCommandement,
+							DokOptimisations.MaitresseDeLIllusion),
+					Checkers.unitWithOption(UnitOption.Artefact, DokOptimisations.Mormurmure))),
+	Kraith(
+			"Temple : Kraith",
+			Arrays.asList(
+					Modifiers.rules(DokRule.DisciplesDuMassacre, DokRule.ExalteesParLeCarnage)),
+			Tests.isAllegiance(Allegiance.DoK),
+			Arrays.asList(
+					Checkers.unitWithOption(UnitOption.TraisDeCommandement,
+							DokOptimisations.SeBaignerDansLeurSang),
+					Checkers.unitWithOption(UnitOption.Artefact,
+							DokOptimisations.VeninDeNagendra))),
 	ZaintharKai(
 			"Temple : Zainthar Kai",
-			Arrays.asList(Modifiers.rules(DokRule.LessenceDeKhaine, DokRule.CrypteDesAinee)),
+			Arrays.asList(Modifiers.rules(DokRule.LessenceDeKhaine, DokRule.CrypteDesAinee,
+					DokRule.LePouvoirDuSang)),
 			Tests.isAllegiance(Allegiance.DoK),
-			Arrays.asList());
+			Arrays.asList(
+					Checkers.unitWithOption(UnitOption.TraisDeCommandement,
+							DokOptimisations.MaledictionDeLaMainSanglante),
+					Checkers.unitWithOption(UnitOption.Artefact,
+							DokOptimisations.TalismanEcarlate)));
 
 	private String displayName;
 	private List<IArmyModifier> modifiers;

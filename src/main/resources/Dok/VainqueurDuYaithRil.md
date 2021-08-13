@@ -1,0 +1,1 @@
+Ajoutez 1 à la caractéristique de Bravoure des unités **Draichi Ganeth** amies tant qu'elles sont entièrement à 12" ou moins de ce général. 

@@ -10,16 +10,19 @@ public enum KeyWord {
 	CauldronOfBlood("Cauldron of Blood"),
 	ChainraspHorde("ChainraspHorde"),
 	DaughtersOfKhaine("Daughters of khaine"),
+	DraichiGaneth("Draichi Ganeth"),
 	EpinesDeLaReineDesRonces("Epines de la Reine des Ronces"),
 	GlaivewraithStalkers("Glaivewraith Stalkers"),
 	HagQueen("Hag Queen"),
 	HaggNar("Hagg Nar"),
 	Heros("Héros"),
 	Invocable("Invocable"),
+	Khailebron("Khailebron"),
 	KhainiteShadowstalkers("Khainite Shadowstalkers"),
 	KheltNar("Khelt Nar"),
 	KhineraiHarpies("Khinerai Harpies"),
 	KhineraiHeartrenders("Khinerai Heartrenders"),
+	Kraith("Kraith"),
 	LaBladeCoven("La Blade-Coven"),
 	LaReineDesRonces("La Reine des Ronces"),
 	LaShadowQueen("La Shadow Queen"),
@@ -41,6 +44,7 @@ public enum KeyWord {
 	Totem("Totem"),
 	Unique("Unique"),
 	WitchAelves("Witch Aelves"),
+	ZaintharKai("Zainthar Kai"),
 
 
 	;

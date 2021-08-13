@@ -1,0 +1,1 @@
+À la fin de la phase de combat, si ce général est sur le champ de bataille et qu'une ou plusieurs unités ennemies ont été détruites par les attaques d'unités **Kraith** amies à cette phase, vous recevez 1 point de commandement. 
