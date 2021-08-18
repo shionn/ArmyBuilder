@@ -1,0 +1,1 @@
+Cette unité peut utiliser cette aptitude de vétéran une fois par bataille quand elle est choisie pour combattre à la phase de combat. Ajoutez 1 aux jets de blessure pour les attaques effectuées par l'unitée choisie jusquèà la fin de la phase.

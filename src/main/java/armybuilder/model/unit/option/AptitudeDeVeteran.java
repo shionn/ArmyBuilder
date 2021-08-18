@@ -10,16 +10,21 @@ import armybuilder.model.rule.IArmyRule;
 
 public enum AptitudeDeVeteran implements IArmyRule<AptitudeDeVeteran> {
 
-	VoleeMortelle(
-			"Volée Mortelle",
-			ArmyRuleType.AptitudeDeVeteran,
-			ArmyRuleType.TraisUnitee,
-			ArmyRuleType.PhaseDeTir),
 	FormationDefensive(
 			"Formation Défensive",
 			ArmyRuleType.AptitudeDeVeteran,
 			ArmyRuleType.TraisUnitee,
 			ArmyRuleType.PhaseDeCombat),
+	ManoeuvreDisciplinees(
+			"Manoeuvre Disciplinées",
+			ArmyRuleType.AptitudeDeVeteran,
+			ArmyRuleType.TraisUnitee,
+			ArmyRuleType.PhaseDeCombat),
+	VoleeMortelle(
+			"Volée Mortelle",
+			ArmyRuleType.AptitudeDeVeteran,
+			ArmyRuleType.TraisUnitee,
+			ArmyRuleType.PhaseDeTir),
 
 	;
 

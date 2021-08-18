@@ -10,15 +10,18 @@ import armybuilder.model.rule.IArmyRule;
 
 public enum NighthauntRule implements IArmyRule<NighthauntRule> {
 	AuraDEffroi("Aura d'Effroi", ArmyRuleType.TraisDeBataille),
+	ChevaliersDuRegret("Chevaliers du Regret", ArmyRuleType.TraisDeBataille),
 	ConvocationSpectrale(
 			"Convocation Spectrale",
 			ArmyRuleType.TraisDeBataille,
-			ArmyRuleType.AptitudesDeCommandement),
+			ArmyRuleType.AptitudesDeCommandement,
+			ArmyRuleType.PhaseDeMouvement),
 	EspritsImperissables("Esprits Impérissables", ArmyRuleType.TraisDeBataille),
 	IlsViennentDesSousMondes(
 			"Ils Viennent des Sous-Mondes",
 			ArmyRuleType.TraisDeBataille,
 			ArmyRuleType.PhaseDeMouvement),
+	LaMaledictionEmeraude("La Malédiction Émeraude", ArmyRuleType.TraisDeBataille),
 	NourrisDeTerreur("Nourris de Terreur", ArmyRuleType.TraisDeBataille),
 	RestituerLesFigurinesTuees("RestituerLesFigurinesTuées", ArmyRuleType.TraisDeBataille),
 	VagueDeTerreur("Vague de Terreur", ArmyRuleType.TraisDeBataille, ArmyRuleType.PhaseDeCharge),
@@ -29,6 +32,7 @@ public enum NighthauntRule implements IArmyRule<NighthauntRule> {
 	EspritPersistant("Esprit Persistant", ArmyRuleType.TraitsDeCommandement),
 	HaineDesVivants("Haine des Vivants", ArmyRuleType.TraitsDeCommandement),
 	MaitreDesOstsDEsprits("Maître des Osts d'Esprits", ArmyRuleType.TraitsDeCommandement),
+	SeigneurDeLOst("Seigneur de l'Ost", ArmyRuleType.TraitsDeCommandement),
 
 	BrumeSepulcrale("Brume Sépulcrale", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 	CageAAmes("Cage à Âmes", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
@@ -42,6 +46,7 @@ public enum NighthauntRule implements IArmyRule<NighthauntRule> {
 	FilDeLOmbre("Fil de l'Ombre", ArmyRuleType.Artefact),
 	Inciseur("Inciseur", ArmyRuleType.Artefact),
 	JugementDuBourreau("Jugement du Bourreau", ArmyRuleType.Artefact),
+	LaLameDuChevalierFelon("La Lame du Chevalier Félon", ArmyRuleType.Artefact),
 	LameDeFeuMaudit("Lame de Feu Maudit", ArmyRuleType.Artefact),
 	LameStridente("Lame Stridente", ArmyRuleType.Artefact),
 

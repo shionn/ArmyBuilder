@@ -1,0 +1,3 @@
+Ajoutez 1 à la caractéristique d'Attaques des armes de mêlée des unités de **Hexwraiths OST Émeraude** qui ont fait un mouvement de charge au même tour. 
+
+De plus, jetez un dé avant d'allouer une blessure ou blessure mortelle à votre général s'il  est à 3" ou moins d'une ou plusieurs unités de **Hexwraiths Ost Émeraude** amies. Sur 2+, vous devez allouer la blessure ou blessure mortelle à l'une de ces unités au lieu du général.

@@ -1,0 +1,1 @@
+Une fois par bataille, vous pouvez utiliser l'aptitude de commandement de la charte de ce général sans dépenser un point de commandement (s'il n'a pas d'aptitude de commandement sur sa charte, ce trait de commandement n'a aucun effet).

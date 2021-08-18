@@ -12,6 +12,8 @@ import armybuilder.model.dok.DokOptimisations;
 import armybuilder.model.dok.DokRule;
 import armybuilder.model.modifier.IArmyModifier;
 import armybuilder.model.modifier.Modifiers;
+import armybuilder.model.nighthaunt.NighthauntOptimisation;
+import armybuilder.model.nighthaunt.NighthauntRule;
 import armybuilder.model.test.Tests;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.option.UnitOption;
@@ -63,6 +65,16 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 							DokOptimisations.SeBaignerDansLeurSang),
 					Checkers.unitWithOption(UnitOption.Artefact,
 							DokOptimisations.VeninDeNagendra))),
+	LOstEmeraude(
+			"Processions : l'OST Emeraude",
+			Arrays.asList(Modifiers.rules(NighthauntRule.LaMaledictionEmeraude,
+					NighthauntRule.ChevaliersDuRegret)),
+			Tests.isAllegiance(Allegiance.Nighthaunt),
+			Arrays.asList(
+					Checkers.unitWithOption(UnitOption.TraisDeCommandement,
+							NighthauntOptimisation.SeigneurDeLOst),
+					Checkers.unitWithOption(UnitOption.Artefact,
+							NighthauntOptimisation.LaLameDuChevalierFelon))),
 	ZaintharKai(
 			"Temple : Zainthar Kai",
 			Arrays.asList(Modifiers.rules(DokRule.LessenceDeKhaine, DokRule.CrypteDesAinee,

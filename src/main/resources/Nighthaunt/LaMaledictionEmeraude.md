@@ -1,0 +1,1 @@
+Après le placement des armées mais avant Je début du premier round de bataille, vous pouvez choisir 1 **Héros** ennemi. Jusqu'à la fin de la bataille, soustrayez 1 aux jets de sauvegarde pour les attaques qui ciblent le **Héros** choisi.

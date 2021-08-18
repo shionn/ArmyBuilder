@@ -1,0 +1,1 @@
+Ajoutez 1 à la caractéristique d'Attaques de l'Épée des Heures Volées du porteur. 

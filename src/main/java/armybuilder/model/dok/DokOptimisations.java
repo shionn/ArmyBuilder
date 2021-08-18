@@ -67,22 +67,28 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	// TraisDeCommandement de Sous allegiance
 	DisciplesDevots(
 			UnitOption.TraisDeCommandement,
-			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.HaggNar)),
+			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.HaggNar)
+					&& !u.is(KeyWord.Unique)),
 	MaitresseDeLIllusion(
 			UnitOption.TraisDeCommandement,
-			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.Khailebron)),
+			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.Khailebron)
+					&& !u.is(KeyWord.Unique)),
 	MaledictionDeLaMainSanglante(
 			UnitOption.TraisDeCommandement,
-			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.ZaintharKai)),
+			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.ZaintharKai)
+					&& !u.is(KeyWord.Unique)),
 	SeBaignerDansLeurSang(
 			UnitOption.TraisDeCommandement,
-			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.Kraith)),
+			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.Kraith)
+					&& !u.is(KeyWord.Unique)),
 	VainqueurDuYaithRil(
 			UnitOption.TraisDeCommandement,
-			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.DraichiGaneth)),
+			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.DraichiGaneth)
+					&& !u.is(KeyWord.Unique)),
 	VolEnCercle(
 			UnitOption.TraisDeCommandement,
-			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.KheltNar)),
+			(a, u) -> u.is(UnitOption.General) && a.is(SubAllegiance.KheltNar)
+					&& !u.is(KeyWord.Unique)),
 
 	// Artefact
 	CouronneDeDouleur(

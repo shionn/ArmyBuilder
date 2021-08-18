@@ -73,27 +73,37 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 			UnitOption.Priere,
 			(a, u) -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique)),
 
-	VoleeMortelle(
-			"Volée Mortelle",
-			UnitOption.AptitudeDeVeteran,
-			(a, u) -> a.is(PackDeBataille.PourLaGloire) && !u.is(RoleTactique.Leader),
-			u -> u.add(AptitudeDeVeteran.VoleeMortelle)),
 	FormationDefensive(
 			"Formation Défensive",
 			UnitOption.AptitudeDeVeteran,
-			(a, u) -> a.is(PackDeBataille.PourLaGloire) && !u.is(RoleTactique.Leader),
+			(a, u) -> a.is(PackDeBataille.PourLaGloire) && !u.is(RoleTactique.Leader)
+					&& !u.is(UnitOption.Gratuit),
 			u -> u.add(AptitudeDeVeteran.FormationDefensive)),
+	ManoeuvreDisciplinees(
+			"Manoeuvre Disciplinées",
+			UnitOption.AptitudeDeVeteran,
+			(a, u) -> a.is(PackDeBataille.PourLaGloire) && !u.is(RoleTactique.Leader)
+					&& !u.is(UnitOption.Gratuit),
+			u -> u.add(AptitudeDeVeteran.ManoeuvreDisciplinees)),
+	VoleeMortelle(
+			"Volée Mortelle",
+			UnitOption.AptitudeDeVeteran,
+			(a, u) -> a.is(PackDeBataille.PourLaGloire) && !u.is(RoleTactique.Leader)
+					&& !u.is(UnitOption.Gratuit),
+			u -> u.add(AptitudeDeVeteran.VoleeMortelle)),
 
 	General("Général", UnitOption.General, (a, u) -> u.getKeyWords().contains(KeyWord.Heros)),
 	RenforceesUneFois(
 			"Renforcées 1x",
 			UnitOption.Renforcees,
-			(a, u) -> u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite),
+			(a, u) -> (u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite))
+					&& !u.is(UnitOption.Gratuit),
 			u -> u.setValue(u.getValue() * 2)),
 	RenforceesDeuxFois(
 			"Renforcées 2x",
 			UnitOption.Renforcees,
-			(a, u) -> u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite), 
+			(a, u) -> (u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite))
+					&& !u.is(UnitOption.Gratuit),
 			u -> u.setValue(u.getValue() * 3)),
 
 	;

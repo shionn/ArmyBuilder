@@ -4,6 +4,7 @@ import java.util.function.BiFunction;
 import java.util.function.Consumer;
 
 import armybuilder.model.Army;
+import armybuilder.model.option.SubAllegiance;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.option.IUnitOptionValue;
@@ -29,6 +30,10 @@ public enum NighthauntOptimisation implements IUnitOptionValue<NighthauntOptimis
 	MaitreDesOstsDEsprits(
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)),
+	SeigneurDeLOst(
+			UnitOption.TraisDeCommandement,
+			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
+					&& a.is(SubAllegiance.LOstEmeraude)),
 
 	BrumeSepulcrale(UnitOption.Sort, (a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
 	CageAAmes(UnitOption.Sort, (a, u) -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
@@ -43,6 +48,10 @@ public enum NighthauntOptimisation implements IUnitOptionValue<NighthauntOptimis
 	JugementDuBourreau(UnitOption.Artefact, (a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
 	LameDeFeuMaudit(UnitOption.Artefact, (a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
 	LameStridente(UnitOption.Artefact, (a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
+	LaLameDuChevalierFelon(
+			UnitOption.Artefact,
+			(a, u) -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.KnightOfShrouds)
+					&& a.is(SubAllegiance.LOstEmeraude)),
 
 	// Composition
 	Dreadwarden(UnitOption.Chef, (a, u) -> u.is(NighthauntUnitModel.ChainraspHorde)),

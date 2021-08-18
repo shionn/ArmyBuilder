@@ -122,7 +122,8 @@ public enum DokRule implements IArmyRule<DokRule> {
 	LePouvoirDuSang(
 			"Le Pouvoir du Sang",
 			ArmyRuleType.AptitudesDeCommandement,
-			ArmyRuleType.PhaseDeCombat),
+			ArmyRuleType.PhaseDeCombat,
+			ArmyRuleType.PhaseDeTir),
 	MaitressesDesOmbrevoies(
 			"Maîtresses des Ombrevoies",
 			ArmyRuleType.AptitudesDeCommandement,

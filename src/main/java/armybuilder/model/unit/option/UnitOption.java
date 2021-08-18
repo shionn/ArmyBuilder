@@ -26,7 +26,7 @@ public enum UnitOption {
 	Banniere("Porte-Étendard", UnitOptionType.bool, u -> true),
 	Musicien("Musicien", UnitOptionType.bool, u -> true),
 	Armes("Armes", UnitOptionType.select, u -> true),
-	Gratuit("Gratuit", UnitOptionType.bool, u -> true),
+	Gratuit("Invoquée", UnitOptionType.bool, u -> true),
 	Renforcees("Renforcées", UnitOptionType.select, u -> !u.is(UnitOption.Gratuit)),
 	AptitudeDeVeteran("Aptitude de Vétéran", UnitOptionType.select, u -> true),
 
