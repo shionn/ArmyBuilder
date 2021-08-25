@@ -60,13 +60,14 @@ public class Army {
 	public void rebuild() {
 		rules.clear();
 		errors.clear();
-		units.stream().forEach(u -> u.clear());
+		units.stream().filter(Objects::nonNull).forEach(Unit::clear);
 
 		Arrays.stream(GeneriqueRule.values())
 				.filter(r -> r.isUsable(this))
 				.forEach(rules::add);
 
 		options.values().stream().filter(Objects::nonNull).forEach(o -> o.rebuild(this));
+		rules.forEach(r -> r.rebuild(this));
 		units.stream().forEach(o -> o.rebuild(this));
 
 		Arrays.stream(GenericCheck.values()).forEach(c -> c.verify(this));

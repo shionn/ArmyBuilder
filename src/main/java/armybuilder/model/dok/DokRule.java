@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+import armybuilder.model.Army;
 import armybuilder.model.rule.ArmyRuleType;
 import armybuilder.model.rule.DescriptionReader;
 import armybuilder.model.rule.IArmyRule;
@@ -165,7 +166,7 @@ public enum DokRule implements IArmyRule<DokRule> {
 	SacrificateurSanglant("Sacrificateur Sanglant", ArmyRuleType.TraitsDeCommandement),
 	SeBaignerDansLeurSang("Se Baigner dans leur Sang", ArmyRuleType.TraitsDeCommandement),
 	VeteranDeLaCathtrarDhule("Vétéran de la Cathtrar Dhule", ArmyRuleType.TraitsDeCommandement),
-	VolEnCercle("Vol en Cercle", ArmyRuleType.TraitsDeCommandement),
+	VolEnCercle("Vol en Cercle", ArmyRuleType.TraitsDeCommandement, ArmyRuleType.PhaseDeMouvement),
 	VainqueurDuYaithRil("Vainqueur du Yaith'ril", ArmyRuleType.TraitsDeCommandement),
 	VraiCroyant("Vrai Croyant", ArmyRuleType.TraitsDeCommandement),
 
@@ -220,7 +221,10 @@ public enum DokRule implements IArmyRule<DokRule> {
 	BladewindConv("Convocation", ArmyRuleType.Aptitude),
 	HeartOfFuryConv("Convocation", ArmyRuleType.Aptitude),
 	TranchantSurnaturel("Tranchant Surnaturel", ArmyRuleType.Aptitude),
-	PrivilegeDuDieuDuMeurtre("Privilège du Dieu du Meurtre", ArmyRuleType.Aptitude),
+	PrivilegeDuDieuDuMeurtre(
+			"Privilège du Dieu du Meurtre",
+			ArmyRuleType.Aptitude,
+			ArmyRuleType.PhaseDeCombat),
 
 	;
 
@@ -257,6 +261,11 @@ public enum DokRule implements IArmyRule<DokRule> {
 	@Override
 	public String toString() {
 		return name() + getTypes();
+	}
+
+	@Override
+	public void rebuild(Army army) {
+
 	}
 
 }

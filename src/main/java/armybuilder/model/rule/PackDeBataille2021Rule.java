@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+import armybuilder.model.Army;
+
 public enum PackDeBataille2021Rule implements IArmyRule<PackDeBataille2021Rule> {
 	RugissementSauvage(
 			"Rugissement Sauvage",
@@ -46,6 +48,11 @@ public enum PackDeBataille2021Rule implements IArmyRule<PackDeBataille2021Rule> 
 	@Override
 	public String toString() {
 		return name() + getTypes();
+	}
+
+	@Override
+	public void rebuild(Army army) {
+
 	}
 
 }

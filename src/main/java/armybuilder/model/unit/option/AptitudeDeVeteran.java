@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+import armybuilder.model.Army;
 import armybuilder.model.rule.ArmyRuleType;
 import armybuilder.model.rule.DescriptionReader;
 import armybuilder.model.rule.IArmyRule;
@@ -54,6 +55,11 @@ public enum AptitudeDeVeteran implements IArmyRule<AptitudeDeVeteran> {
 	@Override
 	public String toString() {
 		return name() + getTypes();
+	}
+
+	@Override
+	public void rebuild(Army army) {
+
 	}
 
 }

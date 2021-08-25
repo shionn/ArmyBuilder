@@ -3,6 +3,8 @@ package armybuilder.model.rule;
 import java.io.IOException;
 import java.util.List;
 
+import armybuilder.model.Army;
+
 public interface IArmyRule<T extends Enum<T> & IArmyRule<T>> {
 
 	List<ArmyRuleType> getTypes();
@@ -16,5 +18,7 @@ public interface IArmyRule<T extends Enum<T> & IArmyRule<T>> {
 	default boolean is(ArmyRuleType type) {
 		return getTypes().contains(type);
 	}
+
+	void rebuild(Army army);
 
 }

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+import armybuilder.model.Army;
 import armybuilder.model.rule.ArmyRuleType;
 import armybuilder.model.rule.DescriptionReader;
 import armybuilder.model.rule.IArmyRule;
@@ -94,6 +95,11 @@ public enum NighthauntRule implements IArmyRule<NighthauntRule> {
 	@Override
 	public String toString() {
 		return name() + getTypes();
+	}
+
+	@Override
+	public void rebuild(Army army) {
+
 	}
 
 }

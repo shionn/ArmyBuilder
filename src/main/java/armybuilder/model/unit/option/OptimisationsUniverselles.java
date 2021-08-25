@@ -6,6 +6,7 @@ import java.util.function.Consumer;
 
 import armybuilder.model.Army;
 import armybuilder.model.option.PackDeBataille;
+import armybuilder.model.rule.GeneriqueUnitRule;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.RoleTactique;
 import armybuilder.model.unit.Unit;
@@ -50,28 +51,34 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 	ArmeEnflammee(
 			"Arme Enflammée",
 			UnitOption.Sort,
-			(a, u) -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique)),
-	Levitation(
-			"Lévitation",
-			UnitOption.Sort,
-			(a, u) -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique)),
+			(a, u) -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique),
+			u -> u.add(GeneriqueUnitRule.ArmeEnflammee)),
 	BrumeFantome(
 			"Brume Fantôme",
 			UnitOption.Sort,
-			(a, u) -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique)),
+			(a, u) -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique),
+			u -> u.add(GeneriqueUnitRule.BrumeFantome)),
+	Levitation(
+			"Lévitation",
+			UnitOption.Sort,
+			(a, u) -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique),
+			u -> u.add(GeneriqueUnitRule.Levitation)),
 
 	Supervision(
 			"Supervision",
 			UnitOption.Priere,
-			(a, u) -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique)),
+			(a, u) -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique),
+			u -> u.add(GeneriqueUnitRule.Supervision)),
 	Malediction(
 			"Malédiction",
 			UnitOption.Priere,
-			(a, u) -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique)),
+			(a, u) -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique),
+			u -> u.add(GeneriqueUnitRule.Malediction)),
 	Guerison(
 			"Guérison",
 			UnitOption.Priere,
-			(a, u) -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique)),
+			(a, u) -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique),
+			u -> u.add(GeneriqueUnitRule.Guerison)),
 
 	FormationDefensive(
 			"Formation Défensive",

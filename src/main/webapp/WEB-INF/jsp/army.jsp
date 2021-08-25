@@ -84,9 +84,9 @@
 		</div>
 		<div style="page-break-after:always">
 			<h2>Composition</h2>
-			<div style="padding-bottom: 10px">
+			<div style="padding-bottom: 10px; display: flex; flex-wrap: wrap; justify-content: space-between;">
 				<c:forEach items="${army.units}" var="unit">
-					<div>
+					<div style="width: 33%">
 						<a href='<spring:url value="/unit/remove/${unit.hashCode()}"/>'>X</a>
 						${unit.displayName}
 						${unit.value}
@@ -107,6 +107,7 @@
 		</div>
 		<div style="page-break-inside:avoid">
 			<h1>2 Phase de Mouvement</h1>
+			<t:rule-group types="${[ArmyRuleType.TraitsDeCommandement, ArmyRuleType.PhaseDeMouvement]}"/>
 			<t:rule-group types="${[ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeMouvement]}"/>
 		</div>
 		<div style="page-break-inside:avoid">
