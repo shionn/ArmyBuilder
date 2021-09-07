@@ -4,13 +4,13 @@ import java.util.Arrays;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 
-import armybuilder.model.Army;
-import armybuilder.model.option.PackDeBataille;
-import armybuilder.model.rule.GeneriqueRule;
-import armybuilder.model.rule.GeneriqueUnitRule;
+import armybuilder.model.army.Army;
+import armybuilder.model.army.option.PackDeBataille;
+import armybuilder.model.army.rule.GeneriqueRule;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.RoleTactique;
 import armybuilder.model.unit.Unit;
+import armybuilder.model.unit.rule.GeneriqueUnitRule;
 
 public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsUniverselles> {
 

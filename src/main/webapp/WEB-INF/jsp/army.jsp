@@ -1,5 +1,5 @@
 <%@ page pageEncoding="UTF-8"%>
-<%@ page import="armybuilder.model.rule.ArmyRuleType" %>
+<%@ page import="armybuilder.model.army.rule.ArmyRuleType" %>
 <%@ page import="armybuilder.model.unit.RoleTactique" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>

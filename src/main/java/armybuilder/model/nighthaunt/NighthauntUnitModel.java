@@ -6,19 +6,19 @@ import java.util.function.BiConsumer;
 
 import org.apache.commons.collections.ListUtils;
 
-import armybuilder.model.Army;
-import armybuilder.model.rule.GeneriqueUnitRule;
-import armybuilder.model.rule.IArmyRule;
+import armybuilder.model.army.Army;
+import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.IUnitModel;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.ProfileDegressif;
 import armybuilder.model.unit.RoleTactique;
 import armybuilder.model.unit.Unit;
-import armybuilder.model.unit.UnitCheckers;
 import armybuilder.model.unit.UnitProfile;
+import armybuilder.model.unit.check.UnitCheckers;
 import armybuilder.model.unit.option.IUnitOptionValue;
 import armybuilder.model.unit.option.OptimisationsUniverselles;
 import armybuilder.model.unit.option.UnitOption;
+import armybuilder.model.unit.rule.GeneriqueUnitRule;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 
 public enum NighthauntUnitModel implements IUnitModel {

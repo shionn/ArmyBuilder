@@ -3,7 +3,7 @@ package armybuilder.model;
 import java.util.Arrays;
 import java.util.List;
 
-import armybuilder.model.rule.ArmyRuleType;
+import armybuilder.model.army.rule.ArmyRuleType;
 
 //@Component
 //@RequestScope

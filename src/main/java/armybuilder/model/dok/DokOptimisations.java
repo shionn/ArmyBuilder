@@ -3,8 +3,8 @@ package armybuilder.model.dok;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 
-import armybuilder.model.Army;
-import armybuilder.model.option.SubAllegiance;
+import armybuilder.model.army.Army;
+import armybuilder.model.army.option.SubAllegiance;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.option.IUnitOptionValue;

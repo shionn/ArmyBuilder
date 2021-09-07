@@ -1,6 +1,6 @@
 package armybuilder.model.unit.option;
 
-import armybuilder.model.Army;
+import armybuilder.model.army.Army;
 import armybuilder.model.unit.Unit;
 
 public interface IUnitOptionValue<T extends Enum<T> & IUnitOptionValue<T>> {

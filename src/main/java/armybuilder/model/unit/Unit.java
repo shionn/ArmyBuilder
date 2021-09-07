@@ -14,14 +14,15 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import armybuilder.model.Army;
-import armybuilder.model.rule.IArmyRule;
-import armybuilder.model.serialisation.UnitModelJsonDeserializer;
-import armybuilder.model.serialisation.UnitOptionJsonDeserializer;
+import armybuilder.model.army.Army;
+import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.option.IUnitOptionValue;
 import armybuilder.model.unit.option.UnitOption;
+import armybuilder.model.unit.rule.UnitRuleComparator;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.model.unit.weapon.WeaponType;
+import armybuilder.serialisation.UnitModelJsonDeserializer;
+import armybuilder.serialisation.UnitOptionJsonDeserializer;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE)
 public class Unit implements Comparable<Unit> {

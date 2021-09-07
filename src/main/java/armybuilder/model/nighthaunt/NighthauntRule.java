@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import armybuilder.model.Army;
-import armybuilder.model.rule.ArmyRuleType;
-import armybuilder.model.rule.DescriptionReader;
-import armybuilder.model.rule.IArmyRule;
+import armybuilder.model.army.Army;
+import armybuilder.model.army.rule.ArmyRuleType;
+import armybuilder.model.army.rule.IArmyRule;
+import armybuilder.serialisation.DescriptionReader;
 
 public enum NighthauntRule implements IArmyRule<NighthauntRule> {
 	AuraDEffroi("Aura d'Effroi", ArmyRuleType.TraisDeBataille),
