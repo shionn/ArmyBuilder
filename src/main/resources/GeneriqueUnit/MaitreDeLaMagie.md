@@ -1,0 +1,1 @@
+Une fois par phase des héros, vous pouvez relancer 1 jet de lancement, de conjuration ou de dissipation pour ce général.

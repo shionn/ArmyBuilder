@@ -1,0 +1,1 @@
+Au début de votre phase de tir, choisissez une unité ennemie à 10" ou moins de cette figurine et jetez 2D6. Si le total est supérieur à la caractéristique de Bravoure de l'unité, elle subit autant de blessures mortelles que la différence. 

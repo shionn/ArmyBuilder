@@ -46,7 +46,7 @@ public enum DokUnitWeapon implements IUnitWeapon {
 			"1",
 			"2+",
 			"2+",
-			"-3",
+			"-2",
 			"D6"),
 	Scianlar("Scianlar", WeaponType.Melee, "1", "2", "3+", "4+", "-", "1"),
 	TorrentdeSangBrulant(

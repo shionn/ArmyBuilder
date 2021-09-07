@@ -128,7 +128,7 @@ public enum DokRule implements IArmyRule<DokRule> {
 	MaitressesDesOmbrevoies(
 			"Maîtresses des Ombrevoies",
 			ArmyRuleType.AptitudesDeCommandement,
-			ArmyRuleType.PhaseDeCombat),
+			ArmyRuleType.PhaseDeMouvement),
 	OrgieDeMassacre(
 			"Orgie de Massacre",
 			ArmyRuleType.AptitudesDeCommandement,

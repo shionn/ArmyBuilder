@@ -1,0 +1,1 @@
+Choisissez 1 des armes de mêlée du porteur. Ajoutez 1 aux jets de blessure pour les attaques effectuées avec l’arme choisie.

@@ -24,7 +24,7 @@ public enum NighthauntRule implements IArmyRule<NighthauntRule> {
 			ArmyRuleType.PhaseDeMouvement),
 	LaMaledictionEmeraude("La Malédiction Émeraude", ArmyRuleType.TraisDeBataille),
 	NourrisDeTerreur("Nourris de Terreur", ArmyRuleType.TraisDeBataille),
-	RestituerLesFigurinesTuees("RestituerLesFigurinesTuées", ArmyRuleType.TraisDeBataille),
+	RestituerLesFigurinesTuees("Restituer Les Figurines Tuées", ArmyRuleType.TraisDeBataille),
 	VagueDeTerreur("Vague de Terreur", ArmyRuleType.TraisDeBataille, ArmyRuleType.PhaseDeCharge),
 
 	DrapeDOmbre("Drapé d'Ombre", ArmyRuleType.TraitsDeCommandement),
@@ -52,6 +52,11 @@ public enum NighthauntRule implements IArmyRule<NighthauntRule> {
 	LameStridente("Lame Stridente", ArmyRuleType.Artefact),
 
 	ChainesEtrangleuses("Chaînes Étrangleuses", ArmyRuleType.Aptitude),
+	CriFunebre(
+			"Cri Funèbre",
+			ArmyRuleType.Aptitude,
+			ArmyRuleType.PhaseDeTir,
+			ArmyRuleType.TraisUnitee),
 	Etheres("Éthérés", ArmyRuleType.Aptitude),
 	HordeEffroyable("Horde Effroyable", ArmyRuleType.Aptitude),
 	LaPointeDeLaMort("La Pointe de la Mort", ArmyRuleType.Aptitude),
@@ -60,6 +65,7 @@ public enum NighthauntRule implements IArmyRule<NighthauntRule> {
 			ArmyRuleType.Aptitude,
 			ArmyRuleType.PhaseDesHeros,
 			ArmyRuleType.TraisUnitee),
+	ToucherFuneste("Toucher Funeste", ArmyRuleType.Aptitude),
 
 	// Composition
 	Dreadwarden("Dreadwarden", ArmyRuleType.Composition),
@@ -74,7 +80,6 @@ public enum NighthauntRule implements IArmyRule<NighthauntRule> {
 	private NighthauntRule(String displayName, ArmyRuleType... types) {
 		this.displayName = displayName;
 		this.types = Arrays.asList(types);
-
 	}
 
 	@Override

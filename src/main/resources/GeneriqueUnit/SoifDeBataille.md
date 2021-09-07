@@ -1,0 +1,1 @@
+Vous pouvez relancer les jets de charge et de course pour ce général.

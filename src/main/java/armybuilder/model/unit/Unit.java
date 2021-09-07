@@ -119,6 +119,12 @@ public class Unit implements Comparable<Unit> {
 		roleTatciques.add(role);
 	}
 
+	public void replaceIfExist(IArmyRule<?> rule1, IArmyRule<?> rule2) {
+		if (rules.remove(rule1)) {
+			add(rule2);
+		}
+	}
+
 	public Set<IArmyRule<?>> getRules() {
 		return rules;
 	}
@@ -195,5 +201,6 @@ public class Unit implements Comparable<Unit> {
 	public void setArmy(Army army) {
 		this.army = army;
 	}
+
 
 }

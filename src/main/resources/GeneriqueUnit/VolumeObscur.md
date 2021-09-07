@@ -1,0 +1,1 @@
+Le porteur devient un **Sorcier** qui connaît les sorts Trait Magique et Bouclier Mystique. Il peut tenter de lancer 1 sort à votre phase des héros et de dissiper 1 sort à la phase des héros adverse. Si le porteur est déjà un **Sorcier**, il peut tenter de lancer 1 sort supplémentaire à la place.

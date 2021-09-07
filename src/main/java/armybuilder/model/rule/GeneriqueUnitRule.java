@@ -12,7 +12,9 @@ public enum GeneriqueUnitRule implements IArmyRule<GeneriqueUnitRule> {
 	Predateur_12("Prédateur", ArmyRuleType.Aptitude),
 	
 	Sorcier_1_1("Magie", ArmyRuleType.Aptitude),
+	Sorcier_2_1("Magie", ArmyRuleType.Aptitude),
 	Sorcier_1_2("Magie", ArmyRuleType.Aptitude),
+	Sorcier_2_2("Magie", ArmyRuleType.Aptitude),
 	Sorcier_3_2_1("Magie", ArmyRuleType.Aptitude),
 	
 	Vol(ArmyRuleType.Aptitude), 
@@ -24,6 +26,17 @@ public enum GeneriqueUnitRule implements IArmyRule<GeneriqueUnitRule> {
 	Guerison("Guérison", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	Malediction("Malédiction", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	Supervision("Supervision", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+
+	AmuletteDeLaDestinee("Amulette de la Destinée", ArmyRuleType.Artefact),
+	VolumeObscur("Volume Obscur", ArmyRuleType.Artefact),
+	FioleDeVeninDeManticore("Fiole de Venin de Manticore", ArmyRuleType.Artefact),
+	GraineDeRenaissance("Graine de Renaissance", ArmyRuleType.Artefact),
+
+	GrandPretre("Grand Prêtre", ArmyRuleType.TraitsDeCommandement),
+	LeaderCompétent("Leader Compétent", ArmyRuleType.TraitsDeCommandement),
+	MaitreDeLaMagie("Maître de la Magie", ArmyRuleType.TraitsDeCommandement),
+	SoifDeBataille("Soif de Bataille", ArmyRuleType.TraitsDeCommandement),
+	StatureHeroïque("Stature Héroïque", ArmyRuleType.TraitsDeCommandement),
 
 	;
 

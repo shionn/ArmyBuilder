@@ -1,0 +1,1 @@
+Ajoutez 1 à la caractéristique de Blessures de ce général.

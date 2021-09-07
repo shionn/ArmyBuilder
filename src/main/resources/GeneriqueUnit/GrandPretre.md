@@ -1,0 +1,1 @@
+Vous pouvez relancer les jets de récitation pour ce général.

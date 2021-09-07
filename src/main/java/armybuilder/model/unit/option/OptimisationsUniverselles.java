@@ -6,6 +6,7 @@ import java.util.function.Consumer;
 
 import armybuilder.model.Army;
 import armybuilder.model.option.PackDeBataille;
+import armybuilder.model.rule.GeneriqueRule;
 import armybuilder.model.rule.GeneriqueUnitRule;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.RoleTactique;
@@ -16,37 +17,57 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 	SoifDeBataille(
 			"Soif de Bataille",
 			UnitOption.TraisDeCommandement,
-			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)),
+			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique),
+			u -> u.add(GeneriqueUnitRule.SoifDeBataille)),
 	LeaderCompétent(
 			"Leader Compétent",
 			UnitOption.TraisDeCommandement,
-			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)),
+			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique),
+			u -> u.add(GeneriqueUnitRule.LeaderCompétent)),
 	GrandPretre(
 			"Grand Prêtre",
 			UnitOption.TraisDeCommandement,
-			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Pretre)),
+			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Pretre),
+			u -> u.add(GeneriqueUnitRule.GrandPretre)),
 	StatureHeroïque(
 			"Stature Héroïque",
 			UnitOption.TraisDeCommandement,
-			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)),
+			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique),
+			u -> u.add(GeneriqueUnitRule.StatureHeroïque)),
 	MaitreDeLaMagie(
 			"Maître de la Magie",
 			UnitOption.TraisDeCommandement,
-			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier)),
+			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier),
+			u -> u.add(GeneriqueUnitRule.MaitreDeLaMagie)),
 
 	AmuletteDeLaDestinee(
 			"Amulette de la Destinée",
 			UnitOption.Artefact,
-			(a, u) -> !u.is(KeyWord.Unique)),
-	VolumeObscur("Volume Obscur", UnitOption.Artefact, (a, u) -> !u.is(KeyWord.Unique)),
+			(a, u) -> !u.is(KeyWord.Unique),
+			u -> u.add(GeneriqueUnitRule.AmuletteDeLaDestinee)),
+	VolumeObscur(
+			"Volume Obscur",
+			UnitOption.Artefact,
+			(a, u) -> !u.is(KeyWord.Unique),
+			u -> {
+				u.add(GeneriqueUnitRule.VolumeObscur);
+				if (!u.is(KeyWord.Sorcier)) {
+					u.add(KeyWord.Sorcier);
+					u.add(GeneriqueUnitRule.Sorcier_1_1);
+					u.add(GeneriqueRule.TraitMagique);
+					u.add(GeneriqueRule.BouclierMystique);
+				}
+			}),
 	FioleDeVeninDeManticore(
 			"Fiole de Venin de Manticore",
 			UnitOption.Artefact,
-			(a, u) -> !u.is(KeyWord.Unique)),
+			(a, u) -> !u.is(KeyWord.Unique),
+			u -> u.add(GeneriqueUnitRule.FioleDeVeninDeManticore)),
 	GraineDeRenaissance(
 			"Graine de Renaissance",
 			UnitOption.Artefact,
-			(a, u) -> !u.is(KeyWord.Unique)),
+			(a, u) -> !u.is(KeyWord.Unique),
+			u -> u.add(GeneriqueUnitRule.GraineDeRenaissance)),
 
 	ArmeEnflammee(
 			"Arme Enflammée",

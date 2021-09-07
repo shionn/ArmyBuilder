@@ -1,1 +1,1 @@
-Elle peut tenter de lancer un sort à votre phase des héros, et tenter de dissiper un sort à la phase des héros adverse.
+Cette figurine est un **Sorcier**. Elle peut tenter de lancer 1 sort à votre phase des héros, et tenter de dissiper 1 sort à la phase des héros adverse.

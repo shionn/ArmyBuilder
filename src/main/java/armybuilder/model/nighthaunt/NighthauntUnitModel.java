@@ -23,22 +23,6 @@ import armybuilder.model.unit.weapon.IUnitWeapon;
 
 public enum NighthauntUnitModel implements IUnitModel {
 
-	TheBriarQueen(
-			"The Briar Queen",
-			175,
-			UnitProfile._6_5_10_4,
-			Arrays.asList(RoleTactique.Leader),
-			Arrays.asList(NighthauntUnitWeapon.CriDechirant, NighthauntUnitWeapon.FouetDeRonces),
-			null,
-			Arrays.asList(GeneriqueUnitRule.Vol, NighthauntRule.Etheres,
-					GeneriqueUnitRule.Sorcier_1_1, NighthauntRule.VortexHurlant),
-			Arrays.asList(UnitOption.General, UnitOption.Sort),
-			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Heros,
-					KeyWord.Unique, KeyWord.MirrorghastBanshee, KeyWord.LaReineDesRonces,
-					KeyWord.Sorcier),
-			Arrays.asList(),
-			Arrays.asList(UnitCheckers.mustBeTakeWith(KeyWord.EpinesDeLaReineDesRonces))),
-
 	ChainraspHorde(
 			"Chainrasp Horde",
 			95,
@@ -51,35 +35,6 @@ public enum NighthauntUnitModel implements IUnitModel {
 			Arrays.asList(UnitOption.Chef),
 			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Invocable,
 					KeyWord.ChainraspHorde),
-			Arrays.asList(),
-			Arrays.asList()),
-
-	ThornsOfTheBriarQueen(
-			"Thorns of the Briar Queen",
-			0,
-			UnitProfile._6_1_6_5,
-			Arrays.asList(RoleTactique.Elite),
-			Arrays.asList(NighthauntUnitWeapon.ArmeDeMalignant),
-			null,
-			Arrays.asList(GeneriqueUnitRule.Vol, NighthauntRule.Etheres,
-					NighthauntRule.ChainesEtrangleuses),
-			Arrays.asList(UnitOption.Chef),
-			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt,
-					KeyWord.ChainraspHorde, KeyWord.EpinesDeLaReineDesRonces),
-			Arrays.asList(),
-			Arrays.asList(UnitCheckers.mustBeTakeWith(KeyWord.LaReineDesRonces))),
-
-	MyrmournBanshees(
-			"Myrmourn Banshees",
-			75,
-			UnitProfile._8_1_10_4,
-			Arrays.asList(RoleTactique.Elite),
-			Arrays.asList(NighthauntUnitWeapon.DagueDeGivre),
-			null,
-			Arrays.asList(GeneriqueUnitRule.Vol, NighthauntRule.Etheres, NighthauntRule.MangeSorts),
-			Arrays.asList(),
-			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Invocable,
-					KeyWord.MyrmournBanshees),
 			Arrays.asList(),
 			Arrays.asList()),
 
@@ -96,7 +51,66 @@ public enum NighthauntUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Invocable,
 					KeyWord.GlaivewraithStalkers),
 			Arrays.asList(),
-			Arrays.asList())
+			Arrays.asList()),
+
+	MyrmournBanshees(
+			"Myrmourn Banshees",
+			75,
+			UnitProfile._8_1_10_4,
+			Arrays.asList(RoleTactique.Elite),
+			Arrays.asList(NighthauntUnitWeapon.DagueDeGivre),
+			null,
+			Arrays.asList(GeneriqueUnitRule.Vol, NighthauntRule.Etheres, NighthauntRule.MangeSorts),
+			Arrays.asList(),
+			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Invocable,
+					KeyWord.MyrmournBanshees),
+			Arrays.asList(),
+			Arrays.asList()),
+	ThornsOfTheBriarQueen(
+			"Thorns of the Briar Queen",
+			0,
+			UnitProfile._6_1_6_5,
+			Arrays.asList(RoleTactique.Elite),
+			Arrays.asList(NighthauntUnitWeapon.ArmeDeMalignant),
+			null,
+			Arrays.asList(GeneriqueUnitRule.Vol, NighthauntRule.Etheres,
+					NighthauntRule.ChainesEtrangleuses),
+			Arrays.asList(UnitOption.Chef),
+			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt,
+					KeyWord.ChainraspHorde, KeyWord.EpinesDeLaReineDesRonces),
+			Arrays.asList(),
+			Arrays.asList(UnitCheckers.mustBeTakeWith(KeyWord.LaReineDesRonces))),
+
+	TheBriarQueen(
+			"The Briar Queen",
+			175,
+			UnitProfile._6_5_10_4,
+			Arrays.asList(RoleTactique.Leader),
+			Arrays.asList(NighthauntUnitWeapon.CriDechirant, NighthauntUnitWeapon.FouetDeRonces),
+			null,
+			Arrays.asList(GeneriqueUnitRule.Vol, NighthauntRule.Etheres,
+					GeneriqueUnitRule.Sorcier_1_1, NighthauntRule.VortexHurlant),
+			Arrays.asList(UnitOption.General, UnitOption.Sort),
+			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Heros,
+					KeyWord.Unique, KeyWord.MirrorghastBanshee, KeyWord.LaReineDesRonces,
+					KeyWord.Sorcier),
+			Arrays.asList(),
+			Arrays.asList(UnitCheckers.mustBeTakeWith(KeyWord.EpinesDeLaReineDesRonces))),
+
+	TombBanshee(
+			"Tomb Banshee",
+			80,
+			UnitProfile._6_1_10_4,
+			Arrays.asList(RoleTactique.Leader),
+			Arrays.asList(NighthauntUnitWeapon.DagueDeGivre),
+			null,
+			Arrays.asList(GeneriqueUnitRule.Vol, NighthauntRule.Etheres,
+					NighthauntRule.ToucherFuneste, NighthauntRule.CriFunebre),
+			Arrays.asList(UnitOption.General, UnitOption.TraisDeCommandement, UnitOption.Artefact),
+			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Heros,
+					KeyWord.TombBanshee),
+			Arrays.asList(),
+			Arrays.asList()),
 
 	;
 

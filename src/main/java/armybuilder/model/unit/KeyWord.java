@@ -43,6 +43,7 @@ public enum KeyWord {
 	SisterOfSlaughter("Sisters of Slaughter"),
 	SlaughterQueen("Slaughter Queen"),
 	Sorcier("Sorcier"),
+	TombBanshee("Tomb Banshee"),
 	Totem("Totem"),
 	Unique("Unique"),
 	WitchAelves("Witch Aelves"),

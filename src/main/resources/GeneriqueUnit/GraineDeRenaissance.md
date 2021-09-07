@@ -1,0 +1,1 @@
+Vous pouvez relancer les jets de guérison héroïque pour le porteur.
