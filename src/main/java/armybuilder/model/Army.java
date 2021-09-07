@@ -51,6 +51,7 @@ public class Army {
 	private Set<IUnitModel> unitChoices = new TreeSet<>((a, b) -> {
 		return a.getDisplayName().compareTo(b.getDisplayName());
 	});
+	private Set<Integer> subLists = new TreeSet<Integer>();
 
 	public void reset() {
 		this.options.clear();
@@ -99,13 +100,6 @@ public class Army {
 				.sorted((a, b) -> a.name().compareTo(b.name())).collect(Collectors.toList());
 	}
 
-	// private boolean isUsable(IArmyRule<?> rule) {
-	// if (rule.is(ArmyRuleType.FureursMonstrueuses)) {
-	// return !units(KeyWord.Monstre).isEmpty();
-	// }
-	// return true;
-	// }
-
 	public void addRule(IArmyRule<?> rule) {
 		this.rules.add(rule);
 	}
@@ -144,10 +138,13 @@ public class Army {
 		return units.stream().sorted().collect(Collectors.toList());
 	}
 
+	public List<Unit> getSubUnits(int id) {
+		return units.stream().filter(u -> u.isInSubList(id)).sorted().collect(Collectors.toList());
+	}
+
 	public void addError(String string) {
 		this.errors.add(string);
 	}
-
 
 	public List<String> getErrors() {
 		return errors;
@@ -192,5 +189,21 @@ public class Army {
 				.orElse(0);
 	}
 
+	public int getSubValue(int sub) {
+		return units.stream().filter(u -> u.isInSubList(sub)).map(u -> u.getValue())
+				.collect(Collectors.reducing((a, b) -> a + b)).orElse(0);
+	}
+
+	public void addSubList(Integer sub) {
+		this.subLists.add(sub);
+	}
+
+	public void removeSubList(Integer sub) {
+		this.subLists.remove(sub);
+	}
+
+	public Set<Integer> getSubLists() {
+		return subLists;
+	}
 
 }

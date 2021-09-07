@@ -105,6 +105,29 @@
 				</c:forEach>
 			</div>
 		</c:forEach>
+		<div style="page-break-inside:avoid">
+			<h1>Sub list <a href='<spring:url value="/sublist/add"/>'>+</a></h1>
+			<c:forEach items="${army.subLists}" var="sub">
+				<div>
+					<span style="padding-right: 20px;">
+						<a href='<spring:url value="/sublist/remove/${sub}"/>'>X</a> 
+						${army.getSubValue(sub)} : 
+					</span>
+					<c:forEach items="${army.getSubUnits(sub)}" var="u">
+						<span style="padding-right: 20px;">${u.displayName} 
+							<a href='<spring:url value="/sublist/remove/${sub}/${u.hashCode()}"/>'>X</a>
+						</span>
+					</c:forEach>
+					<select name="unitHash" class="ajax" data-update="body>main"
+							data-url="<spring:url value="/sublist/add/${sub}"/>">
+						<option value="" selected="selected">Ajouter</option>
+						<c:forEach items="${army.units}" var="f">
+							<option value="${f.hashCode()}">${f.displayName} ${f.value}</option>
+						</c:forEach>
+					</select>
+				</div>
+			</c:forEach>
+		</div>
 	</jsp:attribute>
 	<jsp:attribute name="scripts">
 		<script type="text/javascript" src='<spring:url value="/js/army.js"/>'></script>

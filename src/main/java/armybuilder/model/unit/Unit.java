@@ -1,5 +1,6 @@
 package armybuilder.model.unit;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +30,8 @@ public class Unit implements Comparable<Unit> {
 	private IUnitModel model;
 	@JsonDeserialize(contentConverter = UnitOptionJsonDeserializer.class)
 	private Map<UnitOption, IUnitOptionValue<?>> options = new HashMap<UnitOption, IUnitOptionValue<?>>();
+
+	private List<Integer> subLists = new ArrayList<Integer>();
 
 	@JsonIgnore
 	private Set<IUnitWeapon> weapons = new TreeSet<>();
@@ -202,5 +205,16 @@ public class Unit implements Comparable<Unit> {
 		this.army = army;
 	}
 
+	public void addSubList(int sub) {
+		this.subLists.add(sub);
+	}
+
+	public void removeSubList(Integer sub) {
+		this.subLists.remove(sub);
+	}
+
+	public boolean isInSubList(int id) {
+		return subLists.contains(id);
+	}
 
 }
