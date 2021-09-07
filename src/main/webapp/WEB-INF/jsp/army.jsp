@@ -97,43 +97,14 @@
 				<t:unit army="${army}" unit="${unit}"/>
 			</c:forEach>
 		</div>
-		<div style="page-break-inside:avoid">
-			<h1>1 Phase des Héros</h1>
-			<t:rule-group types="${[ArmyRuleType.Aptitude, ArmyRuleType.PhaseDesHeros]}"/>
-			<t:rule-group types="${[ArmyRuleType.ActionsHeroiques]}"/>
-			<t:rule-group types="${[ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDesHeros]}"/>
-			<t:rule-group types="${[ArmyRuleType.Sort]}"/>
-			<t:rule-group types="${[ArmyRuleType.Priere]}"/>
-		</div>
-		<div style="page-break-inside:avoid">
-			<h1>2 Phase de Mouvement</h1>
-			<t:rule-group types="${[ArmyRuleType.TraitsDeCommandement, ArmyRuleType.PhaseDeMouvement]}"/>
-			<t:rule-group types="${[ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeMouvement]}"/>
-		</div>
-		<div style="page-break-inside:avoid">
-			<h1>3 Phase de Tir</h1>
-			<t:rule-group types="${[ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeTir]}"/>
-			<t:rule-group types="${[ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeTir]}"/>
-			<t:rule-group types="${[ArmyRuleType.AptitudeDeVeteran, ArmyRuleType.PhaseDeTir]}"/>
-		</div>
-		<div style="page-break-inside:avoid">
-			<h1>4 Phase de Charge</h1>
-			<t:rule-group types="${[ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCharge]}"/>
-			<t:rule-group types="${[ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeCharge]}"/>
-			<t:rule-group types="${[ArmyRuleType.Artefact, ArmyRuleType.PhaseDeCharge]}"/>
-			<t:rule-group types="${[ArmyRuleType.FureursMonstrueuses]}"/>
-		</div>
-		<div style="page-break-inside:avoid">
-			<h1>5 Phase de Combat</h1>
-			<t:rule-group types="${[ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCombat]}"/>
-			<t:rule-group types="${[ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeCombat]}"/>
-			<t:rule-group types="${[ArmyRuleType.AptitudeDeVeteran, ArmyRuleType.PhaseDeCombat]}"/>
-		</div>
-		<div style="page-break-inside:avoid">
-			<h1>6 Phase de Deroute</h1>
-			<t:rule-group types="${[ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCharge]}"/>
-			<t:rule-group types="${[ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeDeroute]}"/>
-		</div>
+		<c:forEach items="${turn.phases}" var="p">
+			<div style="page-break-inside:avoid">
+				<h1>${p.name}</h1>
+				<c:forEach items="${p.steps}" var="s">
+					<t:rule-group types="${s}"/>
+				</c:forEach>
+			</div>
+		</c:forEach>
 	</jsp:attribute>
 	<jsp:attribute name="scripts">
 		<script type="text/javascript" src='<spring:url value="/js/army.js"/>'></script>

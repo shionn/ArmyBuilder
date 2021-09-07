@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import armybuilder.model.Army;
+import armybuilder.model.Turn;
 import armybuilder.model.option.Allegiance;
 import armybuilder.model.option.ArmyOption;
 import armybuilder.model.option.SubAllegiance;
@@ -27,7 +28,7 @@ public class Home {
 						.stream(SubAllegiance.values()).filter(s -> s.isOptionDisplayed(army))
 						.sorted()
 						.collect(Collectors.toList()))
-				.addObject("army", army);
+				.addObject("army", army).addObject("turn", new Turn());
 	}
 
 }
