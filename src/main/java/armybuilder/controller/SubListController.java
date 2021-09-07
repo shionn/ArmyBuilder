@@ -1,4 +1,4 @@
-package armybuilder.model.army;
+package armybuilder.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 
+import armybuilder.model.army.Army;
 import armybuilder.model.unit.Unit;
 
 @Controller
@@ -16,7 +17,7 @@ public class SubListController {
 
 	@GetMapping(path = "/sublist/add")
 	public String add() {
-		int id = ((int) army.getSubLists().stream().reduce(0, (a, b) -> Integer.max(a, b))) + 1;
+		int id = (army.getSubLists().stream().reduce(0, (a, b) -> Integer.max(a, b))) + 1;
 		army.addSubList(id);
 		return "redirect:/";
 	}

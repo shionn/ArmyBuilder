@@ -2,8 +2,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ attribute name="rule" type="armybuilder.model.rule.IArmyRule"%>
-<%@ attribute name="army" type="armybuilder.model.Army"%>
+<%@ attribute name="rule" type="armybuilder.model.army.rule.IArmyRule"%>
+<%@ attribute name="army" type="armybuilder.model.army.Army"%>
 <%@ attribute name="displayUnit" type="java.lang.Boolean" required="false"%>
 <c:if test="${empty displayUnit}">
 	<c:set var="displayUnit" value="true"/>

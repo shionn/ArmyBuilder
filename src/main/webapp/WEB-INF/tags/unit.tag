@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ attribute name="unit" type="armybuilder.model.unit.Unit"%>
-<%@ attribute name="army" type="armybuilder.model.Army"%>
+<%@ attribute name="army" type="armybuilder.model.army.Army"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="t"%>
 <article class="unit" style="page-break-inside:avoid;">
 	<header>
