@@ -114,8 +114,8 @@
 						${army.getSubValue(sub)} : 
 					</span>
 					<c:forEach items="${army.getSubUnits(sub)}" var="u">
-						<span style="padding-right: 20px;">${u.displayName} 
-							<a href='<spring:url value="/sublist/remove/${sub}/${u.hashCode()}"/>'>X</a>
+						<span style="padding-right: 20px;">${u.displayName} <small>${u.value}
+							<a href='<spring:url value="/sublist/remove/${sub}/${u.hashCode()}"/>'>X</a></small>
 						</span>
 					</c:forEach>
 					<select name="unitHash" class="ajax" data-update="body>main"

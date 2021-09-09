@@ -202,8 +202,9 @@ public class Army {
 		this.subLists.remove(sub);
 	}
 
-	public Set<Integer> getSubLists() {
-		return subLists;
+	public List<Integer> getSubLists() {
+		return subLists.stream().sorted((a, b) -> Integer.compare(getSubValue(a), getSubValue(b)))
+				.collect(Collectors.toList());
 	}
 
 }
