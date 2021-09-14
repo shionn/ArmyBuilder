@@ -1,5 +1,6 @@
 <%@ page pageEncoding="UTF-8"%>
 <%@ page import="armybuilder.model.army.rule.ArmyRuleType" %>
+<%@ page import="armybuilder.model.army.option.ArmyOption" %>
 <%@ page import="armybuilder.model.unit.RoleTactique" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -70,7 +71,11 @@
 			</c:forEach>
 		</div>
 		<div style="page-break-inside:avoid">
-			<h1>Profile d'Armée <span>${army.value}</span></h1>
+			<h1>
+				${army.getOption(ArmyOption.Allegiance).displayName} -
+				<small>${army.getOption(ArmyOption.PackDeBataille).displayName}</small>
+				<span>${army.value}</span>
+			</h1>
 			<c:if test="${not empty army.getOption('GrandeStrategie')}">
 				<h2>Grande Strategie</h2>
 				<t:rule rule="${army.getOption('GrandeStrategie')}" army="${army}"/>

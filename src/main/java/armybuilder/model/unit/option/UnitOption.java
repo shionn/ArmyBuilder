@@ -1,42 +1,43 @@
 package armybuilder.model.unit.option;
 
-import java.util.function.Function;
+import java.util.function.BiFunction;
 
+import armybuilder.model.army.Army;
+import armybuilder.model.army.option.PackDeBataille;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.Unit;
 
 public enum UnitOption {
-	General("Général", UnitOptionType.bool, u -> u.getKeyWords().contains(KeyWord.Heros)),
+	General("Général", UnitOptionType.bool, (a, u) -> u.getKeyWords().contains(KeyWord.Heros)),
 	TraisDeCommandement(
 			"Traits de Commandement",
 			UnitOptionType.select,
-			u -> !u.getKeyWords().contains(KeyWord.Unique)),
+			(a, u) -> !u.getKeyWords().contains(KeyWord.Unique)),
 	TraisDeMonstre(
 			"TODO",
 			UnitOptionType.select,
-			u -> !u.getKeyWords().contains(KeyWord.Unique)),
+			(a, u) -> !u.getKeyWords().contains(KeyWord.Unique)),
 	Artefact(
 			"Artéfacts de Pouvoir",
 			UnitOptionType.select,
-			u -> !u.getKeyWords().contains(KeyWord.Unique)),
-	Sort("Sort", UnitOptionType.select, u -> u.getKeyWords().contains(KeyWord.Sorcier)),
-	Priere("Prière", UnitOptionType.select, u -> u.getKeyWords().contains(KeyWord.Pretre)),
+			(a, u) -> !u.getKeyWords().contains(KeyWord.Unique)),
+	Sort("Sort", UnitOptionType.select, (a, u) -> u.getKeyWords().contains(KeyWord.Sorcier)),
+	Priere("Prière", UnitOptionType.select, (a, u) -> u.getKeyWords().contains(KeyWord.Pretre)),
 
-	Chef("Chef", UnitOptionType.bool, u -> true),
-	Banniere("Porte-Étendard", UnitOptionType.bool, u -> true),
-	Musicien("Musicien", UnitOptionType.bool, u -> true),
-	Armes("Armes", UnitOptionType.select, u -> true),
-	Gratuit("Invoquée", UnitOptionType.bool, u -> true),
-	Renforcees("Renforcées", UnitOptionType.select, u -> !u.is(UnitOption.Gratuit)),
-	AptitudeDeVeteran("Aptitude de Vétéran", UnitOptionType.select, u -> true),
+	Chef("Chef", UnitOptionType.bool, (a, u) -> true), Banniere("Porte-Étendard", UnitOptionType.bool, (a, u) -> true),
+	Musicien("Musicien", UnitOptionType.bool, (a, u) -> true), Armes("Armes", UnitOptionType.select, (a, u) -> true),
+	Gratuit("Invoquée", UnitOptionType.bool, (a, u) -> true),
+	Renforcees("Renforcées", UnitOptionType.select, (a, u) -> !u.is(UnitOption.Gratuit)),
+	AptitudeDeVeteran("Aptitude de Vétéran", UnitOptionType.select, (a, u) -> a.is(PackDeBataille.PourLaGloire)),
+	AptitudeDeVeteran_2("Aptitude de Vétéran", UnitOptionType.select, (a, u) -> a.is(PackDeBataille.PourLaGloire)),
 
 	;
 
 	private String displayName;
-	private Function<Unit, Boolean> available;
+	private BiFunction<Army, Unit, Boolean> available;
 	private UnitOptionType type;
 
-	private UnitOption(String displayName, UnitOptionType type, Function<Unit, Boolean> available) {
+	private UnitOption(String displayName, UnitOptionType type, BiFunction<Army, Unit, Boolean> available) {
 		this.displayName = displayName;
 		this.type = type;
 		this.available = available;
@@ -50,8 +51,8 @@ public enum UnitOption {
 		return type;
 	}
 
-	public boolean isAvailable(Unit u) {
-		return available.apply(u);
+	public boolean isAvailable(Army a, Unit u) {
+		return available.apply(a, u);
 	}
 
 }
