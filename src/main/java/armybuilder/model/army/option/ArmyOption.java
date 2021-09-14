@@ -7,21 +7,26 @@ import java.util.stream.Collectors;
 import armybuilder.model.army.Army;
 
 public enum ArmyOption {
-	Allegiance("Allegiance", true, armybuilder.model.army.option.Allegiance.values()),
-	SubAllegiance("Sous Allegiance", true, armybuilder.model.army.option.SubAllegiance.values()),
-	PackDeBataille("Pack de Bataille", true, armybuilder.model.army.option.PackDeBataille.values()),
-	GrandeStrategie("Grande Strategie", true, armybuilder.model.army.option.GrandeStrategie.values()),
-	Triomphes("Triomphe", true, armybuilder.model.army.option.Triomphes.values())
-	// MortalRealm,
-	;
+	Allegiance("Allegiance", false, armybuilder.model.army.option.Allegiance.values()),
+	SubAllegiance("Sous Allegiance", false, armybuilder.model.army.option.SubAllegiance.values()),
+	PackDeBataille(
+			"Pack de Bataille",
+			false,
+			armybuilder.model.army.option.PackDeBataille.values()),
+	GrandeStrategie(
+			"Grande Strategie",
+			false,
+			armybuilder.model.army.option.GrandeStrategie.values()),
+	Triomphes("Triomphe", false, armybuilder.model.army.option.Triomphes.values()),
+	Bataillon("Bataillon", true, armybuilder.model.army.option.Bataillon.values());
 
-	private boolean select;
 	private String displayName;
 	private List<IArmyOptionValue<?>> values;
+	private boolean multi;
 
-	private ArmyOption(String displayName, boolean select, IArmyOptionValue<?>... values) {
+	private ArmyOption(String displayName, boolean multi, IArmyOptionValue<?>... values) {
 		this.displayName = displayName;
-		this.select = select;
+		this.multi = multi;
 		this.values = Arrays.asList(values);
 	}
 
@@ -34,7 +39,11 @@ public enum ArmyOption {
 	}
 
 	public boolean isSelect() {
-		return select;
+		return true;
+	}
+
+	public boolean isMulti() {
+		return multi;
 	}
 
 }

@@ -1,0 +1,1 @@
+Une fois par bataille, 1 unité de ce bataillon peut recevoir l’ordre Attaque en Règle ou Défense en Règle sans que l’ordre soit donné et sans dépenser un point de commandement.

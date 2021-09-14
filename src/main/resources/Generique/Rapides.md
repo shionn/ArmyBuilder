@@ -1,0 +1,1 @@
+Une fois par bataille, 1 unité de ce bataillon peut recevoir l’ordre Au Pas de Course ou En Avant, Vers la Victoire sans que l’ordre soit donné et sans dépenser un point de commandement.
