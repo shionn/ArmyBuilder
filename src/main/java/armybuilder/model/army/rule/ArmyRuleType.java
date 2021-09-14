@@ -14,7 +14,7 @@ public enum ArmyRuleType {
 	Aptitude(null, a -> true),
 	AptitudesDeCommandement("Aptitudes de Commandement", a -> true),
 	TraitsDeCommandement("Traits de Commandement", a -> true),
-	FureursMonstrueuses(null, a -> !a.units(KeyWord.Monstre).isEmpty()),
+	FureursMonstrueuses("Fureurs Monstrueuses", a -> !a.units(KeyWord.Monstre).isEmpty()),
 	ActionsHeroiques("Actions Heroique", a -> true),
 	AptitudeDeVeteran("Aptitude de Vétéran", a -> a.is(PackDeBataille.PourLaGloire)),
 	Artefact(null, a -> true),
