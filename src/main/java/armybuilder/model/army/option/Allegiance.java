@@ -9,13 +9,13 @@ import armybuilder.model.nighthaunt.NighthauntRule;
 import armybuilder.model.nighthaunt.NighthauntUnitModel;
 
 public enum Allegiance implements IArmyOptionValue<Allegiance> {
-	CoS("Order : City of Sigmar", null),
+	CoS("Order", "City of Sigmar", null),
 	DoK(
-			"Order : Daughters of Khaine",
+			"Order", "Daughters of Khaine",
 			new AllegianceModifier(DokUnitModel.values(), DokRule.RitesDeSang,
 					DokRule.FoiFanatique)),
 	Nighthaunt(
-			"Mort : Nighthaunt",
+			"Death", "Nighthaunt",
 			new AllegianceModifier(NighthauntUnitModel.values(), NighthauntRule.AuraDEffroi,
 					NighthauntRule.ConvocationSpectrale, NighthauntRule.EspritsImperissables,
 					NighthauntRule.IlsViennentDesSousMondes, NighthauntRule.NourrisDeTerreur,
@@ -24,11 +24,17 @@ public enum Allegiance implements IArmyOptionValue<Allegiance> {
 	;
 
 	private String displayName;
+	private String faction;
 	private IArmyModifier modifier;
 
-	private Allegiance(String displayName, IArmyModifier modifier) {
+	private Allegiance(String faction, String displayName, IArmyModifier modifier) {
+		this.faction = faction;
 		this.displayName = displayName;
 		this.modifier = modifier;
+	}
+
+	public String getFullName() {
+		return faction + " : " + displayName;
 	}
 
 	@Override

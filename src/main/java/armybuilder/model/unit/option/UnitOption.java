@@ -35,7 +35,14 @@ public enum UnitOption {
 	Armes("Armes", UnitOptionType.select, (a, u) -> true),
 	Gratuit("Invoquée", UnitOptionType.bool, (a, u) -> true),
 	Renforcees("Renforcées", UnitOptionType.select, (a, u) -> !u.is(UnitOption.Gratuit)),
-	AptitudeDeVeteran("Aptitude de Vétéran", UnitOptionType.select, (a, u) -> true),
+	AptitudeDeVeteran(
+			"Aptitude de Vétéran",
+			UnitOptionType.select,
+			(a, u) -> a.is(PackDeBataille.PourLaGloire)),
+	AptitudeDeVeteran_2(
+			"Aptitude de Vétéran",
+			UnitOptionType.select,
+			(a, u) -> a.is(PackDeBataille.PourLaGloire)),
 
 	;
 
