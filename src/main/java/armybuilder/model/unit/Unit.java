@@ -87,7 +87,7 @@ public class Unit implements Comparable<Unit> {
 	}
 
 	public List<UnitOption> getOptions() {
-		return model.getOptions().stream().filter(o -> o.isAvailable(this))
+		return model.getOptions().stream().filter(o -> o.isAvailable(army, this))
 				.filter(o -> this.getOptionValues(o).size() > 0)
 				.collect(Collectors.toList());
 	}
@@ -101,7 +101,7 @@ public class Unit implements Comparable<Unit> {
 	}
 
 	public List<IUnitOptionValue<?>> getOptionValues(UnitOption option) {
-		return model.getOptionValues().stream().filter(o -> o.getOption() == option)
+		return model.getOptionValues().stream().filter(o -> o.getOption().isAvailable(option))
 				.filter(o -> o.isAvailable(army, this))
 				.sorted((a, b) -> a.getDisplayName().compareTo(b.getDisplayName()))
 				.collect(Collectors.toList());

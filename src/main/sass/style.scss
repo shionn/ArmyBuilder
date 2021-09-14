@@ -18,6 +18,12 @@ body {
 			display: none;
 		}
 	}
+	
+	select {
+		@media print {
+			display: none;
+		}
+	}
 
 	& > header > nav, & > main, & > footer {
 		width: 1000px;
@@ -102,6 +108,7 @@ body {
 		}
 		span {
 			display: inline-block;
+			margin-right: 10px;
 		}
 	}
 	
