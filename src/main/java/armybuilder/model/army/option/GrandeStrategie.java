@@ -55,7 +55,7 @@ public enum GrandeStrategie
 
 	@Override
 	public boolean isOptionDisplayed(Army army) {
-		return packDeBatailles.contains(army.getOption(ArmyOption.PackDeBataille));
+		return packDeBatailles.contains(army.option(ArmyOption.PackDeBataille));
 	}
 
 	@Override

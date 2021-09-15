@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import armybuilder.model.army.check.GenericCheck;
 import armybuilder.model.army.option.ArmyOption;
 import armybuilder.model.army.option.IArmyOptionValue;
+import armybuilder.model.army.option.MultiOption;
 import armybuilder.model.army.rule.ArmyRuleType;
 import armybuilder.model.army.rule.GeneriqueRule;
 import armybuilder.model.army.rule.IArmyRule;
@@ -41,6 +42,7 @@ public class Army {
 
 	@JsonDeserialize(contentConverter = ArmyOptionJsonDeserializer.class)
 	private Map<ArmyOption, IArmyOptionValue<?>> options = new HashMap<>();
+	private List<MultiOption> multiOptions = new ArrayList<>();
 	private List<Unit> units = new ArrayList<>();
 
 	@JsonIgnore
@@ -56,6 +58,7 @@ public class Army {
 	public void reset() {
 		this.options.clear();
 		this.units.clear();
+		this.multiOptions.clear();
 	}
 
 	public void rebuild() {
@@ -68,14 +71,19 @@ public class Army {
 				.forEach(rules::add);
 
 		options.values().stream().filter(Objects::nonNull).forEach(o -> o.rebuild(this));
+		multiOptions.stream().forEach(o -> o.getValue().rebuild(this));
 		rules.forEach(r -> r.rebuild(this));
 		units.stream().forEach(o -> o.rebuild(this));
 
 		Arrays.stream(GenericCheck.values()).forEach(c -> c.verify(this));
 		options.values().stream().forEach(o -> o.verify(this));
+		multiOptions.stream().forEach(o -> o.getValue().verify(this));
 		units.stream().forEach(u -> u.verify(this));
 	}
 
+	/*
+	 * Options
+	 */
 	public void setOption(ArmyOption option, IArmyOptionValue<?> value) {
 		this.options.put(option, value);
 		if (option == ArmyOption.Allegiance) {
@@ -85,10 +93,29 @@ public class Army {
 		}
 	}
 
-	public IArmyOptionValue<?> getOption(ArmyOption option) {
+	public boolean is(IArmyOptionValue<?> opt) {
+		return options.containsValue(opt);
+	}
+
+	public IArmyOptionValue<?> option(ArmyOption option) {
 		return options.get(option);
 	}
 
+	public List<MultiOption> multiOptions() {
+		return multiOptions;
+	}
+
+	public List<MultiOption> multiOptions(ArmyOption option) {
+		return multiOptions.stream().filter(o -> o.is(option)).collect(Collectors.toList());
+	}
+
+	public void addMultiOption(MultiOption multiOption) {
+		this.multiOptions.add(multiOption);
+	}
+
+	/*
+	 * rules
+	 */
 	public List<IArmyRule<?>> getRules(ArmyRuleType... types) {
 		return rules.stream().filter(r -> r.getTypes().containsAll(Arrays.asList(types)))
 				.sorted((a, b) -> a.name().compareTo(b.name())).collect(Collectors.toList());
@@ -108,6 +135,9 @@ public class Army {
 		this.rules.addAll(rules);
 	}
 
+	/*
+	 * unit
+	 */
 	public void addUnitChoice(IUnitModel unit) {
 		this.unitChoices.add(unit);
 	}
@@ -138,18 +168,6 @@ public class Army {
 		return units.stream().sorted().collect(Collectors.toList());
 	}
 
-	public List<Unit> getSubUnits(int id) {
-		return units.stream().filter(u -> u.isInSubList(id)).sorted().collect(Collectors.toList());
-	}
-
-	public void addError(String string) {
-		this.errors.add(string);
-	}
-
-	public List<String> getErrors() {
-		return errors;
-	}
-
 	public List<Unit> units(UnitOption opt) {
 		return units.stream().filter(u -> u.is(opt)).collect(Collectors.toList());
 	}
@@ -157,7 +175,6 @@ public class Army {
 	public Unit unit(UnitOption opt) {
 		return units.stream().filter(u -> u.is(opt)).findFirst().orElse(null);
 	}
-
 
 	public List<Unit> units(IArmyRule<?> rule) {
 		return units.stream().filter(u -> u.is(rule)).collect(Collectors.toList());
@@ -179,9 +196,19 @@ public class Army {
 		return units.stream().filter(u -> u.is(model)).collect(Collectors.toList());
 	}
 
+	/*
+	 * sub
+	 */
+	public List<Unit> getSubUnits(int id) {
+		return units.stream().filter(u -> u.isInSubList(id)).sorted().collect(Collectors.toList());
+	}
 
-	public boolean is(IArmyOptionValue<?> opt) {
-		return options.containsValue(opt);
+	public void addError(String string) {
+		this.errors.add(string);
+	}
+
+	public List<String> getErrors() {
+		return errors;
 	}
 
 	public int getValue() {
@@ -206,5 +233,6 @@ public class Army {
 		return subLists.stream().sorted((a, b) -> Integer.compare(getSubValue(a), getSubValue(b)))
 				.collect(Collectors.toList());
 	}
+
 
 }

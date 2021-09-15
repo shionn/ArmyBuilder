@@ -22,7 +22,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import armybuilder.model.army.Army;
 import armybuilder.model.army.option.Allegiance;
 import armybuilder.model.army.option.ArmyOption;
+import armybuilder.model.army.option.Bataillon;
 import armybuilder.model.army.option.GrandeStrategie;
+import armybuilder.model.army.option.MultiOption;
 import armybuilder.model.army.option.PackDeBataille;
 import armybuilder.model.army.option.SubAllegiance;
 import armybuilder.model.army.option.Triomphes;
@@ -47,7 +49,7 @@ public class ArmyController {
 		new ObjectMapper().writeValue(w, getNotProxifiedArmy());
 		HttpHeaders header = new HttpHeaders();
 		header.set(HttpHeaders.CONTENT_DISPOSITION,
-				"attachment; filename=" + army.getOption(ArmyOption.Allegiance).getDisplayName()
+				"attachment; filename=" + army.option(ArmyOption.Allegiance).getDisplayName()
 						+ "-" + new SimpleDateFormat("yyyy-MM-dd").format(new Date())
 						+ ".json");
 		return new HttpEntity<String>(w.toString(), header);
@@ -85,14 +87,21 @@ public class ArmyController {
 	}
 
 	@GetMapping(path = "/GrandeStrategie")
-	public String setPackDeBataille(@RequestHeader("GrandeStrategie") GrandeStrategie pack) {
-		army.setOption(ArmyOption.GrandeStrategie, pack);
+	public String setPackDeBataille(@RequestHeader("GrandeStrategie") GrandeStrategie gdStrat) {
+		army.setOption(ArmyOption.GrandeStrategie, gdStrat);
 		return "redirect:/";
 	}
 
 	@GetMapping(path = "/Triomphes")
 	public String setPackDeBataille(@RequestHeader("Triomphes") Triomphes triomphes) {
 		army.setOption(ArmyOption.Triomphes, triomphes);
+		return "redirect:/";
+	}
+
+	@GetMapping(path = "/Bataillon")
+	public String addBataillon(@RequestHeader("Bataillon") Bataillon bat) {
+		int id = army.multiOptions().stream().map(o -> o.getId()).reduce(0, Integer::max) + 1;
+		army.addMultiOption(new MultiOption(id, ArmyOption.Bataillon, bat));
 		return "redirect:/";
 	}
 

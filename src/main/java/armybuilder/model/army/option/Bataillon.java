@@ -1,7 +1,11 @@
 package armybuilder.model.army.option;
 
+import java.util.Arrays;
+import java.util.List;
+
 import armybuilder.model.army.Army;
 import armybuilder.model.army.rule.BataillonRule;
+import armybuilder.model.army.rule.IArmyRule;
 
 public enum Bataillon implements IArmyOptionValue<Bataillon> {
 
@@ -14,9 +18,11 @@ public enum Bataillon implements IArmyOptionValue<Bataillon> {
 	GardeRaprocheeM("Garde Rapprochée (Magnifiques)", BataillonRule.Magnifiques);
 
 	private String displayName;
+	private List<IArmyRule<?>> rules;
 
-	private Bataillon(String displayName, BataillonRule... rules) {
+	private Bataillon(String displayName, IArmyRule<?>... rules) {
 		this.displayName = displayName;
+		this.rules = Arrays.asList(rules);
 	}
 
 	@Override
@@ -26,7 +32,7 @@ public enum Bataillon implements IArmyOptionValue<Bataillon> {
 
 	@Override
 	public ArmyOption getOption() {
-		return null;
+		return ArmyOption.Bataillon;
 	}
 
 	@Override
@@ -36,8 +42,7 @@ public enum Bataillon implements IArmyOptionValue<Bataillon> {
 
 	@Override
 	public void rebuild(Army army) {
-		// TODO Auto-generated method stub
-
+		army.addRules(rules);
 	}
 
 	@Override
@@ -46,4 +51,8 @@ public enum Bataillon implements IArmyOptionValue<Bataillon> {
 
 	}
 	
+	public List<IArmyRule<?>> getRules() {
+		return rules;
+	}
+
 }

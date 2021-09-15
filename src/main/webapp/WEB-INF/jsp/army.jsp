@@ -12,11 +12,11 @@
 			<c:forEach items="${armyOptions}" var="opt">
 				<c:if test="${opt.select and not empty opt.getValues(army)}">
 					<select name="${opt}" class="ajax" data-url="<spring:url value="/${opt}"/>" data-update="body>main">
-						<c:if test="${army.getOption(opt) == null}">
+						<c:if test="${army.option(opt) == null}">
 							<option value="" selected="selected">${opt.displayName}</option>
 						</c:if>
 						<c:forEach items="${opt.getValues(army)}" var="f">
-							<option value="${f}" <c:if test="${army.getOption(opt) == f}"> selected="selected"</c:if>>${f.displayName}</option>
+							<option value="${f}" <c:if test="${army.option(opt) == f}"> selected="selected"</c:if>>${f.displayName}</option>
 						</c:forEach>
 					</select>
 				</c:if>
@@ -26,7 +26,7 @@
 			<c:forEach items="${armyOptions}" var="opt">
 				<c:if test="${not opt.select and not empty opt.getValues(army)}">
 					<input type="checkbox" name="${opt}" class="ajax" data-url="<spring:url value="/${opt}"/>"
-							data-update="body>main"<c:if test="${army.getOption(opt) == 'Yes'}"> checked="checked"</c:if>> 
+							data-update="body>main"<c:if test="${army.option(opt) == 'Yes'}"> checked="checked"</c:if>> 
 					${opt.displayName}
 				</c:if>
 			</c:forEach>
@@ -72,13 +72,13 @@
 		</div>
 		<div style="page-break-inside:avoid">
 			<h1>
-				${army.getOption(ArmyOption.Allegiance).displayName} -
-				<small>${army.getOption(ArmyOption.PackDeBataille).displayName}</small>
+				${army.option(ArmyOption.Allegiance).displayName} -
+				<small>${army.option(ArmyOption.PackDeBataille).displayName}</small>
 				<span>${army.value}</span>
 			</h1>
-			<c:if test="${not empty army.getOption('GrandeStrategie')}">
+			<c:if test="${not empty army.option('GrandeStrategie')}">
 				<h2>Grande Strategie</h2>
-				<t:rule rule="${army.getOption('GrandeStrategie')}" army="${army}"/>
+				<t:rule rule="${army.option('GrandeStrategie')}" army="${army}"/>
 			</c:if>
 			<c:if test="${not empty army.getRules('TraisDeBataille')}">
 				<h2>Aptitudes D'Allégeance</h2>
@@ -100,6 +100,12 @@
 			</div>
 			<c:forEach items="${army.units}" var="unit">
 				<t:unit army="${army}" unit="${unit}"/>
+			</c:forEach>
+			<c:forEach items="${army.multiOptions(ArmyOption.Bataillon)}" var="o">
+				<h2>${o.displayName}</h2>
+				<c:forEach items="${o.value.rules}" var="r">
+					<t:rule rule="${r}"/>
+				</c:forEach>
 			</c:forEach>
 		</div>
 		<c:forEach items="${turn.phases}" var="p">
