@@ -1,0 +1,1 @@
+Cette unité peut utiliser cette aptitude de vétéran une fois par bataille au début de la phase de charge. Si elle le fait, elle peut tenter une charge à cette phase même si elle a couru au même tour.

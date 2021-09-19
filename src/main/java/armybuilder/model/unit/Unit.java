@@ -1,6 +1,7 @@
 package armybuilder.model.unit;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,14 +10,19 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
+import org.apache.commons.collections.ListUtils;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import armybuilder.model.army.Army;
+import armybuilder.model.army.option.ArmyOption;
+import armybuilder.model.army.option.MultiOption;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.option.IUnitOptionValue;
+import armybuilder.model.unit.option.OptimisationsUniverselles;
 import armybuilder.model.unit.option.UnitOption;
 import armybuilder.model.unit.rule.UnitRuleComparator;
 import armybuilder.model.unit.weapon.IUnitWeapon;
@@ -30,7 +36,7 @@ public class Unit implements Comparable<Unit> {
 	@JsonDeserialize(converter = UnitModelJsonDeserializer.class)
 	private IUnitModel model;
 	@JsonDeserialize(contentConverter = UnitOptionJsonDeserializer.class)
-	private Map<UnitOption, IUnitOptionValue<?>> options = new HashMap<UnitOption, IUnitOptionValue<?>>();
+	private Map<UnitOption, IUnitOptionValue<?>> options = new HashMap<>();
 
 	private List<Integer> subLists = new ArrayList<Integer>();
 
@@ -101,10 +107,19 @@ public class Unit implements Comparable<Unit> {
 	}
 
 	public List<IUnitOptionValue<?>> getOptionValues(UnitOption option) {
-		return model.getOptionValues().stream().filter(o -> o.getOption().isAvailable(option))
+		@SuppressWarnings("unchecked")
+		List<IUnitOptionValue<?>> values = ListUtils
+				.union(Arrays.asList(OptimisationsUniverselles.values()),
+						model.getOptionValues());
+		return values.stream().filter(o -> o.getOption().isAvailable(option))
 				.filter(o -> o.isAvailable(army, this))
 				.sorted((a, b) -> a.getDisplayName().compareTo(b.getDisplayName()))
 				.collect(Collectors.toList());
+	}
+
+	public List<MultiOption> getMultiOptionValues(UnitOption option) {
+		return army.multiOptions(ArmyOption.valueOf(option.name())).stream()
+				.filter(o -> o.isAvailable(army, this)).collect(Collectors.toList());
 	}
 
 	public void add(IArmyRule<?> rule) {

@@ -15,6 +15,7 @@ import armybuilder.model.dok.DokRule;
 import armybuilder.model.nighthaunt.NighthauntOptimisation;
 import armybuilder.model.nighthaunt.NighthauntRule;
 import armybuilder.model.unit.KeyWord;
+import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.option.UnitOption;
 
 public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator<SubAllegiance> {
@@ -128,6 +129,11 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 	@Override
 	public void verify(Army army) {
 		checkers.stream().forEach(c -> c.accept(army));
+	}
+
+	@Override
+	public boolean isAvailable(Army army, Unit unit) {
+		return false;
 	}
 
 }

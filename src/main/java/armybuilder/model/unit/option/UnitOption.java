@@ -43,6 +43,7 @@ public enum UnitOption {
 			"Aptitude de Vétéran",
 			UnitOptionType.select,
 			(a, u) -> a.is(PackDeBataille.PourLaGloire)),
+	Bataillon("Bataillon", UnitOptionType.selectMultiOption, (a, u) -> true),
 
 	;
 

@@ -1,0 +1,1 @@
+Cette unité peut utiliser cette aptitude de vétéran une fois par bataille après avoir réussi une charge. Si elle le fait, choississez 1 unité ennemie à 1" de cette unité? L'unité ennemie subit D3 blessures mortelles.

@@ -15,38 +15,38 @@ import armybuilder.model.unit.rule.GeneriqueUnitRule;
 public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsUniverselles> {
 
 	SoifDeBataille(
-			"Soif de Bataille",
+			GeneriqueUnitRule.SoifDeBataille.getDisplayName(),
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.SoifDeBataille)),
 	LeaderCompétent(
-			"Leader Compétent",
+			GeneriqueUnitRule.LeaderCompétent.getDisplayName(),
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.LeaderCompétent)),
 	GrandPretre(
-			"Grand Prêtre",
+			GeneriqueUnitRule.GrandPretre.getDisplayName(),
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Pretre),
 			u -> u.add(GeneriqueUnitRule.GrandPretre)),
 	StatureHeroïque(
-			"Stature Héroïque",
+			GeneriqueUnitRule.StatureHeroïque.getDisplayName(),
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.StatureHeroïque)),
 	MaitreDeLaMagie(
-			"Maître de la Magie",
+			GeneriqueUnitRule.MaitreDeLaMagie.getDisplayName(),
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier),
 			u -> u.add(GeneriqueUnitRule.MaitreDeLaMagie)),
 
 	AmuletteDeLaDestinee(
-			"Amulette de la Destinée",
+			GeneriqueUnitRule.AmuletteDeLaDestinee.getDisplayName(),
 			UnitOption.Artefact,
 			(a, u) -> !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.AmuletteDeLaDestinee)),
 	VolumeObscur(
-			"Volume Obscur",
+			GeneriqueUnitRule.VolumeObscur.getDisplayName(),
 			UnitOption.Artefact,
 			(a, u) -> !u.is(KeyWord.Unique),
 			u -> {
@@ -59,62 +59,74 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 				}
 			}),
 	FioleDeVeninDeManticore(
-			"Fiole de Venin de Manticore",
+			GeneriqueUnitRule.FioleDeVeninDeManticore.getDisplayName(),
 			UnitOption.Artefact,
 			(a, u) -> !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.FioleDeVeninDeManticore)),
 	GraineDeRenaissance(
-			"Graine de Renaissance",
+			GeneriqueUnitRule.GraineDeRenaissance.getDisplayName(),
 			UnitOption.Artefact,
 			(a, u) -> !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.GraineDeRenaissance)),
 
 	ArmeEnflammee(
-			"Arme Enflammée",
+			GeneriqueUnitRule.ArmeEnflammee.getDisplayName(),
 			UnitOption.Sort,
 			(a, u) -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.ArmeEnflammee)),
 	BrumeFantome(
-			"Brume Fantôme",
+			GeneriqueUnitRule.BrumeFantome.getDisplayName(),
 			UnitOption.Sort,
 			(a, u) -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.BrumeFantome)),
 	Levitation(
-			"Lévitation",
+			GeneriqueUnitRule.Guerison.getDisplayName(),
 			UnitOption.Sort,
 			(a, u) -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.Levitation)),
 
 	Supervision(
-			"Supervision",
+			GeneriqueUnitRule.Supervision.getDisplayName(),
 			UnitOption.Priere,
 			(a, u) -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.Supervision)),
 	Malediction(
-			"Malédiction",
+			GeneriqueUnitRule.Malediction.getDisplayName(),
 			UnitOption.Priere,
 			(a, u) -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.Malediction)),
 	Guerison(
-			"Guérison",
+			GeneriqueUnitRule.Guerison.getDisplayName(),
 			UnitOption.Priere,
 			(a, u) -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.Guerison)),
 
+	ChargeDevstratrice(
+			AptitudeDeVeteran.ChargeDevastratrice.getDisplayName(),
+			UnitOption.AptitudeDeVeteran,
+			(a, u) -> a.is(PackDeBataille.PourLaGloire) && !u.is(RoleTactique.Leader)
+					&& !u.is(UnitOption.Gratuit),
+			u -> u.add(AptitudeDeVeteran.ChargeDevastratrice)),
 	FormationDefensive(
-			"Formation Défensive",
+			AptitudeDeVeteran.FormationDefensive.getDisplayName(),
 			UnitOption.AptitudeDeVeteran,
 			(a, u) -> a.is(PackDeBataille.PourLaGloire) && !u.is(RoleTactique.Leader)
 					&& !u.is(UnitOption.Gratuit),
 			u -> u.add(AptitudeDeVeteran.FormationDefensive)),
 	ManoeuvreDisciplinees(
-			"Manoeuvre Disciplinées",
+			AptitudeDeVeteran.ManoeuvreDisciplinees.getDisplayName(),
 			UnitOption.AptitudeDeVeteran,
 			(a, u) -> a.is(PackDeBataille.PourLaGloire) && !u.is(RoleTactique.Leader)
 					&& !u.is(UnitOption.Gratuit),
 			u -> u.add(AptitudeDeVeteran.ManoeuvreDisciplinees)),
+	PiedsLegers(
+			AptitudeDeVeteran.PiedsLegers.getDisplayName(),
+			UnitOption.AptitudeDeVeteran,
+			(a, u) -> a.is(PackDeBataille.PourLaGloire) && !u.is(RoleTactique.Leader)
+					&& !u.is(UnitOption.Gratuit),
+			u -> u.add(AptitudeDeVeteran.PiedsLegers)),
 	VoleeMortelle(
-			"Volée Mortelle",
+			AptitudeDeVeteran.VoleeMortelle.getDisplayName(),
 			UnitOption.AptitudeDeVeteran,
 			(a, u) -> a.is(PackDeBataille.PourLaGloire) && !u.is(RoleTactique.Leader)
 					&& !u.is(UnitOption.Gratuit),

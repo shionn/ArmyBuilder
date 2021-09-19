@@ -7,6 +7,7 @@ import java.util.List;
 import armybuilder.model.army.Army;
 import armybuilder.model.army.rule.ArmyRuleType;
 import armybuilder.model.army.rule.IArmyRule;
+import armybuilder.model.unit.Unit;
 import armybuilder.serialisation.DescriptionReader;
 
 public enum Triomphes implements IArmyOptionValue<Triomphes>, IArmyRule<Triomphes> {
@@ -65,6 +66,11 @@ public enum Triomphes implements IArmyOptionValue<Triomphes>, IArmyRule<Triomphe
 	@Override
 	public String toString() {
 		return name() + getTypes();
+	}
+
+	@Override
+	public boolean isAvailable(Army army, Unit unit) {
+		return false;
 	}
 
 }

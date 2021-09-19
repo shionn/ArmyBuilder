@@ -7,6 +7,7 @@ import armybuilder.model.dok.DokRule;
 import armybuilder.model.dok.DokUnitModel;
 import armybuilder.model.nighthaunt.NighthauntRule;
 import armybuilder.model.nighthaunt.NighthauntUnitModel;
+import armybuilder.model.unit.Unit;
 
 public enum Allegiance implements IArmyOptionValue<Allegiance> {
 	CoS("Order", "City of Sigmar", null),
@@ -61,6 +62,11 @@ public enum Allegiance implements IArmyOptionValue<Allegiance> {
 
 	@Override
 	public void verify(Army army) {
+	}
+
+	@Override
+	public boolean isAvailable(Army army, Unit unit) {
+		return false;
 	}
 
 }

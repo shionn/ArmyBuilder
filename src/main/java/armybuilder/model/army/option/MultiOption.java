@@ -1,5 +1,8 @@
 package armybuilder.model.army.option;
 
+import armybuilder.model.army.Army;
+import armybuilder.model.unit.Unit;
+
 public class MultiOption {
 	private int id;
 	private ArmyOption option;
@@ -29,6 +32,10 @@ public class MultiOption {
 
 	public boolean is(ArmyOption option) {
 		return this.option == option;
+	}
+
+	public boolean isAvailable(Army army, Unit unit) {
+		return value.isAvailable(army, unit);
 	}
 
 }

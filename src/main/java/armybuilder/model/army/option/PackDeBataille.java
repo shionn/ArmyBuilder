@@ -9,6 +9,7 @@ import armybuilder.model.army.check.Checkers;
 import armybuilder.model.army.rule.PackDeBataille2021Rule;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.RoleTactique;
+import armybuilder.model.unit.Unit;
 
 public enum PackDeBataille implements IArmyOptionValue<PackDeBataille> {
 	LutteDeGeneraux(
@@ -116,6 +117,11 @@ public enum PackDeBataille implements IArmyOptionValue<PackDeBataille> {
 	@Override
 	public void verify(Army army) {
 		checks.stream().forEach(c -> c.accept(army));
+	}
+
+	@Override
+	public boolean isAvailable(Army army, Unit unit) {
+		return false;
 	}
 
 }

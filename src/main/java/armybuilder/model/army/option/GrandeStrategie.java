@@ -8,6 +8,7 @@ import java.util.List;
 import armybuilder.model.army.Army;
 import armybuilder.model.army.rule.ArmyRuleType;
 import armybuilder.model.army.rule.IArmyRule;
+import armybuilder.model.unit.Unit;
 import armybuilder.serialisation.DescriptionReader;
 
 public enum GrandeStrategie
@@ -76,6 +77,11 @@ public enum GrandeStrategie
 	@Override
 	public String getDescription() throws IOException {
 		return new DescriptionReader().read("GrandeStrategie/", name());
+	}
+
+	@Override
+	public boolean isAvailable(Army army, Unit unit) {
+		return false;
 	}
 
 }

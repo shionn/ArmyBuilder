@@ -98,14 +98,16 @@
 					</div>
 				</c:forEach>
 			</div>
+			<div>
+				<c:forEach items="${army.multiOptions(ArmyOption.Bataillon)}" var="o">
+					<h2>${o.displayName}</h2>
+					<c:forEach items="${o.value.rules}" var="r">
+						<t:rule rule="${r}"/>
+					</c:forEach>
+				</c:forEach>
+			</div>
 			<c:forEach items="${army.units}" var="unit">
 				<t:unit army="${army}" unit="${unit}"/>
-			</c:forEach>
-			<c:forEach items="${army.multiOptions(ArmyOption.Bataillon)}" var="o">
-				<h2>${o.displayName}</h2>
-				<c:forEach items="${o.value.rules}" var="r">
-					<t:rule rule="${r}"/>
-				</c:forEach>
 			</c:forEach>
 		</div>
 		<c:forEach items="${turn.phases}" var="p">

@@ -22,12 +22,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import armybuilder.model.army.Army;
 import armybuilder.model.army.option.Allegiance;
 import armybuilder.model.army.option.ArmyOption;
-import armybuilder.model.army.option.Bataillon;
 import armybuilder.model.army.option.GrandeStrategie;
 import armybuilder.model.army.option.MultiOption;
 import armybuilder.model.army.option.PackDeBataille;
 import armybuilder.model.army.option.SubAllegiance;
 import armybuilder.model.army.option.Triomphes;
+import armybuilder.model.army.option.bataillon.Bataillon;
 import armybuilder.model.unit.Unit;
 
 @Controller

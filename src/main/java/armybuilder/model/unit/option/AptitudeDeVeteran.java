@@ -11,6 +11,11 @@ import armybuilder.serialisation.DescriptionReader;
 
 public enum AptitudeDeVeteran implements IArmyRule<AptitudeDeVeteran> {
 
+	ChargeDevastratrice(
+			"Charge Dévastratrice",
+			ArmyRuleType.AptitudeDeVeteran,
+			ArmyRuleType.TraisUnitee,
+			ArmyRuleType.PhaseDeCharge),
 	FormationDefensive(
 			"Formation Défensive",
 			ArmyRuleType.AptitudeDeVeteran,
@@ -21,6 +26,11 @@ public enum AptitudeDeVeteran implements IArmyRule<AptitudeDeVeteran> {
 			ArmyRuleType.AptitudeDeVeteran,
 			ArmyRuleType.TraisUnitee,
 			ArmyRuleType.PhaseDeCombat),
+	PiedsLegers(
+			"Pieds Légers",
+			ArmyRuleType.AptitudeDeVeteran,
+			ArmyRuleType.TraisUnitee,
+			ArmyRuleType.PhaseDeCharge),
 	VoleeMortelle(
 			"Volée Mortelle",
 			ArmyRuleType.AptitudeDeVeteran,
