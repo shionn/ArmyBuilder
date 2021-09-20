@@ -113,6 +113,10 @@ public class Army {
 		this.multiOptions.add(multiOption);
 	}
 
+	public void removeMultiOptions(int id) {
+		this.multiOptions.removeIf(o -> o.getId() == id);
+	}
+
 	/*
 	 * rules
 	 */
@@ -233,6 +237,7 @@ public class Army {
 		return subLists.stream().sorted((a, b) -> Integer.compare(getSubValue(a), getSubValue(b)))
 				.collect(Collectors.toList());
 	}
+
 
 
 }

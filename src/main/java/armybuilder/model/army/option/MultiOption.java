@@ -1,6 +1,9 @@
 package armybuilder.model.army.option;
 
+import java.util.List;
+
 import armybuilder.model.army.Army;
+import armybuilder.model.army.option.bataillon.Bataillon;
 import armybuilder.model.unit.Unit;
 
 public class MultiOption {
@@ -36,6 +39,10 @@ public class MultiOption {
 
 	public boolean isAvailable(Army army, Unit unit) {
 		return value.isAvailable(army, unit);
+	}
+
+	public List<?> getCompositions() {
+		return ((Bataillon) value).getCompositions();
 	}
 
 }

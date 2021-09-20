@@ -101,6 +101,12 @@ body {
 		float: right;
 	}
 	
+	h2 img {
+		vertical-align: bottom;
+		margin-right: -5px;	
+		height : 28px;
+	}
+	
 	div.options {
 		margin-top: 5px;
 		@media print {

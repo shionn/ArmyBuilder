@@ -9,4 +9,10 @@ public interface BataillonComposition {
 
 	boolean verify(Army army);
 
+	String getImg();
+
+	boolean isOpt();
+
+	int getCount();
+
 }

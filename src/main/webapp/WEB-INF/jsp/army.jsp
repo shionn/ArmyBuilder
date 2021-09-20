@@ -100,7 +100,15 @@
 			</div>
 			<div>
 				<c:forEach items="${army.multiOptions(ArmyOption.Bataillon)}" var="o">
-					<h2>${o.displayName}</h2>
+					<h2>
+						${o.displayName}
+						<c:forEach items="${o.compositions}" var="c">
+							<c:forEach begin="1" end="${c.count}">
+								<img src="img/${c.img}.png" <c:if test="${c.opt}">style="opacity: 0.5"</c:if>>
+							</c:forEach>
+						</c:forEach>
+						<a href='<spring:url value="/multioptions/rm/${o.id}"/>'>X</a>
+					</h2>
 					<c:forEach items="${o.value.rules}" var="r">
 						<t:rule rule="${r}"/>
 					</c:forEach>

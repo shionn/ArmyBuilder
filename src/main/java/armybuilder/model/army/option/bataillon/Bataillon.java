@@ -14,32 +14,37 @@ public enum Bataillon implements IArmyOptionValue<Bataillon> {
 
 	SeigneurDeGuerre(
 			"Seigneur de Guerre",
-			and(contain(BataillonSlot.Commandant, 1, 2),
-					contain(BataillonSlot.SousCommandant, 2, 4),
-					contain(BataillonSlot.Troupe, 1, 2)),
-			BataillonRule.Strateges,
-			BataillonRule.Magnifiques),
+			Arrays.asList(BataillonRule.Strateges, BataillonRule.Magnifiques),
+			contain(BataillonSlot.Commandant, 1), opt(BataillonSlot.Commandant, 1),
+			contain(BataillonSlot.SousCommandant, 2), opt(BataillonSlot.SousCommandant, 2),
+			contain(BataillonSlot.Troupe, 1), opt(BataillonSlot.Troupe, 1)),
 	RegimentDeBataille(
 			"Régiment de Bataille",
-			and(contain(BataillonSlot.Commandant, 1, 1),
-					contain(BataillonSlot.SousCommandant, 0, 2),
-					contain(BataillonSlot.Troupe, 2, 5)
-			),
-			BataillonRule.Unifies),
-	GrandeBatterie("Grande Batterie", null, BataillonRule.Tueurs),
-	AvantGarde("Avant-Garde", null, BataillonRule.Rapides),
-	BriseurDeLigne("Briseur de Ligne", null, BataillonRule.Experts),
-	GardeRaprocheeS("Garde Rapprochée (Stratèges)", null, BataillonRule.Strateges),
-	GardeRaprocheeM("Garde Rapprochée (Magnifiques)", null, BataillonRule.Magnifiques);
+			Arrays.asList(BataillonRule.Unifies),
+			contain(BataillonSlot.Commandant, 1), opt(BataillonSlot.SousCommandant, 2),
+			contain(BataillonSlot.Troupe, 2), opt(BataillonSlot.Troupe, 3), opt(BataillonSlot.Monstre, 1),
+			opt(BataillonSlot.Artillerie, 1)),
+	GrandeBatterie("Grande Batterie", Arrays.asList(BataillonRule.Tueurs), contain(BataillonSlot.SousCommandant, 1),
+			contain(BataillonSlot.Artillerie, 2), opt(BataillonSlot.Artillerie, 1)),
+	AvantGarde("Avant-Garde", Arrays.asList(BataillonRule.Rapides), contain(BataillonSlot.SousCommandant, 1),
+			contain(BataillonSlot.Troupe, 1), opt(BataillonSlot.Troupe, 2)),
+	BriseurDeLigne("Briseur de Ligne", Arrays.asList(BataillonRule.Experts), contain(BataillonSlot.Commandant, 1),
+			contain(BataillonSlot.Monstre, 2), opt(BataillonSlot.Monstre, 1)),
+	GardeRaprocheeS("Garde Rapprochée (Stratèges)", Arrays.asList(BataillonRule.Strateges),
+			contain(BataillonSlot.Commandant, 1), contain(BataillonSlot.SousCommandant, 2),
+			opt(BataillonSlot.SousCommandant, 1)),
+	GardeRaprocheeM("Garde Rapprochée (Magnifiques)", Arrays.asList(BataillonRule.Magnifiques),
+			contain(BataillonSlot.Commandant, 1), contain(BataillonSlot.SousCommandant, 2),
+			opt(BataillonSlot.SousCommandant, 1));
 
 	private String displayName;
 	private List<IArmyRule<?>> rules;
-	private BataillonComposition composition;
+	private List<BataillonComposition> compositions;
 
-	private Bataillon(String displayName, BataillonComposition composition, IArmyRule<?>... rules) {
+	private Bataillon(String displayName, List<IArmyRule<?>> rules, BataillonComposition... composition) {
 		this.displayName = displayName;
-		this.composition = composition;
-		this.rules = Arrays.asList(rules);
+		this.compositions = Arrays.asList(composition);
+		this.rules = rules;
 	}
 
 	@Override
@@ -74,10 +79,19 @@ public enum Bataillon implements IArmyOptionValue<Bataillon> {
 
 	@Override
 	public boolean isAvailable(Army army, Unit unit) {
-		return composition.isAvailable(unit);
+		for (BataillonComposition c : compositions) {
+			if (c.isAvailable(unit)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
-	private static BataillonComposition contain(BataillonSlot slot, int min, int max) {
+	public List<BataillonComposition> getCompositions() {
+		return compositions;
+	}
+
+	private static BataillonComposition contain(BataillonSlot slot, int count) {
 		return new BataillonComposition() {
 			@Override
 			public boolean verify(Army army) {
@@ -88,43 +102,53 @@ public enum Bataillon implements IArmyOptionValue<Bataillon> {
 			public boolean isAvailable(Unit unit) {
 				return slot.is(unit);
 			}
-		};
-	}
 
-	private static BataillonComposition and(BataillonComposition... sub) {
-		return new BataillonComposition() {
 			@Override
-			public boolean isAvailable(Unit unit) {
-				for (BataillonComposition c : sub) {
-					if (c.isAvailable(unit)) return true;
-				}
+			public String getImg() {
+				return slot.name();
+			}
+
+			@Override
+			public boolean isOpt() {
 				return false;
 			}
 
 			@Override
-			public boolean verify(Army army) {
-				for (BataillonComposition c : sub) {
-					if (!c.verify(army)) {
-						return false;
-					}
-				}
-				return true;
+			public int getCount() {
+				return count;
 			}
+
 		};
 	}
 
-	private static BataillonComposition xor(BataillonComposition c1, BataillonComposition c2) {
+	private static BataillonComposition opt(BataillonSlot slot, int count) {
 		return new BataillonComposition() {
 			@Override
-			public boolean isAvailable(Unit unit) {
-				return c1.isAvailable(unit) || c2.isAvailable(unit);
+			public boolean verify(Army army) {
+				return true;
 			}
 
 			@Override
-			public boolean verify(Army army) {
-				return c1.verify(army) ^ c2.verify(army);
+			public boolean isAvailable(Unit unit) {
+				return slot.is(unit);
+			}
+
+			@Override
+			public String getImg() {
+				return slot.name();
+			}
+
+			@Override
+			public boolean isOpt() {
+				return true;
+			}
+
+			@Override
+			public int getCount() {
+				return count;
 			}
 		};
 	}
+
 
 }
