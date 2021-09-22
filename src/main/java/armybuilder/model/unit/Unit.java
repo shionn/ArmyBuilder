@@ -38,7 +38,7 @@ public class Unit implements Comparable<Unit> {
 	@JsonDeserialize(contentConverter = UnitOptionJsonDeserializer.class)
 	private Map<UnitOption, IUnitOptionValue<?>> options = new HashMap<>();
 
-	private List<Integer> subLists = new ArrayList<Integer>();
+	private List<Integer> multiOptions = new ArrayList<>();
 
 	@JsonIgnore
 	private Set<IUnitWeapon> weapons = new TreeSet<>();
@@ -92,9 +92,12 @@ public class Unit implements Comparable<Unit> {
 		return model.getProfileDegressif();
 	}
 
+	/**
+	 * options
+	 */
 	public List<UnitOption> getOptions() {
 		return model.getOptions().stream().filter(o -> o.isAvailable(army, this))
-				.filter(o -> this.getOptionValues(o).size() > 0)
+//				.filter(o -> this.getOptionValues(o).size() > 0)
 				.collect(Collectors.toList());
 	}
 
@@ -108,8 +111,7 @@ public class Unit implements Comparable<Unit> {
 
 	public List<IUnitOptionValue<?>> getOptionValues(UnitOption option) {
 		@SuppressWarnings("unchecked")
-		List<IUnitOptionValue<?>> values = ListUtils
-				.union(Arrays.asList(OptimisationsUniverselles.values()),
+		List<IUnitOptionValue<?>> values = ListUtils.union(Arrays.asList(OptimisationsUniverselles.values()),
 						model.getOptionValues());
 		return values.stream().filter(o -> o.getOption().isAvailable(option))
 				.filter(o -> o.isAvailable(army, this))
@@ -122,6 +124,18 @@ public class Unit implements Comparable<Unit> {
 				.filter(o -> o.isAvailable(army, this)).collect(Collectors.toList());
 	}
 
+	public IUnitOptionValue<?> get(UnitOption option) {
+		return options.get(option);
+	}
+
+	public MultiOption getMultiOption(UnitOption option) {
+		return army.multiOptions(ArmyOption.valueOf(option.name())).stream()
+				.filter(o -> multiOptions.contains(o.getId())).findFirst().orElse(null);
+	}
+
+	/**
+	 * add
+	 */
 	public void add(IArmyRule<?> rule) {
 		rules.add(rule);
 	}
@@ -138,6 +152,9 @@ public class Unit implements Comparable<Unit> {
 		roleTatciques.add(role);
 	}
 
+	/**
+	 * rule
+	 */
 	public void replaceIfExist(IArmyRule<?> rule1, IArmyRule<?> rule2) {
 		if (rules.remove(rule1)) {
 			add(rule2);
@@ -148,14 +165,11 @@ public class Unit implements Comparable<Unit> {
 		return rules;
 	}
 
-	public Set<KeyWord> getKeyWords() {
-		return keyWords;
-	}
 
-	public IUnitOptionValue<?> get(UnitOption option) {
-		return options.get(option);
-	}
 
+	/**
+	 * is
+	 */
 	public boolean is(KeyWord keyWord) {
 		return getKeyWords().contains(keyWord);
 	}
@@ -213,24 +227,16 @@ public class Unit implements Comparable<Unit> {
 		return model;
 	}
 
+	public Set<KeyWord> getKeyWords() {
+		return keyWords;
+	}
+
 	public void setValue(int value) {
 		this.value = value;
 	}
 
 	public void setArmy(Army army) {
 		this.army = army;
-	}
-
-	public void addSubList(int sub) {
-		this.subLists.add(sub);
-	}
-
-	public void removeSubList(Integer sub) {
-		this.subLists.remove(sub);
-	}
-
-	public boolean isInSubList(int id) {
-		return subLists.contains(id);
 	}
 
 }

@@ -10,7 +10,6 @@ import armybuilder.model.army.Army;
 import armybuilder.model.unit.IUnitModel;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.option.UnitOption;
-import armybuilder.model.unit.option.UnitOptionType;
 
 @Controller
 public class ArmyUnitController {
@@ -31,19 +30,23 @@ public class ArmyUnitController {
 			@PathVariable("option") UnitOption option,
 			@RequestHeader("value") String value) {
 		army.getUnits().stream().filter(u -> u.hashCode() == hash).forEach(u -> {
-			if (option.getType() == UnitOptionType.bool) {
+			switch (option.getType()) {
+			case bool:
 				if (Boolean.valueOf(value)) {
 					u.addOption(option, u.getOptionValues(option).get(0));
 				} else {
 					u.removeOption(option);
 				}
-			} else {
+				break;
+			case select:
 				if ("null".equals(value)) {
 					u.removeOption(option);
 				} else {
 					u.getOptionValues(option).stream().filter(v -> v.name().equals(value))
 							.forEach(v -> u.addOption(option, v));
 				}
+				break;
+
 			}
 		});
 		return "redirect:/";

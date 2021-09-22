@@ -112,6 +112,16 @@
 								</c:forEach>
 							</select>
 						</c:when>
+						<c:when test="${o.type == 'selectMultiOption' and not empty unit.getMultiOptionValues(o)}">
+							${o.displayName}
+							<select name="value" class="ajax" data-update="body>main"
+									data-url='<spring:url value="/unit/${unit.hashCode()}/${o.name()}"/>'>
+								<option value="null">----</option>
+								<c:forEach items="${unit.getMultiOptionValues(o)}" var="v">
+									<option value="${v.id}" <c:if test="${v.id == unit.getMultiOption(o).id}">selected="selected"</c:if>>${v.displayName}</option>
+								</c:forEach>
+							</select>
+						</c:when>
 					</c:choose>
 				</span>
 			</c:forEach>
