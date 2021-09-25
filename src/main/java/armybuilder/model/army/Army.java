@@ -18,6 +18,7 @@ import org.springframework.web.context.annotation.SessionScope;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import armybuilder.model.army.check.GenericCheck;
@@ -33,11 +34,13 @@ import armybuilder.model.unit.RoleTactique;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.option.IUnitOptionValue;
 import armybuilder.model.unit.option.UnitOption;
+import armybuilder.model.unit.option.UnitOptionType;
 import armybuilder.serialisation.ArmyOptionJsonDeserializer;
 
 @Component
 @SessionScope
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Army {
 
 	@JsonDeserialize(contentConverter = ArmyOptionJsonDeserializer.class)
@@ -106,6 +109,17 @@ public class Army {
 
 	public List<MultiOption> multiOptions(ArmyOption option) {
 		return multiOptions.stream().filter(o -> o.is(option)).collect(Collectors.toList());
+	}
+
+	public List<MultiOption> multiOptions(UnitOption option) {
+		if (option.getType() != UnitOptionType.selectMultiOption) {
+			throw new IllegalArgumentException("bad option <" + option + ">");
+		}
+		return multiOptions(ArmyOption.valueOf(option.name()));
+	}
+
+	public MultiOption multiOptions(UnitOption option, int id) {
+		return multiOptions(option).stream().filter(o -> o.getId() == id).findFirst().get();
 	}
 
 	public void addMultiOption(MultiOption multiOption) {

@@ -10,13 +10,14 @@ import armybuilder.model.army.option.IArmyOptionValue;
 import armybuilder.model.army.option.PackDeBataille;
 import armybuilder.model.army.option.SubAllegiance;
 import armybuilder.model.army.option.Triomphes;
+import armybuilder.model.army.option.bataillon.Bataillon;
 
 public class ArmyOptionJsonDeserializer extends StdConverter<String, IArmyOptionValue<?>> {
 
 	@Override
 	public IArmyOptionValue<?> convert(String value) {
 		for (Class<? extends Enum<?>> type : Arrays.asList(Allegiance.class, GrandeStrategie.class,
-				PackDeBataille.class, SubAllegiance.class, Triomphes.class)) {
+				PackDeBataille.class, SubAllegiance.class, Triomphes.class, Bataillon.class)) {
 			for (Enum<?> instance : type.getEnumConstants()) {
 				if (value.equals(instance.name())) {
 					return (IArmyOptionValue<?>) instance;

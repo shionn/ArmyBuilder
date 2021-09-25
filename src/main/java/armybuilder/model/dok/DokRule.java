@@ -34,6 +34,10 @@ public enum DokRule implements IArmyRule<DokRule> {
 			ArmyRuleType.Aptitude,
 			ArmyRuleType.PhaseDesHeros,
 			ArmyRuleType.TraisUnitee),
+	AutelDeKhaine(
+			"Autel de Khaine",
+			ArmyRuleType.Aptitude,
+			ArmyRuleType.PhaseDesHeros),
 	BouclierDeSang("Bouclier de Sang", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	BouclierPerceCoeur("Bouclier Perce-coeur", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	BondDeLOmbre(

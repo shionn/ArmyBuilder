@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 
 import armybuilder.model.army.Army;
+import armybuilder.model.army.option.MultiOption;
 import armybuilder.model.unit.IUnitModel;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.option.UnitOption;
@@ -33,18 +34,28 @@ public class ArmyUnitController {
 			switch (option.getType()) {
 			case bool:
 				if (Boolean.valueOf(value)) {
-					u.addOption(option, u.getOptionValues(option).get(0));
+					u.add(u.getOptionValues(option).get(0));
 				} else {
-					u.removeOption(option);
+					u.remove(option);
 				}
 				break;
 			case select:
 				if ("null".equals(value)) {
-					u.removeOption(option);
+					u.remove(option);
 				} else {
 					u.getOptionValues(option).stream().filter(v -> v.name().equals(value))
-							.forEach(v -> u.addOption(option, v));
+							.forEach(v -> u.add(option, v));
 				}
+				break;
+			case selectMultiOption:
+				MultiOption o = army.multiOptions(option, Integer.parseInt(value));
+				if ("null".equals(value)) {
+					u.remove(o);
+				} else {
+					u.add(o);
+				}
+				break;
+			default:
 				break;
 
 			}

@@ -1,0 +1,1 @@
+Ajoutez 1 aux jets de prière pour les __Prêtres Daughters of Khaine__ amis tant qu'ils sont entièrement à 9" ou moins d'une ou plusieurs figurines amies ayant cette aptitude.

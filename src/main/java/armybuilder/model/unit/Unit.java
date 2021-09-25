@@ -15,10 +15,10 @@ import org.apache.commons.collections.ListUtils;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import armybuilder.model.army.Army;
-import armybuilder.model.army.option.ArmyOption;
 import armybuilder.model.army.option.MultiOption;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.option.IUnitOptionValue;
@@ -31,6 +31,7 @@ import armybuilder.serialisation.UnitModelJsonDeserializer;
 import armybuilder.serialisation.UnitOptionJsonDeserializer;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Unit implements Comparable<Unit> {
 
 	@JsonDeserialize(converter = UnitModelJsonDeserializer.class)
@@ -101,12 +102,24 @@ public class Unit implements Comparable<Unit> {
 				.collect(Collectors.toList());
 	}
 
-	public void addOption(UnitOption option, IUnitOptionValue<?> value) {
+	public void add(IUnitOptionValue<?> value) {
+		add(value.getOption(), value);
+	}
+
+	public void add(UnitOption option, IUnitOptionValue<?> value) {
 		options.put(option, value);
 	}
 
-	public void removeOption(UnitOption option) {
+	public void add(MultiOption o) {
+		multiOptions.add(o.getId());
+	}
+
+	public void remove(UnitOption option) {
 		options.remove(option);
+	}
+
+	public void remove(MultiOption option) {
+		multiOptions.removeIf(i -> i == option.getId());
 	}
 
 	public List<IUnitOptionValue<?>> getOptionValues(UnitOption option) {
@@ -120,8 +133,8 @@ public class Unit implements Comparable<Unit> {
 	}
 
 	public List<MultiOption> getMultiOptionValues(UnitOption option) {
-		return army.multiOptions(ArmyOption.valueOf(option.name())).stream()
-				.filter(o -> o.isAvailable(army, this)).collect(Collectors.toList());
+		return army.multiOptions(option).stream().filter(o -> o.isAvailable(army, this))
+				.collect(Collectors.toList());
 	}
 
 	public IUnitOptionValue<?> get(UnitOption option) {
@@ -129,8 +142,8 @@ public class Unit implements Comparable<Unit> {
 	}
 
 	public MultiOption getMultiOption(UnitOption option) {
-		return army.multiOptions(ArmyOption.valueOf(option.name())).stream()
-				.filter(o -> multiOptions.contains(o.getId())).findFirst().orElse(null);
+		return army.multiOptions(option).stream().filter(o -> multiOptions.contains(o.getId()))
+				.findFirst().orElse(null);
 	}
 
 	/**
@@ -164,8 +177,6 @@ public class Unit implements Comparable<Unit> {
 	public Set<IArmyRule<?>> getRules() {
 		return rules;
 	}
-
-
 
 	/**
 	 * is
@@ -238,5 +249,7 @@ public class Unit implements Comparable<Unit> {
 	public void setArmy(Army army) {
 		this.army = army;
 	}
+
+
 
 }
