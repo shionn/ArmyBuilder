@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import armybuilder.model.army.Army;
+import armybuilder.model.army.option.DisplayUnit;
 import armybuilder.model.army.option.MultiOption;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.option.IUnitOptionValue;
@@ -174,8 +175,9 @@ public class Unit implements Comparable<Unit> {
 		}
 	}
 
-	public Set<IArmyRule<?>> getRules() {
-		return rules;
+	public List<IArmyRule<?>> getDisplayedRules() {
+		DisplayUnit display = army.option(DisplayUnit.Full);
+		return rules.stream().filter(r -> display.display(this, r)).collect(Collectors.toList());
 	}
 
 	/**

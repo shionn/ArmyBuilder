@@ -86,9 +86,9 @@ public class Army {
 	/*
 	 * Options
 	 */
-	public void setOption(ArmyOption option, IArmyOptionValue<?> value) {
-		this.options.put(option, value);
-		if (option == ArmyOption.Allegiance) {
+	public void setOption(IArmyOptionValue<?> value) {
+		this.options.put(value.getOption(), value);
+		if (value.getOption() == ArmyOption.Allegiance) {
 			this.options.remove(ArmyOption.SubAllegiance);
 			this.unitChoices.clear();
 			this.units.clear();
@@ -101,6 +101,12 @@ public class Army {
 
 	public IArmyOptionValue<?> option(ArmyOption option) {
 		return options.get(option);
+	}
+
+	public <T extends IArmyOptionValue<?>> T option(T defolt) {
+		@SuppressWarnings("unchecked")
+		T value = (T) option(defolt.getOption());
+		return value == null ? defolt : value;
 	}
 
 	public List<MultiOption> multiOptions() {

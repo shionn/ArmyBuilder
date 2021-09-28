@@ -22,6 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import armybuilder.model.army.Army;
 import armybuilder.model.army.option.Allegiance;
 import armybuilder.model.army.option.ArmyOption;
+import armybuilder.model.army.option.DisplayUnit;
 import armybuilder.model.army.option.GrandeStrategie;
 import armybuilder.model.army.option.MultiOption;
 import armybuilder.model.army.option.PackDeBataille;
@@ -70,31 +71,31 @@ public class ArmyController {
 
 	@GetMapping(path = "/Allegiance")
 	public String setAllegiance(@RequestHeader("Allegiance") Allegiance allegiance) {
-		army.setOption(ArmyOption.Allegiance, allegiance);
+		army.setOption(allegiance);
 		return "redirect:/";
 	}
 
 	@GetMapping(path = "/SubAllegiance")
 	public String setSubAllegiance(@RequestHeader("SubAllegiance") SubAllegiance subAllegiance) {
-		army.setOption(ArmyOption.SubAllegiance, subAllegiance);
+		army.setOption(subAllegiance);
 		return "redirect:/";
 	}
 
 	@GetMapping(path = "/PackDeBataille")
 	public String setPackDeBataille(@RequestHeader("PackDeBataille") PackDeBataille pack) {
-		army.setOption(ArmyOption.PackDeBataille, pack);
+		army.setOption(pack);
 		return "redirect:/";
 	}
 
 	@GetMapping(path = "/GrandeStrategie")
 	public String setPackDeBataille(@RequestHeader("GrandeStrategie") GrandeStrategie gdStrat) {
-		army.setOption(ArmyOption.GrandeStrategie, gdStrat);
+		army.setOption(gdStrat);
 		return "redirect:/";
 	}
 
 	@GetMapping(path = "/Triomphes")
 	public String setPackDeBataille(@RequestHeader("Triomphes") Triomphes triomphes) {
-		army.setOption(ArmyOption.Triomphes, triomphes);
+		army.setOption(triomphes);
 		return "redirect:/";
 	}
 
@@ -102,6 +103,12 @@ public class ArmyController {
 	public String addBataillon(@RequestHeader("Bataillon") Bataillon bat) {
 		int id = army.multiOptions().stream().map(o -> o.getId()).reduce(0, Integer::max) + 1;
 		army.addMultiOption(new MultiOption(id, ArmyOption.Bataillon, bat));
+		return "redirect:/";
+	}
+
+	@GetMapping(path = "/DisplayUnit")
+	public String setPackDeBataille(@RequestHeader("DisplayUnit") DisplayUnit display) {
+		army.setOption(display);
 		return "redirect:/";
 	}
 

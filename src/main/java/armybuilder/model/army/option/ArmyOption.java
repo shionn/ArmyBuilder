@@ -18,7 +18,8 @@ public enum ArmyOption {
 			false,
 			armybuilder.model.army.option.GrandeStrategie.values()),
 	Triomphes("Triomphe", false, armybuilder.model.army.option.Triomphes.values()),
-	Bataillon("Bataillon", true, armybuilder.model.army.option.bataillon.Bataillon.values());
+	Bataillon("Bataillon", true, armybuilder.model.army.option.bataillon.Bataillon.values()),
+	DisplayUnit("Affichage unité", false, armybuilder.model.army.option.DisplayUnit.values());
 
 	private String displayName;
 	private List<IArmyOptionValue<?>> values;

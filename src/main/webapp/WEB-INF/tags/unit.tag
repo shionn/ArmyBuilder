@@ -128,7 +128,7 @@
 		</div>
 		</c:if>
 		<div>
-			<c:forEach items="${unit.rules}" var="rule"><t:rule rule="${rule}" army="${army}" displayUnit="false"/></c:forEach>
+			<c:forEach items="${unit.displayedRules}" var="rule"><t:rule rule="${rule}" army="${army}" displayUnit="false"/></c:forEach>
 		</div>
 	</main>
 	<c:if test="${not empty unit.keyWords}">
