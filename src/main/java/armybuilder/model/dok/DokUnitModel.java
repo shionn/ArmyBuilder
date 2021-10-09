@@ -306,7 +306,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(DokUnitWeapon.TorrentdeSangBrulant, DokUnitWeapon.EpeeDAvatar),
 			null,
 			Arrays.asList(DokRule.AutelDeKhaine, DokRule.ObjetDAdoration, DokRule.ColereDeKhaine),
-			Arrays.asList(),
+			Arrays.asList(UnitOption.AptitudeDeVeteran, UnitOption.Bataillon),
 			Arrays.asList(KeyWord.Ordre, KeyWord.DaughtersOfKhaine, KeyWord.Totem,
 					KeyWord.AvatarOfKhaine),
 			Arrays.asList(),

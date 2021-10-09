@@ -4,10 +4,12 @@ import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.model.unit.weapon.WeaponType;
 
 public enum NighthauntUnitWeapon implements IUnitWeapon {
+	Affrelame("Affrelame", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "1"),
 	ArmeDeMalignant("Arme de Malignant", WeaponType.Melee, "1", "2", "4+", "4+", "-", "1"),
 	CriDechirant("Cri Déchirant", WeaponType.Projectil, "10", "3", "3+", "3+", "-3", "1"),
-	FouetDeRonces("Fouet de Ronces", WeaponType.Melee, "3", "1", "3+", "3+", "-2", "D3"),
 	DagueDeGivre("Dague de Givre", WeaponType.Melee, "1", "2", "4+", "3+", "-2", "D3"),
+	FouetDeRonces("Fouet de Ronces", WeaponType.Melee, "3", "1", "3+", "3+", "-2", "D3"),
+	SabotsEtDentsFantomatiques("Sabots et Dents Fantomatiques", WeaponType.Melee, "1", "2", "4+", "5+", "-", "1"),
 	VougeDeChasseur("Vouge de Chasseur", WeaponType.Melee, "2", "2", "4+", "3+", "-", "1"),
 
 	;

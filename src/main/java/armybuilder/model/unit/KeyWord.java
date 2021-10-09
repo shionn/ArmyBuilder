@@ -11,6 +11,7 @@ public enum KeyWord {
 	ChainraspHorde("ChainraspHorde"),
 	DaughtersOfKhaine("Daughters of khaine"),
 	DraichiGaneth("Draichi Ganeth"),
+	DreadbladeHarrow("Dreadblade Harrow"),
 	EpinesDeLaReineDesRonces("Epines de la Reine des Ronces"),
 	GlaivewraithStalkers("Glaivewraith Stalkers"),
 	HagQueen("Hag Queen"),

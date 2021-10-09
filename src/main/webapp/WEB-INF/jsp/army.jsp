@@ -81,7 +81,7 @@
 				<t:rule rule="${army.option('GrandeStrategie')}" army="${army}"/>
 			</c:if>
 			<c:if test="${not empty army.getRules('TraisDeBataille')}">
-				<h2>Aptitudes D'Allégeance</h2>
+				<h2>Aptitudes D'Allégeance - <small>${army.option('SubAllegiance').displayName}</small></h2>
 				<c:forEach items="${army.getRules('TraisDeBataille')}" var="rule">
 					<t:rule rule="${rule}" army="${army}"/>
 				</c:forEach>
@@ -112,6 +112,11 @@
 					<c:forEach items="${o.value.rules}" var="r">
 						<t:rule rule="${r}"/>
 					</c:forEach>
+					<div style="padding-bottom: 10px; display: flex; flex-wrap: wrap; justify-content: space-between;">
+						<c:forEach items="#{army.units(o)}" var="unit">
+							<span style="width: 33%">${unit.displayName} ${unit.value}</span>
+						</c:forEach>
+					</div>
 				</c:forEach>
 			</div>
 			<c:forEach items="${army.units}" var="unit">

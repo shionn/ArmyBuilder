@@ -1,1 +1,1 @@
-Choisissez une des armes de mêlée du porteur. Ajoutez 1 aux jets de touche et de bless ure pour les attaques effectuées avec cette arme. 
+Choisissez une des armes de mêlée du porteur. Ajoutez 1 aux jets de touche et de blessure pour les attaques effectuées avec cette arme. 

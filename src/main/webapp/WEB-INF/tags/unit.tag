@@ -116,7 +116,7 @@
 							${o.displayName}
 							<select name="value" class="ajax" data-update="body>main"
 									data-url='<spring:url value="/unit/${unit.hashCode()}/${o.name()}"/>'>
-								<option value="null">----</option>
+								<option value="0">----</option>
 								<c:forEach items="${unit.getMultiOptionValues(o)}" var="v">
 									<option value="${v.id}" <c:if test="${v.id == unit.getMultiOption(o).id}">selected="selected"</c:if>>${v.displayName}</option>
 								</c:forEach>

@@ -1,0 +1,1 @@
+Relancez les jets de bless ure de 1 pour les attaques de l'Affrelame de cette figurine quand elle est à 9" ou moins d'un __Knight of Shrouds__ ami.

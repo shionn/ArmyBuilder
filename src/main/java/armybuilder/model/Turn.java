@@ -25,7 +25,7 @@ public class Turn {
 		Charge("4 Phase de Charge",
 				Arrays.asList(Arrays.asList(ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCharge),
 						Arrays.asList(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeCharge),
-						Arrays.asList(ArmyRuleType.Artefact, ArmyRuleType.PhaseDeCharge),
+						Arrays.asList(ArmyRuleType.AptitudeDeVeteran, ArmyRuleType.PhaseDeCharge),
 						Arrays.asList(ArmyRuleType.FureursMonstrueuses))),
 		Combat("5 Phase de Combat",
 				Arrays.asList(Arrays.asList(ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCombat),

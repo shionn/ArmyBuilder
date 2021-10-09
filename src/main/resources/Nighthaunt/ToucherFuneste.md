@@ -1,1 +1,1 @@
-Si le jet de touche non mod ifié pour une a tt aque de Dague de Givre donne 6, cette attaque inflige D3 blessures mortelles et la séquence d'attaque se termine (n'effectuez pas de jet de blessure ni de sauvegarde). 
+Si le jet de touche non modifié pour une attaque de Dague de Givre donne 6, cette attaque inflige D3 blessures mortelles et la séquence d'attaque se termine (n'effectuez pas de jet de blessure ni de sauvegarde). 

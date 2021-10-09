@@ -195,6 +195,10 @@ public class Army {
 		return units.stream().filter(u -> u.is(opt)).collect(Collectors.toList());
 	}
 
+	public List<Unit> units(MultiOption opt) {
+		return units.stream().filter(u -> u.is(opt)).collect(Collectors.toList());
+	}
+
 	public Unit unit(UnitOption opt) {
 		return units.stream().filter(u -> u.is(opt)).findFirst().orElse(null);
 	}

@@ -48,10 +48,10 @@ public class ArmyUnitController {
 				}
 				break;
 			case selectMultiOption:
-				MultiOption o = army.multiOptions(option, Integer.parseInt(value));
-				if ("null".equals(value)) {
-					u.remove(o);
+				if ("0".equals(value)) {
+					u.remove(option);
 				} else {
+					MultiOption o = army.multiOptions(option, Integer.parseInt(value));
 					u.add(o);
 				}
 				break;

@@ -1,0 +1,2 @@
+Ajoutez 1 à la caractéristique de Dégâts de l'Affrelame de cette figurine si elle a effectué un mouvement de charge au même tour.
+Ajoutez 1 à la caractéristique d'Attaques de l'Affrelame de cette figurine si elle n'a pas effectué de mouvement de charge à ce tour.

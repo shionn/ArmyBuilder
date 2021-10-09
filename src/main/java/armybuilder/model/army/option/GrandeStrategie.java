@@ -51,7 +51,7 @@ public enum GrandeStrategie
 
 	@Override
 	public ArmyOption getOption() {
-		return ArmyOption.PackDeBataille;
+		return ArmyOption.GrandeStrategie;
 	}
 
 	@Override

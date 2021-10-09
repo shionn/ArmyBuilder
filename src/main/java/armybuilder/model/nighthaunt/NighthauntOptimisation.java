@@ -55,8 +55,8 @@ public enum NighthauntOptimisation implements IUnitOptionValue<NighthauntOptimis
 
 	// Composition
 	Dreadwarden(UnitOption.Chef, (a, u) -> u.is(NighthauntUnitModel.ChainraspHorde)),
-	TambourDArythmie(UnitOption.Chef, (a, u) -> u.is(NighthauntUnitModel.GlaivewraithStalkers)),
 	VarclavLeCruel(UnitOption.Chef, (a, u) -> u.is(NighthauntUnitModel.ThornsOfTheBriarQueen)),
+	TambourDArythmie(UnitOption.Musicien, (a, u) -> u.is(NighthauntUnitModel.GlaivewraithStalkers)),
 
 	;
 

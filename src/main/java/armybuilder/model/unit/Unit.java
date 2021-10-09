@@ -25,6 +25,7 @@ import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.option.IUnitOptionValue;
 import armybuilder.model.unit.option.OptimisationsUniverselles;
 import armybuilder.model.unit.option.UnitOption;
+import armybuilder.model.unit.option.UnitOptionType;
 import armybuilder.model.unit.rule.UnitRuleComparator;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.model.unit.weapon.WeaponType;
@@ -116,7 +117,12 @@ public class Unit implements Comparable<Unit> {
 	}
 
 	public void remove(UnitOption option) {
-		options.remove(option);
+		if (option.getType() == UnitOptionType.selectMultiOption) {
+			// TODO a pofiné
+			multiOptions.clear();
+		} else {
+			options.remove(option);
+		}
 	}
 
 	public void remove(MultiOption option) {
@@ -189,6 +195,10 @@ public class Unit implements Comparable<Unit> {
 
 	public boolean is(UnitOption opt) {
 		return get(opt) != null;
+	}
+
+	public boolean is(MultiOption opt) {
+		return multiOptions.contains(opt.getId());
 	}
 
 	public boolean is(IArmyRule<?> rule) {

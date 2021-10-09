@@ -1,0 +1,1 @@
+Si cette figurine est à plus de 3" de toute figurine ennemie au début de votre phase de mouvement, alors au lieu d'effectuer un mouvement normal, vous pouvez la retirer du champ de bataille et la replacer n'importe où sur le champ de bataille, à plus de 9" de toute figurine ennemie.

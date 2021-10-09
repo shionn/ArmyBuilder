@@ -1,1 +1,1 @@
-Soustrayez 1 à la caractéristiqu e de Bravoure des un ités ennemies tant qu'elles sont à 6" ou moins d'une ou plusieurs unités **Nighthaunt** amies
+Soustrayez 1 à la caractéristique de Bravoure des unités ennemies tant qu'elles sont à 6" ou moins d'une ou plusieurs unités **Nighthaunt** amies

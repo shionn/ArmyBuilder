@@ -51,15 +51,22 @@ public enum NighthauntRule implements IArmyRule<NighthauntRule> {
 	LameDeFeuMaudit("Lame de Feu Maudit", ArmyRuleType.Artefact),
 	LameStridente("Lame Stridente", ArmyRuleType.Artefact),
 
+	Affrelame("Affrelame", ArmyRuleType.Aptitude),
 	ChainesEtrangleuses("Chaînes Étrangleuses", ArmyRuleType.Aptitude),
 	CriFunebre(
 			"Cri Funèbre",
 			ArmyRuleType.Aptitude,
 			ArmyRuleType.PhaseDeTir,
 			ArmyRuleType.TraisUnitee),
+	Dematerialisation(
+			"Dématérialisation",
+			ArmyRuleType.Aptitude,
+			ArmyRuleType.PhaseDeMouvement,
+			ArmyRuleType.TraisUnitee),
 	Etheres("Éthérés", ArmyRuleType.Aptitude),
 	HordeEffroyable("Horde Effroyable", ArmyRuleType.Aptitude),
 	LaPointeDeLaMort("La Pointe de la Mort", ArmyRuleType.Aptitude),
+	MaledictionDeLoyaute("Malédiction de Loyauté", ArmyRuleType.Aptitude),
 	MangeSorts(
 			"Mange-sorts",
 			ArmyRuleType.Aptitude,

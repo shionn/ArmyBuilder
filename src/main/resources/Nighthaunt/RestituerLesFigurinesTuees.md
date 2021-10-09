@@ -1,3 +1,3 @@
-Plusieurs aptitudes Nighthaunts vous permettent de restituer des figurines tu ées à une unité. Lorsque vous le faites, placez les figurines une à la fois, à 1" ou moins d'une figurine de l'unité à laquelle elle est restituée (ce peut être une figurine que vous avez restituée à l'unité précédemment au cours de la même phase). 
+Plusieurs aptitudes Nighthaunts vous permettent de restituer des figurines tuées à une unité. Lorsque vous le faites, placez les figurines une à la fois, à 1" ou moins d'une figurine de l'unité à laquelle elle est restituée (ce peut être une figurine que vous avez restituée à l'unité précédemment au cours de la même phase). 
 
-Les figurines tu ées que vous restituez à une unité peuvent seulement être placées à 3" ou moins d'une unité ennemie si une ou plusieurs figurines de l'unité à laquelle elles sont restituées sont déjà à 3" ou moins d 'une unité ennemie.
+Les figurines tuées que vous restituez à une unité peuvent seulement être placées à 3" ou moins d'une unité ennemie si une ou plusieurs figurines de l'unité à laquelle elles sont restituées sont déjà à 3" ou moins d 'une unité ennemie.
