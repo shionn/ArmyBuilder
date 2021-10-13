@@ -32,7 +32,8 @@ public class Turn {
 						Arrays.asList(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeCombat),
 						Arrays.asList(ArmyRuleType.AptitudeDeVeteran, ArmyRuleType.PhaseDeCombat))),
 		Deroute("6 Phase de Déroute", Arrays.asList(Arrays.asList(ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCharge),
-				Arrays.asList(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeDeroute)));
+				Arrays.asList(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeDeroute),
+				Arrays.asList(ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeDeroute)));
 
 		private String name;
 		private List<List<ArmyRuleType>> steps;

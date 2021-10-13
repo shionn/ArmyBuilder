@@ -115,7 +115,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 	TombBanshee(
 			"Tomb Banshee",
 			80,
-			UnitProfile._6_1_10_4,
+			UnitProfile._6_4_10_4,
 			Arrays.asList(RoleTactique.Leader),
 			Arrays.asList(NighthauntUnitWeapon.DagueDeGivre),
 			null,

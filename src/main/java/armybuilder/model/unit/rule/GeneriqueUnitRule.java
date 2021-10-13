@@ -36,10 +36,10 @@ public enum GeneriqueUnitRule implements IArmyRule<GeneriqueUnitRule> {
 	GraineDeRenaissance("Graine de Renaissance", ArmyRuleType.Artefact),
 
 	GrandPretre("Grand Prêtre", ArmyRuleType.TraitsDeCommandement),
-	LeaderCompétent("Leader Compétent", ArmyRuleType.TraitsDeCommandement),
+	LeaderCompetent("Leader Compétent", ArmyRuleType.TraitsDeCommandement),
 	MaitreDeLaMagie("Maître de la Magie", ArmyRuleType.TraitsDeCommandement),
 	SoifDeBataille("Soif de Bataille", ArmyRuleType.TraitsDeCommandement),
-	StatureHeroïque("Stature Héroïque", ArmyRuleType.TraitsDeCommandement),
+	StatureHeroique("Stature Héroïque", ArmyRuleType.TraitsDeCommandement),
 
 	;
 

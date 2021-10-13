@@ -84,6 +84,11 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 	DuelTitanesque("Duel Titanesque", null, ArmyRuleType.FureursMonstrueuses),
 	Ecroulement("Écroulement", null, ArmyRuleType.FureursMonstrueuses),
 
+	DissiperLesSorts("Dissiper les Sorts", null, ArmyRuleType.Aptitude, ArmyRuleType.PhaseDesHeros),
+	Fiascos("Fiascos", null, ArmyRuleType.Aptitude, ArmyRuleType.PhaseDesHeros),
+	TestsDeDeroute("Tests de Déroute", null, ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeDeroute),
+
+
 	;
 
 	private List<ArmyRuleType> types;

@@ -19,21 +19,21 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.SoifDeBataille)),
-	LeaderCompétent(
-			GeneriqueUnitRule.LeaderCompétent.getDisplayName(),
+	LeaderCompetent(
+			GeneriqueUnitRule.LeaderCompetent.getDisplayName(),
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique),
-			u -> u.add(GeneriqueUnitRule.LeaderCompétent)),
+			u -> u.add(GeneriqueUnitRule.LeaderCompetent)),
 	GrandPretre(
 			GeneriqueUnitRule.GrandPretre.getDisplayName(),
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Pretre),
 			u -> u.add(GeneriqueUnitRule.GrandPretre)),
-	StatureHeroïque(
-			GeneriqueUnitRule.StatureHeroïque.getDisplayName(),
+	StatureHeroique(
+			GeneriqueUnitRule.StatureHeroique.getDisplayName(),
 			UnitOption.TraisDeCommandement,
 			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique),
-			u -> u.add(GeneriqueUnitRule.StatureHeroïque)),
+			u -> u.add(GeneriqueUnitRule.StatureHeroique)),
 	MaitreDeLaMagie(
 			GeneriqueUnitRule.MaitreDeLaMagie.getDisplayName(),
 			UnitOption.TraisDeCommandement,
