@@ -1,4 +1,5 @@
 'use strict';
+// version 1
 
 let _q = function(obj) {
 	this.obj = obj;

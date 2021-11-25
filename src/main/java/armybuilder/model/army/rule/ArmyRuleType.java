@@ -10,6 +10,8 @@ public enum ArmyRuleType {
 	TraisDeBataille(null, a -> true),
 	TraisUnitee(null, a -> !a.getUnits().isEmpty()),
 
+	SubAllegiance(null, a -> false),
+
 	Composition(null, a -> !a.getUnits().isEmpty()),
 	Aptitude(null, a -> true),
 	AptitudesDeCommandement("Aptitudes de Commandement", a -> true),
@@ -30,6 +32,7 @@ public enum ArmyRuleType {
 	PhaseDeTir(null, a -> true),
 	PhaseDeCombat(null, a -> true),
 	PhaseDeDeroute(null, a -> true),
+
 	;
 	private String displayName;
 	private Function<Army, Boolean> usable;

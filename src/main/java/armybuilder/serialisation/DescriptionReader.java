@@ -2,12 +2,27 @@ package armybuilder.serialisation;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
+import java.util.function.Supplier;
 
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
+import armybuilder.model.army.rule.IArmyRule;
+
 public class DescriptionReader {
+	
+	public static Supplier<String> rules(IArmyRule<?>... rules) {
+		return () -> Arrays.stream(rules).map(r -> {
+			try {
+				return r.getDescription();
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		}).reduce((a, b) -> (a + b)).get();
+	}
+	
 
 	public String read(String folder, String name) {
 		try (InputStream is = Thread.currentThread().getContextClassLoader()

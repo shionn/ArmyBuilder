@@ -5,6 +5,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.databind.util.StdConverter;
 
 import armybuilder.model.army.option.Allegiance;
+import armybuilder.model.army.option.DisplayUnit;
 import armybuilder.model.army.option.GrandeStrategie;
 import armybuilder.model.army.option.IArmyOptionValue;
 import armybuilder.model.army.option.PackDeBataille;
@@ -17,7 +18,8 @@ public class ArmyOptionJsonDeserializer extends StdConverter<String, IArmyOption
 	@Override
 	public IArmyOptionValue<?> convert(String value) {
 		for (Class<? extends Enum<?>> type : Arrays.asList(Allegiance.class, GrandeStrategie.class,
-				PackDeBataille.class, SubAllegiance.class, Triomphes.class, Bataillon.class)) {
+				PackDeBataille.class, SubAllegiance.class, Triomphes.class, Bataillon.class,
+				DisplayUnit.class)) {
 			for (Enum<?> instance : type.getEnumConstants()) {
 				if (value.equals(instance.name())) {
 					return (IArmyOptionValue<?>) instance;

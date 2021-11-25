@@ -3,6 +3,7 @@ package armybuilder.model.dok;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Supplier;
 
 import armybuilder.model.army.Army;
 import armybuilder.model.army.rule.ArmyRuleType;
@@ -127,8 +128,7 @@ public enum DokRule implements IArmyRule<DokRule> {
 	LePouvoirDuSang(
 			"Le Pouvoir du Sang",
 			ArmyRuleType.AptitudesDeCommandement,
-			ArmyRuleType.PhaseDeCombat,
-			ArmyRuleType.PhaseDeTir),
+			ArmyRuleType.PhaseDeCombat),
 	MaitressesDesOmbrevoies(
 			"Maîtresses des Ombrevoies",
 			ArmyRuleType.AptitudesDeCommandement,
@@ -164,7 +164,8 @@ public enum DokRule implements IArmyRule<DokRule> {
 	MaitriseDesArcanes("Maîtrise des Arcanes", ArmyRuleType.TraitsDeCommandement),
 	MaledictionDeLaMainSanglante(
 			"Malédiction de la Main Sanglante",
-			ArmyRuleType.TraitsDeCommandement),
+			ArmyRuleType.TraitsDeCommandement,
+			ArmyRuleType.PhaseDeMouvement),
 	OrateurZele("Orateur Zélé", ArmyRuleType.TraitsDeCommandement),
 	PresenceEffrayante("Présence Effrayante", ArmyRuleType.TraitsDeCommandement),
 	SacrificateurSanglant("Sacrificateur Sanglant", ArmyRuleType.TraitsDeCommandement),
@@ -230,10 +231,28 @@ public enum DokRule implements IArmyRule<DokRule> {
 			ArmyRuleType.Aptitude,
 			ArmyRuleType.PhaseDeCombat),
 
+	// description des Temples
+	HaggNarDesc(
+			"Hagg Nar",
+			DescriptionReader.rules(FillesDuPremierTemple, AvancezLesChaudrons, DisciplesDevots,
+					LUlfuri),
+			ArmyRuleType.SubAllegiance),
+	KheltNarDesc(
+			"Khelt Nar",
+			DescriptionReader.rules(FrapperEtSeRetirer, SaignerLEsprit, VolEnCercle,
+					LaFaixDeGalisa),
+			ArmyRuleType.SubAllegiance),
+	ZaintharKaiDesc(
+			"Zainthar Kai",
+			DescriptionReader.rules(LessenceDeKhaine, CrypteDesAinee, LePouvoirDuSang,
+					MaledictionDeLaMainSanglante, TalismanEcarlate),
+			ArmyRuleType.SubAllegiance),
+
 	;
 
 	private List<ArmyRuleType> types;
 	private String displayName;
+	private Supplier<String> description;
 
 	DokRule(ArmyRuleType... types) {
 		this.types = Arrays.asList(types);
@@ -241,6 +260,12 @@ public enum DokRule implements IArmyRule<DokRule> {
 
 	DokRule(String displayName, ArmyRuleType... types) {
 		this.displayName = displayName;
+		this.types = Arrays.asList(types);
+	}
+
+	DokRule(String displayName, Supplier<String> description, ArmyRuleType... types) {
+		this.displayName = displayName;
+		this.description = description;
 		this.types = Arrays.asList(types);
 	}
 
@@ -259,7 +284,10 @@ public enum DokRule implements IArmyRule<DokRule> {
 
 	@Override
 	public String getDescription() throws IOException {
-		return new DescriptionReader().read("Dok/", name());
+		if (description == null) {
+			return new DescriptionReader().read("Dok/", name());
+		}
+		return description.get();
 	}
 
 	@Override

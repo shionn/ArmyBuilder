@@ -186,6 +186,10 @@ public class Unit implements Comparable<Unit> {
 		return rules.stream().filter(r -> display.display(this, r)).collect(Collectors.toList());
 	}
 
+	public SortedSet<IArmyRule<?>> getRules() {
+		return rules;
+	}
+
 	/**
 	 * is
 	 */

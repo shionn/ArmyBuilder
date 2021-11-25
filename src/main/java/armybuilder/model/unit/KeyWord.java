@@ -46,6 +46,7 @@ public enum KeyWord {
 	Sorcier("Sorcier"),
 	TombBanshee("Tomb Banshee"),
 	Totem("Totem"),
+	TousLesTemples("Tous les Temples"),
 	Unique("Unique"),
 	WitchAelves("Witch Aelves"),
 	ZaintharKai("Zainthar Kai"),

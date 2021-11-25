@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -33,9 +34,11 @@ import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.RoleTactique;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.option.IUnitOptionValue;
+import armybuilder.model.unit.option.OptimisationsUniverselles;
 import armybuilder.model.unit.option.UnitOption;
 import armybuilder.model.unit.option.UnitOptionType;
 import armybuilder.serialisation.ArmyOptionJsonDeserializer;
+import armybuilder.serialisation.UnitOptionJsonDeserializer;
 
 @Component
 @SessionScope
@@ -47,6 +50,8 @@ public class Army {
 	private Map<ArmyOption, IArmyOptionValue<?>> options = new HashMap<>();
 	private List<MultiOption> multiOptions = new ArrayList<>();
 	private List<Unit> units = new ArrayList<>();
+	@JsonDeserialize(contentConverter = UnitOptionJsonDeserializer.class)
+	private List<IUnitOptionValue<?>> optimisations = new ArrayList<>();
 
 	@JsonIgnore
 	private List<String> errors = new ArrayList<>();
@@ -61,6 +66,7 @@ public class Army {
 		this.options.clear();
 		this.units.clear();
 		this.multiOptions.clear();
+		this.optimisations.clear();
 	}
 
 	public void rebuild() {
@@ -223,10 +229,39 @@ public class Army {
 		return units.stream().filter(u -> u.is(model)).collect(Collectors.toList());
 	}
 
+	/**
+	 * Optimisations
+	 */
+	public List<IUnitOptionValue<?>> getOptimisationChoices() {
+		Set<IUnitOptionValue<?>> options = new HashSet<>();
+		unitChoices.stream().map(u -> u.getOptionValues()).forEach(o -> options.addAll(o));
+		options.addAll(Arrays.asList(OptimisationsUniverselles.values()));
+
+		return options.stream()
+				.filter(o -> Arrays.asList(UnitOption.TraisDeCommandement, UnitOption.Artefact,
+						UnitOption.Sort, UnitOption.Priere)
+						.contains(o.getOption()))
+				.sorted((a, b) -> a.getFullDisplayName().compareTo(b.getFullDisplayName()))
+				.collect(Collectors.toList());
+	}
+
+	public void add(IUnitOptionValue<?> optimisation) {
+		this.optimisations.add(optimisation);
+	}
+
+	public void remove(IUnitOptionValue<?> optimisation) {
+		this.optimisations.remove(optimisation);
+	}
+
+	public List<IUnitOptionValue<?>> getOptimisations() {
+		return optimisations.stream()
+				.sorted((a, b) -> a.getFullDisplayName().compareTo(b.getFullDisplayName()))
+				.collect(Collectors.toList());
+	}
+
 	/*
 	 * rest
 	 */
-
 	public void addError(String string) {
 		this.errors.add(string);
 	}

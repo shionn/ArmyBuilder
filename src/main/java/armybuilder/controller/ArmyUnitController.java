@@ -26,6 +26,7 @@ public class ArmyUnitController {
 		return "redirect:/";
 	}
 
+
 	@GetMapping(path = "/unit/{hash}/{option}")
 	public String setOption(@PathVariable("hash") int hash,
 			@PathVariable("option") UnitOption option,
@@ -65,10 +66,22 @@ public class ArmyUnitController {
 
 	@GetMapping(path = "/unit/remove/{hash}")
 	public String remove(@PathVariable("hash") int hash) {
-		army.getUnits().stream().filter(u -> u.hashCode() == hash).forEach(u -> {
-			army.remove(u);
-		});
+		army.getUnits().stream().filter(u -> u.hashCode() == hash).forEach(u -> army.remove(u));
 		return "redirect:/";
 	}
+
+	@GetMapping(path = "/optimisation/add")
+	public String addOptimisation(@RequestHeader("optimisation") String optimisation) {
+		army.getOptimisationChoices().stream().filter(o -> o.name().equals(optimisation))
+				.forEach(army::add);
+		return "redirect:/";
+	}
+
+	@GetMapping(path = "/optimisation/remove/{hash}")
+	public String removeOptimisation(@PathVariable("hash") int hash) {
+		army.getOptimisations().stream().filter(o -> o.hashCode() == hash).forEach(army::remove);
+		return "redirect:/";
+	}
+
 
 }

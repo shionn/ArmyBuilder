@@ -24,6 +24,7 @@ import armybuilder.model.army.option.Allegiance;
 import armybuilder.model.army.option.ArmyOption;
 import armybuilder.model.army.option.DisplayUnit;
 import armybuilder.model.army.option.GrandeStrategie;
+import armybuilder.model.army.option.IArmyOptionValue;
 import armybuilder.model.army.option.MultiOption;
 import armybuilder.model.army.option.PackDeBataille;
 import armybuilder.model.army.option.SubAllegiance;
@@ -50,10 +51,18 @@ public class ArmyController {
 		new ObjectMapper().writeValue(w, getNotProxifiedArmy());
 		HttpHeaders header = new HttpHeaders();
 		header.set(HttpHeaders.CONTENT_DISPOSITION,
-				"attachment; filename=" + army.option(ArmyOption.Allegiance).getDisplayName()
+				"attachment; filename=" + fileName()
 						+ "-" + new SimpleDateFormat("yyyy-MM-dd").format(new Date())
 						+ ".json");
 		return new HttpEntity<String>(w.toString(), header);
+	}
+
+	private String fileName() {
+		IArmyOptionValue<?> option = army.option(ArmyOption.Allegiance);
+		if (option == null) {
+			return "NoAllegiance";
+		}
+		return option.getDisplayName();
 	}
 
 

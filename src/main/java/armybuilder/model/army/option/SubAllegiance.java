@@ -65,6 +65,7 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 							DokOptimisations.SeBaignerDansLeurSang),
 					Checkers.unitWithOption(UnitOption.Artefact,
 							DokOptimisations.VeninDeNagendra))),
+
 	LOstEmeraude(
 			"Processions : l'OST Emeraude",
 			Arrays.asList(Modifiers.rules(NighthauntRule.LaMaledictionEmeraude,
@@ -84,7 +85,21 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 					Checkers.unitWithOption(UnitOption.TraisDeCommandement,
 							DokOptimisations.MaledictionDeLaMainSanglante),
 					Checkers.unitWithOption(UnitOption.Artefact,
-							DokOptimisations.TalismanEcarlate)));
+							DokOptimisations.TalismanEcarlate))),
+
+	TousLesTemples(
+			"Tous les Temples",
+			Arrays.asList(
+			// Modifiers.optimisations(SubAllegiance.HaggNar, DokRule.FillesDuPremierTemple,
+			// DokRule.AvancezLesChaudrons, DokRule.DisciplesDevots, DokRule.LUlfuri)
+			// Modifiers.rules(DokRule.HaggNarDesc, DokRule.KheltNarDesc,DokRule.ZaintharKaiDesc)
+					Modifiers.rules(HaggNar, KheltNar,
+							ZaintharKai)
+			),
+			a -> a.is(Allegiance.DoK),
+			Arrays.asList()),
+
+	;
 
 	private String displayName;
 	private List<IArmyModifier> modifiers;
