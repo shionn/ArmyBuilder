@@ -21,4 +21,5 @@ public interface IArmyRule<T extends Enum<T> & IArmyRule<T>> {
 
 	void rebuild(Army army);
 
+
 }

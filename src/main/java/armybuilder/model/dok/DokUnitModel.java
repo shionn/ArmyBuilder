@@ -32,7 +32,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(DokRule.DeuxCorpsUneSeuleAme, DokRule.PresenceIntimidante,
 					GeneriqueRule.TraitMagique, GeneriqueRule.BouclierMystique,
 					DokRule.HorreurNoireDUlgu, DokRule.VenerationParLeSang,
-					GeneriqueUnitRule.Sorcier_3_2_1),
+					GeneriqueUnitRule.Sorcier_3_2_1_Morathi),
 			Arrays.asList(UnitOption.General, UnitOption.Sort, UnitOption.Bataillon),
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.Heros,
 					KeyWord.Sorcier, KeyWord.MorathiKhaine, KeyWord.Unique),
@@ -186,7 +186,7 @@ public enum DokUnitModel implements IUnitModel {
 
 	SlaughterQueen(
 			"Slaughter Queen",
-			120,
+			110,
 			UnitProfile._6_5_8_5,
 			Arrays.asList(RoleTactique.Leader),
 			Arrays.asList(DokUnitWeapon.EpeeDeMort, DokUnitWeapon.LameDeKhaine),
@@ -266,7 +266,7 @@ public enum DokUnitModel implements IUnitModel {
 
 	BloodStalkers(
 			"Blood Stalkers",
-			170,
+			180,
 			UnitProfile._8_2_8_5,
 			Arrays.asList(RoleTactique.Elite),
 			Arrays.asList(DokUnitWeapon.ArcCherchecoeur, DokUnitWeapon.Scianlar),
@@ -300,7 +300,7 @@ public enum DokUnitModel implements IUnitModel {
 
 	AvatarOfKhaine(
 			"Avatar of Khaine",
-			135,
+			120,
 			UnitProfile._9_9_10_4,
 			Arrays.asList(RoleTactique.Behemoth),
 			Arrays.asList(DokUnitWeapon.TorrentdeSangBrulant, DokUnitWeapon.EpeeDAvatar),

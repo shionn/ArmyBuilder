@@ -1,1 +1,1 @@
-Le porteur a une protection de 5+.
+Le porteur a une protection de 6+.

@@ -1,5 +1,1 @@
-Vous pouvez utiliser cette aptitude de commandement après qu’une unité ennemie a fini un 
-mouvement de charge. L’unité qui reçoit l’ordre doit être à 9" de l’unité ennemie et à plus de 3" 
-de toutes les autres unités ennemies. L’unité qui reçoit l’ordre peut tirer à cette phase, mais 
-quand elle le fait, vous devez soustraire 1 aux jets de touche pour ses attaques, et elle peut 
-cibler uniquement l’unité qui a fait le mouvement de charge.
+Vous pouvez utiliser cette aptitude de commandement après qu’une unité ennemie a fini un mouvement de charge. L’unité qui reçoit l’ordre doit être à 6" de l’unité ennemie et à plus de 3" des autres unités ennemies. Les figurines de l’unité qui reçoit l’ordre qui sont à 6" de l’unité cible peuvent tirer à cette phase, mais quand elles le font, vous devez soustraire 1 aux jets de touche pour leurs attaques et elles peuvent seulement cibler l’unité qui a fait la charge.

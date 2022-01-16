@@ -92,9 +92,9 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 			Arrays.asList(
 			// Modifiers.optimisations(SubAllegiance.HaggNar, DokRule.FillesDuPremierTemple,
 			// DokRule.AvancezLesChaudrons, DokRule.DisciplesDevots, DokRule.LUlfuri)
-			// Modifiers.rules(DokRule.HaggNarDesc, DokRule.KheltNarDesc,DokRule.ZaintharKaiDesc)
-					Modifiers.rules(HaggNar, KheltNar,
-							ZaintharKai)
+					Modifiers.rules(DokRule.HaggNarDesc, DokRule.KheltNarDesc,
+							DokRule.ZaintharKaiDesc)
+			// Modifiers.rules(HaggNar, KheltNar, ZaintharKai)
 			),
 			a -> a.is(Allegiance.DoK),
 			Arrays.asList()),

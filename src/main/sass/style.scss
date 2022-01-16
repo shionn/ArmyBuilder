@@ -123,6 +123,8 @@ body {
 	
 	div.rule {
 		margin-bottom: 10px;
+		page-break-inside: avoid;
+		
 		h3 {
 			display: inline;
 		}
@@ -132,8 +134,25 @@ body {
 		&:after {
 			clear: both;
 		}
+	
 		&>em:not(:last-of-type)::after {
 			content: ', ';
+		}
+	}
+	
+	div.multirule {
+		border: 1px dashed $primary-color ;
+		margin-bottom: 10px;
+		page-break-inside: avoid;
+		& > h3 {
+			margin: 0;
+			padding: 10px;
+			background-color: $primary-color;
+			text-align: center;
+			color: $secondary-color;
+		}
+		div.rule {
+			margin : 5px;
 		}
 	}
 

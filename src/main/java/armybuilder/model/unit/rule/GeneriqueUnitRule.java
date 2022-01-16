@@ -19,6 +19,7 @@ public enum GeneriqueUnitRule implements IArmyRule<GeneriqueUnitRule> {
 	Sorcier_1_2("Magie", ArmyRuleType.Aptitude),
 	Sorcier_2_2("Magie", ArmyRuleType.Aptitude),
 	Sorcier_3_2_1("Magie", ArmyRuleType.Aptitude),
+	Sorcier_3_2_1_Morathi("Magie", ArmyRuleType.Aptitude),
 	
 	Vol(ArmyRuleType.Aptitude), 
 	
