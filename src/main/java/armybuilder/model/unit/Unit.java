@@ -108,6 +108,12 @@ public class Unit implements Comparable<Unit> {
 		add(value.getOption(), value);
 	}
 
+	public void addAll(List<? extends IUnitOptionValue<?>> values) {
+		for (IUnitOptionValue<?> value : values) {
+			add(value.getOption(), value);
+		}
+	}
+
 	public void add(UnitOption option, IUnitOptionValue<?> value) {
 		options.put(option, value);
 	}
