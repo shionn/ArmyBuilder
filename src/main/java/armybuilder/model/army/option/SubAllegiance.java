@@ -93,7 +93,7 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 			// Modifiers.optimisations(SubAllegiance.HaggNar, DokRule.FillesDuPremierTemple,
 			// DokRule.AvancezLesChaudrons, DokRule.DisciplesDevots, DokRule.LUlfuri)
 					Modifiers.rules(DokRule.HaggNarDesc, DokRule.KheltNarDesc,
-							DokRule.ZaintharKaiDesc)
+							DokRule.ZaintharKaiDesc, DokRule.KhailebronDesc)
 			// Modifiers.rules(HaggNar, KheltNar, ZaintharKai)
 			),
 			a -> a.is(Allegiance.DoK),
@@ -137,8 +137,10 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 	@Override
 	public void rebuild(Army army) {
 		modifiers.stream().forEach(m -> m.accept(army));
-		army.getUnits().stream().filter(u -> !u.is(KeyWord.HaggNar))
-				.forEach(u -> u.add(KeyWord.valueOf(name())));
+		if (this != TousLesTemples) {
+			army.getUnits().stream().filter(u -> !u.is(KeyWord.HaggNar))
+					.forEach(u -> u.add(KeyWord.valueOf(name())));
+		}
 	}
 
 	@Override

@@ -237,6 +237,11 @@ public enum DokRule implements IArmyRule<DokRule> {
 			DescriptionReader.rules(FillesDuPremierTemple, AvancezLesChaudrons, DisciplesDevots,
 					LUlfuri),
 			ArmyRuleType.SubAllegiance),
+	KhailebronDesc(
+			"Khailebron",
+			DescriptionReader.rules(DissimulationEtDiscretion, MaitressesDesOmbrevoies,
+					MaitresseDeLIllusion, Mormurmure),
+			ArmyRuleType.SubAllegiance),
 	KheltNarDesc(
 			"Khelt Nar",
 			DescriptionReader.rules(FrapperEtSeRetirer, SaignerLEsprit, VolEnCercle,

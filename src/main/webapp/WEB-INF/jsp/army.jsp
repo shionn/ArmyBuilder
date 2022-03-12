@@ -107,7 +107,7 @@
 					</div>
 				</c:forEach>
 			</div>
-			<div>
+			<div style="page-break-inside:avoid">
 				<c:forEach items="${army.multiOptions(ArmyOption.Bataillon)}" var="o">
 					<h2>
 						${o.displayName}
@@ -128,22 +128,24 @@
 					</div>
 				</c:forEach>
 			</div>
-			<c:forEach items="${army.optimisations}" var="opti">
-				<article class="unit" style="page-break-inside:avoid;">
-					<header>
-						<span><a href='<spring:url value="/optimisation/remove/${opti.hashCode()}"/>'>X</a></span>
-						${opti.getFullDisplayName()}
-						<span> </span>
-					</header>
-					<main>
-						<div>
-							<c:forEach items="${opti.getDisplayedRules()}" var="rule">
-								<t:rule rule="${rule}" army="${army}" displayUnit="false"/>
-							</c:forEach>
-						</div>
-					</main>
-				</article>
-			</c:forEach>
+			<div style="page-break-inside:avoid">
+				<c:forEach items="${army.optimisations}" var="opti">
+					<article class="unit" style="page-break-inside:avoid;">
+						<header>
+							<span><a href='<spring:url value="/optimisation/remove/${opti.hashCode()}"/>'>X</a></span>
+							${opti.getFullDisplayName()}
+							<span> </span>
+						</header>
+						<main>
+							<div>
+								<c:forEach items="${opti.getDisplayedRules()}" var="rule">
+									<t:rule rule="${rule}" army="${army}" displayUnit="false"/>
+								</c:forEach>
+							</div>
+						</main>
+					</article>
+				</c:forEach>
+			</div>
 			<c:forEach items="${army.units}" var="unit">
 				<t:unit army="${army}" unit="${unit}"/>
 			</c:forEach>
