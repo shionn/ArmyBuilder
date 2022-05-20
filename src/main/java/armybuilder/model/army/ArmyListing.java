@@ -39,7 +39,8 @@ public class ArmyListing {
 
 	/** units **/
 	public List<IUnitModel> getAvailableUnitChoice() {
-		return subAllegiance.allegiance().units().stream().filter(u -> u.availableFor(this))
+		return subAllegiance == null ? null
+				: subAllegiance.allegiance().units().stream().filter(u -> u.availableFor(this))
 				.collect(Collectors.toList());
 	}
 
