@@ -3,8 +3,10 @@ package armybuilder.model.nighthaunt;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiConsumer;
+import java.util.function.Function;
 
 import armybuilder.model.army.Army;
+import armybuilder.model.army.ArmyListing;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.IUnitModel;
 import armybuilder.model.unit.KeyWord;
@@ -33,7 +35,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Invocable,
 					KeyWord.ChainraspHorde),
 			Arrays.asList(),
-			Arrays.asList()),
+			Arrays.asList(), null),
 
 	DreadbladeHarrow(
 			"Dreadblade Harrow",
@@ -51,7 +53,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Heros,
 					KeyWord.DreadbladeHarrow),
 			Arrays.asList(),
-			Arrays.asList()),
+			Arrays.asList(), null),
 
 	GlaivewraithStalkers(
 			"Glaivewraith Stalkers",
@@ -66,7 +68,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Invocable,
 					KeyWord.GlaivewraithStalkers),
 			Arrays.asList(),
-			Arrays.asList()),
+			Arrays.asList(), null),
 
 	MyrmournBanshees(
 			"Myrmourn Banshees",
@@ -80,7 +82,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Invocable,
 					KeyWord.MyrmournBanshees),
 			Arrays.asList(),
-			Arrays.asList()),
+			Arrays.asList(), null),
 	ThornsOfTheBriarQueen(
 			"Thorns of the Briar Queen",
 			0,
@@ -94,7 +96,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt,
 					KeyWord.ChainraspHorde, KeyWord.EpinesDeLaReineDesRonces),
 			Arrays.asList(),
-			Arrays.asList(UnitCheckers.mustBeTakeWith(KeyWord.LaReineDesRonces))),
+			Arrays.asList(UnitCheckers.mustBeTakeWith(KeyWord.LaReineDesRonces)), null),
 
 	TheBriarQueen(
 			"The Briar Queen",
@@ -110,7 +112,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 					KeyWord.Unique, KeyWord.MirrorghastBanshee, KeyWord.LaReineDesRonces,
 					KeyWord.Sorcier),
 			Arrays.asList(),
-			Arrays.asList(UnitCheckers.mustBeTakeWith(KeyWord.EpinesDeLaReineDesRonces))),
+			Arrays.asList(UnitCheckers.mustBeTakeWith(KeyWord.EpinesDeLaReineDesRonces)), null),
 
 	TombBanshee(
 			"Tomb Banshee",
@@ -126,7 +128,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Heros,
 					KeyWord.TombBanshee),
 			Arrays.asList(),
-			Arrays.asList()),
+			Arrays.asList(), null),
 
 	;
 
@@ -141,12 +143,13 @@ public enum NighthauntUnitModel implements IUnitModel {
 	private List<UnitOption> options;
 	private List<BiConsumer<Army, Unit>> modifiers;
 	private List<BiConsumer<Army, Unit>> checkers;
+	private Function<ArmyListing, Boolean> availableFor;
 
 	private NighthauntUnitModel(String displayName, int value, UnitProfile profile,
 			List<RoleTactique> roleTactiques, List<IUnitWeapon> weapons,
 			ProfileDegressif profileDegressif, List<IArmyRule<?>> rules, List<UnitOption> options,
 			List<KeyWord> keyWords, List<BiConsumer<Army, Unit>> modifiers,
-			List<BiConsumer<Army, Unit>> checkers) {
+			List<BiConsumer<Army, Unit>> checkers, Function<ArmyListing, Boolean> availableFor) {
 		this.displayName = displayName;
 		this.value = value;
 		this.profile = profile;
@@ -158,6 +161,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 		this.keyWords = keyWords;
 		this.modifiers = modifiers;
 		this.checkers = checkers;
+		this.availableFor = availableFor;
 	}
 
 	@Override
@@ -218,6 +222,11 @@ public enum NighthauntUnitModel implements IUnitModel {
 	@Override
 	public void check(Army army, Unit unit) {
 		checkers.stream().forEach(c -> c.accept(army, unit));
+	}
+
+	@Override
+	public boolean availableFor(ArmyListing listing) {
+		return availableFor == null || availableFor.apply(listing);
 	}
 
 }

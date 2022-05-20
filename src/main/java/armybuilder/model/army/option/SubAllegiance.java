@@ -7,6 +7,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 import armybuilder.model.army.Army;
+import armybuilder.model.army.ArmyMultiListing;
 import armybuilder.model.army.check.Checkers;
 import armybuilder.model.army.modifier.IArmyModifier;
 import armybuilder.model.army.modifier.Modifiers;
@@ -27,7 +28,8 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 			Arrays.asList(
 					Checkers.unitWithOption(UnitOption.TraisDeCommandement,
 							DokOptimisations.VainqueurDuYaithRil),
-					Checkers.unitWithOption(UnitOption.Artefact, DokOptimisations.BaiserDeLaMort))),
+					Checkers.unitWithOption(UnitOption.Artefact, DokOptimisations.BaiserDeLaMort)),
+			Allegiance.DoK),
 	HaggNar(
 			"Temple : Hagg Nar",
 			Arrays.asList(
@@ -36,7 +38,8 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 			Arrays.asList(
 					Checkers.unitWithOption(UnitOption.TraisDeCommandement,
 							DokOptimisations.DisciplesDevots),
-					Checkers.unitWithOption(UnitOption.Artefact, DokOptimisations.LUlfuri))),
+					Checkers.unitWithOption(UnitOption.Artefact, DokOptimisations.LUlfuri)),
+			Allegiance.DoK),
 	KheltNar(
 			"Temple : Khelt Nar",
 			Arrays.asList(Modifiers.rules(DokRule.FrapperEtSeRetirer, DokRule.SaignerLEsprit)),
@@ -45,7 +48,8 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 					Checkers.unitWithOption(UnitOption.TraisDeCommandement,
 							DokOptimisations.VolEnCercle),
 					Checkers.unitWithOption(UnitOption.Artefact, DokOptimisations.LaFaixDeGalisa),
-					Checkers.oneUniteLike(KeyWord.KhineraiHarpies, UnitOption.Gratuit))),
+					Checkers.oneUniteLike(KeyWord.KhineraiHarpies, UnitOption.Gratuit)),
+			Allegiance.DoK),
 	Khailebron(
 			"Temple : Khailebron",
 			Arrays.asList(Modifiers.rules(DokRule.DissimulationEtDiscretion,
@@ -54,7 +58,8 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 			Arrays.asList(
 					Checkers.unitWithOption(UnitOption.TraisDeCommandement,
 							DokOptimisations.MaitresseDeLIllusion),
-					Checkers.unitWithOption(UnitOption.Artefact, DokOptimisations.Mormurmure))),
+					Checkers.unitWithOption(UnitOption.Artefact, DokOptimisations.Mormurmure)),
+			Allegiance.DoK),
 	Kraith(
 			"Temple : Kraith",
 			Arrays.asList(
@@ -64,8 +69,8 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 					Checkers.unitWithOption(UnitOption.TraisDeCommandement,
 							DokOptimisations.SeBaignerDansLeurSang),
 					Checkers.unitWithOption(UnitOption.Artefact,
-							DokOptimisations.VeninDeNagendra))),
-
+							DokOptimisations.VeninDeNagendra)),
+			Allegiance.DoK),
 	LOstEmeraude(
 			"Processions : l'OST Emeraude",
 			Arrays.asList(Modifiers.rules(NighthauntRule.LaMaledictionEmeraude,
@@ -75,7 +80,8 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 					Checkers.unitWithOption(UnitOption.TraisDeCommandement,
 							NighthauntOptimisation.SeigneurDeLOst),
 					Checkers.unitWithOption(UnitOption.Artefact,
-							NighthauntOptimisation.LaLameDuChevalierFelon))),
+							NighthauntOptimisation.LaLameDuChevalierFelon)),
+			Allegiance.Nighthaunt),
 	ZaintharKai(
 			"Temple : Zainthar Kai",
 			Arrays.asList(Modifiers.rules(DokRule.LessenceDeKhaine, DokRule.CrypteDesAinee,
@@ -85,33 +91,24 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 					Checkers.unitWithOption(UnitOption.TraisDeCommandement,
 							DokOptimisations.MaledictionDeLaMainSanglante),
 					Checkers.unitWithOption(UnitOption.Artefact,
-							DokOptimisations.TalismanEcarlate))),
-
-	TousLesTemples(
-			"Tous les Temples",
-			Arrays.asList(
-			// Modifiers.optimisations(SubAllegiance.HaggNar, DokRule.FillesDuPremierTemple,
-			// DokRule.AvancezLesChaudrons, DokRule.DisciplesDevots, DokRule.LUlfuri)
-					Modifiers.rules(DokRule.HaggNarDesc, DokRule.KheltNarDesc,
-							DokRule.ZaintharKaiDesc, DokRule.KhailebronDesc)
-			// Modifiers.rules(HaggNar, KheltNar, ZaintharKai)
-			),
-			a -> a.is(Allegiance.DoK),
-			Arrays.asList()),
+							DokOptimisations.TalismanEcarlate)),
+			Allegiance.DoK),
 
 	;
 
 	private String displayName;
 	private List<IArmyModifier> modifiers;
-	private Function<Army, Boolean> isDisplay;
+	private Function<ArmyMultiListing, Boolean> isAvailable;
 	private List<Consumer<Army>> checkers;
+	private Allegiance allegiance;
 
 	private SubAllegiance(String displayName, List<IArmyModifier> modifiers,
-			Function<Army, Boolean> isDisplay, List<Consumer<Army>> checkers) {
+			Function<ArmyMultiListing, Boolean> isDisplay, List<Consumer<Army>> checkers, Allegiance allegiance) {
 		this.displayName = displayName;
 		this.modifiers = modifiers;
-		this.isDisplay = isDisplay;
+		this.isAvailable = isDisplay;
 		this.checkers = checkers;
+		this.allegiance = allegiance;
 	}
 
 	@Override
@@ -124,9 +121,10 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 		return ArmyOption.SubAllegiance;
 	}
 
+	@Deprecated
 	@Override
 	public boolean isOptionDisplayed(Army army) {
-		return isDisplay.apply(army);
+		return false;
 	}
 
 	@Override
@@ -137,10 +135,6 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 	@Override
 	public void rebuild(Army army) {
 		modifiers.stream().forEach(m -> m.accept(army));
-		if (this != TousLesTemples) {
-			army.getUnits().stream().filter(u -> !u.is(KeyWord.HaggNar))
-					.forEach(u -> u.add(KeyWord.valueOf(name())));
-		}
 	}
 
 	@Override
@@ -151,6 +145,14 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 	@Override
 	public boolean isAvailable(Army army, Unit unit) {
 		return false;
+	}
+
+	public boolean availableFor(ArmyMultiListing army) {
+		return isAvailable.apply(army);
+	}
+
+	public Allegiance allegiance() {
+		return allegiance;
 	}
 
 }

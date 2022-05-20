@@ -3,8 +3,10 @@ package armybuilder.model.dok;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiConsumer;
+import java.util.function.Function;
 
 import armybuilder.model.army.Army;
+import armybuilder.model.army.ArmyListing;
 import armybuilder.model.army.rule.GeneriqueRule;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.IUnitModel;
@@ -39,7 +41,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.Heros,
 					KeyWord.Sorcier, KeyWord.MorathiKhaine, KeyWord.Unique),
 			Arrays.asList(),
-			Arrays.asList(UnitCheckers.mustBeTakeWith(KeyWord.LaShadowQueen))),
+			Arrays.asList(UnitCheckers.mustBeTakeWith(KeyWord.LaShadowQueen)), null),
 	LaShadowQueen(
 			"La Shadow Queen",
 			330,
@@ -57,7 +59,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.Monstre,
 					KeyWord.Heros, KeyWord.LaShadowQueen, KeyWord.Unique),
 			Arrays.asList(),
-			Arrays.asList(UnitCheckers.mustBeTakeWith(KeyWord.MorathiKhaine))),
+			Arrays.asList(UnitCheckers.mustBeTakeWith(KeyWord.MorathiKhaine)), null),
 
 	BloodwrackShrine(
 			"Bloodwrack Shrine",
@@ -80,7 +82,7 @@ public enum DokUnitModel implements IUnitModel {
 					KeyWord.Heros, KeyWord.Sorcier, KeyWord.Totem, KeyWord.BloodwrackMedusa,
 					KeyWord.BloodwrackShrine),
 			Arrays.asList(),
-			Arrays.asList()),
+			Arrays.asList(), null),
 
 	BloodwrackMedusa(
 			"Bloodwrack Medusa",
@@ -98,7 +100,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Ordre, KeyWord.DaughtersOfKhaine, KeyWord.Melusai, KeyWord.Heros,
 					KeyWord.Sorcier, KeyWord.BloodwrackMedusa),
 			Arrays.asList(),
-			Arrays.asList()),
+			Arrays.asList(), null),
 
 	MelusaiIronscale(
 			"Melusai Ironscale",
@@ -114,7 +116,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Ordre, KeyWord.DaughtersOfKhaine, KeyWord.Melusai, KeyWord.Heros,
 					KeyWord.MelusaiIronscale),
 			Arrays.asList(),
-			Arrays.asList()),
+			Arrays.asList(), null),
 
 	MorgwaethTheBloodied(
 			"Morgwaeth the Bloodied",
@@ -130,7 +132,7 @@ public enum DokUnitModel implements IUnitModel {
 					KeyWord.Heros, KeyWord.Pretre, KeyWord.HagQueen, KeyWord.MorgwaethTheBloodied,
 					KeyWord.Unique),
 			Arrays.asList(),
-			Arrays.asList(UnitCheckers.mustBeTakeWith(KeyWord.LaBladeCoven))),
+			Arrays.asList(UnitCheckers.mustBeTakeWith(KeyWord.LaBladeCoven)), null),
 
 	LeBladeCoven(
 			"Le Blade-Coven",
@@ -145,7 +147,7 @@ public enum DokUnitModel implements IUnitModel {
 					KeyWord.DaughtersOfKhaine, KeyWord.HaggNar, KeyWord.LaBladeCoven,
 					KeyWord.Unique),
 			Arrays.asList(),
-			Arrays.asList(UnitCheckers.mustBeTakeWith(KeyWord.MorgwaethTheBloodied))),
+			Arrays.asList(UnitCheckers.mustBeTakeWith(KeyWord.MorgwaethTheBloodied)), null),
 
 	HagQueenSurChaudron(
 			"Hag Queen sur Cauldron of Blood",
@@ -168,7 +170,7 @@ public enum DokUnitModel implements IUnitModel {
 					KeyWord.Pretre, KeyWord.Totem, KeyWord.WitchAelves, KeyWord.HagQueen,
 					KeyWord.AvatarOfKhaine, KeyWord.CauldronOfBlood),
 			Arrays.asList(),
-			Arrays.asList()),
+			Arrays.asList(), null),
 
 	HagQueen(
 			"Hag Queen",
@@ -184,7 +186,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.Heros,
 					KeyWord.Pretre, KeyWord.HagQueen),
 			Arrays.asList(),
-			Arrays.asList()),
+			Arrays.asList(), null),
 
 	SlaughterQueen(
 			"Slaughter Queen",
@@ -200,7 +202,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.Heros,
 					KeyWord.Pretre, KeyWord.SlaughterQueen),
 			Arrays.asList(),
-			Arrays.asList()),
+			Arrays.asList(), null),
 
 	WitchAelves(
 			"Witch Aelves",
@@ -216,7 +218,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine,
 					KeyWord.WitchAelves),
 			Arrays.asList(),
-			Arrays.asList()),
+			Arrays.asList(), null),
 
 	SistersOfSlaughter(
 			"Sisters of Slaughter",
@@ -232,7 +234,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine,
 					KeyWord.SisterOfSlaughter),
 			Arrays.asList(),
-			Arrays.asList()),
+			Arrays.asList(), null),
 
 	KhainiteShadowstalkers(
 			"Khainite Shadowstalkers",
@@ -248,7 +250,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine,
 					KeyWord.KhainiteShadowstalkers),
 			Arrays.asList(),
-			Arrays.asList()),
+			Arrays.asList(), null),
 
 	BloodSisters(
 			"Blood Sisters",
@@ -264,7 +266,7 @@ public enum DokUnitModel implements IUnitModel {
 					KeyWord.BloodSister),
 			Arrays.asList(UnitModifiers.roleIfGeneral(KeyWord.BloodwrackMedusa, RoleTactique.Ligne),
 					UnitModifiers.roleIfGeneral(KeyWord.MelusaiIronscale, RoleTactique.Ligne)),
-			Arrays.asList()),
+			Arrays.asList(), null),
 
 	BloodStalkers(
 			"Blood Stalkers",
@@ -281,7 +283,7 @@ public enum DokUnitModel implements IUnitModel {
 					KeyWord.BloodStalkers),
 			Arrays.asList(UnitModifiers.roleIfGeneral(KeyWord.BloodwrackMedusa, RoleTactique.Ligne),
 					UnitModifiers.roleIfGeneral(KeyWord.MelusaiIronscale, RoleTactique.Ligne)),
-			Arrays.asList()),
+			Arrays.asList(), null),
 
 	KhineraiHeartrenders(
 			"Khinerai Heartrenders",
@@ -298,7 +300,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Ordre, KeyWord.DaughtersOfKhaine, KeyWord.KhineraiHarpies,
 					KeyWord.KhineraiHeartrenders),
 			Arrays.asList(),
-			Arrays.asList()),
+			Arrays.asList(), null),
 
 	AvatarOfKhaine(
 			"Avatar of Khaine",
@@ -312,7 +314,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Ordre, KeyWord.DaughtersOfKhaine, KeyWord.Totem,
 					KeyWord.AvatarOfKhaine),
 			Arrays.asList(),
-			Arrays.asList()),
+			Arrays.asList(), null),
 
 	BloodwrackViper(
 			"Bloodwrack Viper",
@@ -326,7 +328,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(),
 			Arrays.asList(),
 			Arrays.asList(),
-			Arrays.asList()),
+			Arrays.asList(), null),
 
 	Bladewind(
 			"Bladewind",
@@ -340,7 +342,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(),
 			Arrays.asList(),
 			Arrays.asList(),
-			Arrays.asList()),
+			Arrays.asList(), null),
 
 	HeartOfFury(
 			"Heart of Fury",
@@ -353,7 +355,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(),
 			Arrays.asList(),
 			Arrays.asList(),
-			Arrays.asList()),
+			Arrays.asList(), null),
 
 	;
 
@@ -368,12 +370,13 @@ public enum DokUnitModel implements IUnitModel {
 	private List<UnitOption> options;
 	private List<BiConsumer<Army, Unit>> modifiers;
 	private List<BiConsumer<Army, Unit>> checkers;
+	private Function<ArmyListing, Boolean> availableFor;
 
 	private DokUnitModel(String displayName, int value, UnitProfile profile,
 			List<RoleTactique> roleTactiques, List<IUnitWeapon> weapons,
 			ProfileDegressif profileDegressif, List<IArmyRule<?>> rules, List<UnitOption> options,
 			List<KeyWord> keyWords, List<BiConsumer<Army, Unit>> modifiers,
-			List<BiConsumer<Army, Unit>> checkers) {
+			List<BiConsumer<Army, Unit>> checkers, Function<ArmyListing, Boolean> availableFor) {
 		this.displayName = displayName;
 		this.value = value;
 		this.profile = profile;
@@ -385,6 +388,7 @@ public enum DokUnitModel implements IUnitModel {
 		this.keyWords = keyWords;
 		this.modifiers = modifiers;
 		this.checkers = checkers;
+		this.availableFor = availableFor;
 	}
 
 	@Override
@@ -445,6 +449,11 @@ public enum DokUnitModel implements IUnitModel {
 	@Override
 	public void check(Army army, Unit unit) {
 		checkers.stream().forEach(c -> c.accept(army, unit));
+	}
+
+	@Override
+	public boolean availableFor(ArmyListing listing) {
+		return availableFor == null || availableFor.apply(listing);
 	}
 
 }

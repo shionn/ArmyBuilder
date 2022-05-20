@@ -1,4 +1,5 @@
 <%@ tag pageEncoding="UTF-8"%>
+<%@ tag import="armybuilder.model.army.option.Allegiance" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -21,6 +22,11 @@
 	<header>
 		<nav>
 			<ul>
+				<c:forEach items="${Allegiance.values()}" var="allegiance">
+					<li <c:if test="${army.is(allegiance)}">class="current"</c:if>>
+						<a href=<spring:url value="/select/${allegiance}"/>>${allegiance}</a>
+					</li>
+				</c:forEach>
 				<li>
 					<a href='<spring:url value="/reset"/>'><i class="fas fa-file-alt"></i> Reset</a>
 				</li>

@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.shionn</groupId>
 	<artifactId>ArmyBuilder
-</artifactId>
+	</artifactId>
 	<packaging>war</packaging>
-	<version>0.1-SNAPSHOT</version>
+	<version>0.2-SNAPSHOT</version>
 
 	<properties>
 		<version.spring>5.3.8</version.spring>
@@ -28,29 +28,40 @@
 			</plugin>
 
 			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>src/main/webapp/css/</directory>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.3.1</version>
 			</plugin>
 
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.1.1</version>
+				<groupId>nl.geodienstencentrum.maven</groupId>
+				<artifactId>sass-maven-plugin</artifactId>
+				<version>3.7.2</version>
 				<executions>
 					<execution>
+						<id>sass</id>
 						<phase>generate-sources</phase>
 						<goals>
-							<goal>exec</goal>
+							<goal>update-stylesheets</goal>
 						</goals>
 					</execution>
 				</executions>
 				<configuration>
-					<executable>sass</executable>
-					<arguments>
-						<argument>src/main/sass/style.scss</argument>
-						<argument>src/main/webapp/css/style.css</argument>
-					</arguments>
+					<sassSourceDirectory>src/main/sass/</sassSourceDirectory>
+					<includes>style.scss</includes>
+					<excludes>**/*.scss</excludes>
+					<destination>src/main/webapp/css/</destination>
 				</configuration>
 			</plugin>
 
@@ -66,7 +77,7 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 	<dependencies>
 		<!-- Spring -->
 		<dependency>
@@ -110,7 +121,7 @@
 			<version>3.2.1</version>
 		</dependency>
 
-		<!-- Persistence / MyBatis  / Serialisation-->
+		<!-- Persistence / MyBatis / Serialisation -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>

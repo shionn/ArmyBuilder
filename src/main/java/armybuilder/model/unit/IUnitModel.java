@@ -3,6 +3,7 @@ package armybuilder.model.unit;
 import java.util.List;
 
 import armybuilder.model.army.Army;
+import armybuilder.model.army.ArmyListing;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.option.IUnitOptionValue;
 import armybuilder.model.unit.option.UnitOption;
@@ -49,5 +50,6 @@ public interface IUnitModel {
 
 	String name();
 
+	public boolean availableFor(ArmyListing armyListing);
 
 }
