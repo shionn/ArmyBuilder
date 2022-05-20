@@ -12,6 +12,7 @@
 		<version.spring>5.3.8</version.spring>
 		<version.spring.security>5.5.1</version.spring.security>
 		<version.jstl>1.2</version.jstl>
+		<test>truc</test>
 	</properties>
 
 	<build>
