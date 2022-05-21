@@ -9,7 +9,7 @@
 		<h1>${army.displayName}</h1>
 		<c:forEach items="${army.listings()}" var="listing">
 			<div id="listing-${listing.id}" class="listing">
-				<h2>${listing.displayName} <span>${listing.points}</span></h2>
+				<h2>${listing.displayName} <span>${listing.points()}</span></h2>
 				<div class="options">
 					<select name="SubAllegiance" class="ajax" data-url="<spring:url value="/listing/${listing.id}/SubAllegiance"/>" data-update="#listing-${listing.id}">
 						<c:forEach items="${army.availableSubAllegiance}" var="sub">
@@ -19,13 +19,13 @@
 					<select name="unitChoice" class="ajax" data-url="<spring:url value="/listing/${listing.id}/unit/add"/>" data-update="#listing-${listing.id}">
 						<option value="" selected="selected">-- Ajout Unitée --</option>
 						<c:forEach items="${listing.availableUnitChoice}" var="f">
-							<option value="${f}">${f.displayName} ${f.points}</option>
+							<option value="${f}">${f.displayName} ${f.points()}</option>
 						</c:forEach>
 					</select>
 				</div>
 				<c:forEach items="${listing.units()}" var="unit">
 					<div>
-						<h3>${unit.displayName} <span>${unit.points} <a href='<spring:url value="/unit/remove/${unit.hashCode()}"/>'>X</a></span></h3>
+						<h3>${unit.displayName} <span>${unit.points()} <a href='<spring:url value="/unit/remove/${unit.hashCode()}"/>'>X</a></span></h3>
 					</div>
 					<c:if test="${not empty unit.options}">
 						<div class="options">
@@ -36,7 +36,7 @@
 											${o.displayName} 
 											<input type="checkbox" name="value" class="ajax" 
 												data-url='<spring:url value="/unit/${unit.hashCode()}/${o.name()}"/>' data-update="body>main"
-												<c:if test="${not empty unit.get(o)}"> checked="checked"</c:if>>
+												<c:if test="${unit.is(o)}"> checked="checked"</c:if>>
 										</c:when>
 										<c:when test="${o.type == 'select' and not empty unit.getOptionValues(o)}">
 											${o.displayName}

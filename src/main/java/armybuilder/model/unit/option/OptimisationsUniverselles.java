@@ -99,19 +99,17 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 			u -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.Guerison)),
 
-	General("Général", UnitOption.General, u -> u.getKeyWords().contains(KeyWord.Heros)),
+	General("Général", UnitOption.General, u -> u.is(KeyWord.Heros)),
 	RenforceesUneFois(
 			"Renforcées 1x",
 			UnitOption.Renforcees,
-			u -> (u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite))
-					&& !u.is(UnitOption.Gratuit),
-			u -> u.setPoints(u.getModel().getPoints() * 2)),
+			u -> (u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite)) && !u.is(UnitOption.Gratuit),
+			u -> u.points(u.model().points() * 2)),
 	RenforceesDeuxFois(
 			"Renforcées 2x",
 			UnitOption.Renforcees,
-			u -> (u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite))
-					&& !u.is(UnitOption.Gratuit),
-			u -> u.setPoints(u.getModel().getPoints() * 3)),
+			u -> (u.is(RoleTactique.Ligne)) && !u.is(UnitOption.Gratuit),
+			u -> u.points(u.model().points() * 3)),
 
 	;
 

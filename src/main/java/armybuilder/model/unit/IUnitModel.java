@@ -24,7 +24,7 @@ public interface IUnitModel {
 
 	List<RoleTactique> getRoleTactiques();
 
-	int getPoints();
+	int points();
 
 	List<UnitOption> getOptions();
 

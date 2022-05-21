@@ -292,7 +292,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 			"Gratuit",
 			UnitOption.Gratuit,
 			u -> u.is(KeyWord.KheltNar) && u.is(KeyWord.KhineraiHarpies),
-			u -> u.setPoints(0)),
+			u -> u.points(0)),
 
 	;
 

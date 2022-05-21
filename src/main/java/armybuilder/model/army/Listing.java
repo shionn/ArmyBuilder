@@ -70,8 +70,8 @@ public class Listing {
 		return subAllegiance == null ? "Select suballegiance" : subAllegiance.getDisplayName();
 	}
 
-	public int getPoints() {
-		return -1;
+	public int points() {
+		return units.stream().collect(Collectors.summingInt(u -> u.points()));
 	}
 
 	public int getId() {

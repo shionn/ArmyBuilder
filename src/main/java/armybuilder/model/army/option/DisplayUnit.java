@@ -8,7 +8,7 @@ import armybuilder.model.unit.Unit;
 
 public enum DisplayUnit implements IListingOptionValue<DisplayUnit> {
 	Full("Complet", (u, r) -> true),
-	Minimal("Sans la Charte", (u, r) -> !(u.getModel().getRules().contains(r)));
+	Minimal("Sans la Charte", (u, r) -> !(u.model().getRules().contains(r)));
 
 	private String displayName;
 	private BiFunction<Unit, IArmyRule<?>, Boolean> display;

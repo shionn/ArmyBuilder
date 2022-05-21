@@ -405,7 +405,7 @@ public enum DokUnitModel implements IUnitModel {
 	}
 
 	@Override
-	public int getPoints() {
+	public int points() {
 		return value;
 	}
 

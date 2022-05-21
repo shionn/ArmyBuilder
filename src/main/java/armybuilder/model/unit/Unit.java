@@ -55,7 +55,7 @@ public class Unit implements Comparable<Unit> {
 		keyWords.addAll(model.getKeyWords());
 		roleTatciques.clear();
 		roleTatciques.addAll(model.getRoleTactiques());
-		points = model.getPoints();
+		points = model.points();
 	}
 
 	public void rebuild() {
@@ -167,12 +167,12 @@ public class Unit implements Comparable<Unit> {
 		return this.model == model;
 	}
 
-	public void setPoints(int value) {
+	public void points(int value) {
 		this.points = value;
 	}
 
-	public int getPoints() {
-		return model.getPoints();
+	public int points() {
+		return points;
 	}
 
 	@Override
@@ -209,7 +209,7 @@ public class Unit implements Comparable<Unit> {
 		return model.getProfile().getSvg();
 	}
 
-	public IUnitModel getModel() {
+	public IUnitModel model() {
 		return model;
 	}
 
