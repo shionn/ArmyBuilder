@@ -11,7 +11,6 @@ import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.dok.DokRule;
 import armybuilder.model.nighthaunt.NighthauntRule;
-import armybuilder.model.unit.Unit;
 
 public enum SubAllegiance implements IListingOptionValue<SubAllegiance>, Comparator<SubAllegiance> {
 	DraichiGaneth(
@@ -96,23 +95,13 @@ public enum SubAllegiance implements IListingOptionValue<SubAllegiance>, Compara
 		}
 	}
 
-	@Deprecated
 	@Override
-	public boolean isAvailable(OldArmy army, Unit unit) {
-		return false;
-	}
-
-	public boolean availableFor(Army army) {
-		return isAvailable.apply(army);
+	public boolean availableFor(Listing listing) {
+		return listing.subAllegiance().allegiance == allegiance;
 	}
 
 	public Allegiance allegiance() {
 		return allegiance;
-	}
-
-	@Override
-	public void rebuild(OldArmy army) {
-
 	}
 
 	public List<IArmyRule<?>> rules() {

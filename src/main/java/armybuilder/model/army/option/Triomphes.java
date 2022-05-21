@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+import armybuilder.model.army.Listing;
 import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.rule.ArmyRuleType;
 import armybuilder.model.army.rule.IArmyRule;
-import armybuilder.model.unit.Unit;
 import armybuilder.serialisation.DescriptionReader;
 
 @Deprecated
@@ -65,8 +65,14 @@ public enum Triomphes implements IListingOptionValue<Triomphes>, IArmyRule<Triom
 	}
 
 	@Override
-	public boolean isAvailable(OldArmy army, Unit unit) {
-		return false;
+	public void rebuild(Listing listing) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public boolean availableFor(Listing listing) {
+		return true;
 	}
 
 }

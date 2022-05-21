@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import armybuilder.model.army.OldArmy;
+import armybuilder.model.army.Listing;
 
 public enum ListingOption {
 	SubAllegiance("Sous Allegiance", armybuilder.model.army.option.SubAllegiance.values()),
@@ -24,13 +24,11 @@ public enum ListingOption {
 		this.values = Arrays.asList(values);
 	}
 
-	@Deprecated
-	public List<IListingOptionValue<?>> getValues(OldArmy army) {
-		return values.stream().filter(o -> o.isOptionDisplayed(army)).collect(Collectors.toList());
+	public List<IListingOptionValue<?>> values(Listing listing) {
+		return values.stream().filter(o -> o.availableFor(listing)).collect(Collectors.toList());
 	}
 
-	@Deprecated
-	public String getDisplayName() {
+	public String displayName() {
 		return displayName;
 	}
 

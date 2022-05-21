@@ -5,7 +5,6 @@ import java.util.function.Function;
 import armybuilder.model.unit.RoleTactique;
 import armybuilder.model.unit.Unit;
 
-@Deprecated
 public enum BataillonSlot {
 
 	Commandant(u -> u.is(RoleTactique.Leader)),

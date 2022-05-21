@@ -1,7 +1,6 @@
 package armybuilder.model.army;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,6 +9,7 @@ import armybuilder.model.army.compare.UnitRuleComparator;
 import armybuilder.model.army.compare.UnitWeaponComparator;
 import armybuilder.model.army.option.Allegiance;
 import armybuilder.model.army.option.SubAllegiance;
+import armybuilder.model.army.option.bataillon.Bataillon;
 import armybuilder.model.army.rule.ArmyRuleType;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.IUnitModel;
@@ -43,10 +43,6 @@ public class Army {
 	}
 
 	/** suballegiance **/
-	public List<SubAllegiance> getAvailableSubAllegiance() {
-		return Arrays.stream(SubAllegiance.values()).filter(s -> s.availableFor(this)).collect(Collectors.toList());
-	}
-
 	public String getDisplayName() {
 		return allegiance.getDisplayName();
 	}
@@ -56,12 +52,17 @@ public class Army {
 				.map(l -> l.subAllegiance())
 				.sorted((a, b) -> a.displayName().compareTo(b.displayName()))
 				.distinct()
-				.toList();
+				.collect(Collectors.toList());
+	}
+
+	/** bataillon */
+	public List<Bataillon> bataillons() {
+		return listings.stream().flatMap(l -> l.bataillons().stream()).distinct().sorted().collect(Collectors.toList());
 	}
 
 	/** rules **/
 	public List<IArmyRule<?>> rules(ArmyRuleType type) {
-		return listings.stream().flatMap(l -> l.rules(type).stream()).distinct().toList();
+		return listings.stream().flatMap(l -> l.rules(type).stream()).distinct().collect(Collectors.toList());
 	}
 
 	/** listing **/
@@ -93,7 +94,7 @@ public class Army {
 				.flatMap(u -> u.weapons(type).stream())
 				.distinct()
 				.sorted(new UnitWeaponComparator())
-				.toList();
+				.collect(Collectors.toList());
 	}
 
 	public List<IArmyRule<?>> rules(IUnitModel model) {
@@ -102,7 +103,7 @@ public class Army {
 				.flatMap(u -> u.rules().stream())
 				.distinct()
 				.sorted(new UnitRuleComparator())
-				.toList();
+				.collect(Collectors.toList());
 	}
 
 	public List<KeyWord> keyWords(IUnitModel model) {
@@ -111,7 +112,7 @@ public class Army {
 				.flatMap(u -> u.keyWords().stream())
 				.distinct()
 				.sorted()
-				.toList();
+				.collect(Collectors.toList());
 
 	}
 

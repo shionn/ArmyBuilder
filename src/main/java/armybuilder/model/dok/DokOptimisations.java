@@ -316,7 +316,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	}
 
 	@Override
-	public String getDisplayName() {
+	public String displayName() {
 		return "DoK : " + displayName;
 	}
 

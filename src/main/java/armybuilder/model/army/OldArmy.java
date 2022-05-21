@@ -71,7 +71,7 @@ public class OldArmy {
 				.filter(r -> r.isUsable(this))
 				.forEach(rules::add);
 
-		options.values().stream().filter(Objects::nonNull).forEach(o -> o.rebuild(this));
+//		options.values().stream().filter(Objects::nonNull).forEach(o -> o.rebuild(this));
 //		multiOptions.stream().forEach(o -> o.getValue().rebuild(this));
 		rules.forEach(r -> r.rebuild(this));
 //		units.stream().forEach(o -> o.rebuild(this));

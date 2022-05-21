@@ -79,7 +79,7 @@ public enum NighthauntOptimisation implements IUnitOptionValue<NighthauntOptimis
 	}
 
 	@Override
-	public String getDisplayName() {
+	public String displayName() {
 		return "Nighthaunt : " + displayName;
 	}
 

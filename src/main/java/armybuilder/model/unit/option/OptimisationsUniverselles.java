@@ -134,7 +134,7 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 	}
 
 	@Override
-	public String getDisplayName() {
+	public String displayName() {
 		if (Arrays.asList(UnitOption.Renforcees).contains(option)) {
 			return displayName;
 		}

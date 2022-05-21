@@ -4,10 +4,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
+import armybuilder.model.army.Listing;
 import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.rule.PackDeBataille2021Rule;
 import armybuilder.model.unit.KeyWord;
-import armybuilder.model.unit.Unit;
 
 @Deprecated
 public enum PackDeBataille implements IListingOptionValue<PackDeBataille> {
@@ -53,13 +53,13 @@ public enum PackDeBataille implements IListingOptionValue<PackDeBataille> {
 	}
 
 	@Override
-	public void rebuild(OldArmy army) {
-		modifiers.stream().forEach(m -> m.accept(army));
+	public boolean availableFor(Listing listing) {
+		return true;
 	}
 
 	@Override
-	public boolean isAvailable(OldArmy army, Unit unit) {
-		return false;
-	}
+	public void rebuild(Listing listing) {
+		// TODO Auto-generated method stub
 
+	}
 }

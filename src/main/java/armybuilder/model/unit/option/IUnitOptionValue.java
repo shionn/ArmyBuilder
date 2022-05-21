@@ -8,11 +8,11 @@ public interface IUnitOptionValue<T extends Enum<T> & IUnitOptionValue<T>> {
 
 	UnitOption option();
 
-	String getDisplayName();
+	String displayName();
 
 	@Deprecated
 	default String getFullDisplayName() {
-		return option().getDisplayName() + " : " + getDisplayName();
+		return option().displayName() + " : " + displayName();
 	}
 
 	String name();

@@ -5,10 +5,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import armybuilder.model.army.Listing;
 import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.rule.ArmyRuleType;
 import armybuilder.model.army.rule.IArmyRule;
-import armybuilder.model.unit.Unit;
 import armybuilder.serialisation.DescriptionReader;
 
 @Deprecated
@@ -76,8 +76,14 @@ public enum GrandeStrategie
 	}
 
 	@Override
-	public boolean isAvailable(OldArmy army, Unit unit) {
-		return false;
+	public boolean availableFor(Listing listing) {
+		return true;
+	}
+
+	@Override
+	public void rebuild(Listing listing) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

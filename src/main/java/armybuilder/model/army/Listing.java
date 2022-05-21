@@ -26,6 +26,7 @@ public class Listing {
 	private int id;
 	private Map<ListingOption, IListingOptionValue<?>> options = new HashMap<>();
 	private List<Unit> units = new ArrayList<Unit>();
+	private List<Bataillon> bataillons = new ArrayList<Bataillon>();
 
 	private Set<IArmyRule<?>> rules = new LinkedHashSet<>();
 
@@ -42,6 +43,14 @@ public class Listing {
 	}
 
 	/** options */
+	public List<ListingOption> options() {
+		return Arrays.asList(ListingOption.values());
+	}
+
+	public IListingOptionValue<?> get(ListingOption type) {
+		return this.options.get(type);
+	}
+
 	public void set(IListingOptionValue<?> value) {
 		this.options.put(value.option(), value);
 	}
@@ -56,7 +65,19 @@ public class Listing {
 
 	/** bataillon */
 	public List<Bataillon> availableBataillon() {
-		return Arrays.stream(Bataillon.values()).filter(b -> b.isAvailable(this)).toList();
+		return Arrays.stream(Bataillon.values()).filter(b -> b.isAvailable(this)).collect(Collectors.toList());
+	}
+
+	public List<Bataillon> bataillons() {
+		return bataillons;
+	}
+
+	public void add(Bataillon bataillon) {
+		bataillons.add(bataillon);
+	}
+
+	public void rm(Bataillon bataillon) {
+		bataillons.remove(bataillon);
 	}
 
 	/** rules **/
@@ -65,7 +86,7 @@ public class Listing {
 	}
 
 	public List<IArmyRule<?>> rules(ArmyRuleType type) {
-		return rules.stream().filter(r -> r.is(type)).toList();
+		return rules.stream().filter(r -> r.is(type)).collect(Collectors.toList());
 	}
 
 	public void add(IArmyRule<?>... rules) {

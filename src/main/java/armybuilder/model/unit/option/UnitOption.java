@@ -39,7 +39,7 @@ public enum UnitOption {
 		return available.apply(unit);
 	}
 
-	public String getDisplayName() {
+	public String displayName() {
 		return displayName;
 	}
 

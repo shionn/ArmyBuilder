@@ -15,13 +15,22 @@
 		</header>
 		<main>
 			<div class="options">
-				<select name="SubAllegiance" class="ajax" data-url="<spring:url value="/listing/${listing.id}/SubAllegiance"/>" data-update="body>main">
-					<c:forEach items="${army.availableSubAllegiance}" var="sub">
-						<option value="${sub}" <c:if test="${listing.is(sub)}"> selected="selected"</c:if>>${sub.displayName()}</option>
-					</c:forEach>
-				</select>
-				<select name="bataillon" class="ajax" data-url="<spring:url value="/listing/${listing.id}/unit/add"/>" data-update="body>main">
-					<option value="">-- Ajouter Bataillon --</option>
+				<c:forEach items="${listing.options()}" var="opt">
+					<select name="${opt}" class="ajax" data-update="body>main"
+							data-url="<spring:url value="/listing/${listing.id}/${opt}"/>">
+						<c:if test="${empty listing.get(opt)}">
+							<option selected="selected">-- ${opt.displayName()} --</option>
+						</c:if>
+						<c:forEach items="${opt.values(listing)}" var="value">
+							<option value="${value}" <c:if test="${listing.is(value)}"> selected="selected"</c:if>>${value.displayName()}</option>
+						</c:forEach>
+					</select>
+				</c:forEach>
+			</div>
+			<div class="options">
+				<!-- non generique -->
+				<select name="bataillon" class="ajax" data-url="<spring:url value="/listing/${listing.id}/Bataillon/add"/>" data-update="body>main">
+					<option value="" selected="selected">-- Ajout Bataillon --</option>
 					<c:forEach items="${listing.availableBataillon()}" var="bat">
 						<option value="${bat}">${bat.displayName()}</option>
 					</c:forEach>
@@ -32,6 +41,12 @@
 						<option value="${f}">${f.displayName()} ${f.points()}</option>
 					</c:forEach>
 				</select>
+			</div>
+			<div class="options">
+				Bataillons :
+				<c:forEach items="${listing.bataillons()}" var="bat">
+					<a href="<spring:url value="/listing/${listing.id}/Bataillon/rm/${bat}"/>">${bat.displayName()}</a>, 
+				</c:forEach>
 			</div>
 			<c:forEach items="${listing.units()}" var="unit">
 				<t:unit-config unit="${unit}"/>
@@ -49,6 +64,26 @@
 	<c:forEach items="${sub.rules()}" var="rule">
 		<t:rule rule="${rule}" army="${army}"/>
 	</c:forEach>
+</c:forEach>
+
+<h2>Bataillons</h2>
+<c:forEach items="${army.bataillons()}" var="bat">
+	<h3>
+		${bat.displayName()}
+		<c:forEach items="${bat.compositions()}" var="c">
+			<c:forEach begin="1" end="${c.count}">
+				<img src="img/${c.img}.png" <c:if test="${c.opt}">style="opacity: 0.5"</c:if>>
+			</c:forEach>
+		</c:forEach>
+	</h3>
+	<c:forEach items="${bat.rules()}" var="rule">
+		<t:rule rule="${rule}" army="${army}"/>
+	</c:forEach>
+<!-- 	<div style="padding-bottom: 10px; display: flex; flex-wrap: wrap; justify-content: space-between;"> -->
+<%-- 		<c:forEach items="#{army.units(o)}" var="unit"> --%>
+<%-- 			<span style="width: 33%">${unit.displayName} ${unit.value}</span> --%>
+<%-- 		</c:forEach> --%>
+<!-- 	</div> -->
 </c:forEach>
 
 <h2>Unitées</h2>
@@ -114,25 +149,6 @@
 <%-- 				</c:forEach> --%>
 <!-- 			</div> -->
 <!-- 			<div style="page-break-inside:avoid"> -->
-<%-- 				<c:forEach items="${army.multiOptions(ArmyOption.Bataillon)}" var="o"> --%>
-<!-- 					<h2> -->
-<%-- 						${o.displayName} --%>
-<%-- 						<c:forEach items="${o.compositions}" var="c"> --%>
-<%-- 							<c:forEach begin="1" end="${c.count}"> --%>
-<%-- 								<img src="img/${c.img}.png" <c:if test="${c.opt}">style="opacity: 0.5"</c:if>> --%>
-<%-- 							</c:forEach> --%>
-<%-- 						</c:forEach> --%>
-<%-- 						<a href='<spring:url value="/multioptions/rm/${o.id}"/>'>X</a> --%>
-<!-- 					</h2> -->
-<%-- 					<c:forEach items="${o.value.rules}" var="r"> --%>
-<%-- 						<t:rule rule="${r}"/> --%>
-<%-- 					</c:forEach> --%>
-<!-- 					<div style="padding-bottom: 10px; display: flex; flex-wrap: wrap; justify-content: space-between;"> -->
-<%-- 						<c:forEach items="#{army.units(o)}" var="unit"> --%>
-<%-- 							<span style="width: 33%">${unit.displayName} ${unit.value}</span> --%>
-<%-- 						</c:forEach> --%>
-<!-- 					</div> -->
-<%-- 				</c:forEach> --%>
 <!-- 			</div> -->
 <!-- 			<div style="page-break-inside:avoid"> -->
 <%-- 				<c:forEach items="${army.optimisations}" var="opti"> --%>

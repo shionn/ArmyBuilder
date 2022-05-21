@@ -1,5 +1,6 @@
 package armybuilder.model.unit;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -8,8 +9,6 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-
-import org.apache.commons.collections.ListUtils;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -31,7 +30,6 @@ public class Unit implements Comparable<Unit> {
 
 	@JsonIgnore
 	private Set<KeyWord> keyWords = new TreeSet<>();
-
 	@JsonIgnore
 	private Set<IUnitWeapon> weapons = new TreeSet<>();
 	@JsonIgnore
@@ -70,12 +68,13 @@ public class Unit implements Comparable<Unit> {
 
 	public List<IUnitOptionValue<?>> optionValues(UnitOption option) {
 		@SuppressWarnings("unchecked")
-		List<IUnitOptionValue<?>> values = ListUtils.union(Arrays.asList(OptimisationsUniverselles.values()),
-				model.optionValues());
+		List<IUnitOptionValue<?>> values = new ArrayList<IUnitOptionValue<?>>(model.optionValues());
+		values.addAll(Arrays.asList(OptimisationsUniverselles.values()));
+		values.addAll(listing.bataillons());
 		return values.stream()
 				.filter(o -> o.is(option))
 				.filter(o -> o.isAvailable(this))
-				.sorted((a, b) -> a.getDisplayName().compareTo(b.getDisplayName()))
+				.sorted((a, b) -> a.displayName().compareTo(b.displayName()))
 				.collect(Collectors.toList());
 	}
 
