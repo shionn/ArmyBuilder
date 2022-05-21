@@ -10,6 +10,7 @@ import armybuilder.model.army.rule.BataillonRule;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.Unit;
 
+@Deprecated
 public enum Bataillon implements IListingOptionValue<Bataillon> {
 
 	SeigneurDeGuerre(

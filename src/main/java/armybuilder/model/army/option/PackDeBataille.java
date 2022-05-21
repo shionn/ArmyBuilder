@@ -9,6 +9,7 @@ import armybuilder.model.army.rule.PackDeBataille2021Rule;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.Unit;
 
+@Deprecated
 public enum PackDeBataille implements IListingOptionValue<PackDeBataille> {
 	LutteDeGeneraux(
 			"Lutte de Généraux",

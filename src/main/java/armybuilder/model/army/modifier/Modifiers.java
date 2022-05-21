@@ -6,6 +6,7 @@ import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.option.SubAllegiance;
 import armybuilder.model.army.rule.IArmyRule;
 
+@Deprecated
 public class Modifiers {
 
 	public static IArmyModifier rules(IArmyRule<?>... rules) {

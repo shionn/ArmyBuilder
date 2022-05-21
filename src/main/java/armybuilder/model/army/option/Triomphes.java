@@ -10,6 +10,7 @@ import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.Unit;
 import armybuilder.serialisation.DescriptionReader;
 
+@Deprecated
 public enum Triomphes implements IListingOptionValue<Triomphes>, IArmyRule<Triomphes> {
 	Sanguinaires("Sanguinaires", Arrays.asList(ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCharge)),
 	Inspires(

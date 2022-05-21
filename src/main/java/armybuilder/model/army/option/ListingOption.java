@@ -7,43 +7,37 @@ import java.util.stream.Collectors;
 import armybuilder.model.army.OldArmy;
 
 public enum ListingOption {
-	SubAllegiance("Sous Allegiance", false, armybuilder.model.army.option.SubAllegiance.values()),
+	SubAllegiance("Sous Allegiance", armybuilder.model.army.option.SubAllegiance.values()),
 	PackDeBataille(
 			"Pack de Bataille",
-			false,
 			armybuilder.model.army.option.PackDeBataille.values()),
 	GrandeStrategie(
 			"Grande Strategie",
-			false,
 			armybuilder.model.army.option.GrandeStrategie.values()),
-	Triomphes("Triomphe", false, armybuilder.model.army.option.Triomphes.values()),
-	Bataillon("Bataillon", true, armybuilder.model.army.option.bataillon.Bataillon.values()),
-	DisplayUnit("Affichage unité", false, armybuilder.model.army.option.DisplayUnit.values());
+	Triomphes("Triomphe", armybuilder.model.army.option.Triomphes.values()),
+	Bataillon("Bataillon", armybuilder.model.army.option.bataillon.Bataillon.values());
 
 	private String displayName;
 	private List<IListingOptionValue<?>> values;
-	private boolean multi;
 
-	private ListingOption(String displayName, boolean multi, IListingOptionValue<?>... values) {
+	private ListingOption(String displayName, IListingOptionValue<?>... values) {
 		this.displayName = displayName;
-		this.multi = multi;
 		this.values = Arrays.asList(values);
 	}
 
+	@Deprecated
 	public List<IListingOptionValue<?>> getValues(OldArmy army) {
 		return values.stream().filter(o -> o.isOptionDisplayed(army)).collect(Collectors.toList());
 	}
 
+	@Deprecated
 	public String getDisplayName() {
 		return displayName;
 	}
 
+	@Deprecated
 	public boolean isSelect() {
 		return true;
-	}
-
-	public boolean isMulti() {
-		return multi;
 	}
 
 }

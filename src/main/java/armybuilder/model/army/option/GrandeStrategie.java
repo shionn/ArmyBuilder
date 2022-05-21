@@ -11,6 +11,7 @@ import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.Unit;
 import armybuilder.serialisation.DescriptionReader;
 
+@Deprecated
 public enum GrandeStrategie
 		implements
 		IListingOptionValue<GrandeStrategie>,
