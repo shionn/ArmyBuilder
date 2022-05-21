@@ -163,9 +163,29 @@ body {
 		}
 	}
 
+	article.listing {
+		margin-top: 10px;
+		header h2 {
+			margin: 0;
+			small {
+				vertical-align: super;
+			}
+		}
+	}
+	
+	article.unit-config {
+		border: solid 1px darkgray;
+		padding: 5px;
+		background: white;
+		margin-top: 5px;
+		header h3 {
+			margin: 0;
+		}
+	}
+
 	article.unit {
 		border: 1px dashed $primary-color ;
-		margin-bottom: 10px;
+		margin-bottom: 5px;
 		& > header {
 			background-color: $primary-color;
 			text-align: center;
@@ -207,6 +227,7 @@ body {
 		}
 		
 	}
+	
 }
 
 

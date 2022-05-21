@@ -63,10 +63,6 @@ public class Unit implements Comparable<Unit> {
 		model.rebuild(this);
 	}
 
-	@Deprecated
-	public List<IUnitWeapon> getWeapons(WeaponType type) {
-		return weapons.stream().filter(w -> w.getType() == type).collect(Collectors.toList());
-	}
 
 	@Deprecated
 	@JsonIgnore
@@ -134,6 +130,9 @@ public class Unit implements Comparable<Unit> {
 		weapons.add(weapon);
 	}
 
+	public List<IUnitWeapon> weapons(WeaponType type) {
+		return weapons.stream().filter(w -> w.getType() == type).collect(Collectors.toList());
+	}
 
 	/** truc */
 	@Deprecated

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import armybuilder.model.army.compare.UnitComparator;
+import armybuilder.model.army.compare.UnitModelComparator;
 import armybuilder.model.army.option.SubAllegiance;
 import armybuilder.model.unit.IUnitModel;
 import armybuilder.model.unit.Unit;
@@ -41,7 +43,11 @@ public class Listing {
 
 	/** units **/
 	public List<IUnitModel> getAvailableUnitChoice() {
-		return subAllegiance.allegiance().units().stream().filter(u -> u.availableFor(this))
+		return subAllegiance.allegiance()
+				.units()
+				.stream()
+				.filter(u -> u.availableFor(this))
+				.sorted(new UnitModelComparator())
 				.collect(Collectors.toList());
 	}
 
@@ -54,7 +60,11 @@ public class Listing {
 	}
 
 	public List<Unit> units() {
-		return units;
+		return units.stream().sorted(new UnitComparator()).collect(Collectors.toList());
+	}
+
+	public List<Unit> units(IUnitModel model) {
+		return units.stream().filter(u -> u.is(model)).sorted(new UnitComparator()).collect(Collectors.toList());
 	}
 
 	public void remove(Unit u) {

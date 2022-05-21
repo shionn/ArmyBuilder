@@ -8,7 +8,6 @@ public interface IUnitOptionValue<T extends Enum<T> & IUnitOptionValue<T>> {
 
 	UnitOption option();
 
-	@Deprecated
 	String getDisplayName();
 
 	@Deprecated
@@ -25,10 +24,4 @@ public interface IUnitOptionValue<T extends Enum<T> & IUnitOptionValue<T>> {
 		return 	option() == option;
 	}
 
-//	@Deprecated
-//	default Set<IArmyRule<?>> getDisplayedRules() {
-//		Unit fake = new Unit();
-//		this.rebuild(fake);
-//		return fake.getRules();
-//	}
 }

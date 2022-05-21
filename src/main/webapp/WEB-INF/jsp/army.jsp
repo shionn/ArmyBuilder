@@ -5,59 +5,108 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="t"%>
 <t:template>
-	<jsp:attribute name="content">
-		<h1>${army.displayName}</h1>
-		<c:forEach items="${army.listings()}" var="listing">
-			<div id="listing-${listing.id}" class="listing">
-				<h2>${listing.displayName} <span>${listing.points()}</span></h2>
-				<div class="options">
-					<select name="SubAllegiance" class="ajax" data-url="<spring:url value="/listing/${listing.id}/SubAllegiance"/>" data-update="#listing-${listing.id}">
-						<c:forEach items="${army.availableSubAllegiance}" var="sub">
-							<option value="${sub}" <c:if test="${listing.is(sub)}"> selected="selected"</c:if>>${sub.displayName}</option>
-						</c:forEach>
-					</select>
-					<select name="unitChoice" class="ajax" data-url="<spring:url value="/listing/${listing.id}/unit/add"/>" data-update="#listing-${listing.id}">
-						<option value="" selected="selected">-- Ajout Unitée --</option>
-						<c:forEach items="${listing.availableUnitChoice}" var="f">
-							<option value="${f}">${f.displayName} ${f.points()}</option>
-						</c:forEach>
-					</select>
-				</div>
-				<c:forEach items="${listing.units()}" var="unit">
-					<div>
-						<h3>${unit.displayName} <span>${unit.points()} <a href='<spring:url value="/unit/remove/${unit.hashCode()}"/>'>X</a></span></h3>
-					</div>
-					<c:if test="${not empty unit.options}">
-						<div class="options">
-							<c:forEach items="${unit.options}" var="o">
-								<span>
-									<c:choose>
-										<c:when test="${o.type == 'bool'}">
-											${o.displayName} 
-											<input type="checkbox" name="value" class="ajax" 
-												data-url='<spring:url value="/unit/${unit.hashCode()}/${o.name()}"/>' data-update="body>main"
-												<c:if test="${unit.is(o)}"> checked="checked"</c:if>>
-										</c:when>
-										<c:when test="${o.type == 'select' and not empty unit.getOptionValues(o)}">
-											${o.displayName}
-											<select name="value" class="ajax"
-													data-url='<spring:url value="/unit/${unit.hashCode()}/${o.name()}"/>' data-update="body>main">
-												<option value="null">----</option>
-												<c:forEach items="${unit.getOptionValues(o)}" var="v">
-													<option value="${v}" <c:if test="${v.name() == unit.get(o).name()}">selected="selected"</c:if>>${v.displayName}</option>
-												</c:forEach>
-											</select>
-										</c:when>
-									</c:choose>
-								</span>
-							</c:forEach>
-						</div>
-					</c:if>
-				</c:forEach>
+<jsp:attribute name="content">
+<h1>${army.displayName}</h1>
+<a href='<spring:url value="/listing/add"/>'>Ajouter un listing</a>
+<c:forEach items="${army.listings()}" var="listing">
+	<article id="listing-${listing.id}" class="listing">
+		<header>
+			<h2>${listing.displayName} <small>(${listing.id})</small> <span>${listing.points()}</span></h2>
+		</header>
+		<main>
+			<div class="options">
+				<select name="SubAllegiance" class="ajax" data-url="<spring:url value="/listing/${listing.id}/SubAllegiance"/>" data-update="#listing-${listing.id}">
+					<c:forEach items="${army.availableSubAllegiance}" var="sub">
+						<option value="${sub}" <c:if test="${listing.is(sub)}"> selected="selected"</c:if>>${sub.displayName}</option>
+					</c:forEach>
+				</select>
+				<select name="unitChoice" class="ajax" data-url="<spring:url value="/listing/${listing.id}/unit/add"/>" data-update="body>main">
+					<option value="" selected="selected">-- Ajout Unitée --</option>
+					<c:forEach items="${listing.availableUnitChoice}" var="f">
+						<option value="${f}">${f.displayName} ${f.points()}</option>
+					</c:forEach>
+				</select>
 			</div>
-		</c:forEach>
-		<a href='<spring:url value="/listing/add"/>'>Ajouter un listing</a>
-		
+			<c:forEach items="${listing.units()}" var="unit">
+				<t:unit-config unit="${unit}"/>
+			</c:forEach>
+		</main>
+	</article>
+</c:forEach>
+
+<h2>Unitées</h2>
+<c:forEach items="${army.units()}" var="model">
+	<article class="unit">
+		<header>${model.displayName}
+			<span>
+				<c:if test="${not model.is(RoleTactique.SortsPersistantsEtInvocation)}">
+					<i class="fa fa-walking"></i> ${model.profile.mvt}&quot; 
+					<i class="fa fa-heart"></i> ${model.profile.life} 
+					<i class="fa fa-flag"></i> ${model.profile.cmd} 
+					<i class="fa fa-shield-alt"></i> ${model.profile.svg}
+				</c:if>
+			</span>
+		</header>
+		<main>
+			<table>
+				<c:if test="${not empty army.weapons(model,'Projectil')}">
+					<thead>
+						<tr>
+							<th>Armes à Projectiles</th>
+							<th>Portée</th>
+							<th>Attaques</th>
+							<th>Toucher</th>
+							<th>Blesser</th>
+							<th>Perf.</th>
+							<th>Dégâts</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${army.weapons(model,'Projectil')}" var="w">
+							<tr>
+								<td>${w.displayName}</td>
+								<td>${w.portee}</td>
+								<td>${w.attaques}</td>
+								<td>${w.toucher}</td>
+								<td>${w.blesser}</td>
+								<td>${w.perf}</td>
+								<td>${w.degats}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</c:if>
+				<c:if test="${not empty army.weapons(model,'Melee')}">
+					<thead>
+						<tr>
+							<th>Armes de Mêlée</th>
+							<th>Portée</th>
+							<th>Attaques</th>
+							<th>Toucher</th>
+							<th>Blesser</th>
+							<th>Perf.</th>
+							<th>Dégâts</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${army.weapons(model,'Melee')}" var="w">
+							<tr>
+								<td>${w.displayName}</td>
+								<td>${w.portee}</td>
+								<td>${w.attaques}</td>
+								<td>${w.toucher}</td>
+								<td>${w.blesser}</td>
+								<td>${w.perf}</td>
+								<td>${w.degats}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</c:if>
+			</table>
+		</main>
+	</article>
+</c:forEach>
+
+
 <!-- 		<div class="options"> -->
 <%-- 			<c:forEach items="${armyOptions}" var="opt"> --%>
 <%-- 				<c:if test="${not opt.select and not empty opt.getValues(army)}"> --%>
@@ -107,11 +156,13 @@
 <!-- 				</select> -->
 <!-- 			</div> -->
 <%-- 		</c:if> --%>
+
 <!-- 		<div> -->
 <%-- 			<c:forEach items="${army.errors}" var="e"> --%>
 <%-- 				<div class="error">${e}</div> --%>
 <%-- 			</c:forEach> --%>
 <!-- 		</div> -->
+
 <!-- 		<div style="page-break-inside:avoid"> -->
 <!-- 			<h1> -->
 <%-- 				${army.option(ArmyOption.Allegiance).displayName} - --%>
@@ -132,6 +183,7 @@
 <%-- 				</c:forEach> --%>
 <%-- 			</c:if> --%>
 <!-- 		</div> -->
+
 <!-- 		<div style="page-break-after:always"> -->
 <!-- 			<h2>Composition</h2> -->
 <!-- 			<div style="padding-bottom: 10px; display: flex; flex-wrap: wrap; justify-content: space-between;"> -->
