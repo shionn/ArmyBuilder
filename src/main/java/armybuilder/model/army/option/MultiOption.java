@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.option.bataillon.Bataillon;
 import armybuilder.model.unit.Unit;
 import armybuilder.serialisation.ArmyOptionJsonDeserializer;
@@ -50,7 +50,7 @@ public class MultiOption {
 		return this.option == option;
 	}
 
-	public boolean isAvailable(Army army, Unit unit) {
+	public boolean isAvailable(OldArmy army, Unit unit) {
 		return value.isAvailable(army, unit);
 	}
 

@@ -2,8 +2,8 @@ package armybuilder.model.unit;
 
 import java.util.List;
 
-import armybuilder.model.army.Army;
-import armybuilder.model.army.ArmyListing;
+import armybuilder.model.army.OldArmy;
+import armybuilder.model.army.Listing;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.option.IUnitOptionValue;
 import armybuilder.model.unit.option.UnitOption;
@@ -31,7 +31,7 @@ public interface IUnitModel {
 
 	List<IUnitOptionValue<?>> getOptionValues();
 
-	void rebuild(Army army, Unit unit);
+	void rebuild(OldArmy army, Unit unit);
 
 	default boolean isOneOf(RoleTactique... roles) {
 		for (RoleTactique role : roles) {
@@ -46,10 +46,10 @@ public interface IUnitModel {
 		return getRoleTactiques().contains(role);
 	}
 
-	void check(Army army, Unit unit);
+	void check(OldArmy army, Unit unit);
 
 	String name();
 
-	public boolean availableFor(ArmyListing armyListing);
+	public boolean availableFor(Listing armyListing);
 
 }

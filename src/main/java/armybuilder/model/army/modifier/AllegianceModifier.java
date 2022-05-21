@@ -3,7 +3,7 @@ package armybuilder.model.army.modifier;
 import java.util.Arrays;
 import java.util.List;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.IUnitModel;
 
@@ -18,7 +18,7 @@ public class AllegianceModifier implements IArmyModifier {
 	}
 
 	@Override
-	public void accept(Army u) {
+	public void accept(OldArmy u) {
 		rules.stream().forEach(u::addRule);
 		units.stream().forEach(u::addUnitChoice);
 	}

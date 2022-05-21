@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.rule.ArmyRuleType;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.Unit;
@@ -55,16 +55,16 @@ public enum GrandeStrategie
 	}
 
 	@Override
-	public boolean isOptionDisplayed(Army army) {
+	public boolean isOptionDisplayed(OldArmy army) {
 		return packDeBatailles.contains(army.option(ArmyOption.PackDeBataille));
 	}
 
 	@Override
-	public void rebuild(Army army) {
+	public void rebuild(OldArmy army) {
 	}
 
 	@Override
-	public void verify(Army army) {
+	public void verify(OldArmy army) {
 
 	}
 
@@ -80,7 +80,7 @@ public enum GrandeStrategie
 	}
 
 	@Override
-	public boolean isAvailable(Army army, Unit unit) {
+	public boolean isAvailable(OldArmy army, Unit unit) {
 		return false;
 	}
 

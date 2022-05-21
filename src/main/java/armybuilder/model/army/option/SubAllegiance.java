@@ -7,7 +7,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 import armybuilder.model.army.Army;
-import armybuilder.model.army.ArmyMultiListing;
+import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.check.Checkers;
 import armybuilder.model.army.modifier.IArmyModifier;
 import armybuilder.model.army.modifier.Modifiers;
@@ -98,12 +98,12 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 
 	private String displayName;
 	private List<IArmyModifier> modifiers;
-	private Function<ArmyMultiListing, Boolean> isAvailable;
-	private List<Consumer<Army>> checkers;
+	private Function<Army, Boolean> isAvailable;
+	private List<Consumer<OldArmy>> checkers;
 	private Allegiance allegiance;
 
 	private SubAllegiance(String displayName, List<IArmyModifier> modifiers,
-			Function<ArmyMultiListing, Boolean> isDisplay, List<Consumer<Army>> checkers, Allegiance allegiance) {
+			Function<Army, Boolean> isDisplay, List<Consumer<OldArmy>> checkers, Allegiance allegiance) {
 		this.displayName = displayName;
 		this.modifiers = modifiers;
 		this.isAvailable = isDisplay;
@@ -116,6 +116,7 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 		return displayName;
 	}
 
+	@Deprecated
 	@Override
 	public ArmyOption getOption() {
 		return ArmyOption.SubAllegiance;
@@ -123,31 +124,35 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 
 	@Deprecated
 	@Override
-	public boolean isOptionDisplayed(Army army) {
+	public boolean isOptionDisplayed(OldArmy army) {
 		return false;
 	}
 
+	@Deprecated
 	@Override
 	public int compare(SubAllegiance o1, SubAllegiance o2) {
 		return o1.getDisplayName().compareTo(o2.getDisplayName());
 	}
 
+	@Deprecated
 	@Override
-	public void rebuild(Army army) {
+	public void rebuild(OldArmy army) {
 		modifiers.stream().forEach(m -> m.accept(army));
 	}
 
+	@Deprecated
 	@Override
-	public void verify(Army army) {
+	public void verify(OldArmy army) {
 		checkers.stream().forEach(c -> c.accept(army));
 	}
 
+	@Deprecated
 	@Override
-	public boolean isAvailable(Army army, Unit unit) {
+	public boolean isAvailable(OldArmy army, Unit unit) {
 		return false;
 	}
 
-	public boolean availableFor(ArmyMultiListing army) {
+	public boolean availableFor(Army army) {
 		return isAvailable.apply(army);
 	}
 

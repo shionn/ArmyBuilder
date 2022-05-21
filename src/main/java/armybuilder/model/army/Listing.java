@@ -1,19 +1,23 @@
 package armybuilder.model.army;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import armybuilder.model.army.option.SubAllegiance;
 import armybuilder.model.unit.IUnitModel;
+import armybuilder.model.unit.Unit;
 
-public class ArmyListing {
+public class Listing {
 
 	private int id;
 
 	private SubAllegiance subAllegiance;
+	private List<Unit> units = new ArrayList<Unit>();
 
-	public ArmyListing(int id) {
+	public Listing(int id, SubAllegiance subAllegiance) {
 		this.id = id;
+		this.subAllegiance = subAllegiance;
 	}
 
 	public int getId() {
@@ -39,9 +43,20 @@ public class ArmyListing {
 
 	/** units **/
 	public List<IUnitModel> getAvailableUnitChoice() {
-		return subAllegiance == null ? null
-				: subAllegiance.allegiance().units().stream().filter(u -> u.availableFor(this))
+		return subAllegiance.allegiance().units().stream().filter(u -> u.availableFor(this))
 				.collect(Collectors.toList());
+	}
+
+	public boolean have(IUnitModel unit) {
+		return units.stream().filter(u -> u.is(unit)).findFirst().isPresent();
+	}
+
+	public void add(Unit unit) {
+		this.units.add(unit);
+	}
+
+	public List<Unit> getUnits() {
+		return units;
 	}
 
 	public String getDisplayName() {
@@ -51,7 +66,5 @@ public class ArmyListing {
 	public int getPoints() {
 		return -1;
 	}
-
-
 
 }

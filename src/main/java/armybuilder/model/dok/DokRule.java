@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.rule.ArmyRuleType;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.serialisation.DescriptionReader;
@@ -301,7 +301,7 @@ public enum DokRule implements IArmyRule<DokRule> {
 	}
 
 	@Override
-	public void rebuild(Army army) {
+	public void rebuild(OldArmy army) {
 
 	}
 

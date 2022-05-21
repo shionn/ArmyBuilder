@@ -1,9 +1,9 @@
 package armybuilder.model.army.check;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 
 public interface ICheck {
 
-	public void verify(Army army);
+	public void verify(OldArmy army);
 
 }

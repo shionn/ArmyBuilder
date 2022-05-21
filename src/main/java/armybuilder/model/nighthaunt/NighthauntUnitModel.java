@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 
-import armybuilder.model.army.Army;
-import armybuilder.model.army.ArmyListing;
+import armybuilder.model.army.OldArmy;
+import armybuilder.model.army.Listing;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.IUnitModel;
 import armybuilder.model.unit.KeyWord;
@@ -141,15 +141,15 @@ public enum NighthauntUnitModel implements IUnitModel {
 	private List<KeyWord> keyWords;
 	private List<RoleTactique> roleTactiques;
 	private List<UnitOption> options;
-	private List<BiConsumer<Army, Unit>> modifiers;
-	private List<BiConsumer<Army, Unit>> checkers;
-	private Function<ArmyListing, Boolean> availableFor;
+	private List<BiConsumer<OldArmy, Unit>> modifiers;
+	private List<BiConsumer<OldArmy, Unit>> checkers;
+	private Function<Listing, Boolean> availableFor;
 
 	private NighthauntUnitModel(String displayName, int value, UnitProfile profile,
 			List<RoleTactique> roleTactiques, List<IUnitWeapon> weapons,
 			ProfileDegressif profileDegressif, List<IArmyRule<?>> rules, List<UnitOption> options,
-			List<KeyWord> keyWords, List<BiConsumer<Army, Unit>> modifiers,
-			List<BiConsumer<Army, Unit>> checkers, Function<ArmyListing, Boolean> availableFor) {
+			List<KeyWord> keyWords, List<BiConsumer<OldArmy, Unit>> modifiers,
+			List<BiConsumer<OldArmy, Unit>> checkers, Function<Listing, Boolean> availableFor) {
 		this.displayName = displayName;
 		this.value = value;
 		this.profile = profile;
@@ -215,17 +215,17 @@ public enum NighthauntUnitModel implements IUnitModel {
 	}
 
 	@Override
-	public void rebuild(Army army, Unit unit) {
+	public void rebuild(OldArmy army, Unit unit) {
 		modifiers.stream().forEach(m -> m.accept(army, unit));
 	}
 
 	@Override
-	public void check(Army army, Unit unit) {
+	public void check(OldArmy army, Unit unit) {
 		checkers.stream().forEach(c -> c.accept(army, unit));
 	}
 
 	@Override
-	public boolean availableFor(ArmyListing listing) {
+	public boolean availableFor(Listing listing) {
 		return availableFor == null || availableFor.apply(listing);
 	}
 

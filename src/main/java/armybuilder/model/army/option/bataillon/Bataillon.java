@@ -3,7 +3,7 @@ package armybuilder.model.army.option.bataillon;
 import java.util.Arrays;
 import java.util.List;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.option.ArmyOption;
 import armybuilder.model.army.option.IArmyOptionValue;
 import armybuilder.model.army.rule.BataillonRule;
@@ -58,17 +58,17 @@ public enum Bataillon implements IArmyOptionValue<Bataillon> {
 	}
 
 	@Override
-	public boolean isOptionDisplayed(Army army) {
+	public boolean isOptionDisplayed(OldArmy army) {
 		return true;
 	}
 
 	@Override
-	public void rebuild(Army army) {
+	public void rebuild(OldArmy army) {
 		army.addRules(rules);
 	}
 
 	@Override
-	public void verify(Army army) {
+	public void verify(OldArmy army) {
 		// TODO Auto-generated method stub
 
 	}
@@ -78,7 +78,7 @@ public enum Bataillon implements IArmyOptionValue<Bataillon> {
 	}
 
 	@Override
-	public boolean isAvailable(Army army, Unit unit) {
+	public boolean isAvailable(OldArmy army, Unit unit) {
 		for (BataillonComposition c : compositions) {
 			if (c.isAvailable(unit)) {
 				return true;
@@ -94,7 +94,7 @@ public enum Bataillon implements IArmyOptionValue<Bataillon> {
 	private static BataillonComposition contain(BataillonSlot slot, int count) {
 		return new BataillonComposition() {
 			@Override
-			public boolean verify(Army army) {
+			public boolean verify(OldArmy army) {
 				return true;
 			}
 
@@ -124,7 +124,7 @@ public enum Bataillon implements IArmyOptionValue<Bataillon> {
 	private static BataillonComposition opt(BataillonSlot slot, int count) {
 		return new BataillonComposition() {
 			@Override
-			public boolean verify(Army army) {
+			public boolean verify(OldArmy army) {
 				return true;
 			}
 

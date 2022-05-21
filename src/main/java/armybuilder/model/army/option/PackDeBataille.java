@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.check.Checkers;
 import armybuilder.model.army.rule.PackDeBataille2021Rule;
 import armybuilder.model.unit.KeyWord;
@@ -48,7 +48,7 @@ public enum PackDeBataille implements IArmyOptionValue<PackDeBataille> {
 					Checkers.composition(2001, 3000, 0, 4,
 							RoleTactique.SortsPersistantsEtInvocation),
 
-					(Army a) -> {
+					(OldArmy a) -> {
 						int v = a.getValue() / 2;
 						a.getUnits().stream().filter(u -> u.getValue() > v).findFirst()
 								.ifPresent(u -> a.addError(
@@ -84,11 +84,11 @@ public enum PackDeBataille implements IArmyOptionValue<PackDeBataille> {
 	;
 
 	private String displayName;
-	private List<Consumer<Army>> checks;
-	private List<Consumer<Army>> modifiers;
+	private List<Consumer<OldArmy>> checks;
+	private List<Consumer<OldArmy>> modifiers;
 
-	private PackDeBataille(String displayName, List<Consumer<Army>> checks,
-			List<Consumer<Army>> modifiers) {
+	private PackDeBataille(String displayName, List<Consumer<OldArmy>> checks,
+			List<Consumer<OldArmy>> modifiers) {
 		this.displayName = displayName;
 		this.checks = checks;
 		this.modifiers = modifiers;
@@ -105,22 +105,22 @@ public enum PackDeBataille implements IArmyOptionValue<PackDeBataille> {
 	}
 
 	@Override
-	public boolean isOptionDisplayed(Army army) {
+	public boolean isOptionDisplayed(OldArmy army) {
 		return true;
 	}
 
 	@Override
-	public void rebuild(Army army) {
+	public void rebuild(OldArmy army) {
 		modifiers.stream().forEach(m -> m.accept(army));
 	}
 
 	@Override
-	public void verify(Army army) {
+	public void verify(OldArmy army) {
 		checks.stream().forEach(c -> c.accept(army));
 	}
 
 	@Override
-	public boolean isAvailable(Army army, Unit unit) {
+	public boolean isAvailable(OldArmy army, Unit unit) {
 		return false;
 	}
 

@@ -2,7 +2,7 @@ package armybuilder.model.army.option;
 
 import java.util.function.BiFunction;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.Unit;
 
@@ -33,20 +33,20 @@ public enum DisplayUnit implements IArmyOptionValue<DisplayUnit> {
 	}
 
 	@Override
-	public boolean isOptionDisplayed(Army army) {
+	public boolean isOptionDisplayed(OldArmy army) {
 		return true;
 	}
 
 	@Override
-	public void rebuild(Army army) {
+	public void rebuild(OldArmy army) {
 	}
 
 	@Override
-	public void verify(Army army) {
+	public void verify(OldArmy army) {
 	}
 
 	@Override
-	public boolean isAvailable(Army army, Unit unit) {
+	public boolean isAvailable(OldArmy army, Unit unit) {
 		return true;
 	}
 

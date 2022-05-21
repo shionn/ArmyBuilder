@@ -3,7 +3,7 @@ package armybuilder.model.dok;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.option.SubAllegiance;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.Unit;
@@ -299,10 +299,10 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 
 	private String displayName;
 	private UnitOption option;
-	private BiFunction<Army, Unit, Boolean> available;
+	private BiFunction<OldArmy, Unit, Boolean> available;
 	private Consumer<Unit> modifier;
 
-	DokOptimisations(String displayName, UnitOption type, BiFunction<Army, Unit, Boolean> available,
+	DokOptimisations(String displayName, UnitOption type, BiFunction<OldArmy, Unit, Boolean> available,
 			Consumer<Unit> modifier) {
 		this.displayName = displayName;
 		this.option = type;
@@ -310,7 +310,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 		this.modifier = modifier;
 	}
 
-	DokOptimisations(UnitOption type, BiFunction<Army, Unit, Boolean> available) {
+	DokOptimisations(UnitOption type, BiFunction<OldArmy, Unit, Boolean> available) {
 		this.displayName = DokRule.valueOf(name()).getDisplayName();
 		this.option = type;
 		this.available = available;
@@ -327,7 +327,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	}
 
 	@Override
-	public boolean isAvailable(Army army, Unit unit) {
+	public boolean isAvailable(OldArmy army, Unit unit) {
 		return available.apply(army, unit);
 	}
 

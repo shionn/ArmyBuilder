@@ -2,7 +2,7 @@ package armybuilder.model.army.check;
 
 import java.util.function.Consumer;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.option.UnitOption;
 
@@ -15,14 +15,14 @@ public enum GenericCheck implements ICheck {
 						"Vous ne pouvez mettre qu'une seule fois : " + m.getDisplayName()));
 	});
 
-	private Consumer<Army> check;
+	private Consumer<OldArmy> check;
 
-	private GenericCheck(Consumer<Army> check) {
+	private GenericCheck(Consumer<OldArmy> check) {
 		this.check = check;
 	}
 
 	@Override
-	public void verify(Army army) {
+	public void verify(OldArmy army) {
 		check.accept(army);
 	}
 

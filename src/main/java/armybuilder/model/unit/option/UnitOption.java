@@ -2,7 +2,7 @@ package armybuilder.model.unit.option;
 
 import java.util.function.BiFunction;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.option.PackDeBataille;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.Unit;
@@ -52,11 +52,11 @@ public enum UnitOption {
 	;
 
 	private String displayName;
-	private BiFunction<Army, Unit, Boolean> available;
+	private BiFunction<OldArmy, Unit, Boolean> available;
 	private UnitOptionType type;
 
 	private UnitOption(String displayName, UnitOptionType type,
-			BiFunction<Army, Unit, Boolean> available) {
+			BiFunction<OldArmy, Unit, Boolean> available) {
 		this.displayName = displayName;
 		this.type = type;
 		this.available = available;
@@ -70,7 +70,7 @@ public enum UnitOption {
 		return type;
 	}
 
-	public boolean isAvailable(Army a, Unit u) {
+	public boolean isAvailable(OldArmy a, Unit u) {
 		return available.apply(a, u);
 	}
 

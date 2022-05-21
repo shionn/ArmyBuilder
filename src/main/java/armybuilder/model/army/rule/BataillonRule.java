@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 import armybuilder.serialisation.DescriptionReader;
 
 public enum BataillonRule implements IArmyRule<BataillonRule> {
@@ -40,7 +40,7 @@ public enum BataillonRule implements IArmyRule<BataillonRule> {
 	}
 
 	@Override
-	public void rebuild(Army army) {
+	public void rebuild(OldArmy army) {
 	}
 
 

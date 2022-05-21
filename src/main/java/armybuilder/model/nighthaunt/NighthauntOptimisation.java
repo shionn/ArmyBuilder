@@ -3,7 +3,7 @@ package armybuilder.model.nighthaunt;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.option.SubAllegiance;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.Unit;
@@ -62,18 +62,18 @@ public enum NighthauntOptimisation implements IUnitOptionValue<NighthauntOptimis
 
 	private String displayName;
 	private UnitOption option;
-	private BiFunction<Army, Unit, Boolean> available;
+	private BiFunction<OldArmy, Unit, Boolean> available;
 	private Consumer<Unit> modifier;
 
 	private NighthauntOptimisation(String displayName, UnitOption option,
-			BiFunction<Army, Unit, Boolean> available, Consumer<Unit> modifier) {
+			BiFunction<OldArmy, Unit, Boolean> available, Consumer<Unit> modifier) {
 		this.displayName = displayName;
 		this.option = option;
 		this.available = available;
 		this.modifier = modifier;
 	}
 
-	private NighthauntOptimisation(UnitOption option, BiFunction<Army, Unit, Boolean> available) {
+	private NighthauntOptimisation(UnitOption option, BiFunction<OldArmy, Unit, Boolean> available) {
 		this.displayName = NighthauntRule.valueOf(name()).getDisplayName();
 		this.option = option;
 		this.available = available;
@@ -90,7 +90,7 @@ public enum NighthauntOptimisation implements IUnitOptionValue<NighthauntOptimis
 	}
 
 	@Override
-	public boolean isAvailable(Army army, Unit unit) {
+	public boolean isAvailable(OldArmy army, Unit unit) {
 		return available.apply(army, unit);
 	}
 

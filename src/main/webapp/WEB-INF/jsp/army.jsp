@@ -12,22 +12,22 @@
 				<h2>${listing.displayName} <span>${listing.points}</span></h2>
 				<div class="options">
 					<select name="SubAllegiance" class="ajax" data-url="<spring:url value="/listing/${listing.id}/SubAllegiance"/>" data-update="#listing-${listing.id}">
-						<c:if test="${listing.subAllegiance == null}">
-							<option value="" selected="selected">-- Sous Allegiance --</option>
-						</c:if>
 						<c:forEach items="${army.availableSubAllegiance}" var="sub">
 							<option value="${sub}" <c:if test="${listing.is(sub)}"> selected="selected"</c:if>>${sub.displayName}</option>
 						</c:forEach>
 					</select>
+					<select name="unitChoice" class="ajax" data-url="<spring:url value="/listing/${listing.id}/unit/add"/>" data-update="#listing-${listing.id}">
+						<option value="" selected="selected">-- Ajout Unitée --</option>
+						<c:forEach items="${listing.availableUnitChoice}" var="f">
+							<option value="${f}">${f.displayName} ${f.value}</option>
+						</c:forEach>
+					</select>
 				</div>
-				<div class="options">
-				<select name="unitChoice" class="ajax" data-url="<spring:url value="/listing/${listing.id}/unit/add"/>" data-update="#listing-${listing.id}">
-					<option value="" selected="selected">Ajout Unitée</option>
-					<c:forEach items="${listing.availableUnitChoice}" var="f">
-						<option value="${f}">${f.displayName} ${f.value}</option>
-					</c:forEach>
-				</select>
-				</div>
+				<c:forEach items="${listing.units}" var="unit">
+					<div>
+						<h3>${unit.displayName} <span>${unit.points} <a href='<spring:url value="/unit/remove/${unit.hashCode()}"/>'>X</a></span></h3>
+					</div>
+				</c:forEach>
 			</div>
 		</c:forEach>
 		<a href='<spring:url value="/listing/add"/>'>Ajouter un listing</a>

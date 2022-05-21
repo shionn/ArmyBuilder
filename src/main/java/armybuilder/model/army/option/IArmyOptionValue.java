@@ -1,6 +1,6 @@
 package armybuilder.model.army.option;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 import armybuilder.model.unit.Unit;
 
 public interface IArmyOptionValue<T extends Enum<T> & IArmyOptionValue<T>> {
@@ -8,12 +8,12 @@ public interface IArmyOptionValue<T extends Enum<T> & IArmyOptionValue<T>> {
 
 	ArmyOption getOption();
 
-	boolean isOptionDisplayed(Army army);
+	boolean isOptionDisplayed(OldArmy army);
 
-	void rebuild(Army army);
+	void rebuild(OldArmy army);
 
-	void verify(Army army);
+	void verify(OldArmy army);
 
-	boolean isAvailable(Army army, Unit unit);
+	boolean isAvailable(OldArmy army, Unit unit);
 
 }

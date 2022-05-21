@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 
 import armybuilder.model.army.AllArmy;
-import armybuilder.model.army.ArmyListing;
+import armybuilder.model.army.Listing;
 import armybuilder.model.army.option.SubAllegiance;
+import armybuilder.model.unit.IUnitModel;
+import armybuilder.model.unit.Unit;
 
 @Controller
 public class ListingController {
@@ -19,7 +21,8 @@ public class ListingController {
 	@GetMapping(path = "/listing/add")
 	public String addListing() {
 		int id = armies.current().getListings().stream().map(l -> l.getId()).reduce(0, Integer::max) + 1;
-		armies.current().add(new ArmyListing(id));
+		SubAllegiance subAllegiance = armies.current().getAvailableSubAllegiance().get(0);
+		armies.current().add(new Listing(id, subAllegiance));
 		return "redirect:/";
 	}
 
@@ -27,6 +30,15 @@ public class ListingController {
 	public String selectSubAllegiance(@PathVariable("id") int id,
 			@RequestHeader("SubAllegiance") SubAllegiance sub) {
 		armies.current().listing(id).select(sub);
+		return "redirect:/";
+	}
+
+	@GetMapping(path = "/listing/{id}/unit/add")
+	public String addUnitAllegiance(@PathVariable("id") int id, @RequestHeader("unitChoice") String name) {
+		Listing listing = armies.current().listing(id);
+		IUnitModel model = listing.getAvailableUnitChoice().stream().filter(u -> u.name().equalsIgnoreCase(name))
+				.findFirst().get();
+		listing.add(new Unit(model));
 		return "redirect:/";
 	}
 

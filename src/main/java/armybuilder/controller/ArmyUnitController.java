@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.option.MultiOption;
 import armybuilder.model.unit.IUnitModel;
 import armybuilder.model.unit.Unit;
@@ -16,7 +16,7 @@ import armybuilder.model.unit.option.UnitOption;
 public class ArmyUnitController {
 
 	@Autowired
-	private Army army;
+	private OldArmy army;
 
 	@GetMapping(path = "/unit/add")
 	public String addUnit(@RequestHeader("unitChoice") String modelName) {

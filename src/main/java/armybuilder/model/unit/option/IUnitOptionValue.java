@@ -2,13 +2,13 @@ package armybuilder.model.unit.option;
 
 import java.util.Set;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.Unit;
 
 public interface IUnitOptionValue<T extends Enum<T> & IUnitOptionValue<T>> {
 
-	boolean isAvailable(Army army, Unit unit);
+	boolean isAvailable(OldArmy army, Unit unit);
 
 	UnitOption getOption();
 

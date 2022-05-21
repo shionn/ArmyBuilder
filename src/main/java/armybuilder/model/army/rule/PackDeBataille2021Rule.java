@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 import armybuilder.serialisation.DescriptionReader;
 
 public enum PackDeBataille2021Rule implements IArmyRule<PackDeBataille2021Rule> {
@@ -52,7 +52,7 @@ public enum PackDeBataille2021Rule implements IArmyRule<PackDeBataille2021Rule> 
 	}
 
 	@Override
-	public void rebuild(Army army) {
+	public void rebuild(OldArmy army) {
 
 	}
 

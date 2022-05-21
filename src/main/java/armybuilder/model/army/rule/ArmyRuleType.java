@@ -2,7 +2,7 @@ package armybuilder.model.army.rule;
 
 import java.util.function.Function;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.option.PackDeBataille;
 import armybuilder.model.unit.KeyWord;
 
@@ -35,9 +35,9 @@ public enum ArmyRuleType {
 
 	;
 	private String displayName;
-	private Function<Army, Boolean> usable;
+	private Function<OldArmy, Boolean> usable;
 
-	private ArmyRuleType(String displayName, Function<Army, Boolean> usable) {
+	private ArmyRuleType(String displayName, Function<OldArmy, Boolean> usable) {
 		this.displayName = displayName;
 		this.usable = usable;
 	}
@@ -49,7 +49,7 @@ public enum ArmyRuleType {
 		return displayName;
 	}
 
-	boolean isUsable(Army army) {
+	boolean isUsable(OldArmy army) {
 		return usable.apply(army);
 	}
 

@@ -14,10 +14,10 @@ import armybuilder.model.army.option.Allegiance;
 public class AllArmy {
 
 	private Allegiance allegiance = Allegiance.DoK;
-	private List<ArmyMultiListing> armies = Arrays.stream(Allegiance.values()).map(a -> new ArmyMultiListing(a))
+	private List<Army> armies = Arrays.stream(Allegiance.values()).map(a -> new Army(a))
 			.collect(Collectors.toList());
 
-	public ArmyMultiListing current() {
+	public Army current() {
 		return armies.stream().filter(a -> a.is(allegiance)).findFirst().orElse(null);
 	}
 

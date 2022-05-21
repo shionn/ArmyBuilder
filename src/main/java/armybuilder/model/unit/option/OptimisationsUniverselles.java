@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.option.PackDeBataille;
 import armybuilder.model.army.rule.GeneriqueRule;
 import armybuilder.model.unit.KeyWord;
@@ -150,18 +150,18 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 
 	private String displayName;
 	private UnitOption option;
-	private BiFunction<Army, Unit, Boolean> available;
+	private BiFunction<OldArmy, Unit, Boolean> available;
 	private Consumer<Unit> modifier;
 
 	OptimisationsUniverselles(String displayName, UnitOption option,
-			BiFunction<Army, Unit, Boolean> available) {
+			BiFunction<OldArmy, Unit, Boolean> available) {
 		this.displayName = displayName;
 		this.option = option;
 		this.available = available;
 	}
 
 	OptimisationsUniverselles(String displayName, UnitOption option,
-			BiFunction<Army, Unit, Boolean> available, Consumer<Unit> modifier) {
+			BiFunction<OldArmy, Unit, Boolean> available, Consumer<Unit> modifier) {
 		this.displayName = displayName;
 		this.option = option;
 		this.available = available;
@@ -182,7 +182,7 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 	}
 
 	@Override
-	public boolean isAvailable(Army army, Unit unit) {
+	public boolean isAvailable(OldArmy army, Unit unit) {
 		return available.apply(army, unit);
 	}
 

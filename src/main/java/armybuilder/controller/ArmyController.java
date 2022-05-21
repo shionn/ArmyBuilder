@@ -19,7 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.option.Allegiance;
 import armybuilder.model.army.option.ArmyOption;
 import armybuilder.model.army.option.DisplayUnit;
@@ -36,7 +36,7 @@ import armybuilder.model.unit.Unit;
 public class ArmyController {
 
 	@Autowired
-	private Army army;
+	private OldArmy army;
 
 	@GetMapping(path = "/reset")
 	public String reset() {
@@ -121,8 +121,8 @@ public class ArmyController {
 		return "redirect:/";
 	}
 
-	private Army getNotProxifiedArmy() throws Exception {
-		return (Army) ((Advised) army).getTargetSource().getTarget();
+	private OldArmy getNotProxifiedArmy() throws Exception {
+		return (OldArmy) ((Advised) army).getTargetSource().getTarget();
 	}
 
 }

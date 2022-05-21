@@ -3,7 +3,7 @@ package armybuilder.model.army.option;
 import java.util.Arrays;
 import java.util.List;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.modifier.AllegianceModifier;
 import armybuilder.model.army.modifier.IArmyModifier;
 import armybuilder.model.dok.DokRule;
@@ -56,23 +56,23 @@ public enum Allegiance implements IArmyOptionValue<Allegiance> {
 	}
 
 	@Override
-	public boolean isOptionDisplayed(Army army) {
+	public boolean isOptionDisplayed(OldArmy army) {
 		return true;
 	}
 
 	@Override
-	public void rebuild(Army army) {
+	public void rebuild(OldArmy army) {
 		if (modifier != null) {
 			modifier.accept(army);
 		}
 	}
 
 	@Override
-	public void verify(Army army) {
+	public void verify(OldArmy army) {
 	}
 
 	@Override
-	public boolean isAvailable(Army army, Unit unit) {
+	public boolean isAvailable(OldArmy army, Unit unit) {
 		return false;
 	}
 

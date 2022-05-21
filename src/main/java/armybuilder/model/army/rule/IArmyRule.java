@@ -3,7 +3,7 @@ package armybuilder.model.army.rule;
 import java.io.IOException;
 import java.util.List;
 
-import armybuilder.model.army.Army;
+import armybuilder.model.army.OldArmy;
 
 public interface IArmyRule<T extends Enum<T> & IArmyRule<T>> {
 
@@ -19,7 +19,7 @@ public interface IArmyRule<T extends Enum<T> & IArmyRule<T>> {
 		return getTypes().contains(type);
 	}
 
-	void rebuild(Army army);
+	void rebuild(OldArmy army);
 
 
 }
