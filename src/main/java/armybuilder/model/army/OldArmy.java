@@ -22,10 +22,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import armybuilder.model.army.check.GenericCheck;
-import armybuilder.model.army.option.ListingOption;
 import armybuilder.model.army.option.IListingOptionValue;
-import armybuilder.model.army.option.MultiOption;
+import armybuilder.model.army.option.ListingOption;
 import armybuilder.model.army.rule.ArmyRuleType;
 import armybuilder.model.army.rule.GeneriqueRule;
 import armybuilder.model.army.rule.IArmyRule;
@@ -48,13 +46,10 @@ public class OldArmy {
 
 	@JsonDeserialize(contentConverter = ArmyOptionJsonDeserializer.class)
 	private Map<ListingOption, IListingOptionValue<?>> options = new HashMap<>();
-	private List<MultiOption> multiOptions = new ArrayList<>();
 	private List<Unit> units = new ArrayList<>();
 	@JsonDeserialize(contentConverter = UnitOptionJsonDeserializer.class)
 	private List<IUnitOptionValue<?>> optimisations = new ArrayList<>();
 
-	@JsonIgnore
-	private List<String> errors = new ArrayList<>();
 	@JsonIgnore
 	private Set<IArmyRule<?>> rules = new LinkedHashSet<>();
 	@JsonIgnore
@@ -65,13 +60,11 @@ public class OldArmy {
 	public void reset() {
 		this.options.clear();
 		this.units.clear();
-		this.multiOptions.clear();
 		this.optimisations.clear();
 	}
 
 	public void rebuild() {
 		rules.clear();
-		errors.clear();
 		units.stream().filter(Objects::nonNull).forEach(Unit::reset);
 
 		Arrays.stream(GeneriqueRule.values())
@@ -79,14 +72,10 @@ public class OldArmy {
 				.forEach(rules::add);
 
 		options.values().stream().filter(Objects::nonNull).forEach(o -> o.rebuild(this));
-		multiOptions.stream().forEach(o -> o.getValue().rebuild(this));
+//		multiOptions.stream().forEach(o -> o.getValue().rebuild(this));
 		rules.forEach(r -> r.rebuild(this));
-		units.stream().forEach(o -> o.rebuild(this));
+//		units.stream().forEach(o -> o.rebuild(this));
 
-		Arrays.stream(GenericCheck.values()).forEach(c -> c.verify(this));
-		options.values().stream().forEach(o -> o.verify(this));
-		multiOptions.stream().forEach(o -> o.getValue().verify(this));
-		units.stream().forEach(u -> u.verify(this));
 	}
 
 	/*
@@ -94,11 +83,6 @@ public class OldArmy {
 	 */
 	public void setOption(IListingOptionValue<?> value) {
 		this.options.put(value.getOption(), value);
-		if (value.getOption() == ListingOption.Allegiance) {
-			this.options.remove(ListingOption.SubAllegiance);
-			this.unitChoices.clear();
-			this.units.clear();
-		}
 	}
 
 	public boolean is(IListingOptionValue<?> opt) {
@@ -113,33 +97,6 @@ public class OldArmy {
 		@SuppressWarnings("unchecked")
 		T value = (T) option(defolt.getOption());
 		return value == null ? defolt : value;
-	}
-
-	public List<MultiOption> multiOptions() {
-		return multiOptions;
-	}
-
-	public List<MultiOption> multiOptions(ListingOption option) {
-		return multiOptions.stream().filter(o -> o.is(option)).collect(Collectors.toList());
-	}
-
-	public List<MultiOption> multiOptions(UnitOption option) {
-//		if (option.getType() != UnitOptionType.selectMultiOption) {
-//			throw new IllegalArgumentException("bad option <" + option + ">");
-//		}
-		return multiOptions(ListingOption.valueOf(option.name()));
-	}
-
-	public MultiOption multiOptions(UnitOption option, int id) {
-		return multiOptions(option).stream().filter(o -> o.getId() == id).findFirst().get();
-	}
-
-	public void addMultiOption(MultiOption multiOption) {
-		this.multiOptions.add(multiOption);
-	}
-
-	public void removeMultiOptions(int id) {
-		this.multiOptions.removeIf(o -> o.getId() == id);
 	}
 
 	/*
@@ -253,22 +210,6 @@ public class OldArmy {
 		return optimisations.stream()
 				.sorted((a, b) -> a.getFullDisplayName().compareTo(b.getFullDisplayName()))
 				.collect(Collectors.toList());
-	}
-
-	/*
-	 * rest
-	 */
-	public void addError(String string) {
-		this.errors.add(string);
-	}
-
-	public List<String> getErrors() {
-		return errors;
-	}
-
-	public int getValue() {
-		return units.stream().map(u -> u.getValue()).collect(Collectors.reducing((a, b) -> a + b))
-				.orElse(0);
 	}
 
 }

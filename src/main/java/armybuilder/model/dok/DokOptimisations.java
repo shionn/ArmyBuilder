@@ -277,7 +277,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 			u -> u.is(KeyWord.WitchAelves),
 			null),
 	FouetBarbeleEtCouteauSacrificiel(
-			"Fouet Barbelé Et Couteau Sacrificiel",
+			"Fouet Barbelé et Couteau Sacrificiel",
 			UnitOption.Armes,
 			u -> u.is(KeyWord.SisterOfSlaughter),
 			u -> u.add(DokUnitWeapon.CouteauxSacrificiel)),

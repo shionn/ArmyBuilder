@@ -6,7 +6,6 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="t"%>
 <t:template>
 <jsp:attribute name="content">
-<h1>${army.displayName}</h1>
 <a href='<spring:url value="/listing/add"/>'>Ajouter un listing</a>
 <c:forEach items="${army.listings()}" var="listing">
 	<article id="listing-${listing.id}" class="listing">
@@ -34,77 +33,14 @@
 	</article>
 </c:forEach>
 
+<h1>${army.displayName}</h1>
+
 <h2>Unitées</h2>
 <c:forEach items="${army.units()}" var="model">
-	<article class="unit">
-		<header>${model.displayName}
-			<span>
-				<c:if test="${not model.is(RoleTactique.SortsPersistantsEtInvocation)}">
-					<i class="fa fa-walking"></i> ${model.profile.mvt}&quot; 
-					<i class="fa fa-heart"></i> ${model.profile.life} 
-					<i class="fa fa-flag"></i> ${model.profile.cmd} 
-					<i class="fa fa-shield-alt"></i> ${model.profile.svg}
-				</c:if>
-			</span>
-		</header>
-		<main>
-			<table>
-				<c:if test="${not empty army.weapons(model,'Projectil')}">
-					<thead>
-						<tr>
-							<th>Armes à Projectiles</th>
-							<th>Portée</th>
-							<th>Attaques</th>
-							<th>Toucher</th>
-							<th>Blesser</th>
-							<th>Perf.</th>
-							<th>Dégâts</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${army.weapons(model,'Projectil')}" var="w">
-							<tr>
-								<td>${w.displayName}</td>
-								<td>${w.portee}</td>
-								<td>${w.attaques}</td>
-								<td>${w.toucher}</td>
-								<td>${w.blesser}</td>
-								<td>${w.perf}</td>
-								<td>${w.degats}</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</c:if>
-				<c:if test="${not empty army.weapons(model,'Melee')}">
-					<thead>
-						<tr>
-							<th>Armes de Mêlée</th>
-							<th>Portée</th>
-							<th>Attaques</th>
-							<th>Toucher</th>
-							<th>Blesser</th>
-							<th>Perf.</th>
-							<th>Dégâts</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${army.weapons(model,'Melee')}" var="w">
-							<tr>
-								<td>${w.displayName}</td>
-								<td>${w.portee}</td>
-								<td>${w.attaques}</td>
-								<td>${w.toucher}</td>
-								<td>${w.blesser}</td>
-								<td>${w.perf}</td>
-								<td>${w.degats}</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</c:if>
-			</table>
-		</main>
-	</article>
+	<t:unit model="${model}" army="${army}"/>
 </c:forEach>
+
+
 
 
 <!-- 		<div class="options"> -->

@@ -7,19 +7,10 @@ import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.Unit;
 
 public enum UnitOption {
-	General("Général", UnitOptionType.bool, (u) -> u.getKeyWords().contains(KeyWord.Heros)),
-	TraisDeCommandement(
-			"Traits de Commandement",
-			UnitOptionType.select,
-			(u) -> !u.is(KeyWord.Unique)),
-	TraisDeMonstre(
-			"TODO",
-			UnitOptionType.select,
-			(u) -> !u.is(KeyWord.Unique)),
-	Artefact(
-			"Artéfacts de Pouvoir",
-			UnitOptionType.select,
-			(u) -> !u.is(KeyWord.Unique)),
+	General("Général", UnitOptionType.bool, (u) -> u.is(KeyWord.Heros)),
+	TraisDeCommandement("Traits de Commandement", UnitOptionType.select, (u) -> !u.is(KeyWord.Unique)),
+	TraisDeMonstre("TODO", UnitOptionType.select, (u) -> !u.is(KeyWord.Unique)),
+	Artefact("Artéfacts de Pouvoir", UnitOptionType.select, (u) -> !u.is(KeyWord.Unique)),
 	Sort("Sort", UnitOptionType.select, (u) -> u.is(KeyWord.Sorcier)),
 	Priere("Prière", UnitOptionType.select, (u) -> u.is(KeyWord.Pretre)),
 

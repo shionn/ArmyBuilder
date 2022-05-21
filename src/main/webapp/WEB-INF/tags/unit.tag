@@ -3,25 +3,23 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ attribute name="unit" type="armybuilder.model.unit.Unit"%>
+<%@ attribute name="model" type="armybuilder.model.unit.IUnitModel"%>
 <%@ attribute name="army" type="armybuilder.model.army.Army"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="t"%>
 <article class="unit" style="page-break-inside:avoid;">
-	<header>
-		<span><a href='<spring:url value="/unit/remove/${unit.hashCode()}"/>'>X</a> ${unit.value}</span>
-		${unit.displayName}
+	<header>${model.displayName}
 		<span>
-			<c:if test="${not unit.is(RoleTactique.SortsPersistantsEtInvocation)}">
-				<i class="fa fa-walking"></i> ${unit.mouvement}&quot; 
-				<i class="fa fa-heart"></i> ${unit.blessures} 
-				<i class="fa fa-flag"></i> ${unit.bravoure} 
-				<i class="fa fa-shield-alt"></i> ${unit.sauvegarde}
+			<c:if test="${not model.is(RoleTactique.SortsPersistantsEtInvocation)}">
+				<i class="fa fa-walking"></i> ${model.profile.mvt}&quot; 
+				<i class="fa fa-heart"></i> ${model.profile.life} 
+				<i class="fa fa-flag"></i> ${model.profile.cmd} 
+				<i class="fa fa-shield-alt"></i> ${model.profile.svg}
 			</c:if>
 		</span>
 	</header>
 	<main>
 		<table>
-			<c:if test="${not empty unit.getWeapons('Projectil')}">
+			<c:if test="${not empty army.weapons(model,'Projectil')}">
 				<thead>
 					<tr>
 						<th>Armes à Projectiles</th>
@@ -34,7 +32,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${unit.getWeapons('Projectil')}" var="w">
+					<c:forEach items="${army.weapons(model,'Projectil')}" var="w">
 						<tr>
 							<td>${w.displayName}</td>
 							<td>${w.portee}</td>
@@ -47,7 +45,7 @@
 					</c:forEach>
 				</tbody>
 			</c:if>
-			<c:if test="${not empty unit.getWeapons('Melee')}">
+			<c:if test="${not empty army.weapons(model,'Melee')}">
 				<thead>
 					<tr>
 						<th>Armes de Mêlée</th>
@@ -60,7 +58,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${unit.getWeapons('Melee')}" var="w">
+					<c:forEach items="${army.weapons(model,'Melee')}" var="w">
 						<tr>
 							<td>${w.displayName}</td>
 							<td>${w.portee}</td>
@@ -74,69 +72,35 @@
 				</tbody>
 			</c:if>
 		</table>
-		<c:if test="${not empty unit.profileDegressif}">
+		<c:if test="${not empty model.profileDegressif}">
 			<table>
 				<thead>
 					<tr>
-						<th colspan="${unit.profileDegressif.titles.size()}">Tableau de Dégâts</th>
+						<th colspan="${model.profileDegressif.titles.size()}">Tableau de Dégâts</th>
 					</tr>
 					<tr>
-						<c:forEach items="${unit.profileDegressif.titles}" var="t"><th>${t}</th></c:forEach>
+						<c:forEach items="${model.profileDegressif.titles}" var="t"><th>${t}</th></c:forEach>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${unit.profileDegressif.lines}" var="l">
+					<c:forEach items="${model.profileDegressif.lines}" var="l">
 						<tr><c:forEach items="${l}" var="c"><td>${c}</td></c:forEach></tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</c:if>
-		<c:if test="${not empty unit.options}">
-		<div class="options">
-			<c:forEach items="${unit.options}" var="o">
-				<span>
-					<c:choose>
-						<c:when test="${o.type == 'bool'}">
-							${o.displayName} 
-							<input type="checkbox" name="value" class="ajax" 
-								data-url='<spring:url value="/unit/${unit.hashCode()}/${o.name()}"/>' data-update="body>main"
-								<c:if test="${not empty unit.get(o)}"> checked="checked"</c:if>>
-						</c:when>
-						<c:when test="${o.type == 'select' and not empty unit.getOptionValues(o)}">
-							${o.displayName}
-							<select name="value" class="ajax"
-									data-url='<spring:url value="/unit/${unit.hashCode()}/${o.name()}"/>' data-update="body>main">
-								<option value="null">----</option>
-								<c:forEach items="${unit.getOptionValues(o)}" var="v">
-									<option value="${v}" <c:if test="${v.name() == unit.get(o).name()}">selected="selected"</c:if>>${v.displayName}</option>
-								</c:forEach>
-							</select>
-						</c:when>
-						<c:when test="${o.type == 'selectMultiOption' and not empty unit.getMultiOptionValues(o)}">
-							${o.displayName}
-							<select name="value" class="ajax" data-update="body>main"
-									data-url='<spring:url value="/unit/${unit.hashCode()}/${o.name()}"/>'>
-								<option value="0">----</option>
-								<c:forEach items="${unit.getMultiOptionValues(o)}" var="v">
-									<option value="${v.id}" <c:if test="${v.id == unit.getMultiOption(o).id}">selected="selected"</c:if>>${v.displayName}</option>
-								</c:forEach>
-							</select>
-						</c:when>
-					</c:choose>
-				</span>
-			</c:forEach>
-		</div>
-		</c:if>
 		<div>
-			<c:forEach items="${unit.displayedRules}" var="rule"><t:rule rule="${rule}" army="${army}" displayUnit="false"/></c:forEach>
+			<c:forEach items="${army.rules(model)}" var="rule">
+				<t:rule-unit rule="${rule}" army="${army}"/>
+			</c:forEach>
 		</div>
 	</main>
-	<c:if test="${not empty unit.keyWords}">
+	<c:if test="${not empty army.keyWords(model)}">
 		<footer>
-			<c:forEach items="${unit.keyWords}" var="k">
+			<c:forEach items="${army.keyWords(model)}" var="k">
 				<span>${k.displayName}</span>
 			</c:forEach>
+			TODO *
 		</footer>
 	</c:if>
 </article>
-

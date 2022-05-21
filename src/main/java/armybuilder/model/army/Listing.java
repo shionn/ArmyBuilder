@@ -25,6 +25,7 @@ public class Listing {
 
 	public void rebuild() {
 		units.stream().forEach(u -> u.reset());
+//		subAllegiance.rebuild(this);
 		units.stream().forEach(u -> u.rebuild());
 	}
 

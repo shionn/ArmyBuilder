@@ -63,13 +63,6 @@ public class Unit implements Comparable<Unit> {
 		model.rebuild(this);
 	}
 
-
-	@Deprecated
-	@JsonIgnore
-	public ProfileDegressif getProfileDegressif() {
-		return model.getProfileDegressif();
-	}
-
 	/** options */
 	public List<UnitOption> getOptions() {
 		return model.getOptions().stream().filter(o -> o.availableFor(this)).collect(Collectors.toList());
@@ -117,7 +110,7 @@ public class Unit implements Comparable<Unit> {
 
 	/** keyword */
 	public boolean is(KeyWord keyWord) {
-		return getKeyWords().contains(keyWord);
+		return keyWords.contains(keyWord);
 	}
 
 	/** rule */
@@ -134,12 +127,14 @@ public class Unit implements Comparable<Unit> {
 		return weapons.stream().filter(w -> w.getType() == type).collect(Collectors.toList());
 	}
 
-	/** truc */
-	@Deprecated
+	/** keyWords */
 	public void add(KeyWord keyWord) {
 		keyWords.add(keyWord);
 	}
 
+	public Set<KeyWord> keyWords() {
+		return keyWords;
+	}
 
 	/**
 	 * rule
@@ -151,11 +146,9 @@ public class Unit implements Comparable<Unit> {
 		}
 	}
 
-	@Deprecated
-	public SortedSet<IArmyRule<?>> getRules() {
+	public SortedSet<IArmyRule<?>> rules() {
 		return rules;
 	}
-
 
 	@Deprecated
 	public boolean is(IArmyRule<?> rule) {
@@ -188,33 +181,8 @@ public class Unit implements Comparable<Unit> {
 		return model.getDisplayName();
 	}
 
-	@Deprecated
-	public String getMouvement() {
-		return model.getProfile().getMvt();
-	}
-
-	@Deprecated
-	public String getBlessures() {
-		return model.getProfile().getLife();
-	}
-
-	@Deprecated
-	public String getBravoure() {
-		return model.getProfile().getCmd();
-	}
-
-	@Deprecated
-	public String getSauvegarde() {
-		return model.getProfile().getSvg();
-	}
-
 	public IUnitModel model() {
 		return model;
-	}
-
-	@Deprecated
-	public Set<KeyWord> getKeyWords() {
-		return keyWords;
 	}
 
 	public Listing listing() {

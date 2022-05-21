@@ -3,6 +3,7 @@ package armybuilder.model.army.option;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 import armybuilder.model.army.Army;
@@ -59,7 +60,7 @@ public enum SubAllegiance implements IListingOptionValue<SubAllegiance>, Compara
 	;
 
 	private String displayName;
-	private List<IArmyModifier> modifiers;
+	private Consumer<Army> modifier;
 	private Function<Army, Boolean> isAvailable;
 	private Allegiance allegiance;
 

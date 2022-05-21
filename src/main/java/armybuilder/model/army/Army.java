@@ -2,13 +2,17 @@ package armybuilder.model.army;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import armybuilder.model.army.compare.UnitModelComparator;
 import armybuilder.model.army.option.Allegiance;
 import armybuilder.model.army.option.SubAllegiance;
+import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.IUnitModel;
+import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.model.unit.weapon.WeaponType;
 
@@ -19,13 +23,16 @@ public class Army {
 	private Allegiance allegiance;
 
 	private List<Listing> listings = new ArrayList<>();
+	private Set<IArmyRule<?>> rules = new LinkedHashSet<>();
 	
 	public Army(Allegiance allegiance) {
 		this.allegiance = allegiance;
 	}
 
 	public void rebuild() {
-		listings.stream().forEach(l -> l.rebuild());
+		this.rules.clear();
+		this.allegiance.rebuild(this);
+		this.listings.stream().forEach(l -> l.rebuild());
 	}
 
 	/** allegiance **/
@@ -44,6 +51,15 @@ public class Army {
 
 	public String getDisplayName() {
 		return allegiance.getDisplayName();
+	}
+
+	/** rules **/
+	public IArmyRule<?> rules() {
+		return rules();
+	}
+
+	public void addRules(IArmyRule<?>... rules) {
+		this.rules.addAll(Arrays.asList(rules));
 	}
 
 	/** listing **/
@@ -77,5 +93,21 @@ public class Army {
 				.toList();
 	}
 
+	public List<IArmyRule<?>> rules(IUnitModel model) {
+		return listings.stream()
+				.flatMap(l -> l.units(model).stream())
+				.flatMap(u -> u.rules().stream())
+				.distinct()
+				.toList();
+	}
+
+	public List<KeyWord> keyWords(IUnitModel model) {
+		return listings.stream()
+				.flatMap(l -> l.units(model).stream())
+				.flatMap(u -> u.keyWords().stream())
+				.distinct()
+				.toList();
+
+	}
 
 }

@@ -15,7 +15,6 @@ public interface IUnitOptionValue<T extends Enum<T> & IUnitOptionValue<T>> {
 		return option().getDisplayName() + " : " + getDisplayName();
 	}
 
-	@Deprecated
 	String name();
 
 	void rebuild(Unit unit);

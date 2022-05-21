@@ -2,12 +2,13 @@ package armybuilder.model.army.modifier;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 
-import armybuilder.model.army.OldArmy;
+import armybuilder.model.army.Army;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.IUnitModel;
 
-public class AllegianceModifier implements IArmyModifier {
+public class AllegianceModifier implements Consumer<Army> {
 
 	private List<IUnitModel> units;
 	private List<IArmyRule<?>> rules;
@@ -18,9 +19,8 @@ public class AllegianceModifier implements IArmyModifier {
 	}
 
 	@Override
-	public void accept(OldArmy u) {
-		rules.stream().forEach(u::addRule);
-		units.stream().forEach(u::addUnitChoice);
+	public void accept(Army u) {
+		rules.stream().forEach(u::addRules);
 	}
 
 }

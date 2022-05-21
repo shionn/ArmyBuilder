@@ -2,10 +2,9 @@ package armybuilder.model.army.option;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 
-import armybuilder.model.army.OldArmy;
-import armybuilder.model.army.modifier.AllegianceModifier;
-import armybuilder.model.army.modifier.IArmyModifier;
+import armybuilder.model.army.Army;
 import armybuilder.model.dok.DokRule;
 import armybuilder.model.dok.DokUnitModel;
 import armybuilder.model.nighthaunt.NighthauntRule;
@@ -16,12 +15,11 @@ public enum Allegiance {
 	CoS("Order", "City of Sigmar", null, new IUnitModel[0]),
 	DoK(
 			"Order", "Daughters of Khaine",
-			new AllegianceModifier(DokUnitModel.values(), DokRule.RitesDeSang,
-					DokRule.FoiFanatique),
+			a -> a.addRules(DokRule.RitesDeSang, DokRule.FoiFanatique),
 			DokUnitModel.values()),
 	Nighthaunt(
 			"Death", "Nighthaunt",
-			new AllegianceModifier(NighthauntUnitModel.values(), NighthauntRule.AuraDEffroi,
+			a -> a.addRules(NighthauntRule.AuraDEffroi,
 					NighthauntRule.ConvocationSpectrale, NighthauntRule.EspritsImperissables,
 					NighthauntRule.IlsViennentDesSousMondes, NighthauntRule.NourrisDeTerreur,
 					NighthauntRule.RestituerLesFigurinesTuees, NighthauntRule.VagueDeTerreur),
@@ -30,10 +28,10 @@ public enum Allegiance {
 
 	private String displayName;
 	private String faction;
-	private IArmyModifier modifier;
+	private Consumer<Army> modifier;
 	private List<IUnitModel> units;
 
-	private Allegiance(String faction, String displayName, IArmyModifier modifier, IUnitModel[] units) {
+	private Allegiance(String faction, String displayName, Consumer<Army> modifier, IUnitModel[] units) {
 		this.faction = faction;
 		this.displayName = displayName;
 		this.modifier = modifier;
@@ -48,8 +46,7 @@ public enum Allegiance {
 		return displayName;
 	}
 
-	@Deprecated
-	public void rebuild(OldArmy army) {
+	public void rebuild(Army army) {
 		if (modifier != null) {
 			modifier.accept(army);
 		}

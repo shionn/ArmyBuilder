@@ -7,14 +7,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 
 import armybuilder.model.army.AllArmy;
-import armybuilder.model.army.OldArmy;
 import armybuilder.model.unit.option.UnitOption;
 
 @Controller
 public class UnitController {
 
-	@Autowired
-	private OldArmy army;
 	@Autowired
 	private AllArmy armies;
 
@@ -64,16 +61,16 @@ public class UnitController {
 		return "redirect:/";
 	}
 
-	@GetMapping(path = "/optimisation/add")
-	public String addOptimisation(@RequestHeader("optimisation") String optimisation) {
-		army.getOptimisationChoices().stream().filter(o -> o.name().equals(optimisation)).forEach(army::add);
-		return "redirect:/";
-	}
-
-	@GetMapping(path = "/optimisation/remove/{hash}")
-	public String removeOptimisation(@PathVariable("hash") int hash) {
-		army.getOptimisations().stream().filter(o -> o.hashCode() == hash).forEach(army::remove);
-		return "redirect:/";
-	}
+//	@GetMapping(path = "/optimisation/add")
+//	public String addOptimisation(@RequestHeader("optimisation") String optimisation) {
+//		army.getOptimisationChoices().stream().filter(o -> o.name().equals(optimisation)).forEach(army::add);
+//		return "redirect:/";
+//	}
+//
+//	@GetMapping(path = "/optimisation/remove/{hash}")
+//	public String removeOptimisation(@PathVariable("hash") int hash) {
+//		army.getOptimisations().stream().filter(o -> o.hashCode() == hash).forEach(army::remove);
+//		return "redirect:/";
+//	}
 
 }
