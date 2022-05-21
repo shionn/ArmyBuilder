@@ -4,13 +4,13 @@ import java.util.Arrays;
 import java.util.List;
 
 import armybuilder.model.army.OldArmy;
-import armybuilder.model.army.option.ArmyOption;
-import armybuilder.model.army.option.IArmyOptionValue;
+import armybuilder.model.army.option.IListingOptionValue;
+import armybuilder.model.army.option.ListingOption;
 import armybuilder.model.army.rule.BataillonRule;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.Unit;
 
-public enum Bataillon implements IArmyOptionValue<Bataillon> {
+public enum Bataillon implements IListingOptionValue<Bataillon> {
 
 	SeigneurDeGuerre(
 			"Seigneur de Guerre",
@@ -53,8 +53,8 @@ public enum Bataillon implements IArmyOptionValue<Bataillon> {
 	}
 
 	@Override
-	public ArmyOption getOption() {
-		return ArmyOption.Bataillon;
+	public ListingOption getOption() {
+		return ListingOption.Bataillon;
 	}
 
 	@Override
@@ -67,12 +67,6 @@ public enum Bataillon implements IArmyOptionValue<Bataillon> {
 		army.addRules(rules);
 	}
 
-	@Override
-	public void verify(OldArmy army) {
-		// TODO Auto-generated method stub
-
-	}
-	
 	public List<IArmyRule<?>> getRules() {
 		return rules;
 	}

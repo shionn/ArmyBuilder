@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import armybuilder.model.army.option.SubAllegiance;
 import armybuilder.model.unit.IUnitModel;
 import armybuilder.model.unit.Unit;
+import armybuilder.model.unit.option.UnitOption;
 
 public class Listing {
 
@@ -20,12 +21,9 @@ public class Listing {
 		this.subAllegiance = subAllegiance;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public boolean is(int id) {
-		return this.id == id;
+	public void rebuild() {
+		units.stream().forEach(u -> u.reset());
+		units.stream().forEach(u -> u.rebuild());
 	}
 
 	/** suballegiance **/
@@ -55,10 +53,19 @@ public class Listing {
 		this.units.add(unit);
 	}
 
-	public List<Unit> getUnits() {
+	public List<Unit> units() {
 		return units;
 	}
 
+	public void remove(Unit u) {
+		this.units.remove(u);
+	}
+
+	public Unit unit(UnitOption option) {
+		return this.units.stream().filter(u -> u.is(option)).findFirst().orElse(null);
+	}
+
+	/** getters */
 	public String getDisplayName() {
 		return subAllegiance == null ? "Select suballegiance" : subAllegiance.getDisplayName();
 	}
@@ -66,5 +73,14 @@ public class Listing {
 	public int getPoints() {
 		return -1;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public boolean is(int id) {
+		return this.id == id;
+	}
+
 
 }

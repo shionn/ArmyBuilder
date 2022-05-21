@@ -17,7 +17,7 @@ public class Home {
 
 	@GetMapping(path = "/")
 	public ModelAndView home() {
-//		army.rebuild();
+		armies.rebuild();
 		return new ModelAndView("army")
 //				.addObject("armyOptions", ArmyOption.values())
 //				.addObject("allegiances", Allegiance.values()).addObject("subAllegiances", Arrays

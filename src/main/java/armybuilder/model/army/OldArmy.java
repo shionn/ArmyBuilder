@@ -23,8 +23,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import armybuilder.model.army.check.GenericCheck;
-import armybuilder.model.army.option.ArmyOption;
-import armybuilder.model.army.option.IArmyOptionValue;
+import armybuilder.model.army.option.ListingOption;
+import armybuilder.model.army.option.IListingOptionValue;
 import armybuilder.model.army.option.MultiOption;
 import armybuilder.model.army.rule.ArmyRuleType;
 import armybuilder.model.army.rule.GeneriqueRule;
@@ -36,7 +36,6 @@ import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.option.IUnitOptionValue;
 import armybuilder.model.unit.option.OptimisationsUniverselles;
 import armybuilder.model.unit.option.UnitOption;
-import armybuilder.model.unit.option.UnitOptionType;
 import armybuilder.serialisation.ArmyOptionJsonDeserializer;
 import armybuilder.serialisation.UnitOptionJsonDeserializer;
 
@@ -48,7 +47,7 @@ import armybuilder.serialisation.UnitOptionJsonDeserializer;
 public class OldArmy {
 
 	@JsonDeserialize(contentConverter = ArmyOptionJsonDeserializer.class)
-	private Map<ArmyOption, IArmyOptionValue<?>> options = new HashMap<>();
+	private Map<ListingOption, IListingOptionValue<?>> options = new HashMap<>();
 	private List<MultiOption> multiOptions = new ArrayList<>();
 	private List<Unit> units = new ArrayList<>();
 	@JsonDeserialize(contentConverter = UnitOptionJsonDeserializer.class)
@@ -73,7 +72,7 @@ public class OldArmy {
 	public void rebuild() {
 		rules.clear();
 		errors.clear();
-		units.stream().filter(Objects::nonNull).forEach(Unit::clear);
+		units.stream().filter(Objects::nonNull).forEach(Unit::reset);
 
 		Arrays.stream(GeneriqueRule.values())
 				.filter(r -> r.isUsable(this))
@@ -93,24 +92,24 @@ public class OldArmy {
 	/*
 	 * Options
 	 */
-	public void setOption(IArmyOptionValue<?> value) {
+	public void setOption(IListingOptionValue<?> value) {
 		this.options.put(value.getOption(), value);
-		if (value.getOption() == ArmyOption.Allegiance) {
-			this.options.remove(ArmyOption.SubAllegiance);
+		if (value.getOption() == ListingOption.Allegiance) {
+			this.options.remove(ListingOption.SubAllegiance);
 			this.unitChoices.clear();
 			this.units.clear();
 		}
 	}
 
-	public boolean is(IArmyOptionValue<?> opt) {
+	public boolean is(IListingOptionValue<?> opt) {
 		return options.containsValue(opt);
 	}
 
-	public IArmyOptionValue<?> option(ArmyOption option) {
+	public IListingOptionValue<?> option(ListingOption option) {
 		return options.get(option);
 	}
 
-	public <T extends IArmyOptionValue<?>> T option(T defolt) {
+	public <T extends IListingOptionValue<?>> T option(T defolt) {
 		@SuppressWarnings("unchecked")
 		T value = (T) option(defolt.getOption());
 		return value == null ? defolt : value;
@@ -120,15 +119,15 @@ public class OldArmy {
 		return multiOptions;
 	}
 
-	public List<MultiOption> multiOptions(ArmyOption option) {
+	public List<MultiOption> multiOptions(ListingOption option) {
 		return multiOptions.stream().filter(o -> o.is(option)).collect(Collectors.toList());
 	}
 
 	public List<MultiOption> multiOptions(UnitOption option) {
-		if (option.getType() != UnitOptionType.selectMultiOption) {
-			throw new IllegalArgumentException("bad option <" + option + ">");
-		}
-		return multiOptions(ArmyOption.valueOf(option.name()));
+//		if (option.getType() != UnitOptionType.selectMultiOption) {
+//			throw new IllegalArgumentException("bad option <" + option + ">");
+//		}
+		return multiOptions(ListingOption.valueOf(option.name()));
 	}
 
 	public MultiOption multiOptions(UnitOption option, int id) {
@@ -202,10 +201,6 @@ public class OldArmy {
 		return units.stream().filter(u -> u.is(opt)).collect(Collectors.toList());
 	}
 
-	public List<Unit> units(MultiOption opt) {
-		return units.stream().filter(u -> u.is(opt)).collect(Collectors.toList());
-	}
-
 	public Unit unit(UnitOption opt) {
 		return units.stream().filter(u -> u.is(opt)).findFirst().orElse(null);
 	}
@@ -241,7 +236,7 @@ public class OldArmy {
 		return options.stream()
 				.filter(o -> Arrays.asList(UnitOption.TraisDeCommandement, UnitOption.Artefact,
 						UnitOption.Sort, UnitOption.Priere)
-						.contains(o.getOption()))
+						.contains(o.option()))
 				.sorted((a, b) -> a.getFullDisplayName().compareTo(b.getFullDisplayName()))
 				.collect(Collectors.toList());
 	}

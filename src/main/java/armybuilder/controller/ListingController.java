@@ -20,7 +20,7 @@ public class ListingController {
 
 	@GetMapping(path = "/listing/add")
 	public String addListing() {
-		int id = armies.current().getListings().stream().map(l -> l.getId()).reduce(0, Integer::max) + 1;
+		int id = armies.current().listings().stream().map(l -> l.getId()).reduce(0, Integer::max) + 1;
 		SubAllegiance subAllegiance = armies.current().getAvailableSubAllegiance().get(0);
 		armies.current().add(new Listing(id, subAllegiance));
 		return "redirect:/";
@@ -34,11 +34,11 @@ public class ListingController {
 	}
 
 	@GetMapping(path = "/listing/{id}/unit/add")
-	public String addUnitAllegiance(@PathVariable("id") int id, @RequestHeader("unitChoice") String name) {
+	public String addUnitToListing(@PathVariable("id") int id, @RequestHeader("unitChoice") String name) {
 		Listing listing = armies.current().listing(id);
 		IUnitModel model = listing.getAvailableUnitChoice().stream().filter(u -> u.name().equalsIgnoreCase(name))
 				.findFirst().get();
-		listing.add(new Unit(model));
+		listing.add(new Unit(model, listing));
 		return "redirect:/";
 	}
 

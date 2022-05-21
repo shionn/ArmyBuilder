@@ -1,11 +1,9 @@
 package armybuilder.model.unit.option;
 
 import java.util.Arrays;
-import java.util.function.BiFunction;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
-import armybuilder.model.army.OldArmy;
-import armybuilder.model.army.option.PackDeBataille;
 import armybuilder.model.army.rule.GeneriqueRule;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.RoleTactique;
@@ -17,38 +15,38 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 	SoifDeBataille(
 			GeneriqueUnitRule.SoifDeBataille.getDisplayName(),
 			UnitOption.TraisDeCommandement,
-			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique),
+			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.SoifDeBataille)),
 	LeaderCompetent(
 			GeneriqueUnitRule.LeaderCompetent.getDisplayName(),
 			UnitOption.TraisDeCommandement,
-			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique),
+			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.LeaderCompetent)),
 	GrandPretre(
 			GeneriqueUnitRule.GrandPretre.getDisplayName(),
 			UnitOption.TraisDeCommandement,
-			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Pretre),
+			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Pretre),
 			u -> u.add(GeneriqueUnitRule.GrandPretre)),
 	StatureHeroique(
 			GeneriqueUnitRule.StatureHeroique.getDisplayName(),
 			UnitOption.TraisDeCommandement,
-			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique),
+			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.StatureHeroique)),
 	MaitreDeLaMagie(
 			GeneriqueUnitRule.MaitreDeLaMagie.getDisplayName(),
 			UnitOption.TraisDeCommandement,
-			(a, u) -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier),
+			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier),
 			u -> u.add(GeneriqueUnitRule.MaitreDeLaMagie)),
 
 	AmuletteDeLaDestinee(
 			GeneriqueUnitRule.AmuletteDeLaDestinee.getDisplayName(),
 			UnitOption.Artefact,
-			(a, u) -> !u.is(KeyWord.Unique),
+			u -> !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.AmuletteDeLaDestinee)),
 	VolumeObscur(
 			GeneriqueUnitRule.VolumeObscur.getDisplayName(),
 			UnitOption.Artefact,
-			(a, u) -> !u.is(KeyWord.Unique),
+			u -> !u.is(KeyWord.Unique),
 			u -> {
 				u.add(GeneriqueUnitRule.VolumeObscur);
 				if (!u.is(KeyWord.Sorcier)) {
@@ -61,107 +59,76 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 	FioleDeVeninDeManticore(
 			GeneriqueUnitRule.FioleDeVeninDeManticore.getDisplayName(),
 			UnitOption.Artefact,
-			(a, u) -> !u.is(KeyWord.Unique),
+			u -> !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.FioleDeVeninDeManticore)),
 	GraineDeRenaissance(
 			GeneriqueUnitRule.GraineDeRenaissance.getDisplayName(),
 			UnitOption.Artefact,
-			(a, u) -> !u.is(KeyWord.Unique),
+			u -> !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.GraineDeRenaissance)),
 
 	ArmeEnflammee(
 			GeneriqueUnitRule.ArmeEnflammee.getDisplayName(),
 			UnitOption.Sort,
-			(a, u) -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique),
+			u -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.ArmeEnflammee)),
 	BrumeFantome(
 			GeneriqueUnitRule.BrumeFantome.getDisplayName(),
 			UnitOption.Sort,
-			(a, u) -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique),
+			u -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.BrumeFantome)),
 	Levitation(
 			GeneriqueUnitRule.Guerison.getDisplayName(),
 			UnitOption.Sort,
-			(a, u) -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique),
+			u -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.Levitation)),
 
 	Supervision(
 			GeneriqueUnitRule.Supervision.getDisplayName(),
 			UnitOption.Priere,
-			(a, u) -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique),
+			u -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.Supervision)),
 	Malediction(
 			GeneriqueUnitRule.Malediction.getDisplayName(),
 			UnitOption.Priere,
-			(a, u) -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique),
+			u -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.Malediction)),
 	Guerison(
 			GeneriqueUnitRule.Guerison.getDisplayName(),
 			UnitOption.Priere,
-			(a, u) -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique),
+			u -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.Guerison)),
 
-	ChargeDevstratrice(
-			AptitudeDeVeteran.ChargeDevastratrice.getDisplayName(),
-			UnitOption.AptitudeDeVeteran,
-			(a, u) -> a.is(PackDeBataille.PourLaGloire) && !u.is(RoleTactique.Leader)
-					&& !u.is(UnitOption.Gratuit),
-			u -> u.add(AptitudeDeVeteran.ChargeDevastratrice)),
-	FormationDefensive(
-			AptitudeDeVeteran.FormationDefensive.getDisplayName(),
-			UnitOption.AptitudeDeVeteran,
-			(a, u) -> a.is(PackDeBataille.PourLaGloire) && !u.is(RoleTactique.Leader)
-					&& !u.is(UnitOption.Gratuit),
-			u -> u.add(AptitudeDeVeteran.FormationDefensive)),
-	ManoeuvreDisciplinees(
-			AptitudeDeVeteran.ManoeuvreDisciplinees.getDisplayName(),
-			UnitOption.AptitudeDeVeteran,
-			(a, u) -> a.is(PackDeBataille.PourLaGloire) && !u.is(RoleTactique.Leader)
-					&& !u.is(UnitOption.Gratuit),
-			u -> u.add(AptitudeDeVeteran.ManoeuvreDisciplinees)),
-	PiedsLegers(
-			AptitudeDeVeteran.PiedsLegers.getDisplayName(),
-			UnitOption.AptitudeDeVeteran,
-			(a, u) -> a.is(PackDeBataille.PourLaGloire) && !u.is(RoleTactique.Leader)
-					&& !u.is(UnitOption.Gratuit),
-			u -> u.add(AptitudeDeVeteran.PiedsLegers)),
-	VoleeMortelle(
-			AptitudeDeVeteran.VoleeMortelle.getDisplayName(),
-			UnitOption.AptitudeDeVeteran,
-			(a, u) -> a.is(PackDeBataille.PourLaGloire) && !u.is(RoleTactique.Leader)
-					&& !u.is(UnitOption.Gratuit),
-			u -> u.add(AptitudeDeVeteran.VoleeMortelle)),
-
-	General("Général", UnitOption.General, (a, u) -> u.getKeyWords().contains(KeyWord.Heros)),
+	General("Général", UnitOption.General, u -> u.getKeyWords().contains(KeyWord.Heros)),
 	RenforceesUneFois(
 			"Renforcées 1x",
 			UnitOption.Renforcees,
-			(a, u) -> (u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite))
+			u -> (u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite))
 					&& !u.is(UnitOption.Gratuit),
-			u -> u.setValue(u.getValue() * 2)),
+			u -> u.setPoints(u.getModel().getPoints() * 2)),
 	RenforceesDeuxFois(
 			"Renforcées 2x",
 			UnitOption.Renforcees,
-			(a, u) -> (u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite))
+			u -> (u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite))
 					&& !u.is(UnitOption.Gratuit),
-			u -> u.setValue(u.getValue() * 3)),
+			u -> u.setPoints(u.getModel().getPoints() * 3)),
 
 	;
 
 	private String displayName;
 	private UnitOption option;
-	private BiFunction<OldArmy, Unit, Boolean> available;
+	private Function<Unit, Boolean> available;
 	private Consumer<Unit> modifier;
 
 	OptimisationsUniverselles(String displayName, UnitOption option,
-			BiFunction<OldArmy, Unit, Boolean> available) {
+			Function<Unit, Boolean> available) {
 		this.displayName = displayName;
 		this.option = option;
 		this.available = available;
 	}
 
 	OptimisationsUniverselles(String displayName, UnitOption option,
-			BiFunction<OldArmy, Unit, Boolean> available, Consumer<Unit> modifier) {
+			Function<Unit, Boolean> available, Consumer<Unit> modifier) {
 		this.displayName = displayName;
 		this.option = option;
 		this.available = available;
@@ -170,20 +137,20 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 
 	@Override
 	public String getDisplayName() {
-		if (Arrays.asList(UnitOption.AptitudeDeVeteran, UnitOption.Renforcees).contains(option)) {
+		if (Arrays.asList(UnitOption.Renforcees).contains(option)) {
 			return displayName;
 		}
 		return "Universel : " + displayName;
 	}
 
 	@Override
-	public UnitOption getOption() {
+	public UnitOption option() {
 		return option;
 	}
 
 	@Override
-	public boolean isAvailable(OldArmy army, Unit unit) {
-		return available.apply(army, unit);
+	public boolean isAvailable(Unit unit) {
+		return available.apply(unit);
 	}
 
 	@Override

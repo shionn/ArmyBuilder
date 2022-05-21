@@ -1,30 +1,34 @@
 package armybuilder.model.unit.option;
 
-import java.util.Set;
-
-import armybuilder.model.army.OldArmy;
-import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.Unit;
 
 public interface IUnitOptionValue<T extends Enum<T> & IUnitOptionValue<T>> {
 
-	boolean isAvailable(OldArmy army, Unit unit);
+	boolean isAvailable(Unit unit);
 
-	UnitOption getOption();
+	UnitOption option();
 
+	@Deprecated
 	String getDisplayName();
 
+	@Deprecated
 	default String getFullDisplayName() {
-		return getOption().getDisplayName() + " : " + getDisplayName();
+		return option().getDisplayName() + " : " + getDisplayName();
 	}
 
+	@Deprecated
 	String name();
 
 	void rebuild(Unit unit);
 
-	default Set<IArmyRule<?>> getDisplayedRules() {
-		Unit fake = new Unit();
-		this.rebuild(fake);
-		return fake.getRules();
+	default boolean is(UnitOption option) {
+		return 	option() == option;
 	}
+
+//	@Deprecated
+//	default Set<IArmyRule<?>> getDisplayedRules() {
+//		Unit fake = new Unit();
+//		this.rebuild(fake);
+//		return fake.getRules();
+//	}
 }

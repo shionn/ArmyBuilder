@@ -21,19 +21,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.option.Allegiance;
-import armybuilder.model.army.option.ArmyOption;
 import armybuilder.model.army.option.DisplayUnit;
 import armybuilder.model.army.option.GrandeStrategie;
-import armybuilder.model.army.option.IArmyOptionValue;
+import armybuilder.model.army.option.IListingOptionValue;
+import armybuilder.model.army.option.ListingOption;
 import armybuilder.model.army.option.MultiOption;
 import armybuilder.model.army.option.PackDeBataille;
-import armybuilder.model.army.option.SubAllegiance;
 import armybuilder.model.army.option.Triomphes;
 import armybuilder.model.army.option.bataillon.Bataillon;
 import armybuilder.model.unit.Unit;
 
 @Controller
-public class ArmyController {
+@Deprecated
+public class OldArmyController {
 
 	@Autowired
 	private OldArmy army;
@@ -58,7 +58,7 @@ public class ArmyController {
 	}
 
 	private String fileName() {
-		IArmyOptionValue<?> option = army.option(ArmyOption.Allegiance);
+		IListingOptionValue<?> option = army.option(ListingOption.Allegiance);
 		if (option == null) {
 			return "NoAllegiance";
 		}
@@ -84,12 +84,6 @@ public class ArmyController {
 		return "redirect:/";
 	}
 
-	@GetMapping(path = "/SubAllegiance")
-	public String setSubAllegiance(@RequestHeader("SubAllegiance") SubAllegiance subAllegiance) {
-		army.setOption(subAllegiance);
-		return "redirect:/";
-	}
-
 	@GetMapping(path = "/PackDeBataille")
 	public String setPackDeBataille(@RequestHeader("PackDeBataille") PackDeBataille pack) {
 		army.setOption(pack);
@@ -111,7 +105,7 @@ public class ArmyController {
 	@GetMapping(path = "/Bataillon")
 	public String addBataillon(@RequestHeader("Bataillon") Bataillon bat) {
 		int id = army.multiOptions().stream().map(o -> o.getId()).reduce(0, Integer::max) + 1;
-		army.addMultiOption(new MultiOption(id, ArmyOption.Bataillon, bat));
+		army.addMultiOption(new MultiOption(id, ListingOption.Bataillon, bat));
 		return "redirect:/";
 	}
 

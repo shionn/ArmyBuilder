@@ -1,6 +1,5 @@
 package armybuilder.model.unit;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -12,66 +11,42 @@ import java.util.stream.Collectors;
 
 import org.apache.commons.collections.ListUtils;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import armybuilder.model.army.OldArmy;
-import armybuilder.model.army.option.DisplayUnit;
-import armybuilder.model.army.option.MultiOption;
+import armybuilder.model.army.Listing;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.option.IUnitOptionValue;
 import armybuilder.model.unit.option.OptimisationsUniverselles;
 import armybuilder.model.unit.option.UnitOption;
-import armybuilder.model.unit.option.UnitOptionType;
 import armybuilder.model.unit.rule.UnitRuleComparator;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.model.unit.weapon.WeaponType;
-import armybuilder.serialisation.UnitModelJsonDeserializer;
-import armybuilder.serialisation.UnitOptionJsonDeserializer;
 
-@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE)
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Unit implements Comparable<Unit> {
 
-	@JsonDeserialize(converter = UnitModelJsonDeserializer.class)
 	private IUnitModel model;
-	@JsonDeserialize(contentConverter = UnitOptionJsonDeserializer.class)
+	private Listing listing;
+
 	private Map<UnitOption, IUnitOptionValue<?>> options = new HashMap<>();
 
-	private List<Integer> multiOptions = new ArrayList<>();
+	@JsonIgnore
+	private Set<KeyWord> keyWords = new TreeSet<>();
 
 	@JsonIgnore
 	private Set<IUnitWeapon> weapons = new TreeSet<>();
 	@JsonIgnore
-	private OldArmy army;
-	@JsonIgnore
 	private SortedSet<IArmyRule<?>> rules = new TreeSet<>(new UnitRuleComparator());
-	@JsonIgnore
-	private Set<KeyWord> keyWords = new TreeSet<>();
 	@JsonIgnore
 	private Set<RoleTactique> roleTatciques = new TreeSet<>();
 	@JsonIgnore
-	private int value;
+	private int points;
 
-	@Deprecated
-	public Unit() {
-	}
-
-	@Deprecated
-	public Unit(OldArmy army, IUnitModel model) {
-		this.army = army;
+	public Unit(IUnitModel model, Listing listing) {
 		this.model = model;
+		this.listing = listing;
 	}
 
-	public Unit(IUnitModel model) {
-		this.model = model;
-	}
-
-	@Deprecated
-	public void clear() {
+	public void reset() {
 		rules.clear();
 		rules.addAll(model.getRules());
 		weapons.clear();
@@ -80,19 +55,12 @@ public class Unit implements Comparable<Unit> {
 		keyWords.addAll(model.getKeyWords());
 		roleTatciques.clear();
 		roleTatciques.addAll(model.getRoleTactiques());
-		value = model.getValue();
+		points = model.getPoints();
 	}
 
-	@Deprecated
-	public void rebuild(OldArmy army) {
+	public void rebuild() {
 		options.values().stream().forEach(o -> o.rebuild(this));
-		model.rebuild(army, this);
-		army.addRules(rules);
-	}
-
-	@Deprecated
-	public void verify(OldArmy army) {
-		model.check(army, this);
+		model.rebuild(this);
 	}
 
 	@Deprecated
@@ -106,103 +74,73 @@ public class Unit implements Comparable<Unit> {
 		return model.getProfileDegressif();
 	}
 
-	/**
-	 * options
-	 */
-	@Deprecated
+	/** options */
 	public List<UnitOption> getOptions() {
-		return model.getOptions().stream().filter(o -> o.isAvailable(army, this))
-//				.filter(o -> this.getOptionValues(o).size() > 0)
-				.collect(Collectors.toList());
+		return model.getOptions().stream().filter(o -> o.availableFor(this)).collect(Collectors.toList());
 	}
 
-	@Deprecated
-	public void add(IUnitOptionValue<?> value) {
-		add(value.getOption(), value);
-	}
-
-	@Deprecated
-	public void addAll(List<? extends IUnitOptionValue<?>> values) {
-		for (IUnitOptionValue<?> value : values) {
-			add(value.getOption(), value);
-		}
-	}
-
-	@Deprecated
-	public void add(UnitOption option, IUnitOptionValue<?> value) {
-		options.put(option, value);
-	}
-
-	@Deprecated
-	public void add(MultiOption o) {
-		multiOptions.add(o.getId());
-	}
-
-	@Deprecated
-	public void remove(UnitOption option) {
-		if (option.getType() == UnitOptionType.selectMultiOption) {
-			// TODO a pofiné
-			multiOptions.clear();
-		} else {
-			options.remove(option);
-		}
-	}
-
-	@Deprecated
-	public void remove(MultiOption option) {
-		multiOptions.removeIf(i -> i == option.getId());
-	}
-
-	@Deprecated
 	public List<IUnitOptionValue<?>> getOptionValues(UnitOption option) {
 		@SuppressWarnings("unchecked")
 		List<IUnitOptionValue<?>> values = ListUtils.union(Arrays.asList(OptimisationsUniverselles.values()),
-						model.getOptionValues());
-		return values.stream().filter(o -> o.getOption().isAvailable(option))
-				.filter(o -> o.isAvailable(army, this))
+				model.getOptionValues());
+		return values.stream()
+				.filter(o -> o.is(option))
+				.filter(o -> o.isAvailable(this))
 				.sorted((a, b) -> a.getDisplayName().compareTo(b.getDisplayName()))
 				.collect(Collectors.toList());
 	}
 
-	@Deprecated
-	public List<MultiOption> getMultiOptionValues(UnitOption option) {
-		return army.multiOptions(option).stream().filter(o -> o.isAvailable(army, this))
-				.collect(Collectors.toList());
+	public void add(IUnitOptionValue<?> value) {
+		add(value.option(), value);
 	}
 
-	@Deprecated
+	public void add(UnitOption option, IUnitOptionValue<?> value) {
+		options.put(option, value);
+	}
+
+	public void remove(UnitOption option) {
+		options.remove(option);
+	}
+
+	public boolean is(UnitOption opt) {
+		return get(opt) != null;
+	}
+
 	public IUnitOptionValue<?> get(UnitOption option) {
 		return options.get(option);
 	}
 
-	@Deprecated
-	public MultiOption getMultiOption(UnitOption option) {
-		return army.multiOptions(option).stream().filter(o -> multiOptions.contains(o.getId()))
-				.findFirst().orElse(null);
+	/** role */
+	public void add(RoleTactique role) {
+		roleTatciques.add(role);
 	}
 
-	/**
-	 * add
-	 */
-	@Deprecated
+	public boolean is(RoleTactique role) {
+		return roleTatciques.contains(role);
+	}
+
+	/** keyword */
+	public boolean is(KeyWord keyWord) {
+		return getKeyWords().contains(keyWord);
+	}
+
+	/** rule */
 	public void add(IArmyRule<?> rule) {
 		rules.add(rule);
 	}
 
+	/** weapons */
+	public void add(IUnitWeapon weapon) {
+		weapons.add(weapon);
+	}
+
+
+	/** truc */
 	@Deprecated
 	public void add(KeyWord keyWord) {
 		keyWords.add(keyWord);
 	}
 
-	@Deprecated
-	public void add(IUnitWeapon weapon) {
-		weapons.add(weapon);
-	}
-
-	@Deprecated
-	public void add(RoleTactique role) {
-		roleTatciques.add(role);
-	}
 
 	/**
 	 * rule
@@ -215,52 +153,26 @@ public class Unit implements Comparable<Unit> {
 	}
 
 	@Deprecated
-	public List<IArmyRule<?>> getDisplayedRules() {
-		DisplayUnit display = army.option(DisplayUnit.Full);
-		return rules.stream().filter(r -> display.display(this, r)).collect(Collectors.toList());
-	}
-
-	@Deprecated
 	public SortedSet<IArmyRule<?>> getRules() {
 		return rules;
 	}
 
-	/**
-	 * is
-	 */
-	@Deprecated
-	public boolean is(KeyWord keyWord) {
-		return getKeyWords().contains(keyWord);
-	}
-
-	@Deprecated
-	public boolean is(UnitOption opt) {
-		return get(opt) != null;
-	}
-
-	@Deprecated
-	public boolean is(MultiOption opt) {
-		return multiOptions.contains(opt.getId());
-	}
 
 	@Deprecated
 	public boolean is(IArmyRule<?> rule) {
 		return rules.contains(rule);
 	}
 
-	@Deprecated
 	public boolean is(IUnitModel model) {
 		return this.model == model;
 	}
 
-	@Deprecated
-	public boolean is(RoleTactique role) {
-		return roleTatciques.contains(role);
+	public void setPoints(int value) {
+		this.points = value;
 	}
 
-	@Deprecated
-	public int getValue() {
-		return value;
+	public int getPoints() {
+		return model.getPoints();
 	}
 
 	@Override
@@ -275,10 +187,6 @@ public class Unit implements Comparable<Unit> {
 
 	public String getDisplayName() {
 		return model.getDisplayName();
-	}
-
-	public int getPoints() {
-		return model.getValue();
 	}
 
 	@Deprecated
@@ -301,7 +209,6 @@ public class Unit implements Comparable<Unit> {
 		return model.getProfile().getSvg();
 	}
 
-	@Deprecated
 	public IUnitModel getModel() {
 		return model;
 	}
@@ -311,14 +218,8 @@ public class Unit implements Comparable<Unit> {
 		return keyWords;
 	}
 
-	@Deprecated
-	public void setValue(int value) {
-		this.value = value;
-	}
-
-	@Deprecated
-	public void setArmy(OldArmy army) {
-		this.army = army;
+	public Listing listing() {
+		return listing;
 	}
 
 }

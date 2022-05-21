@@ -2,10 +2,9 @@ package armybuilder.model.nighthaunt;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
-import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.Listing;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.IUnitModel;
@@ -14,7 +13,6 @@ import armybuilder.model.unit.ProfileDegressif;
 import armybuilder.model.unit.RoleTactique;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.UnitProfile;
-import armybuilder.model.unit.check.UnitCheckers;
 import armybuilder.model.unit.option.IUnitOptionValue;
 import armybuilder.model.unit.option.UnitOption;
 import armybuilder.model.unit.rule.GeneriqueUnitRule;
@@ -35,7 +33,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Invocable,
 					KeyWord.ChainraspHorde),
 			Arrays.asList(),
-			Arrays.asList(), null),
+			null),
 
 	DreadbladeHarrow(
 			"Dreadblade Harrow",
@@ -53,7 +51,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Heros,
 					KeyWord.DreadbladeHarrow),
 			Arrays.asList(),
-			Arrays.asList(), null),
+			null),
 
 	GlaivewraithStalkers(
 			"Glaivewraith Stalkers",
@@ -68,7 +66,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Invocable,
 					KeyWord.GlaivewraithStalkers),
 			Arrays.asList(),
-			Arrays.asList(), null),
+			null),
 
 	MyrmournBanshees(
 			"Myrmourn Banshees",
@@ -82,7 +80,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Invocable,
 					KeyWord.MyrmournBanshees),
 			Arrays.asList(),
-			Arrays.asList(), null),
+			null),
 	ThornsOfTheBriarQueen(
 			"Thorns of the Briar Queen",
 			0,
@@ -96,7 +94,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt,
 					KeyWord.ChainraspHorde, KeyWord.EpinesDeLaReineDesRonces),
 			Arrays.asList(),
-			Arrays.asList(UnitCheckers.mustBeTakeWith(KeyWord.LaReineDesRonces)), null),
+			null),
 
 	TheBriarQueen(
 			"The Briar Queen",
@@ -112,7 +110,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 					KeyWord.Unique, KeyWord.MirrorghastBanshee, KeyWord.LaReineDesRonces,
 					KeyWord.Sorcier),
 			Arrays.asList(),
-			Arrays.asList(UnitCheckers.mustBeTakeWith(KeyWord.EpinesDeLaReineDesRonces)), null),
+			null),
 
 	TombBanshee(
 			"Tomb Banshee",
@@ -128,7 +126,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Heros,
 					KeyWord.TombBanshee),
 			Arrays.asList(),
-			Arrays.asList(), null),
+			null),
 
 	;
 
@@ -141,15 +139,14 @@ public enum NighthauntUnitModel implements IUnitModel {
 	private List<KeyWord> keyWords;
 	private List<RoleTactique> roleTactiques;
 	private List<UnitOption> options;
-	private List<BiConsumer<OldArmy, Unit>> modifiers;
-	private List<BiConsumer<OldArmy, Unit>> checkers;
+	private List<Consumer<Unit>> modifiers;
 	private Function<Listing, Boolean> availableFor;
 
 	private NighthauntUnitModel(String displayName, int value, UnitProfile profile,
 			List<RoleTactique> roleTactiques, List<IUnitWeapon> weapons,
 			ProfileDegressif profileDegressif, List<IArmyRule<?>> rules, List<UnitOption> options,
-			List<KeyWord> keyWords, List<BiConsumer<OldArmy, Unit>> modifiers,
-			List<BiConsumer<OldArmy, Unit>> checkers, Function<Listing, Boolean> availableFor) {
+			List<KeyWord> keyWords, List<Consumer<Unit>> modifiers,
+			Function<Listing, Boolean> availableFor) {
 		this.displayName = displayName;
 		this.value = value;
 		this.profile = profile;
@@ -160,7 +157,6 @@ public enum NighthauntUnitModel implements IUnitModel {
 		this.options = options;
 		this.keyWords = keyWords;
 		this.modifiers = modifiers;
-		this.checkers = checkers;
 		this.availableFor = availableFor;
 	}
 
@@ -210,19 +206,15 @@ public enum NighthauntUnitModel implements IUnitModel {
 	}
 
 	@Override
-	public int getValue() {
+	public int getPoints() {
 		return value;
 	}
 
 	@Override
-	public void rebuild(OldArmy army, Unit unit) {
-		modifiers.stream().forEach(m -> m.accept(army, unit));
+	public void rebuild(Unit unit) {
+		modifiers.stream().forEach(m -> m.accept(unit));
 	}
 
-	@Override
-	public void check(OldArmy army, Unit unit) {
-		checkers.stream().forEach(c -> c.accept(army, unit));
-	}
 
 	@Override
 	public boolean availableFor(Listing listing) {

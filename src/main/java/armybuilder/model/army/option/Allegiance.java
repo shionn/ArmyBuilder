@@ -11,9 +11,8 @@ import armybuilder.model.dok.DokUnitModel;
 import armybuilder.model.nighthaunt.NighthauntRule;
 import armybuilder.model.nighthaunt.NighthauntUnitModel;
 import armybuilder.model.unit.IUnitModel;
-import armybuilder.model.unit.Unit;
 
-public enum Allegiance implements IArmyOptionValue<Allegiance> {
+public enum Allegiance {
 	CoS("Order", "City of Sigmar", null, new IUnitModel[0]),
 	DoK(
 			"Order", "Daughters of Khaine",
@@ -45,35 +44,15 @@ public enum Allegiance implements IArmyOptionValue<Allegiance> {
 		return faction + " : " + displayName;
 	}
 
-	@Override
 	public String getDisplayName() {
 		return displayName;
 	}
 
-	@Override
-	public ArmyOption getOption() {
-		return ArmyOption.Allegiance;
-	}
-
-	@Override
-	public boolean isOptionDisplayed(OldArmy army) {
-		return true;
-	}
-
-	@Override
+	@Deprecated
 	public void rebuild(OldArmy army) {
 		if (modifier != null) {
 			modifier.accept(army);
 		}
-	}
-
-	@Override
-	public void verify(OldArmy army) {
-	}
-
-	@Override
-	public boolean isAvailable(OldArmy army, Unit unit) {
-		return false;
 	}
 
 	public List<IUnitModel> units() {

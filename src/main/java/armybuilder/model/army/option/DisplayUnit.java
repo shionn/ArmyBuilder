@@ -6,7 +6,7 @@ import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.Unit;
 
-public enum DisplayUnit implements IArmyOptionValue<DisplayUnit> {
+public enum DisplayUnit implements IListingOptionValue<DisplayUnit> {
 	Full("Complet", (u, r) -> true),
 	Minimal("Sans la Charte", (u, r) -> !(u.getModel().getRules().contains(r)));
 
@@ -28,8 +28,8 @@ public enum DisplayUnit implements IArmyOptionValue<DisplayUnit> {
 	}
 
 	@Override
-	public ArmyOption getOption() {
-		return ArmyOption.DisplayUnit;
+	public ListingOption getOption() {
+		return ListingOption.DisplayUnit;
 	}
 
 	@Override
@@ -39,10 +39,6 @@ public enum DisplayUnit implements IArmyOptionValue<DisplayUnit> {
 
 	@Override
 	public void rebuild(OldArmy army) {
-	}
-
-	@Override
-	public void verify(OldArmy army) {
 	}
 
 	@Override

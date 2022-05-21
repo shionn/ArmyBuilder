@@ -16,15 +16,15 @@ import armybuilder.serialisation.ArmyOptionJsonDeserializer;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MultiOption {
 	private int id;
-	private ArmyOption option;
+	private ListingOption option;
 	@JsonDeserialize(converter = ArmyOptionJsonDeserializer.class)
-	private IArmyOptionValue<?> value;
+	private IListingOptionValue<?> value;
 
 	public MultiOption() {
 
 	}
 
-	public MultiOption(int id, ArmyOption option, IArmyOptionValue<?> value) {
+	public MultiOption(int id, ListingOption option, IListingOptionValue<?> value) {
 		this.id = id;
 		this.option = option;
 		this.value = value;
@@ -34,11 +34,11 @@ public class MultiOption {
 		return id;
 	}
 
-	public ArmyOption getOption() {
+	public ListingOption getOption() {
 		return option;
 	}
 
-	public IArmyOptionValue<?> getValue() {
+	public IListingOptionValue<?> getValue() {
 		return value;
 	}
 
@@ -46,7 +46,7 @@ public class MultiOption {
 		return value.getDisplayName();
 	}
 
-	public boolean is(ArmyOption option) {
+	public boolean is(ListingOption option) {
 		return this.option == option;
 	}
 

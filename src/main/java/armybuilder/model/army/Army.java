@@ -20,12 +20,16 @@ public class Army {
 		this.allegiance = allegiance;
 	}
 
+	public void rebuild() {
+		listings.stream().forEach(l -> l.rebuild());
+	}
+
 	/** listing **/
 	public void add(Listing listing) {
 		listings.add(listing);
 	}
 
-	public List<Listing> getListings() {
+	public List<Listing> listings() {
 		return listings;
 	}
 
@@ -50,5 +54,6 @@ public class Army {
 	public String getDisplayName() {
 		return allegiance.getDisplayName();
 	}
+
 
 }

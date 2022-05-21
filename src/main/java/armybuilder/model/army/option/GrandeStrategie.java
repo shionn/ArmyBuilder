@@ -13,7 +13,7 @@ import armybuilder.serialisation.DescriptionReader;
 
 public enum GrandeStrategie
 		implements
-		IArmyOptionValue<GrandeStrategie>,
+		IListingOptionValue<GrandeStrategie>,
 		IArmyRule<GrandeStrategie> {
 	CoupezLaTete(
 			"Coupez la Tête",
@@ -50,22 +50,17 @@ public enum GrandeStrategie
 	}
 
 	@Override
-	public ArmyOption getOption() {
-		return ArmyOption.GrandeStrategie;
+	public ListingOption getOption() {
+		return ListingOption.GrandeStrategie;
 	}
 
 	@Override
 	public boolean isOptionDisplayed(OldArmy army) {
-		return packDeBatailles.contains(army.option(ArmyOption.PackDeBataille));
+		return packDeBatailles.contains(army.option(ListingOption.PackDeBataille));
 	}
 
 	@Override
 	public void rebuild(OldArmy army) {
-	}
-
-	@Override
-	public void verify(OldArmy army) {
-
 	}
 
 	@Override

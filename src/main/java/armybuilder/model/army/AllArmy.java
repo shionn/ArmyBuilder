@@ -17,6 +17,10 @@ public class AllArmy {
 	private List<Army> armies = Arrays.stream(Allegiance.values()).map(a -> new Army(a))
 			.collect(Collectors.toList());
 
+	public void rebuild() {
+		current().rebuild();
+	}
+
 	public Army current() {
 		return armies.stream().filter(a -> a.is(allegiance)).findFirst().orElse(null);
 	}
@@ -24,4 +28,5 @@ public class AllArmy {
 	public void select(Allegiance allegiance) {
 		this.allegiance = allegiance;
 	}
+
 }

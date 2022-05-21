@@ -19,7 +19,7 @@ import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.option.UnitOption;
 
-public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator<SubAllegiance> {
+public enum SubAllegiance implements IListingOptionValue<SubAllegiance>, Comparator<SubAllegiance> {
 	DraichiGaneth(
 			"Temple : Draichi Ganeth",
 			Arrays.asList(
@@ -118,8 +118,8 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 
 	@Deprecated
 	@Override
-	public ArmyOption getOption() {
-		return ArmyOption.SubAllegiance;
+	public ListingOption getOption() {
+		return ListingOption.SubAllegiance;
 	}
 
 	@Deprecated
@@ -138,12 +138,6 @@ public enum SubAllegiance implements IArmyOptionValue<SubAllegiance>, Comparator
 	@Override
 	public void rebuild(OldArmy army) {
 		modifiers.stream().forEach(m -> m.accept(army));
-	}
-
-	@Deprecated
-	@Override
-	public void verify(OldArmy army) {
-		checkers.stream().forEach(c -> c.accept(army));
 	}
 
 	@Deprecated

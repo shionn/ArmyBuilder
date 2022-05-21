@@ -10,7 +10,7 @@ import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.Unit;
 import armybuilder.serialisation.DescriptionReader;
 
-public enum Triomphes implements IArmyOptionValue<Triomphes>, IArmyRule<Triomphes> {
+public enum Triomphes implements IListingOptionValue<Triomphes>, IArmyRule<Triomphes> {
 	Sanguinaires("Sanguinaires", Arrays.asList(ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCharge)),
 	Inspires(
 			"Inspirés",
@@ -34,8 +34,8 @@ public enum Triomphes implements IArmyOptionValue<Triomphes>, IArmyRule<Triomphe
 	}
 
 	@Override
-	public ArmyOption getOption() {
-		return ArmyOption.Triomphes;
+	public ListingOption getOption() {
+		return ListingOption.Triomphes;
 	}
 
 	@Override
@@ -46,11 +46,6 @@ public enum Triomphes implements IArmyOptionValue<Triomphes>, IArmyRule<Triomphe
 	@Override
 	public void rebuild(OldArmy army) {
 		army.addRule(this);
-	}
-
-	@Override
-	public void verify(OldArmy army) {
-
 	}
 
 	@Override
