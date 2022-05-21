@@ -1,12 +1,22 @@
 package armybuilder.model.army;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import armybuilder.model.army.compare.UnitComparator;
 import armybuilder.model.army.compare.UnitModelComparator;
+import armybuilder.model.army.option.IListingOptionValue;
+import armybuilder.model.army.option.ListingOption;
 import armybuilder.model.army.option.SubAllegiance;
+import armybuilder.model.army.option.bataillon.Bataillon;
+import armybuilder.model.army.rule.ArmyRuleType;
+import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.IUnitModel;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.option.UnitOption;
@@ -14,37 +24,57 @@ import armybuilder.model.unit.option.UnitOption;
 public class Listing {
 
 	private int id;
-
-	private SubAllegiance subAllegiance;
+	private Map<ListingOption, IListingOptionValue<?>> options = new HashMap<>();
 	private List<Unit> units = new ArrayList<Unit>();
+
+	private Set<IArmyRule<?>> rules = new LinkedHashSet<>();
 
 	public Listing(int id, SubAllegiance subAllegiance) {
 		this.id = id;
-		this.subAllegiance = subAllegiance;
+		set(subAllegiance);
 	}
 
 	public void rebuild() {
+		rules.clear();
 		units.stream().forEach(u -> u.reset());
-//		subAllegiance.rebuild(this);
+		options.values().stream().forEach(o -> o.rebuild(this));
 		units.stream().forEach(u -> u.rebuild());
 	}
 
-	/** suballegiance **/
-	public boolean is(SubAllegiance sub) {
-		return this.subAllegiance == sub;
+	/** options */
+	public void set(IListingOptionValue<?> value) {
+		this.options.put(value.option(), value);
 	}
 
-	public void select(SubAllegiance sub) {
-		this.subAllegiance = sub;
+	public boolean is(IListingOptionValue<?> value) {
+		return this.options.get(value.option()) == value;
 	}
 
-	public SubAllegiance getSubAllegiance() {
-		return subAllegiance;
+	public SubAllegiance subAllegiance() {
+		return (SubAllegiance) this.options.get(ListingOption.SubAllegiance);
+	}
+
+	/** bataillon */
+	public List<Bataillon> availableBataillon() {
+		return Arrays.stream(Bataillon.values()).filter(b -> b.isAvailable(this)).toList();
+	}
+
+	/** rules **/
+	public Set<IArmyRule<?>> rules() {
+		return rules;
+	}
+
+	public List<IArmyRule<?>> rules(ArmyRuleType type) {
+		return rules.stream().filter(r -> r.is(type)).toList();
+	}
+
+	public void add(IArmyRule<?>... rules) {
+		this.rules.addAll(Arrays.asList(rules));
 	}
 
 	/** units **/
 	public List<IUnitModel> getAvailableUnitChoice() {
-		return subAllegiance.allegiance()
+		return subAllegiance().allegiance()
 				.units()
 				.stream()
 				.filter(u -> u.availableFor(this))
@@ -77,8 +107,8 @@ public class Listing {
 	}
 
 	/** getters */
-	public String getDisplayName() {
-		return subAllegiance == null ? "Select suballegiance" : subAllegiance.getDisplayName();
+	public String displayName() {
+		return subAllegiance().displayName();
 	}
 
 	public int points() {

@@ -2,14 +2,15 @@ package armybuilder.model.army;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import armybuilder.model.army.compare.UnitModelComparator;
+import armybuilder.model.army.compare.UnitRuleComparator;
+import armybuilder.model.army.compare.UnitWeaponComparator;
 import armybuilder.model.army.option.Allegiance;
 import armybuilder.model.army.option.SubAllegiance;
+import armybuilder.model.army.rule.ArmyRuleType;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.IUnitModel;
 import armybuilder.model.unit.KeyWord;
@@ -23,16 +24,13 @@ public class Army {
 	private Allegiance allegiance;
 
 	private List<Listing> listings = new ArrayList<>();
-	private Set<IArmyRule<?>> rules = new LinkedHashSet<>();
 	
 	public Army(Allegiance allegiance) {
 		this.allegiance = allegiance;
 	}
 
 	public void rebuild() {
-		this.rules.clear();
-		this.allegiance.rebuild(this);
-		this.listings.stream().forEach(l -> l.rebuild());
+		listings.stream().forEach(l -> l.rebuild());
 	}
 
 	/** allegiance **/
@@ -40,7 +38,7 @@ public class Army {
 		return this.allegiance == allegiance;
 	}
 
-	public Allegiance getAllegiance() {
+	public Allegiance allegiance() {
 		return allegiance;
 	}
 
@@ -53,13 +51,17 @@ public class Army {
 		return allegiance.getDisplayName();
 	}
 
-	/** rules **/
-	public IArmyRule<?> rules() {
-		return rules();
+	public List<SubAllegiance> subAllegiences() {
+		return listings.stream()
+				.map(l -> l.subAllegiance())
+				.sorted((a, b) -> a.displayName().compareTo(b.displayName()))
+				.distinct()
+				.toList();
 	}
 
-	public void addRules(IArmyRule<?>... rules) {
-		this.rules.addAll(Arrays.asList(rules));
+	/** rules **/
+	public List<IArmyRule<?>> rules(ArmyRuleType type) {
+		return listings.stream().flatMap(l -> l.rules(type).stream()).distinct().toList();
 	}
 
 	/** listing **/
@@ -90,6 +92,7 @@ public class Army {
 				.flatMap(l -> l.units(model).stream())
 				.flatMap(u -> u.weapons(type).stream())
 				.distinct()
+				.sorted(new UnitWeaponComparator())
 				.toList();
 	}
 
@@ -98,6 +101,7 @@ public class Army {
 				.flatMap(l -> l.units(model).stream())
 				.flatMap(u -> u.rules().stream())
 				.distinct()
+				.sorted(new UnitRuleComparator())
 				.toList();
 	}
 
@@ -106,6 +110,7 @@ public class Army {
 				.flatMap(l -> l.units(model).stream())
 				.flatMap(u -> u.keyWords().stream())
 				.distinct()
+				.sorted()
 				.toList();
 
 	}

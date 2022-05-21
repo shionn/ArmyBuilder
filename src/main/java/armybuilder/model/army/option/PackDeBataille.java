@@ -38,12 +38,12 @@ public enum PackDeBataille implements IListingOptionValue<PackDeBataille> {
 	}
 
 	@Override
-	public String getDisplayName() {
+	public String displayName() {
 		return displayName;
 	}
 
 	@Override
-	public ListingOption getOption() {
+	public ListingOption option() {
 		return ListingOption.PackDeBataille;
 	}
 

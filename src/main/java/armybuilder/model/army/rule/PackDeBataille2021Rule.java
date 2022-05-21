@@ -39,7 +39,7 @@ public enum PackDeBataille2021Rule implements IArmyRule<PackDeBataille2021Rule> 
 	}
 
 	@Override
-	public String getDisplayName() {
+	public String displayName() {
 		if (displayName == null) {
 			return name();
 		}

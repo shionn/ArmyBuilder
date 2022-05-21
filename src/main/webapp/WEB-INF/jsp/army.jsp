@@ -6,23 +6,30 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="t"%>
 <t:template>
 <jsp:attribute name="content">
+<h1>${army.displayName}</h1>
 <a href='<spring:url value="/listing/add"/>'>Ajouter un listing</a>
 <c:forEach items="${army.listings()}" var="listing">
 	<article id="listing-${listing.id}" class="listing">
 		<header>
-			<h2>${listing.displayName} <small>(${listing.id})</small> <span>${listing.points()}</span></h2>
+			<h2>${listing.displayName()} <small>(${listing.id})</small> <span>${listing.points()}</span></h2>
 		</header>
 		<main>
 			<div class="options">
-				<select name="SubAllegiance" class="ajax" data-url="<spring:url value="/listing/${listing.id}/SubAllegiance"/>" data-update="#listing-${listing.id}">
+				<select name="SubAllegiance" class="ajax" data-url="<spring:url value="/listing/${listing.id}/SubAllegiance"/>" data-update="body>main">
 					<c:forEach items="${army.availableSubAllegiance}" var="sub">
-						<option value="${sub}" <c:if test="${listing.is(sub)}"> selected="selected"</c:if>>${sub.displayName}</option>
+						<option value="${sub}" <c:if test="${listing.is(sub)}"> selected="selected"</c:if>>${sub.displayName()}</option>
+					</c:forEach>
+				</select>
+				<select name="bataillon" class="ajax" data-url="<spring:url value="/listing/${listing.id}/unit/add"/>" data-update="body>main">
+					<option value="">-- Ajouter Bataillon --</option>
+					<c:forEach items="${listing.availableBataillon()}" var="bat">
+						<option value="${bat}">${bat.displayName()}</option>
 					</c:forEach>
 				</select>
 				<select name="unitChoice" class="ajax" data-url="<spring:url value="/listing/${listing.id}/unit/add"/>" data-update="body>main">
 					<option value="" selected="selected">-- Ajout Unitée --</option>
 					<c:forEach items="${listing.availableUnitChoice}" var="f">
-						<option value="${f}">${f.displayName} ${f.points()}</option>
+						<option value="${f}">${f.displayName()} ${f.points()}</option>
 					</c:forEach>
 				</select>
 			</div>
@@ -33,7 +40,16 @@
 	</article>
 </c:forEach>
 
-<h1>${army.displayName}</h1>
+<h2>Aptitudes D'Allégeance</h2>
+<c:forEach items="${army.allegiance().rules()}" var="rule">
+	<t:rule rule="${rule}" army="${army}"/>
+</c:forEach>
+<c:forEach items="${army.subAllegiences()}" var="sub">
+	<h3>${sub.displayName()}</h3>
+	<c:forEach items="${sub.rules()}" var="rule">
+		<t:rule rule="${rule}" army="${army}"/>
+	</c:forEach>
+</c:forEach>
 
 <h2>Unitées</h2>
 <c:forEach items="${army.units()}" var="model">
@@ -54,36 +70,6 @@
 <!-- 		</div> -->
 <%-- 		<c:if test="${not empty army.unitChoices}"> --%>
 <!-- 			<div class="options"> -->
-<%-- 				<select name="unitChoice" class="ajax" data-url="<spring:url value="/unit/add"/>" data-update="body>main"> --%>
-<!-- 					<option value="" selected="selected">Leader</option> -->
-<%-- 					<c:forEach items="${army.unitChoices(RoleTactique.Leader)}" var="f"> --%>
-<%-- 						<option value="${f}">${f.displayName} ${f.value}</option> --%>
-<%-- 					</c:forEach> --%>
-<!-- 				</select> -->
-<%-- 				<select name="unitChoice" class="ajax" data-url="<spring:url value="/unit/add"/>" data-update="body>main"> --%>
-<!-- 					<option value="" selected="selected">Troupe : Ligne</option> -->
-<%-- 					<c:forEach items="${army.unitChoices(RoleTactique.Ligne)}" var="f"> --%>
-<%-- 						<option value="${f}">${f.displayName} ${f.value}</option> --%>
-<%-- 					</c:forEach> --%>
-<!-- 				</select> -->
-<%-- 				<select name="unitChoice" class="ajax" data-url="<spring:url value="/unit/add"/>" data-update="body>main"> --%>
-<!-- 					<option value="" selected="selected">Troupe : Autres</option> -->
-<%-- 					<c:forEach items="${army.unitChoices(RoleTactique.Elite)}" var="f"> --%>
-<%-- 						<option value="${f}">${f.displayName} ${f.value}</option> --%>
-<%-- 					</c:forEach> --%>
-<!-- 				</select> -->
-<%-- 				<select name="unitChoice" class="ajax" data-url="<spring:url value="/unit/add"/>" data-update="body>main"> --%>
-<!-- 					<option value="" selected="selected">Behemoth</option> -->
-<%-- 					<c:forEach items="${army.unitChoices(RoleTactique.Behemoth, RoleTactique.Leader)}" var="f"> --%>
-<%-- 						<option value="${f}">${f.displayName} ${f.value}</option> --%>
-<%-- 					</c:forEach> --%>
-<!-- 				</select> -->
-<%-- 				<select name="unitChoice" class="ajax" data-url="<spring:url value="/unit/add"/>" data-update="body>main"> --%>
-<!-- 					<option value="" selected="selected">Sorts Persistants</option> -->
-<%-- 					<c:forEach items="${army.unitChoices(RoleTactique.SortsPersistantsEtInvocation)}" var="f"> --%>
-<%-- 						<option value="${f}">${f.displayName} ${f.value}</option> --%>
-<%-- 					</c:forEach> --%>
-<!-- 				</select> -->
 <%-- 				<select name="optimisation" class="ajax" data-url="<spring:url value="/optimisation/add"/>" data-update="body>main"> --%>
 <!-- 					<option value="" selected="selected">Optimisation</option> -->
 <%-- 					<c:forEach items="${army.optimisationChoices}" var="f"> --%>
@@ -93,11 +79,6 @@
 <!-- 			</div> -->
 <%-- 		</c:if> --%>
 
-<!-- 		<div> -->
-<%-- 			<c:forEach items="${army.errors}" var="e"> --%>
-<%-- 				<div class="error">${e}</div> --%>
-<%-- 			</c:forEach> --%>
-<!-- 		</div> -->
 
 <!-- 		<div style="page-break-inside:avoid"> -->
 <!-- 			<h1> -->
@@ -109,6 +90,7 @@
 <!-- 				<h2>Grande Strategie</h2> -->
 <%-- 				<t:rule rule="${army.option('GrandeStrategie')}" army="${army}"/> --%>
 <%-- 			</c:if> --%>
+
 <%-- 			<c:if test="${not empty army.getRules('TraisDeBataille')}"> --%>
 <%-- 				<h2>Aptitudes D'Allégeance - <small>${army.option('SubAllegiance').displayName}</small></h2> --%>
 <%-- 				<c:forEach items="${army.getRules('TraisDeBataille')}" var="rule"> --%>

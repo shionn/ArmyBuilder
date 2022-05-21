@@ -30,7 +30,7 @@ public enum BataillonRule implements IArmyRule<BataillonRule> {
 	}
 
 	@Override
-	public String getDisplayName() {
+	public String displayName() {
 		return displayName;
 	}
 

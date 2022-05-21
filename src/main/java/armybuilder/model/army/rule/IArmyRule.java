@@ -11,7 +11,7 @@ public interface IArmyRule<T extends Enum<T> & IArmyRule<T>> {
 
 	String name();
 
-	String getDisplayName();
+	String displayName();
 
 	String getDescription() throws IOException;
 
@@ -20,6 +20,5 @@ public interface IArmyRule<T extends Enum<T> & IArmyRule<T>> {
 	}
 
 	void rebuild(OldArmy army);
-
 
 }

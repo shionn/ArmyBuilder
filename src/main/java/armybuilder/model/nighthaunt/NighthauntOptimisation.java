@@ -73,7 +73,7 @@ public enum NighthauntOptimisation implements IUnitOptionValue<NighthauntOptimis
 	}
 
 	private NighthauntOptimisation(UnitOption option, Function<Unit, Boolean> available) {
-		this.displayName = NighthauntRule.valueOf(name()).getDisplayName();
+		this.displayName = NighthauntRule.valueOf(name()).displayName();
 		this.option = option;
 		this.available = available;
 	}

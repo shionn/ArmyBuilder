@@ -27,7 +27,7 @@ public class UnitController {
 					switch (option.getType()) {
 					case bool:
 						if (Boolean.valueOf(value)) {
-							u.add(u.getOptionValues(option).get(0));
+							u.add(u.optionValues(option).get(0));
 						} else {
 							u.remove(option);
 						}
@@ -36,7 +36,7 @@ public class UnitController {
 						if ("null".equals(value)) {
 							u.remove(option);
 						} else {
-							u.getOptionValues(option)
+							u.optionValues(option)
 									.stream()
 									.filter(v -> v.name().equals(value))
 									.forEach(v -> u.add(option, v));

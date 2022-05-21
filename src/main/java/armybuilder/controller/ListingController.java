@@ -29,7 +29,7 @@ public class ListingController {
 	@GetMapping(path = "/listing/{id}/SubAllegiance")
 	public String selectSubAllegiance(@PathVariable("id") int id,
 			@RequestHeader("SubAllegiance") SubAllegiance sub) {
-		armies.current().listing(id).select(sub);
+		armies.current().listing(id).set(sub);
 		return "redirect:/";
 	}
 

@@ -124,7 +124,7 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 	}
 
 	@Override
-	public String getDisplayName() {
+	public String displayName() {
 		if (displayName == null) {
 			return name();
 		}

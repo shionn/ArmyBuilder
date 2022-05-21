@@ -45,7 +45,7 @@ public class UnitModelComparator implements Comparator<IUnitModel> {
 			}
 		}
 		if (result == 0) {
-			result = a.getDisplayName().compareTo(b.getDisplayName());
+			result = a.displayName().compareTo(b.displayName());
 		}
 		return result;
 	}

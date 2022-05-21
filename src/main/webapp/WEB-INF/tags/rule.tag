@@ -10,13 +10,13 @@
 </c:if>
 <c:if test="${rule.is('SubAllegiance')}">
 	<div class="multirule"> 
-		<h3>${rule.displayName}</h3>
+		<h3>${rule.displayName()}</h3>
 		${rule.description}
 	</div>
 </c:if>
 <c:if test="${not rule.is('SubAllegiance')}">
 	<div class="rule">
-		<h3>${rule.displayName} : </h3>
+		<h3>${rule.displayName()} : </h3>
 		<c:if test="${rule.is('TraisUnitee') && displayUnit}">
 <%-- 			<c:forEach items="${army.units(rule)}" var="u"> --%>
 <%-- 				<em>${u.displayName}</em> --%>

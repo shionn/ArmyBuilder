@@ -7,13 +7,13 @@
 <%@ attribute name="army" type="armybuilder.model.army.Army"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="t"%>
 <article class="unit" style="page-break-inside:avoid;">
-	<header>${model.displayName}
+	<header>${model.displayName()}
 		<span>
 			<c:if test="${not model.is(RoleTactique.SortsPersistantsEtInvocation)}">
-				<i class="fa fa-walking"></i> ${model.profile.mvt}&quot; 
-				<i class="fa fa-heart"></i> ${model.profile.life} 
-				<i class="fa fa-flag"></i> ${model.profile.cmd} 
-				<i class="fa fa-shield-alt"></i> ${model.profile.svg}
+				<i class="fa fa-walking"></i> ${model.profile().mvt}&quot; 
+				<i class="fa fa-heart"></i> ${model.profile().life} 
+				<i class="fa fa-flag"></i> ${model.profile().cmd} 
+				<i class="fa fa-shield-alt"></i> ${model.profile().svg}
 			</c:if>
 		</span>
 	</header>
@@ -34,7 +34,7 @@
 				<tbody>
 					<c:forEach items="${army.weapons(model,'Projectil')}" var="w">
 						<tr>
-							<td>${w.displayName}</td>
+							<td>${w.displayName}<c:if test="${not model.is(w)}"><sup>*</sup></c:if></td>
 							<td>${w.portee}</td>
 							<td>${w.attaques}</td>
 							<td>${w.toucher}</td>
@@ -60,7 +60,7 @@
 				<tbody>
 					<c:forEach items="${army.weapons(model,'Melee')}" var="w">
 						<tr>
-							<td>${w.displayName}</td>
+							<td>${w.displayName}<c:if test="${not model.is(w)}"><sup>*</sup></c:if></td>
 							<td>${w.portee}</td>
 							<td>${w.attaques}</td>
 							<td>${w.toucher}</td>
@@ -72,7 +72,7 @@
 				</tbody>
 			</c:if>
 		</table>
-		<c:if test="${not empty model.profileDegressif}">
+		<c:if test="${not empty model.profileDegressif()}">
 			<table>
 				<thead>
 					<tr>
@@ -91,7 +91,10 @@
 		</c:if>
 		<div>
 			<c:forEach items="${army.rules(model)}" var="rule">
-				<t:rule-unit rule="${rule}" army="${army}"/>
+				<div class="rule">
+					<h3>${rule.displayName()}<c:if test="${not model.is(rule)}"><sup>*</sup></c:if> : </h3>
+					${rule.description}
+				</div>
 			</c:forEach>
 		</div>
 	</main>

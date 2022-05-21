@@ -13,38 +13,38 @@ import armybuilder.model.unit.rule.GeneriqueUnitRule;
 public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsUniverselles> {
 
 	SoifDeBataille(
-			GeneriqueUnitRule.SoifDeBataille.getDisplayName(),
+			GeneriqueUnitRule.SoifDeBataille.displayName(),
 			UnitOption.TraisDeCommandement,
 			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.SoifDeBataille)),
 	LeaderCompetent(
-			GeneriqueUnitRule.LeaderCompetent.getDisplayName(),
+			GeneriqueUnitRule.LeaderCompetent.displayName(),
 			UnitOption.TraisDeCommandement,
 			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.LeaderCompetent)),
 	GrandPretre(
-			GeneriqueUnitRule.GrandPretre.getDisplayName(),
+			GeneriqueUnitRule.GrandPretre.displayName(),
 			UnitOption.TraisDeCommandement,
 			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Pretre),
 			u -> u.add(GeneriqueUnitRule.GrandPretre)),
 	StatureHeroique(
-			GeneriqueUnitRule.StatureHeroique.getDisplayName(),
+			GeneriqueUnitRule.StatureHeroique.displayName(),
 			UnitOption.TraisDeCommandement,
 			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.StatureHeroique)),
 	MaitreDeLaMagie(
-			GeneriqueUnitRule.MaitreDeLaMagie.getDisplayName(),
+			GeneriqueUnitRule.MaitreDeLaMagie.displayName(),
 			UnitOption.TraisDeCommandement,
 			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier),
 			u -> u.add(GeneriqueUnitRule.MaitreDeLaMagie)),
 
 	AmuletteDeLaDestinee(
-			GeneriqueUnitRule.AmuletteDeLaDestinee.getDisplayName(),
+			GeneriqueUnitRule.AmuletteDeLaDestinee.displayName(),
 			UnitOption.Artefact,
 			u -> !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.AmuletteDeLaDestinee)),
 	VolumeObscur(
-			GeneriqueUnitRule.VolumeObscur.getDisplayName(),
+			GeneriqueUnitRule.VolumeObscur.displayName(),
 			UnitOption.Artefact,
 			u -> !u.is(KeyWord.Unique),
 			u -> {
@@ -57,44 +57,44 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 				}
 			}),
 	FioleDeVeninDeManticore(
-			GeneriqueUnitRule.FioleDeVeninDeManticore.getDisplayName(),
+			GeneriqueUnitRule.FioleDeVeninDeManticore.displayName(),
 			UnitOption.Artefact,
 			u -> !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.FioleDeVeninDeManticore)),
 	GraineDeRenaissance(
-			GeneriqueUnitRule.GraineDeRenaissance.getDisplayName(),
+			GeneriqueUnitRule.GraineDeRenaissance.displayName(),
 			UnitOption.Artefact,
 			u -> !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.GraineDeRenaissance)),
 
 	ArmeEnflammee(
-			GeneriqueUnitRule.ArmeEnflammee.getDisplayName(),
+			GeneriqueUnitRule.ArmeEnflammee.displayName(),
 			UnitOption.Sort,
 			u -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.ArmeEnflammee)),
 	BrumeFantome(
-			GeneriqueUnitRule.BrumeFantome.getDisplayName(),
+			GeneriqueUnitRule.BrumeFantome.displayName(),
 			UnitOption.Sort,
 			u -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.BrumeFantome)),
 	Levitation(
-			GeneriqueUnitRule.Guerison.getDisplayName(),
+			GeneriqueUnitRule.Guerison.displayName(),
 			UnitOption.Sort,
 			u -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.Levitation)),
 
 	Supervision(
-			GeneriqueUnitRule.Supervision.getDisplayName(),
+			GeneriqueUnitRule.Supervision.displayName(),
 			UnitOption.Priere,
 			u -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.Supervision)),
 	Malediction(
-			GeneriqueUnitRule.Malediction.getDisplayName(),
+			GeneriqueUnitRule.Malediction.displayName(),
 			UnitOption.Priere,
 			u -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.Malediction)),
 	Guerison(
-			GeneriqueUnitRule.Guerison.getDisplayName(),
+			GeneriqueUnitRule.Guerison.displayName(),
 			UnitOption.Priere,
 			u -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.Guerison)),

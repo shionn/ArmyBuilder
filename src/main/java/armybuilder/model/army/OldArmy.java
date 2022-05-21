@@ -54,7 +54,7 @@ public class OldArmy {
 	private Set<IArmyRule<?>> rules = new LinkedHashSet<>();
 	@JsonIgnore
 	private Set<IUnitModel> unitChoices = new TreeSet<>((a, b) -> {
-		return a.getDisplayName().compareTo(b.getDisplayName());
+		return a.displayName().compareTo(b.displayName());
 	});
 
 	public void reset() {
@@ -82,7 +82,7 @@ public class OldArmy {
 	 * Options
 	 */
 	public void setOption(IListingOptionValue<?> value) {
-		this.options.put(value.getOption(), value);
+		this.options.put(value.option(), value);
 	}
 
 	public boolean is(IListingOptionValue<?> opt) {
@@ -95,7 +95,7 @@ public class OldArmy {
 
 	public <T extends IListingOptionValue<?>> T option(T defolt) {
 		@SuppressWarnings("unchecked")
-		T value = (T) option(defolt.getOption());
+		T value = (T) option(defolt.option());
 		return value == null ? defolt : value;
 	}
 
@@ -117,8 +117,12 @@ public class OldArmy {
 		this.rules.add(rule);
 	}
 
+
 	public void addRules(Collection<IArmyRule<?>> rules) {
 		this.rules.addAll(rules);
+	}
+
+	public void addRules(IArmyRule<?>... rules) {
 	}
 
 	/*
@@ -187,7 +191,7 @@ public class OldArmy {
 	 */
 	public List<IUnitOptionValue<?>> getOptimisationChoices() {
 		Set<IUnitOptionValue<?>> options = new HashSet<>();
-		unitChoices.stream().map(u -> u.getOptionValues()).forEach(o -> options.addAll(o));
+		unitChoices.stream().map(u -> u.optionValues()).forEach(o -> options.addAll(o));
 		options.addAll(Arrays.asList(OptimisationsUniverselles.values()));
 
 		return options.stream()

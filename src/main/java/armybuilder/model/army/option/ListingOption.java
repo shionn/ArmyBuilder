@@ -14,8 +14,7 @@ public enum ListingOption {
 	GrandeStrategie(
 			"Grande Strategie",
 			armybuilder.model.army.option.GrandeStrategie.values()),
-	Triomphes("Triomphe", armybuilder.model.army.option.Triomphes.values()),
-	Bataillon("Bataillon", armybuilder.model.army.option.bataillon.Bataillon.values());
+	Triomphes("Triomphe", armybuilder.model.army.option.Triomphes.values());
 
 	private String displayName;
 	private List<IListingOptionValue<?>> values;

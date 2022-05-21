@@ -310,7 +310,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	}
 
 	DokOptimisations(UnitOption type, Function<Unit, Boolean> available) {
-		this.displayName = DokRule.valueOf(name()).getDisplayName();
+		this.displayName = DokRule.valueOf(name()).displayName();
 		this.option = type;
 		this.available = available;
 	}

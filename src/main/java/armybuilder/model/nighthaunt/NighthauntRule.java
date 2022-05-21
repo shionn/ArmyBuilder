@@ -95,7 +95,7 @@ public enum NighthauntRule implements IArmyRule<NighthauntRule> {
 	}
 
 	@Override
-	public String getDisplayName() {
+	public String displayName() {
 		return displayName;
 	}
 

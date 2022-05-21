@@ -114,36 +114,44 @@ public enum DokRule implements IArmyRule<DokRule> {
 
 	AvancezLesChaudrons(
 			"Avancez les Chaudrons",
+			ArmyRuleType.TraisDeBataille,
 			ArmyRuleType.AptitudesDeCommandement,
 			ArmyRuleType.PhaseDeMouvement),
 	ColereDesMoirenees(
 			"Colère des Moirenées",
+			ArmyRuleType.TraisDeBataille,
 			ArmyRuleType.AptitudesDeCommandement,
 			ArmyRuleType.PhaseDesHeros,
 			ArmyRuleType.TraisUnitee),
 	ExalteesParLeCarnage(
 			"Exaltées par le Carnage",
+			ArmyRuleType.TraisDeBataille,
 			ArmyRuleType.AptitudesDeCommandement,
 			ArmyRuleType.PhaseDeCombat),
 	LePouvoirDuSang(
 			"Le Pouvoir du Sang",
+			ArmyRuleType.TraisDeBataille,
 			ArmyRuleType.AptitudesDeCommandement,
 			ArmyRuleType.PhaseDeCombat),
 	MaitressesDesOmbrevoies(
 			"Maîtresses des Ombrevoies",
+			ArmyRuleType.TraisDeBataille,
 			ArmyRuleType.AptitudesDeCommandement,
 			ArmyRuleType.PhaseDeMouvement),
 	OrgieDeMassacre(
 			"Orgie de Massacre",
+			ArmyRuleType.TraisDeBataille,
 			ArmyRuleType.AptitudesDeCommandement,
 			ArmyRuleType.PhaseDesHeros,
 			ArmyRuleType.TraisUnitee),
 	SaignerLEsprit(
 			"Saigner l'Esprit",
+			ArmyRuleType.TraisDeBataille,
 			ArmyRuleType.AptitudesDeCommandement,
 			ArmyRuleType.PhaseDeCombat),
 	UnMillierDeStyles(
 			"Un Millier de Styles",
+			ArmyRuleType.TraisDeBataille,
 			ArmyRuleType.AptitudesDeCommandement,
 			ArmyRuleType.PhaseDeCombat),
 
@@ -280,7 +288,7 @@ public enum DokRule implements IArmyRule<DokRule> {
 	}
 
 	@Override
-	public String getDisplayName() {
+	public String displayName() {
 		if (displayName == null) {
 			return name();
 		}

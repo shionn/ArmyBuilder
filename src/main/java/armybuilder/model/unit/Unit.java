@@ -14,11 +14,11 @@ import org.apache.commons.collections.ListUtils;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import armybuilder.model.army.Listing;
+import armybuilder.model.army.compare.UnitRuleComparator;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.option.IUnitOptionValue;
 import armybuilder.model.unit.option.OptimisationsUniverselles;
 import armybuilder.model.unit.option.UnitOption;
-import armybuilder.model.unit.rule.UnitRuleComparator;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.model.unit.weapon.WeaponType;
 
@@ -48,13 +48,13 @@ public class Unit implements Comparable<Unit> {
 
 	public void reset() {
 		rules.clear();
-		rules.addAll(model.getRules());
+		rules.addAll(model.rules());
 		weapons.clear();
-		weapons.addAll(model.getWeapons());
+		weapons.addAll(model.weapons());
 		keyWords.clear();
-		keyWords.addAll(model.getKeyWords());
+		keyWords.addAll(model.keyWords());
 		roleTatciques.clear();
-		roleTatciques.addAll(model.getRoleTactiques());
+		roleTatciques.addAll(model.roleTactiques());
 		points = model.points();
 	}
 
@@ -64,14 +64,14 @@ public class Unit implements Comparable<Unit> {
 	}
 
 	/** options */
-	public List<UnitOption> getOptions() {
-		return model.getOptions().stream().filter(o -> o.availableFor(this)).collect(Collectors.toList());
+	public List<UnitOption> options() {
+		return model.options().stream().filter(o -> o.availableFor(this)).collect(Collectors.toList());
 	}
 
-	public List<IUnitOptionValue<?>> getOptionValues(UnitOption option) {
+	public List<IUnitOptionValue<?>> optionValues(UnitOption option) {
 		@SuppressWarnings("unchecked")
 		List<IUnitOptionValue<?>> values = ListUtils.union(Arrays.asList(OptimisationsUniverselles.values()),
-				model.getOptionValues());
+				model.optionValues());
 		return values.stream()
 				.filter(o -> o.is(option))
 				.filter(o -> o.isAvailable(this))
@@ -170,7 +170,7 @@ public class Unit implements Comparable<Unit> {
 	@Override
 	@Deprecated
 	public int compareTo(Unit o) {
-		int compare = model.getRoleTactiques().get(0).compareTo(o.model.getRoleTactiques().get(0));
+		int compare = model.roleTactiques().get(0).compareTo(o.model.roleTactiques().get(0));
 		if (compare == 0) {
 			compare = getDisplayName().compareTo(o.getDisplayName());
 		}
@@ -178,7 +178,7 @@ public class Unit implements Comparable<Unit> {
 	}
 
 	public String getDisplayName() {
-		return model.getDisplayName();
+		return model.displayName();
 	}
 
 	public IUnitModel model() {

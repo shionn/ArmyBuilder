@@ -1,4 +1,4 @@
-package armybuilder.model.unit.rule;
+package armybuilder.model.army.compare;
 
 import java.util.Comparator;
 

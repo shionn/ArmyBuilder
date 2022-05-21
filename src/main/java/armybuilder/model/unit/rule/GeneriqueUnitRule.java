@@ -67,7 +67,7 @@ public enum GeneriqueUnitRule implements IArmyRule<GeneriqueUnitRule> {
 	}
 
 	@Override
-	public String getDisplayName() {
+	public String displayName() {
 		if (displayName == null) {
 			return name();
 		}

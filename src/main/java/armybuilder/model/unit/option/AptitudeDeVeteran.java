@@ -48,7 +48,7 @@ public enum AptitudeDeVeteran implements IArmyRule<AptitudeDeVeteran> {
 	}
 
 	@Override
-	public String getDisplayName() {
+	public String displayName() {
 		return displayName;
 	}
 

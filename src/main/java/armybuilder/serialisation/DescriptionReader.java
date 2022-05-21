@@ -17,7 +17,7 @@ public class DescriptionReader {
 	public static Supplier<String> rules(IArmyRule<?>... rules) {
 		return () -> Arrays.stream(rules).map(r -> {
 			try {
-				return "<div class=\"rule\"><h3>" + r.getDisplayName() + " : </h3>"
+				return "<div class=\"rule\"><h3>" + r.displayName() + " : </h3>"
 						+ r.getDescription() + "</div>";
 			} catch (IOException e) {
 				throw new RuntimeException(e);

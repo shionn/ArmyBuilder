@@ -161,47 +161,47 @@ public enum NighthauntUnitModel implements IUnitModel {
 	}
 
 	@Override
-	public String getDisplayName() {
+	public String displayName() {
 		return displayName;
 	}
 
 	@Override
-	public UnitProfile getProfile() {
+	public UnitProfile profile() {
 		return profile;
 	}
 
 	@Override
-	public List<IUnitWeapon> getWeapons() {
+	public List<IUnitWeapon> weapons() {
 		return weapons;
 	}
 
 	@Override
-	public ProfileDegressif getProfileDegressif() {
+	public ProfileDegressif profileDegressif() {
 		return profileDegressif;
 	}
 
 	@Override
-	public List<IArmyRule<?>> getRules() {
+	public List<IArmyRule<?>> rules() {
 		return rules;
 	}
 
 	@Override
-	public List<KeyWord> getKeyWords() {
+	public List<KeyWord> keyWords() {
 		return keyWords;
 	}
 
 	@Override
-	public List<RoleTactique> getRoleTactiques() {
+	public List<RoleTactique> roleTactiques() {
 		return roleTactiques;
 	}
 
 	@Override
-	public List<UnitOption> getOptions() {
+	public List<UnitOption> options() {
 		return options;
 	}
 
 	@Override
-	public List<IUnitOptionValue<?>> getOptionValues() {
+	public List<IUnitOptionValue<?>> optionValues() {
 		return Arrays.asList(NighthauntOptimisation.values());
 	}
 

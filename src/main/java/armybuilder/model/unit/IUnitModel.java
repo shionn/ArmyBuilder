@@ -10,43 +10,54 @@ import armybuilder.model.unit.weapon.IUnitWeapon;
 
 public interface IUnitModel {
 
-	public String getDisplayName();
+	public String displayName();
 
-	UnitProfile getProfile();
 
-	List<IUnitWeapon> getWeapons();
+	List<IUnitWeapon> weapons();
 
-	ProfileDegressif getProfileDegressif();
+	default boolean is(IUnitWeapon weapon) {
+		return weapons().contains(weapon);
+	}
 
-	List<KeyWord> getKeyWords();
+	List<KeyWord> keyWords();
 
-	List<IArmyRule<?>> getRules();
+	List<IArmyRule<?>> rules();
 
-	List<RoleTactique> getRoleTactiques();
+	default boolean is(IArmyRule<?> rule) {
+		return rules().contains(rule);
+	}
+
+	List<RoleTactique> roleTactiques();
+
+	default boolean is(RoleTactique role) {
+		return roleTactiques().contains(role);
+	}
 
 	int points();
 
-	List<UnitOption> getOptions();
+	List<UnitOption> options();
 
-	List<IUnitOptionValue<?>> getOptionValues();
+	List<IUnitOptionValue<?>> optionValues();
 
 	void rebuild(Unit unit);
 
+	@Deprecated
 	default boolean isOneOf(RoleTactique... roles) {
 		for (RoleTactique role : roles) {
-			if (getRoleTactiques().contains(role)) {
+			if (roleTactiques().contains(role)) {
 				return true;
 			}
 		}
 		return false;
 	}
 
-	default boolean is(RoleTactique role) {
-		return getRoleTactiques().contains(role);
-	}
 
 	String name();
 
-	public boolean availableFor(Listing armyListing);
+	public boolean availableFor(Listing listing);
+
+	UnitProfile profile();
+
+	ProfileDegressif profileDegressif();
 
 }

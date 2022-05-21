@@ -64,7 +64,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(DokUnitWeapon.RegardIncarnat, DokUnitWeapon.LanceIncarnate, DokUnitWeapon.Aiguillons,
 					DokUnitWeapon.GriffeMurmure, DokUnitWeapon.QueueDeSerpents),
 			new ProfileDegressif("Mouvement", DokUnitWeapon.Aiguillons.getDisplayName(),
-					DokRule.AuraDAgonie.getDisplayName()).add("0-3", "6", "6", "2+").add("4-6", "5", "5", "3+")
+					DokRule.AuraDAgonie.displayName()).add("0-3", "6", "6", "2+").add("4-6", "5", "5", "3+")
 					.add("7-10", "4", "4", "4+").add("11+", "3", "3", "5+"),
 			Arrays.asList(DokRule.AuraDAgonie, DokRule.ImpactLame, DokRule.RegardIncarnat, DokRule.GriffeMurmure,
 					DokRule.Deperissement, GeneriqueRule.TraitMagique, GeneriqueRule.BouclierMystique,
@@ -146,7 +146,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(DokUnitWeapon.TorrentdeSangBrulant, DokUnitWeapon.EpeeDAvatar, DokUnitWeapon.LameDeKhaine,
 					DokUnitWeapon.CouteauxSacrificiels_Chaudron),
 			new ProfileDegressif("Mouvement", DokUnitWeapon.CouteauxSacrificiels_Chaudron.getDisplayName(),
-					DokRule.BouclierDeSang.getDisplayName()).add("0-3", "6\"", "8", "18\"")
+					DokRule.BouclierDeSang.displayName()).add("0-3", "6\"", "8", "18\"")
 					.add("4-6", "5\"", "7", "14\"").add("7-9", "4\"", "6", "10\"").add("10+", "3\"", "5", "6\""),
 			Arrays.asList(DokRule.ImpactLame, DokRule.BouclierDeSang, DokRule.ObjetDAdoration,
 					DokRule.RuneDeKhaine_Priere, DokRule.CaresseDeLaMort, DokRule.ColereDeKhaine, DokRule.BrouetDeSang),
@@ -360,47 +360,47 @@ public enum DokUnitModel implements IUnitModel {
 	}
 
 	@Override
-	public String getDisplayName() {
+	public String displayName() {
 		return displayName;
 	}
 
 	@Override
-	public UnitProfile getProfile() {
+	public UnitProfile profile() {
 		return profile;
 	}
 
 	@Override
-	public List<IUnitWeapon> getWeapons() {
+	public List<IUnitWeapon> weapons() {
 		return weapons;
 	}
 
 	@Override
-	public ProfileDegressif getProfileDegressif() {
+	public ProfileDegressif profileDegressif() {
 		return profileDegressif;
 	}
 
 	@Override
-	public List<IArmyRule<?>> getRules() {
+	public List<IArmyRule<?>> rules() {
 		return rules;
 	}
 
 	@Override
-	public List<KeyWord> getKeyWords() {
+	public List<KeyWord> keyWords() {
 		return keyWords;
 	}
 
 	@Override
-	public List<RoleTactique> getRoleTactiques() {
+	public List<RoleTactique> roleTactiques() {
 		return roleTactiques;
 	}
 
 	@Override
-	public List<UnitOption> getOptions() {
+	public List<UnitOption> options() {
 		return options;
 	}
 
 	@Override
-	public List<IUnitOptionValue<?>> getOptionValues() {
+	public List<IUnitOptionValue<?>> optionValues() {
 		return Arrays.asList(DokOptimisations.values());
 	}
 
