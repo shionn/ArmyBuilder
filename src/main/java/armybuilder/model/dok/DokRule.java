@@ -46,6 +46,13 @@ public enum DokRule implements IArmyRule<DokRule> {
 	SuaireDeDesespoir("Suaire de Désespoir", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 
 	// ---- fait au dessus
+	BenedictionDeKhaine("Bénédiction de Khaine", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+	CatechismeDuMeurtre("Catéchisme Du Meurtre", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+	CouventDuCoeurDeFer("Couvent du Cœur de Fer", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+	SacreDeSang("Sacre de Sang", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+	SacrificeDuMartyr("Sacrifice du Martyr", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+	ResurrectionPourpre("Résurrection Pourpre", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+
 
 	CrypteDesAinee("Crypte des Aînée", ArmyRuleType.TraisDeBataille),
 	DisciplesDuMassacre("Disciples du Massacre", ArmyRuleType.TraisDeBataille),
@@ -236,16 +243,11 @@ public enum DokRule implements IArmyRule<DokRule> {
 	HorreurNoireDUlgu("Horreur Noire d'Ulgu", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 
 	//
-	BenedictionDeKhaine("Bénédiction de Khaine", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+
 	CaresseDeLaMort("Caresse de la Mort", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
-	CatechismeDuMeurtre("Catéchisme Du Meurtre", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	ColereDeKhaine("Colère de Khaine", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
-	CouventDuCoeurDeFer("Couvent du Cœur de Fer", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	DanseDAgonie("Danse d'Agonie", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
-	ResurrectionPourpre("Résurrection Pourpre", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	RuneDeKhaine_Priere("Rune de Khaine", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
-	SacreDeSang("Sacre de Sang",ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
-	SacrificeDuMartyr("Sacrifice du Martyr", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 
 	//
 	// sort persistant et aptitude

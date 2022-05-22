@@ -53,6 +53,14 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	RasoirMental(UnitOption.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
 	SuaireDeDesespoir(UnitOption.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
 
+	// priere
+	BenedictionDeKhaine(UnitOption.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
+	CatechismeDuMeurtre(UnitOption.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
+	CouventDuCoeurDeFer(UnitOption.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
+	SacreDeSang(UnitOption.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
+	SacrificeDuMartyr(UnitOption.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
+	ResurrectionPourpre(UnitOption.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
+
 	// ---- fait au dessus
 	BeauteTerrifiante(
 			UnitOption.TraisDeCommandement,
@@ -143,22 +151,6 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	// Sort
 
 	// Priere
-	CatechismeDuMeurtre(
-			UnitOption.Priere,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
-	BenedictionDeKhaine(
-			UnitOption.Priere,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
-	SacrificeDuMartyr(
-			UnitOption.Priere,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
-	ResurrectionPourpre(
-			UnitOption.Priere,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
-	CouventDuCoeurDeFer(
-			UnitOption.Priere,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
-	SacreDeSang(UnitOption.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
 
 	// Compositioon
 	Krone("Krone", UnitOption.Chef, u -> u.is(DokUnitModel.BloodStalkers), u -> {
