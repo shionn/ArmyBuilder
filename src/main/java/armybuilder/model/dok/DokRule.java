@@ -11,8 +11,11 @@ import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.serialisation.DescriptionReader;
 
 public enum DokRule implements IArmyRule<DokRule> {
+	// TraisDeBataille
 	FoiFanatique("Foi Fanatique", ArmyRuleType.TraisDeBataille),
 	RitesDeSang("Rites de Sang", ArmyRuleType.TraisDeBataille),
+	FureurDeBataille("Fureur de Bataille", ArmyRuleType.TraisDeBataille, ArmyRuleType.ActionsHeroiques),
+	MassacreTotal("Massacre total", ArmyRuleType.TraisDeBataille, ArmyRuleType.AptitudesDeCommandement),
 
 	// TraitsDeCommandement
 	BainDeSang("Bain de Sang", ArmyRuleType.TraitsDeCommandement),
@@ -22,6 +25,15 @@ public enum DokRule implements IArmyRule<DokRule> {
 	PousseParLaVengeance("Poussée par la Vengeance", ArmyRuleType.TraitsDeCommandement),
 	SacrificateurSanglant("Sacrificateur Sanglant", ArmyRuleType.TraitsDeCommandement),
 	VraiCroyant("Vrai Croyant", ArmyRuleType.TraitsDeCommandement),
+
+	// Artefact
+	CouronneDeDouleur("Couronne de Douleur", ArmyRuleType.Artefact),
+	CoeurDeCristal("Cœur de Cristal", ArmyRuleType.Artefact),
+	LameSorciere("Lame Sorcière", ArmyRuleType.Artefact),
+	OmbreSeptFoisDrapee("Ombre Sept-fois-drapée", ArmyRuleType.Artefact),
+	PierreDOmbre("Pierre d'Ombre", ArmyRuleType.Artefact),
+	RuneDeKhaine("Rune de Khaine", ArmyRuleType.Artefact),
+	VeninFleauDuSang("Venin Fléau du Sang", ArmyRuleType.Artefact),
 
 	// ---- fait au dessus
 
@@ -33,8 +45,6 @@ public enum DokRule implements IArmyRule<DokRule> {
 	LessenceDeKhaine("L'essence de Khaine", ArmyRuleType.TraisDeBataille),
 	TueusesHerisseesDeLames("Tueuses Hérissées de Lames", ArmyRuleType.TraisDeBataille),
 
-	FureurDeBataille("Fureur de Bataille", ArmyRuleType.TraisDeBataille, ArmyRuleType.ActionsHeroiques),
-	MassacreTotal("Massacre total", ArmyRuleType.TraisDeBataille, ArmyRuleType.AptitudesDeCommandement),
 
 	//
 	Hag("Hag", ArmyRuleType.Composition),
@@ -194,30 +204,23 @@ public enum DokRule implements IArmyRule<DokRule> {
 	VolEnCercle("Vol en Cercle", ArmyRuleType.TraitsDeCommandement, ArmyRuleType.PhaseDeMouvement),
 	VainqueurDuYaithRil("Vainqueur du Yaith'ril", ArmyRuleType.TraitsDeCommandement),
 
-	//
+	// Artefact
 	AmuletteDeFeuNoir("Amulette de Feu Noir", ArmyRuleType.Artefact),
 	BaiserDeLaMort("Baiser de la Mort", ArmyRuleType.Artefact),
 	BreuvageDeMatriarche("Breuvage de Matriarche", ArmyRuleType.Artefact),
-	CoeurDeCristal("Cœur de Cristal", ArmyRuleType.Artefact),
-	CouronneDeDouleur("Couronne de Douleur", ArmyRuleType.Artefact),
 	CrocDeShadracar("Croc de Shadracar", ArmyRuleType.Artefact),
 	DiademeDeFer("Diadème de Fer", ArmyRuleType.Artefact),
 	EclatPourpre("Éclat Pourpre", ArmyRuleType.Artefact),
 	GriffeDOmbre("Griffe d'Ombre", ArmyRuleType.Artefact),
-	LameSorciere("Lame Sorcière", ArmyRuleType.Artefact),
 	LaFaixDeGalisa("Le Faix de Galisa", ArmyRuleType.Artefact),
 	LeVougeMiroir("Le Vouge Miroir", ArmyRuleType.Artefact),
 	LUlfuri("L'Ulfuri", ArmyRuleType.Artefact),
 	MilleEtUneSombresMaledictions("Mille et Une Sombres Malédictions", ArmyRuleType.Artefact),
 	Mormurmure("Mormurmure", ArmyRuleType.Artefact),
-	OmbreSeptFoisDrapee("Ombre Sept-fois-drapée", ArmyRuleType.Artefact),
-	PierreDOmbre("Pierre d'Ombre", ArmyRuleType.Artefact),
-	RuneDeKhaine("Rune de Khaine", ArmyRuleType.Artefact),
 	RuneDUlgu("Rune d'Ulgu", ArmyRuleType.Priere),
 	SymboleSanglant("Symbole Sanglant", ArmyRuleType.Artefact),
 	TalismanEcarlate("Talisman Écarlate", ArmyRuleType.Artefact),
 	VeninDeNagendra("Venin de Nagendra", ArmyRuleType.Artefact),
-	VeninFleauDuSang("Venin Fléau du Sang", ArmyRuleType.Artefact),
 	PendentifKhainite("Pendentif Khainite", ArmyRuleType.Artefact),
 
 	//

@@ -1,0 +1,1 @@
+Les unités ennemis ne peuvent pas recevoir les ordres Ralliement ou Présence Exaltante tant qu'elles sont à 9" du porteur. En outre, si une ou plusieurs figurines ennemies sont tuées pas les attaques du porteur, augmentez la portée de cette aptitude à 15" jusqu'à la fin de la bataille.

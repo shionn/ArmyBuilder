@@ -1,0 +1,1 @@
+La première fois que le porteur est tué, il peut combattre une dernière fois avant d'être retiré du champ de bataille.

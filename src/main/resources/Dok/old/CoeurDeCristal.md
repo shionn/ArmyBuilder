@@ -1,1 +1,1 @@
-Le porteur peut tenter de lancer 1 sort supplmentaire à votre phase des héros. Dans ce cas, jetez un dé avant de faire le jet de lancement. Sur 1, le porteur subit D3 blessures mortelles.
+Lorsque le porteur de cet artéfact tente de lancer un sort qui convoque un sort persistant, la portée de ce sort est doublée.

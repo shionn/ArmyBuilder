@@ -1,0 +1,1 @@
+Ajoutez 1 aux jets de lancement pour le porteur quand il tente de lancer un sort du Domaine des Ombres.

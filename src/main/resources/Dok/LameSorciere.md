@@ -1,0 +1,1 @@
+Choisissez 1 des armes de mêlée du porteur. Si le jet de touche non modifié d'une attaque de cette arme est 6, vous pouvez guérir 1 blessure allouée au porteur après qu'il a résolu toutes ses attaques.

@@ -23,6 +23,16 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	SacrificateurSanglant(UnitOption.TraisDeCommandement, u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)),
 	VraiCroyant(UnitOption.TraisDeCommandement, u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)),
 
+	// Artefact
+	CoeurDeCristal(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier)),
+	CouronneDeDouleur(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
+	LameSorciere(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
+	OmbreSeptFoisDrapee(
+			UnitOption.Artefact,
+			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier)),
+	PierreDOmbre(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier)),
+	VeninFleauDuSang(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
+
 	// ---- fait au dessus
 	BeauteTerrifiante(
 			UnitOption.TraisDeCommandement,
@@ -78,10 +88,6 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 					&& !u.is(KeyWord.Unique)),
 
 	// Artefact
-	CouronneDeDouleur(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine)),
 	CrocDeShadracar(
 			UnitOption.Artefact,
 			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
@@ -90,36 +96,16 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 			UnitOption.Artefact,
 			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
 					&& u.is(KeyWord.DaughtersOfKhaine)),
-	LameSorciere(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine)),
 	MilleEtUneSombresMaledictions(
 			UnitOption.Artefact,
 			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
 					&& u.is(KeyWord.DaughtersOfKhaine)),
-	VeninFleauDuSang(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine)),
 
-	PierreDOmbre(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.BloodwrackMedusa)),
 	RuneDUlgu(
 			UnitOption.Artefact,
 			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
 					&& u.is(KeyWord.BloodwrackMedusa)),
 	LeVougeMiroir(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.BloodwrackMedusa)),
-	OmbreSeptFoisDrapee(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.BloodwrackMedusa)),
-	CoeurDeCristal(
 			UnitOption.Artefact,
 			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
 					&& u.is(KeyWord.BloodwrackMedusa)),
