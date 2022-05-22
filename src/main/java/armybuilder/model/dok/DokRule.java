@@ -21,6 +21,8 @@ public enum DokRule implements IArmyRule<DokRule> {
 	LessenceDeKhaine("L'essence de Khaine", ArmyRuleType.TraisDeBataille),
 	TueusesHerisseesDeLames("Tueuses Hérissées de Lames", ArmyRuleType.TraisDeBataille),
 
+	FureurDeBataille("Fureur de Bataille", ArmyRuleType.TraisDeBataille, ArmyRuleType.ActionsHeroiques),
+
 	Hag("Hag", ArmyRuleType.Composition),
 	Handmaiden("Handmaiden", ArmyRuleType.Composition),
 	PorteEtendard("Porte-Étendard", ArmyRuleType.Composition),

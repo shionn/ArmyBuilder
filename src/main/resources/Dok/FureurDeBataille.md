@@ -1,0 +1,1 @@
+Il s'agit d'une action héroïque que vous pouvez effectuer avec 1 __HHéros Fille de Khaine__ amie n'étant pas un __Monstre__. Dans ce cas, Ajoutez 2 à la Caractéristique Attaques des armes de mêlée de cette __Héros__ jusqu'à la fin de ce tour. Cette action héroïque n'effecte pas les armes de la monture de cette __Héros__.

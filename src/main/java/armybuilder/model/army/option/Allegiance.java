@@ -15,7 +15,7 @@ public enum Allegiance {
 	CoS("Order", "City of Sigmar", null, new IUnitModel[0]),
 	DoK(
 			"Order", "Daughters of Khaine",
-			Arrays.asList(DokRule.RitesDeSang, DokRule.FoiFanatique),
+			Arrays.asList(DokRule.RitesDeSang, DokRule.FoiFanatique, DokRule.FureurDeBataille, DokRule.MassacreTotal),
 			DokUnitModel.values()),
 	Nighthaunt(
 			"Death", "Nighthaunt",
