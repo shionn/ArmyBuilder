@@ -1,1 +1,0 @@
-Une fois par tour, vous pouvez relancer 1 jet de lancement, de dissipation ou de conjuration pour ce général.

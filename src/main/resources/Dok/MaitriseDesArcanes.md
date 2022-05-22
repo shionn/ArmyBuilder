@@ -1,0 +1,1 @@
+Ce général connaît tous les sorts du Domaine des Ombres en plus des autres sorts qu'il connaît.

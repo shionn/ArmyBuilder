@@ -40,7 +40,8 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	MaitriseDesArcanes(
 			UnitOption.TraisDeCommandement,
 			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.BloodwrackMedusa)),
+					&& u.is(KeyWord.Sorcier)),
+	// ---- fait au dessus
 	AnneauxOndulants(
 			UnitOption.TraisDeCommandement,
 			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)

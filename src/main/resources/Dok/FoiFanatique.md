@@ -1,0 +1,1 @@
+Les unités amies __Filles de Khaine__ ont une protection de 6+.
