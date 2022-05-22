@@ -1,0 +1,1 @@
+Le porteur connaît 1 prière supplémentaire parmi les Prières du Culte Khainite.

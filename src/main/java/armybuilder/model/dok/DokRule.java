@@ -31,9 +31,19 @@ public enum DokRule implements IArmyRule<DokRule> {
 	CoeurDeCristal("Cœur de Cristal", ArmyRuleType.Artefact),
 	LameSorciere("Lame Sorcière", ArmyRuleType.Artefact),
 	OmbreSeptFoisDrapee("Ombre Sept-fois-drapée", ArmyRuleType.Artefact),
+	PendentifKhainite("Pendentif Khainite", ArmyRuleType.Artefact),
 	PierreDOmbre("Pierre d'Ombre", ArmyRuleType.Artefact),
 	RuneDeKhaine("Rune de Khaine", ArmyRuleType.Artefact),
+	SymboleSanglant("Symbole Sanglant", ArmyRuleType.Artefact),
 	VeninFleauDuSang("Venin Fléau du Sang", ArmyRuleType.Artefact),
+
+	// Sort
+	Affaiblissement(ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	DanseSymetrique("Danse Symétrique", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	DestrierDOmbres("Destrier d'Ombre", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	PuitsDeTenebres("Puits de Ténèbres", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	RasoirMental("Rasoir Mental", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	SuaireDeDesespoir("Suaire de Désespoir", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 
 	// ---- fait au dessus
 
@@ -218,20 +228,12 @@ public enum DokRule implements IArmyRule<DokRule> {
 	MilleEtUneSombresMaledictions("Mille et Une Sombres Malédictions", ArmyRuleType.Artefact),
 	Mormurmure("Mormurmure", ArmyRuleType.Artefact),
 	RuneDUlgu("Rune d'Ulgu", ArmyRuleType.Priere),
-	SymboleSanglant("Symbole Sanglant", ArmyRuleType.Artefact),
 	TalismanEcarlate("Talisman Écarlate", ArmyRuleType.Artefact),
 	VeninDeNagendra("Venin de Nagendra", ArmyRuleType.Artefact),
-	PendentifKhainite("Pendentif Khainite", ArmyRuleType.Artefact),
 
 	//
-	Affaiblissement(ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
-	DanseSymetrique("Danse Symétrique", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 	Deperissement("Dépérissement", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
-	DestrierDOmbres("Destrier d'Ombre", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 	HorreurNoireDUlgu("Horreur Noire d'Ulgu", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
-	PuitsDeTenebres("Puits de Ténèbres", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
-	RasoirMental("Rasoir Mental", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
-	SuaireDeDesespoir("Suaire de Désespoir", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 
 	//
 	BenedictionDeKhaine("Bénédiction de Khaine", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),

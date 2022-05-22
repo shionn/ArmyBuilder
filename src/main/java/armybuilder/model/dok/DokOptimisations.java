@@ -14,7 +14,16 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	BainDeSang(UnitOption.TraisDeCommandement, u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)),
 	MaitriseDesArcanes(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier)),
+			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier),
+			u -> {
+				u.add(DokRule.MaitriseDesArcanes);
+				u.add(DokRule.Affaiblissement);
+				u.add(DokRule.DanseSymetrique);
+				u.add(DokRule.DestrierDOmbres);
+				u.add(DokRule.PuitsDeTenebres);
+				u.add(DokRule.RasoirMental);
+				u.add(DokRule.SuaireDeDesespoir);
+			}),
 	MaitreDesPoisons(UnitOption.TraisDeCommandement, u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)),
 	OrateurZele(UnitOption.TraisDeCommandement, u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)),
 	PousseParLaVengeance(
@@ -30,186 +39,126 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	OmbreSeptFoisDrapee(
 			UnitOption.Artefact,
 			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier)),
+	PendentifKhainite(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.Pretre)),
 	PierreDOmbre(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier)),
+	RuneDeKhaine(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
+	SymboleSanglant(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.Pretre)),
 	VeninFleauDuSang(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
+
+	// sort
+	Affaiblissement(UnitOption.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
+	DanseSymetrique(UnitOption.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
+	DestrierDOmbres(UnitOption.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
+	PuitsDeTenebres(UnitOption.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
+	RasoirMental(UnitOption.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
+	SuaireDeDesespoir(UnitOption.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
 
 	// ---- fait au dessus
 	BeauteTerrifiante(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Aelf)),
+			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.DaughtersOfKhaine)
+					&& u.is(KeyWord.Aelf)),
 
 	AnneauxOndulants(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.BloodwrackMedusa)),
+			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.BloodwrackMedusa)),
 	PresenceEffrayante(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.BloodwrackMedusa)),
+			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.BloodwrackMedusa)),
 
 	VeteranDeLaCathtrarDhule(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.MelusaiIronscale)),
+			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.MelusaiIronscale)),
 	EcaillesImpenetrables(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.MelusaiIronscale)),
+			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.MelusaiIronscale)),
 	AnimeParLaVengeance(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.MelusaiIronscale)),
+			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.MelusaiIronscale)),
 
 	// TraisDeCommandement de Sous allegiance
 	DisciplesDevots(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && u.is(KeyWord.HaggNar)
-					&& !u.is(KeyWord.Unique)),
+			u -> u.is(UnitOption.General) && u.is(KeyWord.HaggNar) && !u.is(KeyWord.Unique)),
 	MaitresseDeLIllusion(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && u.is(KeyWord.Khailebron)
-					&& !u.is(KeyWord.Unique)),
+			u -> u.is(UnitOption.General) && u.is(KeyWord.Khailebron) && !u.is(KeyWord.Unique)),
 	MaledictionDeLaMainSanglante(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && u.is(KeyWord.ZaintharKai)
-					&& !u.is(KeyWord.Unique)),
+			u -> u.is(UnitOption.General) && u.is(KeyWord.ZaintharKai) && !u.is(KeyWord.Unique)),
 	SeBaignerDansLeurSang(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && u.is(KeyWord.Kraith)
-					&& !u.is(KeyWord.Unique)),
+			u -> u.is(UnitOption.General) && u.is(KeyWord.Kraith) && !u.is(KeyWord.Unique)),
 	VainqueurDuYaithRil(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && u.is(KeyWord.DraichiGaneth)
-					&& !u.is(KeyWord.Unique)),
+			u -> u.is(UnitOption.General) && u.is(KeyWord.DraichiGaneth) && !u.is(KeyWord.Unique)),
 	VolEnCercle(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && u.is(KeyWord.KheltNar)
-					&& !u.is(KeyWord.Unique)),
+			u -> u.is(UnitOption.General) && u.is(KeyWord.KheltNar) && !u.is(KeyWord.Unique)),
 
 	// Artefact
 	CrocDeShadracar(
 			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine)),
+			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.DaughtersOfKhaine)),
 	AmuletteDeFeuNoir(
 			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine)),
+			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.DaughtersOfKhaine)),
 	MilleEtUneSombresMaledictions(
 			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine)),
+			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.DaughtersOfKhaine)),
 
-	RuneDUlgu(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.BloodwrackMedusa)),
+	RuneDUlgu(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.BloodwrackMedusa)),
 	LeVougeMiroir(
 			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.BloodwrackMedusa)),
+			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.BloodwrackMedusa)),
 	GriffeDOmbre(
 			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.BloodwrackMedusa)),
+			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.BloodwrackMedusa)),
 
-	SymboleSanglant(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
 	DiademeDeFer(
 			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
-	RuneDeKhaine(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
+			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.DaughtersOfKhaine)
+					&& u.is(KeyWord.Pretre)),
 	EclatPourpre(
 			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
-	PendentifKhainite(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
+			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.DaughtersOfKhaine)
+					&& u.is(KeyWord.Pretre)),
 	BreuvageDeMatriarche(
 			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
+			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.DaughtersOfKhaine)
+					&& u.is(KeyWord.Pretre)),
 
 	// Artefact de sous allegiance
 	BaiserDeLaMort(
 			UnitOption.Artefact,
 			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DraichiGaneth) && !u.is(KeyWord.Unique)),
-	LUlfuri(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.HaggNar) && !u.is(KeyWord.Unique)),
-	LaFaixDeGalisa(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.KheltNar) && !u.is(KeyWord.Unique)),
-	Mormurmure(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.Khailebron) && !u.is(KeyWord.Unique)),
-	VeninDeNagendra(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.Kraith) && !u.is(KeyWord.Unique)),
+	LUlfuri(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && u.is(KeyWord.HaggNar) && !u.is(KeyWord.Unique)),
+	LaFaixDeGalisa(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && u.is(KeyWord.KheltNar) && !u.is(KeyWord.Unique)),
+	Mormurmure(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Khailebron) && !u.is(KeyWord.Unique)),
+	VeninDeNagendra(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Kraith) && !u.is(KeyWord.Unique)),
 	TalismanEcarlate(
 			UnitOption.Artefact,
 			u -> u.is(KeyWord.Heros) && u.is(KeyWord.ZaintharKai) && !u.is(KeyWord.Unique)),
 
 	// Sort
-	DestrierDOmbres(
-			UnitOption.Sort,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Sorcier)),
-	PuitsDeTenebres(
-			UnitOption.Sort,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Sorcier)),
-	DanseSymetrique(
-			UnitOption.Sort,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Sorcier)),
-	Affaiblissement(
-			UnitOption.Sort,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Sorcier)),
-	RasoirMental(
-			UnitOption.Sort,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Sorcier)),
-	SuaireDeDesespoir(
-			UnitOption.Sort,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Sorcier)),
 
 	// Priere
 	CatechismeDuMeurtre(
 			UnitOption.Priere,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Pretre)),
+			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
 	BenedictionDeKhaine(
 			UnitOption.Priere,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Pretre)),
+			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
 	SacrificeDuMartyr(
 			UnitOption.Priere,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Pretre)),
+			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
 	ResurrectionPourpre(
 			UnitOption.Priere,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Pretre)),
+			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
 	CouventDuCoeurDeFer(
 			UnitOption.Priere,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Pretre)),
-	SacreDeSang(
-			UnitOption.Priere,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine)
-					&& u.is(KeyWord.Pretre)),
+			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
+	SacreDeSang(UnitOption.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Pretre)),
 
 	// Compositioon
 	Krone("Krone", UnitOption.Chef, u -> u.is(DokUnitModel.BloodStalkers), u -> {
@@ -224,14 +173,10 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 			UnitOption.Banniere,
 			u -> u.is(KeyWord.WitchAelves) || u.is(KeyWord.SisterOfSlaughter),
 			null),
-	ShroudQueen(
-			"Shroud Queen",
-			UnitOption.Chef,
-			u -> u.is(KeyWord.KhainiteShadowstalkers),
-			u -> {
-				u.add(DokUnitWeapon.LameObscures);
-				u.add(DokRule.ShroudQueen);
-			}),
+	ShroudQueen("Shroud Queen", UnitOption.Chef, u -> u.is(KeyWord.KhainiteShadowstalkers), u -> {
+		u.add(DokUnitWeapon.LameObscures);
+		u.add(DokRule.ShroudQueen);
+	}),
 	Shryke("Shryke", UnitOption.Chef, u -> u.is(KeyWord.KhineraiHeartrenders), null),
 	SonneuseDeCor(
 			"Sonneuse de Cor",
@@ -275,11 +220,15 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	private Function<Unit, Boolean> available;
 	private Consumer<Unit> modifier;
 
-	DokOptimisations(String displayName, UnitOption type, Function<Unit, Boolean> available,
-			Consumer<Unit> modifier) {
+	DokOptimisations(String displayName, UnitOption type, Function<Unit, Boolean> available, Consumer<Unit> modifier) {
 		this.displayName = displayName;
 		this.option = type;
 		this.available = available;
+		this.modifier = modifier;
+	}
+
+	DokOptimisations(UnitOption type, Function<Unit, Boolean> available, Consumer<Unit> modifier) {
+		this(type, available);
 		this.modifier = modifier;
 	}
 

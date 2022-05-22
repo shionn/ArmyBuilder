@@ -1,1 +1,0 @@
-Danse Symétrique a une valeur de lancement de 6. S'il est lancé avec succès, choisissez 2 **Héros Daughters of Khaine** amis à 18" ou moins et visibles du lanceur. Retirez ces **Héros** du champ de bataille et replacez-les n'importe où sur le champ de bataille à plus de 9" de toute unité ennemie. Ces **Héros** ne peuvent pas se déplacer à la phase de mouvement qui suit.

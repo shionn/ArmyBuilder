@@ -1,0 +1,1 @@
+Une fois par bataille, avant que le porteur récite une prière, vous pouvez dire qu'il utilise le pouvoir du pendantif. Dans ce cas, cette prière est automatiquement exaucée (n'effectuez pas de jet de récitation).
