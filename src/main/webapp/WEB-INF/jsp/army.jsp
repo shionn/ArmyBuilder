@@ -11,7 +11,7 @@
 <c:forEach items="${army.listings()}" var="listing">
 	<article id="listing-${listing.id}" class="listing">
 		<header>
-			<h2>${listing.displayName()} <small>(${listing.id})</small> <span>${listing.points()}</span></h2>
+			<h2>${listing.displayName()} <sup>(${listing.id})</sup> <span>${listing.points()} <a href="<spring:url value="/listing/rm/${listing.id}"/>">X</a></span></h2>
 		</header>
 		<main>
 			<div class="options">

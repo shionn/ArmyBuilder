@@ -1,0 +1,1 @@
+Si ce général donne un ordre de Ralliement, vous pouvez restituer 1 figurine tuée à l'unité qui reçoit cet ordre pour chaque 4+ au lieu de chaque 6.

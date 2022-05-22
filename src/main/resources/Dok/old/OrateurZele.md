@@ -1,1 +1,0 @@
-Ajoutez 2 à la caractéristique de Bravoure des unités **Daughters of Khaine** amies tant qu'elles sont entièrement à 12" ou moins de ce général.

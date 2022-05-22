@@ -1,1 +1,0 @@
-Ajoutez 1 aux jets de touche pour les attaques d'armes de mêlée de ce général.

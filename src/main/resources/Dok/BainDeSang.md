@@ -1,0 +1,1 @@
+Dans la phase de combat, chaque fois qu'une figurine est tuées par des blessures causées par les attaques de ce général, vous pouvez guérir 1 blessure allouée à ce général.

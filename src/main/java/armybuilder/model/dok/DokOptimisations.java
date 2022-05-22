@@ -3,7 +3,6 @@ package armybuilder.model.dok;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import armybuilder.model.army.option.SubAllegiance;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.option.IUnitOptionValue;
@@ -12,36 +11,24 @@ import armybuilder.model.unit.option.UnitOption;
 public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 
 	// TraisDeCommandement
-	BainDeSang(
+	BainDeSang(UnitOption.TraisDeCommandement, u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)),
+	MaitriseDesArcanes(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Aelf)),
-	OrateurZele(
+			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier)),
+	MaitreDesPoisons(UnitOption.TraisDeCommandement, u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)),
+	OrateurZele(UnitOption.TraisDeCommandement, u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)),
+	PousseParLaVengeance(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Aelf)),
-	SacrificateurSanglant(
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Aelf)),
+			u -> u.is(UnitOption.General) && u.is(DokUnitModel.MelusaiIronscale)),
+	SacrificateurSanglant(UnitOption.TraisDeCommandement, u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)),
+	VraiCroyant(UnitOption.TraisDeCommandement, u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)),
+
+	// ---- fait au dessus
 	BeauteTerrifiante(
 			UnitOption.TraisDeCommandement,
 			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
 					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Aelf)),
-	MaitreDesPoisons(
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Aelf)),
-	VraiCroyant(
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.DaughtersOfKhaine) && u.is(KeyWord.Aelf)),
 
-	MaitriseDesArcanes(
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.is(KeyWord.Sorcier)),
-	// ---- fait au dessus
 	AnneauxOndulants(
 			UnitOption.TraisDeCommandement,
 			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
@@ -67,27 +54,27 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	// TraisDeCommandement de Sous allegiance
 	DisciplesDevots(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && u.listing().is(SubAllegiance.HaggNar)
+			u -> u.is(UnitOption.General) && u.is(KeyWord.HaggNar)
 					&& !u.is(KeyWord.Unique)),
 	MaitresseDeLIllusion(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && u.listing().is(SubAllegiance.Khailebron)
+			u -> u.is(UnitOption.General) && u.is(KeyWord.Khailebron)
 					&& !u.is(KeyWord.Unique)),
 	MaledictionDeLaMainSanglante(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && u.listing().is(SubAllegiance.ZaintharKai)
+			u -> u.is(UnitOption.General) && u.is(KeyWord.ZaintharKai)
 					&& !u.is(KeyWord.Unique)),
 	SeBaignerDansLeurSang(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && u.listing().is(SubAllegiance.Kraith)
+			u -> u.is(UnitOption.General) && u.is(KeyWord.Kraith)
 					&& !u.is(KeyWord.Unique)),
 	VainqueurDuYaithRil(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && u.listing().is(SubAllegiance.DraichiGaneth)
+			u -> u.is(UnitOption.General) && u.is(KeyWord.DraichiGaneth)
 					&& !u.is(KeyWord.Unique)),
 	VolEnCercle(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && u.listing().is(SubAllegiance.KheltNar)
+			u -> u.is(UnitOption.General) && u.is(KeyWord.KheltNar)
 					&& !u.is(KeyWord.Unique)),
 
 	// Artefact

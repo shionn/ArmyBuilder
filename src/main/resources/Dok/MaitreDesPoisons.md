@@ -1,0 +1,1 @@
+A la fin de la phase de combat, si une ou plusieurs blessures causées par ce général ont été allouées à des figurines sur le champ de bataille, choississez 1 de ces figurines, cette figuirine subit D6 blessures mortelles.

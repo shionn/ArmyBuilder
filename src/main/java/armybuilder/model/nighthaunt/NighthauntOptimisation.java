@@ -3,7 +3,6 @@ package armybuilder.model.nighthaunt;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import armybuilder.model.army.option.SubAllegiance;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.option.IUnitOptionValue;
@@ -32,7 +31,7 @@ public enum NighthauntOptimisation implements IUnitOptionValue<NighthauntOptimis
 	SeigneurDeLOst(
 			UnitOption.TraisDeCommandement,
 			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)
-					&& u.listing().is(SubAllegiance.LOstEmeraude)),
+					&& u.is(KeyWord.LOstEmeraude)),
 
 	BrumeSepulcrale(UnitOption.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
 	CageAAmes(UnitOption.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
@@ -50,7 +49,7 @@ public enum NighthauntOptimisation implements IUnitOptionValue<NighthauntOptimis
 	LaLameDuChevalierFelon(
 			UnitOption.Artefact,
 			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.KnightOfShrouds)
-					&& u.listing().is(SubAllegiance.LOstEmeraude)),
+					&& u.is(KeyWord.LOstEmeraude)),
 
 	// Composition
 	Dreadwarden(UnitOption.Chef, u -> u.is(NighthauntUnitModel.ChainraspHorde)),

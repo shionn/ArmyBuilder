@@ -29,4 +29,10 @@ public class AllArmy {
 		this.allegiance = allegiance;
 	}
 
+	public void update(Army army) {
+		armies.stream().filter(a -> a.allegiance() == army.allegiance()).findAny().ifPresent(a -> armies.remove(a));
+		armies.add(army);
+		select(army.allegiance());
+	}
+
 }

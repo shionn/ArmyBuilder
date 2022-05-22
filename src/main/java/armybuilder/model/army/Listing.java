@@ -9,6 +9,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import armybuilder.model.army.compare.UnitComparator;
 import armybuilder.model.army.compare.UnitModelComparator;
 import armybuilder.model.army.option.IListingOptionValue;
@@ -20,15 +26,24 @@ import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.IUnitModel;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.option.UnitOption;
+import armybuilder.serialisation.ListingOptionValueJsonDeserializer;
 
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Listing {
 
 	private int id;
+	@JsonDeserialize(contentConverter = ListingOptionValueJsonDeserializer.class)
 	private Map<ListingOption, IListingOptionValue<?>> options = new HashMap<>();
 	private List<Unit> units = new ArrayList<Unit>();
 	private List<Bataillon> bataillons = new ArrayList<Bataillon>();
 
+	@JsonIgnore
 	private Set<IArmyRule<?>> rules = new LinkedHashSet<>();
+
+	public Listing() {
+		// constructeur vide pour la deserialisation
+	}
 
 	public Listing(int id, SubAllegiance subAllegiance) {
 		this.id = id;

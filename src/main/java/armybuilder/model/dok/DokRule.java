@@ -13,7 +13,18 @@ import armybuilder.serialisation.DescriptionReader;
 public enum DokRule implements IArmyRule<DokRule> {
 	FoiFanatique("Foi Fanatique", ArmyRuleType.TraisDeBataille),
 	RitesDeSang("Rites de Sang", ArmyRuleType.TraisDeBataille),
-	//
+
+	// TraitsDeCommandement
+	BainDeSang("Bain de Sang", ArmyRuleType.TraitsDeCommandement),
+	MaitreDesPoisons("Maître des Poisons", ArmyRuleType.TraitsDeCommandement),
+	MaitriseDesArcanes("Maîtrise des Arcanes", ArmyRuleType.TraitsDeCommandement),
+	OrateurZele("Orateur Zélé", ArmyRuleType.TraitsDeCommandement),
+	PousseParLaVengeance("Poussée par la Vengeance", ArmyRuleType.TraitsDeCommandement),
+	SacrificateurSanglant("Sacrificateur Sanglant", ArmyRuleType.TraitsDeCommandement),
+	VraiCroyant("Vrai Croyant", ArmyRuleType.TraitsDeCommandement),
+
+	// ---- fait au dessus
+
 	CrypteDesAinee("Crypte des Aînée", ArmyRuleType.TraisDeBataille),
 	DisciplesDuMassacre("Disciples du Massacre", ArmyRuleType.TraisDeBataille),
 	DissimulationEtDiscretion("Dissimulation et Discrétion", ArmyRuleType.TraisDeBataille),
@@ -167,28 +178,21 @@ public enum DokRule implements IArmyRule<DokRule> {
 			ArmyRuleType.PhaseDesHeros,
 			ArmyRuleType.TraisUnitee),
 
-	MaitriseDesArcanes("Maîtrise des Arcanes", ArmyRuleType.TraitsDeCommandement),
-	// ---- fait au dessus
 	AnimeParLaVengeance("Animé par la Vengeance", ArmyRuleType.TraitsDeCommandement),
 	AnneauxOndulants("Anneaux Ondulants", ArmyRuleType.TraitsDeCommandement),
-	BainDeSang("Bain de Sang", ArmyRuleType.TraitsDeCommandement),
 	BeauteTerrifiante("Beauté Terrifiante", ArmyRuleType.TraitsDeCommandement),
 	DisciplesDevots("Disciples Dévots", ArmyRuleType.TraitsDeCommandement),
 	EcaillesImpenetrables("Écailles Impénétrables", ArmyRuleType.TraitsDeCommandement),
-	MaitreDesPoisons("Maître des Poisons", ArmyRuleType.TraitsDeCommandement),
 	MaitresseDeLIllusion("Maîtresse de l'Illusion", ArmyRuleType.TraitsDeCommandement),
 	MaledictionDeLaMainSanglante(
 			"Malédiction de la Main Sanglante",
 			ArmyRuleType.TraitsDeCommandement,
 			ArmyRuleType.PhaseDeMouvement),
-	OrateurZele("Orateur Zélé", ArmyRuleType.TraitsDeCommandement),
 	PresenceEffrayante("Présence Effrayante", ArmyRuleType.TraitsDeCommandement),
-	SacrificateurSanglant("Sacrificateur Sanglant", ArmyRuleType.TraitsDeCommandement),
 	SeBaignerDansLeurSang("Se Baigner dans leur Sang", ArmyRuleType.TraitsDeCommandement),
 	VeteranDeLaCathtrarDhule("Vétéran de la Cathtrar Dhule", ArmyRuleType.TraitsDeCommandement),
 	VolEnCercle("Vol en Cercle", ArmyRuleType.TraitsDeCommandement, ArmyRuleType.PhaseDeMouvement),
 	VainqueurDuYaithRil("Vainqueur du Yaith'ril", ArmyRuleType.TraitsDeCommandement),
-	VraiCroyant("Vrai Croyant", ArmyRuleType.TraitsDeCommandement),
 
 	//
 	AmuletteDeFeuNoir("Amulette de Feu Noir", ArmyRuleType.Artefact),

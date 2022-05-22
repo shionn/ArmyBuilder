@@ -1,0 +1,1 @@
+Ajoutez 1 au numéro actuel de round de bataille pour déterminer les aptitudes gagnées par ce général grâce au trait de bataille Rites de Sang. Cette aptitude et autres aptitudes similaires se cumulent.

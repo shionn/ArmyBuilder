@@ -32,6 +32,12 @@ public class ListingController {
 		return "redirect:/";
 	}
 
+	@GetMapping(path = "/listing/rm/{id}")
+	public String rmListing(@PathVariable("id") int id) {
+		armies.current().rm(armies.current().listing(id));
+		return "redirect:/";
+	}
+
 	@GetMapping(path = "/listing/{id}/SubAllegiance")
 	public String selectSubAllegiance(@PathVariable("id") int id, @RequestHeader("SubAllegiance") SubAllegiance sub) {
 		armies.current().listing(id).set(sub);

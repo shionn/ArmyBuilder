@@ -10,7 +10,11 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import armybuilder.model.army.Listing;
 import armybuilder.model.army.compare.UnitRuleComparator;
@@ -20,13 +24,20 @@ import armybuilder.model.unit.option.OptimisationsUniverselles;
 import armybuilder.model.unit.option.UnitOption;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.model.unit.weapon.WeaponType;
+import armybuilder.serialisation.UnitModelJsonDeserializer;
+import armybuilder.serialisation.UnitOptionJsonDeserializer;
 
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Unit implements Comparable<Unit> {
 
+	@JsonDeserialize(converter = UnitModelJsonDeserializer.class)
 	private IUnitModel model;
-	private Listing listing;
-
+	@JsonDeserialize(contentConverter = UnitOptionJsonDeserializer.class)
 	private Map<UnitOption, IUnitOptionValue<?>> options = new HashMap<>();
+
+	@JsonIgnore
+	private Listing listing;
 
 	@JsonIgnore
 	private Set<KeyWord> keyWords = new TreeSet<>();
@@ -39,6 +50,9 @@ public class Unit implements Comparable<Unit> {
 	@JsonIgnore
 	private int points;
 
+	public Unit() {
+		// constructeur vide pour la deserialisation
+	}
 	public Unit(IUnitModel model, Listing listing) {
 		this.model = model;
 		this.listing = listing;
@@ -67,7 +81,6 @@ public class Unit implements Comparable<Unit> {
 	}
 
 	public List<IUnitOptionValue<?>> optionValues(UnitOption option) {
-		@SuppressWarnings("unchecked")
 		List<IUnitOptionValue<?>> values = new ArrayList<IUnitOptionValue<?>>(model.optionValues());
 		values.addAll(Arrays.asList(OptimisationsUniverselles.values()));
 		values.addAll(listing.bataillons());
@@ -186,6 +199,10 @@ public class Unit implements Comparable<Unit> {
 
 	public Listing listing() {
 		return listing;
+	}
+
+	public void listing(Listing listing) {
+		this.listing = listing;
 	}
 
 }

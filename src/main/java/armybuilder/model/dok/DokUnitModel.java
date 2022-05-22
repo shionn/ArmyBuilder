@@ -54,7 +54,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.DaughtersOfKhaine, KeyWord.Monstre, KeyWord.Heros,
 					KeyWord.LaShadowQueen, KeyWord.Unique),
 			Arrays.asList(),
-			null),
+			l -> !l.have(DokUnitModel.valueOf("LaShadowQueen"))),
 
 	BloodwrackShrine(
 			"Bloodwrack Shrine",

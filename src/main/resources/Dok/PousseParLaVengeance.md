@@ -1,0 +1,1 @@
+Une fois par bataille, au début de la phase de combat, vous pouvez déclarer que ce général va exercer la veangeance de Khaine. Si vous le faites, jusqu'à la fin de cette phase, ajouter 1 à la caractéristique d'Attaques des armes de mêlée utilisées par les unités __Melusai__ amies entièrement à 12" de ce général.

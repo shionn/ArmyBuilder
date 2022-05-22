@@ -34,7 +34,7 @@ import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.option.IUnitOptionValue;
 import armybuilder.model.unit.option.OptimisationsUniverselles;
 import armybuilder.model.unit.option.UnitOption;
-import armybuilder.serialisation.ArmyOptionJsonDeserializer;
+import armybuilder.serialisation.ListingOptionValueJsonDeserializer;
 import armybuilder.serialisation.UnitOptionJsonDeserializer;
 
 @Component
@@ -44,7 +44,7 @@ import armybuilder.serialisation.UnitOptionJsonDeserializer;
 @Deprecated
 public class OldArmy {
 
-	@JsonDeserialize(contentConverter = ArmyOptionJsonDeserializer.class)
+	@JsonDeserialize(contentConverter = ListingOptionValueJsonDeserializer.class)
 	private Map<ListingOption, IListingOptionValue<?>> options = new HashMap<>();
 	private List<Unit> units = new ArrayList<>();
 	@JsonDeserialize(contentConverter = UnitOptionJsonDeserializer.class)

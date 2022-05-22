@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import armybuilder.model.army.compare.UnitModelComparator;
 import armybuilder.model.army.compare.UnitRuleComparator;
 import armybuilder.model.army.compare.UnitWeaponComparator;
@@ -20,11 +24,17 @@ import armybuilder.model.unit.weapon.WeaponType;
 /**
  * point d'acces root à une amree multi list
  */
+@JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Army {
-	private Allegiance allegiance;
 
+	private Allegiance allegiance;
 	private List<Listing> listings = new ArrayList<>();
 	
+	public Army() {
+		// constructeur vide pour la deserialisation
+	}
+
 	public Army(Allegiance allegiance) {
 		this.allegiance = allegiance;
 	}
@@ -68,6 +78,10 @@ public class Army {
 	/** listing **/
 	public void add(Listing listing) {
 		listings.add(listing);
+	}
+
+	public void rm(Listing listing) {
+		listings.remove(listing);
 	}
 
 	public List<Listing> listings() {
