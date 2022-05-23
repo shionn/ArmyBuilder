@@ -62,13 +62,21 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	ResurrectionPourpre(UnitOption.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
 
 	// Compositioon
-	PorteuseDePennonDeMort("Porte-Étendard", UnitOption.Banniere,
+	Matriache("Champion", UnitOption.Chef, u -> u.is(KeyWord.WitchAelves), null),
+	PorteuseDePennonDeMort("Porte-Étendards", UnitOption.Banniere,
 			u -> u.is(KeyWord.WitchAelves) || u.is(KeyWord.SoeurDuMassacre), null),
-	Servante("Servante", UnitOption.Chef, u -> u.is(KeyWord.SoeurDuMassacre), null),
-	SonneuseDeCor("Sonneuse de Cor", UnitOption.Musicien,
+	Servante("Champion", UnitOption.Chef, u -> u.is(KeyWord.SoeurDuMassacre), null),
+	SonneuseDeCor("Musiciennes", UnitOption.Musicien,
 			u -> u.is(KeyWord.WitchAelves) || u.is(KeyWord.SoeurDuMassacre), null),
 
 	// Armes
+	SciansaAppairees("Sciansá Appairées", UnitOption.Armes, u -> u.is(KeyWord.WitchAelves),
+			u -> u.add(DokUnitWeapon.SciansaAppairees)),
+	SciansaEtRondacheTranchante("Sciansá et Rondache Tranchante", UnitOption.Armes, u -> u.is(KeyWord.WitchAelves),
+			u -> {
+				u.add(DokUnitWeapon.Sciansa);
+				u.add(DokRule.RondacheTranchante);
+			}),
 	FouetBarbeleEtRondacheTranchante("Fouet Barbelé et Rondache Tranchante", UnitOption.Armes,
 			u -> u.is(KeyWord.SoeurDuMassacre), u -> u.add(DokRule.RondacheTranchante)),
 	FouetBarbeleEtCouteauSacrificiel("Fouet Barbelé et Couteau Sacrificiel", UnitOption.Armes,
@@ -167,7 +175,6 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 		u.add(DokUnitWeapon.GuivreDeSang);
 	}),
 	Gorgai("Gorgaï", UnitOption.Chef, u -> u.is(DokUnitModel.BloodSisters), null),
-	Hag("Hag", UnitOption.Chef, u -> u.is(KeyWord.WitchAelves), null),
 	ShroudQueen("Shroud Queen", UnitOption.Chef, u -> u.is(KeyWord.KhainiteShadowstalkers), u -> {
 		u.add(DokUnitWeapon.LameObscures);
 		u.add(DokRule.ShroudQueen);
@@ -175,16 +182,6 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	Shryke("Shryke", UnitOption.Chef, u -> u.is(KeyWord.KhineraiHeartrenders), null),
 
 	// Armes
-	CouteauSacrificielEtRondacheTranchante(
-			"Couteau Sacrificiel et Rondache Tranchante",
-			UnitOption.Armes,
-			u -> u.is(KeyWord.WitchAelves),
-			u -> u.add(DokRule.RondacheTranchante)),
-	PaireDeCouteauxSacrificiels(
-			"Paire de Couteaux Sacrificiels",
-			UnitOption.Armes,
-			u -> u.is(KeyWord.WitchAelves),
-			null),
 
 	// Cout
 	Gratuit(

@@ -77,6 +77,7 @@ public enum DokRule implements IArmyRule<DokRule> {
 	DanseDeLaMort("Danse de la Mort", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	DeuxCorpsUneSeuleAme("Deux corps, une seule âme", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	DeuxCorpsUneSeuleAme_Shadow("Deux corps, une seule âme", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	FerveurFrenetique("Ferveur Frénétique", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeCombat),
 	ImpactLame("Impact Lamé", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeCharge, ArmyRuleType.TraisUnitee),
 	MaitreDeGuerre("Maître de Guerre", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	PacteDeSang("Pacte de Sang", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
@@ -86,9 +87,10 @@ public enum DokRule implements IArmyRule<DokRule> {
 	FureurDeLaReineDeLOmbre("Fureur de la Reine de l'Ombre", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 
 	// Conposition
-	PorteuseDePennonDeMort("Porteuse de Pennon de Mort", ArmyRuleType.Composition),
-	Servante("Servante", ArmyRuleType.Composition), 
-	SonneuseDeCor("Sonneuse de Cor", ArmyRuleType.Composition),
+	Matriache("Champion", ArmyRuleType.Composition),
+	PorteuseDePennonDeMort("Porte-Étendards", ArmyRuleType.Composition),
+	Servante("Champion", ArmyRuleType.Composition),
+	SonneuseDeCor("Musiciennes", ArmyRuleType.Composition),
 
 	// Armes
 	RondacheTranchante("Rondache Tranchante", ArmyRuleType.Aptitude),
@@ -99,7 +101,6 @@ public enum DokRule implements IArmyRule<DokRule> {
 	DissimulationEtDiscretion("Dissimulation et Discrétion", ArmyRuleType.TraisDeBataille),
 
 	//
-	Hag("Hag", ArmyRuleType.Composition),
 	Gorgai("Gorgaï", ArmyRuleType.Composition),
 	ShroudQueen("Shroud Queen", ArmyRuleType.Composition),
 	Krone("Krone", ArmyRuleType.Composition),
@@ -118,7 +119,6 @@ public enum DokRule implements IArmyRule<DokRule> {
 			ArmyRuleType.PhaseDeMouvement,
 			ArmyRuleType.TraisUnitee),
 	Cherchecoeurs("Cherchecœurs", ArmyRuleType.Aptitude),
-	FerveurFrenetique("Ferveur Frénétique", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeCombat),
 	GriffeMurmure(
 			"Griffe-murmure",
 			ArmyRuleType.Aptitude,

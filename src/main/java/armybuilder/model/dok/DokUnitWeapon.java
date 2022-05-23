@@ -18,6 +18,8 @@ public enum DokUnitWeapon implements IUnitWeapon {
 	LameDeGladiatrice("Lame de Gladiatrice", WeaponType.Melee, "1", "2", "3+", "3+", "-1", "1"),
 	LameDeKhaine("Lame de Khaine", WeaponType.Melee, "1", "4", "3+", "4+", "-1", "D3"),
 	RegardDeLaReineDeLOmbre("Regard de la Reine de l'Ombre", WeaponType.Projectil, "18", "1", "2+", "2+", "-3", "D6"),
+	Sciansa("Sciansá", WeaponType.Melee, "1", "2", "3+", "4+", "-", "1"),
+	SciansaAppairees("Sciansá Appairées", WeaponType.Melee, "1", "3", "3+", "4+", "-", "1"),
 	Sciansa_Chaudron("Sciansá", WeaponType.Melee, "1", "*", "3+", "4+", "-", "1"),
 	TorrentdeSangBrulant("Torrent de Sang Brûlant", WeaponType.Projectil, "10", "6", "3+", "3+", "-1", "1"),
 	// Fait au dessus
@@ -25,7 +27,6 @@ public enum DokUnitWeapon implements IUnitWeapon {
 	Aiguillons("Aiguillons", WeaponType.Melee, "2", "*", "3+", "3+", "-", "1"),
 	ArcCherchecoeur("Arc Cherchecœur", WeaponType.Projectil, "24", "2", "3+", "3+", "-1", "1"),
 	ArmesSacrificielles("Armes Sacrificielles", WeaponType.Melee, "1", "3", "3+", "4+", "-", "1"),
-	CouteauxSacrificiels("Couteaux Sacrificiels", WeaponType.Melee, "1", "2", "3+", "4+", "-", "1"),
 	CouteauxSacrificiels_Chaudron(
 			"Couteaux Sacrificiels",
 			WeaponType.Melee,

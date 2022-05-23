@@ -203,17 +203,11 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Aelf, KeyWord.SoeurDuMassacre),
 			Arrays.asList()),
 
-
-
-
-
-
-	WitchAelves(
-			"Witch Aelves",
-			120,
+	Erinyes("Érinyes",
+			115,
 			UnitProfile._6_1_7_6,
 			Arrays.asList(RoleTactique.Ligne),
-			Arrays.asList(DokUnitWeapon.CouteauxSacrificiels),
+			Arrays.asList(),
 			null,
 			Arrays.asList(DokRule.FerveurFrenetique),
 			Arrays.asList(UnitOption.Chef, UnitOption.Banniere, UnitOption.Musicien, UnitOption.Armes,
