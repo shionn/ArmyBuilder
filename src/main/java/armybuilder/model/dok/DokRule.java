@@ -66,9 +66,11 @@ public enum DokRule implements IArmyRule<DokRule> {
 	MaitressesDesOmbrevoies("Maîtresses des Ombrevoies", ArmyRuleType.TraisDeBataille, ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeMouvement),
 
 	// Aptitude
+	AutelDeKhaine("Autel de Khaine", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDesHeros),
 	CoeurDeFerDeKhaine("Cœur de Fer de Khaine", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	DeuxCorpsUneSeuleAme("Deux corps, une seule âme", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	DeuxCorpsUneSeuleAme_Shadow("Deux corps, une seule âme", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	ImpactLame("Impact Lamé", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeCharge, ArmyRuleType.TraisUnitee),
 	MaitreDeGuerre("Maître de Guerre", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	PresenceIntimidante("Présence Intimidante", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	Sorcier_3_2_1("Sorcier", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
@@ -96,10 +98,6 @@ public enum DokRule implements IArmyRule<DokRule> {
 			ArmyRuleType.Aptitude,
 			ArmyRuleType.PhaseDesHeros,
 			ArmyRuleType.TraisUnitee),
-	AutelDeKhaine(
-			"Autel de Khaine",
-			ArmyRuleType.Aptitude,
-			ArmyRuleType.PhaseDesHeros),
 	BouclierDeSang("Bouclier de Sang", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	BouclierPerceCoeur("Bouclier Perce-coeur", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	BondDeLOmbre(
@@ -119,11 +117,6 @@ public enum DokRule implements IArmyRule<DokRule> {
 			"Griffe-murmure",
 			ArmyRuleType.Aptitude,
 			ArmyRuleType.PhaseDeCombat,
-			ArmyRuleType.TraisUnitee),
-	ImpactLame(
-			"Impact Lamé",
-			ArmyRuleType.Aptitude,
-			ArmyRuleType.PhaseDeCharge,
 			ArmyRuleType.TraisUnitee),
 	LaMortVientDuCiel("La Mort Vient du Ciel", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	ObjetDAdoration("Objet d'Adoration", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeDeroute),

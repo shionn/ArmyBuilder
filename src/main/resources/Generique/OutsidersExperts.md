@@ -1,0 +1,1 @@
+Les unités de ce bataillon ne peuvent pas être choisies quand votre adversaire effectue une fureur monstrueuse.

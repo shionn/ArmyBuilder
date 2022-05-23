@@ -80,11 +80,6 @@
 		<c:forEach items="${bat.rules()}" var="rule">
 			<t:rule rule="${rule}" army="${army}"/>
 		</c:forEach>
-	<!-- 	<div style="padding-bottom: 10px; display: flex; flex-wrap: wrap; justify-content: space-between;"> -->
-	<%-- 		<c:forEach items="#{army.units(o)}" var="unit"> --%>
-	<%-- 			<span style="width: 33%">${unit.displayName} ${unit.value}</span> --%>
-	<%-- 		</c:forEach> --%>
-	<!-- 	</div> -->
 	</c:forEach>
 </c:if>
 
@@ -106,96 +101,6 @@
 <c:forEach items="${army.units()}" var="model">
 	<t:unit model="${model}" army="${army}"/>
 </c:forEach>
-
-
-
-
-<!-- 		<div class="options"> -->
-<%-- 			<c:forEach items="${armyOptions}" var="opt"> --%>
-<%-- 				<c:if test="${not opt.select and not empty opt.getValues(army)}"> --%>
-<%-- 					<input type="checkbox" name="${opt}" class="ajax" data-url="<spring:url value="/${opt}"/>" --%>
-<%-- 							data-update="body>main"<c:if test="${army.option(opt) == 'Yes'}"> checked="checked"</c:if>>  --%>
-<%-- 					${opt.displayName} --%>
-<%-- 				</c:if> --%>
-<%-- 			</c:forEach> --%>
-<!-- 		</div> -->
-<%-- 		<c:if test="${not empty army.unitChoices}"> --%>
-<!-- 			<div class="options"> -->
-<%-- 				<select name="optimisation" class="ajax" data-url="<spring:url value="/optimisation/add"/>" data-update="body>main"> --%>
-<!-- 					<option value="" selected="selected">Optimisation</option> -->
-<%-- 					<c:forEach items="${army.optimisationChoices}" var="f"> --%>
-<%-- 						<option value="${f}">${f.getFullDisplayName()}</option> --%>
-<%-- 					</c:forEach> --%>
-<!-- 				</select> -->
-<!-- 			</div> -->
-<%-- 		</c:if> --%>
-
-
-<!-- 		<div style="page-break-inside:avoid"> -->
-<!-- 			<h1> -->
-<%-- 				${army.option(ArmyOption.Allegiance).displayName} - --%>
-<%-- 				<small>${army.option(ArmyOption.PackDeBataille).displayName}</small> --%>
-<%-- 				<span>${army.value}</span> --%>
-<!-- 			</h1> -->
-<%-- 			<c:if test="${not empty army.option('GrandeStrategie')}"> --%>
-<!-- 				<h2>Grande Strategie</h2> -->
-<%-- 				<t:rule rule="${army.option('GrandeStrategie')}" army="${army}"/> --%>
-<%-- 			</c:if> --%>
-
-<%-- 			<c:if test="${not empty army.getRules('TraisDeBataille')}"> --%>
-<%-- 				<h2>Aptitudes D'Allégeance - <small>${army.option('SubAllegiance').displayName}</small></h2> --%>
-<%-- 				<c:forEach items="${army.getRules('TraisDeBataille')}" var="rule"> --%>
-<%-- 					<t:rule rule="${rule}" army="${army}"/> --%>
-<%-- 				</c:forEach> --%>
-<%-- 				<c:forEach items="${army.getRules('SubAllegiance')}" var="rule"> --%>
-<%-- 					<t:rule rule="${rule}" army="${army}"/> --%>
-<%-- 				</c:forEach> --%>
-<%-- 			</c:if> --%>
-<!-- 		</div> -->
-
-<!-- 		<div style="page-break-after:always"> -->
-<!-- 			<h2>Composition</h2> -->
-<!-- 			<div style="padding-bottom: 10px; display: flex; flex-wrap: wrap; justify-content: space-between;"> -->
-<%-- 				<c:forEach items="${army.units}" var="unit"> --%>
-<!-- 					<div style="width: 33%"> -->
-<%-- 						<a href='<spring:url value="/unit/remove/${unit.hashCode()}"/>'>X</a> --%>
-<%-- 						${unit.displayName} --%>
-<%-- 						${unit.value} --%>
-<!-- 					</div> -->
-<%-- 				</c:forEach> --%>
-<!-- 			</div> -->
-<!-- 			<div style="page-break-inside:avoid"> -->
-<!-- 			</div> -->
-<!-- 			<div style="page-break-inside:avoid"> -->
-<%-- 				<c:forEach items="${army.optimisations}" var="opti"> --%>
-<!-- 					<article class="unit" style="page-break-inside:avoid;"> -->
-<!-- 						<header> -->
-<%-- 							<span><a href='<spring:url value="/optimisation/remove/${opti.hashCode()}"/>'>X</a></span> --%>
-<%-- 							${opti.getFullDisplayName()} --%>
-<!-- 							<span> </span> -->
-<!-- 						</header> -->
-<!-- 						<main> -->
-<!-- 							<div> -->
-<%-- 								<c:forEach items="${opti.getDisplayedRules()}" var="rule"> --%>
-<%-- 									<t:rule rule="${rule}" army="${army}" displayUnit="false"/> --%>
-<%-- 								</c:forEach> --%>
-<!-- 							</div> -->
-<!-- 						</main> -->
-<!-- 					</article> -->
-<%-- 				</c:forEach> --%>
-<!-- 			</div> -->
-<%-- 			<c:forEach items="${army.units}" var="unit"> --%>
-<%-- 				<t:unit army="${army}" unit="${unit}"/> --%>
-<%-- 			</c:forEach> --%>
-<!-- 		</div> -->
-<%-- 		<c:forEach items="${turn.phases}" var="p"> --%>
-<!-- 			<div> -->
-<%-- 				<h1>${p.name}</h1> --%>
-<%-- 				<c:forEach items="${p.steps}" var="s"> --%>
-<%-- 					<t:rule-group types="${s}"/> --%>
-<%-- 				</c:forEach> --%>
-<!-- 			</div> -->
-<%-- 		</c:forEach> --%>
 	</jsp:attribute>
 	<jsp:attribute name="scripts">
 		<script type="text/javascript" src='<spring:url value="/js/army.js"/>'></script>

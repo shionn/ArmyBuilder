@@ -9,8 +9,12 @@ public enum DokUnitWeapon implements IUnitWeapon {
 	CouronneDeSerpents("Couronne de Serpents", WeaponType.Melee, "1", "2D6", "3+", "3+", "-", "1"),
 	EcorcheCoeur("Écorche-cœur", WeaponType.Melee, "2", "3", "3+", "3+", "-2", "D3"),
 	EcorcheCoeur_Shadow("Écorche-cœur", WeaponType.Melee, "2", "*", "3+", "3+", "-2", "3"),
+	EpeeDAvatar("Épée d'Avatar", WeaponType.Melee, "2", "4", "3+", "3+", "-2", "3"),
+	EpeeDeMortEtLameDeKhaine("Épée de Mort et Lame de Khaine", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "D3"),
 	QueueVenimeuse("Queue Venimeuse", WeaponType.Melee, "3", "1", "3+", "3+", "-2", "*"),
 	RegardDeLaReineDeLOmbre("Regard de la Reine de l'Ombre", WeaponType.Projectil, "18", "1", "2+", "2+", "-3", "D6"),
+	Sciansa_Chaudron("Sciansá", WeaponType.Melee, "1", "*", "3+", "4+", "-", "1"),
+	TorrentdeSangBrulant("Torrent de Sang Brûlant", WeaponType.Projectil, "10", "6", "3+", "3+", "-1", "1"),
 	// Fait au dessus
 
 	Aiguillons("Aiguillons", WeaponType.Melee, "2", "*", "3+", "3+", "-", "1"),
@@ -27,8 +31,6 @@ public enum DokUnitWeapon implements IUnitWeapon {
 			"4+",
 			"-",
 			"1"),
-	EpeeDAvatar("Épée d'Avatar", WeaponType.Melee, "2", "4", "3+", "3+", "-2", "3"),
-	EpeeDeMort("Épée de mort", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "D3"),
 	FouetBarbele("Fouet Barbelé", WeaponType.Melee, "2", "2", "3+", "4+", "-", "1"),
 	GuivreDeSang("Guivre de Sang", WeaponType.Melee, "1", "1", "3+", "3+", "-", "1"),
 	GriffeMurmure("Griffe-murmure ", WeaponType.Melee, "1", "4", "4+", "3+", "-", "1"),
@@ -44,15 +46,6 @@ public enum DokUnitWeapon implements IUnitWeapon {
 	QueueDeSerpents("Queue de Serpents", WeaponType.Melee, "2", "D6", "4+", "4+", "-", "1"),
 	RegardIncarnat("Regard Incarnat", WeaponType.Projectil, "12", "--", "--", "*", "--", "--"),
 	Scianlar("Scianlar", WeaponType.Melee, "1", "2", "3+", "4+", "-", "1"),
-	TorrentdeSangBrulant(
-			"Torrent de Sang Brûlant",
-			WeaponType.Projectil,
-			"10",
-			"6",
-			"3+",
-			"3+",
-			"-1",
-			"1"),
 	VougeBrisecoeur("Vouge Brisecœur", WeaponType.Melee, "2", "3", "3+", "3+", "-1", "1"),
 	VougeDeKhaine("Vouge de Khaine", WeaponType.Melee, "2", "3", "3+", "3+", "-1", "1"),
 

@@ -63,6 +63,22 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(),
 			null),
 
+	ReineDuMassacreSurChaudronDeSang(
+			"Reine du Massacre sur Chaudron de Sang",
+			315,
+			UnitProfile._S_13_8_5,
+			Arrays.asList(RoleTactique.Leader, RoleTactique.Behemoth),
+			Arrays.asList(DokUnitWeapon.TorrentdeSangBrulant, DokUnitWeapon.EpeeDAvatar,
+					DokUnitWeapon.EpeeDeMortEtLameDeKhaine, DokUnitWeapon.Sciansa_Chaudron),
+			new ProfileDegressif("Mouvement", DokUnitWeapon.Sciansa_Chaudron.getDisplayName(),
+					DokRule.BouclierDeSang.displayName()).add("0-6", "6\"", "8", "18\"")
+					.add("7-8", "5\"", "7", "15\"")
+					.add("9-10", "4\"", "6", "10\"")
+					.add("11+", "3\"", "5", "6\""),
+			Arrays.asList(DokRule.AutelDeKhaine, DokRule.ImpactLame) // todo
+
+	),
+
 	// Fait au dessus
 
 	SanctuaireIncarant(
@@ -188,7 +204,7 @@ public enum DokUnitModel implements IUnitModel {
 			110,
 			UnitProfile._6_5_8_5,
 			Arrays.asList(RoleTactique.Leader),
-			Arrays.asList(DokUnitWeapon.EpeeDeMort, DokUnitWeapon.LameDeKhaine),
+			Arrays.asList(DokUnitWeapon.EpeeDeMortEtLameDeKhaine, DokUnitWeapon.LameDeKhaine),
 			null,
 			Arrays.asList(DokRule.DanseDAgonie, DokRule.RuneDeKhaine_Priere, DokRule.CaresseDeLaMort,
 					DokRule.OrgieDeMassacre),

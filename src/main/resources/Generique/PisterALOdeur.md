@@ -1,0 +1,1 @@
+Après le placement des armées mais avant le début du premier round de bataille, vous pouvez faire un mouvement normal de jusqu'à D6" avec chaque ouinité de ce bataillon.
