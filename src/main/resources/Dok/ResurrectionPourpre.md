@@ -1,0 +1,1 @@
+Résurection Pourpre a une valeur d'exaucement de 3 et une portée de 14". Si cette prière est entendue, choisissez 1 unité __Filles de Khaine__ amie entièrement à portée et visible du prêtre. Guérissez jusqu'à D3 blessures allouées à l'unité.

@@ -1,1 +1,0 @@
-À la fin de la phase de combat, vous pouvez jeter un dé pour chaque unité **Sisters of Slaughter Kraith** amie qui a combattu une fois à cette phase. Sur 5+, l'unité peut combattre une seconde fois.

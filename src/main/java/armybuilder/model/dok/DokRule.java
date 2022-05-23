@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
 
-import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.rule.ArmyRuleType;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.serialisation.DescriptionReader;
@@ -16,6 +15,12 @@ public enum DokRule implements IArmyRule<DokRule> {
 	RitesDeSang("Rites de Sang", ArmyRuleType.TraisDeBataille),
 	FureurDeBataille("Fureur de Bataille", ArmyRuleType.TraisDeBataille, ArmyRuleType.ActionsHeroiques),
 	MassacreTotal("Massacre total", ArmyRuleType.TraisDeBataille, ArmyRuleType.AptitudesDeCommandement),
+	// TraisDeBataille sous allegiance
+	DisciplesDuMassacre("Disciples du Massacre", ArmyRuleType.TraisDeBataille),
+	FillesDuPremierTemple("Filles du Premier Temple", ArmyRuleType.TraisDeBataille),
+	FrapperEtSeRetirer("Frapper et se Retirer", ArmyRuleType.TraisDeBataille),
+	TueusesHerisseesDeLames("Tueuses Hérissées de Lames", ArmyRuleType.TraisDeBataille),
+	LessenceDeKhaine("L'essence de Khaine", ArmyRuleType.TraisDeBataille),
 
 	// TraitsDeCommandement
 	BainDeSang("Bain de Sang", ArmyRuleType.TraitsDeCommandement),
@@ -41,11 +46,12 @@ public enum DokRule implements IArmyRule<DokRule> {
 	Affaiblissement(ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 	DanseSymetrique("Danse Symétrique", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 	DestrierDOmbres("Destrier d'Ombre", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	HorreurNoireDUlgu("Horreur Noire d'Ulgu", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 	PuitsDeTenebres("Puits de Ténèbres", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 	RasoirMental("Rasoir Mental", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 	SuaireDeDesespoir("Suaire de Désespoir", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 
-	// ---- fait au dessus
+	// Prieres
 	BenedictionDeKhaine("Bénédiction de Khaine", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	CatechismeDuMeurtre("Catéchisme Du Meurtre", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	CouventDuCoeurDeFer("Couvent du Cœur de Fer", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
@@ -53,15 +59,26 @@ public enum DokRule implements IArmyRule<DokRule> {
 	SacrificeDuMartyr("Sacrifice du Martyr", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	ResurrectionPourpre("Résurrection Pourpre", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 
+	// Aptitude de Commandement
+	VenerationParLeSang("Vénération par le Sang", ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDesHeros, ArmyRuleType.TraisUnitee),
 
+	// Aptitude de Commandement sous allegiance
+	MaitressesDesOmbrevoies("Maîtresses des Ombrevoies", ArmyRuleType.TraisDeBataille, ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeMouvement),
+
+	// Aptitude
+	CoeurDeFerDeKhaine("Cœur de Fer de Khaine", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	DeuxCorpsUneSeuleAme("Deux corps, une seule âme", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	DeuxCorpsUneSeuleAme_Shadow("Deux corps, une seule âme", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	MaitreDeGuerre("Maître de Guerre", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	PresenceIntimidante("Présence Intimidante", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	Sorcier_3_2_1("Sorcier", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	FureurDeLaReineDeLOmbre("Fureur de la Reine de l'Ombre", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+
+
+	// ---- Fait au dessus
+	//
 	CrypteDesAinee("Crypte des Aînée", ArmyRuleType.TraisDeBataille),
-	DisciplesDuMassacre("Disciples du Massacre", ArmyRuleType.TraisDeBataille),
 	DissimulationEtDiscretion("Dissimulation et Discrétion", ArmyRuleType.TraisDeBataille),
-	FillesDuPremierTemple("Filles du Premier Temple", ArmyRuleType.TraisDeBataille),
-	FrapperEtSeRetirer("Frapper et se Retirer", ArmyRuleType.TraisDeBataille),
-	LessenceDeKhaine("L'essence de Khaine", ArmyRuleType.TraisDeBataille),
-	TueusesHerisseesDeLames("Tueuses Hérissées de Lames", ArmyRuleType.TraisDeBataille),
-
 
 	//
 	Hag("Hag", ArmyRuleType.Composition),
@@ -96,21 +113,8 @@ public enum DokRule implements IArmyRule<DokRule> {
 			ArmyRuleType.PhaseDesHeros,
 			ArmyRuleType.TraisUnitee),
 	Cherchecoeurs("Cherchecœurs", ArmyRuleType.Aptitude),
-	CoeurDeFerDeKhaine("Cœur de Fer de Khaine", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	DanseDeLaMort("Danse de la Mort", ArmyRuleType.Aptitude),
-	DeuxCorpsUneSeuleAme(
-			"Deux corps, une seule âme",
-			ArmyRuleType.Aptitude,
-			ArmyRuleType.TraisUnitee),
-	DeuxCorpsUneSeuleAme_Shadow(
-			"Deux corps, une seule âme",
-			ArmyRuleType.Aptitude,
-			ArmyRuleType.TraisUnitee),
 	FerveurFrenetique("Ferveur Frénétique", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeCombat),
-	FureurDeLaReineDeLOmbre(
-			"Fureur de la Reine de l'Ombre",
-			ArmyRuleType.Aptitude,
-			ArmyRuleType.TraisUnitee),
 	GriffeMurmure(
 			"Griffe-murmure",
 			ArmyRuleType.Aptitude,
@@ -134,7 +138,6 @@ public enum DokRule implements IArmyRule<DokRule> {
 			ArmyRuleType.Aptitude,
 			ArmyRuleType.PhaseDeMouvement,
 			ArmyRuleType.TraisUnitee),
-	PresenceIntimidante("Présence Intimidante", ArmyRuleType.Aptitude),
 	ProfiterDeLOmbre("Profiter de l'Ombre", ArmyRuleType.Aptitude),
 	ProjectilesMaudits("Projectiles Maudits", ArmyRuleType.Aptitude),
 	RegardIncarnat(
@@ -178,11 +181,6 @@ public enum DokRule implements IArmyRule<DokRule> {
 			ArmyRuleType.TraisDeBataille,
 			ArmyRuleType.AptitudesDeCommandement,
 			ArmyRuleType.PhaseDeCombat),
-	MaitressesDesOmbrevoies(
-			"Maîtresses des Ombrevoies",
-			ArmyRuleType.TraisDeBataille,
-			ArmyRuleType.AptitudesDeCommandement,
-			ArmyRuleType.PhaseDeMouvement),
 	OrgieDeMassacre(
 			"Orgie de Massacre",
 			ArmyRuleType.TraisDeBataille,
@@ -199,11 +197,6 @@ public enum DokRule implements IArmyRule<DokRule> {
 			ArmyRuleType.TraisDeBataille,
 			ArmyRuleType.AptitudesDeCommandement,
 			ArmyRuleType.PhaseDeCombat),
-	VenerationParLeSang(
-			"Vénération par le Sang",
-			ArmyRuleType.AptitudesDeCommandement,
-			ArmyRuleType.PhaseDesHeros,
-			ArmyRuleType.TraisUnitee),
 
 	AnimeParLaVengeance("Animé par la Vengeance", ArmyRuleType.TraitsDeCommandement),
 	AnneauxOndulants("Anneaux Ondulants", ArmyRuleType.TraitsDeCommandement),
@@ -240,7 +233,6 @@ public enum DokRule implements IArmyRule<DokRule> {
 
 	//
 	Deperissement("Dépérissement", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
-	HorreurNoireDUlgu("Horreur Noire d'Ulgu", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 
 	//
 
@@ -329,11 +321,6 @@ public enum DokRule implements IArmyRule<DokRule> {
 	@Override
 	public String toString() {
 		return name() + getTypes();
-	}
-
-	@Override
-	public void rebuild(OldArmy army) {
-
 	}
 
 }

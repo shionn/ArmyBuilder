@@ -1,1 +1,0 @@
-Si cette prière est entendue, choisissez 1 unité **Daughters of Khaine** amie entièrement à 14" ou moins de cette figurine. Guérissez jusqu'à D3 blessures allouées à l'unité.

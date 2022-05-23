@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.rule.ArmyRuleType;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.serialisation.DescriptionReader;
@@ -19,7 +18,6 @@ public enum GeneriqueUnitRule implements IArmyRule<GeneriqueUnitRule> {
 	Sorcier_1_2("Magie", ArmyRuleType.Aptitude),
 	Sorcier_2_2("Magie", ArmyRuleType.Aptitude),
 	Sorcier_3_2_1("Magie", ArmyRuleType.Aptitude),
-	Sorcier_3_2_1_Morathi("Magie", ArmyRuleType.Aptitude),
 	
 	Vol(ArmyRuleType.Aptitude), 
 	
@@ -72,11 +70,6 @@ public enum GeneriqueUnitRule implements IArmyRule<GeneriqueUnitRule> {
 			return name();
 		}
 		return displayName;
-	}
-
-	@Override
-	public void rebuild(OldArmy army) {
-
 	}
 
 }

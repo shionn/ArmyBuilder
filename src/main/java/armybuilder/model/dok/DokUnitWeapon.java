@@ -4,11 +4,18 @@ import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.model.unit.weapon.WeaponType;
 
 public enum DokUnitWeapon implements IUnitWeapon {
-	Aiguillons("Aiguillons", WeaponType.Melee, "2", "*", "3+", "3+", "-", "1"),
+
 	AilesLamees("Ailes Lamées", WeaponType.Melee, "2", "6", "3+", "3+", "-1", "1"),
+	CouronneDeSerpents("Couronne de Serpents", WeaponType.Melee, "1", "2D6", "3+", "3+", "-", "1"),
+	EcorcheCoeur("Écorche-cœur", WeaponType.Melee, "2", "3", "3+", "3+", "-2", "D3"),
+	EcorcheCoeur_Shadow("Écorche-cœur", WeaponType.Melee, "2", "*", "3+", "3+", "-2", "3"),
+	QueueVenimeuse("Queue Venimeuse", WeaponType.Melee, "3", "1", "3+", "3+", "-2", "*"),
+	RegardDeLaReineDeLOmbre("Regard de la Reine de l'Ombre", WeaponType.Projectil, "18", "1", "2+", "2+", "-3", "D6"),
+	// Fait au dessus
+
+	Aiguillons("Aiguillons", WeaponType.Melee, "2", "*", "3+", "3+", "-", "1"),
 	ArcCherchecoeur("Arc Cherchecœur", WeaponType.Projectil, "24", "2", "3+", "3+", "-1", "1"),
 	ArmesSacrificielles("Armes Sacrificielles", WeaponType.Melee, "1", "3", "3+", "4+", "-", "1"),
-	CouronneDeSerpents("Couronne de Serpents", WeaponType.Melee, "1", "2D6", "3+", "3+", "-", "1"),
 	CouteauxSacrificiel("Couteaux Sacrificiel", WeaponType.Melee, "1", "1", "3+", "4+", "-", "1"),
 	CouteauxSacrificiels("Couteaux Sacrificiels", WeaponType.Melee, "1", "2", "3+", "4+", "-", "1"),
 	CouteauxSacrificiels_Chaudron(
@@ -20,8 +27,6 @@ public enum DokUnitWeapon implements IUnitWeapon {
 			"4+",
 			"-",
 			"1"),
-	EcorcheCoeur("Écorche-cœur", WeaponType.Melee, "2", "3", "3+", "3+", "-1", "D3"),
-	EcorcheCoeur_Shadow("Écorche-cœur", WeaponType.Melee, "2", "*", "3+", "3+", "-1", "3"),
 	EpeeDAvatar("Épée d'Avatar", WeaponType.Melee, "2", "4", "3+", "3+", "-2", "3"),
 	EpeeDeMort("Épée de mort", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "D3"),
 	FouetBarbele("Fouet Barbelé", WeaponType.Melee, "2", "2", "3+", "4+", "-", "1"),
@@ -37,17 +42,7 @@ public enum DokUnitWeapon implements IUnitWeapon {
 	LameObscures("Lames Obscures", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "D3"),
 	ProjectilesMaudits("Projectiles Maudits", WeaponType.Projectil, "6", "1", "4+", "3+", "-", "1"),
 	QueueDeSerpents("Queue de Serpents", WeaponType.Melee, "2", "D6", "4+", "4+", "-", "1"),
-	QueueVenimeuse("Queue Venimeuse", WeaponType.Melee, "3", "1", "3+", "3+", "-2", "*"),
 	RegardIncarnat("Regard Incarnat", WeaponType.Projectil, "12", "--", "--", "*", "--", "--"),
-	RegardDeLaReineDeLOmbre(
-			"Regard de la Reine de l'Ombre",
-			WeaponType.Projectil,
-			"18",
-			"1",
-			"2+",
-			"2+",
-			"-2",
-			"D6"),
 	Scianlar("Scianlar", WeaponType.Melee, "1", "2", "3+", "4+", "-", "1"),
 	TorrentdeSangBrulant(
 			"Torrent de Sang Brûlant",

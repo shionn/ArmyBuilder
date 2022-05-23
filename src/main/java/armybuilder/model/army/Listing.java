@@ -17,6 +17,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import armybuilder.model.army.compare.UnitComparator;
 import armybuilder.model.army.compare.UnitModelComparator;
+import armybuilder.model.army.option.Allegiance;
 import armybuilder.model.army.option.IListingOptionValue;
 import armybuilder.model.army.option.ListingOption;
 import armybuilder.model.army.option.SubAllegiance;
@@ -76,6 +77,10 @@ public class Listing {
 
 	public SubAllegiance subAllegiance() {
 		return (SubAllegiance) this.options.get(ListingOption.SubAllegiance);
+	}
+
+	public boolean is(Allegiance allegiance) {
+		return subAllegiance().allegiance() == allegiance;
 	}
 
 	/** bataillon */

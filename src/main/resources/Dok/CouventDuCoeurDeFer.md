@@ -1,0 +1,1 @@
+Couvent du Cœur de Fer a une valeur d'exaucement de 3 et une portée de 14". Si cette prière est entendue, choisissez 1 unité __Filles de Khaine__ amie entièrement à portée et visible du prêtre. Jusqu'à votre prochaine phase des héros, ne faites pas de tests de déroute pour l'unité.

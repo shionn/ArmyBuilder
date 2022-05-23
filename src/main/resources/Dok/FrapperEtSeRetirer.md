@@ -1,0 +1,1 @@
+Les unités __Khelt Nar__ amies peuvent se replier et néanmoins charger	au même tour.

@@ -1,0 +1,1 @@
+Cette unité peut tenter de lancer 3 sorts à votre phase de héros adverse. Si cette unité fait partie d'une armée de __Filles de Khaine__, elle connaît tous les sorts du Domaine des Ombres en plus des sorts qu'elle connaît.

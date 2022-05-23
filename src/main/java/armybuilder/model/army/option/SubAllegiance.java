@@ -15,27 +15,27 @@ import armybuilder.model.nighthaunt.NighthauntRule;
 public enum SubAllegiance implements IListingOptionValue<SubAllegiance>, Comparator<SubAllegiance> {
 	DraichiGaneth(
 			"Temple : Draichi Ganeth",
-			Arrays.asList(DokRule.TueusesHerisseesDeLames, DokRule.UnMillierDeStyles),
+			Arrays.asList(DokRule.TueusesHerisseesDeLames),
 			a -> a.is(Allegiance.DoK),
 			Allegiance.DoK),
 	HaggNar(
 			"Temple : Hagg Nar",
-			Arrays.asList(DokRule.FillesDuPremierTemple, DokRule.AvancezLesChaudrons),
+			Arrays.asList(DokRule.FillesDuPremierTemple),
 			a -> a.is(Allegiance.DoK),
 			Allegiance.DoK),
 	KheltNar(
 			"Temple : Khelt Nar",
-			Arrays.asList(DokRule.FrapperEtSeRetirer, DokRule.SaignerLEsprit),
+			Arrays.asList(DokRule.FrapperEtSeRetirer),
 			a -> a.is(Allegiance.DoK),
 			Allegiance.DoK),
 	Khailebron(
 			"Temple : Khailebron",
-			Arrays.asList(DokRule.DissimulationEtDiscretion, DokRule.MaitressesDesOmbrevoies),
+			Arrays.asList(DokRule.MaitressesDesOmbrevoies),
 			a -> a.is(Allegiance.DoK),
 			Allegiance.DoK),
 	Kraith(
 			"Temple : Kraith",
-			Arrays.asList(DokRule.DisciplesDuMassacre, DokRule.ExalteesParLeCarnage),
+			Arrays.asList(DokRule.DisciplesDuMassacre),
 			a -> a.is(Allegiance.DoK),
 			Allegiance.DoK),
 	LOstEmeraude(
@@ -45,7 +45,7 @@ public enum SubAllegiance implements IListingOptionValue<SubAllegiance>, Compara
 			Allegiance.Nighthaunt),
 	ZaintharKai(
 			"Temple : Zainthar Kai",
-			Arrays.asList(DokRule.LessenceDeKhaine, DokRule.CrypteDesAinee, DokRule.LePouvoirDuSang),
+			Arrays.asList(DokRule.LessenceDeKhaine),
 			a -> a.is(Allegiance.DoK),
 			Allegiance.DoK),
 

@@ -1,0 +1,1 @@
+Chaque fois qu'une figurine d'une unité __Melusai Zainthar Kai__ amie est tuée, cette figurine peut combattre avant d'être retirée du jeu.

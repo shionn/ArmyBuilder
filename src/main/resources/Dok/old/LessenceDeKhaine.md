@@ -1,1 +1,0 @@
-Ajoutez 1 à la caractéristique Bravoure des unités **Melusai Zainthar Kai** et **Khinerai Harpies Zainthar Kai**.

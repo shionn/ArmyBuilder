@@ -64,7 +64,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	// ---- fait au dessus
 	BeauteTerrifiante(
 			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.DaughtersOfKhaine)
+			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.FilleDeKhaine)
 					&& u.is(KeyWord.Aelf)),
 
 	AnneauxOndulants(
@@ -107,13 +107,13 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	// Artefact
 	CrocDeShadracar(
 			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.DaughtersOfKhaine)),
+			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.FilleDeKhaine)),
 	AmuletteDeFeuNoir(
 			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.DaughtersOfKhaine)),
+			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.FilleDeKhaine)),
 	MilleEtUneSombresMaledictions(
 			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.DaughtersOfKhaine)),
+			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.FilleDeKhaine)),
 
 	RuneDUlgu(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.BloodwrackMedusa)),
 	LeVougeMiroir(
@@ -125,15 +125,15 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 
 	DiademeDeFer(
 			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.DaughtersOfKhaine)
+			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.FilleDeKhaine)
 					&& u.is(KeyWord.Pretre)),
 	EclatPourpre(
 			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.DaughtersOfKhaine)
+			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.FilleDeKhaine)
 					&& u.is(KeyWord.Pretre)),
 	BreuvageDeMatriarche(
 			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.DaughtersOfKhaine)
+			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.FilleDeKhaine)
 					&& u.is(KeyWord.Pretre)),
 
 	// Artefact de sous allegiance

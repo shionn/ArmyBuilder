@@ -1,0 +1,1 @@
+Améliorez de 1 la caractéristique de Perforation des armes de mêlée des unités **Érinyes Draichi Ganeth** amies et des unités **Sœur du Massacre Draichi Ganeth** amies si l'unité a fait un mouvement de charge au même tour.

@@ -2,17 +2,26 @@ package armybuilder.model.army.option.bataillon;
 
 import java.util.function.Function;
 
+import armybuilder.model.dok.DokUnitModel;
+import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.RoleTactique;
 import armybuilder.model.unit.Unit;
 
 public enum BataillonSlot {
 
+	Artillerie(u -> u.is(RoleTactique.Artillerie)),
 	Commandant(u -> u.is(RoleTactique.Leader)),
+	Monstre(u -> u.is(RoleTactique.Behemoth) && !u.is(RoleTactique.Leader)),
 	SousCommandant(u -> u.is(RoleTactique.Leader)),
 	Troupe(u -> u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite)),
-	Artillerie(u -> u.is(RoleTactique.Artillerie)),
-	Monstre(u -> u.is(RoleTactique.Behemoth) && !u.is(RoleTactique.Leader));
-	
+	// Dok
+	ConjurateursDuFauMaudit(u -> u.is(DokUnitModel.ConjurateursDuFauMaudit)),
+	GuerriereKhinerai(u -> u.is(DokUnitModel.KhineraiHeartrenders) || u.is(DokUnitModel.EgorgeusesKhinerai)),
+	GuerriereMelusai(u -> u.is(DokUnitModel.BloodSisters) || u.is(DokUnitModel.BloodStalkers)),
+	KhainiteLeader(u -> u.is(KeyWord.MeduseIncarnate) || u.is(KeyWord.FerecailleMelusai)),
+	Morathi(u -> u.is(DokUnitModel.MorathiKhaine) || u.is(DokUnitModel.LaShadowQueen)),
+
+	;
 	private Function<Unit, Boolean> is;
 
 	private BataillonSlot(Function<Unit, Boolean> is) {

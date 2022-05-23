@@ -1,0 +1,1 @@
+Vous pouvez utiliser cette aptitude de commandement à la fin de votre phase de mouvement. L'ordre ne peut être donné que par une __Héros Khailebron__ amie, et l'unité" qui reçoit l'ordre doit pêtre une unitée __Khailebron__ amie. Retirez l'unité du champ de bataille et replacez-la n'importe où sur le champ de bataille à plus de 9" de toute unité ennemie.

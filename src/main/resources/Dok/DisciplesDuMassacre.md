@@ -1,0 +1,1 @@
+À la fin de la phase de combat, vous pouvez jeter un dé pour chaque unité **Sœur du Massacre Kraith** amie qui a combattu une fois à cette phase. Sur 4+, l'unité peut combattre une seconde fois. L'effet frappe en dernier s'applique à cette unité quand elle combat pour cette seconde fois.

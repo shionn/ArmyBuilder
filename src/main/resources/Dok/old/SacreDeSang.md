@@ -1,1 +1,0 @@
-Si cette prière est entendue, choisissez 1 unité **Daughters of Khaine** amie entièrement à 14" ou moins de cette figurine. Jusqu'à votre prochaine phase des héros, ajoutez 1 	au numéro du round de bataille actuel pour déterminer les aptitudes gagnées par l'unité grâce au trait de bataille Rites de Sang (p. 61). Ces aptitudes et d'autres aptitudes similaires sont cumulatives.

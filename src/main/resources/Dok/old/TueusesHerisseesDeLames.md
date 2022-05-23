@@ -1,1 +1,0 @@
-Améliorez de 1 la caractéristique de Perforation des armes de mêlée des unités **Witch Aelves Draichi Ganeth** amies et des unités **Sisters of Slaughter Draichi Ganeth** amies si l'unité a fait un mouvement de charge au même tour.
