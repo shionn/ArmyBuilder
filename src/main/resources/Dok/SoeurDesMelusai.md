@@ -1,0 +1,1 @@
+Au début de votre phase de combat, vous pouvez choisir 1 unité de __Melusaĩ__ amie entiermeent à 12" de cette unité. Ajoutez 1 au numero du round de bataille en cours pour déterminer les aptitudes gagnées par l'unité choisie grâce au trait de bataille Rites de Sang jusqu'à la fin de la phase. Cette aptitude se cumule avec les autres aptitudes similaires.
