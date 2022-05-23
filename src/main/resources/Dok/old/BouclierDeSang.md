@@ -1,1 +1,0 @@
-Ajoutez 1 aux jets de sauvegarde contre les attaques qui ciblent des unités **Daughters of Khaine** amies tant qu'elles sont entièrement à portée d'une ou plusieurs figurines amies ayant cette aptit ude. La portée de l'aptitude Bouclier d e Sang de cette figurine est indiquée sur son ta bleau de dégâts. 

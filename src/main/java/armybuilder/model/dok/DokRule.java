@@ -53,13 +53,16 @@ public enum DokRule implements IArmyRule<DokRule> {
 
 	// Prieres
 	BenedictionDeKhaine("Bénédiction de Khaine", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+	CaresseDeLaMort("Caresse de la Mort", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	CatechismeDuMeurtre("Catéchisme Du Meurtre", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	CouventDuCoeurDeFer("Couvent du Cœur de Fer", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
+	DanseMaudite("Danse Maudite", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	SacreDeSang("Sacre de Sang", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	SacrificeDuMartyr("Sacrifice du Martyr", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	ResurrectionPourpre("Résurrection Pourpre", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 
 	// Aptitude de Commandement
+	OrgieDeMassacre("Orgie de Massacre", ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDesHeros, ArmyRuleType.TraisUnitee),
 	VenerationParLeSang("Vénération par le Sang", ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDesHeros, ArmyRuleType.TraisUnitee),
 
 	// Aptitude de Commandement sous allegiance
@@ -67,15 +70,28 @@ public enum DokRule implements IArmyRule<DokRule> {
 
 	// Aptitude
 	AutelDeKhaine("Autel de Khaine", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDesHeros),
+	BouclierDeSang("Bouclier de Sang", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	BrouetDeSang("Brouet de Sang", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDesHeros, ArmyRuleType.TraisUnitee),
+	CoupDeGrace("Coup de Grâce", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	CoeurDeFerDeKhaine("Cœur de Fer de Khaine", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	DanseDeLaMort("Danse de la Mort", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	DeuxCorpsUneSeuleAme("Deux corps, une seule âme", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	DeuxCorpsUneSeuleAme_Shadow("Deux corps, une seule âme", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	ImpactLame("Impact Lamé", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeCharge, ArmyRuleType.TraisUnitee),
 	MaitreDeGuerre("Maître de Guerre", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	PacteDeSang("Pacte de Sang", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	ParangonDuMassacre("Parangon du Massacre", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	PresenceIntimidante("Présence Intimidante", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	Sorcier_3_2_1("Sorcier", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	FureurDeLaReineDeLOmbre("Fureur de la Reine de l'Ombre", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 
+	// Conposition
+	PorteuseDePennonDeMort("Porteuse de Pennon de Mort", ArmyRuleType.Composition),
+	Servante("Servante", ArmyRuleType.Composition), 
+	SonneuseDeCor("Sonneuse de Cor", ArmyRuleType.Composition),
+
+	// Armes
+	RondacheTranchante("Rondache Tranchante", ArmyRuleType.Aptitude),
 
 	// ---- Fait au dessus
 	//
@@ -84,9 +100,6 @@ public enum DokRule implements IArmyRule<DokRule> {
 
 	//
 	Hag("Hag", ArmyRuleType.Composition),
-	Handmaiden("Handmaiden", ArmyRuleType.Composition),
-	PorteEtendard("Porte-Étendard", ArmyRuleType.Composition),
-	SonneuseDeCor("Sonneuse de Cor", ArmyRuleType.Composition),
 	Gorgai("Gorgaï", ArmyRuleType.Composition),
 	ShroudQueen("Shroud Queen", ArmyRuleType.Composition),
 	Krone("Krone", ArmyRuleType.Composition),
@@ -98,20 +111,13 @@ public enum DokRule implements IArmyRule<DokRule> {
 			ArmyRuleType.Aptitude,
 			ArmyRuleType.PhaseDesHeros,
 			ArmyRuleType.TraisUnitee),
-	BouclierDeSang("Bouclier de Sang", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	BouclierPerceCoeur("Bouclier Perce-coeur", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	BondDeLOmbre(
 			"Bond de l'Ombre",
 			ArmyRuleType.Aptitude,
 			ArmyRuleType.PhaseDeMouvement,
 			ArmyRuleType.TraisUnitee),
-	BrouetDeSang(
-			"Brouet de Sang",
-			ArmyRuleType.Aptitude,
-			ArmyRuleType.PhaseDesHeros,
-			ArmyRuleType.TraisUnitee),
 	Cherchecoeurs("Cherchecœurs", ArmyRuleType.Aptitude),
-	DanseDeLaMort("Danse de la Mort", ArmyRuleType.Aptitude),
 	FerveurFrenetique("Ferveur Frénétique", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeCombat),
 	GriffeMurmure(
 			"Griffe-murmure",
@@ -138,7 +144,6 @@ public enum DokRule implements IArmyRule<DokRule> {
 			ArmyRuleType.Aptitude,
 			ArmyRuleType.PhaseDeTir,
 			ArmyRuleType.TraisUnitee),
-	RondacheTranchante("Rondache Tranchante", ArmyRuleType.Aptitude),
 	SangDeLOracle("Sang de l'Oracle", ArmyRuleType.Aptitude),
 	TransmuteEnCristal(
 			"Transmuté en Cristal",
@@ -174,12 +179,6 @@ public enum DokRule implements IArmyRule<DokRule> {
 			ArmyRuleType.TraisDeBataille,
 			ArmyRuleType.AptitudesDeCommandement,
 			ArmyRuleType.PhaseDeCombat),
-	OrgieDeMassacre(
-			"Orgie de Massacre",
-			ArmyRuleType.TraisDeBataille,
-			ArmyRuleType.AptitudesDeCommandement,
-			ArmyRuleType.PhaseDesHeros,
-			ArmyRuleType.TraisUnitee),
 	SaignerLEsprit(
 			"Saigner l'Esprit",
 			ArmyRuleType.TraisDeBataille,
@@ -229,7 +228,6 @@ public enum DokRule implements IArmyRule<DokRule> {
 
 	//
 
-	CaresseDeLaMort("Caresse de la Mort", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	ColereDeKhaine("Colère de Khaine", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	DanseDAgonie("Danse d'Agonie", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	RuneDeKhaine_Priere("Rune de Khaine", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
@@ -246,28 +244,6 @@ public enum DokRule implements IArmyRule<DokRule> {
 			ArmyRuleType.Aptitude,
 			ArmyRuleType.PhaseDeCombat),
 
-	//
-	// description des Temples
-	HaggNarDesc(
-			"Hagg Nar",
-			DescriptionReader.rules(FillesDuPremierTemple, AvancezLesChaudrons, DisciplesDevots,
-					LUlfuri),
-			ArmyRuleType.SubAllegiance),
-	KhailebronDesc(
-			"Khailebron",
-			DescriptionReader.rules(DissimulationEtDiscretion, MaitressesDesOmbrevoies,
-					MaitresseDeLIllusion, Mormurmure),
-			ArmyRuleType.SubAllegiance),
-	KheltNarDesc(
-			"Khelt Nar",
-			DescriptionReader.rules(FrapperEtSeRetirer, SaignerLEsprit, VolEnCercle,
-					LaFaixDeGalisa),
-			ArmyRuleType.SubAllegiance),
-	ZaintharKaiDesc(
-			"Zainthar Kai",
-			DescriptionReader.rules(LessenceDeKhaine, CrypteDesAinee, LePouvoirDuSang,
-					MaledictionDeLaMainSanglante, TalismanEcarlate),
-			ArmyRuleType.SubAllegiance),
 
 	;
 

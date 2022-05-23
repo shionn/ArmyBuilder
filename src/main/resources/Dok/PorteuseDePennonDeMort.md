@@ -1,0 +1,1 @@
+1 figurine de cette unité sur 5 peut être un Porteuse de Pennon de Mort. Vous pouvez relancer les tests de déroute ratés pour cette unité si elle inclut une ou plusieurs Prteuse de Pennon de Mort

@@ -1,0 +1,1 @@
+Vous pouvez utiliser cette aptitude de commandement à votre phase des héros si cette unitée fait partie de votre armée et se trouve sur le champ de bataille. Seule cette unité peu donner l'ordre, et l'unité qui reçoit l'ordre doit être une unité de __Filles de Khaine__ amie à 3" d'une ou plusieurs unités ennemies. L'unité choisie peut combattre. 

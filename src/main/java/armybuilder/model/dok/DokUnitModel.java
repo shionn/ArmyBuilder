@@ -3,7 +3,6 @@ package armybuilder.model.dok;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.function.Function;
 
 import armybuilder.model.army.Listing;
 import armybuilder.model.army.rule.GeneriqueRule;
@@ -28,7 +27,6 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(RoleTactique.Leader),
 			Arrays.asList(DokUnitWeapon.EcorcheCoeur, DokUnitWeapon.AilesLamees),
 			null,
-			
 			Arrays.asList(
 					DokRule.Sorcier_3_2_1,
 					DokRule.PresenceIntimidante,
@@ -47,8 +45,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(UnitOption.General, UnitOption.Sort, UnitOption.Bataillon),
 			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Aelf, KeyWord.Heros, KeyWord.Sorcier,
 					KeyWord.MorathiKhaine, KeyWord.Unique),
-			Arrays.asList(),
-			null),
+			Arrays.asList()),
 
 	LaReineDeLOmbre("La Reine de l'Ombre",
 			340,
@@ -60,8 +57,99 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(GeneriqueUnitRule.Vol, DokRule.FureurDeLaReineDeLOmbre, DokRule.DeuxCorpsUneSeuleAme_Shadow, DokRule.CoeurDeFerDeKhaine),
 			Arrays.asList(UnitOption.Bataillon),
 			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Aelf, KeyWord.Heros, KeyWord.Monstre, KeyWord.LaReineDeLOmbre, KeyWord.Unique),
-			Arrays.asList(),
-			null),
+			Arrays.asList()),
+
+	@Deprecated
+	SanctuaireIncarant("TODO Sanctuaire Incarant", 200, UnitProfile._S_13_8_5, Arrays.asList(RoleTactique.Leader),
+			// TODO
+			Arrays.asList(DokUnitWeapon.RegardIncarnat, DokUnitWeapon.LanceIncarnate, DokUnitWeapon.Aiguillons,
+					DokUnitWeapon.GriffeMurmure, DokUnitWeapon.QueueDeSerpents),
+			new ProfileDegressif("Mouvement", DokUnitWeapon.Aiguillons.getDisplayName(),
+					DokRule.AuraDAgonie.displayName()).add("0-3", "6", "6", "2+")
+					.add("4-6", "5", "5", "3+")
+					.add("7-10", "4", "4", "4+")
+					.add("11+", "3", "3", "5+"),
+			Arrays.asList(DokRule.AuraDAgonie, DokRule.ImpactLame, DokRule.RegardIncarnat, DokRule.GriffeMurmure,
+					DokRule.Deperissement, GeneriqueRule.TraitMagique, GeneriqueRule.BouclierMystique,
+					GeneriqueUnitRule.Sorcier_1_2),
+			Arrays.asList(UnitOption.General, UnitOption.Sort, UnitOption.TraisDeCommandement, UnitOption.Artefact,
+					UnitOption.Bataillon),
+			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.Melusai, KeyWord.Heros,
+					KeyWord.Sorcier, KeyWord.Totem, KeyWord.BloodwrackMedusa, KeyWord.BloodwrackShrine),
+			Arrays.asList()),
+
+	@Deprecated
+	MelusaiIronscale("TODO Melusai Ironscale", 115, UnitProfile._8_6_9_5, Arrays.asList(RoleTactique.Leader),
+			Arrays.asList(DokUnitWeapon.Keldrisaith_Projectil, DokUnitWeapon.Keldrisaith_Melee), null,
+			Arrays.asList(DokRule.SangDeLOracle, DokRule.OffrandeSanguinolente, DokRule.TransmuteEnCristal,
+					DokRule.ColereDesMoirenees),
+			Arrays.asList(UnitOption.General, UnitOption.TraisDeCommandement, UnitOption.Artefact,
+					UnitOption.Bataillon),
+			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Melusai, KeyWord.Heros,
+					KeyWord.MelusaiIronscale),
+			Arrays.asList()),
+
+	@Deprecated
+	BloodwrackMedusa("TODO Bloodwrack Medusa", 120, UnitProfile._8_6_8_5, Arrays.asList(RoleTactique.Leader),
+			Arrays.asList(DokUnitWeapon.RegardIncarnat, DokUnitWeapon.LanceIncarnate, DokUnitWeapon.GriffeMurmure,
+					DokUnitWeapon.QueueDeSerpents),
+			null,
+			Arrays.asList(DokRule.RegardIncarnat, DokRule.GriffeMurmure, DokRule.Deperissement,
+					GeneriqueRule.TraitMagique, GeneriqueRule.BouclierMystique, GeneriqueUnitRule.Sorcier_1_2),
+			Arrays.asList(UnitOption.General, UnitOption.Sort, UnitOption.TraisDeCommandement, UnitOption.Artefact,
+					UnitOption.Bataillon),
+			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Melusai, KeyWord.Heros, KeyWord.Sorcier,
+					KeyWord.BloodwrackMedusa),
+			Arrays.asList()),
+
+	@Deprecated
+	MorgwaethTheBloodied("TODO Morgwaeth the Bloodied", 175, UnitProfile._6_1_7_6, Arrays.asList(RoleTactique.Leader),
+			Arrays.asList(DokUnitWeapon.VougeDeKhaine), null,
+			Arrays.asList(DokRule.RuneDeKhaine_Priere, DokRule.BrouetDeSang),
+			Arrays.asList(UnitOption.General, UnitOption.Priere, UnitOption.TraisDeCommandement, UnitOption.Artefact,
+					UnitOption.Bataillon),
+			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.HaggNar, KeyWord.Heros,
+					KeyWord.Pretre, KeyWord.ReineMatriarche, KeyWord.MorgwaethTheBloodied, KeyWord.Unique),
+			Arrays.asList()),
+
+	@Deprecated
+	LeBladeCoven("TODO Le Blade-Coven", 0, UnitProfile._6_1_7_6, Arrays.asList(RoleTactique.Elite),
+			Arrays.asList(DokUnitWeapon.ArcCherchecoeur, DokUnitWeapon.ArmesSacrificielles), null,
+			Arrays.asList(DokRule.Cherchecoeurs, DokRule.ZelotesDuPremierTemple), Arrays.asList(UnitOption.Bataillon),
+			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.Melusai, KeyWord.FilleDeKhaine,
+					KeyWord.HaggNar, KeyWord.LaBladeCoven, KeyWord.Unique),
+			Arrays.asList()),
+
+	@Deprecated
+	HagQueenSurChaudron("TODO Hag Queen sur Cauldron of Blood", 255, UnitProfile._S_13_8_5,
+			Arrays.asList(RoleTactique.Leader, RoleTactique.Behemoth),
+			Arrays.asList(DokUnitWeapon.TorrentdeSangBrulant, DokUnitWeapon.EpeeDAvatar, DokUnitWeapon.LameDeKhaine,
+					DokUnitWeapon.CouteauxSacrificiels_Chaudron),
+			new ProfileDegressif("Mouvement", DokUnitWeapon.CouteauxSacrificiels_Chaudron.getDisplayName(),
+					DokRule.BouclierDeSang.displayName()).add("0-3", "6\"", "8", "18\"")
+					.add("4-6", "5\"", "7", "14\"")
+					.add("7-9", "4\"", "6", "10\"")
+					.add("10+", "3\"", "5", "6\""),
+			Arrays.asList(DokRule.ImpactLame, DokRule.BouclierDeSang, DokRule.ObjetDAdoration,
+					DokRule.RuneDeKhaine_Priere, DokRule.CaresseDeLaMort, DokRule.ColereDeKhaine, DokRule.BrouetDeSang),
+			Arrays.asList(UnitOption.General, UnitOption.Priere, UnitOption.TraisDeCommandement, UnitOption.Artefact,
+					UnitOption.Bataillon),
+			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.Heros, KeyWord.Pretre,
+					KeyWord.Totem, KeyWord.WitchAelves, KeyWord.ReineMatriarche, KeyWord.AvatarDeKhaine,
+					KeyWord.ChaudronDeSang),
+			Arrays.asList()),
+
+	HagQueen("Reine Matriache", 
+			110, 
+			UnitProfile._6_5_8_5, 
+			Arrays.asList(RoleTactique.Leader),
+			Arrays.asList(DokUnitWeapon.LameDeKhaine), null,
+			Arrays.asList(DokRule.BrouetDeSang, DokRule.CaresseDeLaMort),
+			Arrays.asList(UnitOption.General, UnitOption.Priere, UnitOption.TraisDeCommandement, UnitOption.Artefact,
+					UnitOption.Bataillon),
+			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Aelf, KeyWord.Heros, KeyWord.Pretre,
+					KeyWord.ReineMatriarche),
+			Arrays.asList()),
 
 	ReineDuMassacreSurChaudronDeSang(
 			"Reine du Massacre sur Chaudron de Sang",
@@ -75,145 +163,50 @@ public enum DokUnitModel implements IUnitModel {
 					.add("7-8", "5\"", "7", "15\"")
 					.add("9-10", "4\"", "6", "10\"")
 					.add("11+", "3\"", "5", "6\""),
-			Arrays.asList(DokRule.AutelDeKhaine, DokRule.ImpactLame) // todo
+			Arrays.asList(DokRule.AutelDeKhaine, DokRule.ImpactLame, DokRule.BouclierDeSang, DokRule.PacteDeSang,
+					DokRule.OrgieDeMassacre, DokRule.DanseMaudite),
+			Arrays.asList(UnitOption.Artefact, UnitOption.General, UnitOption.Priere, UnitOption.TraisDeCommandement, UnitOption.Bataillon),
+			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Aelf, KeyWord.Heros, KeyWord.Pretre,
+					KeyWord.Totem, KeyWord.AvatarDeKhaine, KeyWord.ChaudronDeSang, KeyWord.ReineDuMassacre),
+			Arrays.asList()),
 
-	),
-
-	// Fait au dessus
-
-	SanctuaireIncarant(
-			"Sanctuaire Incarant",
-			200,
-			UnitProfile._S_13_8_5,
-			Arrays.asList(RoleTactique.Leader),
-
-			Arrays.asList(DokUnitWeapon.RegardIncarnat, DokUnitWeapon.LanceIncarnate, DokUnitWeapon.Aiguillons,
-					DokUnitWeapon.GriffeMurmure, DokUnitWeapon.QueueDeSerpents),
-			new ProfileDegressif("Mouvement", DokUnitWeapon.Aiguillons.getDisplayName(),
-					DokRule.AuraDAgonie.displayName()).add("0-3", "6", "6", "2+").add("4-6", "5", "5", "3+")
-					.add("7-10", "4", "4", "4+").add("11+", "3", "3", "5+"),
-			Arrays.asList(DokRule.AuraDAgonie, DokRule.ImpactLame, DokRule.RegardIncarnat, DokRule.GriffeMurmure,
-					DokRule.Deperissement, GeneriqueRule.TraitMagique, GeneriqueRule.BouclierMystique,
-					GeneriqueUnitRule.Sorcier_1_2),
-			Arrays.asList(UnitOption.General, UnitOption.Sort, UnitOption.TraisDeCommandement, UnitOption.Artefact,
-					UnitOption.Bataillon),
-			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.Melusai, KeyWord.Heros,
-					KeyWord.Sorcier, KeyWord.Totem, KeyWord.BloodwrackMedusa, KeyWord.BloodwrackShrine),
-			Arrays.asList(),
-			null),
-
-	BloodwrackMedusa(
-			"Bloodwrack Medusa",
-			120,
-			UnitProfile._8_6_8_5,
-			Arrays.asList(RoleTactique.Leader),
-			Arrays.asList(DokUnitWeapon.RegardIncarnat, DokUnitWeapon.LanceIncarnate, DokUnitWeapon.GriffeMurmure,
-					DokUnitWeapon.QueueDeSerpents),
-			null,
-			Arrays.asList(DokRule.RegardIncarnat, DokRule.GriffeMurmure, DokRule.Deperissement,
-					GeneriqueRule.TraitMagique, GeneriqueRule.BouclierMystique, GeneriqueUnitRule.Sorcier_1_2),
-			Arrays.asList(UnitOption.General, UnitOption.Sort, UnitOption.TraisDeCommandement, UnitOption.Artefact,
-					UnitOption.Bataillon),
-			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Melusai, KeyWord.Heros, KeyWord.Sorcier,
-					KeyWord.BloodwrackMedusa),
-			Arrays.asList(),
-			null),
-
-	MelusaiIronscale(
-			"Melusai Ironscale",
-			115,
-			UnitProfile._8_6_9_5,
-			Arrays.asList(RoleTactique.Leader),
-			Arrays.asList(DokUnitWeapon.Keldrisaith_Projectil, DokUnitWeapon.Keldrisaith_Melee),
-			null,
-			Arrays.asList(DokRule.SangDeLOracle, DokRule.OffrandeSanguinolente, DokRule.TransmuteEnCristal,
-					DokRule.ColereDesMoirenees),
-			Arrays.asList(UnitOption.General, UnitOption.TraisDeCommandement, UnitOption.Artefact,
-					UnitOption.Bataillon),
-			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Melusai, KeyWord.Heros,
-					KeyWord.MelusaiIronscale),
-			Arrays.asList(),
-			null),
-
-	MorgwaethTheBloodied(
-			"Morgwaeth the Bloodied",
-			175,
-			UnitProfile._6_1_7_6,
-			Arrays.asList(RoleTactique.Leader),
-			Arrays.asList(DokUnitWeapon.VougeDeKhaine),
-			null,
-			Arrays.asList(DokRule.RuneDeKhaine_Priere, DokRule.BrouetDeSang),
-			Arrays.asList(UnitOption.General, UnitOption.Priere, UnitOption.TraisDeCommandement, UnitOption.Artefact,
-					UnitOption.Bataillon),
-			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.HaggNar, KeyWord.Heros,
-					KeyWord.Pretre, KeyWord.HagQueen, KeyWord.MorgwaethTheBloodied, KeyWord.Unique),
-			Arrays.asList(),
-			null),
-
-	LeBladeCoven(
-			"Le Blade-Coven",
-			0,
-			UnitProfile._6_1_7_6,
-			Arrays.asList(RoleTactique.Elite),
-			Arrays.asList(DokUnitWeapon.ArcCherchecoeur, DokUnitWeapon.ArmesSacrificielles),
-			null,
-			Arrays.asList(DokRule.Cherchecoeurs, DokRule.ZelotesDuPremierTemple),
-			Arrays.asList(UnitOption.Bataillon),
-			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.Melusai,
-					KeyWord.FilleDeKhaine, KeyWord.HaggNar, KeyWord.LaBladeCoven, KeyWord.Unique),
-			Arrays.asList(),
-			null),
-
-	HagQueenSurChaudron(
-			"Hag Queen sur Cauldron of Blood",
-			255,
-			UnitProfile._S_13_8_5,
-			Arrays.asList(RoleTactique.Leader, RoleTactique.Behemoth),
-			Arrays.asList(DokUnitWeapon.TorrentdeSangBrulant, DokUnitWeapon.EpeeDAvatar, DokUnitWeapon.LameDeKhaine,
-					DokUnitWeapon.CouteauxSacrificiels_Chaudron),
-			new ProfileDegressif("Mouvement", DokUnitWeapon.CouteauxSacrificiels_Chaudron.getDisplayName(),
-					DokRule.BouclierDeSang.displayName()).add("0-3", "6\"", "8", "18\"")
-					.add("4-6", "5\"", "7", "14\"").add("7-9", "4\"", "6", "10\"").add("10+", "3\"", "5", "6\""),
-			Arrays.asList(DokRule.ImpactLame, DokRule.BouclierDeSang, DokRule.ObjetDAdoration,
-					DokRule.RuneDeKhaine_Priere, DokRule.CaresseDeLaMort, DokRule.ColereDeKhaine, DokRule.BrouetDeSang),
-			Arrays.asList(UnitOption.General, UnitOption.Priere, UnitOption.TraisDeCommandement,
-					UnitOption.Artefact, UnitOption.Bataillon),
-			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.Heros, KeyWord.Pretre,
-					KeyWord.Totem, KeyWord.WitchAelves, KeyWord.HagQueen, KeyWord.AvatarOfKhaine,
-					KeyWord.CauldronOfBlood),
-			Arrays.asList(),
-			null),
-
-	HagQueen(
-			"Hag Queen",
-			105,
-			UnitProfile._6_5_8_5,
-			Arrays.asList(RoleTactique.Leader),
-			Arrays.asList(DokUnitWeapon.LameDeKhaine),
-			null,
-			Arrays.asList(DokRule.RuneDeKhaine_Priere, DokRule.CaresseDeLaMort, DokRule.BrouetDeSang),
-			Arrays.asList(UnitOption.General, UnitOption.Priere, UnitOption.TraisDeCommandement, UnitOption.Artefact,
-					UnitOption.Bataillon),
-			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.Heros, KeyWord.Pretre,
-					KeyWord.HagQueen),
-			Arrays.asList(),
-			null),
-
-	SlaughterQueen(
-			"Slaughter Queen",
-			110,
-			UnitProfile._6_5_8_5,
-			Arrays.asList(RoleTactique.Leader),
-			Arrays.asList(DokUnitWeapon.EpeeDeMortEtLameDeKhaine, DokUnitWeapon.LameDeKhaine),
-			null,
+	@Deprecated
+	SlaughterQueen("TODO Slaughter Queen", 110, UnitProfile._6_5_8_5, Arrays.asList(RoleTactique.Leader),
+			Arrays.asList(DokUnitWeapon.EpeeDeMortEtLameDeKhaine, DokUnitWeapon.LameDeKhaine), null,
 			Arrays.asList(DokRule.DanseDAgonie, DokRule.RuneDeKhaine_Priere, DokRule.CaresseDeLaMort,
 					DokRule.OrgieDeMassacre),
 			Arrays.asList(UnitOption.General, UnitOption.Priere, UnitOption.TraisDeCommandement, UnitOption.Artefact,
 					UnitOption.Bataillon),
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.Heros, KeyWord.Pretre,
-					KeyWord.SlaughterQueen),
-			Arrays.asList(),
-			null),
+					KeyWord.ReineDuMassacre),
+			Arrays.asList()),
+
+	GrandeGladiatrice("Grande Gladiatrice", 90, UnitProfile._8_6_8_5, Arrays.asList(RoleTactique.Leader),
+			Arrays.asList(DokUnitWeapon.FouetBarbeleGr, DokUnitWeapon.LameDeGladiatrice),
+			null, Arrays.asList(
+					DokRule.DanseDeLaMort, DokRule.CoupDeGrace,
+					DokRule.ParangonDuMassacre),
+			Arrays.asList(UnitOption.Artefact, UnitOption.General, UnitOption.Priere, UnitOption.TraisDeCommandement, UnitOption.Bataillon),
+			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Aelf, KeyWord.Heros, KeyWord.GrandeGladiatrice),
+			Arrays.asList()),
+
+	SoeurDuMassacre(
+			"Sœurs du Massacre",
+			135,
+			UnitProfile._6_1_7_6,
+			Arrays.asList(RoleTactique.Ligne),
+			Arrays.asList(DokUnitWeapon.FouetBarbele),
+			null,
+			Arrays.asList(DokRule.DanseDeLaMort),
+			Arrays.asList(UnitOption.Chef, UnitOption.Banniere, UnitOption.Musicien, UnitOption.Armes,
+					UnitOption.Renforcees, UnitOption.Bataillon),
+			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Aelf, KeyWord.SoeurDuMassacre),
+			Arrays.asList()),
+
+
+
+
+
 
 	WitchAelves(
 			"Witch Aelves",
@@ -227,22 +220,8 @@ public enum DokUnitModel implements IUnitModel {
 					UnitOption.Renforcees,
 					UnitOption.Bataillon),
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.WitchAelves),
-			Arrays.asList(),
-			null),
+			Arrays.asList()),
 
-	SistersOfSlaughter(
-			"Sisters of Slaughter",
-			135,
-			UnitProfile._6_1_7_6,
-			Arrays.asList(RoleTactique.Ligne),
-			Arrays.asList(DokUnitWeapon.FouetBarbele),
-			null,
-			Arrays.asList(DokRule.DanseDeLaMort),
-			Arrays.asList(UnitOption.Chef, UnitOption.Banniere, UnitOption.Musicien, UnitOption.Armes,
-					UnitOption.Renforcees, UnitOption.Bataillon),
-			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.SisterOfSlaughter),
-			Arrays.asList(),
-			null),
 
 	KhainiteShadowstalkers(
 			"Khainite Shadowstalkers",
@@ -254,8 +233,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(DokRule.BondDeLOmbre, DokRule.ProjectilesMaudits, DokRule.ProfiterDeLOmbre),
 			Arrays.asList(UnitOption.Chef, UnitOption.Renforcees, UnitOption.Bataillon),
 			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.KhainiteShadowstalkers),
-			Arrays.asList(),
-			null),
+			Arrays.asList()),
 
 	BloodSisters(
 			"Blood Sisters",
@@ -268,8 +246,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(UnitOption.Chef, UnitOption.Renforcees, UnitOption.Bataillon),
 			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Melusai, KeyWord.BloodSister),
 			Arrays.asList(UnitModifiers.roleIfGeneral(KeyWord.BloodwrackMedusa, RoleTactique.Ligne),
-					UnitModifiers.roleIfGeneral(KeyWord.MelusaiIronscale, RoleTactique.Ligne)),
-			null),
+					UnitModifiers.roleIfGeneral(KeyWord.MelusaiIronscale, RoleTactique.Ligne))),
 
 	BloodStalkers(
 			"Blood Stalkers",
@@ -282,8 +259,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(UnitOption.Chef, UnitOption.Renforcees, UnitOption.Bataillon),
 			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Melusai, KeyWord.BloodStalkers),
 			Arrays.asList(UnitModifiers.roleIfGeneral(KeyWord.BloodwrackMedusa, RoleTactique.Ligne),
-					UnitModifiers.roleIfGeneral(KeyWord.MelusaiIronscale, RoleTactique.Ligne)),
-			null),
+					UnitModifiers.roleIfGeneral(KeyWord.MelusaiIronscale, RoleTactique.Ligne))),
 
 	KhineraiHeartrenders(
 			"Khinerai Heartrenders",
@@ -297,8 +273,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(UnitOption.Chef, UnitOption.Renforcees, UnitOption.Gratuit, UnitOption.Bataillon),
 			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.KhineraiHarpies,
 					KeyWord.KhineraiHeartrenders),
-			Arrays.asList(),
-			null),
+			Arrays.asList()),
 
 	AvatarOfKhaine(
 			"Avatar of Khaine",
@@ -309,9 +284,8 @@ public enum DokUnitModel implements IUnitModel {
 			null,
 			Arrays.asList(DokRule.AutelDeKhaine, DokRule.ObjetDAdoration, DokRule.ColereDeKhaine),
 			Arrays.asList(UnitOption.Bataillon),
-			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Totem, KeyWord.AvatarOfKhaine),
-			Arrays.asList(),
-			null),
+			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Totem, KeyWord.AvatarDeKhaine),
+			Arrays.asList()),
 
 	BloodwrackViper(
 			"Bloodwrack Viper",
@@ -324,8 +298,7 @@ public enum DokUnitModel implements IUnitModel {
 					DokRule.AttaqueDeCrochets),
 			Arrays.asList(),
 			Arrays.asList(),
-			Arrays.asList(),
-			null),
+			Arrays.asList()),
 
 	Bladewind(
 			"Bladewind",
@@ -338,8 +311,7 @@ public enum DokUnitModel implements IUnitModel {
 					DokRule.TranchantSurnaturel),
 			Arrays.asList(),
 			Arrays.asList(),
-			Arrays.asList(),
-			null),
+			Arrays.asList()),
 
 	HeartOfFury(
 			"Heart of Fury",
@@ -351,8 +323,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(DokRule.HeartOfFuryConv, DokRule.PrivilegeDuDieuDuMeurtre),
 			Arrays.asList(),
 			Arrays.asList(),
-			Arrays.asList(),
-			null),
+			Arrays.asList()),
 
 	ConjurateursDuFeuMaudit(
 			"Conjurateurs du Feu Maudit",
@@ -364,14 +335,12 @@ public enum DokUnitModel implements IUnitModel {
 			null,
 			null,
 			null,
-			null,
 			null),
 	EgorgeusesKhinerai(
 			"Egorgeuses Khinerai",
 			0,
 			UnitProfile.None,
 			Arrays.asList(),
-			null,
 			null,
 			null,
 			null,
@@ -391,12 +360,10 @@ public enum DokUnitModel implements IUnitModel {
 	private List<RoleTactique> roleTactiques;
 	private List<UnitOption> options;
 	private List<Consumer<Unit>> modifiers;
-	private Function<Listing, Boolean> availableFor;
 
 	private DokUnitModel(String displayName, int value, UnitProfile profile, List<RoleTactique> roleTactiques,
 			List<IUnitWeapon> weapons, ProfileDegressif profileDegressif, List<IArmyRule<?>> rules,
-			List<UnitOption> options, List<KeyWord> keyWords, List<Consumer<Unit>> modifiers,
-			Function<Listing, Boolean> availableFor) {
+			List<UnitOption> options, List<KeyWord> keyWords, List<Consumer<Unit>> modifiers) {
 		this.displayName = displayName;
 		this.value = value;
 		this.profile = profile;
@@ -407,7 +374,6 @@ public enum DokUnitModel implements IUnitModel {
 		this.options = options;
 		this.keyWords = keyWords;
 		this.modifiers = modifiers;
-		this.availableFor = availableFor;
 	}
 
 	@Override
@@ -470,9 +436,6 @@ public enum DokUnitModel implements IUnitModel {
 		boolean available = true;
 		if (keyWords != null && keyWords.contains(KeyWord.Unique)) {
 			available = !listing.have(this);
-		}
-		if (available && availableFor != null) {
-			available = availableFor.apply(listing);
 		}
 		return available;
 	}

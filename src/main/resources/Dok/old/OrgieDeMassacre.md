@@ -1,1 +1,0 @@
-Vous pouvez utiliser cette aptitude de commandement une fois par tour à votre phase des héros. Dans ce cas, choisissez 1 unité **Daughters of Khaine** amie n'ayant pas combattu à cette phase et se trouvant entièrement à 12" ou moins de cette figurine et à 3" ou moins d'une unité ennemie. L'unité choisie peut combattre. 

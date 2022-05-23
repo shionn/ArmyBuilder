@@ -7,11 +7,16 @@ public enum DokUnitWeapon implements IUnitWeapon {
 
 	AilesLamees("Ailes Lamées", WeaponType.Melee, "2", "6", "3+", "3+", "-1", "1"),
 	CouronneDeSerpents("Couronne de Serpents", WeaponType.Melee, "1", "2D6", "3+", "3+", "-", "1"),
+	CouteauxSacrificiel("Couteaux Sacrificiel", WeaponType.Melee, "1", "1", "3+", "4+", "-", "1"),
 	EcorcheCoeur("Écorche-cœur", WeaponType.Melee, "2", "3", "3+", "3+", "-2", "D3"),
 	EcorcheCoeur_Shadow("Écorche-cœur", WeaponType.Melee, "2", "*", "3+", "3+", "-2", "3"),
 	EpeeDAvatar("Épée d'Avatar", WeaponType.Melee, "2", "4", "3+", "3+", "-2", "3"),
 	EpeeDeMortEtLameDeKhaine("Épée de Mort et Lame de Khaine", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "D3"),
+	FouetBarbele("Fouet Barbelé", WeaponType.Melee, "2", "2", "3+", "4+", "-", "1"),
+	FouetBarbeleGr("Fouer Barbelé", WeaponType.Melee, "3", "4", "3+", "3+", "-1", "1"),
 	QueueVenimeuse("Queue Venimeuse", WeaponType.Melee, "3", "1", "3+", "3+", "-2", "*"),
+	LameDeGladiatrice("Lame de Gladiatrice", WeaponType.Melee, "1", "2", "3+", "3+", "-1", "1"),
+	LameDeKhaine("Lame de Khaine", WeaponType.Melee, "1", "4", "3+", "4+", "-1", "D3"),
 	RegardDeLaReineDeLOmbre("Regard de la Reine de l'Ombre", WeaponType.Projectil, "18", "1", "2+", "2+", "-3", "D6"),
 	Sciansa_Chaudron("Sciansá", WeaponType.Melee, "1", "*", "3+", "4+", "-", "1"),
 	TorrentdeSangBrulant("Torrent de Sang Brûlant", WeaponType.Projectil, "10", "6", "3+", "3+", "-1", "1"),
@@ -20,7 +25,6 @@ public enum DokUnitWeapon implements IUnitWeapon {
 	Aiguillons("Aiguillons", WeaponType.Melee, "2", "*", "3+", "3+", "-", "1"),
 	ArcCherchecoeur("Arc Cherchecœur", WeaponType.Projectil, "24", "2", "3+", "3+", "-1", "1"),
 	ArmesSacrificielles("Armes Sacrificielles", WeaponType.Melee, "1", "3", "3+", "4+", "-", "1"),
-	CouteauxSacrificiel("Couteaux Sacrificiel", WeaponType.Melee, "1", "1", "3+", "4+", "-", "1"),
 	CouteauxSacrificiels("Couteaux Sacrificiels", WeaponType.Melee, "1", "2", "3+", "4+", "-", "1"),
 	CouteauxSacrificiels_Chaudron(
 			"Couteaux Sacrificiels",
@@ -31,7 +35,6 @@ public enum DokUnitWeapon implements IUnitWeapon {
 			"4+",
 			"-",
 			"1"),
-	FouetBarbele("Fouet Barbelé", WeaponType.Melee, "2", "2", "3+", "4+", "-", "1"),
 	GuivreDeSang("Guivre de Sang", WeaponType.Melee, "1", "1", "3+", "3+", "-", "1"),
 	GriffeMurmure("Griffe-murmure ", WeaponType.Melee, "1", "4", "4+", "3+", "-", "1"),
 	JavelineBarbelee_M("Javeline Barbelée", WeaponType.Melee, "2", "1", "4+", "4+", "-1", "1"),
@@ -39,7 +42,6 @@ public enum DokUnitWeapon implements IUnitWeapon {
 	Keldrisaith_Melee("Keldrisaith", WeaponType.Melee, "2", "3", "3+", "3+", "-1", "D3"),
 	Keldrisaith_Projectil("Keldrisaith", WeaponType.Projectil, "18", "3", "3+", "3+", "-1", "1"),
 	LameDAssassin("Lames d'Assassins", WeaponType.Melee, "1", "2", "4+", "3+", "-", "1"),
-	LameDeKhaine("Lame de Khaine", WeaponType.Melee, "1", "4", "3+", "4+", "-1", "1"),
 	LanceIncarnate("Lance Incarnate", WeaponType.Melee, "2", "3", "3+", "3+", "-1", "D3"),
 	LameObscures("Lames Obscures", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "D3"),
 	ProjectilesMaudits("Projectiles Maudits", WeaponType.Projectil, "6", "1", "4+", "3+", "-", "1"),
@@ -48,6 +50,7 @@ public enum DokUnitWeapon implements IUnitWeapon {
 	Scianlar("Scianlar", WeaponType.Melee, "1", "2", "3+", "4+", "-", "1"),
 	VougeBrisecoeur("Vouge Brisecœur", WeaponType.Melee, "2", "3", "3+", "3+", "-1", "1"),
 	VougeDeKhaine("Vouge de Khaine", WeaponType.Melee, "2", "3", "3+", "3+", "-1", "1"),
+
 
 	;
 

@@ -61,6 +61,19 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	SacrificeDuMartyr(UnitOption.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
 	ResurrectionPourpre(UnitOption.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
 
+	// Compositioon
+	PorteuseDePennonDeMort("Porte-Étendard", UnitOption.Banniere,
+			u -> u.is(KeyWord.WitchAelves) || u.is(KeyWord.SoeurDuMassacre), null),
+	Servante("Servante", UnitOption.Chef, u -> u.is(KeyWord.SoeurDuMassacre), null),
+	SonneuseDeCor("Sonneuse de Cor", UnitOption.Musicien,
+			u -> u.is(KeyWord.WitchAelves) || u.is(KeyWord.SoeurDuMassacre), null),
+
+	// Armes
+	FouetBarbeleEtRondacheTranchante("Fouet Barbelé et Rondache Tranchante", UnitOption.Armes,
+			u -> u.is(KeyWord.SoeurDuMassacre), u -> u.add(DokRule.RondacheTranchante)),
+	FouetBarbeleEtCouteauSacrificiel("Fouet Barbelé et Couteau Sacrificiel", UnitOption.Armes,
+			u -> u.is(KeyWord.SoeurDuMassacre), u -> u.add(DokUnitWeapon.CouteauxSacrificiel)),
+
 	// ---- fait au dessus
 	BeauteTerrifiante(
 			UnitOption.TraisDeCommandement,
@@ -148,10 +161,6 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 			UnitOption.Artefact,
 			u -> u.is(KeyWord.Heros) && u.is(KeyWord.ZaintharKai) && !u.is(KeyWord.Unique)),
 
-	// Sort
-
-	// Priere
-
 	// Compositioon
 	Krone("Krone", UnitOption.Chef, u -> u.is(DokUnitModel.BloodStalkers), u -> {
 		u.add(DokRule.Krone);
@@ -159,22 +168,11 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	}),
 	Gorgai("Gorgaï", UnitOption.Chef, u -> u.is(DokUnitModel.BloodSisters), null),
 	Hag("Hag", UnitOption.Chef, u -> u.is(KeyWord.WitchAelves), null),
-	Handmaiden("Handmaiden", UnitOption.Chef, u -> u.is(KeyWord.SisterOfSlaughter), null),
-	PorteEtendard(
-			"Porte-Étendard",
-			UnitOption.Banniere,
-			u -> u.is(KeyWord.WitchAelves) || u.is(KeyWord.SisterOfSlaughter),
-			null),
 	ShroudQueen("Shroud Queen", UnitOption.Chef, u -> u.is(KeyWord.KhainiteShadowstalkers), u -> {
 		u.add(DokUnitWeapon.LameObscures);
 		u.add(DokRule.ShroudQueen);
 	}),
 	Shryke("Shryke", UnitOption.Chef, u -> u.is(KeyWord.KhineraiHeartrenders), null),
-	SonneuseDeCor(
-			"Sonneuse de Cor",
-			UnitOption.Musicien,
-			u -> u.is(KeyWord.WitchAelves) || u.is(KeyWord.SisterOfSlaughter),
-			null),
 
 	// Armes
 	CouteauSacrificielEtRondacheTranchante(
@@ -187,16 +185,6 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 			UnitOption.Armes,
 			u -> u.is(KeyWord.WitchAelves),
 			null),
-	FouetBarbeleEtCouteauSacrificiel(
-			"Fouet Barbelé et Couteau Sacrificiel",
-			UnitOption.Armes,
-			u -> u.is(KeyWord.SisterOfSlaughter),
-			u -> u.add(DokUnitWeapon.CouteauxSacrificiel)),
-	FouetBarbeleEtRondacheTranchante(
-			"Fouet Barbelé et Rondache Tranchante",
-			UnitOption.Armes,
-			u -> u.is(KeyWord.SisterOfSlaughter),
-			u -> u.add(DokRule.RondacheTranchante)),
 
 	// Cout
 	Gratuit(

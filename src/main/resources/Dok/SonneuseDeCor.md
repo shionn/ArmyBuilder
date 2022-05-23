@@ -1,0 +1,1 @@
+1 figurine de cette unité sur 5 peut être une Sonneuse de Cor. Cette unités peut courrir et quand même charger si elle inclut une ou plusieurs Sonneuse de Cor.

@@ -1,0 +1,1 @@
+1 figurine de cette unité peut être une Servante. Ajoutez 1 à la caractéristique d'Attaques de ces armes de mêlée.

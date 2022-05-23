@@ -1,0 +1,1 @@
+Cette figurine peut tenter de dissiper 1 sort à la phase des héros adverse comme si elle etaiit un __Sorcier__.

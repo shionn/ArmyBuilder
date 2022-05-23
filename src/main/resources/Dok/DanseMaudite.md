@@ -1,0 +1,1 @@
+Danse Maudite a une valeur d'exaucement de 3. Si elle est entendue, les effet de frappe en premier s'appliqueront a cette unité à la phase de combat suivante.

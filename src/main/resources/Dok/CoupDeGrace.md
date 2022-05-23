@@ -1,0 +1,1 @@
+A la fin de la phase de combat, vous pouvez choisir 1 __Héros__ ennemi à 1" de cette unité et jeter un D3. Ajoutez le nombre de blessure allouées au __Héros__ ennemi au jet de dé. Si le résultat est supérieur ou égal à la caractéristique de Blessures du __Héros__ ennemi, il est tué.
