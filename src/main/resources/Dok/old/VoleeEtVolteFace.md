@@ -1,1 +1,0 @@
-À votre phase de tir, après que cette unité a  tiré, vous pouvez jeter un dé. Dans ce cas, sur 4+, cette unité peut effectuer un mouvement normal de 6" (el le ne peut pas se replier ni courir). 

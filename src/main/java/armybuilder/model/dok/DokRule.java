@@ -45,6 +45,7 @@ public enum DokRule implements IArmyRule<DokRule> {
 	// Sort
 	Affaiblissement(ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 	DanseSymetrique("Danse Symétrique", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	Deperissement("Dépérissement", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 	DestrierDOmbres("Destrier d'Ombre", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 	HorreurNoireDUlgu("Horreur Noire d'Ulgu", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 	PuitsDeTenebres("Puits de Ténèbres", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
@@ -78,19 +79,24 @@ public enum DokRule implements IArmyRule<DokRule> {
 	DeuxCorpsUneSeuleAme("Deux corps, une seule âme", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	DeuxCorpsUneSeuleAme_Shadow("Deux corps, une seule âme", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	FerveurFrenetique("Ferveur Frénétique", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeCombat),
+	FureurDeLaReineDeLOmbre("Fureur de la Reine de l'Ombre", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	ImpactLame("Impact Lamé", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeCharge, ArmyRuleType.TraisUnitee),
 	MaitreDeGuerre("Maître de Guerre", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	PacteDeSang("Pacte de Sang", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	ParangonDuMassacre("Parangon du Massacre", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	PlongeonDansLaBataille("Plongeon dans la Bataille", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeMouvement, ArmyRuleType.TraisUnitee),
 	PresenceIntimidante("Présence Intimidante", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	RegardIncarnat("Regard Incarnat", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeTir, ArmyRuleType.TraisUnitee),
+	SoeurDesMelusai("Sœur des Melusaĩ", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeCombat, ArmyRuleType.TraisUnitee),
 	Sorcier_3_2_1("Sorcier", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
-	FureurDeLaReineDeLOmbre("Fureur de la Reine de l'Ombre", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	VoleeEtVolteFace("Volée et Volte-face", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeTir, ArmyRuleType.TraisUnitee),
 
 	// Conposition
 	Matriache("Champion", ArmyRuleType.Composition),
 	PorteuseDePennonDeMort("Porte-Étendards", ArmyRuleType.Composition),
 	Servante("Champion", ArmyRuleType.Composition),
 	SonneuseDeCor("Musiciennes", ArmyRuleType.Composition),
+	Ecorcheuse("Champion", ArmyRuleType.Composition),
 
 	// Armes
 	RondacheTranchante("Rondache Tranchante", ArmyRuleType.Aptitude),
@@ -104,7 +110,6 @@ public enum DokRule implements IArmyRule<DokRule> {
 	Gorgai("Gorgaï", ArmyRuleType.Composition),
 	ShroudQueen("Shroud Queen", ArmyRuleType.Composition),
 	Krone("Krone", ArmyRuleType.Composition),
-	Shryke("Shryke", ArmyRuleType.Composition),
 
 	//
 	AuraDAgonie(
@@ -119,11 +124,6 @@ public enum DokRule implements IArmyRule<DokRule> {
 			ArmyRuleType.PhaseDeMouvement,
 			ArmyRuleType.TraisUnitee),
 	Cherchecoeurs("Cherchecœurs", ArmyRuleType.Aptitude),
-	GriffeMurmure(
-			"Griffe-murmure",
-			ArmyRuleType.Aptitude,
-			ArmyRuleType.PhaseDeCombat,
-			ArmyRuleType.TraisUnitee),
 	LaMortVientDuCiel("La Mort Vient du Ciel", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	ObjetDAdoration("Objet d'Adoration", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeDeroute),
 	OffrandeSanguinolente(
@@ -132,99 +132,24 @@ public enum DokRule implements IArmyRule<DokRule> {
 			ArmyRuleType.PhaseDeCombat,
 			ArmyRuleType.TraisUnitee),
 	PaireDeCouteauxSacrificiels("Paire de Couteaux Sacrificiels", ArmyRuleType.Aptitude),
-	PlongeonDansLaBataille(
-			"Plongeon dans la Bataille",
-			ArmyRuleType.Aptitude,
-			ArmyRuleType.PhaseDeMouvement,
-			ArmyRuleType.TraisUnitee),
 	ProfiterDeLOmbre("Profiter de l'Ombre", ArmyRuleType.Aptitude),
 	ProjectilesMaudits("Projectiles Maudits", ArmyRuleType.Aptitude),
-	RegardIncarnat(
-			"Regard Incarnat",
-			ArmyRuleType.Aptitude,
-			ArmyRuleType.PhaseDeTir,
-			ArmyRuleType.TraisUnitee),
 	SangDeLOracle("Sang de l'Oracle", ArmyRuleType.Aptitude),
 	TransmuteEnCristal(
 			"Transmuté en Cristal",
 			ArmyRuleType.Aptitude,
 			ArmyRuleType.PhaseDeCombat,
 			ArmyRuleType.TraisUnitee),
-	VoleeEtVolteFace(
-			"Volée et Volte-face",
-			ArmyRuleType.Aptitude,
-			ArmyRuleType.PhaseDeTir,
-			ArmyRuleType.TraisUnitee),
 	ZelotesDuPremierTemple("Zélotes du Premier Temple", ArmyRuleType.Aptitude),
 
-	//
-	AvancezLesChaudrons(
-			"Avancez les Chaudrons",
-			ArmyRuleType.TraisDeBataille,
-			ArmyRuleType.AptitudesDeCommandement,
-			ArmyRuleType.PhaseDeMouvement),
 	ColereDesMoirenees(
 			"Colère des Moirenées",
 			ArmyRuleType.TraisDeBataille,
 			ArmyRuleType.AptitudesDeCommandement,
 			ArmyRuleType.PhaseDesHeros,
 			ArmyRuleType.TraisUnitee),
-	ExalteesParLeCarnage(
-			"Exaltées par le Carnage",
-			ArmyRuleType.TraisDeBataille,
-			ArmyRuleType.AptitudesDeCommandement,
-			ArmyRuleType.PhaseDeCombat),
-	LePouvoirDuSang(
-			"Le Pouvoir du Sang",
-			ArmyRuleType.TraisDeBataille,
-			ArmyRuleType.AptitudesDeCommandement,
-			ArmyRuleType.PhaseDeCombat),
-	SaignerLEsprit(
-			"Saigner l'Esprit",
-			ArmyRuleType.TraisDeBataille,
-			ArmyRuleType.AptitudesDeCommandement,
-			ArmyRuleType.PhaseDeCombat),
-	UnMillierDeStyles(
-			"Un Millier de Styles",
-			ArmyRuleType.TraisDeBataille,
-			ArmyRuleType.AptitudesDeCommandement,
-			ArmyRuleType.PhaseDeCombat),
-
-	AnimeParLaVengeance("Animé par la Vengeance", ArmyRuleType.TraitsDeCommandement),
-	AnneauxOndulants("Anneaux Ondulants", ArmyRuleType.TraitsDeCommandement),
-	BeauteTerrifiante("Beauté Terrifiante", ArmyRuleType.TraitsDeCommandement),
-	DisciplesDevots("Disciples Dévots", ArmyRuleType.TraitsDeCommandement),
-	EcaillesImpenetrables("Écailles Impénétrables", ArmyRuleType.TraitsDeCommandement),
-	MaitresseDeLIllusion("Maîtresse de l'Illusion", ArmyRuleType.TraitsDeCommandement),
-	MaledictionDeLaMainSanglante(
-			"Malédiction de la Main Sanglante",
-			ArmyRuleType.TraitsDeCommandement,
-			ArmyRuleType.PhaseDeMouvement),
-	PresenceEffrayante("Présence Effrayante", ArmyRuleType.TraitsDeCommandement),
-	SeBaignerDansLeurSang("Se Baigner dans leur Sang", ArmyRuleType.TraitsDeCommandement),
-	VeteranDeLaCathtrarDhule("Vétéran de la Cathtrar Dhule", ArmyRuleType.TraitsDeCommandement),
-	VolEnCercle("Vol en Cercle", ArmyRuleType.TraitsDeCommandement, ArmyRuleType.PhaseDeMouvement),
-	VainqueurDuYaithRil("Vainqueur du Yaith'ril", ArmyRuleType.TraitsDeCommandement),
-
-	// Artefact
-	AmuletteDeFeuNoir("Amulette de Feu Noir", ArmyRuleType.Artefact),
-	BaiserDeLaMort("Baiser de la Mort", ArmyRuleType.Artefact),
-	BreuvageDeMatriarche("Breuvage de Matriarche", ArmyRuleType.Artefact),
-	CrocDeShadracar("Croc de Shadracar", ArmyRuleType.Artefact),
-	DiademeDeFer("Diadème de Fer", ArmyRuleType.Artefact),
-	EclatPourpre("Éclat Pourpre", ArmyRuleType.Artefact),
-	GriffeDOmbre("Griffe d'Ombre", ArmyRuleType.Artefact),
-	LaFaixDeGalisa("Le Faix de Galisa", ArmyRuleType.Artefact),
-	LeVougeMiroir("Le Vouge Miroir", ArmyRuleType.Artefact),
-	LUlfuri("L'Ulfuri", ArmyRuleType.Artefact),
-	MilleEtUneSombresMaledictions("Mille et Une Sombres Malédictions", ArmyRuleType.Artefact),
-	Mormurmure("Mormurmure", ArmyRuleType.Artefact),
-	RuneDUlgu("Rune d'Ulgu", ArmyRuleType.Priere),
-	TalismanEcarlate("Talisman Écarlate", ArmyRuleType.Artefact),
-	VeninDeNagendra("Venin de Nagendra", ArmyRuleType.Artefact),
 
 	//
-	Deperissement("Dépérissement", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 
 	//
 
@@ -242,7 +167,7 @@ public enum DokRule implements IArmyRule<DokRule> {
 	PrivilegeDuDieuDuMeurtre(
 			"Privilège du Dieu du Meurtre",
 			ArmyRuleType.Aptitude,
-			ArmyRuleType.PhaseDeCombat),
+			ArmyRuleType.PhaseDeCombat), 
 
 
 	;

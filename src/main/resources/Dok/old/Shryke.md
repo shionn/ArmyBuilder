@@ -1,1 +1,0 @@
-1 figurine de cette unité peut être une Shryke. Ajoutez 1 à la caractéristique d'Attaques des armes de cette figurine. 

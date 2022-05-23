@@ -13,10 +13,12 @@ public enum KeyWord {
 	// DoK
 	AvatarDeKhaine("Avatar de Khaine"),
 	ChaudronDeSang("Chaudron de Sang"),
+	Erinyes("Witch Aelves"),
 	FerecailleMelusai("Ferécaille Melusaï"),
 	FilleDeKhaine("Filles de Khaine"),
 	GrandeGladiatrice("Grande Gladiatrice"),
 	LaReineDeLOmbre("La Reine de l'Ombre"),
+	Meduse("Méduse"),
 	MeduseIncarnate("Méduse Incarnate"),
 	MorathiKhaine("Morathi-Khaine"),
 	ReineDuMassacre("Reine du Massacre"),
@@ -26,7 +28,6 @@ public enum KeyWord {
 	// fait au dessus
 	BloodStalkers("Blood Stalkers"),
 	BloodSister("Blood Sister"),
-	BloodwrackMedusa("Bloodwrack Medusa"),
 	BloodwrackShrine("Bloodwrack Shrine"),
 	ChainraspHorde("ChainraspHorde"),
 	DraichiGaneth("Draichi Ganeth"),
@@ -46,7 +47,6 @@ public enum KeyWord {
 	LaReineDesRonces("La Reine des Ronces"),
 	LOstEmeraude("Ost Émeraude"),
 	Malignant("Malignant"),
-	Melusai("Melusai"),
 	MelusaiIronscale("Melusai Ironscale"),
 	MirrorghastBanshee("Mirrorghast Banshee"),
 	MorgwaethTheBloodied("Morgwaeth the Bloodied"),
@@ -55,7 +55,6 @@ public enum KeyWord {
 	Sorcier("Sorcier"),
 	TombBanshee("Tomb Banshee"),
 	TousLesTemples("Tous les Temples"),
-	WitchAelves("Witch Aelves"),
 	ZaintharKai("Zainthar Kai"),
 
 

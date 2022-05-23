@@ -1,0 +1,1 @@
+Au lieu de placer cette unité sur le champ de bataille, vous pouvez la mettre de côté et déclarer qu'elle vole en cercle en tant qu'unité de réserve. Si vous le faites, à la fin de votre phase de mouvement, vous pouvez placer cette unité sur le champ de bataille à plus de 9" de toute unité ennemie.

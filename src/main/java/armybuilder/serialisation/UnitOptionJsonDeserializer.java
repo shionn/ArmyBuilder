@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.databind.util.StdConverter;
 
+import armybuilder.model.army.option.bataillon.Bataillon;
 import armybuilder.model.dok.DokOptimisations;
 import armybuilder.model.nighthaunt.NighthauntOptimisation;
 import armybuilder.model.unit.option.IUnitOptionValue;
@@ -15,7 +16,8 @@ public class UnitOptionJsonDeserializer extends StdConverter<String, IUnitOption
 	private static final List<Class<? extends Enum<?>>> ALL = Arrays.asList( //
 			DokOptimisations.class, //
 			OptimisationsUniverselles.class, //
-			NighthauntOptimisation.class);
+			NighthauntOptimisation.class, //
+			Bataillon.class);
 
 	@Override
 	public IUnitOptionValue<?> convert(String value) {

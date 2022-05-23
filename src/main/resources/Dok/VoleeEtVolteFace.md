@@ -1,0 +1,1 @@
+Après avoir tiré, cette unité peut effectuer un mouvement normal de 6".

@@ -62,17 +62,18 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	ResurrectionPourpre(UnitOption.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
 
 	// Compositioon
-	Matriache("Champion", UnitOption.Chef, u -> u.is(KeyWord.WitchAelves), null),
+	Ecorcheuse("Champion", UnitOption.Chef, u -> u.is(KeyWord.KhineraiHeartrenders), null),
+	Matriache("Champion", UnitOption.Chef, u -> u.is(KeyWord.Erinyes), null),
 	PorteuseDePennonDeMort("Porte-Étendards", UnitOption.Banniere,
-			u -> u.is(KeyWord.WitchAelves) || u.is(KeyWord.SoeurDuMassacre), null),
+			u -> u.is(KeyWord.Erinyes) || u.is(KeyWord.SoeurDuMassacre), null),
 	Servante("Champion", UnitOption.Chef, u -> u.is(KeyWord.SoeurDuMassacre), null),
 	SonneuseDeCor("Musiciennes", UnitOption.Musicien,
-			u -> u.is(KeyWord.WitchAelves) || u.is(KeyWord.SoeurDuMassacre), null),
+			u -> u.is(KeyWord.Erinyes) || u.is(KeyWord.SoeurDuMassacre), null),
 
 	// Armes
-	SciansaAppairees("Sciansá Appairées", UnitOption.Armes, u -> u.is(KeyWord.WitchAelves),
+	SciansaAppairees("Sciansá Appairées", UnitOption.Armes, u -> u.is(KeyWord.Erinyes),
 			u -> u.add(DokUnitWeapon.SciansaAppairees)),
-	SciansaEtRondacheTranchante("Sciansá et Rondache Tranchante", UnitOption.Armes, u -> u.is(KeyWord.WitchAelves),
+	SciansaEtRondacheTranchante("Sciansá et Rondache Tranchante", UnitOption.Armes, u -> u.is(KeyWord.Erinyes),
 			u -> {
 				u.add(DokUnitWeapon.Sciansa);
 				u.add(DokRule.RondacheTranchante);
@@ -83,91 +84,6 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 			u -> u.is(KeyWord.SoeurDuMassacre), u -> u.add(DokUnitWeapon.CouteauxSacrificiel)),
 
 	// ---- fait au dessus
-	BeauteTerrifiante(
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.FilleDeKhaine)
-					&& u.is(KeyWord.Aelf)),
-
-	AnneauxOndulants(
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.BloodwrackMedusa)),
-	PresenceEffrayante(
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.BloodwrackMedusa)),
-
-	VeteranDeLaCathtrarDhule(
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.MelusaiIronscale)),
-	EcaillesImpenetrables(
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.MelusaiIronscale)),
-	AnimeParLaVengeance(
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.MelusaiIronscale)),
-
-	// TraisDeCommandement de Sous allegiance
-	DisciplesDevots(
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && u.is(KeyWord.HaggNar) && !u.is(KeyWord.Unique)),
-	MaitresseDeLIllusion(
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && u.is(KeyWord.Khailebron) && !u.is(KeyWord.Unique)),
-	MaledictionDeLaMainSanglante(
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && u.is(KeyWord.ZaintharKai) && !u.is(KeyWord.Unique)),
-	SeBaignerDansLeurSang(
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && u.is(KeyWord.Kraith) && !u.is(KeyWord.Unique)),
-	VainqueurDuYaithRil(
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && u.is(KeyWord.DraichiGaneth) && !u.is(KeyWord.Unique)),
-	VolEnCercle(
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && u.is(KeyWord.KheltNar) && !u.is(KeyWord.Unique)),
-
-	// Artefact
-	CrocDeShadracar(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.FilleDeKhaine)),
-	AmuletteDeFeuNoir(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.FilleDeKhaine)),
-	MilleEtUneSombresMaledictions(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.FilleDeKhaine)),
-
-	RuneDUlgu(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.BloodwrackMedusa)),
-	LeVougeMiroir(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.BloodwrackMedusa)),
-	GriffeDOmbre(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.BloodwrackMedusa)),
-
-	DiademeDeFer(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.FilleDeKhaine)
-					&& u.is(KeyWord.Pretre)),
-	EclatPourpre(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.FilleDeKhaine)
-					&& u.is(KeyWord.Pretre)),
-	BreuvageDeMatriarche(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.FilleDeKhaine)
-					&& u.is(KeyWord.Pretre)),
-
-	// Artefact de sous allegiance
-	BaiserDeLaMort(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.DraichiGaneth) && !u.is(KeyWord.Unique)),
-	LUlfuri(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && u.is(KeyWord.HaggNar) && !u.is(KeyWord.Unique)),
-	LaFaixDeGalisa(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && u.is(KeyWord.KheltNar) && !u.is(KeyWord.Unique)),
-	Mormurmure(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Khailebron) && !u.is(KeyWord.Unique)),
-	VeninDeNagendra(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Kraith) && !u.is(KeyWord.Unique)),
-	TalismanEcarlate(
-			UnitOption.Artefact,
-			u -> u.is(KeyWord.Heros) && u.is(KeyWord.ZaintharKai) && !u.is(KeyWord.Unique)),
 
 	// Compositioon
 	Krone("Krone", UnitOption.Chef, u -> u.is(DokUnitModel.BloodStalkers), u -> {
@@ -179,16 +95,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 		u.add(DokUnitWeapon.LameObscures);
 		u.add(DokRule.ShroudQueen);
 	}),
-	Shryke("Shryke", UnitOption.Chef, u -> u.is(KeyWord.KhineraiHeartrenders), null),
 
-	// Armes
-
-	// Cout
-	Gratuit(
-			"Gratuit",
-			UnitOption.Gratuit,
-			u -> u.is(KeyWord.KheltNar) && u.is(KeyWord.KhineraiHarpies),
-			u -> u.points(0)),
 
 	;
 
