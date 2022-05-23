@@ -59,32 +59,48 @@
 <c:forEach items="${army.allegiance().rules()}" var="rule">
 	<t:rule rule="${rule}" army="${army}"/>
 </c:forEach>
-<c:forEach items="${army.subAllegiences()}" var="sub">
+<c:forEach items="${army.options('SubAllegiance')}" var="sub">
 	<h3>${sub.displayName()}</h3>
 	<c:forEach items="${sub.rules()}" var="rule">
 		<t:rule rule="${rule}" army="${army}"/>
 	</c:forEach>
 </c:forEach>
 
-<h2>Bataillons</h2>
-<c:forEach items="${army.bataillons()}" var="bat">
-	<h3>
-		${bat.displayName()}
-		<c:forEach items="${bat.compositions()}" var="c">
-			<c:forEach begin="1" end="${c.count}">
-				<img src="img/${c.img}.png" <c:if test="${c.opt}">style="opacity: 0.5"</c:if>>
+<c:if test="${not empty army.bataillons()}">
+	<h2>Bataillons</h2>
+	<c:forEach items="${army.bataillons()}" var="bat">
+		<h3>
+			${bat.displayName()}
+			<c:forEach items="${bat.compositions()}" var="c">
+				<c:forEach begin="1" end="${c.count}">
+					<img src="img/${c.img}.png" <c:if test="${c.opt}">style="opacity: 0.5"</c:if>>
+				</c:forEach>
 			</c:forEach>
+		</h3>
+		<c:forEach items="${bat.rules()}" var="rule">
+			<t:rule rule="${rule}" army="${army}"/>
 		</c:forEach>
-	</h3>
-	<c:forEach items="${bat.rules()}" var="rule">
+	<!-- 	<div style="padding-bottom: 10px; display: flex; flex-wrap: wrap; justify-content: space-between;"> -->
+	<%-- 		<c:forEach items="#{army.units(o)}" var="unit"> --%>
+	<%-- 			<span style="width: 33%">${unit.displayName} ${unit.value}</span> --%>
+	<%-- 		</c:forEach> --%>
+	<!-- 	</div> -->
+	</c:forEach>
+</c:if>
+
+<c:if test="${not empty army.options('GrandeStrategie')}">
+	<h2>Grande Stratégie</h2>
+	<c:forEach items="${army.options('GrandeStrategie')}" var="rule">
 		<t:rule rule="${rule}" army="${army}"/>
 	</c:forEach>
-<!-- 	<div style="padding-bottom: 10px; display: flex; flex-wrap: wrap; justify-content: space-between;"> -->
-<%-- 		<c:forEach items="#{army.units(o)}" var="unit"> --%>
-<%-- 			<span style="width: 33%">${unit.displayName} ${unit.value}</span> --%>
-<%-- 		</c:forEach> --%>
-<!-- 	</div> -->
-</c:forEach>
+</c:if>
+
+<c:if test="${not empty army.options('Triomphes')}">
+	<h2>Triomphes</h2>
+	<c:forEach items="${army.options('Triomphes')}" var="rule">
+		<t:rule rule="${rule}" army="${army}"/>
+	</c:forEach>
+</c:if>
 
 <h2>Unitées</h2>
 <c:forEach items="${army.units()}" var="model">

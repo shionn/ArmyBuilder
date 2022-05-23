@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import armybuilder.model.army.OldArmy;
 import armybuilder.serialisation.DescriptionReader;
 
 public enum BataillonRule implements IArmyRule<BataillonRule> {
@@ -14,7 +13,9 @@ public enum BataillonRule implements IArmyRule<BataillonRule> {
 	Tueurs("Tueurs", ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeTir, ArmyRuleType.PhaseDeCombat,
 			ArmyRuleType.PhaseDeCharge),
 	Strateges("Stratèges", ArmyRuleType.PhaseDesHeros),
-	Rapides("Rapides", ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeMouvement);
+	Rapides("Rapides", ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeMouvement),
+	PisterALOdeur("Pister à l'Odeur", ArmyRuleType.Aptitude, ArmyRuleType.PhaseBeforeStart),
+	OutsidersExperts("Outsiders Experts", ArmyRuleType.Aptitude);
 
 	private String displayName;
 	private List<ArmyRuleType> types;
@@ -37,10 +38,6 @@ public enum BataillonRule implements IArmyRule<BataillonRule> {
 	@Override
 	public String getDescription() throws IOException {
 		return new DescriptionReader().read("Generique/", name());
-	}
-
-	@Override
-	public void rebuild(OldArmy army) {
 	}
 
 

@@ -1,40 +1,24 @@
 package armybuilder.model.army.option;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.function.Consumer;
 
 import armybuilder.model.army.Listing;
-import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.rule.PackDeBataille2021Rule;
 import armybuilder.model.unit.KeyWord;
 
-@Deprecated
 public enum PackDeBataille implements IListingOptionValue<PackDeBataille> {
-	LutteDeGeneraux(
-			"Lutte de Généraux",
-			Arrays.asList()),
-
-	BataillesRangees2021(
-			"Batailles Rangées 2021",
-			Arrays.asList(
-					a -> a.units(KeyWord.Sorcier)
-							.forEach(u -> u.add(PackDeBataille2021Rule.Metamorphose)),
-					a -> a.units(KeyWord.Monstre)
-							.forEach(u -> a.addRule(PackDeBataille2021Rule.RugissementSauvage)))),
-
-	PourLaGloire(
-			"Pour la Gloire",
-			Arrays.asList())
-
-	;
+	LutteDeGeneraux("Lutte de Généraux", null), 
+	BataillesRangees2021("Batailles Rangées 2021", a -> {
+		a.units(KeyWord.Sorcier).forEach(u -> u.add(PackDeBataille2021Rule.Metamorphose));
+		a.units(KeyWord.Monstre).forEach(u -> u.add(PackDeBataille2021Rule.RugissementSauvage));
+	});
 
 	private String displayName;
-	private List<Consumer<OldArmy>> modifiers;
+	private Consumer<Listing> modifiers;
 
-	private PackDeBataille(String displayName, List<Consumer<OldArmy>> modifiers) {
+	private PackDeBataille(String displayName, Consumer<Listing> modifier) {
 		this.displayName = displayName;
-		this.modifiers = modifiers;
+		this.modifiers = modifier;
 	}
 
 	@Override
@@ -48,18 +32,14 @@ public enum PackDeBataille implements IListingOptionValue<PackDeBataille> {
 	}
 
 	@Override
-	public boolean isOptionDisplayed(OldArmy army) {
-		return true;
-	}
-
-	@Override
 	public boolean availableFor(Listing listing) {
 		return true;
 	}
 
 	@Override
 	public void rebuild(Listing listing) {
-		// TODO Auto-generated method stub
-
+		if (modifiers != null) {
+			modifiers.accept(listing);
+		}
 	}
 }

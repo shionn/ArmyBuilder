@@ -6,16 +6,11 @@ import java.util.Collections;
 import java.util.List;
 
 import armybuilder.model.army.Listing;
-import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.rule.ArmyRuleType;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.serialisation.DescriptionReader;
 
-@Deprecated
-public enum GrandeStrategie
-		implements
-		IListingOptionValue<GrandeStrategie>,
-		IArmyRule<GrandeStrategie> {
+public enum GrandeStrategie implements IListingOptionValue<GrandeStrategie>, IArmyRule<GrandeStrategie> {
 	CoupezLaTete(
 			"Coupez la Tête",
 			Arrays.asList(PackDeBataille.LutteDeGeneraux, PackDeBataille.BataillesRangees2021)),
@@ -56,15 +51,6 @@ public enum GrandeStrategie
 	}
 
 	@Override
-	public boolean isOptionDisplayed(OldArmy army) {
-		return packDeBatailles.contains(army.option(ListingOption.PackDeBataille));
-	}
-
-	@Override
-	public void rebuild(OldArmy army) {
-	}
-
-	@Override
 	@SuppressWarnings("unchecked")
 	public List<ArmyRuleType> getTypes() {
 		return Collections.EMPTY_LIST;
@@ -77,7 +63,7 @@ public enum GrandeStrategie
 
 	@Override
 	public boolean availableFor(Listing listing) {
-		return true;
+		return packDeBatailles.contains(listing.get(ListingOption.PackDeBataille));
 	}
 
 	@Override

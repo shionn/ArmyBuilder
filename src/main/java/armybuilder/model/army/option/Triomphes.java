@@ -5,12 +5,10 @@ import java.util.Arrays;
 import java.util.List;
 
 import armybuilder.model.army.Listing;
-import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.rule.ArmyRuleType;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.serialisation.DescriptionReader;
 
-@Deprecated
 public enum Triomphes implements IListingOptionValue<Triomphes>, IArmyRule<Triomphes> {
 	Sanguinaires("Sanguinaires", Arrays.asList(ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCharge)),
 	Inspires(
@@ -37,16 +35,6 @@ public enum Triomphes implements IListingOptionValue<Triomphes>, IArmyRule<Triom
 	@Override
 	public ListingOption option() {
 		return ListingOption.Triomphes;
-	}
-
-	@Override
-	public boolean isOptionDisplayed(OldArmy army) {
-		return true;
-	}
-
-	@Override
-	public void rebuild(OldArmy army) {
-		army.addRule(this);
 	}
 
 	@Override

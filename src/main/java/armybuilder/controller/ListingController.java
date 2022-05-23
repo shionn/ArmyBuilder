@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestHeader;
 
 import armybuilder.model.army.AllArmy;
 import armybuilder.model.army.Listing;
+import armybuilder.model.army.option.GrandeStrategie;
+import armybuilder.model.army.option.PackDeBataille;
 import armybuilder.model.army.option.SubAllegiance;
+import armybuilder.model.army.option.Triomphes;
 import armybuilder.model.army.option.bataillon.Bataillon;
 import armybuilder.model.unit.IUnitModel;
 import armybuilder.model.unit.Unit;
@@ -41,6 +44,27 @@ public class ListingController {
 	@GetMapping(path = "/listing/{id}/SubAllegiance")
 	public String selectSubAllegiance(@PathVariable("id") int id, @RequestHeader("SubAllegiance") SubAllegiance sub) {
 		armies.current().listing(id).set(sub);
+		return "redirect:/";
+	}
+
+	@GetMapping(path = "/listing/{id}/PackDeBataille")
+	public String selectPackDeBataille(@PathVariable("id") int id,
+			@RequestHeader("PackDeBataille") PackDeBataille pack) {
+		armies.current().listing(id).set(pack);
+		return "redirect:/";
+	}
+
+	@GetMapping(path = "/listing/{id}/GrandeStrategie")
+	public String selectGrandeStrategie(@PathVariable("id") int id,
+			@RequestHeader("GrandeStrategie") GrandeStrategie strategie) {
+		armies.current().listing(id).set(strategie);
+		return "redirect:/";
+	}
+
+	@GetMapping(path = "/listing/{id}/Triomphes")
+	public String selectGrandeStrategie(@PathVariable("id") int id,
+			@RequestHeader("Triomphes") Triomphes trionmphe) {
+		armies.current().listing(id).set(trionmphe);
 		return "redirect:/";
 	}
 

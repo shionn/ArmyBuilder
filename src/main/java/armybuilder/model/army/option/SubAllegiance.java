@@ -7,7 +7,6 @@ import java.util.function.Function;
 
 import armybuilder.model.army.Army;
 import armybuilder.model.army.Listing;
-import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.dok.DokRule;
 import armybuilder.model.nighthaunt.NighthauntRule;
@@ -73,12 +72,6 @@ public enum SubAllegiance implements IListingOptionValue<SubAllegiance>, Compara
 	@Override
 	public ListingOption option() {
 		return ListingOption.SubAllegiance;
-	}
-
-	@Deprecated
-	@Override
-	public boolean isOptionDisplayed(OldArmy army) {
-		return false;
 	}
 
 	@Deprecated

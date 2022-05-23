@@ -5,35 +5,39 @@ import java.util.List;
 
 import armybuilder.model.army.rule.ArmyRuleType;
 
-//@Component
-//@RequestScope
 public class Turn {
 
 	public enum Phase {
-		Héros("1 Phase des Héros",
+		Héros(
+				"1 Phase des Héros",
 				Arrays.asList(Arrays.asList(ArmyRuleType.Aptitude, ArmyRuleType.PhaseDesHeros),
 						Arrays.asList(ArmyRuleType.ActionsHeroiques),
 						Arrays.asList(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDesHeros),
 						Arrays.asList(ArmyRuleType.Sort), Arrays.asList(ArmyRuleType.Priere))),
-		Mouvement("2 Phase de Mouvement",
+		Mouvement(
+				"2 Phase de Mouvement",
 				Arrays.asList(Arrays.asList(ArmyRuleType.TraitsDeCommandement, ArmyRuleType.PhaseDeMouvement),
 						Arrays.asList(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeMouvement))),
-		Tir("3 Phase de Tir",
+		Tir(
+				"3 Phase de Tir",
 				Arrays.asList(Arrays.asList(ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeTir),
 						Arrays.asList(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeTir),
-						Arrays.asList(ArmyRuleType.AptitudeDeVeteran, ArmyRuleType.PhaseDeTir))),
-		Charge("4 Phase de Charge",
+						Arrays.asList(ArmyRuleType.PhaseDeTir))),
+		Charge(
+				"4 Phase de Charge",
 				Arrays.asList(Arrays.asList(ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCharge),
 						Arrays.asList(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeCharge),
-						Arrays.asList(ArmyRuleType.AptitudeDeVeteran, ArmyRuleType.PhaseDeCharge),
-						Arrays.asList(ArmyRuleType.FureursMonstrueuses))),
-		Combat("5 Phase de Combat",
+						Arrays.asList(ArmyRuleType.PhaseDeCharge), Arrays.asList(ArmyRuleType.FureursMonstrueuses))),
+		Combat(
+				"5 Phase de Combat",
 				Arrays.asList(Arrays.asList(ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCombat),
 						Arrays.asList(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeCombat),
-						Arrays.asList(ArmyRuleType.AptitudeDeVeteran, ArmyRuleType.PhaseDeCombat))),
-		Deroute("6 Phase de Déroute", Arrays.asList(Arrays.asList(ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCharge),
-				Arrays.asList(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeDeroute),
-				Arrays.asList(ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeDeroute)));
+						Arrays.asList(ArmyRuleType.PhaseDeCombat))),
+		Deroute(
+				"6 Phase de Déroute",
+				Arrays.asList(Arrays.asList(ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCharge),
+						Arrays.asList(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeDeroute),
+						Arrays.asList(ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeDeroute)));
 
 		private String name;
 		private List<List<ArmyRuleType>> steps;

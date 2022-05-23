@@ -7,6 +7,7 @@ import java.util.function.Function;
 import armybuilder.model.army.Listing;
 import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.option.Allegiance;
+import armybuilder.model.army.option.PackDeBataille;
 import armybuilder.model.army.rule.BataillonRule;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.Unit;
@@ -29,6 +30,12 @@ public enum Bataillon implements IUnitOptionValue<Bataillon> {
 			contain(BataillonSlot.Commandant, 1),
 			contain(BataillonSlot.Monstre, 2),
 			opt(BataillonSlot.Monstre, 1)),
+	ChasseurDesContrees(
+			"Chasseurs des Contrées",
+			l -> l.is(PackDeBataille.BataillesRangees2021),
+			Arrays.asList(BataillonRule.OutsidersExperts),
+			contain(BataillonSlot.Troupe, 2),
+			opt(BataillonSlot.Troupe, 1)),
 	GardeRaprocheeM(
 			"Garde Rapprochée (Magnifiques)",
 			l -> true,
@@ -58,14 +65,20 @@ public enum Bataillon implements IUnitOptionValue<Bataillon> {
 			contain(BataillonSlot.SousCommandant, 1),
 			contain(BataillonSlot.Artillerie, 2),
 			opt(BataillonSlot.Artillerie, 1)),
+	MeuteDeBeteAlpha(
+			"Meute de Bête Alpha",
+			l -> l.is(PackDeBataille.BataillesRangees2021),
+			Arrays.asList(BataillonRule.PisterALOdeur),
+			contain(BataillonSlot.Monstre, 2),
+			opt(BataillonSlot.Monstre, 1)),
 	PatrouilleDeLOmbreU(
-			"Patrouille de l'Ombre", 
+			"Patrouille de l'Ombre (Unifiés)",
 			l -> l.is(Allegiance.DoK), 
 			Arrays.asList(BataillonRule.Unifies), 
 			contain(BataillonSlot.ConjurateursDuFauMaudit, 2), 
 			contain(BataillonSlot.GuerriereKhinerai, 4)),
 	PatrouilleDeLOmbreR(
-			"Patrouille de l'Ombre", 
+			"Patrouille de l'Ombre (Rapides)",
 			l -> l.is(Allegiance.DoK), 
 			Arrays.asList(BataillonRule.Rapides), 
 			contain(BataillonSlot.ConjurateursDuFauMaudit, 2), 

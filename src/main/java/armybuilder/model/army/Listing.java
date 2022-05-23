@@ -25,6 +25,7 @@ import armybuilder.model.army.option.bataillon.Bataillon;
 import armybuilder.model.army.rule.ArmyRuleType;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.IUnitModel;
+import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.option.UnitOption;
 import armybuilder.serialisation.ListingOptionValueJsonDeserializer;
@@ -137,6 +138,10 @@ public class Listing {
 
 	public List<Unit> units(IUnitModel model) {
 		return units.stream().filter(u -> u.is(model)).sorted(new UnitComparator()).collect(Collectors.toList());
+	}
+
+	public List<Unit> units(KeyWord keyword) {
+		return units.stream().filter(u -> u.is(keyword)).sorted(new UnitComparator()).collect(Collectors.toList());
 	}
 
 	public void remove(Unit u) {

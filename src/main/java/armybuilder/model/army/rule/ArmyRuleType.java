@@ -3,7 +3,6 @@ package armybuilder.model.army.rule;
 import java.util.function.Function;
 
 import armybuilder.model.army.OldArmy;
-import armybuilder.model.army.option.PackDeBataille;
 import armybuilder.model.unit.KeyWord;
 
 public enum ArmyRuleType {
@@ -18,14 +17,13 @@ public enum ArmyRuleType {
 	TraitsDeCommandement("Traits de Commandement", a -> true),
 	FureursMonstrueuses("Fureurs Monstrueuses", a -> !a.units(KeyWord.Monstre).isEmpty()),
 	ActionsHeroiques("Actions Heroique", a -> true),
-	AptitudeDeVeteran("Aptitude de Vétéran", a -> a.is(PackDeBataille.PourLaGloire)),
-	AptitudeDeVeteran_2("Aptitude de Vétéran", a -> a.is(PackDeBataille.PourLaGloire)),
 	Artefact(null, a -> true),
 	Sort(null, a -> !a.units(KeyWord.Sorcier).isEmpty()),
 	Priere(null, a -> !a.units(KeyWord.Pretre).isEmpty()),
 	Triomphes(null, a -> true),
 	EndLessSpell(null, a -> !a.units(KeyWord.Sorcier).isEmpty()),
 
+	PhaseBeforeStart(null, a -> true),
 	PhaseDeCharge(null, a -> true),
 	PhaseDesHeros(null, a -> true),
 	PhaseDeMouvement(null, a -> true),

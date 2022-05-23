@@ -76,14 +76,14 @@
 			<table>
 				<thead>
 					<tr>
-						<th colspan="${model.profileDegressif.titles.size()}">Tableau de Dégâts</th>
+						<th colspan="${model.profileDegressif().titles.size()}">Tableau de Dégâts</th>
 					</tr>
 					<tr>
-						<c:forEach items="${model.profileDegressif.titles}" var="t"><th>${t}</th></c:forEach>
+						<c:forEach items="${model.profileDegressif().titles}" var="t"><th>${t}</th></c:forEach>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${model.profileDegressif.lines}" var="l">
+					<c:forEach items="${model.profileDegressif().lines}" var="l">
 						<tr><c:forEach items="${l}" var="c"><td>${c}</td></c:forEach></tr>
 					</c:forEach>
 				</tbody>

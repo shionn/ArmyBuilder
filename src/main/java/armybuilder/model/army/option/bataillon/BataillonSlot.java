@@ -15,11 +15,11 @@ public enum BataillonSlot {
 	SousCommandant(u -> u.is(RoleTactique.Leader)),
 	Troupe(u -> u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite)),
 	// Dok
-	ConjurateursDuFauMaudit(u -> u.is(DokUnitModel.ConjurateursDuFauMaudit)),
+	ConjurateursDuFauMaudit(u -> u.is(DokUnitModel.ConjurateursDuFeuMaudit)),
 	GuerriereKhinerai(u -> u.is(DokUnitModel.KhineraiHeartrenders) || u.is(DokUnitModel.EgorgeusesKhinerai)),
 	GuerriereMelusai(u -> u.is(DokUnitModel.BloodSisters) || u.is(DokUnitModel.BloodStalkers)),
 	KhainiteLeader(u -> u.is(KeyWord.MeduseIncarnate) || u.is(KeyWord.FerecailleMelusai)),
-	Morathi(u -> u.is(DokUnitModel.MorathiKhaine) || u.is(DokUnitModel.LaShadowQueen)),
+	Morathi(u -> u.is(DokUnitModel.MorathiKhaine) || u.is(DokUnitModel.LaReineDeLOmbre)),
 
 	;
 	private Function<Unit, Boolean> is;

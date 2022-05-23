@@ -2,6 +2,7 @@ package armybuilder.model.army;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -12,7 +13,8 @@ import armybuilder.model.army.compare.UnitModelComparator;
 import armybuilder.model.army.compare.UnitRuleComparator;
 import armybuilder.model.army.compare.UnitWeaponComparator;
 import armybuilder.model.army.option.Allegiance;
-import armybuilder.model.army.option.SubAllegiance;
+import armybuilder.model.army.option.IListingOptionValue;
+import armybuilder.model.army.option.ListingOption;
 import armybuilder.model.army.option.bataillon.Bataillon;
 import armybuilder.model.army.rule.ArmyRuleType;
 import armybuilder.model.army.rule.IArmyRule;
@@ -52,22 +54,18 @@ public class Army {
 		return allegiance;
 	}
 
-	/** suballegiance **/
-	public String getDisplayName() {
-		return allegiance.getDisplayName();
-	}
-
-	public List<SubAllegiance> subAllegiences() {
-		return listings.stream()
-				.map(l -> l.subAllegiance())
-				.sorted((a, b) -> a.displayName().compareTo(b.displayName()))
-				.distinct()
-				.collect(Collectors.toList());
-	}
-
-	/** bataillon */
+	/** options **/
 	public List<Bataillon> bataillons() {
 		return listings.stream().flatMap(l -> l.bataillons().stream()).distinct().sorted().collect(Collectors.toList());
+	}
+
+	public List<IListingOptionValue<?>> options(ListingOption type) {
+		return listings.stream()
+				.map(l -> l.get(type))
+				.filter(Objects::nonNull)
+				.distinct()
+				.sorted((a, b) -> a.displayName().compareTo(b.displayName()))
+				.collect(Collectors.toList());
 	}
 
 	/** rules **/
@@ -128,6 +126,11 @@ public class Army {
 				.sorted()
 				.collect(Collectors.toList());
 
+	}
+
+	/** getters **/
+	public String getDisplayName() {
+		return allegiance.getDisplayName();
 	}
 
 }

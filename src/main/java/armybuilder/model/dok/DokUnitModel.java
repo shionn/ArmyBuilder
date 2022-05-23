@@ -63,6 +63,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(),
 			null),
 
+	// Fait au dessus
 
 	SanctuaireIncarant(
 			"Sanctuaire Incarant",
@@ -70,7 +71,6 @@ public enum DokUnitModel implements IUnitModel {
 			UnitProfile._S_13_8_5,
 			Arrays.asList(RoleTactique.Leader),
 
-			// Fait au dessus
 			Arrays.asList(DokUnitWeapon.RegardIncarnat, DokUnitWeapon.LanceIncarnate, DokUnitWeapon.Aiguillons,
 					DokUnitWeapon.GriffeMurmure, DokUnitWeapon.QueueDeSerpents),
 			new ProfileDegressif("Mouvement", DokUnitWeapon.Aiguillons.getDisplayName(),
@@ -338,8 +338,30 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(),
 			null),
 
-	ConjurateursDuFauMaudit(null, 0, null, null, null, null, null, null, null, null, null),
-	EgorgeusesKhinerai(null, 0, null, null, null, null, null, null, null, null, null),
+	ConjurateursDuFeuMaudit(
+			"Conjurateurs du Feu Maudit",
+			0,
+			UnitProfile.None,
+			Arrays.asList(),
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null),
+	EgorgeusesKhinerai(
+			"Egorgeuses Khinerai",
+			0,
+			UnitProfile.None,
+			Arrays.asList(),
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null),
 
 	;
 
@@ -430,7 +452,7 @@ public enum DokUnitModel implements IUnitModel {
 	@Override
 	public boolean availableFor(Listing listing) {
 		boolean available = true;
-		if (keyWords.contains(KeyWord.Unique)) {
+		if (keyWords != null && keyWords.contains(KeyWord.Unique)) {
 			available = !listing.have(this);
 		}
 		if (available && availableFor != null) {

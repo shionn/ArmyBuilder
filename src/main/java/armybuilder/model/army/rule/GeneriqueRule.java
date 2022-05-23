@@ -136,11 +136,4 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 		return name() + getTypes();
 	}
 
-	@Override
-	public void rebuild(OldArmy army) {
-		if (consumer != null) {
-			consumer.accept(army);
-		}
-	}
-
 }
