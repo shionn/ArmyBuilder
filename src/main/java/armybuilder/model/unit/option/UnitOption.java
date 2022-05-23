@@ -47,9 +47,4 @@ public enum UnitOption {
 		return type;
 	}
 
-	@Deprecated
-	public boolean isAvailable(OldArmy a, Unit u) {
-		return available.apply(u);
-	}
-
 }

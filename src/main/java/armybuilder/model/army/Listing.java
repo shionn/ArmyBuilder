@@ -23,6 +23,7 @@ import armybuilder.model.army.option.ListingOption;
 import armybuilder.model.army.option.SubAllegiance;
 import armybuilder.model.army.option.bataillon.Bataillon;
 import armybuilder.model.army.rule.ArmyRuleType;
+import armybuilder.model.army.rule.GeneriqueRule;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.IUnitModel;
 import armybuilder.model.unit.KeyWord;
@@ -54,9 +55,11 @@ public class Listing {
 
 	public void rebuild() {
 		rules.clear();
+		rules.addAll(Arrays.asList(GeneriqueRule.values()));
 		units.stream().forEach(u -> u.reset());
 		options.values().stream().forEach(o -> o.rebuild(this));
 		units.stream().forEach(u -> u.rebuild());
+		Arrays.stream(GeneriqueRule.values()).forEach(r -> r.rebuild(this));
 	}
 
 	/** options */
@@ -110,6 +113,17 @@ public class Listing {
 		return rules.stream().filter(r -> r.is(type)).collect(Collectors.toList());
 	}
 
+	public List<IArmyRule<?>> rules(List<ArmyRuleType> types) {
+		List<IArmyRule<?>> results = new ArrayList<IArmyRule<?>>();
+		rules.stream().filter(r -> r.isAll(types)).forEach(r->results.add(r));
+		units.stream()
+				.flatMap(u -> u.rules().stream())
+				.distinct()
+				.filter(r -> r.isAll(types))
+				.forEach(r -> results.add(r));
+		return results;
+	}
+
 	public void add(IArmyRule<?>... rules) {
 		this.rules.addAll(Arrays.asList(rules));
 	}
@@ -134,6 +148,10 @@ public class Listing {
 
 	public List<Unit> units() {
 		return units.stream().sorted(new UnitComparator()).collect(Collectors.toList());
+	}
+
+	public List<Unit> units(IArmyRule<?> rule) {
+		return units.stream().filter(u -> u.is(rule)).distinct().collect(Collectors.toList());
 	}
 
 	public List<Unit> units(IUnitModel model) {

@@ -123,11 +123,6 @@ public enum Bataillon implements IUnitOptionValue<Bataillon> {
 		return displayName;
 	}
 
-	@Deprecated
-	public void rebuild(OldArmy army) {
-		army.addRules(rules);
-	}
-
 	public List<IArmyRule<?>> rules() {
 		return rules;
 	}

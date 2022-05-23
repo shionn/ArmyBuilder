@@ -1,0 +1,1 @@
+Cette unité compte comme un __Monstre__ pour les besoins de la règle Fureur Monstrueuse, mais elle peut seulement utiliser les fureurs monstrueuses Piétinement ou Écroulement. Elle ne peu pas être choisie comme cible d'une fureur monstrueuse.

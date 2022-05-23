@@ -130,6 +130,10 @@ public class Unit implements Comparable<Unit> {
 		rules.add(rule);
 	}
 
+	public boolean is(IArmyRule<?> rule) {
+		return rules.contains(rule);
+	}
+
 	/** weapons */
 	public void add(IUnitWeapon weapon) {
 		weapons.add(weapon);
@@ -160,11 +164,6 @@ public class Unit implements Comparable<Unit> {
 
 	public SortedSet<IArmyRule<?>> rules() {
 		return rules;
-	}
-
-	@Deprecated
-	public boolean is(IArmyRule<?> rule) {
-		return rules.contains(rule);
 	}
 
 	public boolean is(IUnitModel model) {

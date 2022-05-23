@@ -5,7 +5,7 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="t"%>
 <%@ attribute name="army" type="armybuilder.model.army.Army"%>
 <%@ attribute name="types" type="java.util.List"%>
-<c:set var="rules" value="${army.getRules(types)}" />
+<c:set var="rules" value="${army.rules(types)}" />
 <c:if test="${not empty rules}">
 	<div style="page-break-inside: avoid;">
 		<h2>${types[0].displayName}</h2>

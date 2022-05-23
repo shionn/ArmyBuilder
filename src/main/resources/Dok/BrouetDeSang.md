@@ -1,3 +1,1 @@
-Au début de votre phase des héros, vous pouvez choisir 1 unité **Fille de Khaine** amie entièrement à 12" de cette unité pour boire du brouet de sang. Une unité ne peut pas boire au brouet de sang plus d'une fois par tour.
-
-Si vous le faites, ajoutez 1 au numéro du round de bataille en cours pour déterminer les aptitudes gagnées par l'unité choisie grâce au trait de bataille Rite de Sang jusqu'à la fin de ce tour. Cettre aptitude se cumule avec les autres aptitudes similaires.
+Au début de votre phase des héros, vous pouvez choisir 1 unité **Fille de Khaine** amie entièrement à 12" de cette unité pour boire du brouet de sang. Une unité ne peut pas boire au brouet de sang plus d'une fois par tour. Si vous le faites, ajoutez 1 au numéro du round de bataille en cours pour déterminer les aptitudes gagnées par l'unité choisie grâce au trait de bataille Rite de Sang jusqu'à la fin de ce tour. Cettre aptitude se cumule avec les autres aptitudes similaires.

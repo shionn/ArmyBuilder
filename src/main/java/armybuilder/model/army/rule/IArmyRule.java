@@ -17,4 +17,8 @@ public interface IArmyRule<T extends Enum<T> & IArmyRule<T>> {
 		return getTypes().contains(type);
 	}
 
+	default boolean isAll(List<ArmyRuleType> types) {
+		return getTypes().containsAll(types);
+	}
+
 }

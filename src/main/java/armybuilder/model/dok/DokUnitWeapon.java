@@ -27,7 +27,7 @@ public enum DokUnitWeapon implements IUnitWeapon {
 	Sciansa("Sciansá", WeaponType.Melee, "1", "2", "3+", "4+", "-", "1"),
 	SciansaAppairees("Sciansá Appairées", WeaponType.Melee, "1", "3", "3+", "4+", "-", "1"),
 	Sciansa_Chaudron("Sciansá", WeaponType.Melee, "1", "*", "3+", "4+", "-", "1"),
-	TorrentdeSangBrulant("Torrent de Sang Brûlant", WeaponType.Projectil, "10", "6", "3+", "3+", "-1", "1"),
+	TorrentDeSangBrulant("Torrent de Sang Brûlant", WeaponType.Projectil, "10", "6", "3+", "3+", "-1", "1"),
 	// Fait au dessus
 
 	Aiguillons("Aiguillons", WeaponType.Melee, "2", "*", "3+", "3+", "-", "1"),

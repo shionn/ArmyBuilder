@@ -54,8 +54,7 @@ public enum Triomphes implements IListingOptionValue<Triomphes>, IArmyRule<Triom
 
 	@Override
 	public void rebuild(Listing listing) {
-		// TODO Auto-generated method stub
-
+		listing.add(this);
 	}
 
 	@Override

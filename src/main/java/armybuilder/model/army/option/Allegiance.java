@@ -41,6 +41,10 @@ public enum Allegiance {
 	}
 
 	public void rebuild(Listing listing) {
+//		listing.units(KeyWord.Sorcier).forEach(u -> {
+//			u.add(GeneriqueRule.TraitMagique);
+//			u.add(GeneriqueRule.BouclierMystique);
+//		});
 		if (rules != null) {
 			listing.add(rules.toArray(new IArmyRule[0]));
 		}

@@ -18,9 +18,9 @@
 	<div class="rule">
 		<h3>${rule.displayName()} : </h3>
 		<c:if test="${rule.is('TraisUnitee') && displayUnit}">
-<%-- 			<c:forEach items="${army.units(rule)}" var="u"> --%>
-<%-- 				<em>${u.displayName}</em> --%>
-<%-- 			</c:forEach> --%>
+			<c:forEach items="${army.units(rule)}" var="u">
+				<em>${u.displayName()}</em>
+			</c:forEach>
 		</c:if>
 		${rule.description}
 	</div>

@@ -70,9 +70,11 @@ public enum DokRule implements IArmyRule<DokRule> {
 	MaitressesDesOmbrevoies("Maîtresses des Ombrevoies", ArmyRuleType.TraisDeBataille, ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeMouvement),
 
 	// Aptitude
-	AutelDeKhaine("Autel de Khaine", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDesHeros),
+	AnimuseDeSorcellerieEtDeSacrifice("Animus de Sorcellerie et de Sacrifice", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	AutelDeKhaine("Autel de Khaine", ArmyRuleType.Aptitude),
 	BouclierDeSang("Bouclier de Sang", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	BrouetDeSang("Brouet de Sang", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDesHeros, ArmyRuleType.TraisUnitee),
+	ColereDeKhaine("Colère de Khaine", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	CoupDeGrace("Coup de Grâce", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	CoeurDeFerDeKhaine("Cœur de Fer de Khaine", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	DanseDeLaMort("Danse de la Mort", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
@@ -117,7 +119,6 @@ public enum DokRule implements IArmyRule<DokRule> {
 			ArmyRuleType.Aptitude,
 			ArmyRuleType.PhaseDesHeros,
 			ArmyRuleType.TraisUnitee),
-	BouclierPerceCoeur("Bouclier Perce-coeur", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	BondDeLOmbre(
 			"Bond de l'Ombre",
 			ArmyRuleType.Aptitude,
@@ -153,7 +154,6 @@ public enum DokRule implements IArmyRule<DokRule> {
 
 	//
 
-	ColereDeKhaine("Colère de Khaine", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	DanseDAgonie("Danse d'Agonie", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 	RuneDeKhaine_Priere("Rune de Khaine", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 
@@ -167,7 +167,7 @@ public enum DokRule implements IArmyRule<DokRule> {
 	PrivilegeDuDieuDuMeurtre(
 			"Privilège du Dieu du Meurtre",
 			ArmyRuleType.Aptitude,
-			ArmyRuleType.PhaseDeCombat), 
+			ArmyRuleType.PhaseDeCombat),  
 
 
 	;

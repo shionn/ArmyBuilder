@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
-import armybuilder.model.army.OldArmy;
+import armybuilder.model.army.Listing;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.serialisation.DescriptionReader;
 
@@ -93,24 +93,16 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 
 	private List<ArmyRuleType> types;
 	private String displayName;
-	private Consumer<OldArmy> consumer;
+	private Consumer<Listing> consumer;
 
 	GeneriqueRule(ArmyRuleType... types) {
 		this.types = Arrays.asList(types);
 	}
 
-	GeneriqueRule(String displayName, Consumer<OldArmy> consumer, ArmyRuleType... types) {
+	GeneriqueRule(String displayName, Consumer<Listing> consumer, ArmyRuleType... types) {
 		this.displayName = displayName;
 		this.consumer = consumer;
 		this.types = Arrays.asList(types);
-	}
-
-	public boolean isUsable(OldArmy army) {
-		boolean usable = true;
-		for (ArmyRuleType type : types) {
-			usable &= type.isUsable(army);
-		}
-		return usable;
 	}
 
 	@Override
@@ -134,6 +126,12 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 	@Override
 	public String toString() {
 		return name() + getTypes();
+	}
+
+	public void rebuild(Listing listing) {
+		if (consumer != null) {
+			consumer.accept(listing);
+		}
 	}
 
 }

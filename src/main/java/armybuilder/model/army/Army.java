@@ -69,8 +69,12 @@ public class Army {
 	}
 
 	/** rules **/
-	public List<IArmyRule<?>> rules(ArmyRuleType type) {
-		return listings.stream().flatMap(l -> l.rules(type).stream()).distinct().collect(Collectors.toList());
+	public List<IArmyRule<?>> rules(ArmyRuleType types) {
+		return listings.stream().flatMap(l -> l.rules(types).stream()).distinct().collect(Collectors.toList());
+	}
+
+	public List<IArmyRule<?>> rules(List<ArmyRuleType> types) {
+		return listings.stream().flatMap(l -> l.rules(types).stream()).distinct().collect(Collectors.toList());
 	}
 
 	/** listing **/
@@ -100,6 +104,15 @@ public class Army {
 				.collect(Collectors.toList());
 	}
 
+	public List<IUnitModel> units(IArmyRule<?> rule) {
+		return listings.stream()
+				.flatMap(l -> l.units(rule).stream())
+				.map(u -> u.model())
+				.distinct()
+				.sorted(new UnitModelComparator())
+				.collect(Collectors.toList());
+
+	}
 	public List<IUnitWeapon> weapons(IUnitModel model, WeaponType type) {
 		return listings.stream()
 				.flatMap(l -> l.units(model).stream())

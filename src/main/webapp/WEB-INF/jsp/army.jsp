@@ -60,7 +60,7 @@
 	<t:rule rule="${rule}" army="${army}"/>
 </c:forEach>
 <c:forEach items="${army.options('SubAllegiance')}" var="sub">
-	<h3>${sub.displayName()}</h3>
+	<h2>${sub.displayName()}</h2>
 	<c:forEach items="${sub.rules()}" var="rule">
 		<t:rule rule="${rule}" army="${army}"/>
 	</c:forEach>
@@ -101,8 +101,21 @@
 <c:forEach items="${army.units()}" var="model">
 	<t:unit model="${model}" army="${army}"/>
 </c:forEach>
-	</jsp:attribute>
-	<jsp:attribute name="scripts">
-		<script type="text/javascript" src='<spring:url value="/js/army.js"/>'></script>
-	</jsp:attribute>
+
+<c:forEach items="${turn.phases}" var="p">
+	<div>
+		<h1>${p.name}</h1>
+		<c:forEach items="${p.steps}" var="s">
+			<t:rule-group types="${s}" army="${army}"/>
+		</c:forEach>
+	</div>
+</c:forEach>
+
+
+</jsp:attribute>
+<jsp:attribute name="scripts">
+	<script type="text/javascript" src='<spring:url value="/js/army.js"/>'></script>
+</jsp:attribute>
 </t:template>
+
+
