@@ -103,6 +103,12 @@ public enum DokRule implements IArmyRule<DokRule> {
 	// Armes
 	RondacheTranchante("Rondache Tranchante", ArmyRuleType.Aptitude),
 
+	// sort persistant et aptitude
+	CoeurDeFureurConv("Convocation", ArmyRuleType.Aptitude),
+	ReceptacleDuDieuMeurtre("Réceptacle du Dieu du Meurtre", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeCombat),
+
+	//
+
 	// ---- Fait au dessus
 	//
 	CrypteDesAinee("Crypte des Aînée", ArmyRuleType.TraisDeBataille),
@@ -158,16 +164,10 @@ public enum DokRule implements IArmyRule<DokRule> {
 	RuneDeKhaine_Priere("Rune de Khaine", ArmyRuleType.Priere, ArmyRuleType.TraisUnitee),
 
 	//
-	// sort persistant et aptitude
 	AttaqueDeCrochets("Attaque de Crochets", ArmyRuleType.Aptitude),
 	BloodWrackViperConv("Convocation", ArmyRuleType.Aptitude),
 	BladewindConv("Convocation", ArmyRuleType.Aptitude),
-	HeartOfFuryConv("Convocation", ArmyRuleType.Aptitude),
 	TranchantSurnaturel("Tranchant Surnaturel", ArmyRuleType.Aptitude),
-	PrivilegeDuDieuDuMeurtre(
-			"Privilège du Dieu du Meurtre",
-			ArmyRuleType.Aptitude,
-			ArmyRuleType.PhaseDeCombat),  
 
 
 	;

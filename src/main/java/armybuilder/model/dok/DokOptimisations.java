@@ -62,7 +62,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	ResurrectionPourpre(UnitOption.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
 
 	// Compositioon
-	Ecorcheuse("Champion", UnitOption.Chef, u -> u.is(KeyWord.KhineraiHeartrenders), null),
+	Ecorcheuse("Champion", UnitOption.Chef, u -> u.is(KeyWord.EtripeusesKhinerai), null),
 	Matriache("Champion", UnitOption.Chef, u -> u.is(KeyWord.Erinyes), null),
 	PorteuseDePennonDeMort("Porte-Étendards", UnitOption.Banniere,
 			u -> u.is(KeyWord.Erinyes) || u.is(KeyWord.SoeurDuMassacre), null),
@@ -124,7 +124,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 
 	@Override
 	public String displayName() {
-		return "DoK : " + displayName;
+		return displayName;
 	}
 
 	@Override

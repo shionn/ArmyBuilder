@@ -15,23 +15,11 @@ public interface IUnitModel {
 
 	List<IUnitWeapon> weapons();
 
-	default boolean is(IUnitWeapon weapon) {
-		return weapons().contains(weapon);
-	}
-
 	List<KeyWord> keyWords();
 
 	List<IArmyRule<?>> rules();
 
-	default boolean is(IArmyRule<?> rule) {
-		return rules().contains(rule);
-	}
-
 	List<RoleTactique> roleTactiques();
-
-	default boolean is(RoleTactique role) {
-		return roleTactiques().contains(role);
-	}
 
 	int points();
 
@@ -41,17 +29,6 @@ public interface IUnitModel {
 
 	void rebuild(Unit unit);
 
-	@Deprecated
-	default boolean isOneOf(RoleTactique... roles) {
-		for (RoleTactique role : roles) {
-			if (roleTactiques().contains(role)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-
 	String name();
 
 	public boolean availableFor(Listing listing);
@@ -59,5 +36,21 @@ public interface IUnitModel {
 	UnitProfile profile();
 
 	ProfileDegressif profileDegressif();
+
+	default boolean is(IUnitWeapon weapon) {
+		return weapons().contains(weapon);
+	}
+
+	default boolean is(IArmyRule<?> rule) {
+		return rules().contains(rule);
+	}
+
+	default boolean is(RoleTactique role) {
+		return roleTactiques().contains(role);
+	}
+
+	default boolean is(KeyWord keyWord) {
+		return keyWords().contains(keyWord);
+	}
 
 }

@@ -101,9 +101,8 @@
 	<c:if test="${not empty army.keyWords(model)}">
 		<footer>
 			<c:forEach items="${army.keyWords(model)}" var="k">
-				<span>${k.displayName}</span>
+				<span>${k.displayName}<c:if test="${not model.is(k)}"><sup>*</sup></c:if></span>
 			</c:forEach>
-			TODO *
 		</footer>
 	</c:if>
 </article>

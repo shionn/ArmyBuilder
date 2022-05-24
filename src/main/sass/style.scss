@@ -19,12 +19,13 @@ body {
 		}
 	}
 	
-	select {
+	.print-only {
+		display: none;
 		@media print {
-			display: none;
+			display: unset;
 		}
-	}
-
+	} 
+	
 	& > header > nav, & > main, & > footer {
 		width: 1000px;
 		margin: 0 auto;
@@ -66,7 +67,6 @@ body {
 				height: 100%;
 			}
 		}
-
 		
 		@media print {
 			display: none;
@@ -116,20 +116,24 @@ body {
 	
 	div.options {
 		margin-top: 5px;
-		@media print {
-			display: none;
-		}
-		span {
-			display: inline-block;
-			margin-right: 10px;
-		}
 		select {
 			width: 192px;
+		}
+		select, label {
+			margin-right: 10px;
+			@media print {
+				display: none;
+			}
+		}
+		&> span {
+			margin-right: 10px;	
+		}
+		&>span:not(:last-of-type)::after {
+			content: ', ';
 		}
 	}
 	
 	div.rule {
-		margin-bottom: 10px;
 		page-break-inside: avoid;
 		
 		h3 {
@@ -140,6 +144,10 @@ body {
 		}
 		&:after {
 			clear: both;
+		}
+		
+		p {
+			margin: 5px 0;
 		}
 	
 		&>em:not(:last-of-type)::after {
@@ -164,7 +172,7 @@ body {
 	}
 
 	article.listing {
-		margin-top: 10px;
+		margin-top: 20px;
 		header h2 {
 			margin: 0;
 		}
@@ -178,9 +186,15 @@ body {
 		header h3 {
 			margin: 0;
 		}
+		div.rules {
+			margin-top: 10px;
+			@media print {
+				display: none;
+			}
+		}
 	}
 
-	article.unit {
+	article.unit, article.rule {
 		border: 1px dashed $primary-color ;
 		margin-bottom: 5px;
 		& > header {
@@ -191,15 +205,22 @@ body {
 			padding: 10px;
 			display: flex;
 			justify-content: space-between;
+			align-items: center;
 			a {
 				color : $secondary-color;
 				@media print {
 					display: none;
 				}
 			}
+			img {
+				vertical-align: bottom;
+				margin-right: -5px;	
+				height : 28px;
+			}
 		}
 		&> main {
 			padding: 5px;
+			background: white;
 			& > table {
 				margin: 0 auto 10px;
 				border-collapse: collapse;

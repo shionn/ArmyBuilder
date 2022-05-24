@@ -297,8 +297,8 @@ public enum DokUnitModel implements IUnitModel {
 			null,
 			Arrays.asList(GeneriqueUnitRule.Vol, DokRule.PlongeonDansLaBataille, DokRule.VoleeEtVolteFace),
 			Arrays.asList(UnitOption.Chef, UnitOption.Renforcees, UnitOption.Bataillon),
-			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.KhineraiHarpies,
-					KeyWord.KhineraiHeartrenders),
+			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Moirenees, KeyWord.Khinerai,
+					KeyWord.EtripeusesKhinerai),
 			Arrays.asList()),
 
 
@@ -343,15 +343,14 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(),
 			Arrays.asList()),
 
-	@Deprecated
-	HeartOfFury(
-			"TODO Heart of Fury",
-			55,
+	CoeurDeFureur(
+			"Cœur de Fureur",
+			45,
 			UnitProfile.None,
 			Arrays.asList(RoleTactique.SortsPersistantsEtInvocation),
 			Arrays.asList(),
 			null,
-			Arrays.asList(DokRule.HeartOfFuryConv, DokRule.PrivilegeDuDieuDuMeurtre),
+			Arrays.asList(DokRule.CoeurDeFureurConv, DokRule.ReceptacleDuDieuMeurtre),
 			Arrays.asList(),
 			Arrays.asList(),
 			Arrays.asList()),

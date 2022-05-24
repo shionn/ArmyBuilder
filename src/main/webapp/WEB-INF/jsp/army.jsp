@@ -45,7 +45,7 @@
 			<div class="options">
 				Bataillons :
 				<c:forEach items="${listing.bataillons()}" var="bat">
-					<a href="<spring:url value="/listing/${listing.id}/Bataillon/rm/${bat}"/>">${bat.displayName()}</a>, 
+					<span>${bat.displayName()} <a href="<spring:url value="/listing/${listing.id}/Bataillon/rm/${bat}"/>"> X</a></span>
 				</c:forEach>
 			</div>
 			<c:forEach items="${listing.units()}" var="unit">
@@ -69,17 +69,23 @@
 <c:if test="${not empty army.bataillons()}">
 	<h2>Bataillons</h2>
 	<c:forEach items="${army.bataillons()}" var="bat">
-		<h3>
-			${bat.displayName()}
-			<c:forEach items="${bat.compositions()}" var="c">
-				<c:forEach begin="1" end="${c.count}">
-					<img src="img/${c.img}.png" <c:if test="${c.opt}">style="opacity: 0.5"</c:if>>
+		<article class="rule">
+			<header>
+				${bat.displayName()}
+				<span>
+					<c:forEach items="${bat.compositions()}" var="c">
+						<c:forEach begin="1" end="${c.count}">
+							<img src="img/${c.img}.png" <c:if test="${c.opt}">style="opacity: 0.5"</c:if>>
+						</c:forEach>
+					</c:forEach>
+				</span>
+			</header>
+			<main>
+				<c:forEach items="${bat.rules()}" var="rule">
+					<t:rule rule="${rule}" army="${army}"/>
 				</c:forEach>
-			</c:forEach>
-		</h3>
-		<c:forEach items="${bat.rules()}" var="rule">
-			<t:rule rule="${rule}" army="${army}"/>
-		</c:forEach>
+			</main>
+		</article>
 	</c:forEach>
 </c:if>
 
@@ -90,12 +96,57 @@
 	</c:forEach>
 </c:if>
 
-<c:if test="${not empty army.options('Triomphes')}">
+<c:if test="${not empty army.rules('Triomphes')}">
 	<h2>Triomphes</h2>
-	<c:forEach items="${army.options('Triomphes')}" var="rule">
+	<c:forEach items="${army.rules('Triomphes')}" var="rule">
 		<t:rule rule="${rule}" army="${army}"/>
 	</c:forEach>
 </c:if>
+
+<%-- <c:if test="${not empty army.options('Triomphes')}"> --%>
+<!-- 	<h2>TODO Tacticte de Bataille</h2> -->
+<%-- 	<c:forEach items="${army.options('Triomphes')}" var="rule"> --%>
+<%-- 		<t:rule rule="${rule}" army="${army}"/> --%>
+<%-- 	</c:forEach> --%>
+<%-- </c:if> --%>
+
+<%-- <c:if test="${not empty army.rules('ActionsHeroiques')}"> --%>
+<!-- 	<h2>Actions Heroique</h2> -->
+<%-- 	<c:forEach items="${army.rules('ActionsHeroiques')}" var="rule"> --%>
+<%-- 		<t:rule rule="${rule}" army="${army}"/> --%>
+<%-- 	</c:forEach> --%>
+<%-- </c:if> --%>
+
+<c:if test="${not empty army.rules('TraitsDeCommandement')}">
+	<h2>Traits de Commandement</h2>
+	<c:forEach items="${army.rules('TraitsDeCommandement')}" var="rule">
+		<t:rule rule="${rule}" army="${army}"/>
+	</c:forEach>
+</c:if>
+
+<c:if test="${not empty army.rules('Artefact')}">
+	<h2>Artefact</h2>
+	<c:forEach items="${army.rules('Artefact')}" var="rule">
+		<t:rule rule="${rule}" army="${army}"/>
+	</c:forEach>
+</c:if>
+
+<c:if test="${not empty army.rules('Sort')}">
+	<h2>Sort</h2>
+	<c:forEach items="${army.rules('Sort')}" var="rule">
+		<t:rule rule="${rule}" army="${army}"/>
+	</c:forEach>
+</c:if>
+
+<c:if test="${not empty army.rules('Priere')}">
+	<h2>Priere</h2>
+	<c:forEach items="${army.rules('Priere')}" var="rule">
+		<t:rule rule="${rule}" army="${army}"/>
+	</c:forEach>
+</c:if>
+
+
+
 
 <h2>Unitées</h2>
 <c:forEach items="${army.units()}" var="model">

@@ -55,7 +55,6 @@ public class Listing {
 
 	public void rebuild() {
 		rules.clear();
-		rules.addAll(Arrays.asList(GeneriqueRule.values()));
 		units.stream().forEach(u -> u.reset());
 		options.values().stream().forEach(o -> o.rebuild(this));
 		units.stream().forEach(u -> u.rebuild());
@@ -110,7 +109,14 @@ public class Listing {
 	}
 
 	public List<IArmyRule<?>> rules(ArmyRuleType type) {
-		return rules.stream().filter(r -> r.is(type)).collect(Collectors.toList());
+		List<IArmyRule<?>> results = new ArrayList<IArmyRule<?>>();
+		rules.stream().filter(r -> r.is(type)).forEach(r -> results.add(r));
+		units.stream()
+				.flatMap(u -> u.rules().stream())
+				.distinct()
+				.filter(r -> r.is(type))
+				.forEach(r -> results.add(r));
+		return results;
 	}
 
 	public List<IArmyRule<?>> rules(List<ArmyRuleType> types) {

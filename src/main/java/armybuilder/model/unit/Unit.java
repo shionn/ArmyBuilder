@@ -18,7 +18,10 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import armybuilder.model.army.Listing;
 import armybuilder.model.army.compare.UnitRuleComparator;
+import armybuilder.model.army.rule.ArmyRuleType;
+import armybuilder.model.army.rule.GeneriqueRule;
 import armybuilder.model.army.rule.IArmyRule;
+import armybuilder.model.army.rule.PackDeBataille2021Rule;
 import armybuilder.model.unit.option.IUnitOptionValue;
 import armybuilder.model.unit.option.OptimisationsUniverselles;
 import armybuilder.model.unit.option.UnitOption;
@@ -134,6 +137,19 @@ public class Unit implements Comparable<Unit> {
 		return rules.contains(rule);
 	}
 
+	public List<IArmyRule<?>> rules(ArmyRuleType type) {
+		return rules.stream().filter(r -> r.is(type)).collect(Collectors.toList());
+	}
+
+	public List<IArmyRule<?>> addedRules(ArmyRuleType type) {
+		return rules.stream()
+				.filter(r -> !model().rules().contains(r))
+				.filter(r -> !(r instanceof GeneriqueRule))
+				.filter(r -> !(r instanceof PackDeBataille2021Rule))
+				.filter(r -> r.is(type))
+				.collect(Collectors.toList());
+	}
+
 	/** weapons */
 	public void add(IUnitWeapon weapon) {
 		weapons.add(weapon);
@@ -150,16 +166,6 @@ public class Unit implements Comparable<Unit> {
 
 	public Set<KeyWord> keyWords() {
 		return keyWords;
-	}
-
-	/**
-	 * rule
-	 */
-	@Deprecated
-	public void replaceIfExist(IArmyRule<?> rule1, IArmyRule<?> rule2) {
-		if (rules.remove(rule1)) {
-			add(rule2);
-		}
 	}
 
 	public SortedSet<IArmyRule<?>> rules() {

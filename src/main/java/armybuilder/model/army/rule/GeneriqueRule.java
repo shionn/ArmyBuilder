@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 import armybuilder.model.army.Listing;
+import armybuilder.model.army.option.Allegiance;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.serialisation.DescriptionReader;
 
@@ -17,23 +18,13 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 	VolonteHeroique("Volonté Héroïque", null, ArmyRuleType.ActionsHeroiques),
 
 	Ralliement(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDesHeros),
-	Redeploiement(
-			"Redéploiement",
-			null,
-			ArmyRuleType.AptitudesDeCommandement,
-			ArmyRuleType.PhaseDeMouvement),
-
+	Redeploiement("Redéploiement", null, ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeMouvement),
 	EnAvantVersLaVictoire(
 			"En Avant, Vers la Victoire",
 			null,
 			ArmyRuleType.AptitudesDeCommandement,
 			ArmyRuleType.PhaseDeCharge),
-	DechainerLesEnfers(
-			"Déchaîner les Enfers",
-			null,
-			ArmyRuleType.AptitudesDeCommandement,
-			ArmyRuleType.PhaseDeCharge),
-
+	DechainerLesEnfers("Déchaîner les Enfers", null, ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeCharge),
 	AttaqueEnRegle(
 			"Attaque en Règle",
 			null,
@@ -46,12 +37,7 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 			ArmyRuleType.AptitudesDeCommandement,
 			ArmyRuleType.PhaseDeTir,
 			ArmyRuleType.PhaseDeCombat),
-
-	PresenceExaltante(
-			"Présence Exaltante",
-			null,
-			ArmyRuleType.AptitudesDeCommandement,
-			ArmyRuleType.PhaseDeDeroute),
+	PresenceExaltante("Présence Exaltante", null, ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeDeroute),
 
 	TraitMagique(
 			"Trait Magique",
@@ -68,7 +54,9 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 
 	Benediction(
 			"Bénédiction",
-			a -> a.units(KeyWord.Pretre).stream()
+			a -> a.units(KeyWord.Pretre)
+					.stream()
+					.filter(u -> !a.is(Allegiance.DoK))
 					.forEach(u -> u.add(GeneriqueRule.valueOf("Benediction"))),
 			ArmyRuleType.Priere,
 			ArmyRuleType.TraisUnitee),
@@ -131,6 +119,8 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 	public void rebuild(Listing listing) {
 		if (consumer != null) {
 			consumer.accept(listing);
+		} else {
+			listing.add(this);
 		}
 	}
 

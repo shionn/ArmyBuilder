@@ -1,66 +1,84 @@
 package armybuilder.model.army.option;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
-import java.util.function.Function;
+import java.util.function.Consumer;
 
-import armybuilder.model.army.Army;
 import armybuilder.model.army.Listing;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.dok.DokRule;
 import armybuilder.model.nighthaunt.NighthauntRule;
+import armybuilder.model.unit.KeyWord;
+import armybuilder.model.unit.RoleTactique;
 
-public enum SubAllegiance implements IListingOptionValue<SubAllegiance>, Comparator<SubAllegiance> {
+public enum SubAllegiance implements IListingOptionValue<SubAllegiance> {
 	DraichiGaneth(
 			"Temple : Draichi Ganeth",
 			Arrays.asList(DokRule.TueusesHerisseesDeLames),
-			a -> a.is(Allegiance.DoK),
-			Allegiance.DoK),
+			Allegiance.DoK,
+			l -> l.units()
+					.stream()
+					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
+					.forEach(u -> u.add(KeyWord.DraichiGaneth))),
 	HaggNar(
 			"Temple : Hagg Nar",
 			Arrays.asList(DokRule.FillesDuPremierTemple),
-			a -> a.is(Allegiance.DoK),
-			Allegiance.DoK),
+			Allegiance.DoK,
+			l -> l.units()
+					.stream()
+					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
+					.forEach(u -> u.add(KeyWord.HaggNar))),
 	KheltNar(
 			"Temple : Khelt Nar",
 			Arrays.asList(DokRule.FrapperEtSeRetirer),
-			a -> a.is(Allegiance.DoK),
-			Allegiance.DoK),
+			Allegiance.DoK,
+			l -> l.units()
+					.stream()
+					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
+					.forEach(u -> u.add(KeyWord.KheltNar))),
 	Khailebron(
 			"Temple : Khailebron",
 			Arrays.asList(DokRule.MaitressesDesOmbrevoies),
-			a -> a.is(Allegiance.DoK),
-			Allegiance.DoK),
+			Allegiance.DoK,
+			l -> l.units()
+					.stream()
+					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
+					.forEach(u -> u.add(KeyWord.Khailebron))),
 	Kraith(
 			"Temple : Kraith",
 			Arrays.asList(DokRule.DisciplesDuMassacre),
-			a -> a.is(Allegiance.DoK),
-			Allegiance.DoK),
+			Allegiance.DoK,
+			l -> l.units()
+					.stream()
+					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
+					.forEach(u -> u.add(KeyWord.Kraith))),
 	LOstEmeraude(
 			"Processions : l'OST Emeraude",
 			Arrays.asList(NighthauntRule.LaMaledictionEmeraude, NighthauntRule.ChevaliersDuRegret),
-			a -> a.is(Allegiance.Nighthaunt),
-			Allegiance.Nighthaunt),
+			Allegiance.Nighthaunt,
+			null),
 	ZaintharKai(
 			"Temple : Zainthar Kai",
 			Arrays.asList(DokRule.LessenceDeKhaine),
-			a -> a.is(Allegiance.DoK),
-			Allegiance.DoK),
+			Allegiance.DoK,
+			l -> l.units()
+					.stream()
+					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
+					.forEach(u -> u.add(KeyWord.ZaintharKai))),
 
 	;
 
 	private String displayName;
 	private List<IArmyRule<?>> rules;
-	private Function<Army, Boolean> isAvailable;
 	private Allegiance allegiance;
+	private Consumer<Listing> modifier;
 
 	private SubAllegiance(String displayName, List<IArmyRule<?>> rules,
-			Function<Army, Boolean> isDisplay, Allegiance allegiance) {
+			Allegiance allegiance, Consumer<Listing> modifier) {
 		this.displayName = displayName;
 		this.rules = rules;
-		this.isAvailable = isDisplay;
 		this.allegiance = allegiance;
+		this.modifier = modifier;
 	}
 
 	@Override
@@ -68,16 +86,9 @@ public enum SubAllegiance implements IListingOptionValue<SubAllegiance>, Compara
 		return displayName;
 	}
 
-	@Deprecated
 	@Override
 	public ListingOption option() {
 		return ListingOption.SubAllegiance;
-	}
-
-	@Deprecated
-	@Override
-	public int compare(SubAllegiance o1, SubAllegiance o2) {
-		return o1.displayName().compareTo(o2.displayName());
 	}
 
 	@Override
@@ -85,6 +96,9 @@ public enum SubAllegiance implements IListingOptionValue<SubAllegiance>, Compara
 		allegiance().rebuild(listing);
 		if (rules != null) {
 			listing.add(rules.toArray(new IArmyRule[0]));
+		}
+		if (modifier != null) {
+			modifier.accept(listing);
 		}
 	}
 

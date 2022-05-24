@@ -1,1 +1,1 @@
-Lorsque vous choisissez les optimisations de votre armée (voir 27.3), vous pouvez choisir 1 optimisation supplémentaire.
+Lorsque vous choisissez les optimisations de votre armée, vous pouvez choisir 1 optimisation supplémentaire.

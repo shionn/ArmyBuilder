@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import armybuilder.model.army.compare.ListingComparator;
 import armybuilder.model.army.compare.UnitModelComparator;
 import armybuilder.model.army.compare.UnitRuleComparator;
 import armybuilder.model.army.compare.UnitWeaponComparator;
@@ -87,7 +88,7 @@ public class Army {
 	}
 
 	public List<Listing> listings() {
-		return listings;
+		return listings.stream().sorted(new ListingComparator()).collect(Collectors.toList());
 	}
 
 	public Listing listing(int id) {
