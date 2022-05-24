@@ -103,15 +103,13 @@ body {
 	h1 {
 		text-align: center;
 	}
+
+	h2 {
+		margin: 20px 0 10px 0;
+	}
 	
 	h2 span, h3 span {
 		float: right;
-	}
-	
-	h3 img {
-		vertical-align: bottom;
-		margin-right: -5px;	
-		height : 28px;
 	}
 	
 	div.options {
@@ -126,15 +124,19 @@ body {
 			}
 		}
 		&> span {
-			margin-right: 10px;	
+			margin-left: 10px;	
 		}
 		&>span:not(:last-of-type)::after {
 			content: ', ';
+		}
+		@media print {
+			margin: 0;
 		}
 	}
 	
 	div.rule {
 		page-break-inside: avoid;
+		margin-top: 10px;
 		
 		h3 {
 			display: inline;
@@ -173,16 +175,21 @@ body {
 
 	article.listing {
 		margin-top: 20px;
+		page-break-inside: avoid;
 		header h2 {
 			margin: 0;
+		}
+		@media print {
+			border: 1px dashed $primary-color ;
+			padding: 10px 5px;
 		}
 	}
 	
 	article.unit-config {
 		border: solid 1px darkgray;
-		padding: 5px;
 		background: white;
 		margin-top: 5px;
+		padding: 5px;
 		header h3 {
 			margin: 0;
 		}
@@ -192,11 +199,16 @@ body {
 				display: none;
 			}
 		}
+		@media print {
+			padding: 0;
+			border: 0;
+		}
 	}
 
 	article.unit, article.rule {
 		border: 1px dashed $primary-color ;
 		margin-bottom: 5px;
+		page-break-inside: avoid;
 		& > header {
 			background-color: $primary-color;
 			text-align: center;

@@ -11,7 +11,7 @@
 <c:forEach items="${army.listings()}" var="listing">
 	<article id="listing-${listing.id}" class="listing">
 		<header>
-			<h2>${listing.displayName()} <sup>(${listing.id})</sup> <span>${listing.points()} <a href="<spring:url value="/listing/rm/${listing.id}"/>">X</a></span></h2>
+			<h2>${listing.displayName()} <span>${listing.points()} <a href="<spring:url value="/listing/rm/${listing.id}"/>">X</a></span></h2>
 		</header>
 		<main>
 			<div class="options">
@@ -55,7 +55,7 @@
 	</article>
 </c:forEach>
 
-<h2>Aptitudes D'Allégeance</h2>
+<h2 style="page-break-before: always;">Aptitudes D'Allégeance</h2>
 <c:forEach items="${army.allegiance().rules()}" var="rule">
 	<t:rule rule="${rule}" army="${army}"/>
 </c:forEach>
@@ -92,14 +92,14 @@
 <c:if test="${not empty army.options('GrandeStrategie')}">
 	<h2>Grande Stratégie</h2>
 	<c:forEach items="${army.options('GrandeStrategie')}" var="rule">
-		<t:rule rule="${rule}" army="${army}"/>
+		<t:rule rule="${rule}" army="${army}" displayUnit="false"/>
 	</c:forEach>
 </c:if>
 
 <c:if test="${not empty army.rules('Triomphes')}">
 	<h2>Triomphes</h2>
 	<c:forEach items="${army.rules('Triomphes')}" var="rule">
-		<t:rule rule="${rule}" army="${army}"/>
+		<t:rule rule="${rule}" army="${army}" displayUnit="false"/>
 	</c:forEach>
 </c:if>
 
@@ -110,58 +110,47 @@
 <%-- 	</c:forEach> --%>
 <%-- </c:if> --%>
 
-<%-- <c:if test="${not empty army.rules('ActionsHeroiques')}"> --%>
-<!-- 	<h2>Actions Heroique</h2> -->
-<%-- 	<c:forEach items="${army.rules('ActionsHeroiques')}" var="rule"> --%>
-<%-- 		<t:rule rule="${rule}" army="${army}"/> --%>
-<%-- 	</c:forEach> --%>
-<%-- </c:if> --%>
-
 <c:if test="${not empty army.rules('TraitsDeCommandement')}">
 	<h2>Traits de Commandement</h2>
 	<c:forEach items="${army.rules('TraitsDeCommandement')}" var="rule">
-		<t:rule rule="${rule}" army="${army}"/>
+		<t:rule rule="${rule}" army="${army}" displayUnit="false"/>
 	</c:forEach>
 </c:if>
 
 <c:if test="${not empty army.rules('Artefact')}">
 	<h2>Artefact</h2>
 	<c:forEach items="${army.rules('Artefact')}" var="rule">
-		<t:rule rule="${rule}" army="${army}"/>
+		<t:rule rule="${rule}" army="${army}" displayUnit="false"/>
 	</c:forEach>
 </c:if>
 
 <c:if test="${not empty army.rules('Sort')}">
 	<h2>Sort</h2>
 	<c:forEach items="${army.rules('Sort')}" var="rule">
-		<t:rule rule="${rule}" army="${army}"/>
+		<t:rule rule="${rule}" army="${army}" displayUnit="false"/>
 	</c:forEach>
 </c:if>
 
 <c:if test="${not empty army.rules('Priere')}">
 	<h2>Priere</h2>
 	<c:forEach items="${army.rules('Priere')}" var="rule">
-		<t:rule rule="${rule}" army="${army}"/>
+		<t:rule rule="${rule}" army="${army}" displayUnit="false"/>
 	</c:forEach>
 </c:if>
 
-
-
-
-<h2>Unitées</h2>
+<h2 style="page-break-before: always;">Unitées</h2>
 <c:forEach items="${army.units()}" var="model">
 	<t:unit model="${model}" army="${army}"/>
 </c:forEach>
 
 <c:forEach items="${turn.phases}" var="p">
-	<div>
+	<div style="page-break-inside: avoid;">
 		<h1>${p.name}</h1>
 		<c:forEach items="${p.steps}" var="s">
 			<t:rule-group types="${s}" army="${army}"/>
 		</c:forEach>
 	</div>
 </c:forEach>
-
 
 </jsp:attribute>
 <jsp:attribute name="scripts">

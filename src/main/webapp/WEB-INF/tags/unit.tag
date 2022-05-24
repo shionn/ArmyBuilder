@@ -89,14 +89,12 @@
 				</tbody>
 			</table>
 		</c:if>
-		<div>
-			<c:forEach items="${army.rules(model)}" var="rule">
-				<div class="rule">
-					<h3>${rule.displayName()}<c:if test="${not model.is(rule)}"><sup>*</sup></c:if> : </h3>
-					${rule.description}
-				</div>
-			</c:forEach>
-		</div>
+		<c:forEach items="${army.rules(model)}" var="rule">
+			<div class="rule">
+				<h3>${rule.displayName()}<c:if test="${not model.is(rule)}"><sup>*</sup></c:if> : </h3>
+				${rule.description}
+			</div>
+		</c:forEach>
 	</main>
 	<c:if test="${not empty army.keyWords(model)}">
 		<footer>
