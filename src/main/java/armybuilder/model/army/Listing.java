@@ -27,6 +27,7 @@ import armybuilder.model.army.rule.GeneriqueRule;
 import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.model.unit.IUnitModel;
 import armybuilder.model.unit.KeyWord;
+import armybuilder.model.unit.RoleTactique;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.option.UnitOption;
 import armybuilder.serialisation.ListingOptionValueJsonDeserializer;
@@ -103,6 +104,10 @@ public class Listing {
 		bataillons.remove(bataillon);
 	}
 
+	public long count(Bataillon bataillon) {
+		return bataillons.stream().filter(b -> b == bataillon).count();
+	}
+
 	/** rules **/
 	public Set<IArmyRule<?>> rules() {
 		return rules;
@@ -130,6 +135,11 @@ public class Listing {
 		return results;
 	}
 
+	public void addIf(boolean condition, IArmyRule<?>... rules) {
+		if (condition) {
+			this.rules.addAll(Arrays.asList(rules));
+		}
+	}
 	public void add(IArmyRule<?>... rules) {
 		this.rules.addAll(Arrays.asList(rules));
 	}
@@ -168,6 +178,14 @@ public class Listing {
 		return units.stream().filter(u -> u.is(keyword)).sorted(new UnitComparator()).collect(Collectors.toList());
 	}
 
+	public List<Unit> units(RoleTactique role) {
+		return units.stream().filter(u -> u.is(role)).collect(Collectors.toList());
+	}
+
+	public int count(KeyWord keyWord) {
+		return units(keyWord).size();
+	}
+
 	public void remove(Unit u) {
 		this.units.remove(u);
 	}
@@ -192,6 +210,7 @@ public class Listing {
 	public boolean is(int id) {
 		return this.id == id;
 	}
+
 
 
 }

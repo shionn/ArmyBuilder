@@ -12,7 +12,7 @@ public enum BataillonSlot {
 	Artillerie(u -> u.is(RoleTactique.Artillerie)),
 	Commandant(u -> u.is(RoleTactique.Leader)),
 	Monstre(u -> u.is(RoleTactique.Behemoth) && !u.is(RoleTactique.Leader)),
-	SousCommandant(u -> u.is(RoleTactique.Leader)),
+	SousCommandant(u -> u.is(RoleTactique.Leader) && u.model().profile().getIntLife() < 10),
 	Troupe(u -> u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite)),
 	// Dok
 	ConjurateursDuFauMaudit(u -> u.is(DokUnitModel.ConjurateursDuFeuMaudit)),
@@ -20,6 +20,8 @@ public enum BataillonSlot {
 	GuerriereMelusai(u -> u.is(DokUnitModel.BloodSisters) || u.is(DokUnitModel.BloodStalkers)),
 	KhainiteLeader(u -> u.is(KeyWord.MeduseIncarnate) || u.is(KeyWord.FerecailleMelusai)),
 	Morathi(u -> u.is(DokUnitModel.MorathiKhaine) || u.is(DokUnitModel.LaReineDeLOmbre)),
+	// Pack de Batille
+	VeteranDeGallet(u -> u.is(KeyWord.VeteransDeGallet)),
 
 	;
 	private Function<Unit, Boolean> is;

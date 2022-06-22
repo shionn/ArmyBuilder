@@ -36,6 +36,10 @@ public enum UnitProfile {
 		return args[1];
 	}
 
+	public int getIntLife() {
+		return Integer.parseInt(args[1]);
+	}
+
 	public String getCmd() {
 		return args[2];
 	}

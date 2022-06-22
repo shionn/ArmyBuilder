@@ -6,23 +6,24 @@ import java.util.List;
 
 import armybuilder.serialisation.DescriptionReader;
 
-public enum PackDeBataille2021Rule implements IArmyRule<PackDeBataille2021Rule> {
+public enum PackDeBatailleRule implements IArmyRule<PackDeBatailleRule> {
 	RugissementSauvage(
 			"Rugissement Sauvage",
 			ArmyRuleType.AptitudesDeCommandement,
 			ArmyRuleType.PhaseDeCombat),
 	Metamorphose("Métamorphose", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	RegardDeGhur("Regard de Ghur", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
 
 	;
 
 	private List<ArmyRuleType> types;
 	private String displayName;
 
-	PackDeBataille2021Rule(ArmyRuleType... types) {
+	PackDeBatailleRule(ArmyRuleType... types) {
 		this.types = Arrays.asList(types);
 	}
 
-	PackDeBataille2021Rule(String displayName, ArmyRuleType... types) {
+	PackDeBatailleRule(String displayName, ArmyRuleType... types) {
 		this.displayName = displayName;
 		this.types = Arrays.asList(types);
 	}
@@ -34,7 +35,7 @@ public enum PackDeBataille2021Rule implements IArmyRule<PackDeBataille2021Rule> 
 
 	@Override
 	public String getDescription() throws IOException {
-		return new DescriptionReader().read("Generique/", name());
+		return new DescriptionReader().read("Generique/PackDeBataille/", name());
 	}
 
 	@Override

@@ -1,1 +1,1 @@
-A la fin de la bataille, cette grande stratégie est accomplie s'il y a encore un ou plusieurs **Monstres** de votre armée de départ sur le champ de bataille.
+À la fin de la bataille, cette grande stratégie est accomplie s’il y a encore un ou plusieurs __Monstres__ de votre armée de départ sur le champ de bataille.

@@ -21,7 +21,7 @@ import armybuilder.model.army.compare.UnitRuleComparator;
 import armybuilder.model.army.rule.ArmyRuleType;
 import armybuilder.model.army.rule.GeneriqueRule;
 import armybuilder.model.army.rule.IArmyRule;
-import armybuilder.model.army.rule.PackDeBataille2021Rule;
+import armybuilder.model.army.rule.PackDeBatailleRule;
 import armybuilder.model.unit.option.IUnitOptionValue;
 import armybuilder.model.unit.option.OptimisationsUniverselles;
 import armybuilder.model.unit.option.UnitOption;
@@ -145,7 +145,7 @@ public class Unit implements Comparable<Unit> {
 		return rules.stream()
 				.filter(r -> !model().rules().contains(r))
 				.filter(r -> !(r instanceof GeneriqueRule))
-				.filter(r -> !(r instanceof PackDeBataille2021Rule))
+				.filter(r -> !(r instanceof PackDeBatailleRule))
 				.filter(r -> r.is(type))
 				.collect(Collectors.toList());
 	}

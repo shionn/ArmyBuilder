@@ -91,7 +91,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 		u.add(DokUnitWeapon.GuivreDeSang);
 	}),
 	Gorgai("Gorgaï", UnitOption.Chef, u -> u.is(DokUnitModel.BloodSisters), null),
-	ShroudQueen("Shroud Queen", UnitOption.Chef, u -> u.is(KeyWord.KhainiteShadowstalkers), u -> {
+	ShroudQueen("Shroud Queen", UnitOption.Chef, u -> u.is(KeyWord.RodeursDeLOmbre), u -> {
 		u.add(DokUnitWeapon.LameObscures);
 		u.add(DokRule.ShroudQueen);
 	}),

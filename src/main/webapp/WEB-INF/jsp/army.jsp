@@ -96,6 +96,13 @@
 	</c:forEach>
 </c:if>
 
+<c:if test="${not empty army.rules('TactiquesDeBataille')}">
+	<h2>Tactiques de Bataille</h2>
+	<c:forEach items="${army.rules('TactiquesDeBataille')}" var="rule">
+		<t:rule rule="${rule}" army="${army}" displayUnit="false"/>
+	</c:forEach>
+</c:if>
+
 <c:if test="${not empty army.rules('Triomphes')}">
 	<h2>Triomphes</h2>
 	<c:forEach items="${army.rules('Triomphes')}" var="rule">

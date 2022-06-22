@@ -231,7 +231,7 @@ public enum DokUnitModel implements IUnitModel {
 			null,
 			Arrays.asList(DokRule.BondDeLOmbre, DokRule.ProjectilesMaudits, DokRule.ProfiterDeLOmbre),
 			Arrays.asList(UnitOption.Chef, UnitOption.Renforcees, UnitOption.Bataillon),
-			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.KhainiteShadowstalkers),
+			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.RodeursDeLOmbre),
 			Arrays.asList()),
 
 	@Deprecated

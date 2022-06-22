@@ -1,0 +1,1 @@
+Vous pouvez choisir cette tactique de bataille seulement s'il y a une __Grande Gladiatrice__ amie sur le champ de bataille. Vous accomplissez cette tactite si un __Héros__ ennemi est tué par l'atpitude Coup de Grâce à ce tour.

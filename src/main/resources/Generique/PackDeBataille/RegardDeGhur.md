@@ -1,0 +1,1 @@
+Regard de Ghur est un sort ayant une valeur de lancement de 7 et une Portée de 12". En cas de réussite, choisissez 1 unité ennemie à portée et visible du lanceyr. Quand vous déterminez le nombre de figurine de lunité ennemie quand elle conteste un objectif, l'adversaire doit diviser le résultat par deux, arrondi à l'inférieur.

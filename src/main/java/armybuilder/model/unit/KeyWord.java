@@ -33,8 +33,12 @@ public enum KeyWord {
 	MorathiKhaine("Morathi-Khaine"),
 	ReineDuMassacre("Reine du Massacre"),
 	ReineMatriarche("Hag Matriarche"),
+	RodeursDeLOmbre("Rodeurs de l'Ombre"),
 	SoeurDuMassacre("Sœurs du Massacre"),
 	ZaintharKai("Zainthar Kai"),
+
+	// Manuel du general
+	VeteransDeGallet("Veterans de Gallet"),
 
 	// fait au dessus
 	BloodStalkers("Blood Stalkers"),
@@ -45,7 +49,6 @@ public enum KeyWord {
 	EpinesDeLaReineDesRonces("Epines de la Reine des Ronces"),
 	GlaivewraithStalkers("Glaivewraith Stalkers"),
 	Invocable("Invocable"),
-	KhainiteShadowstalkers("Khainite Shadowstalkers"),
 	KnightOfShrouds("Knight Of Shrouds"),
 	LaBladeCoven("La Blade-Coven"),
 	LaReineDesRonces("La Reine des Ronces"),

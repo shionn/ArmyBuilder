@@ -3,14 +3,22 @@ package armybuilder.model.army.option;
 import java.util.function.Consumer;
 
 import armybuilder.model.army.Listing;
-import armybuilder.model.army.rule.PackDeBataille2021Rule;
+import armybuilder.model.army.rule.PackDeBatailleRule;
 import armybuilder.model.unit.KeyWord;
+import armybuilder.model.unit.RoleTactique;
 
 public enum PackDeBataille implements IListingOptionValue<PackDeBataille> {
 	LutteDeGeneraux("Lutte de Généraux", null), 
 	BataillesRangees2021("Batailles Rangées 2021", a -> {
-		a.units(KeyWord.Sorcier).forEach(u -> u.add(PackDeBataille2021Rule.Metamorphose));
-		a.units(KeyWord.Monstre).forEach(u -> u.add(PackDeBataille2021Rule.RugissementSauvage));
+		a.units(KeyWord.Sorcier).forEach(u -> u.add(PackDeBatailleRule.Metamorphose));
+		a.units(KeyWord.Monstre).forEach(u -> u.add(PackDeBatailleRule.RugissementSauvage));
+	}),
+	BataillesRangees2022("Batailles Rangées 2022", a -> {
+		a.units(RoleTactique.Ligne)
+				.stream()
+				.filter(u -> u.model().profile().getIntLife() <= 4)
+				.forEach(u -> u.add(KeyWord.VeteransDeGallet));
+		a.units(KeyWord.Sorcier).forEach(u -> u.add(PackDeBatailleRule.RegardDeGhur));
 	});
 
 	private String displayName;

@@ -1,0 +1,1 @@
+Si la cible d'une attaque effectuée avec une arme de mêlée par une figurine de ce bataillon est une unité de __Vétérans de Gallet__, ajoutez 1 à la caractéristique Dégats de cette arme pour cette attaque.

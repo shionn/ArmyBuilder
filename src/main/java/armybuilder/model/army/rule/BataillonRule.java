@@ -15,7 +15,9 @@ public enum BataillonRule implements IArmyRule<BataillonRule> {
 	Strateges("Stratèges", ArmyRuleType.PhaseDesHeros),
 	Rapides("Rapides", ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeMouvement),
 	PisterALOdeur("Pister à l'Odeur", ArmyRuleType.Aptitude, ArmyRuleType.PhaseBeforeStart),
-	OutsidersExperts("Outsiders Experts", ArmyRuleType.Aptitude);
+	OutsidersExperts("Outsiders Experts", ArmyRuleType.Aptitude),
+	ForceDominatrice("Force Dominatrice", ArmyRuleType.Aptitude),
+	ChasseursDeTetes("Chasseur de Têtes", ArmyRuleType.Aptitude);
 
 	private String displayName;
 	private List<ArmyRuleType> types;
@@ -37,7 +39,7 @@ public enum BataillonRule implements IArmyRule<BataillonRule> {
 
 	@Override
 	public String getDescription() throws IOException {
-		return new DescriptionReader().read("Generique/", name());
+		return new DescriptionReader().read("Generique/Bataillon/", name());
 	}
 
 

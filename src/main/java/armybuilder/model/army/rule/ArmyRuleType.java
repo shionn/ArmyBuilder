@@ -12,6 +12,8 @@ public enum ArmyRuleType {
 	SubAllegiance(null, a -> false),
 
 	Composition(null, a -> !a.getUnits().isEmpty()),
+	TactiquesDeBataille("Tactiques de Bataille", a -> true),
+
 	Aptitude(null, a -> true),
 	AptitudesDeCommandement("Aptitudes de Commandement", a -> true),
 	TraitsDeCommandement("Traits de Commandement", a -> true),

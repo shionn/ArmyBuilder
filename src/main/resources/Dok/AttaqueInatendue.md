@@ -1,0 +1,1 @@
+Vous accomplissez cette tactique si une unité de __Rodeurs de l'Ombre Khainites__ amie utilise son aptitude Bond de l'Ombre et fait un mouvement de charge à ce tour.

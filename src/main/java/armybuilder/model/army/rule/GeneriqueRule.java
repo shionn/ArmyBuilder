@@ -17,6 +17,7 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 	HeureDeGloire("Heure de Gloire", null, ArmyRuleType.ActionsHeroiques),
 	VolonteHeroique("Volonté Héroïque", null, ArmyRuleType.ActionsHeroiques),
 
+	// AptitudesDeCommandement
 	Ralliement(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDesHeros),
 	Redeploiement("Redéploiement", null, ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeMouvement),
 	EnAvantVersLaVictoire(
@@ -39,6 +40,7 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 			ArmyRuleType.PhaseDeCombat),
 	PresenceExaltante("Présence Exaltante", null, ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeDeroute),
 
+	// Sort
 	TraitMagique(
 			"Trait Magique",
 			a -> a.units(KeyWord.Sorcier).stream()
@@ -100,6 +102,12 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 
 	@Override
 	public String getDescription() throws IOException {
+		if (is(ArmyRuleType.AptitudesDeCommandement)) {
+			return new DescriptionReader().read("Generique/AptitudesDeCommandement", name());
+		}
+		if (is(ArmyRuleType.ActionsHeroiques)) {
+			return new DescriptionReader().read("Generique/ActionsHeroiques", name());
+		}
 		return new DescriptionReader().read("Generique/", name());
 	}
 

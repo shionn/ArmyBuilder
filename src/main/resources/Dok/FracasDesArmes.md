@@ -1,0 +1,1 @@
+Vous accomplisseez cette tactique si au moins 3 unités amies font un mouvement de charge à ce tour, Si au moins 2 de ces unités sont des __Érinyes__ ou des __Sœurs du Massacre__ vous marquez 1 point de victoire supplémentaire.

@@ -1,1 +1,1 @@
-A la fin de la bataille, cette grande stratégie est accomplie si'il y a encore un ou plusieurs **Prêtres** de votre armée de départ sur le champ de bataille.
+À la fin de la bataille, cette grande stratégie est accomplie s’il ya encore un ou plusieurs __Prètres__ de votre armée de départ sur le champ de bataille.

@@ -1,0 +1,1 @@
+Chaque figurine de ce bataillon compte pour 3 concernant la capture des objectifs.

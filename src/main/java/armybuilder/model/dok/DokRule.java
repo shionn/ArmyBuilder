@@ -107,6 +107,14 @@ public enum DokRule implements IArmyRule<DokRule> {
 	CoeurDeFureurConv("Convocation", ArmyRuleType.Aptitude),
 	ReceptacleDuDieuMeurtre("Réceptacle du Dieu du Meurtre", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeCombat),
 
+	// Tactique de Bataille
+	FracasDesArmes("Fracas des Armes", ArmyRuleType.TactiquesDeBataille),
+	RegalCruel("Régal Cruel", ArmyRuleType.TactiquesDeBataille),
+	MareeDeLames("Marée de Lame", ArmyRuleType.TactiquesDeBataille),
+	CulteDeLExecutrice("Culte de l'Éxécutrice", ArmyRuleType.TactiquesDeBataille),
+	HaineDuChaos("Haine du Chaos", ArmyRuleType.TactiquesDeBataille),
+	AttaqueInatendue("Attaque Inattendue", ArmyRuleType.TactiquesDeBataille),
+
 	//
 
 	// ---- Fait au dessus

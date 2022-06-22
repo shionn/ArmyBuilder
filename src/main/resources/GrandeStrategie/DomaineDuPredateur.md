@@ -1,1 +1,1 @@
-A la fin de la bataille, cette grande stratégie est accomplie si vous contrôlez plus de terrains que votre adversaire.
+À la fin de la bataille, cette grande stratégie est accomplie si vous contrôlez plus de terrains que votre adversaire.

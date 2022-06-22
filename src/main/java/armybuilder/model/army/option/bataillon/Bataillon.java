@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.function.Function;
 
 import armybuilder.model.army.Listing;
-import armybuilder.model.army.OldArmy;
 import armybuilder.model.army.option.Allegiance;
 import armybuilder.model.army.option.PackDeBataille;
 import armybuilder.model.army.rule.BataillonRule;
@@ -32,10 +31,22 @@ public enum Bataillon implements IUnitOptionValue<Bataillon> {
 			opt(BataillonSlot.Monstre, 1)),
 	ChasseurDesContrees(
 			"Chasseurs des Contrées",
-			l -> l.is(PackDeBataille.BataillesRangees2021),
+			l -> l.is(PackDeBataille.BataillesRangees2021) && l.count(Bataillon.valueOf("ChasseurDesContrees")) <= 1,
 			Arrays.asList(BataillonRule.OutsidersExperts),
 			contain(BataillonSlot.Troupe, 2),
 			opt(BataillonSlot.Troupe, 1)),
+	ChasseursDePrimes(
+			"Chasseurs de Primes",
+			l -> l.is(PackDeBataille.BataillesRangees2022) && l.count(Bataillon.valueOf("ChasseursDePrimes")) <= 1,
+			Arrays.asList(BataillonRule.ChasseursDeTetes),
+			contain(BataillonSlot.Troupe, 2),
+			opt(BataillonSlot.Troupe, 1)),
+	ConquerantsExperts(
+			"Conquérants Experts",
+			l -> l.is(PackDeBataille.BataillesRangees2022) && l.count(Bataillon.valueOf("ConquerantsExperts")) <= 1,
+			Arrays.asList(BataillonRule.ForceDominatrice),
+			contain(BataillonSlot.VeteranDeGallet, 2),
+			opt(BataillonSlot.VeteranDeGallet, 1)),
 	GardeRaprocheeM(
 			"Garde Rapprochée (Magnifiques)",
 			l -> true,
@@ -67,7 +78,7 @@ public enum Bataillon implements IUnitOptionValue<Bataillon> {
 			opt(BataillonSlot.Artillerie, 1)),
 	MeuteDeBeteAlpha(
 			"Meute de Bête Alpha",
-			l -> l.is(PackDeBataille.BataillesRangees2021),
+			l -> l.is(PackDeBataille.BataillesRangees2021) && l.count(Bataillon.valueOf("MeuteDeBeteAlpha")) <= 1,
 			Arrays.asList(BataillonRule.PisterALOdeur),
 			contain(BataillonSlot.Monstre, 2),
 			opt(BataillonSlot.Monstre, 1)),
@@ -103,6 +114,8 @@ public enum Bataillon implements IUnitOptionValue<Bataillon> {
 			opt(BataillonSlot.SousCommandant, 2),
 			contain(BataillonSlot.Troupe, 1),
 			opt(BataillonSlot.Troupe, 1)),
+
+
 	;
 
 	private String displayName;

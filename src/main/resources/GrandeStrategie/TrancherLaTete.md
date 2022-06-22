@@ -1,0 +1,1 @@
+À la fin de la bataille, cette grande stratégie est accomplie s’il n'y a plus de __Héros__ de l’armée de départ de votre adversaire sur le champ de bataille.

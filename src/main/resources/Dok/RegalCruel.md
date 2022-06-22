@@ -1,0 +1,1 @@
+Vous accomplissez cette tactique s'il y a au moins 2 unités de __Khineraĩ__ amies se déplacent grâce à leur aptitude Choc et Volte-face à ce tour.
