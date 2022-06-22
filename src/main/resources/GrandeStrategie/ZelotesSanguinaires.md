@@ -1,0 +1,1 @@
+Quand la bataille se termine, vous accomplissez cette grande stratégie si toutes les unités amies ont combattu au moins une fois pendant la bataille ou ont été détruites.

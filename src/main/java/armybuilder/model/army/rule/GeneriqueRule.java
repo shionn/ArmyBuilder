@@ -103,10 +103,10 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 	@Override
 	public String getDescription() throws IOException {
 		if (is(ArmyRuleType.AptitudesDeCommandement)) {
-			return new DescriptionReader().read("Generique/AptitudesDeCommandement", name());
+			return new DescriptionReader().read("Generique/AptitudesDeCommandement/", name());
 		}
 		if (is(ArmyRuleType.ActionsHeroiques)) {
-			return new DescriptionReader().read("Generique/ActionsHeroiques", name());
+			return new DescriptionReader().read("Generique/ActionsHeroiques/", name());
 		}
 		return new DescriptionReader().read("Generique/", name());
 	}

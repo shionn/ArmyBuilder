@@ -1,0 +1,1 @@
+Quand la bataille se termine, vous accomplissez cette grande stratégie s'il y a un __ Avatar de Khaine__ ami ou un __ Chaudron de Sang__ ami entièrement dans le territoire ennemi.

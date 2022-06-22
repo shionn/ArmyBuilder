@@ -1,0 +1,1 @@
+Quand la bataille se termine, vous accomplissez cette grande stratégie s'il n'y a pas d'unité de Ligne de l'armée de départ de votre adversaire sur le champ de bataille.

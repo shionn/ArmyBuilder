@@ -27,6 +27,7 @@ public enum KeyWord {
 	Khinerai("Khineraĩ"),
 	Kraith("Kraith"),
 	LaReineDeLOmbre("La Reine de l'Ombre"),
+	Melusai("Melusaĩ"),
 	Meduse("Méduse"),
 	MeduseIncarnate("Méduse Incarnate"),
 	Moirenees("Moirenées"),
@@ -34,6 +35,7 @@ public enum KeyWord {
 	ReineDuMassacre("Reine du Massacre"),
 	ReineMatriarche("Hag Matriarche"),
 	RodeursDeLOmbre("Rodeurs de l'Ombre"),
+	SanctuaireIncarnat("Sanctuaire Incarnat"),
 	SoeurDuMassacre("Sœurs du Massacre"),
 	ZaintharKai("Zainthar Kai"),
 
@@ -43,7 +45,6 @@ public enum KeyWord {
 	// fait au dessus
 	BloodStalkers("Blood Stalkers"),
 	BloodSister("Blood Sister"),
-	BloodwrackShrine("Bloodwrack Shrine"),
 	ChainraspHorde("ChainraspHorde"),
 	DreadbladeHarrow("Dreadblade Harrow"),
 	EpinesDeLaReineDesRonces("Epines de la Reine des Ronces"),

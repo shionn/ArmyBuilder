@@ -1,0 +1,1 @@
+Quand la bataille se termine, vous accomplissez cette grande stratégie s'il y a plus d'unitée amies que d'unités ennemies entièrement sur le territoire de votre adversaire.

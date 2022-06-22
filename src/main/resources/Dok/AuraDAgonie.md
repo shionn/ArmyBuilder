@@ -1,0 +1,1 @@
+Au début de votre phase des héros, vous pouvez jeter 1 dé pour chaque unité ennemie à 7" de cette unité. Si le jet est supérieur ou égal à la valeur d'Aura d'Agonie indiquée sur le tableau de dégâts de cette unité, l'unité ennemie subit D3 blessures mortelles. La même unité ne peut pas être affectée par cette aptitude plus d'une fois par tour.

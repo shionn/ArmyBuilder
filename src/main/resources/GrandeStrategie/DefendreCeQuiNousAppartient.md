@@ -1,0 +1,1 @@
+Quand la bataille se termine, vous accomplissez cette grande stratégie s'il n'y a aucune unité ennemie entièrement sur votre territoire.

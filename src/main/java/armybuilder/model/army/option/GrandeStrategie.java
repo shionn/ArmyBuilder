@@ -1,9 +1,9 @@
 package armybuilder.model.army.option;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Function;
 
 import armybuilder.model.army.Listing;
 import armybuilder.model.army.rule.ArmyRuleType;
@@ -11,33 +11,37 @@ import armybuilder.model.army.rule.IArmyRule;
 import armybuilder.serialisation.DescriptionReader;
 
 public enum GrandeStrategie implements IListingOptionValue<GrandeStrategie>, IArmyRule<GrandeStrategie> {
+	BainDeSang("Bain de Sang", l -> l.is(Allegiance.DoK)),
+	ConquisAuNomDeKhaine("Conquis au nom de Khaine", l -> l.is(Allegiance.DoK)),
 	CoupezLaTete(
 			"Coupez la Tête",
-			Arrays.asList(PackDeBataille.LutteDeGeneraux, PackDeBataille.BataillesRangees2021)),
-	Vendetta(
-			"Vendetta",
-			Arrays.asList(PackDeBataille.LutteDeGeneraux, PackDeBataille.BataillesRangees2021)),
+			l -> l.is(PackDeBataille.LutteDeGeneraux) || l.is(PackDeBataille.BataillesRangees2021)),
+	DefendreCeQuiNousAppartient("Défendre ce qui nous appartient", l -> l.is(PackDeBataille.BataillesRangees2022)),
+	DemonstrationDeForce("Démonstration de Force", l -> l.is(PackDeBataille.BataillesRangees2022)),
+	DomaineDuPredateur("Domaine du Prédateur", l -> l.is(PackDeBataille.BataillesRangees2021)),
+	DomptezLaTerre("Domptez la Terre", l -> l.is(PackDeBataille.BataillesRangees2022)),
+	MaitreDesBetes("Maitre des Bêtes", l -> l.is(PackDeBataille.BataillesRangees2021)),
+	PasDePlacePourLesFaibles("Pas de Place pour les Faibles", l -> l.is(PackDeBataille.BataillesRangees2022)),
+	PiliersDeLaCoryance("Piliers de la Croyance", l -> l.is(PackDeBataille.BataillesRangees2021)),
+	PrecieuseSorcellerie("Précieuse Sorcellerie", l -> l.is(PackDeBataille.BataillesRangees2021)),
+	PrendreCeQuIlsOnt("Prendre ce qu'ils ont", l -> l.is(PackDeBataille.BataillesRangees2022)),
+	PresenceDominante("Présence Dominante", l -> l.is(PackDeBataille.BataillesRangees2021)),
+	PreuveDeDominance("Preuve de Dominance", l -> l.is(PackDeBataille.BataillesRangees2022)),
+	RienQueLaDestruction("Rien que la Destruction", l -> l.is(Allegiance.DoK)),
 	TenezLaLigne(
 			"Tenez la Ligne",
-			Arrays.asList(PackDeBataille.LutteDeGeneraux, PackDeBataille.BataillesRangees2021)),
-	PresenceDominante("Présence Dominante", Arrays.asList(PackDeBataille.BataillesRangees2021)),
-	MaitreDesBetes("Maitre des Bêtes", Arrays.asList(PackDeBataille.BataillesRangees2021)),
-	PrecieuseSorcellerie(
-			"Précieuse Sorcellerie",
-			Arrays.asList(PackDeBataille.BataillesRangees2021)),
-	PiliersDeLaCoryance(
-			"Piliers de la Croyance",
-			Arrays.asList(PackDeBataille.BataillesRangees2021)),
-	DomaineDuPredateur("Domaine du Prédateur", Arrays.asList(PackDeBataille.BataillesRangees2021)),
+			l -> l.is(PackDeBataille.LutteDeGeneraux) || l.is(PackDeBataille.BataillesRangees2021)),
+	Vendetta("Vendetta", l -> l.is(PackDeBataille.LutteDeGeneraux) || l.is(PackDeBataille.BataillesRangees2021)),
+	ZelotesSanguinaires("Zélotes Sanguinaires", l -> l.is(Allegiance.DoK)),
 
 	;
 
 	private String displayName;
-	private List<PackDeBataille> packDeBatailles;
+	private Function<Listing, Boolean> available;
 
-	private GrandeStrategie(String displayName, List<PackDeBataille> packDeBatailles) {
+	private GrandeStrategie(String displayName, Function<Listing, Boolean> available) {
 		this.displayName = displayName;
-		this.packDeBatailles = packDeBatailles;
+		this.available = available;
 	}
 
 	@Override
@@ -63,7 +67,7 @@ public enum GrandeStrategie implements IListingOptionValue<GrandeStrategie>, IAr
 
 	@Override
 	public boolean availableFor(Listing listing) {
-		return packDeBatailles.contains(listing.get(ListingOption.PackDeBataille));
+		return available.apply(listing);
 	}
 
 	@Override

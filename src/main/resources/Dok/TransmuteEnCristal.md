@@ -1,0 +1,1 @@
+Après que cette unité ait combattu pour la première fois dans une phase et que toutes ses attaques aient été résolue, vous pouvez choisir 1 unité ennemie à 13 de cette unité, Jetez 1 dé pour chaque figurine de cette unité. Pour chaque jet de 2+, l'unité ennemie subit 1 blessure mortelle.

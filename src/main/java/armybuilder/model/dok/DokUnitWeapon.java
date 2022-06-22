@@ -5,6 +5,7 @@ import armybuilder.model.unit.weapon.WeaponType;
 
 public enum DokUnitWeapon implements IUnitWeapon {
 
+	Aiguillons("Aiguillons", WeaponType.Melee, "2", "*", "3+", "3+", "-", "1"),
 	AilesLamees("Ailes Lamées", WeaponType.Melee, "2", "6", "3+", "3+", "-1", "1"),
 	CouronneDeSerpents("Couronne de Serpents", WeaponType.Melee, "1", "2D6", "3+", "3+", "-", "1"),
 	CouteauxSacrificiel("Couteaux Sacrificiel", WeaponType.Melee, "1", "1", "3+", "4+", "-", "1"),
@@ -17,6 +18,8 @@ public enum DokUnitWeapon implements IUnitWeapon {
 	GriffeMurmure("Griffe-murmure ", WeaponType.Melee, "1", "4", "4+", "3+", "-", "1"),
 	JavelineBarbelee_M("Javeline Barbelée", WeaponType.Melee, "2", "1", "4+", "4+", "-1", "1"),
 	JavelineBarbelee_P("Javeline Barbelée", WeaponType.Projectil, "12", "1", "3+", "3+", "-1", "1"),
+	Keldrisaith_Projectil("Keldrisaith", WeaponType.Projectil, "18", "3", "3+", "3+", "-1", "1"),
+	Keldrisaith_Melee("Keldrisaith", WeaponType.Melee, "2", "3", "3+", "3+", "-1", "D3"),
 	QueueDeSerpents("Queue de Serpents", WeaponType.Melee, "2", "D6", "4+", "4+", "-", "1"),
 	QueueVenimeuse("Queue Venimeuse", WeaponType.Melee, "3", "1", "3+", "3+", "-2", "*"),
 	LanceIncarnate("Lance Incarnate", WeaponType.Melee, "2", "3", "3+", "3+", "-1", "D3"),
@@ -30,7 +33,6 @@ public enum DokUnitWeapon implements IUnitWeapon {
 	TorrentDeSangBrulant("Torrent de Sang Brûlant", WeaponType.Projectil, "10", "6", "3+", "3+", "-1", "1"),
 	// Fait au dessus
 
-	Aiguillons("Aiguillons", WeaponType.Melee, "2", "*", "3+", "3+", "-", "1"),
 	ArcCherchecoeur("Arc Cherchecœur", WeaponType.Projectil, "24", "2", "3+", "3+", "-1", "1"),
 	ArmesSacrificielles("Armes Sacrificielles", WeaponType.Melee, "1", "3", "3+", "4+", "-", "1"),
 	CouteauxSacrificiels_Chaudron(
@@ -43,8 +45,6 @@ public enum DokUnitWeapon implements IUnitWeapon {
 			"-",
 			"1"),
 	GuivreDeSang("Guivre de Sang", WeaponType.Melee, "1", "1", "3+", "3+", "-", "1"),
-	Keldrisaith_Melee("Keldrisaith", WeaponType.Melee, "2", "3", "3+", "3+", "-1", "D3"),
-	Keldrisaith_Projectil("Keldrisaith", WeaponType.Projectil, "18", "3", "3+", "3+", "-1", "1"),
 	LameDAssassin("Lames d'Assassins", WeaponType.Melee, "1", "2", "4+", "3+", "-", "1"),
 	LameObscures("Lames Obscures", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "D3"),
 	ProjectilesMaudits("Projectiles Maudits", WeaponType.Projectil, "6", "1", "4+", "3+", "-", "1"),

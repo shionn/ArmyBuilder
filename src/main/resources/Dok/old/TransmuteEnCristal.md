@@ -1,1 +1,0 @@
-À la fin de la phase de combat, vous pouvez choisir 1 unité ennemie à 1" ou moins ofcette unité et jeter 1 dé pour chaque figurine de l'unité choisie. Pour chaque jet de 3+, l'unité ennemie subit 1 blessure mortelle. 

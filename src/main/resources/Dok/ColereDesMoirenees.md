@@ -1,0 +1,1 @@
+Vious pouvez utiliser cette aptitude de commandement à votre phase de charge si cette unité fait partie de votre armée et est sur le champ de bataille. Seule cette unité peut donner l'ordre, et l'unité qui reçoit l'ordre doit être une unité de __Melusaĩ__ amie. L'unité qui reçoit l'ordre peut tenter uen charge même si elle a couru ou tiré au même tour.

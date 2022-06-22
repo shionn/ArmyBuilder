@@ -1,1 +1,0 @@
-À la fin de la bataille, cette grande stratégie est accomplie s'il y a encore une ou plusieurs unités de Ligne de votre armée de départ sur le champ de bataille.

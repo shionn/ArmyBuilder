@@ -1,0 +1,1 @@
+Si une ou plusieurs figurines ennemies ont été tuées par des blessures infligées par les attaques de cette unité à la phase de combat, vous pouvez ajouter 1 à la caractéristique d'Attaques des unités **Melusai** amies entièrement à 12" ou moins de cette figurine jusqu'à la fin de la phase.

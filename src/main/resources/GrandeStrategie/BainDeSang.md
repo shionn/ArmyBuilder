@@ -1,0 +1,1 @@
+Quand la bataille se termine, vous accomplissez cette grande stratégie si tous les __Héros__ et __Monstres__ ennemis soit ont au moins 1 plessue actuellement allouée, soit ont été tués, et si toutes les autres unités ennemies sur le champ de bataille ont au moins 1 figurine tuées.

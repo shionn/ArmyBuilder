@@ -71,10 +71,17 @@ public enum DokRule implements IArmyRule<DokRule> {
 
 	// Aptitude
 	AnimuseDeSorcellerieEtDeSacrifice("Animus de Sorcellerie et de Sacrifice", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	AuraDAgonie("Aura d'Agonie", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDesHeros, ArmyRuleType.TraisUnitee),
 	AutelDeKhaine("Autel de Khaine", ArmyRuleType.Aptitude),
 	BouclierDeSang("Bouclier de Sang", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	BrouetDeSang("Brouet de Sang", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDesHeros, ArmyRuleType.TraisUnitee),
 	ColereDeKhaine("Colère de Khaine", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	ColereDesMoirenees(
+			"Colère des Moirenées",
+			ArmyRuleType.TraisDeBataille,
+			ArmyRuleType.AptitudesDeCommandement,
+			ArmyRuleType.PhaseDeCharge,
+			ArmyRuleType.TraisUnitee),
 	CoupDeGrace("Coup de Grâce", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	CoeurDeFerDeKhaine("Cœur de Fer de Khaine", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
 	DanseDeLaMort("Danse de la Mort", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
@@ -91,6 +98,16 @@ public enum DokRule implements IArmyRule<DokRule> {
 	RegardIncarnat("Regard Incarnat", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeTir, ArmyRuleType.TraisUnitee),
 	SoeurDesMelusai("Sœur des Melusaĩ", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeCombat, ArmyRuleType.TraisUnitee),
 	Sorcier_3_2_1("Sorcier", ArmyRuleType.Aptitude, ArmyRuleType.TraisUnitee),
+	TransmuteEnCristal_Ferecaille(
+			"Transmuté en Cristal",
+			ArmyRuleType.Aptitude,
+			ArmyRuleType.PhaseDeCombat,
+			ArmyRuleType.TraisUnitee),
+	TransmuteEnCristal(
+			"Transmuté en Cristal",
+			ArmyRuleType.Aptitude,
+			ArmyRuleType.PhaseDeCombat,
+			ArmyRuleType.TraisUnitee),
 	VoleeEtVolteFace("Volée et Volte-face", ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeTir, ArmyRuleType.TraisUnitee),
 
 	// Conposition
@@ -128,11 +145,6 @@ public enum DokRule implements IArmyRule<DokRule> {
 	Krone("Krone", ArmyRuleType.Composition),
 
 	//
-	AuraDAgonie(
-			"Aura d'Agonie",
-			ArmyRuleType.Aptitude,
-			ArmyRuleType.PhaseDesHeros,
-			ArmyRuleType.TraisUnitee),
 	BondDeLOmbre(
 			"Bond de l'Ombre",
 			ArmyRuleType.Aptitude,
@@ -150,19 +162,8 @@ public enum DokRule implements IArmyRule<DokRule> {
 	ProfiterDeLOmbre("Profiter de l'Ombre", ArmyRuleType.Aptitude),
 	ProjectilesMaudits("Projectiles Maudits", ArmyRuleType.Aptitude),
 	SangDeLOracle("Sang de l'Oracle", ArmyRuleType.Aptitude),
-	TransmuteEnCristal(
-			"Transmuté en Cristal",
-			ArmyRuleType.Aptitude,
-			ArmyRuleType.PhaseDeCombat,
-			ArmyRuleType.TraisUnitee),
 	ZelotesDuPremierTemple("Zélotes du Premier Temple", ArmyRuleType.Aptitude),
 
-	ColereDesMoirenees(
-			"Colère des Moirenées",
-			ArmyRuleType.TraisDeBataille,
-			ArmyRuleType.AptitudesDeCommandement,
-			ArmyRuleType.PhaseDesHeros,
-			ArmyRuleType.TraisUnitee),
 
 	//
 

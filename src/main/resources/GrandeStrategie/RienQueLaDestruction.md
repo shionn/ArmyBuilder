@@ -1,0 +1,1 @@
+Si vous choississez cette grande stratégie, après le placement, choississez 1 terrain défendable entièrement dans le territoire ennemi. s'il n'y en a pas, votre adversaire choisit 1 terrain défendable n'importe où sur le champ de bataille. Quand la bataille se termine, vous accomplissez cette grande stratégie si le terrain choisi a été démoli.

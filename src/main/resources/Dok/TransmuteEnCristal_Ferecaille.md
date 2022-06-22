@@ -1,0 +1,1 @@
+A la fin de la phase de combat, vous pouvez choisir 1 unité ennemie à 1" de cette unité et jeter un dé. Sur 3+ l'unité ennemie subit 1 blessure mortelle.

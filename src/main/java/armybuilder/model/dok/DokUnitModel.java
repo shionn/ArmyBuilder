@@ -59,34 +59,38 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Aelf, KeyWord.Heros, KeyWord.Monstre, KeyWord.LaReineDeLOmbre, KeyWord.Unique),
 			Arrays.asList()),
 
-	@Deprecated
-	SanctuaireIncarant("TODO Sanctuaire Incarant", 200, UnitProfile._S_13_8_5, Arrays.asList(RoleTactique.Leader),
-			// TODO
+	SanctuaireIncarnat(
+			"Sanctuaire Incarnat",
+			200,
+			UnitProfile._S_13_8_5,
+			Arrays.asList(RoleTactique.Leader),
 			Arrays.asList(DokUnitWeapon.RegardIncarnat, DokUnitWeapon.LanceIncarnate, DokUnitWeapon.Aiguillons,
 					DokUnitWeapon.GriffeMurmure, DokUnitWeapon.QueueDeSerpents),
 			new ProfileDegressif("Mouvement", DokUnitWeapon.Aiguillons.getDisplayName(),
-					DokRule.AuraDAgonie.displayName()).add("0-3", "6", "6", "2+")
-					.add("4-6", "5", "5", "3+")
-					.add("7-10", "4", "4", "4+")
+					DokRule.AuraDAgonie.displayName()).add("0-6", "6", "6", "2+")
+					.add("7-8", "5", "5", "3+")
+					.add("9-10", "4", "4", "4+")
 					.add("11+", "3", "3", "5+"),
 			Arrays.asList(DokRule.AuraDAgonie, DokRule.ImpactLame, DokRule.RegardIncarnat,
-					DokRule.Deperissement, GeneriqueRule.TraitMagique, GeneriqueRule.BouclierMystique,
-					GeneriqueUnitRule.Sorcier_1_2),
+					DokRule.SoeurDesMelusai, GeneriqueUnitRule.Sorcier_1_2, DokRule.Deperissement),
 			Arrays.asList(UnitOption.General, UnitOption.Sort, UnitOption.TraisDeCommandement, UnitOption.Artefact,
 					UnitOption.Bataillon),
-			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.Meduse, KeyWord.Heros,
-					KeyWord.Sorcier, KeyWord.Totem, KeyWord.MeduseIncarnate, KeyWord.BloodwrackShrine),
+			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Meduse, KeyWord.Heros, KeyWord.Totem,
+					KeyWord.Sorcier, KeyWord.MeduseIncarnate, KeyWord.SanctuaireIncarnat),
 			Arrays.asList()),
 
-	@Deprecated
-	MelusaiIronscale("TODO Melusai Ironscale", 115, UnitProfile._8_6_9_5, Arrays.asList(RoleTactique.Leader),
+	MelusaiIronscale(
+			"Ferécaille Melusaĩ",
+			115,
+			UnitProfile._8_6_9_5,
+			Arrays.asList(RoleTactique.Leader),
 			Arrays.asList(DokUnitWeapon.Keldrisaith_Projectil, DokUnitWeapon.Keldrisaith_Melee), null,
-			Arrays.asList(DokRule.SangDeLOracle, DokRule.OffrandeSanguinolente, DokRule.TransmuteEnCristal,
+			Arrays.asList(DokRule.SangDeLOracle, DokRule.OffrandeSanguinolente, DokRule.TransmuteEnCristal_Ferecaille,
 					DokRule.ColereDesMoirenees),
 			Arrays.asList(UnitOption.General, UnitOption.TraisDeCommandement, UnitOption.Artefact,
 					UnitOption.Bataillon),
-			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Meduse, KeyWord.Heros,
-					KeyWord.MelusaiIronscale),
+			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Moirenees, KeyWord.Melusai, KeyWord.Heros,
+					KeyWord.FerecailleMelusai),
 			Arrays.asList()),
 
 	MeduseIncarnate(

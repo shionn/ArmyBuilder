@@ -1,0 +1,1 @@
+Chaque fois que cette figurine est affectée par un sort ou sort persistant, vous pouvez jeter un dé. Sur 5+, ignorez les effets du sort ou les effet des aptitudes du sort persistant sur cette unité. 

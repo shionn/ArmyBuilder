@@ -1,0 +1,1 @@
+Quand la bataille se termine, vous accomplissez cette grande stratégie s'il y a 3 unités de __Vétérans de Gallet__ de votre armée de départ sur le champ de bataille.

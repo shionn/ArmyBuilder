@@ -1,0 +1,1 @@
+Quand la bataille se termine, vous accomplissez cette grande stratégie si vous controlez tous les objectifs du champ de bataille entièrement en dehors de votre territoire.

@@ -1,0 +1,1 @@
+Quand la bataille se termine, vous accomplissez cette grande stratégie s'il y a une unité de __Vétérans de Gallet__ sur chaque quart du champ de bataille.
