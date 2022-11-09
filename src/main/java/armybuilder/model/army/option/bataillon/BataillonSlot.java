@@ -20,7 +20,7 @@ public enum BataillonSlot {
 	GuerriereMelusai(u -> u.is(DokUnitModel.BloodSisters) || u.is(DokUnitModel.BloodStalkers)),
 	KhainiteLeader(u -> u.is(KeyWord.MeduseIncarnate) || u.is(KeyWord.FerecailleMelusai)),
 	Morathi(u -> u.is(DokUnitModel.MorathiKhaine) || u.is(DokUnitModel.LaReineDeLOmbre)),
-	// Pack de Batille
+	// Pack de Bataille
 	VeteranDeGallet(u -> u.is(KeyWord.VeteransDeGallet)),
 
 	;

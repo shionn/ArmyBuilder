@@ -42,6 +42,11 @@
 					</c:forEach>
 				</select>
 			</div>
+			<div class="options print-only print-margin-left">
+				${listing.get('PackDeBataille').displayName()},
+				${listing.get('GrandeStrategie').displayName()},
+				${listing.get('Triomphes').displayName()}
+			</div>
 			<div class="options">
 				Bataillons :
 				<c:forEach items="${listing.bataillons()}" var="bat">

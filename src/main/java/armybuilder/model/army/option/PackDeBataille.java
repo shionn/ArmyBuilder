@@ -12,6 +12,7 @@ public enum PackDeBataille implements IListingOptionValue<PackDeBataille> {
 	BataillesRangees2021("Batailles Rangées 2021", a -> {
 		a.units(KeyWord.Sorcier).forEach(u -> u.add(PackDeBatailleRule.Metamorphose));
 		a.units(KeyWord.Monstre).forEach(u -> u.add(PackDeBatailleRule.RugissementSauvage));
+		// TODO Tactique de Bataille
 	}),
 	BataillesRangees2022("Batailles Rangées 2022", a -> {
 		a.units(RoleTactique.Ligne)
@@ -19,6 +20,7 @@ public enum PackDeBataille implements IListingOptionValue<PackDeBataille> {
 				.filter(u -> u.model().profile().getIntLife() <= 4)
 				.forEach(u -> u.add(KeyWord.VeteransDeGallet));
 		a.units(KeyWord.Sorcier).forEach(u -> u.add(PackDeBatailleRule.RegardDeGhur));
+		// TODO Tactique de Bataille
 	});
 
 	private String displayName;

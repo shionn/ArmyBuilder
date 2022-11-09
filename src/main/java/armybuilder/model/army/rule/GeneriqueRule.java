@@ -17,6 +17,8 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 	HeureDeGloire("Heure de Gloire", null, ArmyRuleType.ActionsHeroiques),
 	VolonteHeroique("Volonté Héroïque", null, ArmyRuleType.ActionsHeroiques),
 
+	// Tactique de bataille
+
 	// AptitudesDeCommandement
 	Ralliement(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDesHeros),
 	Redeploiement("Redéploiement", null, ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeMouvement),
@@ -69,11 +71,13 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 			ArmyRuleType.Priere,
 			ArmyRuleType.TraisUnitee),
 
+	// fureur monstrueuse
 	Rugissement("Rugissement", null, ArmyRuleType.FureursMonstrueuses),
 	Pietinement("Piétinement", null, ArmyRuleType.FureursMonstrueuses),
 	DuelTitanesque("Duel Titanesque", null, ArmyRuleType.FureursMonstrueuses),
 	Ecroulement("Écroulement", null, ArmyRuleType.FureursMonstrueuses),
 
+	// regle
 	DissiperLesSorts("Dissiper les Sorts", null, ArmyRuleType.Aptitude, ArmyRuleType.PhaseDesHeros),
 	Fiascos("Fiascos", null, ArmyRuleType.Aptitude, ArmyRuleType.PhaseDesHeros),
 	TestsDeDeroute("Tests de Déroute", null, ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeDeroute),
