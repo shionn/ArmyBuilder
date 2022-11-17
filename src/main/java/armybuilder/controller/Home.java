@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -19,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import armybuilder.db.dao.ArmyDao;
 import armybuilder.model.Turn;
 import armybuilder.model.army.AllArmy;
 import armybuilder.model.army.Army;
@@ -28,11 +32,24 @@ import armybuilder.model.army.option.Allegiance;
 public class Home {
 	@Autowired
 	private AllArmy armies;
+	@Autowired
+	private SqlSession session;
 
 	@GetMapping(path = "/")
 	public ModelAndView home() {
 		armies.rebuild();
-		return new ModelAndView("army").addObject("army", armies.current()).addObject("turn", new Turn());
+		List<armybuilder.db.dbo.Army> armies = session.getMapper(ArmyDao.class).list();
+		return new ModelAndView("army")
+				.addObject("armies",
+						armies.stream()
+								.map(a -> a.getAllegiance())
+								.distinct()
+								.collect(Collectors.toMap(a -> a,
+										allegiance -> armies.stream()
+												.filter(army -> army.is(allegiance))
+												.collect(Collectors.toList()))))
+				.addObject("army", this.armies.current())
+				.addObject("turn", new Turn());
 	}
 
 	@GetMapping(path = "/select/{allegiance}")

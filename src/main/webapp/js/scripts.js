@@ -7,11 +7,26 @@ let _q = function(obj) {
 
 _q.prototype._each = function(callback) {
 	this.obj.forEach(callback);
+	return this;
+}
+
+_q.prototype.exists = function() {
+	return this.obj.length > 0;
 }
 
 _q.prototype.css = function(attr, value) {
 	if (!value) return this.obj[0].style[attr];
 	this._each(o => o.style[attr] = value);
+	return this;
+}
+
+_q.prototype.addClass = function(clazz) {
+	this._each(o => o.classList.add(clazz));
+	return this;
+}
+
+_q.prototype.rmClass = function(clazz) {
+	this._each(o => o.classList.remove(clazz));
 	return this;
 }
 
@@ -34,21 +49,34 @@ _q.prototype.find = function(selector) {
 	return q(objs);
 }
 
-_q.prototype.on = function(type, selector, callback) {
-	this.find(selector)._each(child => child.addEventListener(type, callback));
+_q.prototype.parent = function(selector) {
+	let objs = new Array();
 	this._each(o => {
-		new MutationObserver(function() {
-			o.querySelectorAll(selector).forEach(c => c.removeEventListener(type, callback));
-			o.querySelectorAll(selector).forEach(c => c.addEventListener(type, callback));
-		}).observe(o, { childList: true, subtree: true });
+		let c = o.closest(selector);
+		if (c) objs.push(c);
 	});
+	return q(objs);
+}
+
+_q.prototype.on = function(type, selector, callback) {
+	if (!callback) {
+		callback = selector;
+		this._each(child => child.addEventListener(type, callback));
+	} else {
+		this.find(selector)._each(child => child.addEventListener(type, callback));
+		this._each(o => {
+			new MutationObserver(function() {
+				o.querySelectorAll(selector).forEach(c => c.removeEventListener(type, callback));
+				o.querySelectorAll(selector).forEach(c => c.addEventListener(type, callback));
+			}).observe(o, { childList: true, subtree: true });
+		});
+	}
 	return this;
 }
 
 _q.prototype.fire = function(type) {
-	this._each(o => {
-		o.dispatchEvent(new Event(type));
-	});
+	this._each(o => o.dispatchEvent(new Event(type)));
+	return this;
 }
 
 _q.prototype.replaceWith = function(elems) {

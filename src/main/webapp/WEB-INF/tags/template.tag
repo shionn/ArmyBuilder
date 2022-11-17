@@ -20,13 +20,27 @@
 </head>
 <body>
 	<header>
-		<nav>
+		<nav class="menu">
 			<ul>
 				<c:forEach items="${Allegiance.values()}" var="allegiance">
 					<li <c:if test="${army.is(allegiance)}">class="current"</c:if>>
 						<a href=<spring:url value="/select/${allegiance}"/>>${allegiance}</a>
 					</li>
 				</c:forEach>
+				<li>
+					<a href="#">DoK</a>
+					<ul>
+						<li><a href="">Liste 1000</a></li>
+						<li><a href="">Liste 2000</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">CoS</a>
+					<ul>
+						<li><a href="">Liste 1000</a></li>
+						<li><a href="">Liste 2000</a></li>
+					</ul>
+				</li>
 				<li>
 					<a href='<spring:url value="/reset"/>'><i class="fas fa-file-alt"></i> Reset</a>
 				</li>
@@ -52,6 +66,7 @@
 		ArmyBuilder by <a href="mailto:shionn@gmail.com">shionn</a>
 	</footer>
 	<script type="text/javascript" src='<spring:url value="/js/scripts.js"/>'></script>
+	<script type="text/javascript" src='<spring:url value="/js/menu.js"/>'></script>
 	<jsp:invoke fragment="scripts" />
 </body>
 </html>
