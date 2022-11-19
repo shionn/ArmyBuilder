@@ -1,1 +1,1 @@
-Vous pouvez choisir cette tactique de bataille seulement si votre armée est de Hagg Nar ou de Khelt Nar. Vous accomplissez cette tactique si au moins 2 unités du __Chaos__ sont détruites à ce tour.
+Vous pouvez choisir cette tactique de bataille seulement si votre armée est de __Hagg Nar__ ou de __Khelt Nar__. Vous accomplissez cette tactique si au moins 2 unités du __Chaos__ sont détruites à ce tour.

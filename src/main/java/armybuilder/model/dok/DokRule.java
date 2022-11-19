@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.function.Supplier;
 
 import armybuilder.model.army.rule.ArmyRuleType;
-import armybuilder.model.army.rule.IArmyRule;
+import armybuilder.model.army.rule.IRule;
 import armybuilder.serialisation.DescriptionReader;
 
-public enum DokRule implements IArmyRule<DokRule> {
+public enum DokRule implements IRule<DokRule> {
 	// TraisDeBataille
 	FoiFanatique("Foi Fanatique", ArmyRuleType.TraisDeBataille),
 	RitesDeSang("Rites de Sang", ArmyRuleType.TraisDeBataille),
@@ -214,7 +214,7 @@ public enum DokRule implements IArmyRule<DokRule> {
 	}
 
 	@Override
-	public String getDescription() throws IOException {
+	public String description() throws IOException {
 		if (description == null) {
 			return new DescriptionReader().read("Dok/", name());
 		}

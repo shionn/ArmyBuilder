@@ -20,7 +20,7 @@ import armybuilder.model.army.Listing;
 import armybuilder.model.army.compare.UnitRuleComparator;
 import armybuilder.model.army.rule.ArmyRuleType;
 import armybuilder.model.army.rule.GeneriqueRule;
-import armybuilder.model.army.rule.IArmyRule;
+import armybuilder.model.army.rule.IRule;
 import armybuilder.model.army.rule.PackDeBatailleRule;
 import armybuilder.model.unit.option.IUnitOptionValue;
 import armybuilder.model.unit.option.OptimisationsUniverselles;
@@ -47,7 +47,7 @@ public class Unit implements Comparable<Unit> {
 	@JsonIgnore
 	private Set<IUnitWeapon> weapons = new TreeSet<>();
 	@JsonIgnore
-	private SortedSet<IArmyRule<?>> rules = new TreeSet<>(new UnitRuleComparator());
+	private SortedSet<IRule<?>> rules = new TreeSet<>(new UnitRuleComparator());
 	@JsonIgnore
 	private Set<RoleTactique> roleTatciques = new TreeSet<>();
 	@JsonIgnore
@@ -129,19 +129,19 @@ public class Unit implements Comparable<Unit> {
 	}
 
 	/** rule */
-	public void add(IArmyRule<?> rule) {
+	public void add(IRule<?> rule) {
 		rules.add(rule);
 	}
 
-	public boolean is(IArmyRule<?> rule) {
+	public boolean is(IRule<?> rule) {
 		return rules.contains(rule);
 	}
 
-	public List<IArmyRule<?>> rules(ArmyRuleType type) {
+	public List<IRule<?>> rules(ArmyRuleType type) {
 		return rules.stream().filter(r -> r.is(type)).collect(Collectors.toList());
 	}
 
-	public List<IArmyRule<?>> addedRules(ArmyRuleType type) {
+	public List<IRule<?>> addedRules(ArmyRuleType type) {
 		return rules.stream()
 				.filter(r -> !model().rules().contains(r))
 				.filter(r -> !(r instanceof GeneriqueRule))
@@ -168,7 +168,7 @@ public class Unit implements Comparable<Unit> {
 		return keyWords;
 	}
 
-	public SortedSet<IArmyRule<?>> rules() {
+	public SortedSet<IRule<?>> rules() {
 		return rules;
 	}
 

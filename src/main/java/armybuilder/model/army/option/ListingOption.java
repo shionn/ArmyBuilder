@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import armybuilder.model.army.Listing;
 
 public enum ListingOption {
-	SubAllegiance("Sous Allegiance", armybuilder.model.army.option.SubAllegiance.values()),
+	SubAllegiance("Sous Allegiance", armybuilder.db.dbo.SubAllegiance.values()),
 	PackDeBataille(
 			"Pack de Bataille",
 			armybuilder.model.army.option.PackDeBataille.values()),

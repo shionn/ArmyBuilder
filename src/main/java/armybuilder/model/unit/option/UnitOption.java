@@ -2,7 +2,7 @@ package armybuilder.model.unit.option;
 
 import java.util.function.Function;
 
-import armybuilder.model.army.OldArmy;
+import armybuilder.model.army.OldOldArmy;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.Unit;
 

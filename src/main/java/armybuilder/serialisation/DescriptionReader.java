@@ -10,14 +10,14 @@ import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
-import armybuilder.model.army.rule.IArmyRule;
+import armybuilder.model.army.rule.IRule;
 
 public class DescriptionReader {
 
-	public static Supplier<String> rules(IArmyRule<?>... rules) {
+	public static Supplier<String> rules(IRule<?>... rules) {
 		return () -> Arrays.stream(rules).map(r -> {
 			try {
-				return "<div class=\"rule\"><h3>" + r.displayName() + " : </h3>" + r.getDescription() + "</div>";
+				return "<div class=\"rule\"><h3>" + r.displayName() + " : </h3>" + r.description() + "</div>";
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}

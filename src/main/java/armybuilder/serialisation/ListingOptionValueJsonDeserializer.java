@@ -4,10 +4,10 @@ import java.util.Arrays;
 
 import com.fasterxml.jackson.databind.util.StdConverter;
 
+import armybuilder.db.dbo.SubAllegiance;
 import armybuilder.model.army.option.GrandeStrategie;
 import armybuilder.model.army.option.IListingOptionValue;
 import armybuilder.model.army.option.PackDeBataille;
-import armybuilder.model.army.option.SubAllegiance;
 import armybuilder.model.army.option.Triomphes;
 
 public class ListingOptionValueJsonDeserializer extends StdConverter<String, IListingOptionValue<?>> {

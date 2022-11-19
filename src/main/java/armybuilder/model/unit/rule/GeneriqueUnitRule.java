@@ -5,10 +5,10 @@ import java.util.Arrays;
 import java.util.List;
 
 import armybuilder.model.army.rule.ArmyRuleType;
-import armybuilder.model.army.rule.IArmyRule;
+import armybuilder.model.army.rule.IRule;
 import armybuilder.serialisation.DescriptionReader;
 
-public enum GeneriqueUnitRule implements IArmyRule<GeneriqueUnitRule> {
+public enum GeneriqueUnitRule implements IRule<GeneriqueUnitRule> {
 
 	Predateur_9("Prédateur", ArmyRuleType.Aptitude),
 	Predateur_12("Prédateur", ArmyRuleType.Aptitude),
@@ -60,7 +60,7 @@ public enum GeneriqueUnitRule implements IArmyRule<GeneriqueUnitRule> {
 	}
 
 	@Override
-	public String getDescription() throws IOException {
+	public String description() throws IOException {
 		return new DescriptionReader().read("GeneriqueUnit/", name());
 	}
 

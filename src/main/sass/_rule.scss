@@ -1,0 +1,18 @@
+@import "_variables.scss";
+
+div.rule {
+	border: 1px dashed $color-dark;
+	padding: 5px;
+	margin-bottom: 5px;
+	span {
+		margin-right: 5px;
+		font-weight: bold;
+	}
+	p {
+		display: inline;
+	}
+	ol {
+		margin: 0;
+	}
+}
+ 

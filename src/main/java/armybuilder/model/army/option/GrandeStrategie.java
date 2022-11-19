@@ -5,12 +5,13 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 
+import armybuilder.db.dbo.Allegiance;
 import armybuilder.model.army.Listing;
 import armybuilder.model.army.rule.ArmyRuleType;
-import armybuilder.model.army.rule.IArmyRule;
+import armybuilder.model.army.rule.IRule;
 import armybuilder.serialisation.DescriptionReader;
 
-public enum GrandeStrategie implements IListingOptionValue<GrandeStrategie>, IArmyRule<GrandeStrategie> {
+public enum GrandeStrategie implements IListingOptionValue<GrandeStrategie>, IRule<GrandeStrategie> {
 	BainDeSang("Bain de Sang", l -> l.is(Allegiance.DoK)),
 	ConquisAuNomDeKhaine("Conquis au nom de Khaine", l -> l.is(Allegiance.DoK)),
 	CoupezLaTete(
@@ -61,7 +62,7 @@ public enum GrandeStrategie implements IListingOptionValue<GrandeStrategie>, IAr
 	}
 
 	@Override
-	public String getDescription() throws IOException {
+	public String description() throws IOException {
 		return new DescriptionReader().read("GrandeStrategie/", name());
 	}
 

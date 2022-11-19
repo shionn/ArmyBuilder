@@ -1,11 +1,13 @@
-package armybuilder.model.army.option;
+package armybuilder.db.dbo;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
 import armybuilder.model.army.Listing;
-import armybuilder.model.army.rule.IArmyRule;
+import armybuilder.model.army.option.IListingOptionValue;
+import armybuilder.model.army.option.ListingOption;
+import armybuilder.model.army.rule.IRule;
 import armybuilder.model.dok.DokRule;
 import armybuilder.model.nighthaunt.NighthauntRule;
 import armybuilder.model.unit.KeyWord;
@@ -69,11 +71,11 @@ public enum SubAllegiance implements IListingOptionValue<SubAllegiance> {
 	;
 
 	private String displayName;
-	private List<IArmyRule<?>> rules;
+	private List<IRule<?>> rules;
 	private Allegiance allegiance;
 	private Consumer<Listing> modifier;
 
-	private SubAllegiance(String displayName, List<IArmyRule<?>> rules,
+	private SubAllegiance(String displayName, List<IRule<?>> rules,
 			Allegiance allegiance, Consumer<Listing> modifier) {
 		this.displayName = displayName;
 		this.rules = rules;
@@ -81,37 +83,46 @@ public enum SubAllegiance implements IListingOptionValue<SubAllegiance> {
 		this.modifier = modifier;
 	}
 
+	public boolean is(Allegiance allegiance) {
+		return this.allegiance == allegiance;
+	}
+
 	@Override
 	public String displayName() {
 		return displayName;
 	}
 
+	@Deprecated
 	@Override
 	public ListingOption option() {
 		return ListingOption.SubAllegiance;
 	}
 
+	@Deprecated
 	@Override
 	public void rebuild(Listing listing) {
 		allegiance().rebuild(listing);
 		if (rules != null) {
-			listing.add(rules.toArray(new IArmyRule[0]));
+			listing.add(rules.toArray(new IRule[0]));
 		}
 		if (modifier != null) {
 			modifier.accept(listing);
 		}
 	}
 
+	@Deprecated
 	@Override
 	public boolean availableFor(Listing listing) {
 		return listing.subAllegiance().allegiance == allegiance;
 	}
 
+	@Deprecated
 	public Allegiance allegiance() {
 		return allegiance;
 	}
 
-	public List<IArmyRule<?>> rules() {
+	@Deprecated
+	public List<IRule<?>> rules() {
 		return rules;
 	}
 

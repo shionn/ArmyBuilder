@@ -5,10 +5,10 @@ import java.util.Arrays;
 import java.util.List;
 
 import armybuilder.model.army.rule.ArmyRuleType;
-import armybuilder.model.army.rule.IArmyRule;
+import armybuilder.model.army.rule.IRule;
 import armybuilder.serialisation.DescriptionReader;
 
-public enum NighthauntRule implements IArmyRule<NighthauntRule> {
+public enum NighthauntRule implements IRule<NighthauntRule> {
 	AuraDEffroi("Aura d'Effroi", ArmyRuleType.TraisDeBataille),
 	ChevaliersDuRegret("Chevaliers du Regret", ArmyRuleType.TraisDeBataille),
 	ConvocationSpectrale(
@@ -99,7 +99,7 @@ public enum NighthauntRule implements IArmyRule<NighthauntRule> {
 	}
 
 	@Override
-	public String getDescription() throws IOException {
+	public String description() throws IOException {
 		return new DescriptionReader().read("Nighthaunt/", name());
 	}
 

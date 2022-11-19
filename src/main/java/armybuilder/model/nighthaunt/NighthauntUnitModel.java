@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 import armybuilder.model.army.Listing;
-import armybuilder.model.army.rule.IArmyRule;
+import armybuilder.model.army.rule.IRule;
 import armybuilder.model.unit.IUnitModel;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.ProfileDegressif;
@@ -135,7 +135,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 	private UnitProfile profile;
 	private List<IUnitWeapon> weapons;
 	private ProfileDegressif profileDegressif;
-	private List<IArmyRule<?>> rules;
+	private List<IRule<?>> rules;
 	private List<KeyWord> keyWords;
 	private List<RoleTactique> roleTactiques;
 	private List<UnitOption> options;
@@ -144,7 +144,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 
 	private NighthauntUnitModel(String displayName, int value, UnitProfile profile,
 			List<RoleTactique> roleTactiques, List<IUnitWeapon> weapons,
-			ProfileDegressif profileDegressif, List<IArmyRule<?>> rules, List<UnitOption> options,
+			ProfileDegressif profileDegressif, List<IRule<?>> rules, List<UnitOption> options,
 			List<KeyWord> keyWords, List<Consumer<Unit>> modifiers,
 			Function<Listing, Boolean> availableFor) {
 		this.displayName = displayName;
@@ -181,7 +181,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 	}
 
 	@Override
-	public List<IArmyRule<?>> rules() {
+	public List<IRule<?>> rules() {
 		return rules;
 	}
 

@@ -5,17 +5,21 @@
 	box-sizing: border-box; 
 }
 
-@import "_menu.scss";
-
 body {
+	font: 16px "Source Sans Pro", Helvetica, sans-serif;
+	line-height: 18px;
 	width: 1600px;
 	margin:0 auto;
 	
+	background-color: white;
+	color: $color-darker;
+	
 	a { 
 		text-decoration: none;
-		color: black;
+		color: $color-dark;
 	}
 }
 
+@import "_menu.scss";
+@import "_rule.scss";
 
- 

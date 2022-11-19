@@ -15,16 +15,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import armybuilder.db.dbo.Allegiance;
+import armybuilder.db.dbo.SubAllegiance;
 import armybuilder.model.army.compare.UnitComparator;
 import armybuilder.model.army.compare.UnitModelComparator;
-import armybuilder.model.army.option.Allegiance;
 import armybuilder.model.army.option.IListingOptionValue;
 import armybuilder.model.army.option.ListingOption;
-import armybuilder.model.army.option.SubAllegiance;
 import armybuilder.model.army.option.bataillon.Bataillon;
 import armybuilder.model.army.rule.ArmyRuleType;
 import armybuilder.model.army.rule.GeneriqueRule;
-import armybuilder.model.army.rule.IArmyRule;
+import armybuilder.model.army.rule.IRule;
 import armybuilder.model.unit.IUnitModel;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.model.unit.RoleTactique;
@@ -43,7 +43,7 @@ public class Listing {
 	private List<Bataillon> bataillons = new ArrayList<Bataillon>();
 
 	@JsonIgnore
-	private Set<IArmyRule<?>> rules = new LinkedHashSet<>();
+	private Set<IRule<?>> rules = new LinkedHashSet<>();
 
 	public Listing() {
 		// constructeur vide pour la deserialisation
@@ -109,12 +109,12 @@ public class Listing {
 	}
 
 	/** rules **/
-	public Set<IArmyRule<?>> rules() {
+	public Set<IRule<?>> rules() {
 		return rules;
 	}
 
-	public List<IArmyRule<?>> rules(ArmyRuleType type) {
-		List<IArmyRule<?>> results = new ArrayList<IArmyRule<?>>();
+	public List<IRule<?>> rules(ArmyRuleType type) {
+		List<IRule<?>> results = new ArrayList<IRule<?>>();
 		rules.stream().filter(r -> r.is(type)).forEach(r -> results.add(r));
 		units.stream()
 				.flatMap(u -> u.rules().stream())
@@ -124,8 +124,8 @@ public class Listing {
 		return results;
 	}
 
-	public List<IArmyRule<?>> rules(List<ArmyRuleType> types) {
-		List<IArmyRule<?>> results = new ArrayList<IArmyRule<?>>();
+	public List<IRule<?>> rules(List<ArmyRuleType> types) {
+		List<IRule<?>> results = new ArrayList<IRule<?>>();
 		rules.stream().filter(r -> r.isAll(types)).forEach(r->results.add(r));
 		units.stream()
 				.flatMap(u -> u.rules().stream())
@@ -135,12 +135,12 @@ public class Listing {
 		return results;
 	}
 
-	public void addIf(boolean condition, IArmyRule<?>... rules) {
+	public void addIf(boolean condition, IRule<?>... rules) {
 		if (condition) {
 			this.rules.addAll(Arrays.asList(rules));
 		}
 	}
-	public void add(IArmyRule<?>... rules) {
+	public void add(IRule<?>... rules) {
 		this.rules.addAll(Arrays.asList(rules));
 	}
 
@@ -166,7 +166,7 @@ public class Listing {
 		return units.stream().sorted(new UnitComparator()).collect(Collectors.toList());
 	}
 
-	public List<Unit> units(IArmyRule<?> rule) {
+	public List<Unit> units(IRule<?> rule) {
 		return units.stream().filter(u -> u.is(rule)).distinct().collect(Collectors.toList());
 	}
 

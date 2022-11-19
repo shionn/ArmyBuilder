@@ -6,7 +6,7 @@ import java.util.List;
 
 import armybuilder.serialisation.DescriptionReader;
 
-public enum BataillonRule implements IArmyRule<BataillonRule> {
+public enum BataillonRule implements IRule<BataillonRule> {
 	Unifies("Unifiés"),
 	Experts("Experts", ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeTir, ArmyRuleType.PhaseDeCombat),
 	Magnifiques("Magnifiques"),
@@ -38,7 +38,7 @@ public enum BataillonRule implements IArmyRule<BataillonRule> {
 	}
 
 	@Override
-	public String getDescription() throws IOException {
+	public String description() throws IOException {
 		return new DescriptionReader().read("Generique/Bataillon/", name());
 	}
 

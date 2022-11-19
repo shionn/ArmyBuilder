@@ -3,7 +3,7 @@ package armybuilder.model.unit;
 import java.util.List;
 
 import armybuilder.model.army.Listing;
-import armybuilder.model.army.rule.IArmyRule;
+import armybuilder.model.army.rule.IRule;
 import armybuilder.model.unit.option.IUnitOptionValue;
 import armybuilder.model.unit.option.UnitOption;
 import armybuilder.model.unit.weapon.IUnitWeapon;
@@ -17,7 +17,7 @@ public interface IUnitModel {
 
 	List<KeyWord> keyWords();
 
-	List<IArmyRule<?>> rules();
+	List<IRule<?>> rules();
 
 	List<RoleTactique> roleTactiques();
 
@@ -41,7 +41,7 @@ public interface IUnitModel {
 		return weapons().contains(weapon);
 	}
 
-	default boolean is(IArmyRule<?> rule) {
+	default boolean is(IRule<?> rule) {
 		return rules().contains(rule);
 	}
 

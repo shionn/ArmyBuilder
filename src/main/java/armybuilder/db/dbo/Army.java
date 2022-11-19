@@ -1,16 +1,10 @@
 package armybuilder.db.dbo;
 
-import armybuilder.model.army.option.Allegiance;
-
 public class Army {
-	private Allegiance allegiance;
-	private String name;
 	private int id;
-
-
-	public boolean is(Allegiance allegiance) {
-		return this.allegiance == allegiance;
-	}
+	private String name;
+	private Allegiance allegiance;
+	private SubAllegiance subAllegiance;
 
 	public Allegiance getAllegiance() {
 		return allegiance;
@@ -18,6 +12,14 @@ public class Army {
 
 	public void setAllegiance(Allegiance allegiance) {
 		this.allegiance = allegiance;
+	}
+
+	public SubAllegiance getSubAllegiance() {
+		return subAllegiance;
+	}
+
+	public void setSubAllegiance(SubAllegiance subAllegiance) {
+		this.subAllegiance = subAllegiance;
 	}
 
 	public int getId() {

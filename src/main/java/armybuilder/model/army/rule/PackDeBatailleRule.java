@@ -6,7 +6,7 @@ import java.util.List;
 
 import armybuilder.serialisation.DescriptionReader;
 
-public enum PackDeBatailleRule implements IArmyRule<PackDeBatailleRule> {
+public enum PackDeBatailleRule implements IRule<PackDeBatailleRule> {
 	RugissementSauvage(
 			"Rugissement Sauvage",
 			ArmyRuleType.AptitudesDeCommandement,
@@ -34,7 +34,7 @@ public enum PackDeBatailleRule implements IArmyRule<PackDeBatailleRule> {
 	}
 
 	@Override
-	public String getDescription() throws IOException {
+	public String description() throws IOException {
 		return new DescriptionReader().read("Generique/PackDeBataille/", name());
 	}
 

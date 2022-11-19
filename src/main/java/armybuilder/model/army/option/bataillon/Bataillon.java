@@ -4,11 +4,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 
+import armybuilder.db.dbo.Allegiance;
 import armybuilder.model.army.Listing;
-import armybuilder.model.army.option.Allegiance;
 import armybuilder.model.army.option.PackDeBataille;
 import armybuilder.model.army.rule.BataillonRule;
-import armybuilder.model.army.rule.IArmyRule;
+import armybuilder.model.army.rule.IRule;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.option.IUnitOptionValue;
 import armybuilder.model.unit.option.UnitOption;
@@ -120,10 +120,10 @@ public enum Bataillon implements IUnitOptionValue<Bataillon> {
 
 	private String displayName;
 	private Function<Listing, Boolean> available;
-	private List<IArmyRule<?>> rules;
+	private List<IRule<?>> rules;
 	private List<BataillonComposition> compositions;
 
-	private Bataillon(String displayName, Function<Listing, Boolean> available, List<IArmyRule<?>> rules,
+	private Bataillon(String displayName, Function<Listing, Boolean> available, List<IRule<?>> rules,
 			BataillonComposition... composition) {
 		this.displayName = displayName;
 		this.available = available;
@@ -136,7 +136,7 @@ public enum Bataillon implements IUnitOptionValue<Bataillon> {
 		return displayName;
 	}
 
-	public List<IArmyRule<?>> rules() {
+	public List<IRule<?>> rules() {
 		return rules;
 	}
 

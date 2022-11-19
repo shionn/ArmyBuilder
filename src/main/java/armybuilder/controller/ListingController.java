@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 
+import armybuilder.db.dbo.SubAllegiance;
 import armybuilder.model.army.AllArmy;
 import armybuilder.model.army.Listing;
 import armybuilder.model.army.option.GrandeStrategie;
 import armybuilder.model.army.option.PackDeBataille;
-import armybuilder.model.army.option.SubAllegiance;
 import armybuilder.model.army.option.Triomphes;
 import armybuilder.model.army.option.bataillon.Bataillon;
 import armybuilder.model.unit.IUnitModel;

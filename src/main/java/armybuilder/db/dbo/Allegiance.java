@@ -1,11 +1,13 @@
-package armybuilder.model.army.option;
+package armybuilder.db.dbo;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
+import armybuilder.db.dbo.enums.EnumPropertyLoader;
+import armybuilder.model.army.DecoratedArmy;
 import armybuilder.model.army.Listing;
-import armybuilder.model.army.rule.IArmyRule;
+import armybuilder.model.army.rule.IRule;
 import armybuilder.model.dok.DokRule;
 import armybuilder.model.dok.DokUnitModel;
 import armybuilder.model.nighthaunt.NighthauntRule;
@@ -14,10 +16,9 @@ import armybuilder.model.unit.IUnitModel;
 import armybuilder.model.unit.KeyWord;
 
 public enum Allegiance {
-	CoS("Order", "City of Sigmar", null, new IUnitModel[0], null),
+	CoS("Order", null, new IUnitModel[0], null),
 	DoK(
 			"Order",
-			"Daughters of Khaine",
 			Arrays.asList(DokRule.RitesDeSang, DokRule.FoiFanatique, DokRule.FureurDeBataille, DokRule.MassacreTotal),
 			DokUnitModel.values(),
 			a -> {
@@ -31,7 +32,6 @@ public enum Allegiance {
 			}),
 	Nighthaunt(
 			"Death",
-			"Nighthaunt",
 			Arrays.asList(NighthauntRule.AuraDEffroi, NighthauntRule.ConvocationSpectrale,
 					NighthauntRule.EspritsImperissables, NighthauntRule.IlsViennentDesSousMondes,
 					NighthauntRule.NourrisDeTerreur, NighthauntRule.RestituerLesFigurinesTuees,
@@ -40,13 +40,12 @@ public enum Allegiance {
 			null);
 
 	private String displayName;
-	private List<IArmyRule<?>> rules;
+	private List<IRule<?>> rules;
 	private List<IUnitModel> units;
-	private Consumer<Listing> modifier;
+	private Consumer<DecoratedArmy> modifier;
 
-	private Allegiance(String faction, String displayName, List<IArmyRule<?>> rules, IUnitModel[] units,
-			Consumer<Listing> modifier) {
-		this.displayName = displayName;
+	private Allegiance(String faction, List<IRule<?>> rules, IUnitModel[] units, Consumer<DecoratedArmy> modifier) {
+		this.displayName = EnumPropertyLoader.instance().name(this);
 		this.rules = rules;
 		this.units = Arrays.asList(units);
 		this.modifier = modifier;
@@ -56,20 +55,32 @@ public enum Allegiance {
 		return displayName;
 	}
 
-	public void rebuild(Listing listing) {
+	public void decorate(DecoratedArmy army) {
 		if (modifier != null) {
-			modifier.accept(listing);
+			modifier.accept(army);
 		}
 		if (rules != null) {
-			listing.add(rules.toArray(new IArmyRule[0]));
+			army.add(rules.toArray(new IRule[0]));
 		}
 	}
 
+	@Deprecated
+	public void rebuild(Listing listing) {
+		if (modifier != null) {
+//			modifier.accept(listing);
+		}
+		if (rules != null) {
+			listing.add(rules.toArray(new IRule[0]));
+		}
+	}
+
+	@Deprecated
 	public List<IUnitModel> units() {
 		return units;
 	}
 
-	public List<IArmyRule<?>> rules() {
+	@Deprecated
+	public List<IRule<?>> rules() {
 		return rules;
 	}
 

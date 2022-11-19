@@ -5,12 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
+import armybuilder.db.dbo.Allegiance;
 import armybuilder.model.army.Listing;
-import armybuilder.model.army.option.Allegiance;
 import armybuilder.model.unit.KeyWord;
 import armybuilder.serialisation.DescriptionReader;
 
-public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
+public enum GeneriqueRule implements IRule<GeneriqueRule> {
 
 	CommandementHeroique("Commandement Héroïque", null, ArmyRuleType.ActionsHeroiques),
 	GuerisonHeroique("Guérison Héroïque", null, ArmyRuleType.ActionsHeroiques),
@@ -105,7 +105,7 @@ public enum GeneriqueRule implements IArmyRule<GeneriqueRule> {
 	}
 
 	@Override
-	public String getDescription() throws IOException {
+	public String description() throws IOException {
 		if (is(ArmyRuleType.AptitudesDeCommandement)) {
 			return new DescriptionReader().read("Generique/AptitudesDeCommandement/", name());
 		}
