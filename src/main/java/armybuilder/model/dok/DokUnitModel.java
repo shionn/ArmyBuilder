@@ -4,22 +4,25 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
-import armybuilder.model.army.Listing;
-import armybuilder.model.army.rule.GeneriqueRule;
-import armybuilder.model.army.rule.IRule;
+import armybuilder.model.army.Allegiance;
+import armybuilder.model.army.Army;
+import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.IUnitModel;
-import armybuilder.model.unit.KeyWord;
-import armybuilder.model.unit.ProfileDegressif;
 import armybuilder.model.unit.RoleTactique;
-import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.UnitProfile;
-import armybuilder.model.unit.modifiers.UnitModifiers;
-import armybuilder.model.unit.option.IUnitOptionValue;
-import armybuilder.model.unit.option.UnitOption;
-import armybuilder.model.unit.rule.GeneriqueUnitRule;
 import armybuilder.model.unit.weapon.IUnitWeapon;
+import armybuilder.modelold.deprecated.army.Listing;
+import armybuilder.modelold.deprecated.army.rule.GeneriqueRule;
+import armybuilder.modelold.deprecated.dok.DokOptimisations;
+import armybuilder.modelold.deprecated.unit.KeyWord;
+import armybuilder.modelold.deprecated.unit.ProfileDegressif;
+import armybuilder.modelold.deprecated.unit.Unit;
+import armybuilder.modelold.deprecated.unit.modifiers.UnitModifiers;
+import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
+import armybuilder.modelold.deprecated.unit.option.UnitOption;
+import armybuilder.modelold.deprecated.unit.rule.GeneriqueUnitRule;
 
-public enum DokUnitModel implements IUnitModel {
+public enum DokUnitModel implements IUnitModel<DokUnitModel> {
 
 	MorathiKhaine("Morathi-Khaine",
 			340,
@@ -67,7 +70,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(DokUnitWeapon.RegardIncarnat, DokUnitWeapon.LanceIncarnate, DokUnitWeapon.Aiguillons,
 					DokUnitWeapon.GriffeMurmure, DokUnitWeapon.QueueDeSerpents),
 			new ProfileDegressif("Mouvement", DokUnitWeapon.Aiguillons.getDisplayName(),
-					DokRule.AuraDAgonie.displayName()).add("0-6", "6", "6", "2+")
+					DokRule.AuraDAgonie.getDisplayName()).add("0-6", "6", "6", "2+")
 					.add("7-8", "5", "5", "3+")
 					.add("9-10", "4", "4", "4+")
 					.add("11+", "3", "3", "5+"),
@@ -133,7 +136,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(DokUnitWeapon.TorrentDeSangBrulant, DokUnitWeapon.EpeeDAvatar, DokUnitWeapon.LameDeKhaine,
 					DokUnitWeapon.CouteauxSacrificiels_Chaudron),
 			new ProfileDegressif("Mouvement", DokUnitWeapon.CouteauxSacrificiels_Chaudron.getDisplayName(),
-					DokRule.BouclierDeSang.displayName()).add("0-3", "6\"", "8", "18\"")
+					DokRule.BouclierDeSang.getDisplayName()).add("0-3", "6\"", "8", "18\"")
 					.add("4-6", "5\"", "7", "14\"")
 					.add("7-9", "4\"", "6", "10\"")
 					.add("10+", "3\"", "5", "6\""),
@@ -166,7 +169,7 @@ public enum DokUnitModel implements IUnitModel {
 			Arrays.asList(DokUnitWeapon.TorrentDeSangBrulant, DokUnitWeapon.EpeeDAvatar,
 					DokUnitWeapon.EpeeDeMortEtLameDeKhaine, DokUnitWeapon.Sciansa_Chaudron),
 			new ProfileDegressif("Mouvement", DokUnitWeapon.Sciansa_Chaudron.getDisplayName(),
-					DokRule.BouclierDeSang.displayName()).add("0-6", "6\"", "8", "18\"")
+					DokRule.BouclierDeSang.getDisplayName()).add("0-6", "6\"", "8", "18\"")
 					.add("7-8", "5\"", "7", "15\"")
 					.add("9-10", "4\"", "6", "10\"")
 					.add("11+", "3\"", "5", "6\""),
@@ -389,17 +392,22 @@ public enum DokUnitModel implements IUnitModel {
 	}
 
 	@Override
-	public String displayName() {
+	public String getDisplayName() {
 		return displayName;
 	}
 
 	@Override
-	public UnitProfile profile() {
+	public boolean available(Army army) {
+		return army.is(Allegiance.DoK);
+	}
+
+	@Override
+	public UnitProfile getProfile() {
 		return profile;
 	}
 
 	@Override
-	public List<IUnitWeapon> weapons() {
+	public List<IUnitWeapon> getWeapons() {
 		return weapons;
 	}
 
@@ -419,7 +427,7 @@ public enum DokUnitModel implements IUnitModel {
 	}
 
 	@Override
-	public List<RoleTactique> roleTactiques() {
+	public List<RoleTactique> getRoleTactiques() {
 		return roleTactiques;
 	}
 

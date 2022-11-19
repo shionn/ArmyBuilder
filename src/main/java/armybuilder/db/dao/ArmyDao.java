@@ -2,24 +2,27 @@ package armybuilder.db.dao;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Many;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
 
-import armybuilder.db.dbo.Army;
+import armybuilder.model.army.Army;
+import armybuilder.model.unit.Unit;
 
 public interface ArmyDao {
 
 	@Select("SELECT id, name, allegiance FROM Army WHERE active IS TRUE ORDER BY allegiance, name")
 	public List<Army> list();
 	
-	@Insert("INSERT INTO Army (name, allegiance) VALUES (#{name}, #{allegiance})")
-	public int create(Army army);
-
-	@Select("SELECT id, name, allegiance, subAllegiance FROM Army WHERE id = #{id}")
+	@Select("SELECT id, name, allegiance, subAllegiance " //
+			+ "FROM Army " //
+			+ "WHERE id = #{id}")
+	@Results({ @Result(property = "id", column = "id"),
+			@Result(property = "units", column = "id", many = @Many(select = "readUnits")) })
 	public Army read(int id);
 
-	@Update("UPDATE Army SET subAllegiance = #{subAllegiance} WHERE id = #{id}")
-	public int edit(Army army);
+	@Select("SELECT id, model FROM Unit WHERE army = #{id}")
+	public List<Unit> readUnits(int id);
 
 }

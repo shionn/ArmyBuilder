@@ -1,0 +1,32 @@
+@import "_variables.scss";
+
+article.unit {
+	border: 1px dashed $color-dark;
+	margin-bottom: 5px;
+	header {
+		padding: 5px;
+		background-color: $color-dark;
+		color: $color-white;
+		margin-bottom: 5px;
+		span {
+			float: right;
+		}
+	}
+	main {
+		table {
+			margin: 0 auto;
+			border: 1px dashed $color-dark;
+			margin-bottom: 5px;
+  			border-collapse: collapse;
+  			border-spacing: 0;
+  			thead {
+				background-color: $color-dark;
+				color: $color-white;
+			}
+			td,th {
+				padding: 2px 4px;
+				text-align: center;
+			}
+		}
+	}
+}

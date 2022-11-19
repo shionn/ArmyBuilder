@@ -1,12 +1,13 @@
 <%@ page pageEncoding="UTF-8"%>
-<%@ page import="armybuilder.db.dbo.SubAllegiance" %>
+<%@ page import="armybuilder.model.army.SubAllegiance" %>
+<%@ page import="armybuilder.model.unit.UnitModel" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="t"%>
 <t:template>
 <jsp:attribute name="content">
-<h1>${army.name()}</h1>
+<h1>${army.name}</h1>
 
 <spring:url value="/army/edit" var="url" />
 <form:form action="${url}" method="POST">
@@ -15,8 +16,8 @@
 		<label>Sous Allegiance</label>
 		<select name="suballegiance">
 			<c:forEach items="${SubAllegiance.values()}" var="sub">
-				<c:if test="${sub.is(army.allegiance())}">
-					<option value="${sub}"<c:if test="${army.is(sub)}"> selected="selected"</c:if>>${sub.displayName()}</option>
+				<c:if test="${sub.available(army)}">
+					<option value="${sub}"<c:if test="${army.is(sub)}"> selected="selected"</c:if>>${sub.displayName}</option>
 				</c:if>
 			</c:forEach>
 		</select>
@@ -29,17 +30,121 @@
 		<legend>Ajout d'unitée</legend>
 		<label>Unité</label>
 		<select name="model">
-			<c:forEach items="${army.allegiance().units()}" var="unit">
-				<option value="${unit}">${unit.displayName()}</option>
+			<c:forEach items="${UnitModel.values()}" var="model">
+				<c:if test="${model.available(army)}">
+					<option value="${model}">${model.displayName}</option>
+				</c:if>
 			</c:forEach>
 		</select>
 		<input type="submit" value="Ajouter">
 	</fieldset>
 </form:form>
 
+<h1>Units</h1>
+<c:forEach items="${army.units}" var="unit">
+	<article class="unit">
+		<header>${unit.displayName}
+			<span>
+				<c:if test="${not unit.is(RoleTactique.SortsPersistantsEtInvocation)}">
+					<i class="fa fa-walking"></i> ${unit.profile.mvt}&quot; 
+					<i class="fa fa-heart"></i> ${unit.profile.life} 
+					<i class="fa fa-flag"></i> ${unit.profile.cmd} 
+					<i class="fa fa-shield-alt"></i> ${unit.profile.svg}
+				</c:if>
+			</span>
+		</header>
+		<main>
+			<table>
+				<c:if test="${not empty unit.weapons('Projectil')}">
+					<thead>
+						<tr>
+							<th>Armes à Projectiles</th>
+							<th>Portée</th>
+							<th>Attaques</th>
+							<th>Toucher</th>
+							<th>Blesser</th>
+							<th>Perf.</th>
+							<th>Dégâts</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${unit.weapons('Projectil')}" var="w">
+							<tr>
+								<td>${w.displayName}</td>
+								<td>${w.portee}</td>
+								<td>${w.attaques}</td>
+								<td>${w.toucher}</td>
+								<td>${w.blesser}</td>
+								<td>${w.perf}</td>
+								<td>${w.degats}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</c:if>
+				<c:if test="${not empty unit.weapons('Melee')}">
+					<thead>
+						<tr>
+							<th>Armes de Mêlée</th>
+							<th>Portée</th>
+							<th>Attaques</th>
+							<th>Toucher</th>
+							<th>Blesser</th>
+							<th>Perf.</th>
+							<th>Dégâts</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${unit.weapons('Melee')}" var="w">
+							<tr>
+								<td>${w.displayName}</td>
+								<td>${w.portee}</td>
+								<td>${w.attaques}</td>
+								<td>${w.toucher}</td>
+								<td>${w.blesser}</td>
+								<td>${w.perf}</td>
+								<td>${w.degats}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</c:if>
+			</table>
+<%-- 			<c:if test="${not empty model.profileDegressif()}"> --%>
+<%-- 				<table> --%>
+<%-- 					<thead> --%>
+<%-- 						<tr> --%>
+<%-- 							<th colspan="${model.profileDegressif().titles.size()}">Tableau de Dégâts</th> --%>
+<%-- 						</tr> --%>
+<%-- 						<tr> --%>
+<%-- 							<c:forEach items="${model.profileDegressif().titles}" var="t"><th>${t}</th></c:forEach> --%>
+<%-- 						</tr> --%>
+<%-- 					</thead> --%>
+<%-- 					<tbody> --%>
+<%-- 						<c:forEach items="${model.profileDegressif().lines}" var="l"> --%>
+<%-- 							<tr><c:forEach items="${l}" var="c"><td>${c}</td></c:forEach></tr> --%>
+<%-- 						</c:forEach> --%>
+<%-- 					</tbody> --%>
+<%-- 				</table> --%>
+<%-- 			</c:if> --%>
+<%-- 			<c:forEach items="${army.rules(model)}" var="rule"> --%>
+<!-- 				<div class="rule"> -->
+<%-- 					<h3>${rule.displayName()}<c:if test="${not model.is(rule)}"><sup>*</sup></c:if> : </h3> --%>
+<%-- 					${rule.description} --%>
+<!-- 				</div> -->
+<%-- 			</c:forEach> --%>
+		</main>
+<%-- 		<c:if test="${not empty army.keyWords(model)}"> --%>
+<!-- 			<footer> -->
+<%-- 				<c:forEach items="${army.keyWords(model)}" var="k"> --%>
+<%-- 					<span>${k.displayName}<c:if test="${not model.is(k)}"><sup>*</sup></c:if></span> --%>
+<%-- 				</c:forEach> --%>
+<!-- 			</footer> -->
+<%-- 		</c:if> --%>
+	</article>
+</c:forEach>
+
 <h1>Rules</h1>
-<c:forEach items="${army.rules()}" var="rule">
-	<div class="rule"><span>${rule.displayName()}</span>${rule.description()}</div>
+<c:forEach items="${army.rules}" var="rule">
+	<div class="rule"><span>${rule.displayName}</span>${rule.description}</div>
 </c:forEach>
 
 

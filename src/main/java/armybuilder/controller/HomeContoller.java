@@ -11,21 +11,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import armybuilder.db.dao.ArmyDao;
-import armybuilder.db.dbo.Allegiance;
-import armybuilder.db.dbo.Army;
-import armybuilder.model.Turn;
-import armybuilder.model.army.DecoratedArmy;
+import armybuilder.model.army.Allegiance;
+import armybuilder.model.army.Army;
+import armybuilder.modelold.deprecated.Turn;
 
 @Controller
 public class HomeContoller {
 	@Autowired
 	private SqlSession session;
 	@Autowired
-	private DecoratedArmy army;
+	private Army army;
 
 	@GetMapping(path = "/")
 	public ModelAndView home() {
-		List<armybuilder.db.dbo.Army> armies = session.getMapper(ArmyDao.class).list();
+		List<armybuilder.model.army.Army> armies = session.getMapper(ArmyDao.class).list();
 		Map<Allegiance, List<Army>> menus = armies.stream()
 				.map(a -> a.getAllegiance())
 				.distinct()

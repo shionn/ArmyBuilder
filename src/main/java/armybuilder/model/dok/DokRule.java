@@ -5,8 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
 
-import armybuilder.model.army.rule.ArmyRuleType;
-import armybuilder.model.army.rule.IRule;
+import armybuilder.model.rule.IRule;
+import armybuilder.modelold.deprecated.army.rule.ArmyRuleType;
 import armybuilder.serialisation.DescriptionReader;
 
 public enum DokRule implements IRule<DokRule> {
@@ -206,7 +206,7 @@ public enum DokRule implements IRule<DokRule> {
 	}
 
 	@Override
-	public String displayName() {
+	public String getDisplayName() {
 		if (displayName == null) {
 			return name();
 		}
@@ -214,16 +214,11 @@ public enum DokRule implements IRule<DokRule> {
 	}
 
 	@Override
-	public String description() throws IOException {
+	public String getDescription() throws IOException {
 		if (description == null) {
 			return new DescriptionReader().read("Dok/", name());
 		}
 		return description.get();
-	}
-
-	@Override
-	public String toString() {
-		return name() + getTypes();
 	}
 
 }

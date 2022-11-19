@@ -18,4 +18,8 @@ public interface IUnitWeapon {
 
 	String getDegats();
 
+	default boolean is(WeaponType type) {
+		return getType() == type;
+	}
+
 }

@@ -2,18 +2,25 @@ package armybuilder.model.unit;
 
 import java.util.List;
 
-import armybuilder.model.army.Listing;
-import armybuilder.model.army.rule.IRule;
-import armybuilder.model.unit.option.IUnitOptionValue;
-import armybuilder.model.unit.option.UnitOption;
+import armybuilder.model.army.Army;
+import armybuilder.model.rule.IRule;
+import armybuilder.model.unit.weapon.IHaveWeapons;
 import armybuilder.model.unit.weapon.IUnitWeapon;
+import armybuilder.modelold.deprecated.army.Listing;
+import armybuilder.modelold.deprecated.unit.KeyWord;
+import armybuilder.modelold.deprecated.unit.ProfileDegressif;
+import armybuilder.modelold.deprecated.unit.Unit;
+import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
+import armybuilder.modelold.deprecated.unit.option.UnitOption;
 
-public interface IUnitModel {
+public interface IUnitModel<T extends Enum<T> & IUnitModel<T>> extends IHaveWeapons
+{
 
-	public String displayName();
+	public String getDisplayName();
 
-	@Deprecated
-	List<IUnitWeapon> weapons();
+	String name();
+
+	public boolean available(Army army);
 
 	@Deprecated
 	List<KeyWord> keyWords();
@@ -21,8 +28,7 @@ public interface IUnitModel {
 	@Deprecated
 	List<IRule<?>> rules();
 
-	@Deprecated
-	List<RoleTactique> roleTactiques();
+	List<RoleTactique> getRoleTactiques();
 
 	@Deprecated
 	int points();
@@ -36,21 +42,19 @@ public interface IUnitModel {
 	@Deprecated
 	void rebuild(Unit unit);
 
-	@Deprecated
-	String name();
 
 	@Deprecated
 	public boolean availableFor(Listing listing);
 
-	@Deprecated
-	UnitProfile profile();
+	UnitProfile getProfile();
 
 	@Deprecated
 	ProfileDegressif profileDegressif();
 
 	@Deprecated
 	default boolean is(IUnitWeapon weapon) {
-		return weapons().contains(weapon);
+		return false;
+//		return weapons().contains(weapon);
 	}
 
 	@Deprecated
@@ -58,9 +62,8 @@ public interface IUnitModel {
 		return rules().contains(rule);
 	}
 
-	@Deprecated
 	default boolean is(RoleTactique role) {
-		return roleTactiques().contains(role);
+		return getRoleTactiques().contains(role);
 	}
 
 	@Deprecated

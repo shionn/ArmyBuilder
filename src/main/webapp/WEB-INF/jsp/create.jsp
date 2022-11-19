@@ -1,5 +1,5 @@
 <%@ page pageEncoding="UTF-8"%>
-<%@ page import="armybuilder.db.dbo.Allegiance" %>
+<%@ page import="armybuilder.model.army.Allegiance" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

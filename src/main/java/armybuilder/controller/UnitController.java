@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import armybuilder.db.dao.UnitEditDao;
-import armybuilder.model.unit.IUnitModel;
+import armybuilder.model.unit.UnitModel;
 
 @Controller
 public class UnitController {
@@ -18,7 +18,7 @@ public class UnitController {
 	private CurrentArmyId current;
 
 	@PostMapping("/unit/add")
-	public String addUnit(@RequestParam("model") IUnitModel model) {
+	public String addUnit(@RequestParam("model") UnitModel model) {
 		session.getMapper(UnitEditDao.class).add(current.id(), model);
 		session.commit();
 		return "redirect:/";
