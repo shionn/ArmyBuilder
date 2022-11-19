@@ -10,15 +10,31 @@
 
 <spring:url value="/army/edit" var="url" />
 <form:form action="${url}" method="POST">
-	<label>Sous Allegiance</label>
-	<select name="suballegiance">
-		<c:forEach items="${SubAllegiance.values()}" var="sub">
-			<c:if test="${sub.is(army.allegiance())}">
-				<option value="${sub}"<c:if test="${army.is(sub)}"> selected="selected"</c:if>>${sub.displayName()}</option>
-			</c:if>
-		</c:forEach>
-	</select>
-	<input type="submit" value="Editer">
+	<fieldset>
+		<legend>Edition</legend>
+		<label>Sous Allegiance</label>
+		<select name="suballegiance">
+			<c:forEach items="${SubAllegiance.values()}" var="sub">
+				<c:if test="${sub.is(army.allegiance())}">
+					<option value="${sub}"<c:if test="${army.is(sub)}"> selected="selected"</c:if>>${sub.displayName()}</option>
+				</c:if>
+			</c:forEach>
+		</select>
+		<input type="submit" value="Editer">
+	</fieldset>
+</form:form>
+<spring:url value="/unit/add" var="url" />
+<form:form action="${url}" method="POST">
+	<fieldset>
+		<legend>Ajout d'unitée</legend>
+		<label>Unité</label>
+		<select name="model">
+			<c:forEach items="${army.allegiance().units()}" var="unit">
+				<option value="${unit}">${unit.displayName()}</option>
+			</c:forEach>
+		</select>
+		<input type="submit" value="Ajouter">
+	</fieldset>
 </form:form>
 
 <h1>Rules</h1>

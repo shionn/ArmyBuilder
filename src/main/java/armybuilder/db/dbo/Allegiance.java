@@ -64,6 +64,10 @@ public enum Allegiance {
 		}
 	}
 
+	public List<IUnitModel> units() {
+		return units;
+	}
+
 	@Deprecated
 	public void rebuild(Listing listing) {
 		if (modifier != null) {
@@ -74,10 +78,6 @@ public enum Allegiance {
 		}
 	}
 
-	@Deprecated
-	public List<IUnitModel> units() {
-		return units;
-	}
 
 	@Deprecated
 	public List<IRule<?>> rules() {
