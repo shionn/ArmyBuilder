@@ -10,10 +10,10 @@ import armybuilder.model.unit.RoleTactique;
 import armybuilder.modelold.deprecated.army.Listing;
 import armybuilder.modelold.deprecated.nighthaunt.NighthauntRule;
 import armybuilder.modelold.deprecated.unit.KeyWord;
+import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum SubAllegiance {
 	DraichiGaneth(
-			"Temple : Draichi Ganeth",
 			Arrays.asList(DokRule.TueusesHerisseesDeLames),
 			Allegiance.DoK,
 			l -> l.units()
@@ -21,7 +21,6 @@ public enum SubAllegiance {
 					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
 					.forEach(u -> u.add(KeyWord.DraichiGaneth))),
 	HaggNar(
-			"Temple : Hagg Nar",
 			Arrays.asList(DokRule.FillesDuPremierTemple),
 			Allegiance.DoK,
 			l -> l.units()
@@ -29,7 +28,6 @@ public enum SubAllegiance {
 					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
 					.forEach(u -> u.add(KeyWord.HaggNar))),
 	KheltNar(
-			"Temple : Khelt Nar",
 			Arrays.asList(DokRule.FrapperEtSeRetirer),
 			Allegiance.DoK,
 			l -> l.units()
@@ -37,7 +35,6 @@ public enum SubAllegiance {
 					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
 					.forEach(u -> u.add(KeyWord.KheltNar))),
 	Khailebron(
-			"Temple : Khailebron",
 			Arrays.asList(DokRule.MaitressesDesOmbrevoies),
 			Allegiance.DoK,
 			l -> l.units()
@@ -45,7 +42,6 @@ public enum SubAllegiance {
 					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
 					.forEach(u -> u.add(KeyWord.Khailebron))),
 	Kraith(
-			"Temple : Kraith",
 			Arrays.asList(DokRule.DisciplesDuMassacre),
 			Allegiance.DoK,
 			l -> l.units()
@@ -53,12 +49,10 @@ public enum SubAllegiance {
 					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
 					.forEach(u -> u.add(KeyWord.Kraith))),
 	LOstEmeraude(
-			"Processions : l'OST Emeraude",
 			Arrays.asList(NighthauntRule.LaMaledictionEmeraude, NighthauntRule.ChevaliersDuRegret),
 			Allegiance.Nighthaunt,
 			null),
 	ZaintharKai(
-			"Temple : Zainthar Kai",
 			Arrays.asList(DokRule.LessenceDeKhaine),
 			Allegiance.DoK,
 			l -> l.units()
@@ -73,9 +67,9 @@ public enum SubAllegiance {
 	private Allegiance allegiance;
 	private Consumer<Listing> modifier;
 
-	private SubAllegiance(String displayName, List<IRule<?>> rules,
-			Allegiance allegiance, Consumer<Listing> modifier) {
-		this.displayName = displayName;
+	private SubAllegiance(List<IRule<?>> rules, Allegiance allegiance,
+			Consumer<Listing> modifier) {
+		this.displayName = EnumPropertyLoader.instance().name(this);
 		this.rules = rules;
 		this.allegiance = allegiance;
 		this.modifier = modifier;
