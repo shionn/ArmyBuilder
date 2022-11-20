@@ -7,7 +7,7 @@ import java.util.function.Consumer;
 import armybuilder.model.dok.DokRule;
 import armybuilder.model.dok.DokUnitModel;
 import armybuilder.model.rule.IRule;
-import armybuilder.model.unit.IUnitModel;
+import armybuilder.model.unit.model.IUnitModel;
 import armybuilder.modelold.deprecated.army.Listing;
 import armybuilder.modelold.deprecated.nighthaunt.NighthauntRule;
 import armybuilder.modelold.deprecated.nighthaunt.NighthauntUnitModel;

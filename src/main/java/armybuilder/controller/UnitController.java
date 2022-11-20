@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import armybuilder.db.dao.UnitEditDao;
-import armybuilder.model.unit.UnitModel;
+import armybuilder.model.unit.model.UnitModel;
 
 @Controller
 public class UnitController {

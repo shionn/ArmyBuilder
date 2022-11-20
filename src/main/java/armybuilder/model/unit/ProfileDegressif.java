@@ -1,4 +1,4 @@
-package armybuilder.modelold.deprecated.unit;
+package armybuilder.model.unit;
 
 import java.util.ArrayList;
 import java.util.Arrays;

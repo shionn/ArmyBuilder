@@ -7,15 +7,15 @@ import java.util.function.Consumer;
 import armybuilder.model.army.Allegiance;
 import armybuilder.model.army.Army;
 import armybuilder.model.rule.IRule;
-import armybuilder.model.unit.IUnitModel;
-import armybuilder.model.unit.RoleTactique;
+import armybuilder.model.unit.ProfileDegressif;
 import armybuilder.model.unit.UnitProfile;
+import armybuilder.model.unit.model.IUnitModel;
+import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.modelold.deprecated.army.Listing;
 import armybuilder.modelold.deprecated.army.rule.GeneriqueRule;
 import armybuilder.modelold.deprecated.dok.DokOptimisations;
 import armybuilder.modelold.deprecated.unit.KeyWord;
-import armybuilder.modelold.deprecated.unit.ProfileDegressif;
 import armybuilder.modelold.deprecated.unit.Unit;
 import armybuilder.modelold.deprecated.unit.modifiers.UnitModifiers;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
@@ -365,7 +365,7 @@ public enum DokUnitModel implements IUnitModel<DokUnitModel> {
 	}
 
 	@Override
-	public ProfileDegressif profileDegressif() {
+	public ProfileDegressif getProfileDegressif() {
 		return profileDegressif;
 	}
 

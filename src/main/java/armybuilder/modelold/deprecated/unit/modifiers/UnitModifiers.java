@@ -2,7 +2,7 @@ package armybuilder.modelold.deprecated.unit.modifiers;
 
 import java.util.function.Consumer;
 
-import armybuilder.model.unit.RoleTactique;
+import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.modelold.deprecated.unit.KeyWord;
 import armybuilder.modelold.deprecated.unit.Unit;
 import armybuilder.modelold.deprecated.unit.option.UnitOption;

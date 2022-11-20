@@ -1,19 +1,21 @@
-package armybuilder.model.unit;
+package armybuilder.model.unit.model;
 
 import java.util.List;
 
 import armybuilder.model.army.Army;
 import armybuilder.model.rule.IRule;
+import armybuilder.model.unit.ProfileDegressif;
+import armybuilder.model.unit.UnitProfile;
+import armybuilder.model.unit.role.IHaveRoleTactique;
 import armybuilder.model.unit.weapon.IHaveWeapons;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.modelold.deprecated.army.Listing;
 import armybuilder.modelold.deprecated.unit.KeyWord;
-import armybuilder.modelold.deprecated.unit.ProfileDegressif;
 import armybuilder.modelold.deprecated.unit.Unit;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
 import armybuilder.modelold.deprecated.unit.option.UnitOption;
 
-public interface IUnitModel<T extends Enum<T> & IUnitModel<T>> extends IHaveWeapons
+public interface IUnitModel<T extends Enum<T> & IUnitModel<T>> extends IHaveWeapons, IHaveRoleTactique
 {
 
 	public String getDisplayName();
@@ -27,8 +29,6 @@ public interface IUnitModel<T extends Enum<T> & IUnitModel<T>> extends IHaveWeap
 
 	@Deprecated
 	List<IRule<?>> rules();
-
-	List<RoleTactique> getRoleTactiques();
 
 	@Deprecated
 	int points();
@@ -49,7 +49,7 @@ public interface IUnitModel<T extends Enum<T> & IUnitModel<T>> extends IHaveWeap
 	UnitProfile getProfile();
 
 	@Deprecated
-	ProfileDegressif profileDegressif();
+	ProfileDegressif getProfileDegressif();
 
 	@Deprecated
 	default boolean is(IUnitWeapon weapon) {
@@ -62,9 +62,6 @@ public interface IUnitModel<T extends Enum<T> & IUnitModel<T>> extends IHaveWeap
 		return rules().contains(rule);
 	}
 
-	default boolean is(RoleTactique role) {
-		return getRoleTactiques().contains(role);
-	}
 
 	@Deprecated
 	default boolean is(KeyWord keyWord) {

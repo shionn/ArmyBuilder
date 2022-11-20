@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 
 import armybuilder.model.dok.DokRule;
 import armybuilder.model.rule.IRule;
-import armybuilder.model.unit.RoleTactique;
+import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.modelold.deprecated.army.Listing;
 import armybuilder.modelold.deprecated.nighthaunt.NighthauntRule;
 import armybuilder.modelold.deprecated.unit.KeyWord;

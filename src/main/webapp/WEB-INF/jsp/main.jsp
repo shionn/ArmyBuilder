@@ -1,6 +1,6 @@
 <%@ page pageEncoding="UTF-8"%>
 <%@ page import="armybuilder.model.army.SubAllegiance" %>
-<%@ page import="armybuilder.model.unit.UnitModel" %>
+<%@ page import="armybuilder.model.unit.model.UnitModel" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -108,23 +108,23 @@
 					</tbody>
 				</c:if>
 			</table>
-<%-- 			<c:if test="${not empty model.profileDegressif()}"> --%>
-<%-- 				<table> --%>
-<%-- 					<thead> --%>
-<%-- 						<tr> --%>
-<%-- 							<th colspan="${model.profileDegressif().titles.size()}">Tableau de Dégâts</th> --%>
-<%-- 						</tr> --%>
-<%-- 						<tr> --%>
-<%-- 							<c:forEach items="${model.profileDegressif().titles}" var="t"><th>${t}</th></c:forEach> --%>
-<%-- 						</tr> --%>
-<%-- 					</thead> --%>
-<%-- 					<tbody> --%>
-<%-- 						<c:forEach items="${model.profileDegressif().lines}" var="l"> --%>
-<%-- 							<tr><c:forEach items="${l}" var="c"><td>${c}</td></c:forEach></tr> --%>
-<%-- 						</c:forEach> --%>
-<%-- 					</tbody> --%>
-<%-- 				</table> --%>
-<%-- 			</c:if> --%>
+			<c:if test="${not empty unit.profileDegressif}">
+				<table>
+					<thead>
+						<tr>
+							<th colspan="${unit.profileDegressif.titles.size()}">Tableau de Dégâts</th>
+						</tr>
+						<tr>
+							<c:forEach items="${unit.profileDegressif.titles}" var="t"><th>${t}</th></c:forEach>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${unit.profileDegressif.lines}" var="l">
+							<tr><c:forEach items="${l}" var="c"><td>${c}</td></c:forEach></tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</c:if>
 <%-- 			<c:forEach items="${army.rules(model)}" var="rule"> --%>
 <!-- 				<div class="rule"> -->
 <%-- 					<h3>${rule.displayName()}<c:if test="${not model.is(rule)}"><sup>*</sup></c:if> : </h3> --%>

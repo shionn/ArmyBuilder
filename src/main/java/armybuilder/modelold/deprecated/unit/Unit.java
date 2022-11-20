@@ -17,8 +17,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import armybuilder.model.rule.IRule;
-import armybuilder.model.unit.IUnitModel;
-import armybuilder.model.unit.RoleTactique;
+import armybuilder.model.unit.model.IUnitModel;
+import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.model.unit.weapon.WeaponType;
 import armybuilder.modelold.deprecated.army.Listing;

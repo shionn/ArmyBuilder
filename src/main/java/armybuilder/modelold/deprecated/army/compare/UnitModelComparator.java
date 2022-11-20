@@ -2,8 +2,8 @@ package armybuilder.modelold.deprecated.army.compare;
 
 import java.util.Comparator;
 
-import armybuilder.model.unit.IUnitModel;
-import armybuilder.model.unit.RoleTactique;
+import armybuilder.model.unit.model.IUnitModel;
+import armybuilder.model.unit.role.RoleTactique;
 
 public class UnitModelComparator implements Comparator<IUnitModel> {
 

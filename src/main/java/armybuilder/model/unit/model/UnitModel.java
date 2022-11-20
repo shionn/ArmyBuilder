@@ -1,14 +1,16 @@
-package armybuilder.model.unit;
+package armybuilder.model.unit.model;
 
 import java.util.List;
 
 import armybuilder.model.army.Army;
 import armybuilder.model.dok.DokUnitModel;
 import armybuilder.model.rule.IRule;
+import armybuilder.model.unit.ProfileDegressif;
+import armybuilder.model.unit.UnitProfile;
+import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.modelold.deprecated.army.Listing;
 import armybuilder.modelold.deprecated.unit.KeyWord;
-import armybuilder.modelold.deprecated.unit.ProfileDegressif;
 import armybuilder.modelold.deprecated.unit.Unit;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
 import armybuilder.modelold.deprecated.unit.option.UnitOption;
@@ -114,7 +116,7 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	}
 
 	@Override
-	public ProfileDegressif profileDegressif() {
+	public ProfileDegressif getProfileDegressif() {
 		// TODO Auto-generated method stub
 		return null;
 	}

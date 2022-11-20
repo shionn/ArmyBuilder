@@ -2,30 +2,37 @@ package armybuilder.model.unit;
 
 import java.util.List;
 
+import armybuilder.model.unit.model.UnitModel;
+import armybuilder.model.unit.role.IHaveRoleTactique;
+import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.model.unit.weapon.IHaveWeapons;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 
-public class Unit implements IHaveWeapons {
+public class Unit implements IHaveWeapons, IHaveRoleTactique {
 
 	private int id;
 	private UnitModel model;
-
 
 	@Override
 	public List<IUnitWeapon> getWeapons() {
 		return model.getWeapons();
 	}
 
+	@Override
+	public List<RoleTactique> getRoleTactiques() {
+		return model.getRoleTactiques();
+	}
+
 	public String getDisplayName() {
 		return model.getDisplayName();
 	}
 
-	public Boolean is(RoleTactique role) {
-		return model.is(role);
-	}
-
 	public UnitProfile getProfile() {
 		return model.getProfile();
+	}
+
+	public ProfileDegressif getProfileDegressif() {
+		return model.getProfileDegressif();
 	}
 
 	public int getId() {
@@ -43,5 +50,6 @@ public class Unit implements IHaveWeapons {
 	public void setModel(UnitModel model) {
 		this.model = model;
 	}
+
 
 }

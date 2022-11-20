@@ -3,7 +3,7 @@ package armybuilder.db.dao;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 
-import armybuilder.model.unit.UnitModel;
+import armybuilder.model.unit.model.UnitModel;
 
 public interface UnitEditDao {
 

@@ -3,7 +3,7 @@ package armybuilder.modelold.deprecated.army.option.bataillon;
 import java.util.function.Function;
 
 import armybuilder.model.dok.DokUnitModel;
-import armybuilder.model.unit.RoleTactique;
+import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.modelold.deprecated.unit.KeyWord;
 import armybuilder.modelold.deprecated.unit.Unit;
 

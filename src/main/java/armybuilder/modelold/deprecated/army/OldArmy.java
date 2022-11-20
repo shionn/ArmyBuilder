@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import armybuilder.model.army.Allegiance;
 import armybuilder.model.rule.IRule;
-import armybuilder.model.unit.IUnitModel;
+import armybuilder.model.unit.model.IUnitModel;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.model.unit.weapon.WeaponType;
 import armybuilder.modelold.deprecated.army.compare.ListingComparator;

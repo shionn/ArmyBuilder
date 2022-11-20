@@ -23,8 +23,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import armybuilder.model.rule.IRule;
-import armybuilder.model.unit.IUnitModel;
-import armybuilder.model.unit.RoleTactique;
+import armybuilder.model.unit.model.IUnitModel;
+import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.modelold.deprecated.army.option.IListingOptionValue;
 import armybuilder.modelold.deprecated.army.option.ListingOption;
 import armybuilder.modelold.deprecated.army.rule.ArmyRuleType;
