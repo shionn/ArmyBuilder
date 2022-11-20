@@ -20,12 +20,25 @@ public class EnumPropertyLoader {
 		}
 	}
 
+
 	public static EnumPropertyLoader instance() {
 		return LazyHolder.instance;
 	}
 
+	private String props(Enum<?> e, String ext) {
+		return props.getProperty(e.getClass().getSimpleName() + "." + e.name() + "." + ext);
+	}
+
 	public String name(Enum<?> e) {
-		return props.getProperty(e.getClass().getSimpleName() + "." + e.name() + ".name");
+		return props(e, "name");
+	}
+
+	public int pts(Enum<?> e) {
+		try {
+			return Integer.parseInt(props(e, "pts"));
+		} catch (NumberFormatException ex) {
+			throw new IllegalArgumentException("can't read pts for " + e.name(), ex);
+		}
 	}
 
 }

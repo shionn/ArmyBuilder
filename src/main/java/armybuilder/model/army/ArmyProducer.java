@@ -22,7 +22,9 @@ public class ArmyProducer {
 	@RequestScope
 	public Army currentArmy() {
 		Army army = session.getMapper(ArmyDao.class).read(current.id());
-		if (army != null) {
+		if (army == null) {
+			army = new Army();
+		} else {
 			army.getAllegiance().decorate(army);
 		}
 		return army;

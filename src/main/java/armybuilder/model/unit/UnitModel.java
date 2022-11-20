@@ -22,7 +22,7 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 //	MorgwaethTheBloodied(DokUnitModel.MorgwaethTheBloodied),
 //	LeBladeCoven(DokUnitModel.LeBladeCoven),
 //	HagQueenSurChaudron(DokUnitModel.HagQueenSurChaudron),
-	HagQueen(DokUnitModel.HagQueen),
+	ReineMatriache(DokUnitModel.ReineMatriache),
 	ReineDuMassacreSurChaudronDeSang(DokUnitModel.ReineDuMassacreSurChaudronDeSang),
 //	SlaughterQueen(DokUnitModel.SlaughterQueen),
 	GrandeGladiatrice(DokUnitModel.GrandeGladiatrice),
