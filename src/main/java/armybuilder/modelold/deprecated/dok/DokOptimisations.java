@@ -6,7 +6,7 @@ import java.util.function.Function;
 import armybuilder.model.dok.DokRule;
 import armybuilder.model.dok.DokUnitModel;
 import armybuilder.model.dok.DokUnitWeapon;
-import armybuilder.modelold.deprecated.unit.KeyWord;
+import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.modelold.deprecated.unit.Unit;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
 import armybuilder.modelold.deprecated.unit.option.UnitOption;

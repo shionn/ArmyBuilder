@@ -2,8 +2,8 @@ package armybuilder.modelold.deprecated.unit.option;
 
 import java.util.function.Function;
 
+import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.modelold.deprecated.army.OldOldArmy;
-import armybuilder.modelold.deprecated.unit.KeyWord;
 import armybuilder.modelold.deprecated.unit.Unit;
 
 public enum UnitOption {

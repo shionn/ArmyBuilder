@@ -6,21 +6,21 @@ import java.util.function.Consumer;
 
 import armybuilder.model.army.Allegiance;
 import armybuilder.model.army.Army;
+import armybuilder.model.rule.GeneriqueRule;
+import armybuilder.model.rule.GeneriqueUnitRule;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.ProfileDegressif;
 import armybuilder.model.unit.UnitProfile;
+import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.model.IUnitModel;
 import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.modelold.deprecated.army.Listing;
-import armybuilder.modelold.deprecated.army.rule.GeneriqueRule;
 import armybuilder.modelold.deprecated.dok.DokOptimisations;
-import armybuilder.modelold.deprecated.unit.KeyWord;
 import armybuilder.modelold.deprecated.unit.Unit;
 import armybuilder.modelold.deprecated.unit.modifiers.UnitModifiers;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
 import armybuilder.modelold.deprecated.unit.option.UnitOption;
-import armybuilder.modelold.deprecated.unit.rule.GeneriqueUnitRule;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum DokUnitModel implements IUnitModel<DokUnitModel> {
@@ -370,12 +370,12 @@ public enum DokUnitModel implements IUnitModel<DokUnitModel> {
 	}
 
 	@Override
-	public List<IRule<?>> rules() {
+	public List<IRule<?>> getRules() {
 		return rules;
 	}
 
 	@Override
-	public List<KeyWord> keyWords() {
+	public List<KeyWord> getKeyWords() {
 		return keyWords;
 	}
 

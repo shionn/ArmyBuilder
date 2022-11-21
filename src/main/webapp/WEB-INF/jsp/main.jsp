@@ -1,6 +1,8 @@
 <%@ page pageEncoding="UTF-8"%>
 <%@ page import="armybuilder.model.army.SubAllegiance" %>
 <%@ page import="armybuilder.model.unit.model.UnitModel" %>
+<%@ page import="armybuilder.model.rule.RuleType" %>
+<%@ page import="armybuilder.model.unit.role.RoleTactique" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -46,9 +48,9 @@
 		<header>${unit.displayName}
 			<span>
 				<c:if test="${not unit.is(RoleTactique.SortsPersistantsEtInvocation)}">
-					<i class="fa fa-walking"></i> ${unit.profile.mvt}&quot; 
-					<i class="fa fa-heart"></i> ${unit.profile.life} 
-					<i class="fa fa-flag"></i> ${unit.profile.cmd} 
+					<i class="fa fa-walking"></i> ${unit.profile.mvt}&quot;
+					<i class="fa fa-heart"></i> ${unit.profile.life}
+					<i class="fa fa-flag"></i> ${unit.profile.cmd}
 					<i class="fa fa-shield-alt"></i> ${unit.profile.svg}
 				</c:if>
 			</span>
@@ -125,26 +127,30 @@
 					</tbody>
 				</table>
 			</c:if>
-<%-- 			<c:forEach items="${army.rules(model)}" var="rule"> --%>
-<!-- 				<div class="rule"> -->
-<%-- 					<h3>${rule.displayName()}<c:if test="${not model.is(rule)}"><sup>*</sup></c:if> : </h3> --%>
-<%-- 					${rule.description} --%>
-<!-- 				</div> -->
-<%-- 			</c:forEach> --%>
+			<div class="rules">
+				<c:forEach items="${unit.rules}" var="rule">
+					<span>${rule.displayName}</span>
+				</c:forEach>
+			</div>
 		</main>
-<%-- 		<c:if test="${not empty army.keyWords(model)}"> --%>
-<!-- 			<footer> -->
-<%-- 				<c:forEach items="${army.keyWords(model)}" var="k"> --%>
-<%-- 					<span>${k.displayName}<c:if test="${not model.is(k)}"><sup>*</sup></c:if></span> --%>
-<%-- 				</c:forEach> --%>
-<!-- 			</footer> -->
-<%-- 		</c:if> --%>
+		<c:if test="${not empty unit.keyWords}">
+			<footer>
+				<c:forEach items="${unit.keyWords}" var="k">
+					<span>${k.displayName}</span>
+				</c:forEach>
+			</footer>
+		</c:if>
 	</article>
 </c:forEach>
 
 <h1>Rules</h1>
-<c:forEach items="${army.rules}" var="rule">
-	<div class="rule"><span>${rule.displayName}</span>${rule.description}</div>
+<c:forEach items="${RuleType.values()}" var="type">
+	<c:if test="${type.displayed and not empty army.rules(type)}">
+		<h2>${type.displayName}</h2>
+		<c:forEach items="${army.rules(type)}" var="rule">
+			<div class="rule"><span>${rule.displayName}</span>${rule.description}</div>
+		</c:forEach>
+	</c:if>
 </c:forEach>
 
 
@@ -256,7 +262,7 @@
 <%-- 	</c:forEach> --%>
 <%-- </c:if> --%>
 
-<%-- <c:if test="${not empty army.options('Triomphes')}"> --%> 
+<%-- <c:if test="${not empty army.options('Triomphes')}"> --%>
 <!-- 	<h2>TODO Tacticte de Bataille</h2> -->
 <%-- 	<c:forEach items="${army.options('Triomphes')}" var="rule"> --%>
 <%-- 		<t:rule rule="${rule}" army="${army}"/> --%>

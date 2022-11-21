@@ -7,16 +7,16 @@ import armybuilder.model.dok.DokUnitModel;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.ProfileDegressif;
 import armybuilder.model.unit.UnitProfile;
+import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.modelold.deprecated.army.Listing;
-import armybuilder.modelold.deprecated.unit.KeyWord;
 import armybuilder.modelold.deprecated.unit.Unit;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
 import armybuilder.modelold.deprecated.unit.option.UnitOption;
 
 public enum UnitModel implements IUnitModel<UnitModel> {
-	MorathiKhaine(DokUnitModel.MorathiKhaine), 
+	MorathiKhaine(DokUnitModel.MorathiKhaine),
 	LaReineDeLOmbre(DokUnitModel.LaReineDeLOmbre),
 	SanctuaireIncarnat(DokUnitModel.SanctuaireIncarnat),
 	MelusaiIronscale(DokUnitModel.MelusaiIronscale),
@@ -64,15 +64,13 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 
 
 	@Override
-	public List<KeyWord> keyWords() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<KeyWord> getKeyWords() {
+		return sub.getKeyWords();
 	}
 
 	@Override
-	public List<IRule<?>> rules() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<IRule<?>> getRules() {
+		return sub.getRules();
 	}
 
 	@Override
@@ -83,12 +81,11 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	@Override
 	public int points() {
 		// TODO Auto-generated method stub
-		return 0;
+		return sub.points();
 	}
 
 	@Override
 	public List<UnitOption> options() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -117,7 +114,6 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 
 	@Override
 	public ProfileDegressif getProfileDegressif() {
-		// TODO Auto-generated method stub
-		return null;
+		return sub.getProfileDegressif();
 	}
 }

@@ -3,7 +3,7 @@ package armybuilder.modelold.deprecated.nighthaunt;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import armybuilder.modelold.deprecated.unit.KeyWord;
+import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.modelold.deprecated.unit.Unit;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
 import armybuilder.modelold.deprecated.unit.option.UnitOption;

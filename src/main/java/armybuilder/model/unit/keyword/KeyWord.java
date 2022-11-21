@@ -1,4 +1,4 @@
-package armybuilder.modelold.deprecated.unit;
+package armybuilder.model.unit.keyword;
 
 public enum KeyWord {
 	// Generique

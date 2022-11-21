@@ -3,11 +3,11 @@ package armybuilder.modelold.deprecated.unit.option;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+import armybuilder.model.rule.GeneriqueRule;
+import armybuilder.model.rule.GeneriqueUnitRule;
+import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.role.RoleTactique;
-import armybuilder.modelold.deprecated.army.rule.GeneriqueRule;
-import armybuilder.modelold.deprecated.unit.KeyWord;
 import armybuilder.modelold.deprecated.unit.Unit;
-import armybuilder.modelold.deprecated.unit.rule.GeneriqueUnitRule;
 
 public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsUniverselles> {
 

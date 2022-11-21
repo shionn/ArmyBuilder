@@ -5,18 +5,18 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+import armybuilder.model.rule.GeneriqueUnitRule;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.ProfileDegressif;
 import armybuilder.model.unit.UnitProfile;
+import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.model.IUnitModel;
 import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.modelold.deprecated.army.Listing;
-import armybuilder.modelold.deprecated.unit.KeyWord;
 import armybuilder.modelold.deprecated.unit.Unit;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
 import armybuilder.modelold.deprecated.unit.option.UnitOption;
-import armybuilder.modelold.deprecated.unit.rule.GeneriqueUnitRule;
 
 public enum NighthauntUnitModel implements IUnitModel {
 
@@ -181,12 +181,12 @@ public enum NighthauntUnitModel implements IUnitModel {
 	}
 
 	@Override
-	public List<IRule<?>> rules() {
+	public List<IRule<?>> getRules() {
 		return rules;
 	}
 
 	@Override
-	public List<KeyWord> keyWords() {
+	public List<KeyWord> getKeyWords() {
 		return keyWords;
 	}
 

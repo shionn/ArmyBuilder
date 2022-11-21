@@ -16,15 +16,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import armybuilder.model.rule.RuleType;
+import armybuilder.model.rule.GeneriqueRule;
 import armybuilder.model.rule.IRule;
+import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.model.IUnitModel;
 import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.model.unit.weapon.WeaponType;
 import armybuilder.modelold.deprecated.army.Listing;
 import armybuilder.modelold.deprecated.army.compare.UnitRuleComparator;
-import armybuilder.modelold.deprecated.army.rule.ArmyRuleType;
-import armybuilder.modelold.deprecated.army.rule.GeneriqueRule;
 import armybuilder.modelold.deprecated.army.rule.PackDeBatailleRule;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
 import armybuilder.modelold.deprecated.unit.option.OptimisationsUniverselles;
@@ -65,11 +66,11 @@ public class Unit implements Comparable<Unit> {
 
 	public void reset() {
 		rules.clear();
-		rules.addAll(model.rules());
+		rules.addAll(model.getRules());
 		weapons.clear();
 		weapons.addAll(model.weapons());
 		keyWords.clear();
-		keyWords.addAll(model.keyWords());
+		keyWords.addAll(model.getKeyWords());
 		roleTatciques.clear();
 		roleTatciques.addAll(model.getRoleTactiques());
 		points = model.points();
@@ -139,13 +140,13 @@ public class Unit implements Comparable<Unit> {
 		return rules.contains(rule);
 	}
 
-	public List<IRule<?>> rules(ArmyRuleType type) {
+	public List<IRule<?>> rules(RuleType type) {
 		return rules.stream().filter(r -> r.is(type)).collect(Collectors.toList());
 	}
 
-	public List<IRule<?>> addedRules(ArmyRuleType type) {
+	public List<IRule<?>> addedRules(RuleType type) {
 		return rules.stream()
-				.filter(r -> !model().rules().contains(r))
+				.filter(r -> !model().getRules().contains(r))
 				.filter(r -> !(r instanceof GeneriqueRule))
 				.filter(r -> !(r instanceof PackDeBatailleRule))
 				.filter(r -> r.is(type))

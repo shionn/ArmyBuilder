@@ -25,7 +25,7 @@ public class ArmyProducer {
 		if (army == null) {
 			army = new Army();
 		} else {
-			army.getAllegiance().decorate(army);
+			army.decorate();
 		}
 		return army;
 	}

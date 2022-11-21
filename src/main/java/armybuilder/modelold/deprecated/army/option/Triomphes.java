@@ -4,25 +4,25 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+import armybuilder.model.rule.RuleType;
 import armybuilder.model.rule.IRule;
 import armybuilder.modelold.deprecated.army.Listing;
-import armybuilder.modelold.deprecated.army.rule.ArmyRuleType;
 import armybuilder.serialisation.DescriptionReader;
 
 public enum Triomphes implements IListingOptionValue<Triomphes>, IRule<Triomphes> {
-	Sanguinaires("Sanguinaires", Arrays.asList(ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCharge)),
+	Sanguinaires("Sanguinaires", Arrays.asList(RuleType.Triomphes, RuleType.PhaseDeCharge)),
 	Inspires(
 			"Inspirés",
-			Arrays.asList(ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeTir,
-					ArmyRuleType.PhaseDeCombat)),
+			Arrays.asList(RuleType.Triomphes, RuleType.PhaseDeTir,
+					RuleType.PhaseDeCombat)),
 	Indomptables(
 			"Indomptables",
-			Arrays.asList(ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeDeroute));
+			Arrays.asList(RuleType.Triomphes, RuleType.PhaseDeDeroute));
 
 	private String displayName;
-	private List<ArmyRuleType> ruleTypes;
+	private List<RuleType> ruleTypes;
 
-	private Triomphes(String displayName, List<ArmyRuleType> ruleTypes) {
+	private Triomphes(String displayName, List<RuleType> ruleTypes) {
 		this.displayName = displayName;
 		this.ruleTypes = ruleTypes;
 	}
@@ -38,7 +38,7 @@ public enum Triomphes implements IListingOptionValue<Triomphes>, IRule<Triomphes
 	}
 
 	@Override
-	public List<ArmyRuleType> getTypes() {
+	public List<RuleType> getTypes() {
 		return ruleTypes;
 	}
 

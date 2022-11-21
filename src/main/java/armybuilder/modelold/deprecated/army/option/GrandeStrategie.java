@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.function.Function;
 
 import armybuilder.model.army.Allegiance;
+import armybuilder.model.rule.RuleType;
 import armybuilder.model.rule.IRule;
 import armybuilder.modelold.deprecated.army.Listing;
-import armybuilder.modelold.deprecated.army.rule.ArmyRuleType;
 import armybuilder.serialisation.DescriptionReader;
 
 public enum GrandeStrategie implements IListingOptionValue<GrandeStrategie>, IRule<GrandeStrategie> {
@@ -57,7 +57,7 @@ public enum GrandeStrategie implements IListingOptionValue<GrandeStrategie>, IRu
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<ArmyRuleType> getTypes() {
+	public List<RuleType> getTypes() {
 		return Collections.EMPTY_LIST;
 	}
 

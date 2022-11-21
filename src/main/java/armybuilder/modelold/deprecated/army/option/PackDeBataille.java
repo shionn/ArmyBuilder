@@ -2,10 +2,10 @@ package armybuilder.modelold.deprecated.army.option;
 
 import java.util.function.Consumer;
 
+import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.modelold.deprecated.army.Listing;
 import armybuilder.modelold.deprecated.army.rule.PackDeBatailleRule;
-import armybuilder.modelold.deprecated.unit.KeyWord;
 
 public enum PackDeBataille implements IListingOptionValue<PackDeBataille> {
 	LutteDeGeneraux("Lutte de Généraux", null), 

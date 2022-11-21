@@ -4,92 +4,92 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+import armybuilder.model.rule.RuleType;
 import armybuilder.model.rule.IRule;
-import armybuilder.modelold.deprecated.army.rule.ArmyRuleType;
 import armybuilder.serialisation.DescriptionReader;
 
 public enum NighthauntRule implements IRule<NighthauntRule> {
-	AuraDEffroi("Aura d'Effroi", ArmyRuleType.TraisDeBataille),
-	ChevaliersDuRegret("Chevaliers du Regret", ArmyRuleType.TraisDeBataille),
+	AuraDEffroi("Aura d'Effroi", RuleType.TraisDeBataille),
+	ChevaliersDuRegret("Chevaliers du Regret", RuleType.TraisDeBataille),
 	ConvocationSpectrale(
 			"Convocation Spectrale",
-			ArmyRuleType.TraisDeBataille,
-			ArmyRuleType.AptitudesDeCommandement,
-			ArmyRuleType.PhaseDeMouvement),
-	EspritsImperissables("Esprits Impérissables", ArmyRuleType.TraisDeBataille),
+			RuleType.TraisDeBataille,
+			RuleType.AptitudesDeCommandement,
+			RuleType.PhaseDeMouvement),
+	EspritsImperissables("Esprits Impérissables", RuleType.TraisDeBataille),
 	IlsViennentDesSousMondes(
 			"Ils Viennent des Sous-Mondes",
-			ArmyRuleType.TraisDeBataille,
-			ArmyRuleType.PhaseDeMouvement),
-	LaMaledictionEmeraude("La Malédiction Émeraude", ArmyRuleType.TraisDeBataille),
-	NourrisDeTerreur("Nourris de Terreur", ArmyRuleType.TraisDeBataille),
-	RestituerLesFigurinesTuees("Restituer Les Figurines Tuées", ArmyRuleType.TraisDeBataille),
-	VagueDeTerreur("Vague de Terreur", ArmyRuleType.TraisDeBataille, ArmyRuleType.PhaseDeCharge),
+			RuleType.TraisDeBataille,
+			RuleType.PhaseDeMouvement),
+	LaMaledictionEmeraude("La Malédiction Émeraude", RuleType.TraisDeBataille),
+	NourrisDeTerreur("Nourris de Terreur", RuleType.TraisDeBataille),
+	RestituerLesFigurinesTuees("Restituer Les Figurines Tuées", RuleType.TraisDeBataille),
+	VagueDeTerreur("Vague de Terreur", RuleType.TraisDeBataille, RuleType.PhaseDeCharge),
 
-	DrapeDOmbre("Drapé d'Ombre", ArmyRuleType.TraitsDeCommandement),
-	EntiteTerrifiante("Entité Terrifiante", ArmyRuleType.TraitsDeCommandement),
-	EspritAmer("Esprit Amer", ArmyRuleType.TraitsDeCommandement),
-	EspritPersistant("Esprit Persistant", ArmyRuleType.TraitsDeCommandement),
-	HaineDesVivants("Haine des Vivants", ArmyRuleType.TraitsDeCommandement),
-	MaitreDesOstsDEsprits("Maître des Osts d'Esprits", ArmyRuleType.TraitsDeCommandement),
-	SeigneurDeLOst("Seigneur de l'Ost", ArmyRuleType.TraitsDeCommandement),
+	DrapeDOmbre("Drapé d'Ombre", RuleType.TraitsDeCommandement),
+	EntiteTerrifiante("Entité Terrifiante", RuleType.TraitsDeCommandement),
+	EspritAmer("Esprit Amer", RuleType.TraitsDeCommandement),
+	EspritPersistant("Esprit Persistant", RuleType.TraitsDeCommandement),
+	HaineDesVivants("Haine des Vivants", RuleType.TraitsDeCommandement),
+	MaitreDesOstsDEsprits("Maître des Osts d'Esprits", RuleType.TraitsDeCommandement),
+	SeigneurDeLOst("Seigneur de l'Ost", RuleType.TraitsDeCommandement),
 
-	BrumeSepulcrale("Brume Sépulcrale", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
-	CageAAmes("Cage à Âmes", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
-	CanuleSpectrale("Canule Spectrale", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
-	DrainDEsprit("Drain d'Esprit", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
-	FauxGlaneuse("Faux Glaneuse", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
-	VoleurDeVie("Voleur de Vie", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
-	VortexHurlant("Vortex Hurlant", ArmyRuleType.Sort, ArmyRuleType.TraisUnitee),
+	BrumeSepulcrale("Brume Sépulcrale", RuleType.Sort, RuleType.TraisUnitee),
+	CageAAmes("Cage à Âmes", RuleType.Sort, RuleType.TraisUnitee),
+	CanuleSpectrale("Canule Spectrale", RuleType.Sort, RuleType.TraisUnitee),
+	DrainDEsprit("Drain d'Esprit", RuleType.Sort, RuleType.TraisUnitee),
+	FauxGlaneuse("Faux Glaneuse", RuleType.Sort, RuleType.TraisUnitee),
+	VoleurDeVie("Voleur de Vie", RuleType.Sort, RuleType.TraisUnitee),
+	VortexHurlant("Vortex Hurlant", RuleType.Sort, RuleType.TraisUnitee),
 
-	FaucheLesPeines("Fauche-les-Peines", ArmyRuleType.Artefact),
-	FilDeLOmbre("Fil de l'Ombre", ArmyRuleType.Artefact),
-	Inciseur("Inciseur", ArmyRuleType.Artefact),
-	JugementDuBourreau("Jugement du Bourreau", ArmyRuleType.Artefact),
-	LaLameDuChevalierFelon("La Lame du Chevalier Félon", ArmyRuleType.Artefact),
-	LameDeFeuMaudit("Lame de Feu Maudit", ArmyRuleType.Artefact),
-	LameStridente("Lame Stridente", ArmyRuleType.Artefact),
+	FaucheLesPeines("Fauche-les-Peines", RuleType.Artefact),
+	FilDeLOmbre("Fil de l'Ombre", RuleType.Artefact),
+	Inciseur("Inciseur", RuleType.Artefact),
+	JugementDuBourreau("Jugement du Bourreau", RuleType.Artefact),
+	LaLameDuChevalierFelon("La Lame du Chevalier Félon", RuleType.Artefact),
+	LameDeFeuMaudit("Lame de Feu Maudit", RuleType.Artefact),
+	LameStridente("Lame Stridente", RuleType.Artefact),
 
-	Affrelame("Affrelame", ArmyRuleType.Aptitude),
-	ChainesEtrangleuses("Chaînes Étrangleuses", ArmyRuleType.Aptitude),
+	Affrelame("Affrelame", RuleType.Aptitude),
+	ChainesEtrangleuses("Chaînes Étrangleuses", RuleType.Aptitude),
 	CriFunebre(
 			"Cri Funèbre",
-			ArmyRuleType.Aptitude,
-			ArmyRuleType.PhaseDeTir,
-			ArmyRuleType.TraisUnitee),
+			RuleType.Aptitude,
+			RuleType.PhaseDeTir,
+			RuleType.TraisUnitee),
 	Dematerialisation(
 			"Dématérialisation",
-			ArmyRuleType.Aptitude,
-			ArmyRuleType.PhaseDeMouvement,
-			ArmyRuleType.TraisUnitee),
-	Etheres("Éthérés", ArmyRuleType.Aptitude),
-	HordeEffroyable("Horde Effroyable", ArmyRuleType.Aptitude),
-	LaPointeDeLaMort("La Pointe de la Mort", ArmyRuleType.Aptitude),
-	MaledictionDeLoyaute("Malédiction de Loyauté", ArmyRuleType.Aptitude),
+			RuleType.Aptitude,
+			RuleType.PhaseDeMouvement,
+			RuleType.TraisUnitee),
+	Etheres("Éthérés", RuleType.Aptitude),
+	HordeEffroyable("Horde Effroyable", RuleType.Aptitude),
+	LaPointeDeLaMort("La Pointe de la Mort", RuleType.Aptitude),
+	MaledictionDeLoyaute("Malédiction de Loyauté", RuleType.Aptitude),
 	MangeSorts(
 			"Mange-sorts",
-			ArmyRuleType.Aptitude,
-			ArmyRuleType.PhaseDesHeros,
-			ArmyRuleType.TraisUnitee),
-	ToucherFuneste("Toucher Funeste", ArmyRuleType.Aptitude),
+			RuleType.Aptitude,
+			RuleType.PhaseDesHeros,
+			RuleType.TraisUnitee),
+	ToucherFuneste("Toucher Funeste", RuleType.Aptitude),
 
 	// Composition
-	Dreadwarden("Dreadwarden", ArmyRuleType.Composition),
-	TambourDArythmie("Tambour d'Arythmie", ArmyRuleType.Composition),
-	VarclavLeCruel("Varclav le Cruel", ArmyRuleType.Composition),
+	Dreadwarden("Dreadwarden", RuleType.Composition),
+	TambourDArythmie("Tambour d'Arythmie", RuleType.Composition),
+	VarclavLeCruel("Varclav le Cruel", RuleType.Composition),
 
 	;
 
 	private String displayName;
-	private List<ArmyRuleType> types;
+	private List<RuleType> types;
 
-	private NighthauntRule(String displayName, ArmyRuleType... types) {
+	private NighthauntRule(String displayName, RuleType... types) {
 		this.displayName = displayName;
 		this.types = Arrays.asList(types);
 	}
 
 	@Override
-	public List<ArmyRuleType> getTypes() {
+	public List<RuleType> getTypes() {
 		return types;
 	}
 

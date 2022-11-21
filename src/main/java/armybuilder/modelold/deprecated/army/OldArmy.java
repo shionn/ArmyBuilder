@@ -10,7 +10,9 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import armybuilder.model.army.Allegiance;
+import armybuilder.model.rule.RuleType;
 import armybuilder.model.rule.IRule;
+import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.model.IUnitModel;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.model.unit.weapon.WeaponType;
@@ -21,8 +23,6 @@ import armybuilder.modelold.deprecated.army.compare.UnitWeaponComparator;
 import armybuilder.modelold.deprecated.army.option.IListingOptionValue;
 import armybuilder.modelold.deprecated.army.option.ListingOption;
 import armybuilder.modelold.deprecated.army.option.bataillon.Bataillon;
-import armybuilder.modelold.deprecated.army.rule.ArmyRuleType;
-import armybuilder.modelold.deprecated.unit.KeyWord;
 
 /**
  * point d'acces root à une amree multi list
@@ -70,11 +70,11 @@ public class OldArmy {
 	}
 
 	/** rules **/
-	public List<IRule<?>> rules(ArmyRuleType types) {
+	public List<IRule<?>> rules(RuleType types) {
 		return listings.stream().flatMap(l -> l.rules(types).stream()).distinct().collect(Collectors.toList());
 	}
 
-	public List<IRule<?>> rules(List<ArmyRuleType> types) {
+	public List<IRule<?>> rules(List<RuleType> types) {
 		return listings.stream().flatMap(l -> l.rules(types).stream()).distinct().collect(Collectors.toList());
 	}
 

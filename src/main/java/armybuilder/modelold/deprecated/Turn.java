@@ -3,46 +3,46 @@ package armybuilder.modelold.deprecated;
 import java.util.Arrays;
 import java.util.List;
 
-import armybuilder.modelold.deprecated.army.rule.ArmyRuleType;
+import armybuilder.model.rule.RuleType;
 
 public class Turn {
 
 	public enum Phase {
 		Héros(
 				"1 Phase des Héros",
-				Arrays.asList(Arrays.asList(ArmyRuleType.Aptitude, ArmyRuleType.PhaseDesHeros),
-						Arrays.asList(ArmyRuleType.ActionsHeroiques),
-						Arrays.asList(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDesHeros),
-						Arrays.asList(ArmyRuleType.Sort), Arrays.asList(ArmyRuleType.Priere))),
+				Arrays.asList(Arrays.asList(RuleType.Aptitude, RuleType.PhaseDesHeros),
+						Arrays.asList(RuleType.ActionsHeroiques),
+						Arrays.asList(RuleType.AptitudesDeCommandement, RuleType.PhaseDesHeros),
+						Arrays.asList(RuleType.Sort), Arrays.asList(RuleType.Priere))),
 		Mouvement(
 				"2 Phase de Mouvement",
-				Arrays.asList(Arrays.asList(ArmyRuleType.TraitsDeCommandement, ArmyRuleType.PhaseDeMouvement),
-						Arrays.asList(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeMouvement))),
+				Arrays.asList(Arrays.asList(RuleType.TraitsDeCommandement, RuleType.PhaseDeMouvement),
+						Arrays.asList(RuleType.AptitudesDeCommandement, RuleType.PhaseDeMouvement))),
 		Tir(
 				"3 Phase de Tir",
-				Arrays.asList(Arrays.asList(ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeTir),
-						Arrays.asList(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeTir),
-						Arrays.asList(ArmyRuleType.PhaseDeTir))),
+				Arrays.asList(Arrays.asList(RuleType.Triomphes, RuleType.PhaseDeTir),
+						Arrays.asList(RuleType.AptitudesDeCommandement, RuleType.PhaseDeTir),
+						Arrays.asList(RuleType.PhaseDeTir))),
 		Charge(
 				"4 Phase de Charge",
-				Arrays.asList(Arrays.asList(ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCharge),
-						Arrays.asList(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeCharge),
-						Arrays.asList(ArmyRuleType.PhaseDeCharge), Arrays.asList(ArmyRuleType.FureursMonstrueuses))),
+				Arrays.asList(Arrays.asList(RuleType.Triomphes, RuleType.PhaseDeCharge),
+						Arrays.asList(RuleType.AptitudesDeCommandement, RuleType.PhaseDeCharge),
+						Arrays.asList(RuleType.PhaseDeCharge), Arrays.asList(RuleType.FureursMonstrueuses))),
 		Combat(
 				"5 Phase de Combat",
-				Arrays.asList(Arrays.asList(ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCombat),
-						Arrays.asList(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeCombat),
-						Arrays.asList(ArmyRuleType.PhaseDeCombat))),
+				Arrays.asList(Arrays.asList(RuleType.Triomphes, RuleType.PhaseDeCombat),
+						Arrays.asList(RuleType.AptitudesDeCommandement, RuleType.PhaseDeCombat),
+						Arrays.asList(RuleType.PhaseDeCombat))),
 		Deroute(
 				"6 Phase de Déroute",
-				Arrays.asList(Arrays.asList(ArmyRuleType.Triomphes, ArmyRuleType.PhaseDeCharge),
-						Arrays.asList(ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeDeroute),
-						Arrays.asList(ArmyRuleType.Aptitude, ArmyRuleType.PhaseDeDeroute)));
+				Arrays.asList(Arrays.asList(RuleType.Triomphes, RuleType.PhaseDeCharge),
+						Arrays.asList(RuleType.AptitudesDeCommandement, RuleType.PhaseDeDeroute),
+						Arrays.asList(RuleType.Aptitude, RuleType.PhaseDeDeroute)));
 
 		private String name;
-		private List<List<ArmyRuleType>> steps;
+		private List<List<RuleType>> steps;
 
-		Phase(String name, List<List<ArmyRuleType>> steps) {
+		Phase(String name, List<List<RuleType>> steps) {
 			this.name = name;
 			this.steps = steps;
 		}
@@ -51,7 +51,7 @@ public class Turn {
 			return name;
 		}
 
-		public List<List<ArmyRuleType>> getSteps() {
+		public List<List<RuleType>> getSteps() {
 			return steps;
 		}
 	}

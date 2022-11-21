@@ -1,9 +1,13 @@
 @import "_variables.scss";
 
+h2 {
+	margin: 10px 10px 5px 10px;
+}
+
 div.rule {
 	border: 1px dashed $color-dark;
 	padding: 5px;
-	margin-bottom: 5px;
+	//margin-bottom: 5px;
 	span {
 		margin-right: 5px;
 		font-weight: bold;
@@ -15,4 +19,3 @@ div.rule {
 		margin: 0;
 	}
 }
- 

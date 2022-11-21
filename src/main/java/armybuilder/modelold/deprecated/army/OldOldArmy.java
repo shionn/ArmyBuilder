@@ -22,13 +22,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import armybuilder.model.rule.RuleType;
 import armybuilder.model.rule.IRule;
+import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.model.IUnitModel;
 import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.modelold.deprecated.army.option.IListingOptionValue;
 import armybuilder.modelold.deprecated.army.option.ListingOption;
-import armybuilder.modelold.deprecated.army.rule.ArmyRuleType;
-import armybuilder.modelold.deprecated.unit.KeyWord;
 import armybuilder.modelold.deprecated.unit.Unit;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
 import armybuilder.modelold.deprecated.unit.option.OptimisationsUniverselles;
@@ -93,12 +93,12 @@ public class OldOldArmy {
 	/*
 	 * rules
 	 */
-	public List<IRule<?>> getRules(ArmyRuleType... types) {
+	public List<IRule<?>> getRules(RuleType... types) {
 		return rules.stream().filter(r -> r.getTypes().containsAll(Arrays.asList(types)))
 				.sorted((a, b) -> a.name().compareTo(b.name())).collect(Collectors.toList());
 	}
 
-	public List<IRule<?>> getRules(Collection<ArmyRuleType> types) {
+	public List<IRule<?>> getRules(Collection<RuleType> types) {
 		return rules.stream().filter(r -> r.getTypes().containsAll(types))
 				// .filter(r -> isUsable(r))
 				.sorted((a, b) -> a.name().compareTo(b.name())).collect(Collectors.toList());

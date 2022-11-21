@@ -4,32 +4,33 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+import armybuilder.model.rule.RuleType;
 import armybuilder.model.rule.IRule;
 import armybuilder.serialisation.DescriptionReader;
 
 public enum BataillonRule implements IRule<BataillonRule> {
 	Unifies("Unifiés"),
-	Experts("Experts", ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeTir, ArmyRuleType.PhaseDeCombat),
+	Experts("Experts", RuleType.AptitudesDeCommandement, RuleType.PhaseDeTir, RuleType.PhaseDeCombat),
 	Magnifiques("Magnifiques"),
-	Tueurs("Tueurs", ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeTir, ArmyRuleType.PhaseDeCombat,
-			ArmyRuleType.PhaseDeCharge),
-	Strateges("Stratèges", ArmyRuleType.PhaseDesHeros),
-	Rapides("Rapides", ArmyRuleType.AptitudesDeCommandement, ArmyRuleType.PhaseDeMouvement),
-	PisterALOdeur("Pister à l'Odeur", ArmyRuleType.Aptitude, ArmyRuleType.PhaseBeforeStart),
-	OutsidersExperts("Outsiders Experts", ArmyRuleType.Aptitude),
-	ForceDominatrice("Force Dominatrice", ArmyRuleType.Aptitude),
-	ChasseursDeTetes("Chasseur de Têtes", ArmyRuleType.Aptitude);
+	Tueurs("Tueurs", RuleType.AptitudesDeCommandement, RuleType.PhaseDeTir, RuleType.PhaseDeCombat,
+			RuleType.PhaseDeCharge),
+	Strateges("Stratèges", RuleType.PhaseDesHeros),
+	Rapides("Rapides", RuleType.AptitudesDeCommandement, RuleType.PhaseDeMouvement),
+	PisterALOdeur("Pister à l'Odeur", RuleType.Aptitude, RuleType.PhaseBeforeStart),
+	OutsidersExperts("Outsiders Experts", RuleType.Aptitude),
+	ForceDominatrice("Force Dominatrice", RuleType.Aptitude),
+	ChasseursDeTetes("Chasseur de Têtes", RuleType.Aptitude);
 
 	private String displayName;
-	private List<ArmyRuleType> types;
+	private List<RuleType> types;
 
-	private BataillonRule(String displayName, ArmyRuleType... types) {
+	private BataillonRule(String displayName, RuleType... types) {
 		this.displayName = displayName;
 		this.types = Arrays.asList(types);
 	}
 
 	@Override
-	public List<ArmyRuleType> getTypes() {
+	public List<RuleType> getTypes() {
 		return types;
 	}
 
