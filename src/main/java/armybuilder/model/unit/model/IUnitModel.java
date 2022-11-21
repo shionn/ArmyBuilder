@@ -7,13 +7,13 @@ import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.ProfileDegressif;
 import armybuilder.model.unit.UnitProfile;
 import armybuilder.model.unit.keyword.IHaveKeyWord;
+import armybuilder.model.unit.option.UnitOptionCategory;
 import armybuilder.model.unit.role.IHaveRoleTactique;
 import armybuilder.model.unit.weapon.IHaveWeapons;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.modelold.deprecated.army.Listing;
 import armybuilder.modelold.deprecated.unit.Unit;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
-import armybuilder.modelold.deprecated.unit.option.UnitOptionCategory;
 
 public interface IUnitModel<T extends Enum<T> & IUnitModel<T>> extends IHaveWeapons, IHaveRoleTactique, IHaveKeyWord
 {
@@ -30,8 +30,7 @@ public interface IUnitModel<T extends Enum<T> & IUnitModel<T>> extends IHaveWeap
 	@Deprecated
 	int points();
 
-	@Deprecated
-	List<UnitOptionCategory> options();
+	List<UnitOptionCategory> getOptionsCategories();
 
 	@Deprecated
 	List<IUnitOptionValue<?>> optionValues();

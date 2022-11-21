@@ -4,9 +4,9 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 import armybuilder.model.unit.keyword.KeyWord;
+import armybuilder.model.unit.option.UnitOptionCategory;
 import armybuilder.modelold.deprecated.unit.Unit;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
-import armybuilder.modelold.deprecated.unit.option.UnitOptionCategory;
 
 public enum NighthauntOptimisation implements IUnitOptionValue<NighthauntOptimisation> {
 	// TraisDeCommandement

@@ -1,5 +1,6 @@
 package armybuilder.modelold.deprecated.unit.option;
 
+import armybuilder.model.unit.option.UnitOptionCategory;
 import armybuilder.modelold.deprecated.unit.Unit;
 
 public interface IUnitOptionValue<T extends Enum<T> & IUnitOptionValue<T>> {

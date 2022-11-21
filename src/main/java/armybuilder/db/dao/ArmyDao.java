@@ -14,7 +14,7 @@ public interface ArmyDao {
 
 	@Select("SELECT id, name, allegiance FROM Army WHERE active IS TRUE ORDER BY allegiance, name")
 	public List<Army> list();
-	
+
 	@Select("SELECT id, name, allegiance, subAllegiance " //
 			+ "FROM Army " //
 			+ "WHERE id = #{id}")
@@ -22,7 +22,7 @@ public interface ArmyDao {
 			@Result(property = "units", column = "id", many = @Many(select = "readUnits")) })
 	public Army read(int id);
 
-	@Select("SELECT id, model FROM Unit WHERE army = #{id}")
+	@Select("SELECT id, model, general FROM Unit WHERE army = #{id}")
 	public List<Unit> readUnits(int id);
 
 }

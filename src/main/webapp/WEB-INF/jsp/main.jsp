@@ -1,7 +1,7 @@
 <%@ page pageEncoding="UTF-8"%>
 <%@ page import="armybuilder.model.army.SubAllegiance" %>
-<%@ page import="armybuilder.model.unit.model.UnitModel" %>
 <%@ page import="armybuilder.model.rule.RuleType" %>
+<%@ page import="armybuilder.model.unit.model.UnitModel" %>
 <%@ page import="armybuilder.model.unit.role.RoleTactique" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -127,6 +127,18 @@
 					</tbody>
 				</table>
 			</c:if>
+
+			<form:form>
+				<fieldset>
+					<legend>Opptions / Optimisation</legend>
+					<c:forEach items="${unit.optionsCategories}" var="cat">
+						<label>${cat.displayName}</label>
+						<c:if test="${cat.type == 'bool' }">
+							<input type="checkbox" name="${cat}"<c:if test="${unit.is(cat)}"> checked="checked"</c:if>>
+						</c:if>
+					</c:forEach>
+				</fieldset>
+			</form:form>
 			<div class="rules">
 				<c:forEach items="${unit.rules}" var="rule">
 					<span>${rule.displayName}</span>

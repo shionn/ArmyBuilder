@@ -9,7 +9,6 @@ import armybuilder.model.dok.DokRule;
 import armybuilder.model.dok.DokUnitModel;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.keyword.KeyWord;
-import armybuilder.modelold.deprecated.unit.option.UnitOptionCategory;
 
 public enum TraisDeCommandement implements IUnitOption {
 

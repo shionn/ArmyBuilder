@@ -22,6 +22,7 @@ import armybuilder.model.rule.GeneriqueRule;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.model.IUnitModel;
+import armybuilder.model.unit.option.UnitOptionCategory;
 import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.modelold.deprecated.army.compare.UnitComparator;
 import armybuilder.modelold.deprecated.army.compare.UnitModelComparator;
@@ -29,7 +30,6 @@ import armybuilder.modelold.deprecated.army.option.IListingOptionValue;
 import armybuilder.modelold.deprecated.army.option.ListingOption;
 import armybuilder.modelold.deprecated.army.option.bataillon.Bataillon;
 import armybuilder.modelold.deprecated.unit.Unit;
-import armybuilder.modelold.deprecated.unit.option.UnitOptionCategory;
 import armybuilder.serialisation.ListingOptionValueJsonDeserializer;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE)

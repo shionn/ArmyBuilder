@@ -6,12 +6,12 @@ import java.util.function.Function;
 
 import armybuilder.model.army.Allegiance;
 import armybuilder.model.rule.IRule;
+import armybuilder.model.unit.option.UnitOptionCategory;
 import armybuilder.modelold.deprecated.army.Listing;
 import armybuilder.modelold.deprecated.army.option.PackDeBataille;
 import armybuilder.modelold.deprecated.army.rule.BataillonRule;
 import armybuilder.modelold.deprecated.unit.Unit;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
-import armybuilder.modelold.deprecated.unit.option.UnitOptionCategory;
 
 public enum Bataillon implements IUnitOptionValue<Bataillon> {
 

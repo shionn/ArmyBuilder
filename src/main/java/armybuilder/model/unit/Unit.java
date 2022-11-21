@@ -9,6 +9,7 @@ import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.keyword.IHaveKeyWord;
 import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.model.UnitModel;
+import armybuilder.model.unit.option.UnitOptionCategory;
 import armybuilder.model.unit.role.IHaveRoleTactique;
 import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.model.unit.weapon.IHaveWeapons;
@@ -18,6 +19,7 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 
 	private int id;
 	private UnitModel model;
+	private boolean general;
 	// private List<UnitOption> options;
 
 	private List<IRule<?>> rules = new ArrayList<IRule<?>>();
@@ -40,6 +42,9 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 		return model.getRoleTactiques();
 	}
 
+	/**
+	 * keyword
+	 */
 	@Override
 	public List<KeyWord> getKeyWords() {
 		keyWords.sort(new DisplayNameComparator());
@@ -50,6 +55,9 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 		this.keyWords.add(keyWord);
 	}
 
+	/**
+	 * rules
+	 */
 	public List<IRule<?>> getRules() {
 		return rules;
 	}
@@ -58,6 +66,20 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 		Arrays.stream(rules).forEach(this.rules::add);
 	}
 
+	/**
+	 * Options
+	 */
+	public List<UnitOptionCategory> getOptionsCategories() {
+		return model.getOptionsCategories();
+	}
+
+	public boolean is(UnitOptionCategory category) {
+		return category.is(this);
+	}
+
+	/**
+	 * basic
+	 */
 	public String getDisplayName() {
 		return model.getDisplayName();
 	}
@@ -87,4 +109,11 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 	}
 
 
+	public void setGeneral(boolean general) {
+		this.general = general;
+	}
+
+	public boolean isGeneral() {
+		return general;
+	}
 }

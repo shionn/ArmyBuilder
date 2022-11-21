@@ -6,6 +6,7 @@ import java.util.function.Function;
 import armybuilder.model.rule.GeneriqueRule;
 import armybuilder.model.rule.GeneriqueUnitRule;
 import armybuilder.model.unit.keyword.KeyWord;
+import armybuilder.model.unit.option.UnitOptionCategory;
 import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.modelold.deprecated.unit.Unit;
 

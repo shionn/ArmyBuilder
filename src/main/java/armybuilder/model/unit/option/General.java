@@ -1,10 +1,19 @@
 package armybuilder.model.unit.option;
 
-public enum General implements IUnitOption {
+import armybuilder.model.IHaveDisplayName;
+
+public enum General implements IUnitOption, IHaveDisplayName {
 	True("Général"), False("");
 
-	General(String displayName) {
+	private String displayName;
 
+	General(String displayName) {
+		this.displayName = displayName;
+	}
+
+	@Override
+	public String getDisplayName() {
+		return displayName;
 	}
 
 }

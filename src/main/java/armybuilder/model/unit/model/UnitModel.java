@@ -8,12 +8,12 @@ import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.ProfileDegressif;
 import armybuilder.model.unit.UnitProfile;
 import armybuilder.model.unit.keyword.KeyWord;
+import armybuilder.model.unit.option.UnitOptionCategory;
 import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.modelold.deprecated.army.Listing;
 import armybuilder.modelold.deprecated.unit.Unit;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
-import armybuilder.modelold.deprecated.unit.option.UnitOptionCategory;
 
 public enum UnitModel implements IUnitModel<UnitModel> {
 	MorathiKhaine(DokUnitModel.MorathiKhaine),
@@ -85,8 +85,8 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	}
 
 	@Override
-	public List<UnitOptionCategory> options() {
-		return null;
+	public List<UnitOptionCategory> getOptionsCategories() {
+		return sub.getOptionsCategories();
 	}
 
 	@Override

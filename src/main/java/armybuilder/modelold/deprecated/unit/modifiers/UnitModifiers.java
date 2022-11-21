@@ -3,9 +3,9 @@ package armybuilder.modelold.deprecated.unit.modifiers;
 import java.util.function.Consumer;
 
 import armybuilder.model.unit.keyword.KeyWord;
+import armybuilder.model.unit.option.UnitOptionCategory;
 import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.modelold.deprecated.unit.Unit;
-import armybuilder.modelold.deprecated.unit.option.UnitOptionCategory;
 
 public class UnitModifiers {
 

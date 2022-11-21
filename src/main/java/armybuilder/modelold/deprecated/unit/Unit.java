@@ -21,6 +21,7 @@ import armybuilder.model.rule.GeneriqueRule;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.model.IUnitModel;
+import armybuilder.model.unit.option.UnitOptionCategory;
 import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.model.unit.weapon.WeaponType;
@@ -29,7 +30,6 @@ import armybuilder.modelold.deprecated.army.compare.UnitRuleComparator;
 import armybuilder.modelold.deprecated.army.rule.PackDeBatailleRule;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
 import armybuilder.modelold.deprecated.unit.option.OptimisationsUniverselles;
-import armybuilder.modelold.deprecated.unit.option.UnitOptionCategory;
 import armybuilder.serialisation.UnitModelJsonDeserializer;
 import armybuilder.serialisation.UnitOptionJsonDeserializer;
 
@@ -83,7 +83,7 @@ public class Unit implements Comparable<Unit> {
 
 	/** options */
 	public List<UnitOptionCategory> options() {
-		return model.options().stream().filter(o -> o.availableFor(this)).collect(Collectors.toList());
+		return model.getOptionsCategories().stream().filter(o -> o.availableFor(this)).collect(Collectors.toList());
 	}
 
 	public List<IUnitOptionValue<?>> optionValues(UnitOptionCategory option) {
