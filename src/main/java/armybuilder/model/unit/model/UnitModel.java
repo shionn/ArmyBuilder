@@ -13,7 +13,7 @@ import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.modelold.deprecated.army.Listing;
 import armybuilder.modelold.deprecated.unit.Unit;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
-import armybuilder.modelold.deprecated.unit.option.UnitOption;
+import armybuilder.modelold.deprecated.unit.option.UnitOptionCategory;
 
 public enum UnitModel implements IUnitModel<UnitModel> {
 	MorathiKhaine(DokUnitModel.MorathiKhaine),
@@ -85,7 +85,7 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	}
 
 	@Override
-	public List<UnitOption> options() {
+	public List<UnitOptionCategory> options() {
 		return null;
 	}
 

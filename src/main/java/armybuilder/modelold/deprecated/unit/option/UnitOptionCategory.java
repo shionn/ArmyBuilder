@@ -6,7 +6,7 @@ import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.modelold.deprecated.army.OldOldArmy;
 import armybuilder.modelold.deprecated.unit.Unit;
 
-public enum UnitOption {
+public enum UnitOptionCategory {
 	General("Général", UnitOptionType.bool, (u) -> u.is(KeyWord.Heros)),
 	TraisDeCommandement("Traits de Commandement", UnitOptionType.select, (u) -> !u.is(KeyWord.Unique)),
 	TraisDeMonstre("TODO", UnitOptionType.select, (u) -> !u.is(KeyWord.Unique)),
@@ -19,7 +19,7 @@ public enum UnitOption {
 	Musicien("Musicien", UnitOptionType.bool, (u) -> true),
 	Armes("Armes", UnitOptionType.select, (u) -> true),
 	Gratuit("Invoquée", UnitOptionType.bool, (u) -> true),
-	Renforcees("Renforcées", UnitOptionType.select, (u) -> !u.is(UnitOption.Gratuit)),
+	Renforcees("Renforcées", UnitOptionType.select, (u) -> !u.is(UnitOptionCategory.Gratuit)),
 	Bataillon("Bataillon", UnitOptionType.select, (u) -> true),
 
 	;
@@ -28,7 +28,7 @@ public enum UnitOption {
 	private Function<Unit, Boolean> available;
 	private UnitOptionType type;
 
-	private UnitOption(String displayName, UnitOptionType type,
+	private UnitOptionCategory(String displayName, UnitOptionType type,
 			Function<Unit, Boolean> available) {
 		this.displayName = displayName;
 		this.type = type;

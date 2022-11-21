@@ -29,7 +29,7 @@ import armybuilder.modelold.deprecated.army.option.IListingOptionValue;
 import armybuilder.modelold.deprecated.army.option.ListingOption;
 import armybuilder.modelold.deprecated.army.option.bataillon.Bataillon;
 import armybuilder.modelold.deprecated.unit.Unit;
-import armybuilder.modelold.deprecated.unit.option.UnitOption;
+import armybuilder.modelold.deprecated.unit.option.UnitOptionCategory;
 import armybuilder.serialisation.ListingOptionValueJsonDeserializer;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE)
@@ -190,7 +190,7 @@ public class Listing {
 		this.units.remove(u);
 	}
 
-	public Unit unit(UnitOption option) {
+	public Unit unit(UnitOptionCategory option) {
 		return this.units.stream().filter(u -> u.is(option)).findFirst().orElse(null);
 	}
 

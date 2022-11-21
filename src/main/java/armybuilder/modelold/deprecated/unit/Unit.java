@@ -29,7 +29,7 @@ import armybuilder.modelold.deprecated.army.compare.UnitRuleComparator;
 import armybuilder.modelold.deprecated.army.rule.PackDeBatailleRule;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
 import armybuilder.modelold.deprecated.unit.option.OptimisationsUniverselles;
-import armybuilder.modelold.deprecated.unit.option.UnitOption;
+import armybuilder.modelold.deprecated.unit.option.UnitOptionCategory;
 import armybuilder.serialisation.UnitModelJsonDeserializer;
 import armybuilder.serialisation.UnitOptionJsonDeserializer;
 
@@ -40,7 +40,7 @@ public class Unit implements Comparable<Unit> {
 	@JsonDeserialize(converter = UnitModelJsonDeserializer.class)
 	private IUnitModel model;
 	@JsonDeserialize(contentConverter = UnitOptionJsonDeserializer.class)
-	private Map<UnitOption, IUnitOptionValue<?>> options = new HashMap<>();
+	private Map<UnitOptionCategory, IUnitOptionValue<?>> options = new HashMap<>();
 
 	@JsonIgnore
 	private Listing listing;
@@ -82,11 +82,11 @@ public class Unit implements Comparable<Unit> {
 	}
 
 	/** options */
-	public List<UnitOption> options() {
+	public List<UnitOptionCategory> options() {
 		return model.options().stream().filter(o -> o.availableFor(this)).collect(Collectors.toList());
 	}
 
-	public List<IUnitOptionValue<?>> optionValues(UnitOption option) {
+	public List<IUnitOptionValue<?>> optionValues(UnitOptionCategory option) {
 		List<IUnitOptionValue<?>> values = new ArrayList<IUnitOptionValue<?>>(model.optionValues());
 		values.addAll(Arrays.asList(OptimisationsUniverselles.values()));
 		values.addAll(listing.bataillons());
@@ -101,19 +101,19 @@ public class Unit implements Comparable<Unit> {
 		add(value.option(), value);
 	}
 
-	public void add(UnitOption option, IUnitOptionValue<?> value) {
+	public void add(UnitOptionCategory option, IUnitOptionValue<?> value) {
 		options.put(option, value);
 	}
 
-	public void remove(UnitOption option) {
+	public void remove(UnitOptionCategory option) {
 		options.remove(option);
 	}
 
-	public boolean is(UnitOption opt) {
+	public boolean is(UnitOptionCategory opt) {
 		return get(opt) != null;
 	}
 
-	public IUnitOptionValue<?> get(UnitOption option) {
+	public IUnitOptionValue<?> get(UnitOptionCategory option) {
 		return options.get(option);
 	}
 

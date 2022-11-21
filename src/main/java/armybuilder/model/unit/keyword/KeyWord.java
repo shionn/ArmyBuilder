@@ -1,77 +1,81 @@
 package armybuilder.model.unit.keyword;
 
-public enum KeyWord {
+import armybuilder.model.IHaveDisplayName;
+import armybuilder.serialisation.EnumPropertyLoader;
+
+public enum KeyWord implements IHaveDisplayName {
 	// Generique
-	Aelf("Aelf"),
-	Heros("Héros"),
-	Unique("Unique"),
-	Monstre("Monstre"),
-	Mort("Mort"),
-	Ordre("Ordre"),
-	Pretre("Prêtre"),
-	Sorcier("Sorcier"),
-	Totem("Totem"),
+	Aelf,
+	Heros,
+	Unique,
+	Monstre,
+	Mort,
+	Ordre,
+	Pretre,
+	Sorcier,
+	Totem,
 
 	// DoK
-	AvatarDeKhaine("Avatar de Khaine"),
-	ChaudronDeSang("Chaudron de Sang"),
-	DraichiGaneth("Draichi Ganeth"),
-	Erinyes("Witch Aelves"),
-	EtripeusesKhinerai("Étripeuses Khineraĩ"),
-	FerecailleMelusai("Ferécaille Melusaï"),
-	FilleDeKhaine("Filles de Khaine"),
-	GrandeGladiatrice("Grande Gladiatrice"),
-	HaggNar("Hagg Nar"),
-	Khailebron("Khailebron"),
-	KheltNar("Khelt Nar"),
-	Khinerai("Khineraĩ"),
-	Kraith("Kraith"),
-	LaReineDeLOmbre("La Reine de l'Ombre"),
-	Melusai("Melusaĩ"),
-	Meduse("Méduse"),
-	MeduseIncarnate("Méduse Incarnate"),
-	Moirenees("Moirenées"),
-	MorathiKhaine("Morathi-Khaine"),
-	ReineDuMassacre("Reine du Massacre"),
-	ReineMatriarche("Hag Matriarche"),
-	RodeursDeLOmbre("Rodeurs de l'Ombre"),
-	SanctuaireIncarnat("Sanctuaire Incarnat"),
-	SoeurDuMassacre("Sœurs du Massacre"),
-	ZaintharKai("Zainthar Kai"),
+	AvatarDeKhaine,
+	ChaudronDeSang,
+	DraichiGaneth,
+	Erinyes,
+	EtripeusesKhinerai,
+	FerecailleMelusai,
+	FilleDeKhaine,
+	GrandeGladiatrice,
+	HaggNar,
+	Khailebron,
+	KheltNar,
+	Khinerai,
+	Kraith,
+	LaReineDeLOmbre,
+	Melusai,
+	Meduse,
+	MeduseIncarnate,
+	Moirenees,
+	MorathiKhaine,
+	ReineDuMassacre,
+	ReineMatriarche,
+	RodeursDeLOmbre,
+	SanctuaireIncarnat,
+	SoeurDuMassacre,
+	ZaintharKai,
 
 	// Manuel du general
-	VeteransDeGallet("Veterans de Gallet"),
+	VeteransDeGallet,
 
 	// fait au dessus
-	BloodStalkers("Blood Stalkers"),
-	BloodSister("Blood Sister"),
-	ChainraspHorde("ChainraspHorde"),
-	DreadbladeHarrow("Dreadblade Harrow"),
-	EpinesDeLaReineDesRonces("Epines de la Reine des Ronces"),
-	GlaivewraithStalkers("Glaivewraith Stalkers"),
-	Invocable("Invocable"),
-	KnightOfShrouds("Knight Of Shrouds"),
-	LaBladeCoven("La Blade-Coven"),
-	LaReineDesRonces("La Reine des Ronces"),
-	LOstEmeraude("Ost Émeraude"),
-	Malignant("Malignant"),
-	MelusaiIronscale("Melusai Ironscale"),
-	MirrorghastBanshee("Mirrorghast Banshee"),
-	MorgwaethTheBloodied("Morgwaeth the Bloodied"),
-	MyrmournBanshees("Myrmourn Banshees"),
-	Nighthaunt("Nighthaunt"),
-	TombBanshee("Tomb Banshee"),
-	TousLesTemples("Tous les Temples"),
+	BloodStalkers,
+	BloodSister,
+	ChainraspHorde,
+	DreadbladeHarrow,
+	EpinesDeLaReineDesRonces,
+	GlaivewraithStalkers,
+	Invocable,
+	KnightOfShrouds,
+	LaBladeCoven,
+	LaReineDesRonces,
+	LOstEmeraude,
+	Malignant,
+	MelusaiIronscale,
+	MirrorghastBanshee,
+	MorgwaethTheBloodied,
+	MyrmournBanshees,
+	Nighthaunt,
+	TombBanshee,
+	TousLesTemples,
 
 
 	;
 
 	private String displayName;
 
-	private KeyWord(String displayName) {
-		this.displayName = displayName;
+	private KeyWord() {
+		this.displayName = EnumPropertyLoader.instance().name(this);
 	}
 
+	@Override
 	public String getDisplayName() {
 		return displayName;
 	}

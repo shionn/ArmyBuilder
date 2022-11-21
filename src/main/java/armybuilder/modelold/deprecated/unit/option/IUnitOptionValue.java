@@ -6,7 +6,7 @@ public interface IUnitOptionValue<T extends Enum<T> & IUnitOptionValue<T>> {
 
 	boolean isAvailable(Unit unit);
 
-	UnitOption option();
+	UnitOptionCategory option();
 
 	String displayName();
 
@@ -19,7 +19,7 @@ public interface IUnitOptionValue<T extends Enum<T> & IUnitOptionValue<T>> {
 
 	void rebuild(Unit unit);
 
-	default boolean is(UnitOption option) {
+	default boolean is(UnitOptionCategory option) {
 		return 	option() == option;
 	}
 

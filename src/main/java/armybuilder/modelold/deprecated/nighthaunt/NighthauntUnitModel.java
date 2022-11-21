@@ -16,7 +16,7 @@ import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.modelold.deprecated.army.Listing;
 import armybuilder.modelold.deprecated.unit.Unit;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
-import armybuilder.modelold.deprecated.unit.option.UnitOption;
+import armybuilder.modelold.deprecated.unit.option.UnitOptionCategory;
 
 public enum NighthauntUnitModel implements IUnitModel {
 
@@ -29,7 +29,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 			null,
 			Arrays.asList(GeneriqueUnitRule.Vol, NighthauntRule.Etheres,
 					NighthauntRule.HordeEffroyable),
-			Arrays.asList(UnitOption.Chef, UnitOption.Bataillon),
+			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Bataillon),
 			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Invocable,
 					KeyWord.ChainraspHorde),
 			Arrays.asList(),
@@ -46,8 +46,8 @@ public enum NighthauntUnitModel implements IUnitModel {
 			Arrays.asList(GeneriqueUnitRule.Vol, NighthauntRule.Etheres,
 					NighthauntRule.Dematerialisation, NighthauntRule.Affrelame,
 					NighthauntRule.MaledictionDeLoyaute),
-			Arrays.asList(UnitOption.General, UnitOption.TraisDeCommandement, UnitOption.Artefact,
-					UnitOption.Bataillon),
+			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.TraisDeCommandement, UnitOptionCategory.Artefact,
+					UnitOptionCategory.Bataillon),
 			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Heros,
 					KeyWord.DreadbladeHarrow),
 			Arrays.asList(),
@@ -62,7 +62,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 			null,
 			Arrays.asList(GeneriqueUnitRule.Vol, NighthauntRule.LaPointeDeLaMort,
 					NighthauntRule.Etheres),
-			Arrays.asList(UnitOption.Musicien, UnitOption.Bataillon),
+			Arrays.asList(UnitOptionCategory.Musicien, UnitOptionCategory.Bataillon),
 			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Invocable,
 					KeyWord.GlaivewraithStalkers),
 			Arrays.asList(),
@@ -76,7 +76,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 			Arrays.asList(NighthauntUnitWeapon.DagueDeGivre),
 			null,
 			Arrays.asList(GeneriqueUnitRule.Vol, NighthauntRule.Etheres, NighthauntRule.MangeSorts),
-			Arrays.asList(UnitOption.Bataillon),
+			Arrays.asList(UnitOptionCategory.Bataillon),
 			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Invocable,
 					KeyWord.MyrmournBanshees),
 			Arrays.asList(),
@@ -90,7 +90,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 			null,
 			Arrays.asList(GeneriqueUnitRule.Vol, NighthauntRule.Etheres,
 					NighthauntRule.ChainesEtrangleuses),
-			Arrays.asList(UnitOption.Chef, UnitOption.Bataillon),
+			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Bataillon),
 			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt,
 					KeyWord.ChainraspHorde, KeyWord.EpinesDeLaReineDesRonces),
 			Arrays.asList(),
@@ -105,7 +105,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 			null,
 			Arrays.asList(GeneriqueUnitRule.Vol, NighthauntRule.Etheres,
 					GeneriqueUnitRule.Sorcier_1_1, NighthauntRule.VortexHurlant),
-			Arrays.asList(UnitOption.General, UnitOption.Sort, UnitOption.Bataillon),
+			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.Sort, UnitOptionCategory.Bataillon),
 			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Heros,
 					KeyWord.Unique, KeyWord.MirrorghastBanshee, KeyWord.LaReineDesRonces,
 					KeyWord.Sorcier),
@@ -121,8 +121,8 @@ public enum NighthauntUnitModel implements IUnitModel {
 			null,
 			Arrays.asList(GeneriqueUnitRule.Vol, NighthauntRule.Etheres,
 					NighthauntRule.ToucherFuneste, NighthauntRule.CriFunebre),
-			Arrays.asList(UnitOption.General, UnitOption.TraisDeCommandement, UnitOption.Artefact,
-					UnitOption.Bataillon),
+			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.TraisDeCommandement, UnitOptionCategory.Artefact,
+					UnitOptionCategory.Bataillon),
 			Arrays.asList(KeyWord.Mort, KeyWord.Malignant, KeyWord.Nighthaunt, KeyWord.Heros,
 					KeyWord.TombBanshee),
 			Arrays.asList(),
@@ -138,13 +138,13 @@ public enum NighthauntUnitModel implements IUnitModel {
 	private List<IRule<?>> rules;
 	private List<KeyWord> keyWords;
 	private List<RoleTactique> roleTactiques;
-	private List<UnitOption> options;
+	private List<UnitOptionCategory> options;
 	private List<Consumer<Unit>> modifiers;
 	private Function<Listing, Boolean> availableFor;
 
 	private NighthauntUnitModel(String displayName, int value, UnitProfile profile,
 			List<RoleTactique> roleTactiques, List<IUnitWeapon> weapons,
-			ProfileDegressif profileDegressif, List<IRule<?>> rules, List<UnitOption> options,
+			ProfileDegressif profileDegressif, List<IRule<?>> rules, List<UnitOptionCategory> options,
 			List<KeyWord> keyWords, List<Consumer<Unit>> modifiers,
 			Function<Listing, Boolean> availableFor) {
 		this.displayName = displayName;
@@ -196,7 +196,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 	}
 
 	@Override
-	public List<UnitOption> options() {
+	public List<UnitOptionCategory> options() {
 		return options;
 	}
 

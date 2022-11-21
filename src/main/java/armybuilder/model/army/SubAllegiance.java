@@ -8,7 +8,6 @@ import armybuilder.model.dok.DokRule;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.role.RoleTactique;
-import armybuilder.modelold.deprecated.army.Listing;
 import armybuilder.modelold.deprecated.nighthaunt.NighthauntRule;
 import armybuilder.serialisation.EnumPropertyLoader;
 
@@ -16,35 +15,35 @@ public enum SubAllegiance {
 	DraichiGaneth(
 			Arrays.asList(DokRule.TueusesHerisseesDeLames),
 			Allegiance.DoK,
-			l -> l.units()
+			a -> a.getUnits()
 					.stream()
 					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
 					.forEach(u -> u.add(KeyWord.DraichiGaneth))),
 	HaggNar(
 			Arrays.asList(DokRule.FillesDuPremierTemple),
 			Allegiance.DoK,
-			l -> l.units()
+			a -> a.getUnits()
 					.stream()
 					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
 					.forEach(u -> u.add(KeyWord.HaggNar))),
 	KheltNar(
 			Arrays.asList(DokRule.FrapperEtSeRetirer),
 			Allegiance.DoK,
-			l -> l.units()
+			a -> a.getUnits()
 					.stream()
 					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
 					.forEach(u -> u.add(KeyWord.KheltNar))),
 	Khailebron(
 			Arrays.asList(DokRule.MaitressesDesOmbrevoies),
 			Allegiance.DoK,
-			l -> l.units()
+			a -> a.getUnits()
 					.stream()
 					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
 					.forEach(u -> u.add(KeyWord.Khailebron))),
 	Kraith(
 			Arrays.asList(DokRule.DisciplesDuMassacre),
 			Allegiance.DoK,
-			l -> l.units()
+			a -> a.getUnits()
 					.stream()
 					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
 					.forEach(u -> u.add(KeyWord.Kraith))),
@@ -55,7 +54,7 @@ public enum SubAllegiance {
 	ZaintharKai(
 			Arrays.asList(DokRule.LessenceDeKhaine),
 			Allegiance.DoK,
-			l -> l.units()
+			a -> a.getUnits()
 					.stream()
 					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
 					.forEach(u -> u.add(KeyWord.ZaintharKai))),
@@ -65,10 +64,10 @@ public enum SubAllegiance {
 	private String displayName;
 	private List<IRule<?>> rules;
 	private Allegiance allegiance;
-	private Consumer<Listing> modifier;
+	private Consumer<Army> modifier;
 
 	private SubAllegiance(List<IRule<?>> rules, Allegiance allegiance,
-			Consumer<Listing> modifier) {
+			Consumer<Army> modifier) {
 		this.displayName = EnumPropertyLoader.instance().name(this);
 		this.rules = rules;
 		this.allegiance = allegiance;
@@ -81,6 +80,11 @@ public enum SubAllegiance {
 
 	public String getDisplayName() {
 		return displayName;
+	}
+
+	void decorate(Army army) {
+		rules.forEach(army::add);
+		modifier.accept(army);
 	}
 
 }

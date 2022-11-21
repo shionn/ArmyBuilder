@@ -13,7 +13,7 @@ import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.modelold.deprecated.army.Listing;
 import armybuilder.modelold.deprecated.unit.Unit;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
-import armybuilder.modelold.deprecated.unit.option.UnitOption;
+import armybuilder.modelold.deprecated.unit.option.UnitOptionCategory;
 
 public interface IUnitModel<T extends Enum<T> & IUnitModel<T>> extends IHaveWeapons, IHaveRoleTactique, IHaveKeyWord
 {
@@ -31,7 +31,7 @@ public interface IUnitModel<T extends Enum<T> & IUnitModel<T>> extends IHaveWeap
 	int points();
 
 	@Deprecated
-	List<UnitOption> options();
+	List<UnitOptionCategory> options();
 
 	@Deprecated
 	List<IUnitOptionValue<?>> optionValues();

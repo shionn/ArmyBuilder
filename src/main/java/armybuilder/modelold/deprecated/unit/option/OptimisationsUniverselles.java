@@ -13,38 +13,38 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 
 	SoifDeBataille(
 			GeneriqueUnitRule.SoifDeBataille.getDisplayName(),
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique),
+			UnitOptionCategory.TraisDeCommandement,
+			u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.SoifDeBataille)),
 	LeaderCompetent(
 			GeneriqueUnitRule.LeaderCompetent.getDisplayName(),
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique),
+			UnitOptionCategory.TraisDeCommandement,
+			u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.LeaderCompetent)),
 	GrandPretre(
 			GeneriqueUnitRule.GrandPretre.getDisplayName(),
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Pretre),
+			UnitOptionCategory.TraisDeCommandement,
+			u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Pretre),
 			u -> u.add(GeneriqueUnitRule.GrandPretre)),
 	StatureHeroique(
 			GeneriqueUnitRule.StatureHeroique.getDisplayName(),
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique),
+			UnitOptionCategory.TraisDeCommandement,
+			u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.StatureHeroique)),
 	MaitreDeLaMagie(
 			GeneriqueUnitRule.MaitreDeLaMagie.getDisplayName(),
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier),
+			UnitOptionCategory.TraisDeCommandement,
+			u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier),
 			u -> u.add(GeneriqueUnitRule.MaitreDeLaMagie)),
 
 	AmuletteDeLaDestinee(
 			GeneriqueUnitRule.AmuletteDeLaDestinee.getDisplayName(),
-			UnitOption.Artefact,
+			UnitOptionCategory.Artefact,
 			u -> !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.AmuletteDeLaDestinee)),
 	VolumeObscur(
 			GeneriqueUnitRule.VolumeObscur.getDisplayName(),
-			UnitOption.Artefact,
+			UnitOptionCategory.Artefact,
 			u -> !u.is(KeyWord.Unique),
 			u -> {
 				u.add(GeneriqueUnitRule.VolumeObscur);
@@ -57,74 +57,74 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 			}),
 	FioleDeVeninDeManticore(
 			GeneriqueUnitRule.FioleDeVeninDeManticore.getDisplayName(),
-			UnitOption.Artefact,
+			UnitOptionCategory.Artefact,
 			u -> !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.FioleDeVeninDeManticore)),
 	GraineDeRenaissance(
 			GeneriqueUnitRule.GraineDeRenaissance.getDisplayName(),
-			UnitOption.Artefact,
+			UnitOptionCategory.Artefact,
 			u -> !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.GraineDeRenaissance)),
 
 	ArmeEnflammee(
 			GeneriqueUnitRule.ArmeEnflammee.getDisplayName(),
-			UnitOption.Sort,
+			UnitOptionCategory.Sort,
 			u -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.ArmeEnflammee)),
 	BrumeFantome(
 			GeneriqueUnitRule.BrumeFantome.getDisplayName(),
-			UnitOption.Sort,
+			UnitOptionCategory.Sort,
 			u -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.BrumeFantome)),
 	Levitation(
 			GeneriqueUnitRule.Guerison.getDisplayName(),
-			UnitOption.Sort,
+			UnitOptionCategory.Sort,
 			u -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.Levitation)),
 
 	Supervision(
 			GeneriqueUnitRule.Supervision.getDisplayName(),
-			UnitOption.Priere,
+			UnitOptionCategory.Priere,
 			u -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.Supervision)),
 	Malediction(
 			GeneriqueUnitRule.Malediction.getDisplayName(),
-			UnitOption.Priere,
+			UnitOptionCategory.Priere,
 			u -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.Malediction)),
 	Guerison(
 			GeneriqueUnitRule.Guerison.getDisplayName(),
-			UnitOption.Priere,
+			UnitOptionCategory.Priere,
 			u -> u.is(KeyWord.Pretre) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.Guerison)),
 
-	General("Général", UnitOption.General, u -> u.is(KeyWord.Heros)),
+	General("Général", UnitOptionCategory.General, u -> u.is(KeyWord.Heros)),
 	RenforceesUneFois(
 			"Renforcées 1x",
-			UnitOption.Renforcees,
-			u -> (u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite)) && !u.is(UnitOption.Gratuit),
+			UnitOptionCategory.Renforcees,
+			u -> (u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite)) && !u.is(UnitOptionCategory.Gratuit),
 			u -> u.points(u.model().points() * 2)),
 	RenforceesDeuxFois(
 			"Renforcées 2x",
-			UnitOption.Renforcees,
-			u -> (u.is(RoleTactique.Ligne)) && !u.is(UnitOption.Gratuit),
+			UnitOptionCategory.Renforcees,
+			u -> (u.is(RoleTactique.Ligne)) && !u.is(UnitOptionCategory.Gratuit),
 			u -> u.points(u.model().points() * 3)),
 
 	;
 
 	private String displayName;
-	private UnitOption option;
+	private UnitOptionCategory option;
 	private Function<Unit, Boolean> available;
 	private Consumer<Unit> modifier;
 
-	OptimisationsUniverselles(String displayName, UnitOption option,
+	OptimisationsUniverselles(String displayName, UnitOptionCategory option,
 			Function<Unit, Boolean> available) {
 		this.displayName = displayName;
 		this.option = option;
 		this.available = available;
 	}
 
-	OptimisationsUniverselles(String displayName, UnitOption option,
+	OptimisationsUniverselles(String displayName, UnitOptionCategory option,
 			Function<Unit, Boolean> available, Consumer<Unit> modifier) {
 		this.displayName = displayName;
 		this.option = option;
@@ -138,7 +138,7 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 	}
 
 	@Override
-	public UnitOption option() {
+	public UnitOptionCategory option() {
 		return option;
 	}
 

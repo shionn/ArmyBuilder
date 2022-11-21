@@ -11,7 +11,7 @@ import armybuilder.modelold.deprecated.army.option.PackDeBataille;
 import armybuilder.modelold.deprecated.army.rule.BataillonRule;
 import armybuilder.modelold.deprecated.unit.Unit;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
-import armybuilder.modelold.deprecated.unit.option.UnitOption;
+import armybuilder.modelold.deprecated.unit.option.UnitOptionCategory;
 
 public enum Bataillon implements IUnitOptionValue<Bataillon> {
 
@@ -154,8 +154,8 @@ public enum Bataillon implements IUnitOptionValue<Bataillon> {
 	}
 
 	@Override
-	public UnitOption option() {
-		return UnitOption.Bataillon;
+	public UnitOptionCategory option() {
+		return UnitOptionCategory.Bataillon;
 	}
 
 	@Override

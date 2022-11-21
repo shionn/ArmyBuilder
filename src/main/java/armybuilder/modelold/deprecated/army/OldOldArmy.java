@@ -32,7 +32,7 @@ import armybuilder.modelold.deprecated.army.option.ListingOption;
 import armybuilder.modelold.deprecated.unit.Unit;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
 import armybuilder.modelold.deprecated.unit.option.OptimisationsUniverselles;
-import armybuilder.modelold.deprecated.unit.option.UnitOption;
+import armybuilder.modelold.deprecated.unit.option.UnitOptionCategory;
 import armybuilder.serialisation.ListingOptionValueJsonDeserializer;
 import armybuilder.serialisation.UnitOptionJsonDeserializer;
 
@@ -149,11 +149,11 @@ public class OldOldArmy {
 		return units.stream().sorted().collect(Collectors.toList());
 	}
 
-	public List<Unit> units(UnitOption opt) {
+	public List<Unit> units(UnitOptionCategory opt) {
 		return units.stream().filter(u -> u.is(opt)).collect(Collectors.toList());
 	}
 
-	public Unit unit(UnitOption opt) {
+	public Unit unit(UnitOptionCategory opt) {
 		return units.stream().filter(u -> u.is(opt)).findFirst().orElse(null);
 	}
 
@@ -161,7 +161,7 @@ public class OldOldArmy {
 		return units.stream().filter(u -> u.is(rule)).collect(Collectors.toList());
 	}
 
-	public List<Unit> units(UnitOption opt, IUnitOptionValue<?> value) {
+	public List<Unit> units(UnitOptionCategory opt, IUnitOptionValue<?> value) {
 		return units.stream().filter(u -> u.get(opt) == value).collect(Collectors.toList());
 	}
 
@@ -186,8 +186,8 @@ public class OldOldArmy {
 		options.addAll(Arrays.asList(OptimisationsUniverselles.values()));
 
 		return options.stream()
-				.filter(o -> Arrays.asList(UnitOption.TraisDeCommandement, UnitOption.Artefact,
-						UnitOption.Sort, UnitOption.Priere)
+				.filter(o -> Arrays.asList(UnitOptionCategory.TraisDeCommandement, UnitOptionCategory.Artefact,
+						UnitOptionCategory.Sort, UnitOptionCategory.Priere)
 						.contains(o.option()))
 				.sorted((a, b) -> a.getFullDisplayName().compareTo(b.getFullDisplayName()))
 				.collect(Collectors.toList());

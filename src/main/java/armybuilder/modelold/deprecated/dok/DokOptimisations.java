@@ -9,15 +9,15 @@ import armybuilder.model.dok.DokUnitWeapon;
 import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.modelold.deprecated.unit.Unit;
 import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
-import armybuilder.modelold.deprecated.unit.option.UnitOption;
+import armybuilder.modelold.deprecated.unit.option.UnitOptionCategory;
 
 public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 
 	// TraisDeCommandement
-	BainDeSang(UnitOption.TraisDeCommandement, u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)),
+	BainDeSang(UnitOptionCategory.TraisDeCommandement, u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique)),
 	MaitriseDesArcanes(
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier),
+			UnitOptionCategory.TraisDeCommandement,
+			u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier),
 			u -> {
 				u.add(DokRule.MaitriseDesArcanes);
 				u.add(DokRule.Affaiblissement);
@@ -27,74 +27,74 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 				u.add(DokRule.RasoirMental);
 				u.add(DokRule.SuaireDeDesespoir);
 			}),
-	MaitreDesPoisons(UnitOption.TraisDeCommandement, u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)),
-	OrateurZele(UnitOption.TraisDeCommandement, u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)),
+	MaitreDesPoisons(UnitOptionCategory.TraisDeCommandement, u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique)),
+	OrateurZele(UnitOptionCategory.TraisDeCommandement, u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique)),
 	PousseParLaVengeance(
-			UnitOption.TraisDeCommandement,
-			u -> u.is(UnitOption.General) && u.is(DokUnitModel.MelusaiIronscale)),
-	SacrificateurSanglant(UnitOption.TraisDeCommandement, u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)),
-	VraiCroyant(UnitOption.TraisDeCommandement, u -> u.is(UnitOption.General) && !u.is(KeyWord.Unique)),
+			UnitOptionCategory.TraisDeCommandement,
+			u -> u.is(UnitOptionCategory.General) && u.is(DokUnitModel.MelusaiIronscale)),
+	SacrificateurSanglant(UnitOptionCategory.TraisDeCommandement, u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique)),
+	VraiCroyant(UnitOptionCategory.TraisDeCommandement, u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique)),
 
 	// Artefact
-	CoeurDeCristal(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier)),
-	CouronneDeDouleur(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
-	LameSorciere(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
+	CoeurDeCristal(UnitOptionCategory.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier)),
+	CouronneDeDouleur(UnitOptionCategory.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
+	LameSorciere(UnitOptionCategory.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
 	OmbreSeptFoisDrapee(
-			UnitOption.Artefact,
+			UnitOptionCategory.Artefact,
 			u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier)),
-	PendentifKhainite(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.Pretre)),
-	PierreDOmbre(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier)),
-	RuneDeKhaine(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
-	SymboleSanglant(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.Pretre)),
-	VeninFleauDuSang(UnitOption.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
+	PendentifKhainite(UnitOptionCategory.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.Pretre)),
+	PierreDOmbre(UnitOptionCategory.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier)),
+	RuneDeKhaine(UnitOptionCategory.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
+	SymboleSanglant(UnitOptionCategory.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique) && u.is(KeyWord.Pretre)),
+	VeninFleauDuSang(UnitOptionCategory.Artefact, u -> u.is(KeyWord.Heros) && !u.is(KeyWord.Unique)),
 
 	// sort
-	Affaiblissement(UnitOption.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
-	DanseSymetrique(UnitOption.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
-	DestrierDOmbres(UnitOption.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
-	PuitsDeTenebres(UnitOption.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
-	RasoirMental(UnitOption.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
-	SuaireDeDesespoir(UnitOption.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
+	Affaiblissement(UnitOptionCategory.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
+	DanseSymetrique(UnitOptionCategory.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
+	DestrierDOmbres(UnitOptionCategory.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
+	PuitsDeTenebres(UnitOptionCategory.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
+	RasoirMental(UnitOptionCategory.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
+	SuaireDeDesespoir(UnitOptionCategory.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
 
 	// priere
-	BenedictionDeKhaine(UnitOption.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
-	CatechismeDuMeurtre(UnitOption.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
-	CouventDuCoeurDeFer(UnitOption.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
-	SacreDeSang(UnitOption.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
-	SacrificeDuMartyr(UnitOption.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
-	ResurrectionPourpre(UnitOption.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
+	BenedictionDeKhaine(UnitOptionCategory.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
+	CatechismeDuMeurtre(UnitOptionCategory.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
+	CouventDuCoeurDeFer(UnitOptionCategory.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
+	SacreDeSang(UnitOptionCategory.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
+	SacrificeDuMartyr(UnitOptionCategory.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
+	ResurrectionPourpre(UnitOptionCategory.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
 
 	// Compositioon
-	Ecorcheuse("Champion", UnitOption.Chef, u -> u.is(KeyWord.EtripeusesKhinerai), null),
-	Matriache("Champion", UnitOption.Chef, u -> u.is(KeyWord.Erinyes), null),
-	PorteuseDePennonDeMort("Porte-Étendards", UnitOption.Banniere,
+	Ecorcheuse("Champion", UnitOptionCategory.Chef, u -> u.is(KeyWord.EtripeusesKhinerai), null),
+	Matriache("Champion", UnitOptionCategory.Chef, u -> u.is(KeyWord.Erinyes), null),
+	PorteuseDePennonDeMort("Porte-Étendards", UnitOptionCategory.Banniere,
 			u -> u.is(KeyWord.Erinyes) || u.is(KeyWord.SoeurDuMassacre), null),
-	Servante("Champion", UnitOption.Chef, u -> u.is(KeyWord.SoeurDuMassacre), null),
-	SonneuseDeCor("Musiciennes", UnitOption.Musicien,
+	Servante("Champion", UnitOptionCategory.Chef, u -> u.is(KeyWord.SoeurDuMassacre), null),
+	SonneuseDeCor("Musiciennes", UnitOptionCategory.Musicien,
 			u -> u.is(KeyWord.Erinyes) || u.is(KeyWord.SoeurDuMassacre), null),
 
 	// Armes
-	SciansaAppairees("Sciansá Appairées", UnitOption.Armes, u -> u.is(KeyWord.Erinyes),
+	SciansaAppairees("Sciansá Appairées", UnitOptionCategory.Armes, u -> u.is(KeyWord.Erinyes),
 			u -> u.add(DokUnitWeapon.SciansaAppairees)),
-	SciansaEtRondacheTranchante("Sciansá et Rondache Tranchante", UnitOption.Armes, u -> u.is(KeyWord.Erinyes),
+	SciansaEtRondacheTranchante("Sciansá et Rondache Tranchante", UnitOptionCategory.Armes, u -> u.is(KeyWord.Erinyes),
 			u -> {
 				u.add(DokUnitWeapon.Sciansa);
 				u.add(DokRule.RondacheTranchante);
 			}),
-	FouetBarbeleEtRondacheTranchante("Fouet Barbelé et Rondache Tranchante", UnitOption.Armes,
+	FouetBarbeleEtRondacheTranchante("Fouet Barbelé et Rondache Tranchante", UnitOptionCategory.Armes,
 			u -> u.is(KeyWord.SoeurDuMassacre), u -> u.add(DokRule.RondacheTranchante)),
-	FouetBarbeleEtCouteauSacrificiel("Fouet Barbelé et Couteau Sacrificiel", UnitOption.Armes,
+	FouetBarbeleEtCouteauSacrificiel("Fouet Barbelé et Couteau Sacrificiel", UnitOptionCategory.Armes,
 			u -> u.is(KeyWord.SoeurDuMassacre), u -> u.add(DokUnitWeapon.CouteauxSacrificiel)),
 
 	// ---- fait au dessus
 
 	// Compositioon
-	Krone("Krone", UnitOption.Chef, u -> u.is(DokUnitModel.BloodStalkers), u -> {
+	Krone("Krone", UnitOptionCategory.Chef, u -> u.is(DokUnitModel.BloodStalkers), u -> {
 		u.add(DokRule.Krone);
 		u.add(DokUnitWeapon.GuivreDeSang);
 	}),
-	Gorgai("Gorgaï", UnitOption.Chef, u -> u.is(DokUnitModel.BloodSisters), null),
-	ShroudQueen("Shroud Queen", UnitOption.Chef, u -> u.is(KeyWord.RodeursDeLOmbre), u -> {
+	Gorgai("Gorgaï", UnitOptionCategory.Chef, u -> u.is(DokUnitModel.BloodSisters), null),
+	ShroudQueen("Shroud Queen", UnitOptionCategory.Chef, u -> u.is(KeyWord.RodeursDeLOmbre), u -> {
 		u.add(DokUnitWeapon.LameObscures);
 		u.add(DokRule.ShroudQueen);
 	}),
@@ -103,24 +103,24 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	;
 
 	private String displayName;
-	private UnitOption option;
+	private UnitOptionCategory option;
 	private Function<Unit, Boolean> available;
 	private Consumer<Unit> modifier;
 
-	DokOptimisations(String displayName, UnitOption type, Function<Unit, Boolean> available, Consumer<Unit> modifier) {
+	DokOptimisations(String displayName, UnitOptionCategory type, Function<Unit, Boolean> available, Consumer<Unit> modifier) {
 		this.displayName = displayName;
 		this.option = type;
 		this.available = available;
 		this.modifier = modifier;
 	}
 
-	DokOptimisations(UnitOption type, Function<Unit, Boolean> available, Consumer<Unit> modifier) {
+	DokOptimisations(UnitOptionCategory type, Function<Unit, Boolean> available, Consumer<Unit> modifier) {
 		this(type, available);
 		this.modifier = modifier;
 	}
 
-	DokOptimisations(UnitOption type, Function<Unit, Boolean> available) {
-		this.displayName = DokRule.valueOf(getName()).getDisplayName();
+	DokOptimisations(UnitOptionCategory type, Function<Unit, Boolean> available) {
+		this.displayName = DokRule.valueOf(name()).getDisplayName();
 		this.option = type;
 		this.available = available;
 	}
@@ -131,7 +131,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	}
 
 	@Override
-	public UnitOption option() {
+	public UnitOptionCategory option() {
 		return option;
 	}
 

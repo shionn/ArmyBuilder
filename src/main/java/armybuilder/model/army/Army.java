@@ -23,7 +23,7 @@ public class Army implements IHaveRule {
 
 	public void decorate() {
 		allegiance.decorate(this);
-		// TODO sub allegiance
+		subAllegiance.decorate(this);
 		units.forEach(u -> u.decorate());
 		Arrays.stream(GeneriqueRule.values()).forEach(r -> r.decorate(this));
 	}
