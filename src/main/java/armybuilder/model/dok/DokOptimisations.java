@@ -63,13 +63,14 @@ public enum DokOptimisations implements IUnitOption {
 	ResurrectionPourpre(UnitOptionCategory.Priere, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Pretre)),
 
 	// Compositioon
-	Ecorcheuse("Champion", UnitOptionCategory.Chef, u -> u.is(KeyWord.EtripeusesKhinerai), null),
-	Matriache("Champion", UnitOptionCategory.Chef, u -> u.is(UnitModel.Erinyes), null),
-	PorteuseDePennonDeMort("Porte-Étendards", UnitOptionCategory.Banniere,
-			u -> u.is(KeyWord.Erinyes) || u.is(KeyWord.SoeurDuMassacre), null),
-	Servante("Champion", UnitOptionCategory.Chef, u -> u.is(KeyWord.SoeurDuMassacre), null),
-	SonneuseDeCor("Musiciennes", UnitOptionCategory.Musicien,
-			u -> u.is(KeyWord.Erinyes) || u.is(KeyWord.SoeurDuMassacre), null),
+	Ecorcheuse(UnitOptionCategory.Chef, u -> u.is(KeyWord.EtripeusesKhinerai), null),
+	Matriache(UnitOptionCategory.Chef, u -> u.is(UnitModel.Erinyes), null),
+	PorteuseDePennonDeMort(
+			UnitOptionCategory.Banniere,
+			u -> u.is(KeyWord.Erinyes) || u.is(KeyWord.SoeurDuMassacre),
+			null),
+	Servante(UnitOptionCategory.Chef, u -> u.is(KeyWord.SoeurDuMassacre), null),
+	SonneuseDeCor(UnitOptionCategory.Musicien, u -> u.is(KeyWord.Erinyes) || u.is(KeyWord.SoeurDuMassacre), null),
 
 	// Armes
 	SciansaAppairees("Sciansá Appairées", UnitOptionCategory.Armes, u -> u.is(KeyWord.Erinyes),
@@ -87,12 +88,12 @@ public enum DokOptimisations implements IUnitOption {
 	// ---- fait au dessus
 
 	// Compositioon
-	Krone("Krone", UnitOptionCategory.Chef, u -> u.is(UnitModel.BloodStalkers), u -> {
+	Krone(UnitOptionCategory.Chef, u -> u.is(UnitModel.BloodStalkers), u -> {
 		u.add(DokRule.Krone);
 		u.add(DokUnitWeapon.GuivreDeSang);
 	}),
-	Gorgai("Gorgaï", UnitOptionCategory.Chef, u -> u.is(UnitModel.BloodSisters), null),
-	ShroudQueen("Shroud Queen", UnitOptionCategory.Chef, u -> u.is(KeyWord.RodeursDeLOmbre), u -> {
+	Gorgai(UnitOptionCategory.Chef, u -> u.is(UnitModel.BloodSisters), null),
+	ShroudQueen(UnitOptionCategory.Chef, u -> u.is(KeyWord.RodeursDeLOmbre), u -> {
 		u.add(DokUnitWeapon.LameObscures);
 		u.add(DokRule.ShroudQueen);
 	}),

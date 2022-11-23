@@ -3,8 +3,10 @@ package armybuilder.controller;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import armybuilder.db.dao.UnitEditDao;
@@ -27,8 +29,24 @@ public class UnitController {
 		return "redirect:/";
 	}
 
+	@GetMapping("/unit/rm/{id}")
+	public String addUnit(@PathVariable("id") int id) {
+		session.getMapper(UnitEditDao.class).rm(id);
+		session.commit();
+		return "redirect:/";
+	}
+
 	@PostMapping("/unit/edit/{id}/{option}")
-	public String editUnitOption(@PathVariable("id") int id, @PathVariable("option") UnitOption option) {
+	public String editBooleanUnitOption(@PathVariable("id") int id, @PathVariable("option") UnitOption option) {
+		return edit(id, option);
+	}
+
+	@PostMapping("/unit/edit/{id}")
+	public String editSelectUnitOption(@PathVariable("id") int id, @RequestHeader("option") UnitOption option) {
+		return edit(id, option);
+	}
+
+	private String edit(int id, UnitOption option) {
 		UnitEditDao dao = session.getMapper(UnitEditDao.class);
 		Unit unit = dao.read(id);
 		if (option.getCategory().isBoolean()) {
@@ -37,10 +55,13 @@ public class UnitController {
 			} else {
 				option.getCategory().set(unit, option);
 			}
+		} else {
+			option.getCategory().set(unit, option);
 		}
 		dao.update(unit);
 		session.commit();
 		return "redirect:/";
 	}
+
 
 }

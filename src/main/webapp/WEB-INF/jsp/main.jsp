@@ -9,7 +9,7 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="t"%>
 <t:template>
 <jsp:attribute name="content">
-<h1>${army.name}</h1>
+<h1>${army.name} - ${army.points}</h1>
 
 <spring:url value="/army/edit" var="url" />
 <form:form action="${url}" method="POST">
@@ -42,10 +42,11 @@
 	</fieldset>
 </form:form>
 
-<h1>Units</h1>
+<h2>Units</h2>
 <c:forEach items="${army.units}" var="unit">
 	<article class="unit">
-		<header>${unit.displayName}
+		<spring:url value="/unit/rm/${unit.id}" var="url" />
+		<header>${unit.displayName} - ${unit.points} <a href="${url}"><i class="fa fa-trash"></i></a>
 			<span>
 				<c:if test="${not unit.is(RoleTactique.SortsPersistantsEtInvocation)}">
 					<i class="fa fa-walking"></i> ${unit.profile.mvt}&quot;
@@ -137,8 +138,16 @@
 							<label>${unit.optionValue(cat).displayName}</label>
 							<input type="checkbox" name="${cat}" class="ajax" data-url="${url}" data-update="body>main" <c:if test="${unit.is(cat)}"> checked="checked"</c:if>>
 						</c:if>
-						<c:if test="${cat.type == 'select' }">
-							-- todo --
+						<c:if test="${cat.type == 'select' and not empty unit.optionValues(cat)}">
+							<spring:url value="/unit/edit/${unit.id}" var="url" />
+							<select name="option" class="ajax" data-url="${url}" data-update="body>main" >
+								<c:if test="${empty cat.get(unit)}">
+									<option value="null" selected="selected">${cat.displayName}
+								</c:if>
+								<c:forEach items="${unit.optionValues(cat)}" var="opt">
+									<option value="${opt}"<c:if test="${unit.is(opt)}"> selected="selected"</c:if>>${opt.displayName}
+								</c:forEach>
+							</select>
 						</c:if>
 					</c:forEach>
 				</fieldset>
@@ -148,6 +157,9 @@
 					<span>${rule.displayName}</span>
 				</c:forEach>
 			</div>
+			<c:forEach items="${unit.rules}" var="rule">
+				<div class="rule print-hidden"><span>${rule.displayName}</span>${rule.description}</div>
+			</c:forEach>
 		</main>
 		<c:if test="${not empty unit.keyWords}">
 			<footer>
@@ -159,10 +171,10 @@
 	</article>
 </c:forEach>
 
-<h1>Rules</h1>
+<h2>Rules</h2>
 <c:forEach items="${RuleType.values()}" var="type">
 	<c:if test="${type.displayed and not empty army.rules(type)}">
-		<h2>${type.displayName}</h2>
+		<h3>${type.displayName}</h3>
 		<c:forEach items="${army.rules(type)}" var="rule">
 			<div class="rule"><span>${rule.displayName}</span>${rule.description}</div>
 		</c:forEach>

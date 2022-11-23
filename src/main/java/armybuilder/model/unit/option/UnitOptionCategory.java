@@ -5,45 +5,37 @@ import java.util.function.Function;
 
 import armybuilder.model.IHaveDisplayName;
 import armybuilder.model.unit.Unit;
-import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum UnitOptionCategory implements IHaveDisplayName {
-	General(UnitOptionType.bool, (u) -> u.is(KeyWord.Heros), u -> u.getGeneral() != null, (u, o) -> u.setGeneral(o)),
-	TraisDeCommandement(UnitOptionType.select, (u) -> !u.is(KeyWord.Unique), u -> false, null),
-	TraisDeMonstre(UnitOptionType.select, (u) -> !u.is(KeyWord.Unique), u -> false, null),
-	Artefact(UnitOptionType.select, (u) -> !u.is(KeyWord.Unique), u -> false, null),
-	Sort(UnitOptionType.select, (u) -> u.is(KeyWord.Sorcier), u -> false, null),
-	Priere(UnitOptionType.select, (u) -> u.is(KeyWord.Pretre), u -> false, null),
+	General(UnitOptionType.bool, (u, o) -> u.setGeneral(o), Unit::getGeneral),
+	TraisDeCommandement(UnitOptionType.select, (u, o) -> u.setTraisDeCommandement(o), Unit::getTraisDeCommandement),
+	TraisDeMonstre(UnitOptionType.select, (u, o) -> u.setTraisDeMonstre(o), Unit::getTraisDeMonstre),
+	Artefact(UnitOptionType.select, (u, o) -> u.setArtefact(o), Unit::getArtefact),
+	Sort(UnitOptionType.select, (u, o) -> u.setSort(o), Unit::getSort),
+	Priere(UnitOptionType.select, (u, o) -> u.setPriere(o), Unit::getPriere),
 
-	Chef(UnitOptionType.bool, (u) -> true, u -> u.getChef() != null, (u, o) -> u.setChef(o)),
-	Banniere(UnitOptionType.bool, (u) -> true, u -> u.getBanniere() != null, (u, o) -> u.setBanniere(o)),
-	Musicien(UnitOptionType.bool, (u) -> true, u -> u.getMusicien() != null, (u, o) -> u.setMusicien(o)),
-	Armes(UnitOptionType.select, (u) -> true, u -> false, null),
-	Invoquee(UnitOptionType.bool, (u) -> true, u -> u.getInvoquee() != null, (u, o) -> u.setInvoquee(o)),
-	Renforcees(UnitOptionType.select, (u) -> !u.is(UnitOptionCategory.Invoquee), u -> false, null),
-	Bataillon(UnitOptionType.select, (u) -> true, u -> false, null),
+	Chef(UnitOptionType.bool, (u, o) -> u.setChef(o), Unit::getChef),
+	Banniere(UnitOptionType.bool, (u, o) -> u.setBanniere(o), Unit::getBanniere),
+	Musicien(UnitOptionType.bool, (u, o) -> u.setMusicien(o), Unit::getMusicien),
+	Armes(UnitOptionType.select, (u, o) -> u.setArme(o), Unit::getArme),
+	Invoquee(UnitOptionType.bool, (u, o) -> u.setInvoquee(o), Unit::getInvoquee),
+	Renforcees(UnitOptionType.select, (u, o) -> u.setRenforcee(o), Unit::getRenforcee),
+	Bataillon(UnitOptionType.select, null, null),
 
 	;
 
 	private String displayName;
-	private Function<Unit, Boolean> available;
-	private Function<Unit, Boolean> readBoolean;
 	private BiConsumer<Unit, UnitOption> setter;
+	private Function<Unit, UnitOption> getter;
 	private UnitOptionType type;
 
-	private UnitOptionCategory(UnitOptionType type, Function<Unit, Boolean> available,
-			Function<Unit, Boolean> readBoolean, BiConsumer<Unit, UnitOption> setter) {
+	private UnitOptionCategory(UnitOptionType type, BiConsumer<Unit, UnitOption> setter,
+			Function<Unit, UnitOption> getter) {
 		this.displayName = EnumPropertyLoader.instance().name(this);
 		this.type = type;
-		this.available = available;
-		this.readBoolean = readBoolean;
 		this.setter = setter;
-	}
-
-	@Deprecated
-	public boolean availableFor(Unit unit) {
-		return available.apply(unit);
+		this.getter = getter;
 	}
 
 	@Override
@@ -60,10 +52,17 @@ public enum UnitOptionCategory implements IHaveDisplayName {
 	}
 
 	public boolean is(Unit unit) {
-		return readBoolean.apply(unit);
+		return get(unit) != null;
+	}
+
+	public UnitOption get(Unit unit) {
+		if (getter == null)
+			return null;
+		return getter.apply(unit);
 	}
 
 	public void set(Unit unit, UnitOption value) {
 		setter.accept(unit, value);
 	}
+
 }

@@ -11,6 +11,9 @@ article.unit {
 		span {
 			float: right;
 		}
+		a {
+			color: $color-white;
+		}
 	}
 	main {
 		table {
@@ -33,6 +36,12 @@ article.unit {
 			span:not(:last-child)::after {
 				content: ',';
 			}
+		}
+		div.rule {
+			margin: 0 5px;
+		}
+		div.rule:last-child {
+			margin: 0 5px 5px 5px;
 		}
 	}
 	footer {

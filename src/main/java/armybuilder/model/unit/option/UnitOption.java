@@ -21,6 +21,7 @@ public enum UnitOption implements IUnitOption {
 	Guerison(OptimisationsUniverselles.Guerison),
 	General(OptimisationsUniverselles.General),
 	Invoquee(OptimisationsUniverselles.Invoquee),
+	PasDeRenfort(OptimisationsUniverselles.PasDeRenfort),
 	RenforceesUneFois(OptimisationsUniverselles.RenforceesUneFois),
 	RenforceesDeuxFois(OptimisationsUniverselles.RenforceesDeuxFois),
 

@@ -2,6 +2,7 @@ package armybuilder.model.army;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,7 +12,6 @@ import armybuilder.model.rule.IHaveRule;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.keyword.KeyWord;
-import armybuilder.model.unit.option.IUnitOption;
 
 public class Army implements IHaveRule {
 	private int id;
@@ -27,7 +27,6 @@ public class Army implements IHaveRule {
 		subAllegiance.decorate(this);
 		units.forEach(u -> u.decorate());
 		Arrays.stream(GeneriqueRule.values()).forEach(r -> r.decorate(this));
-
 	}
 
 	/**
@@ -52,13 +51,6 @@ public class Army implements IHaveRule {
 	}
 
 	/**
-	 * options
-	 */
-	public List<IUnitOption> test() {
-		return null;
-	}
-
-	/**
 	 * units
 	 */
 	public int count(KeyWord keyWord) {
@@ -72,6 +64,10 @@ public class Army implements IHaveRule {
 	/**
 	 * getter/setters/is
 	 */
+	public int getPoints() {
+		return units.stream().map(u -> u.getPoints()).reduce(Integer.valueOf(0), (a, b) -> a + b);
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -113,6 +109,12 @@ public class Army implements IHaveRule {
 	}
 
 	public List<Unit> getUnits() {
+		units.sort(new Comparator<Unit>() {
+			@Override
+			public int compare(Unit o1, Unit o2) {
+				return Integer.compare(o1.getModel().ordinal(), o2.getModel().ordinal());
+			}
+		});
 		return units;
 	}
 

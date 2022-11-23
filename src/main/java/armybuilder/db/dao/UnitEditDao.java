@@ -1,5 +1,6 @@
 package armybuilder.db.dao;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -10,16 +11,21 @@ import armybuilder.model.unit.model.UnitModel;
 
 public interface UnitEditDao {
 
-	@Insert("INSERT INTO Unit (army, model) VALUE (#{army}, #{model})")
-	void add(@Param("army") int army, @Param("model") UnitModel model);
-
 	@Select("SELECT * FROM Unit WHERE id = #{id}")
 	Unit read(int id);
 
+	@Insert("INSERT INTO Unit (army, model) VALUE (#{army}, #{model})")
+	void add(@Param("army") int army, @Param("model") UnitModel model);
+
 	@Update("UPDATE Unit SET general = #{general}, " //
+			+ "trais_de_commandement = #{traisDeCommandement}, trais_de_monstre = #{traisDeMonstre}, " //
+			+ "artefact = #{artefact}, sort = #{sort}, priere = #{priere}, " //
 			+ "chef = #{chef}, musicien = #{musicien}, banniere = #{banniere}, " //
-			+ "invoquee = #{invoquee} " //
+			+ "arme = #{arme}, renforcee = #{renforcee}, invoquee = #{invoquee} " //
 			+ "WHERE id = #{id}")
 	int update(Unit unit);
+
+	@Delete("DELETE FROM Unit WHERE id = #{id}")
+	void rm(int id);
 
 }

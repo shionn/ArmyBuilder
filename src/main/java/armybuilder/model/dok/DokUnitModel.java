@@ -33,7 +33,7 @@ public enum DokUnitModel implements IUnitModel<DokUnitModel> {
 					GeneriqueRule.TraitMagique, GeneriqueRule.BouclierMystique, DokRule.Affaiblissement,
 					DokRule.DanseSymetrique, DokRule.DestrierDOmbres, DokRule.PuitsDeTenebres, DokRule.RasoirMental,
 					DokRule.SuaireDeDesespoir),
-			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.Sort, UnitOptionCategory.Bataillon),
+			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.Bataillon),
 			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Aelf, KeyWord.Heros, KeyWord.Sorcier,
 					KeyWord.MorathiKhaine, KeyWord.Unique),
 			Arrays.asList()),

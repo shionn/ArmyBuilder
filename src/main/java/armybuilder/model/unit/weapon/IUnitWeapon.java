@@ -1,8 +1,8 @@
 package armybuilder.model.unit.weapon;
 
-public interface IUnitWeapon {
+import armybuilder.model.IHaveDisplayName;
 
-	String getDisplayName();
+public interface IUnitWeapon extends IHaveDisplayName {
 
 	WeaponType getType();
 

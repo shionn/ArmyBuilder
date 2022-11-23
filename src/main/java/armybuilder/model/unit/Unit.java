@@ -7,7 +7,6 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 import armybuilder.model.comparator.DisplayNameComparator;
-import armybuilder.model.dok.DokUnitWeapon;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.keyword.IHaveKeyWord;
 import armybuilder.model.unit.keyword.KeyWord;
@@ -24,22 +23,33 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 	private int id;
 	private UnitModel model;
 	private UnitOption general;
+	private UnitOption traisDeCommandement;
+	private UnitOption traisDeMonstre;
+	private UnitOption artefact;
+	private UnitOption sort;
+	private UnitOption priere;
 	private UnitOption chef;
 	private UnitOption musicien;
 	private UnitOption banniere;
+	private UnitOption arme;
+	private UnitOption renforcee;
 	private UnitOption invoquee;
 	// private List<UnitOption> options;
 
 	private int points;
 	private List<IRule<?>> rules = new ArrayList<IRule<?>>();
 	private List<KeyWord> keyWords = new ArrayList<KeyWord>();
+	private List<IUnitWeapon> weapons = new ArrayList<IUnitWeapon>();
 
 
 	public void decorate() {
 		this.points = model.getPoints();
 		this.rules.addAll(model.getRules());
 		this.keyWords.addAll(model.getKeyWords());
-		Arrays.asList(general, chef, musicien, banniere, invoquee)
+		this.weapons.addAll(model.getWeapons());
+		// TODO unit model rebuild
+		Arrays.asList(general, traisDeCommandement, traisDeMonstre, artefact, sort, priere, chef, musicien, banniere,
+				arme, renforcee, invoquee)
 				.stream()
 				.filter(Objects::nonNull)
 				.forEach(o -> o.decorate(this));
@@ -50,12 +60,11 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 	 */
 	@Override
 	public List<IUnitWeapon> getWeapons() {
-		return model.getWeapons();
+		return weapons;
 	}
 
-	public Object add(DokUnitWeapon weapon) {
-		// TODO Auto-generated method stub
-		return null;
+	public void add(IUnitWeapon weapon) {
+		this.weapons.add(weapon);
 	}
 
 	/**
@@ -95,6 +104,10 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 	 */
 	public List<UnitOptionCategory> getOptionsCategories() {
 		return model.getOptionsCategories();
+	}
+
+	public boolean is(UnitOption option) {
+		return option.getCategory().get(this) == option;
 	}
 
 	public boolean is(UnitOptionCategory category) {
@@ -205,5 +218,59 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 		this.points = points;
 	}
 
+	public void setArme(UnitOption arme) {
+		this.arme = arme;
+	}
 
+	public UnitOption getArme() {
+		return arme;
+	}
+
+	public void setTraisDeCommandement(UnitOption traisDeCommandement) {
+		this.traisDeCommandement = traisDeCommandement;
+	}
+
+	public UnitOption getTraisDeCommandement() {
+		return traisDeCommandement;
+	}
+
+	public void setTraisDeMonstre(UnitOption traisDeMonstre) {
+		this.traisDeMonstre = traisDeMonstre;
+	}
+
+	public UnitOption getTraisDeMonstre() {
+		return traisDeMonstre;
+	}
+
+	public void setArtefact(UnitOption artefact) {
+		this.artefact = artefact;
+	}
+
+	public UnitOption getArtefact() {
+		return artefact;
+	}
+
+	public void setSort(UnitOption sort) {
+		this.sort = sort;
+	}
+
+	public UnitOption getSort() {
+		return sort;
+	}
+
+	public void setPriere(UnitOption priere) {
+		this.priere = priere;
+	}
+
+	public UnitOption getPriere() {
+		return priere;
+	}
+
+	public void setRenforcee(UnitOption renforcee) {
+		this.renforcee = renforcee;
+	}
+
+	public UnitOption getRenforcee() {
+		return renforcee;
+	}
 }

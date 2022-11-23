@@ -2,7 +2,7 @@
 @import "_variables.scss";
 
 * {
-	box-sizing: border-box; 
+	box-sizing: border-box;
 }
 
 body {
@@ -10,13 +10,23 @@ body {
 	line-height: 18px;
 	width: 1600px;
 	margin:0 auto;
-	
+
 	background-color: white;
 	color: $color-darker;
-	
-	a { 
+
+	a {
 		text-decoration: none;
 		color: $color-dark;
+	}
+
+	h1 {
+		text-align: center;
+	}
+
+	form, nav, h2, h3, .print-hidden {
+		@media print {
+			display: none;
+		}
 	}
 }
 

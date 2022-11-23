@@ -100,6 +100,10 @@ public enum OptimisationsUniverselles implements IUnitOption {
 
 	General("Général", UnitOptionCategory.General, u -> u.is(KeyWord.Heros)),
 	Invoquee("Invoquée", UnitOptionCategory.Invoquee, u -> true),
+	PasDeRenfort(
+			"Pas de Renfort",
+			UnitOptionCategory.Renforcees,
+			u -> (u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite)) && !u.is(UnitOptionCategory.Invoquee)),
 	RenforceesUneFois(
 			"Renforcées 1x",
 			UnitOptionCategory.Renforcees,
