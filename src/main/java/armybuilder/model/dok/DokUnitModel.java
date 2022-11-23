@@ -10,17 +10,14 @@ import armybuilder.model.rule.GeneriqueRule;
 import armybuilder.model.rule.GeneriqueUnitRule;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.ProfileDegressif;
+import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.UnitProfile;
 import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.model.IUnitModel;
 import armybuilder.model.unit.option.UnitOptionCategory;
 import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.model.unit.weapon.IUnitWeapon;
-import armybuilder.modelold.deprecated.army.Listing;
-import armybuilder.modelold.deprecated.dok.DokOptimisations;
-import armybuilder.modelold.deprecated.unit.Unit;
 import armybuilder.modelold.deprecated.unit.modifiers.UnitModifiers;
-import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum DokUnitModel implements IUnitModel<DokUnitModel> {
@@ -396,28 +393,13 @@ public enum DokUnitModel implements IUnitModel<DokUnitModel> {
 	}
 
 	@Override
-	public List<IUnitOptionValue<?>> optionValues() {
-		return Arrays.asList(DokOptimisations.values());
-	}
-
-	@Override
-	public int points() {
+	public int getPoints() {
 		return value;
 	}
 
 	@Override
 	public void rebuild(Unit unit) {
 		modifiers.stream().forEach(m -> m.accept(unit));
-	}
-
-	@Override
-	@Deprecated
-	public boolean availableFor(Listing listing) {
-		boolean available = true;
-		if (keyWords != null && keyWords.contains(KeyWord.Unique)) {
-			available = !listing.have(this);
-		}
-		return available;
 	}
 
 }

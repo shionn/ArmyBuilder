@@ -206,7 +206,7 @@ public enum NighthauntUnitModel implements IUnitModel {
 	}
 
 	@Override
-	public int points() {
+	public int getPoints() {
 		return value;
 	}
 

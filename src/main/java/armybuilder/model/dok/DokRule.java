@@ -5,178 +5,174 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Supplier;
 
-import armybuilder.model.rule.RuleType;
 import armybuilder.model.rule.IRule;
+import armybuilder.model.rule.RuleType;
 import armybuilder.serialisation.DescriptionReader;
+import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum DokRule implements IRule<DokRule> {
 	// TraisDeBataille
-	FoiFanatique("Foi Fanatique", RuleType.TraisDeBataille),
-	RitesDeSang("Rites de Sang", RuleType.TraisDeBataille),
-	FureurDeBataille("Fureur de Bataille", RuleType.TraisDeBataille, RuleType.ActionsHeroiques),
-	MassacreTotal("Massacre total", RuleType.TraisDeBataille, RuleType.AptitudesDeCommandement),
+	FoiFanatique(RuleType.TraisDeBataille),
+	RitesDeSang(RuleType.TraisDeBataille),
+	FureurDeBataille(RuleType.TraisDeBataille, RuleType.ActionsHeroiques),
+	MassacreTotal(RuleType.TraisDeBataille, RuleType.AptitudesDeCommandement),
 	// TraisDeBataille sous allegiance
-	DisciplesDuMassacre("Disciples du Massacre", RuleType.TraisDeBataille),
-	FillesDuPremierTemple("Filles du Premier Temple", RuleType.TraisDeBataille),
-	FrapperEtSeRetirer("Frapper et se Retirer", RuleType.TraisDeBataille),
-	TueusesHerisseesDeLames("Tueuses Hérissées de Lames", RuleType.TraisDeBataille),
-	LessenceDeKhaine("L'essence de Khaine", RuleType.TraisDeBataille),
+	DisciplesDuMassacre(RuleType.TraisDeBataille),
+	FillesDuPremierTemple(RuleType.TraisDeBataille),
+	FrapperEtSeRetirer(RuleType.TraisDeBataille),
+	TueusesHerisseesDeLames(RuleType.TraisDeBataille),
+	LessenceDeKhaine(RuleType.TraisDeBataille),
 
 	// TraitsDeCommandement
-	BainDeSang("Bain de Sang", RuleType.TraitsDeCommandement),
-	MaitreDesPoisons("Maître des Poisons", RuleType.TraitsDeCommandement),
-	MaitriseDesArcanes("Maîtrise des Arcanes", RuleType.TraitsDeCommandement),
-	OrateurZele("Orateur Zélé", RuleType.TraitsDeCommandement),
-	PousseParLaVengeance("Poussée par la Vengeance", RuleType.TraitsDeCommandement),
-	SacrificateurSanglant("Sacrificateur Sanglant", RuleType.TraitsDeCommandement),
-	VraiCroyant("Vrai Croyant", RuleType.TraitsDeCommandement),
+	BainDeSang(RuleType.TraitsDeCommandement),
+	MaitreDesPoisons(RuleType.TraitsDeCommandement),
+	MaitriseDesArcanes(RuleType.TraitsDeCommandement),
+	OrateurZele(RuleType.TraitsDeCommandement),
+	PousseParLaVengeance(RuleType.TraitsDeCommandement),
+	SacrificateurSanglant(RuleType.TraitsDeCommandement),
+	VraiCroyant(RuleType.TraitsDeCommandement),
 
 	// Artefact
-	CouronneDeDouleur("Couronne de Douleur", RuleType.Artefact),
-	CoeurDeCristal("Cœur de Cristal", RuleType.Artefact),
-	LameSorciere("Lame Sorcière", RuleType.Artefact),
-	OmbreSeptFoisDrapee("Ombre Sept-fois-drapée", RuleType.Artefact),
-	PendentifKhainite("Pendentif Khainite", RuleType.Artefact),
-	PierreDOmbre("Pierre d'Ombre", RuleType.Artefact),
-	RuneDeKhaine("Rune de Khaine", RuleType.Artefact),
-	SymboleSanglant("Symbole Sanglant", RuleType.Artefact),
-	VeninFleauDuSang("Venin Fléau du Sang", RuleType.Artefact),
+	CouronneDeDouleur(RuleType.Artefact),
+	CoeurDeCristal(RuleType.Artefact),
+	LameSorciere(RuleType.Artefact),
+	OmbreSeptFoisDrapee(RuleType.Artefact),
+	PendentifKhainite(RuleType.Artefact),
+	PierreDOmbre(RuleType.Artefact),
+	RuneDeKhaine(RuleType.Artefact),
+	SymboleSanglant(RuleType.Artefact),
+	VeninFleauDuSang(RuleType.Artefact),
 
 	// Sort
 	Affaiblissement(RuleType.Sort, RuleType.TraisUnitee),
-	DanseSymetrique("Danse Symétrique", RuleType.Sort, RuleType.TraisUnitee),
-	Deperissement("Dépérissement", RuleType.Sort, RuleType.TraisUnitee),
-	DestrierDOmbres("Destrier d'Ombre", RuleType.Sort, RuleType.TraisUnitee),
-	HorreurNoireDUlgu("Horreur Noire d'Ulgu", RuleType.Sort, RuleType.TraisUnitee),
-	PuitsDeTenebres("Puits de Ténèbres", RuleType.Sort, RuleType.TraisUnitee),
-	RasoirMental("Rasoir Mental", RuleType.Sort, RuleType.TraisUnitee),
-	SuaireDeDesespoir("Suaire de Désespoir", RuleType.Sort, RuleType.TraisUnitee),
+	DanseSymetrique(RuleType.Sort, RuleType.TraisUnitee),
+	Deperissement(RuleType.Sort, RuleType.TraisUnitee),
+	DestrierDOmbres(RuleType.Sort, RuleType.TraisUnitee),
+	HorreurNoireDUlgu(RuleType.Sort, RuleType.TraisUnitee),
+	PuitsDeTenebres(RuleType.Sort, RuleType.TraisUnitee),
+	RasoirMental(RuleType.Sort, RuleType.TraisUnitee),
+	SuaireDeDesespoir(RuleType.Sort, RuleType.TraisUnitee),
 
 	// Prieres
-	BenedictionDeKhaine("Bénédiction de Khaine", RuleType.Priere, RuleType.TraisUnitee),
-	CaresseDeLaMort("Caresse de la Mort", RuleType.Priere, RuleType.TraisUnitee),
-	CatechismeDuMeurtre("Catéchisme Du Meurtre", RuleType.Priere, RuleType.TraisUnitee),
-	CouventDuCoeurDeFer("Couvent du Cœur de Fer", RuleType.Priere, RuleType.TraisUnitee),
-	DanseMaudite("Danse Maudite", RuleType.Priere, RuleType.TraisUnitee),
-	SacreDeSang("Sacre de Sang", RuleType.Priere, RuleType.TraisUnitee),
-	SacrificeDuMartyr("Sacrifice du Martyr", RuleType.Priere, RuleType.TraisUnitee),
-	ResurrectionPourpre("Résurrection Pourpre", RuleType.Priere, RuleType.TraisUnitee),
+	BenedictionDeKhaine(RuleType.Priere, RuleType.TraisUnitee),
+	CaresseDeLaMort(RuleType.Priere, RuleType.TraisUnitee),
+	CatechismeDuMeurtre(RuleType.Priere, RuleType.TraisUnitee),
+	CouventDuCoeurDeFer(RuleType.Priere, RuleType.TraisUnitee),
+	DanseMaudite(RuleType.Priere, RuleType.TraisUnitee),
+	SacreDeSang(RuleType.Priere, RuleType.TraisUnitee),
+	SacrificeDuMartyr(RuleType.Priere, RuleType.TraisUnitee),
+	ResurrectionPourpre(RuleType.Priere, RuleType.TraisUnitee),
 
 	// Aptitude de Commandement
-	OrgieDeMassacre("Orgie de Massacre", RuleType.AptitudesDeCommandement, RuleType.PhaseDesHeros, RuleType.TraisUnitee),
-	VenerationParLeSang("Vénération par le Sang", RuleType.AptitudesDeCommandement, RuleType.PhaseDesHeros, RuleType.TraisUnitee),
+	OrgieDeMassacre(RuleType.AptitudesDeCommandement, RuleType.PhaseDesHeros, RuleType.TraisUnitee),
+	VenerationParLeSang(RuleType.AptitudesDeCommandement, RuleType.PhaseDesHeros, RuleType.TraisUnitee),
 
 	// Aptitude de Commandement sous allegiance
-	MaitressesDesOmbrevoies("Maîtresses des Ombrevoies", RuleType.TraisDeBataille, RuleType.AptitudesDeCommandement, RuleType.PhaseDeMouvement),
+	MaitressesDesOmbrevoies(RuleType.TraisDeBataille, RuleType.AptitudesDeCommandement, RuleType.PhaseDeMouvement),
 
 	// Aptitude
-	AnimuseDeSorcellerieEtDeSacrifice("Animus de Sorcellerie et de Sacrifice", RuleType.Aptitude, RuleType.TraisUnitee),
-	AuraDAgonie("Aura d'Agonie", RuleType.Aptitude, RuleType.PhaseDesHeros, RuleType.TraisUnitee),
-	AutelDeKhaine("Autel de Khaine", RuleType.Aptitude),
-	BouclierDeSang("Bouclier de Sang", RuleType.Aptitude, RuleType.TraisUnitee),
-	BrouetDeSang("Brouet de Sang", RuleType.Aptitude, RuleType.PhaseDesHeros, RuleType.TraisUnitee),
-	ColereDeKhaine("Colère de Khaine", RuleType.Aptitude, RuleType.TraisUnitee),
+	AnimuseDeSorcellerieEtDeSacrifice(RuleType.Aptitude, RuleType.TraisUnitee),
+	AuraDAgonie(RuleType.Aptitude, RuleType.PhaseDesHeros, RuleType.TraisUnitee),
+	AutelDeKhaine(RuleType.Aptitude),
+	BouclierDeSang(RuleType.Aptitude, RuleType.TraisUnitee),
+	BrouetDeSang(RuleType.Aptitude, RuleType.PhaseDesHeros, RuleType.TraisUnitee),
+	ColereDeKhaine(RuleType.Aptitude, RuleType.TraisUnitee),
 	ColereDesMoirenees(
-			"Colère des Moirenées",
 			RuleType.TraisDeBataille,
 			RuleType.AptitudesDeCommandement,
 			RuleType.PhaseDeCharge,
 			RuleType.TraisUnitee),
-	CoupDeGrace("Coup de Grâce", RuleType.Aptitude, RuleType.TraisUnitee),
-	CoeurDeFerDeKhaine("Cœur de Fer de Khaine", RuleType.Aptitude, RuleType.TraisUnitee),
-	DanseDeLaMort("Danse de la Mort", RuleType.Aptitude, RuleType.TraisUnitee),
-	DeuxCorpsUneSeuleAme("Deux corps, une seule âme", RuleType.Aptitude, RuleType.TraisUnitee),
-	DeuxCorpsUneSeuleAme_Shadow("Deux corps, une seule âme", RuleType.Aptitude, RuleType.TraisUnitee),
-	FerveurFrenetique("Ferveur Frénétique", RuleType.Aptitude, RuleType.PhaseDeCombat),
-	FureurDeLaReineDeLOmbre("Fureur de la Reine de l'Ombre", RuleType.Aptitude, RuleType.TraisUnitee),
-	ImpactLame("Impact Lamé", RuleType.Aptitude, RuleType.PhaseDeCharge, RuleType.TraisUnitee),
-	MaitreDeGuerre("Maître de Guerre", RuleType.Aptitude, RuleType.TraisUnitee),
-	PacteDeSang("Pacte de Sang", RuleType.Aptitude, RuleType.TraisUnitee),
-	ParangonDuMassacre("Parangon du Massacre", RuleType.Aptitude, RuleType.TraisUnitee),
-	PlongeonDansLaBataille("Plongeon dans la Bataille", RuleType.Aptitude, RuleType.PhaseDeMouvement, RuleType.TraisUnitee),
-	PresenceIntimidante("Présence Intimidante", RuleType.Aptitude, RuleType.TraisUnitee),
-	RegardIncarnat("Regard Incarnat", RuleType.Aptitude, RuleType.PhaseDeTir, RuleType.TraisUnitee),
-	SoeurDesMelusai("Sœur des Melusaĩ", RuleType.Aptitude, RuleType.PhaseDeCombat, RuleType.TraisUnitee),
-	Sorcier_3_2_1("Sorcier", RuleType.Aptitude, RuleType.TraisUnitee),
+	CoupDeGrace(RuleType.Aptitude, RuleType.TraisUnitee),
+	CoeurDeFerDeKhaine(RuleType.Aptitude, RuleType.TraisUnitee),
+	DanseDeLaMort(RuleType.Aptitude, RuleType.TraisUnitee),
+	DeuxCorpsUneSeuleAme(RuleType.Aptitude, RuleType.TraisUnitee),
+	DeuxCorpsUneSeuleAme_Shadow(RuleType.Aptitude, RuleType.TraisUnitee),
+	FerveurFrenetique(RuleType.Aptitude, RuleType.PhaseDeCombat),
+	FureurDeLaReineDeLOmbre(RuleType.Aptitude, RuleType.TraisUnitee),
+	ImpactLame(RuleType.Aptitude, RuleType.PhaseDeCharge, RuleType.TraisUnitee),
+	MaitreDeGuerre(RuleType.Aptitude, RuleType.TraisUnitee),
+	PacteDeSang(RuleType.Aptitude, RuleType.TraisUnitee),
+	ParangonDuMassacre(RuleType.Aptitude, RuleType.TraisUnitee),
+	PlongeonDansLaBataille(RuleType.Aptitude, RuleType.PhaseDeMouvement, RuleType.TraisUnitee),
+	PresenceIntimidante(RuleType.Aptitude, RuleType.TraisUnitee),
+	RegardIncarnat(RuleType.Aptitude, RuleType.PhaseDeTir, RuleType.TraisUnitee),
+	SoeurDesMelusai(RuleType.Aptitude, RuleType.PhaseDeCombat, RuleType.TraisUnitee),
+	Sorcier_3_2_1(RuleType.Aptitude, RuleType.TraisUnitee),
 	TransmuteEnCristal_Ferecaille(
-			"Transmuté en Cristal",
 			RuleType.Aptitude,
 			RuleType.PhaseDeCombat,
 			RuleType.TraisUnitee),
 	TransmuteEnCristal(
-			"Transmuté en Cristal",
 			RuleType.Aptitude,
 			RuleType.PhaseDeCombat,
 			RuleType.TraisUnitee),
-	VoleeEtVolteFace("Volée et Volte-face", RuleType.Aptitude, RuleType.PhaseDeTir, RuleType.TraisUnitee),
+	VoleeEtVolteFace(RuleType.Aptitude, RuleType.PhaseDeTir, RuleType.TraisUnitee),
 
 	// Conposition
-	Matriache("Champion", RuleType.Composition),
-	PorteuseDePennonDeMort("Porte-Étendards", RuleType.Composition),
-	Servante("Champion", RuleType.Composition),
-	SonneuseDeCor("Musiciennes", RuleType.Composition),
-	Ecorcheuse("Champion", RuleType.Composition),
+	Matriache(RuleType.Composition),
+	PorteuseDePennonDeMort(RuleType.Composition),
+	Servante(RuleType.Composition),
+	SonneuseDeCor(RuleType.Composition),
+	Ecorcheuse(RuleType.Composition),
 
 	// Armes
-	RondacheTranchante("Rondache Tranchante", RuleType.Aptitude),
+	RondacheTranchante(RuleType.Aptitude),
 
 	// sort persistant et aptitude
-	CoeurDeFureurConv("Convocation", RuleType.Aptitude),
-	ReceptacleDuDieuMeurtre("Réceptacle du Dieu du Meurtre", RuleType.Aptitude, RuleType.PhaseDeCombat),
+	CoeurDeFureurConv(RuleType.Aptitude),
+	ReceptacleDuDieuMeurtre(RuleType.Aptitude, RuleType.PhaseDeCombat),
 
 	// Tactique de Bataille
-	FracasDesArmes("Fracas des Armes", RuleType.TactiquesDeBataille),
-	RegalCruel("Régal Cruel", RuleType.TactiquesDeBataille),
-	MareeDeLames("Marée de Lame", RuleType.TactiquesDeBataille),
-	CulteDeLExecutrice("Culte de l'Éxécutrice", RuleType.TactiquesDeBataille),
-	HaineDuChaos("Haine du Chaos", RuleType.TactiquesDeBataille),
-	AttaqueInatendue("Attaque Inattendue", RuleType.TactiquesDeBataille),
+	FracasDesArmes(RuleType.TactiquesDeBataille),
+	RegalCruel(RuleType.TactiquesDeBataille),
+	MareeDeLames(RuleType.TactiquesDeBataille),
+	CulteDeLExecutrice(RuleType.TactiquesDeBataille),
+	HaineDuChaos(RuleType.TactiquesDeBataille),
+	AttaqueInatendue(RuleType.TactiquesDeBataille),
 
 	//
 
 	// ---- Fait au dessus
 	//
-	CrypteDesAinee("Crypte des Aînée", RuleType.TraisDeBataille),
-	DissimulationEtDiscretion("Dissimulation et Discrétion", RuleType.TraisDeBataille),
+	CrypteDesAinee(RuleType.TraisDeBataille),
+	DissimulationEtDiscretion(RuleType.TraisDeBataille),
 
 	//
-	Gorgai("Gorgaï", RuleType.Composition),
-	ShroudQueen("Shroud Queen", RuleType.Composition),
-	Krone("Krone", RuleType.Composition),
+	Gorgai(RuleType.Composition),
+	ShroudQueen(RuleType.Composition),
+	Krone(RuleType.Composition),
 
 	//
 	BondDeLOmbre(
-			"Bond de l'Ombre",
 			RuleType.Aptitude,
 			RuleType.PhaseDeMouvement,
 			RuleType.TraisUnitee),
-	Cherchecoeurs("Cherchecœurs", RuleType.Aptitude),
-	LaMortVientDuCiel("La Mort Vient du Ciel", RuleType.Aptitude, RuleType.TraisUnitee),
-	ObjetDAdoration("Objet d'Adoration", RuleType.Aptitude, RuleType.PhaseDeDeroute),
+	Cherchecoeurs(RuleType.Aptitude),
+	LaMortVientDuCiel(RuleType.Aptitude, RuleType.TraisUnitee),
+	ObjetDAdoration(RuleType.Aptitude, RuleType.PhaseDeDeroute),
 	OffrandeSanguinolente(
-			"Offrande Sanguinolente",
 			RuleType.Aptitude,
 			RuleType.PhaseDeCombat,
 			RuleType.TraisUnitee),
-	PaireDeCouteauxSacrificiels("Paire de Couteaux Sacrificiels", RuleType.Aptitude),
-	ProfiterDeLOmbre("Profiter de l'Ombre", RuleType.Aptitude),
-	ProjectilesMaudits("Projectiles Maudits", RuleType.Aptitude),
-	SangDeLOracle("Sang de l'Oracle", RuleType.Aptitude),
-	ZelotesDuPremierTemple("Zélotes du Premier Temple", RuleType.Aptitude),
+	PaireDeCouteauxSacrificiels(RuleType.Aptitude),
+	ProfiterDeLOmbre(RuleType.Aptitude),
+	ProjectilesMaudits(RuleType.Aptitude),
+	SangDeLOracle(RuleType.Aptitude),
+	ZelotesDuPremierTemple(RuleType.Aptitude),
 
 
 	//
 
 	//
 
-	DanseDAgonie("Danse d'Agonie", RuleType.Priere, RuleType.TraisUnitee),
-	RuneDeKhaine_Priere("Rune de Khaine", RuleType.Priere, RuleType.TraisUnitee),
+	DanseDAgonie(RuleType.Priere, RuleType.TraisUnitee),
+	RuneDeKhaine_Priere(RuleType.Priere, RuleType.TraisUnitee),
 
 	//
-	AttaqueDeCrochets("Attaque de Crochets", RuleType.Aptitude),
-	BloodWrackViperConv("Convocation", RuleType.Aptitude),
-	BladewindConv("Convocation", RuleType.Aptitude),
-	TranchantSurnaturel("Tranchant Surnaturel", RuleType.Aptitude),
+	AttaqueDeCrochets(RuleType.Aptitude),
+	BloodWrackViperConv(RuleType.Aptitude),
+	BladewindConv(RuleType.Aptitude),
+	TranchantSurnaturel(RuleType.Aptitude),
 
 
 	;
@@ -185,17 +181,14 @@ public enum DokRule implements IRule<DokRule> {
 	private String displayName;
 	private Supplier<String> description;
 
+
 	DokRule(RuleType... types) {
+		this.displayName = EnumPropertyLoader.instance().name(this);
 		this.types = Arrays.asList(types);
 	}
 
-	DokRule(String displayName, RuleType... types) {
-		this.displayName = displayName;
-		this.types = Arrays.asList(types);
-	}
-
-	DokRule(String displayName, Supplier<String> description, RuleType... types) {
-		this.displayName = displayName;
+	DokRule(Supplier<String> description, RuleType... types) {
+		this.displayName = EnumPropertyLoader.instance().name(this);
 		this.description = description;
 		this.types = Arrays.asList(types);
 	}

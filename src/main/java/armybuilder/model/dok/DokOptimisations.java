@@ -1,17 +1,15 @@
-package armybuilder.modelold.deprecated.dok;
+package armybuilder.model.dok;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import armybuilder.model.dok.DokRule;
-import armybuilder.model.dok.DokUnitModel;
-import armybuilder.model.dok.DokUnitWeapon;
+import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.keyword.KeyWord;
+import armybuilder.model.unit.model.UnitModel;
+import armybuilder.model.unit.option.IUnitOption;
 import armybuilder.model.unit.option.UnitOptionCategory;
-import armybuilder.modelold.deprecated.unit.Unit;
-import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
 
-public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
+public enum DokOptimisations implements IUnitOption {
 
 	// TraisDeCommandement
 	BainDeSang(UnitOptionCategory.TraisDeCommandement, u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique)),
@@ -31,7 +29,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	OrateurZele(UnitOptionCategory.TraisDeCommandement, u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique)),
 	PousseParLaVengeance(
 			UnitOptionCategory.TraisDeCommandement,
-			u -> u.is(UnitOptionCategory.General) && u.is(DokUnitModel.MelusaiIronscale)),
+			u -> u.is(UnitOptionCategory.General) && u.is(UnitModel.MelusaiIronscale)),
 	SacrificateurSanglant(UnitOptionCategory.TraisDeCommandement, u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique)),
 	VraiCroyant(UnitOptionCategory.TraisDeCommandement, u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique)),
 
@@ -66,7 +64,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 
 	// Compositioon
 	Ecorcheuse("Champion", UnitOptionCategory.Chef, u -> u.is(KeyWord.EtripeusesKhinerai), null),
-	Matriache("Champion", UnitOptionCategory.Chef, u -> u.is(KeyWord.Erinyes), null),
+	Matriache("Champion", UnitOptionCategory.Chef, u -> u.is(UnitModel.Erinyes), null),
 	PorteuseDePennonDeMort("Porte-Étendards", UnitOptionCategory.Banniere,
 			u -> u.is(KeyWord.Erinyes) || u.is(KeyWord.SoeurDuMassacre), null),
 	Servante("Champion", UnitOptionCategory.Chef, u -> u.is(KeyWord.SoeurDuMassacre), null),
@@ -89,11 +87,11 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	// ---- fait au dessus
 
 	// Compositioon
-	Krone("Krone", UnitOptionCategory.Chef, u -> u.is(DokUnitModel.BloodStalkers), u -> {
+	Krone("Krone", UnitOptionCategory.Chef, u -> u.is(UnitModel.BloodStalkers), u -> {
 		u.add(DokRule.Krone);
 		u.add(DokUnitWeapon.GuivreDeSang);
 	}),
-	Gorgai("Gorgaï", UnitOptionCategory.Chef, u -> u.is(DokUnitModel.BloodSisters), null),
+	Gorgai("Gorgaï", UnitOptionCategory.Chef, u -> u.is(UnitModel.BloodSisters), null),
 	ShroudQueen("Shroud Queen", UnitOptionCategory.Chef, u -> u.is(KeyWord.RodeursDeLOmbre), u -> {
 		u.add(DokUnitWeapon.LameObscures);
 		u.add(DokRule.ShroudQueen);
@@ -103,13 +101,13 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	;
 
 	private String displayName;
-	private UnitOptionCategory option;
+	private UnitOptionCategory category;
 	private Function<Unit, Boolean> available;
 	private Consumer<Unit> modifier;
 
 	DokOptimisations(String displayName, UnitOptionCategory type, Function<Unit, Boolean> available, Consumer<Unit> modifier) {
 		this.displayName = displayName;
-		this.option = type;
+		this.category = type;
 		this.available = available;
 		this.modifier = modifier;
 	}
@@ -121,7 +119,7 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 
 	DokOptimisations(UnitOptionCategory type, Function<Unit, Boolean> available) {
 		this.displayName = DokRule.valueOf(name()).getDisplayName();
-		this.option = type;
+		this.category = type;
 		this.available = available;
 	}
 
@@ -131,22 +129,23 @@ public enum DokOptimisations implements IUnitOptionValue<DokOptimisations> {
 	}
 
 	@Override
-	public UnitOptionCategory option() {
-		return option;
-	}
-
-	@Override
-	public boolean isAvailable(Unit unit) {
-		return available.apply(unit);
-	}
-
-	@Override
-	public void rebuild(Unit unit) {
+	public void decorate(Unit unit) {
 		if (modifier == null) {
-			unit.add(DokRule.valueOf(getName()));
+			unit.add(DokRule.valueOf(name()));
 		} else {
 			modifier.accept(unit);
 		}
 	}
+
+	@Override
+	public UnitOptionCategory getCategory() {
+		return category;
+	}
+
+	@Override
+	public boolean availableFor(armybuilder.model.unit.Unit unit) {
+		return available.apply(unit);
+	}
+
 
 }

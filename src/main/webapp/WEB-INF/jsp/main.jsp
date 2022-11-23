@@ -128,14 +128,13 @@
 				</table>
 			</c:if>
 
-			<spring:url value="/unit/edit/${unit.id}" var="url" />
-			<form:form action="${url}" method="POST">
+			<form:form>
 				<fieldset>
 					<legend>Opptions / Optimisation</legend>
 					<c:forEach items="${unit.optionsCategories}" var="cat">
-						<spring:url value="/unit/edit/${unit.id}/${cat}" var="url" />
 						<c:if test="${cat.type == 'bool' }">
-							<label>${cat.displayName}</label>
+							<spring:url value="/unit/edit/${unit.id}/${unit.optionValue(cat)}" var="url" />
+							<label>${unit.optionValue(cat).displayName}</label>
 							<input type="checkbox" name="${cat}" class="ajax" data-url="${url}" data-update="body>main" <c:if test="${unit.is(cat)}"> checked="checked"</c:if>>
 						</c:if>
 						<c:if test="${cat.type == 'select' }">

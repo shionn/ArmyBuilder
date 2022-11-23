@@ -1,16 +1,15 @@
-package armybuilder.modelold.deprecated.unit.option;
+package armybuilder.model.unit.option;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
 
 import armybuilder.model.rule.GeneriqueRule;
 import armybuilder.model.rule.GeneriqueUnitRule;
+import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.keyword.KeyWord;
-import armybuilder.model.unit.option.UnitOptionCategory;
 import armybuilder.model.unit.role.RoleTactique;
-import armybuilder.modelold.deprecated.unit.Unit;
 
-public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsUniverselles> {
+public enum OptimisationsUniverselles implements IUnitOption {
 
 	SoifDeBataille(
 			GeneriqueUnitRule.SoifDeBataille.getDisplayName(),
@@ -100,56 +99,57 @@ public enum OptimisationsUniverselles implements IUnitOptionValue<OptimisationsU
 			u -> u.add(GeneriqueUnitRule.Guerison)),
 
 	General("Général", UnitOptionCategory.General, u -> u.is(KeyWord.Heros)),
+	Invoquee("Invoquée", UnitOptionCategory.Invoquee, u -> true),
 	RenforceesUneFois(
 			"Renforcées 1x",
 			UnitOptionCategory.Renforcees,
-			u -> (u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite)) && !u.is(UnitOptionCategory.Gratuit),
-			u -> u.points(u.model().points() * 2)),
+			u -> (u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite)) && !u.is(UnitOptionCategory.Invoquee),
+			u -> u.setPoints(u.getPoints() * 2)),
 	RenforceesDeuxFois(
 			"Renforcées 2x",
 			UnitOptionCategory.Renforcees,
-			u -> (u.is(RoleTactique.Ligne)) && !u.is(UnitOptionCategory.Gratuit),
-			u -> u.points(u.model().points() * 3)),
+			u -> (u.is(RoleTactique.Ligne)) && !u.is(UnitOptionCategory.Invoquee),
+			u -> u.setPoints(u.getPoints() * 3)),
 
 	;
 
 	private String displayName;
-	private UnitOptionCategory option;
+	private UnitOptionCategory category;
 	private Function<Unit, Boolean> available;
 	private Consumer<Unit> modifier;
 
 	OptimisationsUniverselles(String displayName, UnitOptionCategory option,
 			Function<Unit, Boolean> available) {
 		this.displayName = displayName;
-		this.option = option;
+		this.category = option;
 		this.available = available;
 	}
 
 	OptimisationsUniverselles(String displayName, UnitOptionCategory option,
 			Function<Unit, Boolean> available, Consumer<Unit> modifier) {
 		this.displayName = displayName;
-		this.option = option;
+		this.category = option;
 		this.available = available;
 		this.modifier = modifier;
 	}
 
 	@Override
-	public String displayName() {
+	public String getDisplayName() {
 		return displayName;
 	}
 
 	@Override
-	public UnitOptionCategory option() {
-		return option;
+	public UnitOptionCategory getCategory() {
+		return category;
 	}
 
 	@Override
-	public boolean isAvailable(Unit unit) {
+	public boolean availableFor(Unit unit) {
 		return available.apply(unit);
 	}
 
 	@Override
-	public void rebuild(Unit unit) {
+	public void decorate(Unit unit) {
 		if (modifier != null) {
 			modifier.accept(unit);
 		}

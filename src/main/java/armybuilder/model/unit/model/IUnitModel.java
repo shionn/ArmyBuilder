@@ -5,15 +5,13 @@ import java.util.List;
 import armybuilder.model.army.Army;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.ProfileDegressif;
+import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.UnitProfile;
 import armybuilder.model.unit.keyword.IHaveKeyWord;
 import armybuilder.model.unit.option.UnitOptionCategory;
 import armybuilder.model.unit.role.IHaveRoleTactique;
 import armybuilder.model.unit.weapon.IHaveWeapons;
 import armybuilder.model.unit.weapon.IUnitWeapon;
-import armybuilder.modelold.deprecated.army.Listing;
-import armybuilder.modelold.deprecated.unit.Unit;
-import armybuilder.modelold.deprecated.unit.option.IUnitOptionValue;
 
 public interface IUnitModel<T extends Enum<T> & IUnitModel<T>> extends IHaveWeapons, IHaveRoleTactique, IHaveKeyWord
 {
@@ -27,19 +25,12 @@ public interface IUnitModel<T extends Enum<T> & IUnitModel<T>> extends IHaveWeap
 
 	List<IRule<?>> getRules();
 
-	@Deprecated
-	int points();
+	int getPoints();
 
 	List<UnitOptionCategory> getOptionsCategories();
 
 	@Deprecated
-	List<IUnitOptionValue<?>> optionValues();
-
-	@Deprecated
 	void rebuild(Unit unit);
-
-	@Deprecated
-	public boolean availableFor(Listing listing);
 
 	UnitProfile getProfile();
 

@@ -3,48 +3,64 @@ package armybuilder.model.unit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 import armybuilder.model.comparator.DisplayNameComparator;
+import armybuilder.model.dok.DokUnitWeapon;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.keyword.IHaveKeyWord;
 import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.model.UnitModel;
+import armybuilder.model.unit.option.UnitOption;
 import armybuilder.model.unit.option.UnitOptionCategory;
 import armybuilder.model.unit.role.IHaveRoleTactique;
 import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.model.unit.weapon.IHaveWeapons;
 import armybuilder.model.unit.weapon.IUnitWeapon;
-import armybuilder.modelold.deprecated.unit.option.UnitOptionType;
 
 public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 
 	private int id;
 	private UnitModel model;
-	private boolean general;
-	private boolean chef;
-	private boolean musicien;
-	private boolean banniere;
-	private boolean invoquee;
+	private UnitOption general;
+	private UnitOption chef;
+	private UnitOption musicien;
+	private UnitOption banniere;
+	private UnitOption invoquee;
 	// private List<UnitOption> options;
 
+	private int points;
 	private List<IRule<?>> rules = new ArrayList<IRule<?>>();
 	private List<KeyWord> keyWords = new ArrayList<KeyWord>();
 
 
 	public void decorate() {
-		rules.addAll(model.getRules());
-		keyWords.addAll(model.getKeyWords());
-		Arrays.stream(UnitOptionCategory.values())
-				.filter(cat -> cat.getType() == UnitOptionType.bool)
-				.filter(cat -> cat.is(this));
-		//model.decorate(this);
+		this.points = model.getPoints();
+		this.rules.addAll(model.getRules());
+		this.keyWords.addAll(model.getKeyWords());
+		Arrays.asList(general, chef, musicien, banniere, invoquee)
+				.stream()
+				.filter(Objects::nonNull)
+				.forEach(o -> o.decorate(this));
 	}
 
+	/**
+	 * weapons
+	 */
 	@Override
 	public List<IUnitWeapon> getWeapons() {
 		return model.getWeapons();
 	}
 
+	public Object add(DokUnitWeapon weapon) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/**
+	 *
+	 */
 	@Override
 	public List<RoleTactique> getRoleTactiques() {
 		return model.getRoleTactiques();
@@ -85,6 +101,27 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 		return category.is(this);
 	}
 
+	public UnitOption optionValue(UnitOptionCategory category) {
+		if (!category.isBoolean()) {
+			throw new IllegalArgumentException(category + " n'est pas boolean");
+		}
+		List<UnitOption> optionValues = optionValues(category);
+		if (optionValues.isEmpty()) {
+			throw new IllegalStateException("pas d'otpion pour " + model + " " + category);
+		}
+		if (optionValues.size() > 1) {
+			throw new IllegalStateException("trop d'option pour " + model + " " + category);
+		}
+		return optionValues.get(0);
+	}
+
+	public List<UnitOption> optionValues(UnitOptionCategory category) {
+		return Arrays.stream(UnitOption.values())
+				.filter(o -> o.getCategory() == category)
+				.filter(o -> o.availableFor(this))
+				.collect(Collectors.toList());
+	}
+
 	/**
 	 * basic
 	 */
@@ -116,45 +153,57 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 		this.model = model;
 	}
 
+	public boolean is(UnitModel model) {
+		return this.model == model;
+	}
 
-	public void setGeneral(boolean general) {
+	public void setGeneral(UnitOption general) {
 		this.general = general;
 	}
 
-	public boolean isGeneral() {
+	public UnitOption getGeneral() {
 		return general;
 	}
 
-	public void setChef(boolean chef) {
+	public void setChef(UnitOption chef) {
 		this.chef = chef;
 	}
 
-	public boolean isChef() {
+	public UnitOption getChef() {
 		return chef;
 	}
 
-	public void setMusicien(boolean musicien) {
+	public void setMusicien(UnitOption musicien) {
 		this.musicien = musicien;
 	}
 
-	public boolean isMusicien() {
+	public UnitOption getMusicien() {
 		return musicien;
 	}
 
-	public void setBanniere(boolean banniere) {
+	public void setBanniere(UnitOption banniere) {
 		this.banniere = banniere;
 	}
 
-	public boolean isBanniere() {
+	public UnitOption getBanniere() {
 		return banniere;
 	}
 
-	public void setInvoquee(boolean invoquee) {
+	public void setInvoquee(UnitOption invoquee) {
 		this.invoquee = invoquee;
 	}
 
-	public boolean isInvoquee() {
+	public UnitOption getInvoquee() {
 		return invoquee;
 	}
+
+	public int getPoints() {
+		return points;
+	}
+
+	public void setPoints(int points) {
+		this.points = points;
+	}
+
 
 }
