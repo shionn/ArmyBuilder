@@ -16,12 +16,12 @@ public enum UnitOptionCategory implements IHaveDisplayName {
 	Sort(UnitOptionType.select, (u) -> u.is(KeyWord.Sorcier), u -> false),
 	Priere(UnitOptionType.select, (u) -> u.is(KeyWord.Pretre), u -> false),
 
-	Chef(UnitOptionType.bool, (u) -> true, u -> false),
-	Banniere(UnitOptionType.bool, (u) -> true, u -> false),
-	Musicien(UnitOptionType.bool, (u) -> true, u -> false),
+	Chef(UnitOptionType.bool, (u) -> true, Unit::isChef),
+	Banniere(UnitOptionType.bool, (u) -> true, Unit::isBanniere),
+	Musicien(UnitOptionType.bool, (u) -> true, Unit::isMusicien),
 	Armes(UnitOptionType.select, (u) -> true, u -> false),
-	Gratuit(UnitOptionType.bool, (u) -> true, u -> false),
-	Renforcees(UnitOptionType.select, (u) -> !u.is(UnitOptionCategory.Gratuit), u -> false),
+	Invoquee(UnitOptionType.bool, (u) -> true, Unit::isInvoquee),
+	Renforcees(UnitOptionType.select, (u) -> !u.is(UnitOptionCategory.Invoquee), u -> false),
 	Bataillon(UnitOptionType.select, (u) -> true, u -> false),
 
 	;
@@ -39,6 +39,7 @@ public enum UnitOptionCategory implements IHaveDisplayName {
 		this.readBoolean = readBoolean;
 	}
 
+	@Deprecated
 	public boolean availableFor(Unit unit) {
 		return available.apply(unit);
 	}

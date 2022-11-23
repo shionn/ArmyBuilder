@@ -11,6 +11,7 @@ import armybuilder.model.rule.IHaveRule;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.keyword.KeyWord;
+import armybuilder.model.unit.option.IUnitOption;
 
 public class Army implements IHaveRule {
 	private int id;
@@ -26,6 +27,7 @@ public class Army implements IHaveRule {
 		subAllegiance.decorate(this);
 		units.forEach(u -> u.decorate());
 		Arrays.stream(GeneriqueRule.values()).forEach(r -> r.decorate(this));
+
 	}
 
 	/**
@@ -47,6 +49,13 @@ public class Army implements IHaveRule {
 		if (condition) {
 			add(rules);
 		}
+	}
+
+	/**
+	 * options
+	 */
+	public List<IUnitOption> test() {
+		return null;
 	}
 
 	/**

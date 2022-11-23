@@ -1,5 +1,4 @@
 <%@ tag pageEncoding="UTF-8"%>
-<%@ tag import="armybuilder.db.dbo.Allegiance" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -32,40 +31,6 @@
 						</ul>
 					</li>
 				</c:forEach>
-<%-- 				<c:forEach items="${Allegiance.values()}" var="allegiance"> --%>
-<%-- 					<li <c:if test="${army.is(allegiance)}">class="current"</c:if>> --%>
-<%-- 						<a href=<spring:url value="/select/${allegiance}"/>>${allegiance}</a> --%>
-<!-- 					</li> -->
-<%-- 				</c:forEach> --%>
-<!-- 				<li> -->
-<!-- 					<a href="#">DoK</a> -->
-<!-- 					<ul> -->
-<!-- 						<li><a href="">Liste 1000</a></li> -->
-<!-- 						<li><a href="">Liste 2000</a></li> -->
-<!-- 					</ul> -->
-<!-- 				</li> -->
-<!-- 				<li> -->
-<!-- 					<a href="#">CoS</a> -->
-<!-- 					<ul> -->
-<!-- 						<li><a href="">Liste 1000</a></li> -->
-<!-- 						<li><a href="">Liste 2000</a></li> -->
-<!-- 					</ul> -->
-<!-- 				</li> -->
-<!-- 				<li> -->
-<%-- 					<a href='<spring:url value="/reset"/>'><i class="fas fa-file-alt"></i> Reset</a> --%>
-<!-- 				</li> -->
-<!-- 				<li> -->
-<%-- 					<spring:url value="/load" var="url"/> --%>
-<%-- 					<form:form method="POST" action="${url}" enctype="multipart/form-data"> --%>
-<!-- 						<span class="load"> -->
-<!-- 							<input type="file" name="file"> -->
-<!-- 							<i class="fas fa-upload"></i> Load -->
-<!-- 						</span> -->
-<%-- 					</form:form> --%>
-<!-- 				</li> -->
-<!-- 				<li> -->
-<%-- 					<a href='<spring:url value="/save"/>'><i class="fas fa-download"></i> Save</a> --%>
-<!-- 				</li> -->
 				<li>
 					<a href='<spring:url value="/army/create"/>'><i class="fas fa-plus-circle"></i> New</a>
 				</li>
@@ -80,6 +45,7 @@
 	</footer>
 	<script type="text/javascript" src='<spring:url value="/js/scripts.js"/>'></script>
 	<script type="text/javascript" src='<spring:url value="/js/menu.js"/>'></script>
+	<script type="text/javascript" src='<spring:url value="/js/ajax.js"/>'></script>
 	<jsp:invoke fragment="scripts" />
 </body>
 </html>

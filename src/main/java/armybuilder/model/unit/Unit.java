@@ -14,12 +14,17 @@ import armybuilder.model.unit.role.IHaveRoleTactique;
 import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.model.unit.weapon.IHaveWeapons;
 import armybuilder.model.unit.weapon.IUnitWeapon;
+import armybuilder.modelold.deprecated.unit.option.UnitOptionType;
 
 public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 
 	private int id;
 	private UnitModel model;
 	private boolean general;
+	private boolean chef;
+	private boolean musicien;
+	private boolean banniere;
+	private boolean invoquee;
 	// private List<UnitOption> options;
 
 	private List<IRule<?>> rules = new ArrayList<IRule<?>>();
@@ -29,6 +34,9 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 	public void decorate() {
 		rules.addAll(model.getRules());
 		keyWords.addAll(model.getKeyWords());
+		Arrays.stream(UnitOptionCategory.values())
+				.filter(cat -> cat.getType() == UnitOptionType.bool)
+				.filter(cat -> cat.is(this));
 		//model.decorate(this);
 	}
 
@@ -116,4 +124,37 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 	public boolean isGeneral() {
 		return general;
 	}
+
+	public void setChef(boolean chef) {
+		this.chef = chef;
+	}
+
+	public boolean isChef() {
+		return chef;
+	}
+
+	public void setMusicien(boolean musicien) {
+		this.musicien = musicien;
+	}
+
+	public boolean isMusicien() {
+		return musicien;
+	}
+
+	public void setBanniere(boolean banniere) {
+		this.banniere = banniere;
+	}
+
+	public boolean isBanniere() {
+		return banniere;
+	}
+
+	public void setInvoquee(boolean invoquee) {
+		this.invoquee = invoquee;
+	}
+
+	public boolean isInvoquee() {
+		return invoquee;
+	}
+
 }
