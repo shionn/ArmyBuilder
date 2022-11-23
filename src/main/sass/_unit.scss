@@ -1,5 +1,12 @@
 @import "_variables.scss";
 
+div.units {
+	@media print {
+		columns: 2;
+		column-gap: 5px;
+	}
+}
+
 article.unit {
 	border: 1px dashed $color-dark;
 	margin-bottom: 5px;

@@ -4,6 +4,13 @@ h2 {
 	margin: 10px 10px 5px 10px;
 }
 
+div.rules {
+	@media print {
+		columns: 3;
+		column-gap: 5px;
+	}
+}
+
 div.rule {
 	border: 1px dashed $color-dark;
 	padding: 5px;
