@@ -1,1 +1,1 @@
-_aptitude de commandement_ quand 1 unité __DoK__ est choisie pour combattre en phase de combat, gagne _6 explosif_.
+*1 unité __DoK__ combat en phase de combat*, gagne 6 explosif.

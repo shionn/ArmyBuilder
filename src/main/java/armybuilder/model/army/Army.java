@@ -23,9 +23,9 @@ public class Army implements IHaveRule {
 	private List<IRule<?>> rules = new ArrayList<IRule<?>>();
 
 	public void decorate() {
+		units.forEach(u -> u.decorate());
 		allegiance.decorate(this);
 		subAllegiance.decorate(this);
-		units.forEach(u -> u.decorate());
 		Arrays.stream(GeneriqueRule.values()).forEach(r -> r.decorate(this));
 	}
 

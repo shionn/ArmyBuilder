@@ -19,7 +19,6 @@ public enum Allegiance {
 				a.addIf(a.count(KeyWord.Khinerai) >1, DokRule.RegalCruel);
 				a.add(DokRule.MareeDeLames);
 				a.addIf(a.count(KeyWord.GrandeGladiatrice) > 0, DokRule.CulteDeLExecutrice);
-				a.addIf(a.count(KeyWord.GrandeGladiatrice) > 0, DokRule.CulteDeLExecutrice);
 				a.addIf(a.is(SubAllegiance.HaggNar) || a.is(SubAllegiance.KheltNar), DokRule.HaineDuChaos);
 				a.addIf(a.count(KeyWord.RodeursDeLOmbre) > 0, DokRule.AttaqueInatendue);
 			}),
