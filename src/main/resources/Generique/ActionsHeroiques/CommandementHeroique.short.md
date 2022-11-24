@@ -1,0 +1,1 @@
+Sur 4+(2+ si général tué) +1PC pour un **Héros**.

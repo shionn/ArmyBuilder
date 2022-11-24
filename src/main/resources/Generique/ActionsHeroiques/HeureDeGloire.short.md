@@ -1,0 +1,1 @@
++1 blessure et +1 sauvegarde. 1 seul fois par **Héros**.

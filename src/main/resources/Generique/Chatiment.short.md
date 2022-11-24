@@ -1,0 +1,1 @@
+_prière_ 2+ à 48". 1BM (D3BM si récitation>6+) sur un **Prêtre**.

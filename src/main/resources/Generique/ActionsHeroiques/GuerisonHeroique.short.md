@@ -1,0 +1,1 @@
+Sur 2D6 <= Bravoure d'__Héros !engagé__, guérir D3 blessures.

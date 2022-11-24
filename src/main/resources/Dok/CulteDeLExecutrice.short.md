@@ -1,0 +1,1 @@
+Accomplie si __Grande Gladiatrice__ tue un __Héros__ ennemi avec Coup de Grâce.
