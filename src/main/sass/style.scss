@@ -39,6 +39,13 @@ body {
 		}
 	}
 
+	.print-only {
+		display: none;
+		@media print {
+			display: unset;
+		}
+	}
+
 	table {
 		border: 1px dashed $color-dark;
 		@media print {
@@ -58,8 +65,13 @@ body {
 		}
 	}
 
-	div.units {
+	.columns2 {
 		columns: 2;
+		column-gap: 5px;
+	}
+
+	.columns3 {
+		columns: 3;
 		column-gap: 5px;
 	}
 

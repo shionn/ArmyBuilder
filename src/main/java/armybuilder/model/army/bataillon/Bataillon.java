@@ -3,9 +3,13 @@ package armybuilder.model.army.bataillon;
 import java.util.List;
 
 import armybuilder.model.IHaveDisplayName;
+import armybuilder.model.army.Army;
+import armybuilder.model.army.IDecoreArmy;
 import armybuilder.model.rule.IRule;
+import armybuilder.model.unit.IDecorateUnit;
+import armybuilder.model.unit.Unit;
 
-public class Bataillon implements IHaveDisplayName {
+public class Bataillon implements IHaveDisplayName, IDecoreArmy, IDecorateUnit {
 
 	private int id;
 	private BataillonType type;
@@ -23,6 +27,20 @@ public class Bataillon implements IHaveDisplayName {
 		return type.getCompositions();
 	}
 
+	public boolean availableFor(Unit unit) {
+		return type.availableFor(unit);
+	}
+
+	@Override
+	public void decorate(Unit unit) {
+		type.decorate(unit);
+	}
+
+	@Override
+	public void decorate(Army army) {
+		type.decorate(army);
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -38,5 +56,6 @@ public class Bataillon implements IHaveDisplayName {
 	public void setType(BataillonType type) {
 		this.type = type;
 	}
+
 
 }

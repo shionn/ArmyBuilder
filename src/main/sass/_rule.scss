@@ -1,18 +1,9 @@
 @import "_variables.scss";
 
-div.rules-group {
-	page-break-inside: avoid;
-	div.rules {
-		columns: 3;
-		column-gap: 5px;
-	}
-}
-
 div.rule {
 	border: 1px dashed $color-dark;
 	padding: 5px;
 	break-inside: avoid;
-	//margin-bottom: 5px;
 	@media print {
 		border: 2px solid black;
 	}

@@ -27,10 +27,6 @@ article.unit, article.bataillon  {
 	}
 	main {
 		div.rules {
-			display: none;
-			@media print {
-				display: unset;
-			}
 			margin: 0 5px 5px 5px;
 			span:not(:last-child)::after {
 				content: ',';

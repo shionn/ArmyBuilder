@@ -1,5 +1,6 @@
 package armybuilder.model.army.bataillon;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
@@ -7,16 +8,19 @@ import java.util.function.Function;
 import armybuilder.model.IHaveDisplayName;
 import armybuilder.model.army.Allegiance;
 import armybuilder.model.army.Army;
+import armybuilder.model.army.IDecoreArmy;
 import armybuilder.model.army.PackDeBataille;
 import armybuilder.model.rule.IRule;
+import armybuilder.model.unit.IDecorateUnit;
 import armybuilder.model.unit.Unit;
 
-public enum BataillonType implements IHaveDisplayName {
+public enum BataillonType implements IHaveDisplayName, IDecoreArmy, IDecorateUnit {
 
 	AvantGarde(
 			"Avant-Garde",
 			l -> true,
 			Arrays.asList(BataillonRule.Rapides),
+			Arrays.asList(),
 			contain(BataillonSlot.SousCommandant, 1),
 			contain(BataillonSlot.Troupe, 1),
 			opt(BataillonSlot.Troupe, 2)),
@@ -24,6 +28,7 @@ public enum BataillonType implements IHaveDisplayName {
 			"Briseur de Ligne",
 			l -> true,
 			Arrays.asList(BataillonRule.Experts),
+			Arrays.asList(),
 			contain(BataillonSlot.Commandant, 1),
 			contain(BataillonSlot.Monstre, 2),
 			opt(BataillonSlot.Monstre, 1)),
@@ -31,23 +36,27 @@ public enum BataillonType implements IHaveDisplayName {
 			"Chasseurs des Contrées",
 			l -> l.is(PackDeBataille.BataillesRangees2021) && l.count(BataillonType.valueOf("ChasseurDesContrees")) <= 1,
 			Arrays.asList(BataillonRule.OutsidersExperts),
+			Arrays.asList(),
 			contain(BataillonSlot.Troupe, 2),
 			opt(BataillonSlot.Troupe, 1)),
 	ChasseursDePrimes(
 			"Chasseurs de Primes",
 			l -> l.is(PackDeBataille.BataillesRangees2022) && l.count(BataillonType.valueOf("ChasseursDePrimes")) <= 1,
 			Arrays.asList(BataillonRule.ChasseursDeTetes),
+			Arrays.asList(),
 			contain(BataillonSlot.Troupe, 2),
 			opt(BataillonSlot.Troupe, 1)),
 	ConquerantsExperts(
 			"Conquérants Experts",
 			l -> l.is(PackDeBataille.BataillesRangees2022) && l.count(BataillonType.valueOf("ConquerantsExperts")) <= 1,
 			Arrays.asList(BataillonRule.ForceDominatrice),
+			Arrays.asList(),
 			contain(BataillonSlot.VeteranDeGallet, 2),
 			opt(BataillonSlot.VeteranDeGallet, 1)),
 	GardeRaprocheeM(
 			"Garde Rapprochée (Magnifiques)",
 			l -> true,
+			Arrays.asList(),
 			Arrays.asList(BataillonRule.Magnifiques),
 			contain(BataillonSlot.Commandant, 1),
 			contain(BataillonSlot.SousCommandant, 2),
@@ -55,6 +64,7 @@ public enum BataillonType implements IHaveDisplayName {
 	GardeRaprocheeS(
 			"Garde Rapprochée (Stratèges)",
 			l -> true,
+			Arrays.asList(),
 			Arrays.asList(BataillonRule.Strateges),
 			contain(BataillonSlot.Commandant, 1),
 			contain(BataillonSlot.SousCommandant, 2),
@@ -62,6 +72,7 @@ public enum BataillonType implements IHaveDisplayName {
 	GardeVyperine("Garde Vypérine",
 			l->l.is(Allegiance.DoK),
 			Arrays.asList(BataillonRule.Strateges),
+			Arrays.asList(),
 			contain(BataillonSlot.Morathi, 2),
 			contain(BataillonSlot.KhainiteLeader, 1),
 			opt(BataillonSlot.KhainiteLeader, 2),
@@ -71,6 +82,7 @@ public enum BataillonType implements IHaveDisplayName {
 			"Grande Batterie",
 			l -> true,
 			Arrays.asList(BataillonRule.Tueurs),
+			Arrays.asList(),
 			contain(BataillonSlot.SousCommandant, 1),
 			contain(BataillonSlot.Artillerie, 2),
 			opt(BataillonSlot.Artillerie, 1)),
@@ -78,24 +90,28 @@ public enum BataillonType implements IHaveDisplayName {
 			"Meute de Bête Alpha",
 			l -> l.is(PackDeBataille.BataillesRangees2021) && l.count(BataillonType.valueOf("MeuteDeBeteAlpha")) <= 1,
 			Arrays.asList(BataillonRule.PisterALOdeur),
+			Arrays.asList(),
 			contain(BataillonSlot.Monstre, 2),
 			opt(BataillonSlot.Monstre, 1)),
 	PatrouilleDeLOmbreU(
 			"Patrouille de l'Ombre (Unifiés)",
 			l -> l.is(Allegiance.DoK),
 			Arrays.asList(BataillonRule.Unifies),
+			Arrays.asList(),
 			contain(BataillonSlot.ConjurateursDuFauMaudit, 2),
 			contain(BataillonSlot.GuerriereKhinerai, 4)),
 	PatrouilleDeLOmbreR(
 			"Patrouille de l'Ombre (Rapides)",
 			l -> l.is(Allegiance.DoK),
 			Arrays.asList(BataillonRule.Rapides),
+			Arrays.asList(),
 			contain(BataillonSlot.ConjurateursDuFauMaudit, 2),
 			contain(BataillonSlot.GuerriereKhinerai, 4)),
 	RegimentDeBataille(
 			"Régiment de Bataille",
 			l -> true,
 			Arrays.asList(BataillonRule.Unifies),
+			Arrays.asList(),
 			contain(BataillonSlot.Commandant, 1),
 			opt(BataillonSlot.SousCommandant, 2),
 			contain(BataillonSlot.Troupe, 2),
@@ -105,6 +121,7 @@ public enum BataillonType implements IHaveDisplayName {
 	SeigneurDeGuerre(
 			"Seigneur de Guerre",
 			l -> true,
+			Arrays.asList(),
 			Arrays.asList(BataillonRule.Strateges, BataillonRule.Magnifiques),
 			contain(BataillonSlot.Commandant, 1),
 			opt(BataillonSlot.Commandant, 1),
@@ -118,15 +135,18 @@ public enum BataillonType implements IHaveDisplayName {
 
 	private String displayName;
 	private Function<Army, Boolean> available;
-	private List<IRule<?>> rules;
+	private List<IRule<?>> unitRules;
+	private List<IRule<?>> armyRules;
 	private List<BataillonComposition> compositions;
 
-	private BataillonType(String displayName, Function<Army, Boolean> available, List<IRule<?>> rules,
-			BataillonComposition... composition) {
+	private BataillonType(String displayName, Function<Army, Boolean> available, List<IRule<?>> unitRules,
+			List<IRule<?>> armyRules, BataillonComposition... composition) {
 		this.displayName = displayName;
 		this.available = available;
 		this.compositions = Arrays.asList(composition);
-		this.rules = rules;
+		this.unitRules = unitRules;
+		this.armyRules = armyRules;
+
 	}
 
 	@Override
@@ -134,11 +154,11 @@ public enum BataillonType implements IHaveDisplayName {
 		return displayName;
 	}
 
-
 	public List<IRule<?>> getRules() {
-		return rules;
+		List<IRule<?>> all = new ArrayList<IRule<?>>(unitRules);
+		all.addAll(armyRules);
+		return all;
 	}
-
 
 	public List<BataillonComposition> getCompositions() {
 		return compositions;
@@ -152,6 +172,15 @@ public enum BataillonType implements IHaveDisplayName {
 		return compositions.stream().filter(c -> c.isAvailable(unit)).findAny().isPresent();
 	}
 
+	@Override
+	public void decorate(Unit unit) {
+		unitRules.stream().forEach(unit::add);
+	}
+
+	@Override
+	public void decorate(Army army) {
+		armyRules.stream().forEach(army::add);
+	}
 
 	private static BataillonComposition contain(BataillonSlot slot, int count) {
 		return new BataillonComposition() {

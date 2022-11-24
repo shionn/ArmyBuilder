@@ -36,6 +36,7 @@ public class Army implements IHaveRule {
 				.stream()
 				.filter(Objects::nonNull)
 				.forEach(opt -> opt.decorate(this));
+		bataillons.forEach(bat -> bat.decorate(this));
 		Arrays.stream(GeneriqueRule.values()).forEach(r -> r.decorate(this));
 	}
 
@@ -44,10 +45,13 @@ public class Army implements IHaveRule {
 	 */
 	@Override
 	public List<IRule<?>> getRules() {
+		return rules.stream().distinct().sorted(new DisplayNameComparator()).toList();
+	}
+
+	public List<IRule<?>> getAllRules() {
 		List<IRule<?>> results = new ArrayList<IRule<?>>(rules);
-		units.stream().flatMap(u -> u.getRules().stream()).distinct().forEach(results::add);
-		results.sort(new DisplayNameComparator());
-		return results;
+		units.stream().flatMap(u -> u.getRules().stream()).forEach(results::add);
+		return results.stream().distinct().sorted(new DisplayNameComparator()).toList();
 	}
 
 	public void add(IRule<?>... rules) {
@@ -73,6 +77,13 @@ public class Army implements IHaveRule {
 
 	public List<Unit> units(RoleTactique role) {
 		return units.stream().filter(u -> u.is(role)).collect(Collectors.toList());
+	}
+
+	/**
+	 * bataillons
+	 */
+	public List<Bataillon> bataillons(Unit unit) {
+		return bataillons.stream().filter(bat -> bat.availableFor(unit)).toList();
 	}
 
 	/**

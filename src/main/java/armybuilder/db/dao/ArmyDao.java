@@ -3,6 +3,7 @@ package armybuilder.db.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Many;
+import org.apache.ibatis.annotations.One;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -23,9 +24,13 @@ public interface ArmyDao {
 	public Army read(int id);
 
 	@Select("SELECT * FROM Unit WHERE army = #{id}")
+	@Results({ @Result(property = "bataillon", column = "bataillon", one = @One(select = "readUnitBataillon")) })
 	public List<Unit> readUnits(int id);
 
 	@Select("SELECT * FROM Bataillon WHERE army = #{id}")
 	public List<Bataillon> readBataillons(int id);
+
+	@Select("SELECT * FROM Bataillon WHERE id = #{id}")
+	public Bataillon readUnitBataillon(int id);
 
 }

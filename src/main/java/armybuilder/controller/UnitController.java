@@ -30,7 +30,7 @@ public class UnitController {
 	}
 
 	@GetMapping("/unit/rm/{id}")
-	public String addUnit(@PathVariable("id") int id) {
+	public String rmUnit(@PathVariable("id") int id) {
 		session.getMapper(UnitEditDao.class).rm(id);
 		session.commit();
 		return "redirect:/";
@@ -44,6 +44,13 @@ public class UnitController {
 	@PostMapping("/unit/edit/{id}")
 	public String editSelectUnitOption(@PathVariable("id") int id, @RequestHeader("option") UnitOption option) {
 		return edit(id, option);
+	}
+
+	@PostMapping("/unit/bataillon/{id}")
+	public String editBataillon(@PathVariable("id") int unit, @RequestHeader("bataillon") int bataillon) {
+		session.getMapper(UnitEditDao.class).editBataillon(unit, bataillon);
+		session.commit();
+		return "redirect:/";
 	}
 
 	private String edit(int id, UnitOption option) {

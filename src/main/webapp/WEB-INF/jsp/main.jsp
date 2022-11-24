@@ -90,7 +90,7 @@
 </form:form>
 
 <h2>Units</h2>
-<div class="units">
+<div class="units columns2" style="page-break-after: always;">
 	<c:forEach items="${army.units}" var="unit">
 		<article class="unit">
 			<spring:url value="/unit/rm/${unit.id}" var="url" />
@@ -198,15 +198,24 @@
 								</select>
 							</c:if>
 						</c:forEach>
+						<c:if test="${not empty army.bataillons(unit)}">
+							<spring:url value="/unit/bataillon/${unit.id}" var="url" />
+							<select name="bataillon" class="ajax" data-url="${url}" data-update="body>main" >
+								<option value="0">Aucun
+								<c:forEach items="${army.bataillons(unit)}" var="bat">
+									<option value="${bat.id}"<c:if test="${unit.bataillon.id == bat.id}"> selected="selected"</c:if>>${bat.displayName} ${bat.id}
+								</c:forEach>
+							</select>
+						</c:if>
 					</fieldset>
 				</form:form>
-				<div class="rules">
-					<c:forEach items="${unit.rules}" var="rule">
-						<span>${rule.displayName}</span>
-					</c:forEach>
-				</div>
+<!-- 				<div class="rules"> -->
+<%-- 					<c:forEach items="${unit.rules}" var="rule"> --%>
+<%-- 						<span>${rule.displayName}</span> --%>
+<%-- 					</c:forEach> --%>
+<!-- 				</div> -->
 				<c:forEach items="${unit.rules}" var="rule">
-					<div class="rule print-hidden"><span>${rule.displayName}:</span>${rule.description}</div>
+					<div class="rule"><span>${rule.displayName}:</span>${rule.description}</div>
 				</c:forEach>
 			</main>
 			<c:if test="${not empty unit.keyWords}">
@@ -229,13 +238,13 @@
 				</span>
 			</header>
 			<main>
-				<div class="rules">
-					<c:forEach items="${bat.rules}" var="rule">
-						<span>${rule.displayName}</span>
-					</c:forEach>
-				</div>
+<!-- 				<div class="rules"> -->
+<%-- 					<c:forEach items="${bat.rules}" var="rule"> --%>
+<%-- 						<span>${rule.displayName}</span> --%>
+<%-- 					</c:forEach> --%>
+<!-- 				</div> -->
 				<c:forEach items="${bat.rules}" var="rule">
-					<div class="rule print-hidden"><span>${rule.displayName}:</span>${rule.description}</div>
+					<div class="rule"><span>${rule.displayName}:</span>${rule.description}</div>
 				</c:forEach>
 			</main>
 		</article>
@@ -245,17 +254,14 @@
 <h2>Rules</h2>
 <c:forEach items="${RuleType.values()}" var="type">
 	<c:if test="${type.displayed and not empty army.rules(type)}">
-		<div class="rules-group">
-			<h3>${type.displayName}</h3>
-			<div class="rules">
-				<c:forEach items="${army.rules(type)}" var="rule">
-					<div class="rule"><span>${rule.displayName}:</span>${rule.description}</div>
-				</c:forEach>
-			</div>
+		<h3>${type.displayName}</h3>
+		<div class="columns2">
+			<c:forEach items="${army.rules(type)}" var="rule">
+				<div class="rule"><span>${rule.displayName}:</span>${rule.description}</div>
+			</c:forEach>
 		</div>
 	</c:if>
 </c:forEach>
-
 </jsp:attribute>
 <jsp:attribute name="scripts">
 <%-- 	<script type="text/javascript" src='<spring:url value="/js/army.js"/>'></script> --%>

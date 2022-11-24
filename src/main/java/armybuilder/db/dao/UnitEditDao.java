@@ -28,4 +28,7 @@ public interface UnitEditDao {
 	@Delete("DELETE FROM Unit WHERE id = #{id}")
 	void rm(int id);
 
+	@Update("UPDATE Unit SET bataillon = #{bataillon} WHERE id = #{unit}")
+	void editBataillon(@Param("unit") int unit, @Param("bataillon") int bataillon);
+
 }

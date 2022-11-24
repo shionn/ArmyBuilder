@@ -54,6 +54,9 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 				.stream()
 				.filter(Objects::nonNull)
 				.forEach(o -> o.decorate(this));
+		if (bataillon != null) {
+			bataillon.decorate(this);
+		}
 	}
 
 	/**

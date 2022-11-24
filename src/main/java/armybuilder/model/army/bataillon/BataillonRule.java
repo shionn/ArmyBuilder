@@ -9,12 +9,12 @@ import armybuilder.model.rule.RuleType;
 import armybuilder.serialisation.DescriptionReader;
 
 public enum BataillonRule implements IRule<BataillonRule> {
-	Unifies("Unifiés"),
+	Unifies("Unifiés", RuleType.Aptitude),
 	Experts("Experts", RuleType.AptitudesDeCommandement, RuleType.PhaseDeTir, RuleType.PhaseDeCombat),
-	Magnifiques("Magnifiques"),
+	Magnifiques("Magnifiques", RuleType.Composition),
 	Tueurs("Tueurs", RuleType.AptitudesDeCommandement, RuleType.PhaseDeTir, RuleType.PhaseDeCombat,
 			RuleType.PhaseDeCharge),
-	Strateges("Stratèges", RuleType.PhaseDesHeros),
+	Strateges("Stratèges", RuleType.Aptitude, RuleType.PhaseDesHeros),
 	Rapides("Rapides", RuleType.AptitudesDeCommandement, RuleType.PhaseDeMouvement),
 	PisterALOdeur("Pister à l'Odeur", RuleType.Aptitude, RuleType.PhaseBeforeStart),
 	OutsidersExperts("Outsiders Experts", RuleType.Aptitude),
