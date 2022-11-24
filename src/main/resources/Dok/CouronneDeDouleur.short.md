@@ -1,0 +1,1 @@
+∀ unités ennemis à 9" (15" si à tuée) ne peuvent recevoir les ordres _Ralliement ou Présence Exaltante_.

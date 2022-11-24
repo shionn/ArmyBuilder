@@ -1,0 +1,1 @@
+_Aptitude de commandement_ _votre phase des héros_ 1 unité __DoK__ engagée peut combattre.

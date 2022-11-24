@@ -1,0 +1,1 @@
+_fin phase de combat_, 1 __Héros__ ennemi à 1". Si nb blessure allouées à ce __Héros__ +3 > caractéristique de Blessures du __Héros__ ennemi alors il est tué.

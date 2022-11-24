@@ -97,7 +97,7 @@ public enum DokRule implements IRule<DokRule> {
 	PresenceIntimidante(RuleType.Aptitude, RuleType.TraisUnitee),
 	RegardIncarnat(RuleType.Aptitude, RuleType.PhaseDeTir, RuleType.TraisUnitee),
 	SoeurDesMelusai(RuleType.Aptitude, RuleType.PhaseDeCombat, RuleType.TraisUnitee),
-	Sorcier_3_2_1(RuleType.Aptitude, RuleType.TraisUnitee),
+	SorcierMorathi(RuleType.Aptitude, RuleType.TraisUnitee),
 	TransmuteEnCristal_Ferecaille(
 			RuleType.Aptitude,
 			RuleType.PhaseDeCombat,

@@ -1,0 +1,1 @@
+Max 3 Blessures ou BM par tour. Non soignable.

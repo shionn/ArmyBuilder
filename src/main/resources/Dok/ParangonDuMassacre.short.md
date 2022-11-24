@@ -1,0 +1,1 @@
+∀ __Sœurs du Massacre || Érinyes__ ∈ 12" ont Blessure 3+ au lieu de 4+ et Perf -1 au lieu de "-".

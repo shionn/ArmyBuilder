@@ -1,0 +1,1 @@
+Réserve, _fin votre phase de mouvement_, placer cette unité à +9" d'ennemis.

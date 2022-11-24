@@ -1,0 +1,1 @@
+∀ blessures et BM allouées à _Morathi-Khaine_ sont alloué à celle-ci !annulable. Si __Morathi-Khaine_ tué, 3 blessures allouées à celle-ci à la place. Si tuée alors _Morathi-Khaine_ aussi.

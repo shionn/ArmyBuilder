@@ -1,0 +1,1 @@
+Après avoir tiré, mouvement normal de 6".

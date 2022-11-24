@@ -1,0 +1,1 @@
+_sort_ 8+ ∈ 18". +1 Perforation mêlée +1 Dégâts mêlée si charge ==> votre prochaine phase des héros.

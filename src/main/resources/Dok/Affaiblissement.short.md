@@ -1,0 +1,1 @@
+_sort_ 7+ à 18". +1 blessure contre ==> votre prochaine phase des héros.

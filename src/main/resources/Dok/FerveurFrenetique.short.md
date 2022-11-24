@@ -1,0 +1,1 @@
+gagne +1 blessure mêlée si ∈ 12" d'un **Totem Filles de Khaine**.

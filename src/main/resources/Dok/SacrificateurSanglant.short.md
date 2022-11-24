@@ -1,0 +1,1 @@
+Après avoir combattu, si des figurines ennemies ont été tuées par des blessures causées par ses attaques. Il peut combattre une seconde fois avec frappe en dernier.

@@ -30,10 +30,10 @@ public class DescriptionReader {
 				try {
 					return tryToRead(folder, name + ".short");
 				} catch (IOException | RuntimeException e) {
-					return tryToRead(folder, name);
+					return "- FULL - " + tryToRead(folder, name);
 				}
 			} catch (IOException | RuntimeException e) {
-				return "-- OLD -- " + tryToRead(folder + "old/", name);
+				return "- OLD - " + tryToRead(folder + "old/", name);
 			}
 		} catch (IOException | RuntimeException e) {
 			throw new IllegalStateException(folder + name + ".md");

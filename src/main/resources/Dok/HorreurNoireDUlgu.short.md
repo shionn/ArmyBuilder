@@ -1,0 +1,1 @@
+_sort_ 7+ à 36", D6 sur 1:1BM, sur 2-3 D3BM, sur 4+ D6BM.

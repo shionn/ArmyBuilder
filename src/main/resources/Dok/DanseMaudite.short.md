@@ -1,0 +1,1 @@
+_prière_ 3+. gagne frappe en premier à la phase de combat suivante.
