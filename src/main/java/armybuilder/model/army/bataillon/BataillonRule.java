@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import armybuilder.model.rule.RuleType;
 import armybuilder.model.rule.IRule;
+import armybuilder.model.rule.RuleType;
 import armybuilder.serialisation.DescriptionReader;
 
 public enum BataillonRule implements IRule<BataillonRule> {
@@ -41,7 +41,7 @@ public enum BataillonRule implements IRule<BataillonRule> {
 
 	@Override
 	public String getDescription() throws IOException {
-		return new DescriptionReader().read("Generique/Bataillon/", getName());
+		return new DescriptionReader().read("Generique/Bataillon/", name());
 	}
 
 

@@ -18,7 +18,7 @@ public interface IUnitModel<T extends Enum<T> & IUnitModel<T>> extends IHaveWeap
 
 	String name();
 
-	public boolean available(Army army);
+	public boolean availableFor(Army army);
 
 
 	List<IRule<?>> getRules();

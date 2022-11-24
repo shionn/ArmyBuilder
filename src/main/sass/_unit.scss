@@ -1,13 +1,6 @@
 @import "_variables.scss";
 
-div.units {
-	@media print {
-		columns: 2;
-		column-gap: 5px;
-	}
-}
-
-article.unit {
+article.unit, article.bataillon  {
 	@media print {
 		border: 2px solid black;
 	}
@@ -21,36 +14,24 @@ article.unit {
 		margin-bottom: 5px;
 		span {
 			float: right;
+			img {
+				height: 18px;
+				&.opt {
+					opacity: 70%;
+				}
+			}
 		}
 		a {
 			color: $color-white;
 		}
 	}
 	main {
-		table {
-			margin: 0 auto;
-			border: 1px dashed $color-dark;
-			margin-bottom: 5px;
-			border-collapse: collapse;
-			border-spacing: 0;
-			@media print {
-				border: 2px solid black;
-			}
-			thead {
-				background-color: $color-dark;
-				color: $color-white;
-			}
-			td,th {
-				padding: 2px 4px;
-				text-align: center;
-			}
-		}
 		div.rules {
 			display: none;
-			margin: 0 5px 5px 5px;
 			@media print {
-				columns: unset;
+				display: unset;
 			}
+			margin: 0 5px 5px 5px;
 			span:not(:last-child)::after {
 				content: ',';
 			}

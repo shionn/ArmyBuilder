@@ -28,12 +28,12 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	SoeurDuMassacre(DokUnitModel.SoeurDuMassacre),
 	Erinyes(DokUnitModel.Erinyes),
 //	KhainiteShadowstalkers(DokUnitModel.KhainiteShadowstalkers),
-//	ConjurateursDuFeuMaudit(DokUnitModel.ConjurateursDuFeuMaudit),
+	ConjurateursDuFeuMaudit(DokUnitModel.ConjurateursDuFeuMaudit),
 	AvatarDeKhaine(DokUnitModel.AvatarDeKhaine),
 	BloodStalkers(DokUnitModel.BloodStalkers),
 	BloodSisters(DokUnitModel.BloodSisters),
 	EtripeusesKhinerai(DokUnitModel.EtripeusesKhinerai),
-//	EgorgeusesKhinerai(DokUnitModel.EgorgeusesKhinerai),
+	EgorgeusesKhinerai(DokUnitModel.EgorgeusesKhinerai),
 //	BloodwrackViper(DokUnitModel.BloodwrackViper),
 //	Bladewind(DokUnitModel.Bladewind),
 	CoeurDeFureur(DokUnitModel.CoeurDeFureur);
@@ -50,8 +50,8 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	}
 
 	@Override
-	public boolean available(Army army) {
-		return sub.available(army);
+	public boolean availableFor(Army army) {
+		return sub.availableFor(army);
 	}
 
 	@Override

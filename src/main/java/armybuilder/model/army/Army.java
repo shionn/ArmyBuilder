@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import armybuilder.model.army.bataillon.Bataillon;
+import armybuilder.model.army.bataillon.BataillonType;
 import armybuilder.model.comparator.DisplayNameComparator;
 import armybuilder.model.rule.GeneriqueRule;
 import armybuilder.model.rule.IHaveRule;
@@ -24,6 +26,7 @@ public class Army implements IHaveRule {
 	private GrandeStrategie grandeStrategie;
 	private Triomphes triomphes;
 	private List<Unit> units = new ArrayList<Unit>();
+	private List<Bataillon> bataillons = new ArrayList<Bataillon>();
 
 	private List<IRule<?>> rules = new ArrayList<IRule<?>>();
 
@@ -167,6 +170,18 @@ public class Army implements IHaveRule {
 
 	public boolean is(Triomphes triomphes) {
 		return this.triomphes == triomphes;
+	}
+
+	public List<Bataillon> getBataillons() {
+		return bataillons;
+	}
+
+	public void setBataillons(List<Bataillon> bataillons) {
+		this.bataillons = bataillons;
+	}
+
+	public long count(BataillonType type) {
+		return bataillons.stream().filter(b -> b.getType() == type).count();
 	}
 
 }

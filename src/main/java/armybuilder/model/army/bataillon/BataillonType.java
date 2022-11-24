@@ -10,7 +10,6 @@ import armybuilder.model.army.Army;
 import armybuilder.model.army.PackDeBataille;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.Unit;
-import armybuilder.model.unit.option.UnitOptionCategory;
 
 public enum BataillonType implements IHaveDisplayName {
 
@@ -136,33 +135,23 @@ public enum BataillonType implements IHaveDisplayName {
 	}
 
 
-	public List<IRule<?>> rules() {
+	public List<IRule<?>> getRules() {
 		return rules;
 	}
 
 
-	public List<BataillonComposition> compositions() {
+	public List<BataillonComposition> getCompositions() {
 		return compositions;
 	}
 
-	public boolean isAvailable(Army army) {
+	public boolean availableFor(Army army) {
 		return available.apply(army);
 	}
 
-	public boolean isAvailable(Unit unit) {
+	public boolean availableFor(Unit unit) {
 		return compositions.stream().filter(c -> c.isAvailable(unit)).findAny().isPresent();
 	}
 
-	@Override
-	public UnitOptionCategory option() {
-		return UnitOptionCategory.Bataillon;
-	}
-
-	@Override
-	public void rebuild(Unit unit) {
-		// TODO Auto-generated method stub
-
-	}
 
 	private static BataillonComposition contain(BataillonSlot slot, int count) {
 		return new BataillonComposition() {
@@ -174,7 +163,7 @@ public enum BataillonType implements IHaveDisplayName {
 
 			@Override
 			public String getImg() {
-				return slot.getName();
+				return slot.name();
 			}
 
 			@Override
@@ -200,7 +189,7 @@ public enum BataillonType implements IHaveDisplayName {
 
 			@Override
 			public String getImg() {
-				return slot.getName();
+				return slot.name();
 			}
 
 			@Override

@@ -1,6 +1,6 @@
 package armybuilder.model.army.bataillon;
 
-import armybuilder.modelold.deprecated.unit.Unit;
+import armybuilder.model.unit.Unit;
 
 public interface BataillonComposition {
 

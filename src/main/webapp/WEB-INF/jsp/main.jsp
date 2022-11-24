@@ -3,6 +3,7 @@
 <%@ page import="armybuilder.model.army.PackDeBataille" %>
 <%@ page import="armybuilder.model.army.GrandeStrategie" %>
 <%@ page import="armybuilder.model.army.Triomphes" %>
+<%@ page import="armybuilder.model.army.bataillon.BataillonType" %>
 <%@ page import="armybuilder.model.rule.RuleType" %>
 <%@ page import="armybuilder.model.unit.model.UnitModel" %>
 <%@ page import="armybuilder.model.unit.role.RoleTactique" %>
@@ -23,7 +24,7 @@
 				<option>- Sous Allegiance -</option>
 			</c:if>
 			<c:forEach items="${SubAllegiance.values()}" var="sub">
-				<c:if test="${sub.available(army)}">
+				<c:if test="${sub.availableFor(army)}">
 					<option value="${sub}"<c:if test="${army.is(sub)}"> selected="selected"</c:if>>${sub.displayName}</option>
 				</c:if>
 			</c:forEach>
@@ -64,8 +65,23 @@
 		<label>Unité</label>
 		<select name="model">
 			<c:forEach items="${UnitModel.values()}" var="model">
-				<c:if test="${model.available(army)}">
+				<c:if test="${model.availableFor(army)}">
 					<option value="${model}">${model.displayName}</option>
+				</c:if>
+			</c:forEach>
+		</select>
+		<input type="submit" value="Ajouter">
+	</fieldset>
+</form:form>
+<spring:url value="/bataillon/add" var="url" />
+<form:form action="${url}" method="POST">
+	<fieldset>
+		<legend>Ajout bataillon</legend>
+		<label>Bataillon</label>
+		<select name="type">
+			<c:forEach items="${BataillonType.values()}" var="type">
+				<c:if test="${type.availableFor(army)}">
+					<option value="${type}">${type.displayName}</option>
 				</c:if>
 			</c:forEach>
 		</select>
@@ -200,6 +216,28 @@
 					</c:forEach>
 				</footer>
 			</c:if>
+		</article>
+	</c:forEach>
+	<c:forEach items="${army.bataillons}" var="bat">
+		<article class="bataillon">
+			<spring:url value="/bataillon/rm/${bat.id}" var="url" />
+			<header>${bat.displayName} <a href="${url}"><i class="fa fa-trash"></i></a>
+				<span>
+					<c:forEach items="${bat.compositions}" var="c">
+						<img src="img/${c.img}.png"<c:if test="${c.opt}"> class="opt"</c:if>>
+					</c:forEach>
+				</span>
+			</header>
+			<main>
+				<div class="rules">
+					<c:forEach items="${bat.rules}" var="rule">
+						<span>${rule.displayName}</span>
+					</c:forEach>
+				</div>
+				<c:forEach items="${bat.rules}" var="rule">
+					<div class="rule print-hidden"><span>${rule.displayName}:</span>${rule.description}</div>
+				</c:forEach>
+			</main>
 		</article>
 	</c:forEach>
 </div>

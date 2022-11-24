@@ -75,7 +75,7 @@ public enum SubAllegiance implements IHaveDisplayName, IDecoreArmy {
 		this.modifier = modifier;
 	}
 
-	public boolean available(Army army) {
+	public boolean availableFor(Army army) {
 		return army.is(allegiance);
 	}
 

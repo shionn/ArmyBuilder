@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import armybuilder.model.army.bataillon.Bataillon;
 import armybuilder.model.comparator.DisplayNameComparator;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.keyword.IHaveKeyWord;
@@ -34,7 +35,7 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 	private UnitOption arme;
 	private UnitOption renforcee;
 	private UnitOption invoquee;
-	// private List<UnitOption> options;
+	private Bataillon bataillon;
 
 	private int points;
 	private List<IRule<?>> rules = new ArrayList<IRule<?>>();
@@ -273,4 +274,13 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 	public UnitOption getRenforcee() {
 		return renforcee;
 	}
+
+	public Bataillon getBataillon() {
+		return bataillon;
+	}
+
+	public void setBataillon(Bataillon bataillon) {
+		this.bataillon = bataillon;
+	}
+
 }

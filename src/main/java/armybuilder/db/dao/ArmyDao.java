@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 
 import armybuilder.model.army.Army;
+import armybuilder.model.army.bataillon.Bataillon;
 import armybuilder.model.unit.Unit;
 
 public interface ArmyDao {
@@ -17,10 +18,14 @@ public interface ArmyDao {
 
 	@Select("SELECT * FROM Army WHERE id = #{id}")
 	@Results({ @Result(property = "id", column = "id"),
-			@Result(property = "units", column = "id", many = @Many(select = "readUnits")) })
+			@Result(property = "units", column = "id", many = @Many(select = "readUnits")),
+			@Result(property = "bataillons", column = "id", many = @Many(select = "readBataillons")) })
 	public Army read(int id);
 
 	@Select("SELECT * FROM Unit WHERE army = #{id}")
 	public List<Unit> readUnits(int id);
+
+	@Select("SELECT * FROM Bataillon WHERE army = #{id}")
+	public List<Bataillon> readBataillons(int id);
 
 }

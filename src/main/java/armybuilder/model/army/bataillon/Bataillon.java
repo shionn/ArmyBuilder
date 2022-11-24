@@ -1,9 +1,27 @@
 package armybuilder.model.army.bataillon;
 
-public class Bataillon {
+import java.util.List;
+
+import armybuilder.model.IHaveDisplayName;
+import armybuilder.model.rule.IRule;
+
+public class Bataillon implements IHaveDisplayName {
 
 	private int id;
 	private BataillonType type;
+
+	@Override
+	public String getDisplayName() {
+		return type.getDisplayName();
+	}
+
+	public List<IRule<?>> getRules() {
+		return type.getRules();
+	}
+
+	public List<BataillonComposition> getCompositions() {
+		return type.getCompositions();
+	}
 
 	public int getId() {
 		return id;

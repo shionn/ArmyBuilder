@@ -352,7 +352,7 @@ public enum DokUnitModel implements IUnitModel<DokUnitModel> {
 	}
 
 	@Override
-	public boolean available(Army army) {
+	public boolean availableFor(Army army) {
 		return army.is(Allegiance.DoK);
 	}
 

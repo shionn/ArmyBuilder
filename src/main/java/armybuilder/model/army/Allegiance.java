@@ -55,7 +55,7 @@ public enum Allegiance implements IHaveDisplayName, IDecoreArmy {
 		}
 		if (army.getSubAllegiance() == null) {
 			Arrays.stream(SubAllegiance.values())
-					.filter(sub -> sub.available(army))
+					.filter(sub -> sub.availableFor(army))
 					.findFirst()
 					.ifPresent(sub -> army.setSubAllegiance(sub));
 		}
