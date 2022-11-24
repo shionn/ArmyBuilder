@@ -4,12 +4,17 @@ div.units {
 	@media print {
 		columns: 2;
 		column-gap: 5px;
+		page-break-after: always;
 	}
 }
 
 article.unit {
+	@media print {
+		border: 2px solid black;
+	}
 	border: 1px dashed $color-dark;
 	margin-bottom: 5px;
+	break-inside: avoid;
 	header {
 		padding: 5px;
 		background-color: $color-dark;
@@ -39,7 +44,11 @@ article.unit {
 			}
 		}
 		div.rules {
+			display: none;
 			margin: 0 5px 5px 5px;
+			@media print {
+				display: block;
+			}
 			span:not(:last-child)::after {
 				content: ',';
 			}

@@ -58,9 +58,9 @@ public enum GeneriqueRule implements IRule<GeneriqueRule> {
 	Ecroulement(null, RuleType.FureursMonstrueuses),
 
 	// regle
-	DissiperLesSorts(null, RuleType.Aptitude, RuleType.PhaseDesHeros),
-	Fiascos(null, RuleType.Aptitude, RuleType.PhaseDesHeros),
-	TestsDeDeroute(null, RuleType.Aptitude, RuleType.PhaseDeDeroute),
+	DissiperLesSorts(null, RuleType.Rule, RuleType.PhaseDesHeros),
+	Fiascos(null, RuleType.Rule, RuleType.PhaseDesHeros),
+	TestsDeDeroute(null, RuleType.Rule, RuleType.PhaseDeDeroute),
 
 	;
 

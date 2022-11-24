@@ -1,0 +1,1 @@
+Aptitude _début phase des héros_, 1 unité **DoK** amie ∈ 12". Une unité une seul fois par tour. _+1 round_ pour la regle **Rites de Sang**.

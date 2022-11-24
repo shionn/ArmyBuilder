@@ -23,11 +23,17 @@ body {
 		text-align: center;
 	}
 
-	form, nav, h2, h3, .print-hidden {
+	h3 {
+		margin: 5px;
+		page-break-after: never;
+	}
+
+	form, nav, h2, .print-hidden {
 		@media print {
 			display: none;
 		}
 	}
+
 }
 
 @import "_menu.scss";

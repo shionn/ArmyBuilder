@@ -4,7 +4,7 @@ h2 {
 	margin: 10px 10px 5px 10px;
 }
 
-div.rules {
+main > div.rules {
 	@media print {
 		columns: 3;
 		column-gap: 5px;
@@ -14,7 +14,11 @@ div.rules {
 div.rule {
 	border: 1px dashed $color-dark;
 	padding: 5px;
+	break-inside: avoid;
 	//margin-bottom: 5px;
+	@media print {
+		border: 2px solid black;
+	}
 	span {
 		margin-right: 5px;
 		font-weight: bold;

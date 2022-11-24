@@ -15,9 +15,4 @@ public interface IRule<T extends Enum<T> & IRule<T>> extends IHaveDisplayName {
 		return getTypes().contains(type);
 	}
 
-	@Deprecated
-	default boolean isAll(List<RuleType> types) {
-		return getTypes().containsAll(types);
-	}
-
 }

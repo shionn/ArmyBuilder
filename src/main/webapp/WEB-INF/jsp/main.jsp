@@ -129,7 +129,7 @@
 						</tbody>
 					</table>
 				</c:if>
-	
+
 				<form:form>
 					<fieldset>
 						<legend>Opptions / Optimisation</legend>
@@ -159,7 +159,7 @@
 					</c:forEach>
 				</div>
 				<c:forEach items="${unit.rules}" var="rule">
-					<div class="rule print-hidden"><span>${rule.displayName}</span>${rule.description}</div>
+					<div class="rule print-hidden"><span>${rule.displayName}:</span>${rule.description}</div>
 				</c:forEach>
 			</main>
 			<c:if test="${not empty unit.keyWords}">
@@ -179,7 +179,7 @@
 		<c:if test="${type.displayed and not empty army.rules(type)}">
 			<h3>${type.displayName}</h3>
 			<c:forEach items="${army.rules(type)}" var="rule">
-				<div class="rule"><span>${rule.displayName}</span>${rule.description}</div>
+				<div class="rule"><span>${rule.displayName}:</span>${rule.description}</div>
 			</c:forEach>
 		</c:if>
 	</c:forEach>

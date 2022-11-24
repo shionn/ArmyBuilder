@@ -27,7 +27,11 @@ public class DescriptionReader {
 	public String read(String folder, String name) {
 		try {
 			try {
-				return tryToRead(folder, name);
+				try {
+					return tryToRead(folder, name + ".short");
+				} catch (IOException | RuntimeException e) {
+					return tryToRead(folder, name);
+				}
 			} catch (IOException | RuntimeException e) {
 				return "-- OLD -- " + tryToRead(folder + "old/", name);
 			}

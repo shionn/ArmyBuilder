@@ -1,0 +1,1 @@
+∀ **Hagg Nar** gagne _+1 round_ pour la regle **Rites de Sang**.

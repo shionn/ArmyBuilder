@@ -1,0 +1,1 @@
+Accomplie si 3+ unités amies charge ce tour. Si 2+ unités __Érinyes || Sœurs du Massacre__ +1 pt de victoire.
