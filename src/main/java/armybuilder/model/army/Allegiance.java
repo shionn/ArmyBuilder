@@ -4,13 +4,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
+import armybuilder.model.IHaveDisplayName;
 import armybuilder.model.dok.DokRule;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.modelold.deprecated.nighthaunt.NighthauntRule;
 import armybuilder.serialisation.EnumPropertyLoader;
 
-public enum Allegiance {
+public enum Allegiance implements IHaveDisplayName, IDecoreArmy {
 	CoS(null, null),
 	DoK(
 			Arrays.asList(DokRule.RitesDeSang, DokRule.FoiFanatique, DokRule.FureurDeBataille, DokRule.MassacreTotal),
@@ -39,10 +40,12 @@ public enum Allegiance {
 		this.modifier = modifier;
 	}
 
+	@Override
 	public String getDisplayName() {
 		return displayName;
 	}
 
+	@Override
 	public void decorate(Army army) {
 		if (modifier != null) {
 			modifier.accept(army);

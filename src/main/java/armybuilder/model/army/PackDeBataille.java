@@ -1,14 +1,14 @@
-package armybuilder.modelold.deprecated.army.option;
+package armybuilder.model.army;
 
 import java.util.function.Consumer;
 
+import armybuilder.model.IHaveDisplayName;
+import armybuilder.model.rule.PackDeBatailleRule;
 import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.role.RoleTactique;
-import armybuilder.modelold.deprecated.army.Listing;
-import armybuilder.modelold.deprecated.army.rule.PackDeBatailleRule;
 
-public enum PackDeBataille implements IListingOptionValue<PackDeBataille> {
-	LutteDeGeneraux("Lutte de Généraux", null), 
+public enum PackDeBataille implements IHaveDisplayName, IDecoreArmy {
+	LutteDeGeneraux("Lutte de Généraux", null),
 	BataillesRangees2021("Batailles Rangées 2021", a -> {
 		a.units(KeyWord.Sorcier).forEach(u -> u.add(PackDeBatailleRule.Metamorphose));
 		a.units(KeyWord.Monstre).forEach(u -> u.add(PackDeBatailleRule.RugissementSauvage));
@@ -17,16 +17,16 @@ public enum PackDeBataille implements IListingOptionValue<PackDeBataille> {
 	BataillesRangees2022("Batailles Rangées 2022", a -> {
 		a.units(RoleTactique.Ligne)
 				.stream()
-				.filter(u -> u.model().getProfile().getIntLife() <= 4)
+				.filter(u -> u.getModel().getProfile().getIntLife() <= 4)
 				.forEach(u -> u.add(KeyWord.VeteransDeGallet));
 		a.units(KeyWord.Sorcier).forEach(u -> u.add(PackDeBatailleRule.RegardDeGhur));
 		// TODO Tactique de Bataille
 	});
 
 	private String displayName;
-	private Consumer<Listing> modifier;
+	private Consumer<Army> modifier;
 
-	private PackDeBataille(String displayName, Consumer<Listing> modifier) {
+	private PackDeBataille(String displayName, Consumer<Army> modifier) {
 		this.displayName = displayName;
 		this.modifier = modifier;
 	}
@@ -36,20 +36,9 @@ public enum PackDeBataille implements IListingOptionValue<PackDeBataille> {
 		return displayName;
 	}
 
-	@Override
-	public ListingOption option() {
-		return ListingOption.PackDeBataille;
-	}
-
-	@Override
-	public boolean availableFor(Listing listing) {
-		return true;
-	}
-
-	@Override
-	public void rebuild(Listing listing) {
+	public void decorate(Army army) {
 		if (modifier != null) {
-			modifier.accept(listing);
+			modifier.accept(army);
 		}
 	}
 }

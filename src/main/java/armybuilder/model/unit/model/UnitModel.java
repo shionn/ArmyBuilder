@@ -6,7 +6,6 @@ import armybuilder.model.army.Army;
 import armybuilder.model.dok.DokUnitModel;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.ProfileDegressif;
-import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.UnitProfile;
 import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.option.UnitOptionCategory;
@@ -86,11 +85,6 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 		return sub.getOptionsCategories();
 	}
 
-
-	@Override
-	public void rebuild(Unit unit) {
-		sub.rebuild(unit);
-	}
 
 	@Override
 	public UnitProfile getProfile() {

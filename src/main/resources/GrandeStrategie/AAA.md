@@ -1,1 +1,0 @@
-Quand la bataille se termine, vous accomplissez cette grande stratégie

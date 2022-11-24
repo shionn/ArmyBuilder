@@ -1,15 +1,15 @@
-package armybuilder.modelold.deprecated.army.option;
+package armybuilder.model.army;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import armybuilder.model.rule.RuleType;
+import armybuilder.model.IHaveDisplayName;
 import armybuilder.model.rule.IRule;
-import armybuilder.modelold.deprecated.army.Listing;
+import armybuilder.model.rule.RuleType;
 import armybuilder.serialisation.DescriptionReader;
 
-public enum Triomphes implements IListingOptionValue<Triomphes>, IRule<Triomphes> {
+public enum Triomphes implements IHaveDisplayName, IDecoreArmy, IRule<Triomphes> {
 	Sanguinaires("Sanguinaires", Arrays.asList(RuleType.Triomphes, RuleType.PhaseDeCharge)),
 	Inspires(
 			"Inspirés",
@@ -33,33 +33,19 @@ public enum Triomphes implements IListingOptionValue<Triomphes>, IRule<Triomphes
 	}
 
 	@Override
-	public ListingOption option() {
-		return ListingOption.Triomphes;
-	}
-
-	@Override
 	public List<RuleType> getTypes() {
 		return ruleTypes;
 	}
 
 	@Override
 	public String getDescription() throws IOException {
-		return new DescriptionReader().read("Triomphes/", getName());
+		return new DescriptionReader().read("Triomphes/", name());
 	}
 
-	@Override
-	public String toString() {
-		return getName() + getTypes();
-	}
 
 	@Override
-	public void rebuild(Listing listing) {
-		listing.add(this);
-	}
-
-	@Override
-	public boolean availableFor(Listing listing) {
-		return true;
+	public void decorate(Army army) {
+		army.add(this);
 	}
 
 }

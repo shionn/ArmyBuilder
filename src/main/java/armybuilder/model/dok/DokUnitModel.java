@@ -17,7 +17,6 @@ import armybuilder.model.unit.model.IUnitModel;
 import armybuilder.model.unit.option.UnitOptionCategory;
 import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.model.unit.weapon.IUnitWeapon;
-import armybuilder.modelold.deprecated.unit.modifiers.UnitModifiers;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum DokUnitModel implements IUnitModel<DokUnitModel> {
@@ -254,8 +253,9 @@ public enum DokUnitModel implements IUnitModel<DokUnitModel> {
 			Arrays.asList(DokRule.Cherchecoeurs),
 			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Renforcees, UnitOptionCategory.Bataillon),
 			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Meduse, KeyWord.BloodStalkers),
-			Arrays.asList(UnitModifiers.roleIfGeneral(KeyWord.MeduseIncarnate, RoleTactique.Ligne),
-					UnitModifiers.roleIfGeneral(KeyWord.MelusaiIronscale, RoleTactique.Ligne))),
+//			Arrays.asList(UnitModifiers.roleIfGeneral(KeyWord.MeduseIncarnate, RoleTactique.Ligne),
+//					UnitModifiers.roleIfGeneral(KeyWord.MelusaiIronscale, RoleTactique.Ligne)),
+			Arrays.asList()),
 
 	@Deprecated
 	BloodSisters(
@@ -266,8 +266,9 @@ public enum DokUnitModel implements IUnitModel<DokUnitModel> {
 			Arrays.asList(DokRule.TransmuteEnCristal),
 			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Renforcees, UnitOptionCategory.Bataillon),
 			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Meduse, KeyWord.BloodSister),
-			Arrays.asList(UnitModifiers.roleIfGeneral(KeyWord.MeduseIncarnate, RoleTactique.Ligne),
-					UnitModifiers.roleIfGeneral(KeyWord.MelusaiIronscale, RoleTactique.Ligne))),
+//			Arrays.asList(UnitModifiers.roleIfGeneral(KeyWord.MeduseIncarnate, RoleTactique.Ligne),
+//					UnitModifiers.roleIfGeneral(KeyWord.MelusaiIronscale, RoleTactique.Ligne)),
+			Arrays.asList()),
 
 	EtripeusesKhinerai(
 			UnitProfile._14_1_7_5,
@@ -393,11 +394,6 @@ public enum DokUnitModel implements IUnitModel<DokUnitModel> {
 	@Override
 	public int getPoints() {
 		return value;
-	}
-
-	@Override
-	public void rebuild(Unit unit) {
-		modifiers.stream().forEach(m -> m.accept(unit));
 	}
 
 }

@@ -1,4 +1,4 @@
-package armybuilder.modelold.deprecated.army.option.bataillon;
+package armybuilder.model.army.bataillon;
 
 import armybuilder.modelold.deprecated.unit.Unit;
 

@@ -1,4 +1,4 @@
-package armybuilder.modelold.deprecated.army.rule;
+package armybuilder.model.army.bataillon;
 
 import java.io.IOException;
 import java.util.Arrays;

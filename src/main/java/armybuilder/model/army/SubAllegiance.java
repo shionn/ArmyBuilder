@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
+import armybuilder.model.IHaveDisplayName;
 import armybuilder.model.dok.DokRule;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.keyword.KeyWord;
@@ -11,7 +12,7 @@ import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.modelold.deprecated.nighthaunt.NighthauntRule;
 import armybuilder.serialisation.EnumPropertyLoader;
 
-public enum SubAllegiance {
+public enum SubAllegiance implements IHaveDisplayName, IDecoreArmy {
 	DraichiGaneth(
 			Arrays.asList(DokRule.TueusesHerisseesDeLames),
 			Allegiance.DoK,
@@ -78,11 +79,13 @@ public enum SubAllegiance {
 		return army.is(allegiance);
 	}
 
+	@Override
 	public String getDisplayName() {
 		return displayName;
 	}
 
-	void decorate(Army army) {
+	@Override
+	public void decorate(Army army) {
 		rules.forEach(army::add);
 		modifier.accept(army);
 	}

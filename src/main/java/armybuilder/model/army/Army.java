@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import armybuilder.model.comparator.DisplayNameComparator;
@@ -12,20 +13,26 @@ import armybuilder.model.rule.IHaveRule;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.keyword.KeyWord;
+import armybuilder.model.unit.role.RoleTactique;
 
 public class Army implements IHaveRule {
 	private int id;
 	private String name;
 	private Allegiance allegiance;
 	private SubAllegiance subAllegiance;
+	private PackDeBataille packDeBataille;
+	private GrandeStrategie grandeStrategie;
+	private Triomphes triomphes;
 	private List<Unit> units = new ArrayList<Unit>();
 
 	private List<IRule<?>> rules = new ArrayList<IRule<?>>();
 
 	public void decorate() {
-		units.forEach(u -> u.decorate());
-		allegiance.decorate(this);
-		subAllegiance.decorate(this);
+		units.forEach(Unit::decorate);
+		Arrays.asList(allegiance, subAllegiance, packDeBataille, grandeStrategie, triomphes)
+				.stream()
+				.filter(Objects::nonNull)
+				.forEach(opt -> opt.decorate(this));
 		Arrays.stream(GeneriqueRule.values()).forEach(r -> r.decorate(this));
 	}
 
@@ -59,6 +66,10 @@ public class Army implements IHaveRule {
 
 	public List<Unit> units(KeyWord keyWord) {
 		return units.stream().filter(u -> u.is(keyWord)).collect(Collectors.toList());
+	}
+
+	public List<Unit> units(RoleTactique role) {
+		return units.stream().filter(u -> u.is(role)).collect(Collectors.toList());
 	}
 
 	/**
@@ -120,6 +131,42 @@ public class Army implements IHaveRule {
 
 	public void setUnits(List<Unit> units) {
 		this.units = units;
+	}
+
+	public PackDeBataille getPackDeBataille() {
+		return packDeBataille;
+	}
+
+	public void setPackDeBataille(PackDeBataille packDeBataille) {
+		this.packDeBataille = packDeBataille;
+	}
+
+	public boolean is(PackDeBataille packDeBataille) {
+		return this.packDeBataille == packDeBataille;
+	}
+
+	public void setGrandeStrategie(GrandeStrategie grandeStrategie) {
+		this.grandeStrategie = grandeStrategie;
+	}
+
+	public GrandeStrategie getGrandeStrategie() {
+		return grandeStrategie;
+	}
+
+	public boolean is(GrandeStrategie grandeStrategie) {
+		return this.grandeStrategie == grandeStrategie;
+	}
+
+	public void setTriomphes(Triomphes triomphes) {
+		this.triomphes = triomphes;
+	}
+
+	public Triomphes getTriomphes() {
+		return triomphes;
+	}
+
+	public boolean is(Triomphes triomphes) {
+		return this.triomphes == triomphes;
 	}
 
 }

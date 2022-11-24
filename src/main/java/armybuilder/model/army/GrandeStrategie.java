@@ -1,17 +1,16 @@
-package armybuilder.modelold.deprecated.army.option;
+package armybuilder.model.army;
 
 import java.io.IOException;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 
-import armybuilder.model.army.Allegiance;
-import armybuilder.model.rule.RuleType;
+import armybuilder.model.IHaveDisplayName;
 import armybuilder.model.rule.IRule;
-import armybuilder.modelold.deprecated.army.Listing;
+import armybuilder.model.rule.RuleType;
 import armybuilder.serialisation.DescriptionReader;
 
-public enum GrandeStrategie implements IListingOptionValue<GrandeStrategie>, IRule<GrandeStrategie> {
+public enum GrandeStrategie implements IHaveDisplayName, IDecoreArmy, IRule<GrandeStrategie> {
 	BainDeSang("Bain de Sang", l -> l.is(Allegiance.DoK)),
 	ConquisAuNomDeKhaine("Conquis au nom de Khaine", l -> l.is(Allegiance.DoK)),
 	CoupezLaTete(
@@ -38,9 +37,9 @@ public enum GrandeStrategie implements IListingOptionValue<GrandeStrategie>, IRu
 	;
 
 	private String displayName;
-	private Function<Listing, Boolean> available;
+	private Function<Army, Boolean> available;
 
-	private GrandeStrategie(String displayName, Function<Listing, Boolean> available) {
+	private GrandeStrategie(String displayName, Function<Army, Boolean> available) {
 		this.displayName = displayName;
 		this.available = available;
 	}
@@ -50,31 +49,24 @@ public enum GrandeStrategie implements IListingOptionValue<GrandeStrategie>, IRu
 		return displayName;
 	}
 
-	@Override
-	public ListingOption option() {
-		return ListingOption.GrandeStrategie;
-	}
-
-	@Override
-	@SuppressWarnings("unchecked")
-	public List<RuleType> getTypes() {
-		return Collections.EMPTY_LIST;
+	public boolean availableFor(Army army) {
+		return available.apply(army);
 	}
 
 	@Override
 	public String getDescription() throws IOException {
-		return new DescriptionReader().read("GrandeStrategie/", getName());
+		return new DescriptionReader().read("GrandeStrategie/", name());
+	}
+
+
+	@Override
+	public void decorate(Army army) {
+		army.add(this);
 	}
 
 	@Override
-	public boolean availableFor(Listing listing) {
-		return available.apply(listing);
-	}
-
-	@Override
-	public void rebuild(Listing listing) {
-		// TODO Auto-generated method stub
-
+	public List<RuleType> getTypes() {
+		return Arrays.asList(RuleType.GrandeStrategie);
 	}
 
 }

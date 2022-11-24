@@ -1,5 +1,8 @@
 <%@ page pageEncoding="UTF-8"%>
 <%@ page import="armybuilder.model.army.SubAllegiance" %>
+<%@ page import="armybuilder.model.army.PackDeBataille" %>
+<%@ page import="armybuilder.model.army.GrandeStrategie" %>
+<%@ page import="armybuilder.model.army.Triomphes" %>
 <%@ page import="armybuilder.model.rule.RuleType" %>
 <%@ page import="armybuilder.model.unit.model.UnitModel" %>
 <%@ page import="armybuilder.model.unit.role.RoleTactique" %>
@@ -15,12 +18,40 @@
 <form:form action="${url}" method="POST">
 	<fieldset>
 		<legend>Edition</legend>
-		<label>Sous Allegiance</label>
 		<select name="suballegiance">
+			<c:if test="${empty army.subAllegiance}">
+				<option>- Sous Allegiance -</option>
+			</c:if>
 			<c:forEach items="${SubAllegiance.values()}" var="sub">
 				<c:if test="${sub.available(army)}">
 					<option value="${sub}"<c:if test="${army.is(sub)}"> selected="selected"</c:if>>${sub.displayName}</option>
 				</c:if>
+			</c:forEach>
+		</select>
+		<select name="packdebataille">
+			<c:if test="${empty army.packDeBataille}">
+				<option>- Pacte de Bataille -</option>
+			</c:if>
+			<c:forEach items="${PackDeBataille.values()}" var="pack">
+				<option value="${pack}"<c:if test="${army.is(pack)}"> selected="selected"</c:if>>${pack.displayName}</option>
+			</c:forEach>
+		</select>
+		<select name="grandestrategie">
+			<c:if test="${empty army.grandeStrategie}">
+				<option>- Grande Stratégie -</option>
+			</c:if>
+			<c:forEach items="${GrandeStrategie.values()}" var="sub">
+				<c:if test="${sub.availableFor(army)}">
+					<option value="${sub}"<c:if test="${army.is(sub)}"> selected="selected"</c:if>>${sub.displayName}</option>
+				</c:if>
+			</c:forEach>
+		</select>
+		<select name="triomphes">
+			<c:if test="${empty army.triomphes}">
+				<option>- Triomphes -</option>
+			</c:if>
+			<c:forEach items="${Triomphes.values()}" var="sub">
+				<option value="${sub}"<c:if test="${army.is(sub)}"> selected="selected"</c:if>>${sub.displayName}</option>
 			</c:forEach>
 		</select>
 		<input type="submit" value="Editer">
@@ -174,174 +205,18 @@
 </div>
 
 <h2>Rules</h2>
-<div class="rules">
-	<c:forEach items="${RuleType.values()}" var="type">
-		<c:if test="${type.displayed and not empty army.rules(type)}">
+<c:forEach items="${RuleType.values()}" var="type">
+	<c:if test="${type.displayed and not empty army.rules(type)}">
+		<div class="rules-group">
 			<h3>${type.displayName}</h3>
-			<c:forEach items="${army.rules(type)}" var="rule">
-				<div class="rule"><span>${rule.displayName}:</span>${rule.description}</div>
-			</c:forEach>
-		</c:if>
-	</c:forEach>
-</div>
-
-
-<%-- <a href='<spring:url value="/listing/add"/>'>Ajouter un listing</a> --%>
-<%-- <c:forEach items="${army.listings()}" var="listing"> --%>
-<%-- 	<article id="listing-${listing.id}" class="listing"> --%>
-<!-- 		<header> -->
-<%-- 			<h2>${listing.displayName()} <span>${listing.points()} <a href="<spring:url value="/listing/rm/${listing.id}"/>">X</a></span></h2> --%>
-<!-- 		</header> -->
-<!-- 		<main> -->
-<!-- 			<div class="options"> -->
-<%-- 				<c:forEach items="${listing.options()}" var="opt"> --%>
-<%-- 					<select name="${opt}" class="ajax" data-update="body>main" --%>
-<%-- 							data-url="<spring:url value="/listing/${listing.id}/${opt}"/>"> --%>
-<%-- 						<c:if test="${empty listing.get(opt)}"> --%>
-<%-- 							<option selected="selected">-- ${opt.displayName()} --</option> --%>
-<%-- 						</c:if> --%>
-<%-- 						<c:forEach items="${opt.values(listing)}" var="value"> --%>
-<%-- 							<option value="${value}" <c:if test="${listing.is(value)}"> selected="selected"</c:if>>${value.displayName()}</option> --%>
-<%-- 						</c:forEach> --%>
-<!-- 					</select> -->
-<%-- 				</c:forEach> --%>
-<!-- 			</div> -->
-<!-- 			<div class="options"> -->
-<!-- 				non generique -->
-<%-- 				<select name="bataillon" class="ajax" data-url="<spring:url value="/listing/${listing.id}/Bataillon/add"/>" data-update="body>main"> --%>
-<!-- 					<option value="" selected="selected">-- Ajout Bataillon --</option> -->
-<%-- 					<c:forEach items="${listing.availableBataillon()}" var="bat"> --%>
-<%-- 						<option value="${bat}">${bat.displayName()}</option> --%>
-<%-- 					</c:forEach> --%>
-<!-- 				</select> -->
-<%-- 				<select name="unitChoice" class="ajax" data-url="<spring:url value="/listing/${listing.id}/unit/add"/>" data-update="body>main"> --%>
-<!-- 					<option value="" selected="selected">-- Ajout Unitée --</option> -->
-<%-- 					<c:forEach items="${listing.availableUnitChoice}" var="f"> --%>
-<%-- 						<option value="${f}">${f.displayName()} ${f.points()}</option> --%>
-<%-- 					</c:forEach> --%>
-<!-- 				</select> -->
-<!-- 			</div> -->
-<!-- 			<div class="options print-only print-margin-left"> -->
-<%-- 				${listing.get('PackDeBataille').displayName()}, --%>
-<%-- 				${listing.get('GrandeStrategie').displayName()}, --%>
-<%-- 				${listing.get('Triomphes').displayName()} --%>
-<!-- 			</div> -->
-<!-- 			<div class="options"> -->
-<!-- 				Bataillons : -->
-<%-- 				<c:forEach items="${listing.bataillons()}" var="bat"> --%>
-<%-- 					<span>${bat.displayName()} <a href="<spring:url value="/listing/${listing.id}/Bataillon/rm/${bat}"/>"> X</a></span> --%>
-<%-- 				</c:forEach> --%>
-<!-- 			</div> -->
-<%-- 			<c:forEach items="${listing.units()}" var="unit"> --%>
-<%-- 				<t:unit-config unit="${unit}"/> --%>
-<%-- 			</c:forEach> --%>
-<!-- 		</main> -->
-<!-- 	</article> -->
-<%-- </c:forEach> --%>
-
-<!-- <h2 style="page-break-before: always;">Aptitudes D'Allégeance</h2> -->
-<%-- <c:forEach items="${army.allegiance().rules()}" var="rule"> --%>
-<%-- 	<t:rule rule="${rule}" army="${army}"/> --%>
-<%-- </c:forEach> --%>
-<%-- <c:forEach items="${army.options('SubAllegiance')}" var="sub"> --%>
-<%-- 	<h2>${sub.displayName()}</h2> --%>
-<%-- 	<c:forEach items="${sub.rules()}" var="rule"> --%>
-<%-- 		<t:rule rule="${rule}" army="${army}"/> --%>
-<%-- 	</c:forEach> --%>
-<%-- </c:forEach> --%>
-
-<%-- <c:if test="${not empty army.bataillons()}"> --%>
-<!-- 	<h2>Bataillons</h2> -->
-<%-- 	<c:forEach items="${army.bataillons()}" var="bat"> --%>
-<!-- 		<article class="rule"> -->
-<!-- 			<header> -->
-<%-- 				${bat.displayName()} --%>
-<!-- 				<span> -->
-<%-- 					<c:forEach items="${bat.compositions()}" var="c"> --%>
-<%-- 						<c:forEach begin="1" end="${c.count}"> --%>
-<%-- 							<img src="img/${c.img}.png" <c:if test="${c.opt}">style="opacity: 0.5"</c:if>> --%>
-<%-- 						</c:forEach> --%>
-<%-- 					</c:forEach> --%>
-<!-- 				</span> -->
-<!-- 			</header> -->
-<!-- 			<main> -->
-<%-- 				<c:forEach items="${bat.rules()}" var="rule"> --%>
-<%-- 					<t:rule rule="${rule}" army="${army}"/> --%>
-<%-- 				</c:forEach> --%>
-<!-- 			</main> -->
-<!-- 		</article> -->
-<%-- 	</c:forEach> --%>
-<%-- </c:if> --%>
-
-<%-- <c:if test="${not empty army.options('GrandeStrategie')}"> --%>
-<!-- 	<h2>Grande Stratégie</h2> -->
-<%-- 	<c:forEach items="${army.options('GrandeStrategie')}" var="rule"> --%>
-<%-- 		<t:rule rule="${rule}" army="${army}" displayUnit="false"/> --%>
-<%-- 	</c:forEach> --%>
-<%-- </c:if> --%>
-
-<%-- <c:if test="${not empty army.rules('TactiquesDeBataille')}"> --%>
-<!-- 	<h2>Tactiques de Bataille</h2> -->
-<%-- 	<c:forEach items="${army.rules('TactiquesDeBataille')}" var="rule"> --%>
-<%-- 		<t:rule rule="${rule}" army="${army}" displayUnit="false"/> --%>
-<%-- 	</c:forEach> --%>
-<%-- </c:if> --%>
-
-<%-- <c:if test="${not empty army.rules('Triomphes')}"> --%>
-<!-- 	<h2>Triomphes</h2> -->
-<%-- 	<c:forEach items="${army.rules('Triomphes')}" var="rule"> --%>
-<%-- 		<t:rule rule="${rule}" army="${army}" displayUnit="false"/> --%>
-<%-- 	</c:forEach> --%>
-<%-- </c:if> --%>
-
-<%-- <c:if test="${not empty army.options('Triomphes')}"> --%>
-<!-- 	<h2>TODO Tacticte de Bataille</h2> -->
-<%-- 	<c:forEach items="${army.options('Triomphes')}" var="rule"> --%>
-<%-- 		<t:rule rule="${rule}" army="${army}"/> --%>
-<%-- 	</c:forEach> --%>
-<%-- </c:if> --%>
-
-<%-- <c:if test="${not empty army.rules('TraitsDeCommandement')}"> --%>
-<!-- 	<h2>Traits de Commandement</h2> -->
-<%-- 	<c:forEach items="${army.rules('TraitsDeCommandement')}" var="rule"> --%>
-<%-- 		<t:rule rule="${rule}" army="${army}" displayUnit="false"/> --%>
-<%-- 	</c:forEach> --%>
-<%-- </c:if> --%>
-
-<%-- <c:if test="${not empty army.rules('Artefact')}"> --%>
-<!-- 	<h2>Artefact</h2> -->
-<%-- 	<c:forEach items="${army.rules('Artefact')}" var="rule"> --%>
-<%-- 		<t:rule rule="${rule}" army="${army}" displayUnit="false"/> --%>
-<%-- 	</c:forEach> --%>
-<%-- </c:if> --%>
-
-<%-- <c:if test="${not empty army.rules('Sort')}"> --%>
-<!-- 	<h2>Sort</h2> -->
-<%-- 	<c:forEach items="${army.rules('Sort')}" var="rule"> --%>
-<%-- 		<t:rule rule="${rule}" army="${army}" displayUnit="false"/> --%>
-<%-- 	</c:forEach> --%>
-<%-- </c:if> --%>
-
-<%-- <c:if test="${not empty army.rules('Priere')}"> --%>
-<!-- 	<h2>Priere</h2> -->
-<%-- 	<c:forEach items="${army.rules('Priere')}" var="rule"> --%>
-<%-- 		<t:rule rule="${rule}" army="${army}" displayUnit="false"/> --%>
-<%-- 	</c:forEach> --%>
-<%-- </c:if> --%>
-
-<!-- <h2 style="page-break-before: always;">Unitées</h2> -->
-<%-- <c:forEach items="${army.units()}" var="model"> --%>
-<%-- 	<t:unit model="${model}" army="${army}"/> --%>
-<%-- </c:forEach> --%>
-
-<%-- <c:forEach items="${turn.phases}" var="p"> --%>
-<!-- 	<div style="page-break-inside: avoid;"> -->
-<%-- 		<h1>${p.name}</h1> --%>
-<%-- 		<c:forEach items="${p.steps}" var="s"> --%>
-<%-- 			<t:rule-group types="${s}" army="${army}"/> --%>
-<%-- 		</c:forEach> --%>
-<!-- 	</div> -->
-<%-- </c:forEach> --%>
+			<div class="rules">
+				<c:forEach items="${army.rules(type)}" var="rule">
+					<div class="rule"><span>${rule.displayName}:</span>${rule.description}</div>
+				</c:forEach>
+			</div>
+		</div>
+	</c:if>
+</c:forEach>
 
 </jsp:attribute>
 <jsp:attribute name="scripts">

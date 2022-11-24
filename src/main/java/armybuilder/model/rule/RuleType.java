@@ -8,6 +8,8 @@ public enum RuleType {
 
 	SubAllegiance(false),
 
+	GrandeStrategie(true),
+	Triomphes(true),
 	Composition(true),
 	TactiquesDeBataille(true),
 
@@ -19,7 +21,6 @@ public enum RuleType {
 	Artefact(true),
 	Sort(true),
 	Priere(true),
-	Triomphes(true),
 	EndLessSpell(true),
 
 	PhaseBeforeStart(false),

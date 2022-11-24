@@ -8,13 +8,18 @@ import armybuilder.model.army.Army;
 
 public interface ArmyEditDao {
 
-	@Select("SELECT id, name, allegiance, subAllegiance FROM Army WHERE id = #{id}")
+	@Select("SELECT * FROM Army WHERE id = #{id}")
 	public Army read(int id);
 
 	@Insert("INSERT INTO Army (name, allegiance) VALUES (#{name}, #{allegiance})")
 	public int create(Army army);
 
-	@Update("UPDATE Army SET subAllegiance = #{subAllegiance} WHERE id = #{id}")
+	@Update("UPDATE Army " //
+			+ "SET subAllegiance    = #{subAllegiance}, " //
+			+ "    pack_de_bataille = #{packDeBataille}, " //
+			+ "    grande_strategie = #{grandeStrategie}, " //
+			+ "    triomphes        = #{triomphes}  " //
+			+ "WHERE id = #{id}")
 	public int edit(Army army);
 
 }

@@ -13,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 import armybuilder.db.dao.ArmyDao;
 import armybuilder.model.army.Allegiance;
 import armybuilder.model.army.Army;
-import armybuilder.modelold.deprecated.Turn;
 
 @Controller
 public class HomeContoller {
@@ -32,35 +31,7 @@ public class HomeContoller {
 						allegiance -> armies.stream()
 								.filter(army -> army.getAllegiance() == allegiance)
 								.collect(Collectors.toList())));
-		return new ModelAndView("main").addObject("menus", menus)
-				.addObject("army", army)
-				.addObject("turn", new Turn());
+		return new ModelAndView("main").addObject("menus", menus).addObject("army", army);
 	}
-
-//	@GetMapping(path = "/select/{allegiance}")
-//	public String change(@PathVariable("allegiance") Allegiance allegiance) {
-//		armies.select(allegiance);
-//		return "redirect:/";
-//	}
-
-//	@GetMapping(path = "/save")
-//	@ResponseBody
-//	public HttpEntity<String> save() throws Exception {
-//		StringWriter w = new StringWriter();
-//		new ObjectMapper().writeValue(w, armies.current());
-//		HttpHeaders header = new HttpHeaders();
-//		header.set(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + armies.current().allegiance() + "-"
-//				+ new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + ".json");
-//		return new HttpEntity<String>(w.toString(), header);
-//	}
-//
-//	@PostMapping(path = "/load")
-//	public String load(@RequestParam("file") MultipartFile file) throws IOException, Exception {
-//		Army army = new ObjectMapper().readerFor(Army.class).readValue(file.getInputStream());
-//		army.listings().forEach(l -> l.units().forEach(u -> u.listing(l)));
-//		armies.update(army);
-//		return "redirect:/";
-//
-//	}
 
 }
