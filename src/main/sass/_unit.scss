@@ -4,7 +4,7 @@ article.unit, article.bataillon  {
 	@media print {
 		border: 2px solid black;
 	}
-	border: 1px dashed $color-dark;
+	border: 1px solid $color-dark;
 	margin-bottom: 5px;
 	break-inside: avoid;
 	header {
@@ -37,6 +37,14 @@ article.unit, article.bataillon  {
 		}
 		div.rule:last-child {
 			margin: 0 5px 5px 5px;
+		}
+		ul {
+			margin: 0 0 5px;
+			list-style-type: square;
+			padding: 0 0 0 25px;
+		}
+		fieldset {
+			border: none;
 		}
 	}
 	footer {

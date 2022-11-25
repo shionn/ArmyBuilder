@@ -58,36 +58,38 @@
 		<input type="submit" value="Editer">
 	</fieldset>
 </form:form>
-<spring:url value="/unit/add" var="url" />
-<form:form action="${url}" method="POST">
-	<fieldset>
-		<legend>Ajout d'unitée</legend>
-		<label>Unité</label>
-		<select name="model">
-			<c:forEach items="${UnitModel.values()}" var="model">
-				<c:if test="${model.availableFor(army)}">
-					<option value="${model}">${model.displayName}</option>
-				</c:if>
-			</c:forEach>
-		</select>
-		<input type="submit" value="Ajouter">
-	</fieldset>
-</form:form>
-<spring:url value="/bataillon/add" var="url" />
-<form:form action="${url}" method="POST">
-	<fieldset>
-		<legend>Ajout bataillon</legend>
-		<label>Bataillon</label>
-		<select name="type">
-			<c:forEach items="${BataillonType.values()}" var="type">
-				<c:if test="${type.availableFor(army)}">
-					<option value="${type}">${type.displayName}</option>
-				</c:if>
-			</c:forEach>
-		</select>
-		<input type="submit" value="Ajouter">
-	</fieldset>
-</form:form>
+<div style="display: flex">
+	<spring:url value="/unit/add" var="url" />
+	<form:form action="${url}" method="POST" style="width: 50%">
+		<fieldset>
+			<legend>Ajout d'unitée</legend>
+			<label>Unité</label>
+			<select name="model">
+				<c:forEach items="${UnitModel.values()}" var="model">
+					<c:if test="${model.availableFor(army)}">
+						<option value="${model}">${model.displayName}</option>
+					</c:if>
+				</c:forEach>
+			</select>
+			<input type="submit" value="Ajouter">
+		</fieldset>
+	</form:form>
+	<spring:url value="/bataillon/add" var="url" />
+	<form:form action="${url}" method="POST" style="width: 50%">
+		<fieldset>
+			<legend>Ajout bataillon</legend>
+			<label>Bataillon</label>
+			<select name="type">
+				<c:forEach items="${BataillonType.values()}" var="type">
+					<c:if test="${type.availableFor(army)}">
+						<option value="${type}">${type.displayName}</option>
+					</c:if>
+				</c:forEach>
+			</select>
+			<input type="submit" value="Ajouter">
+		</fieldset>
+	</form:form>
+</div>
 
 <h2>Units</h2>
 <div class="units columns2" style="page-break-after: always;">
@@ -179,7 +181,7 @@
 
 				<form:form>
 					<fieldset>
-						<legend>Options / Optimisation</legend>
+<!-- 						<legend>Options / Optimisation</legend> -->
 						<c:forEach items="${unit.optionsCategories}" var="cat">
 							<c:if test="${cat.type == 'bool' }">
 								<spring:url value="/unit/edit/${unit.id}/${unit.optionValue(cat)}" var="url" />
@@ -190,12 +192,16 @@
 								<spring:url value="/unit/edit/${unit.id}" var="url" />
 								<select name="option" class="ajax" data-url="${url}" data-update="body>main" >
 									<c:if test="${empty cat.get(unit)}">
-										<option value="null" selected="selected">${cat.displayName}
+										<option value="null">${cat.displayName}
 									</c:if>
 									<c:forEach items="${unit.optionValues(cat)}" var="opt">
 										<option value="${opt}"<c:if test="${unit.is(opt)}"> selected="selected"</c:if>>${opt.displayName}
 									</c:forEach>
 								</select>
+								<c:if test="${not empty cat.get(unit)}">
+									<spring:url value="/unit/${unit.id}/rmopt/${cat}" var="url" />
+									<a href="${url}"><i class="fa fa-trash"></i></a>
+								</c:if>
 							</c:if>
 						</c:forEach>
 						<c:if test="${not empty army.bataillons(unit)}">
@@ -238,6 +244,11 @@
 				</span>
 			</header>
 			<main>
+				<ul>
+					<c:forEach items="${bat.units}" var="unit">
+						<li>${unit.displayName}</li>
+					</c:forEach>
+				</ul>
 <!-- 				<div class="rules"> -->
 <%-- 					<c:forEach items="${bat.rules}" var="rule"> --%>
 <%-- 						<span>${rule.displayName}</span> --%>

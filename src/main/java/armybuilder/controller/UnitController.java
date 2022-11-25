@@ -13,6 +13,7 @@ import armybuilder.db.dao.UnitEditDao;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.model.UnitModel;
 import armybuilder.model.unit.option.UnitOption;
+import armybuilder.model.unit.option.UnitOptionCategory;
 
 @Controller
 public class UnitController {
@@ -32,6 +33,16 @@ public class UnitController {
 	@GetMapping("/unit/rm/{id}")
 	public String rmUnit(@PathVariable("id") int id) {
 		session.getMapper(UnitEditDao.class).rm(id);
+		session.commit();
+		return "redirect:/";
+	}
+
+	@GetMapping("/unit/{id}/rmopt/{option}")
+	public String rmUnitOption(@PathVariable("id") int id, @PathVariable("option") UnitOptionCategory option) {
+		UnitEditDao dao = session.getMapper(UnitEditDao.class);
+		Unit unit = dao.read(id);
+		option.set(unit, null);
+		session.getMapper(UnitEditDao.class).update(unit);
 		session.commit();
 		return "redirect:/";
 	}

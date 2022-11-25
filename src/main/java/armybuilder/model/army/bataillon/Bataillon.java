@@ -13,6 +13,7 @@ public class Bataillon implements IHaveDisplayName, IDecoreArmy, IDecorateUnit {
 
 	private int id;
 	private BataillonType type;
+	private List<Unit> units;
 
 	@Override
 	public String getDisplayName() {
@@ -58,4 +59,11 @@ public class Bataillon implements IHaveDisplayName, IDecoreArmy, IDecorateUnit {
 	}
 
 
+	public List<Unit> getUnits() {
+		return units;
+	}
+
+	public void setUnits(List<Unit> units) {
+		this.units = units;
+	}
 }

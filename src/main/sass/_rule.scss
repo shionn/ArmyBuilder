@@ -1,7 +1,7 @@
 @import "_variables.scss";
 
 div.rule {
-	border: 1px dashed $color-dark;
+	border: 1px dotted $color-dark;
 	padding: 5px;
 	break-inside: avoid;
 	@media print {

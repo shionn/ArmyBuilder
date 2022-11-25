@@ -1,0 +1,1 @@
++1 Dégat mêlée si attaque __Vétérans de Gallet__.
