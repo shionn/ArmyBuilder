@@ -71,8 +71,10 @@ public enum KeyWord implements IHaveDisplayName {
 	Fulgurant,
 	Liberators,
 	Redempteur,
+	SacroSaint,
 	Seigneur,
 	SeigneurRelictor,
+	Sequitors,
 	StormCast,
 	Vindictors,
 

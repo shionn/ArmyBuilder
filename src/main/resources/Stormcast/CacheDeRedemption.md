@@ -1,0 +1,1 @@
+Les figurines tuées ne peuvent pas être restituées aux unités ennemies qui sont à 3" du Séquitor-Primus de cette unité.

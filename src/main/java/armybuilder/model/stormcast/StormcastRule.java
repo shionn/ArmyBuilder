@@ -21,6 +21,8 @@ public enum StormcastRule implements IRule<StormcastRule> {
 
 	ArsenalDAmesOrageuses(RuleType.Aptitude, RuleType.TraisUnitee),
 	BouclierDeSigmarite(RuleType.Aptitude, RuleType.TraisUnitee),
+	CacheDeRedemption(RuleType.Aptitude, RuleType.TraisUnitee),
+	EtheriqueDeSequitors(RuleType.Aptitude, RuleType.TraisUnitee),
 	RenversezLesTyrans(RuleType.Aptitude, RuleType.TraisUnitee),
 	PretreMortis(RuleType.Aptitude, RuleType.TraisUnitee),
 
@@ -29,6 +31,7 @@ public enum StormcastRule implements IRule<StormcastRule> {
 
 	LiberatorPrimus(RuleType.Composition),
 	VindictorPrimus(RuleType.Composition),
+	SequitorPrimus(RuleType.Composition),
 	SignifereAzyrite(RuleType.Composition),
 
 	;

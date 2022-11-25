@@ -15,8 +15,12 @@ public enum StormcastOptimisation implements IUnitOption {
 	MarcheImpertubable(UnitOptionCategory.TraisDeCommandement, u -> true),
 	VoleeDEclairs(UnitOptionCategory.TraisDeCommandement, u -> true),
 
-	VindictorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Vindictors)),
 	LiberatorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Liberators)),
+	SequitorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Sequitors), u -> {
+		u.add(StormcastRule.SequitorPrimus);
+		u.add(StormcastRule.CacheDeRedemption);
+	}),
+	VindictorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Vindictors)),
 	SignifereAzyrite(UnitOptionCategory.Banniere, u -> u.is(KeyWord.Vindictors)),
 
 	ArmeDesCieuxEtBouclierDeSigmarite(
@@ -43,6 +47,11 @@ public enum StormcastOptimisation implements IUnitOption {
 		this.displayName = StormcastRule.valueOf(name()).getDisplayName();
 		this.category = category;
 		this.available = available;
+	}
+
+	StormcastOptimisation(UnitOptionCategory category, Function<Unit, Boolean> available, Consumer<Unit> decorate) {
+		this(category, available);
+		this.decorate = decorate;
 	}
 
 	StormcastOptimisation(String displayName, UnitOptionCategory category, Function<Unit, Boolean> available,
