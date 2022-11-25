@@ -8,12 +8,27 @@ public enum StormcastWeapons implements IUnitWeapon {
 	ArcFoudrefleche("Arc Foudreflèche", WeaponType.Projectil, "24", "D6", "3+", "3+", "-1", "1"),
 	ArmeDesCieux("Arme des Cieux", WeaponType.Melee, "1", "2", "3+", "4+", "-1", "1"),
 	ArmesSacroSaintes("Armes Sacro-saintes", WeaponType.Melee, "1", "2", "3+", "3+", "-1", "1"),
+	BecEtGriffesCruels("Bec et Griffes Cruels", WeaponType.Melee, "1", "4", "3+", "4+", "-", "1"),
 	GlaiveDOrage("Glaive d'Orage", WeaponType.Melee, "1", "1", "3+", "4+", "-1", "1"),
-	GrandeMassueDeSanction("Grande Massue de Sanction", WeaponType.Melee, "1", "2", "3+", "3+", "-1", "2"),
+	GrandArcFulgurant("Grand Arc Fulgurant", WeaponType.Projectil, "18", "D3", "3+", "3+", "-1", "1"),
 	GrandeArme("Grande Arme", WeaponType.Melee, "1", "2", "3+", "3+", "-1", "2"),
+	GrandeMassueDeSanction("Grande Massue de Sanction", WeaponType.Melee, "1", "2", "3+", "3+", "-1", "2"),
 	LanceDOrage("Lance d'Orage", WeaponType.Melee, "2", "2", "3+", "3+", "-1", "1"),
+	LourdeCrosse("Lourde Crosse", WeaponType.Melee, "1", "2", "4+", "3+", "-", "1"),
 	MarteauRelique("Marteau Relique", WeaponType.Melee, "1", "4", "3+", "3+", "-1", "2"),
 	PairesDArmesDesCieux("Paire d'Armes des Cieux", WeaponType.Melee, "1", "3", "3+", "4+", "-1", "1"),
+	MarteauxCelestesProjectil("Marteaux Céleste", WeaponType.Projectil, "9", "2", "4+", "4+", "-1", "1"),
+	PaireDeMarteauxCelestesProjectil(
+			"Paire de Marteaux Célestes",
+			WeaponType.Projectil,
+			"9",
+			"3",
+			"4+",
+			"4+",
+			"-1",
+			"1"),
+	MarteauxCelestesMelee("Marteaux Céleste", WeaponType.Melee, "1", "2", "3+", "3+", "-1", "1"),
+	PaireDeMarteauxCelestesMelee("Paire de Marteaux Célestes", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "1"),
 	;
 
 	private String displayName;

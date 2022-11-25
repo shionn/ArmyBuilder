@@ -1,0 +1,1 @@
+charge à 18” avec 3D6.

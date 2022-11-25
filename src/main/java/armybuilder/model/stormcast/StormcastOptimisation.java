@@ -15,13 +15,17 @@ public enum StormcastOptimisation implements IUnitOption {
 	MarcheImpertubable(UnitOptionCategory.TraisDeCommandement, u -> true),
 	VoleeDEclairs(UnitOptionCategory.TraisDeCommandement, u -> true),
 
+	CastigatorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Castigators)),
 	JudicatorArcPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.JudicatorsArc)),
+	GryphDogueAlpha(UnitOptionCategory.Chef, u -> u.is(KeyWord.GryphDogues)),
 	LiberatorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Liberators)),
 	SequitorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Sequitors), u -> {
 		u.add(StormcastRule.SequitorPrimus);
 		u.add(StormcastRule.CacheDeRedemption);
 	}),
 	VindictorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Vindictors)),
+	ProsecutorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Prosecutors)),
+
 	SignifereAzyrite(UnitOptionCategory.Banniere, u -> u.is(KeyWord.Vindictors)),
 
 	ArmeDesCieuxEtBouclierDeSigmarite(
@@ -37,6 +41,25 @@ public enum StormcastOptimisation implements IUnitOption {
 			UnitOptionCategory.Armes,
 			u -> u.is(KeyWord.Liberators),
 			u -> u.add(StormcastWeapons.PairesDArmesDesCieux)),
+
+	MarteauCelesteEtBouclierDeSigmarite(
+			"Marteau Céleste & Bouclier de Sigmarite",
+			UnitOptionCategory.Armes,
+			u -> u.is(KeyWord.ProsecutorsMarteaux),
+			u -> {
+				u.add(StormcastWeapons.MarteauxCelestesMelee);
+				u.add(StormcastWeapons.MarteauxCelestesProjectil);
+				u.add(StormcastRule.BouclierDeSigmarite);
+			}),
+	PaireDeMarteauxCelestes(
+			"Paire de Marteaux Célestes",
+			UnitOptionCategory.Armes,
+			u -> u.is(KeyWord.ProsecutorsMarteaux),
+			u -> {
+				u.add(StormcastWeapons.PaireDeMarteauxCelestesMelee);
+				u.add(StormcastWeapons.PaireDeMarteauxCelestesProjectil);
+			}),
+
 	;
 
 	private String displayName;

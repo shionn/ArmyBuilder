@@ -20,22 +20,30 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	DescendantsDeLOrage(RuleType.TraisDeBataille),
 
 	ArsenalDAmesOrageuses(RuleType.Aptitude, RuleType.TraisUnitee),
+	AttaquesAuPassage(RuleType.Aptitude, RuleType.TraisUnitee),
 	BouclierDeSigmarite(RuleType.Aptitude, RuleType.TraisUnitee),
 	CacheDeRedemption(RuleType.Aptitude, RuleType.TraisUnitee),
+	CanalisationEtheriqueDeCastigators(RuleType.Aptitude, RuleType.TraisUnitee),
+	CanalisationEtheriqueDeSequitors(RuleType.Aptitude, RuleType.TraisUnitee),
+	CriDAlarme(RuleType.Aptitude, RuleType.TraisUnitee),
 	DeflagrationCeleste(RuleType.Aptitude, RuleType.TraisUnitee),
-	EtheriqueDeSequitors(RuleType.Aptitude, RuleType.TraisUnitee),
+	ExplosionDEnergieCeleste(RuleType.Aptitude, RuleType.TraisUnitee),
+	FormationDispersee(RuleType.Aptitude, RuleType.TraisUnitee),
+	HerautsDeVertu(RuleType.Aptitude, RuleType.TraisUnitee),
 	RenversezLesTyrans(RuleType.Aptitude, RuleType.TraisUnitee),
 	PretreMortis(RuleType.Aptitude, RuleType.TraisUnitee),
 
 	OrageGuerisseur(RuleType.Priere),
 	OrageFoudroyant(RuleType.Priere),
 
+	CastigatorPrimus(RuleType.Composition),
+	GryphDogueAlpha(RuleType.Composition),
 	JudicatorArcPrimus(RuleType.Composition),
 	LiberatorPrimus(RuleType.Composition),
+	ProsecutorPrimus(RuleType.Composition),
 	VindictorPrimus(RuleType.Composition),
 	SequitorPrimus(RuleType.Composition),
 	SignifereAzyrite(RuleType.Composition),
-
 	;
 
 	private List<RuleType> types;

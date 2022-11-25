@@ -1,0 +1,1 @@
+1 figurine de cette unité peut être un Prosécutor-Primus. Ajoutez 1 à la caractéristique d’Attaques de son Marteau Céleste ou de sa Paire de Marteaux Célestes.

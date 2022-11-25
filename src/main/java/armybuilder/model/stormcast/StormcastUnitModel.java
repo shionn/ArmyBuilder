@@ -5,6 +5,7 @@ import java.util.List;
 
 import armybuilder.model.army.Allegiance;
 import armybuilder.model.army.Army;
+import armybuilder.model.rule.GeneriqueUnitRule;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.ProfileDegressif;
 import armybuilder.model.unit.UnitProfile;
@@ -34,7 +35,7 @@ public enum StormcastUnitModel implements IUnitModel<StormcastUnitModel> {
 			Arrays.asList(StormcastWeapons.LanceDOrage),
 			null,
 			Arrays.asList(StormcastRule.ArsenalDAmesOrageuses),
-			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Banniere),
+			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Banniere, UnitOptionCategory.Renforcees),
 			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Fulgurant, KeyWord.Redempteur, KeyWord.Vindictors)),
 
 	Liberators(
@@ -43,7 +44,7 @@ public enum StormcastUnitModel implements IUnitModel<StormcastUnitModel> {
 			Arrays.asList(StormcastWeapons.GrandeArme),
 			null,
 			Arrays.asList(StormcastRule.RenversezLesTyrans),
-			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Armes),
+			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Armes, UnitOptionCategory.Renforcees),
 			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Redempteur, KeyWord.Liberators)),
 
 	Sequitors(
@@ -51,8 +52,8 @@ public enum StormcastUnitModel implements IUnitModel<StormcastUnitModel> {
 			Arrays.asList(RoleTactique.Ligne),
 			Arrays.asList(StormcastWeapons.ArmesSacroSaintes, StormcastWeapons.GrandeMassueDeSanction),
 			null,
-			Arrays.asList(StormcastRule.EtheriqueDeSequitors),
-			Arrays.asList(UnitOptionCategory.Chef),
+			Arrays.asList(StormcastRule.CanalisationEtheriqueDeSequitors),
+			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Renforcees),
 			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.SacroSaint, KeyWord.Redempteur, KeyWord.Sequitors)),
 
 	JudicatorsArcs(
@@ -62,9 +63,37 @@ public enum StormcastUnitModel implements IUnitModel<StormcastUnitModel> {
 					StormcastWeapons.GlaiveDOrage),
 			null,
 			Arrays.asList(StormcastRule.DeflagrationCeleste),
-			Arrays.asList(UnitOptionCategory.Chef),
+			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Renforcees),
 			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Judicators, KeyWord.Judicators,
-					KeyWord.JudicatorsArc))
+					KeyWord.JudicatorsArc)),
+
+	Castigators(
+			UnitProfile._5_2_7_4,
+			Arrays.asList(RoleTactique.Elite),
+			Arrays.asList(StormcastWeapons.GrandArcFulgurant, StormcastWeapons.LourdeCrosse),
+			null,
+			Arrays.asList(StormcastRule.CanalisationEtheriqueDeCastigators, StormcastRule.ExplosionDEnergieCeleste),
+			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Renforcees),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.SacroSaint, KeyWord.Justicar, KeyWord.Castigators)),
+
+	GryphDogues(
+			UnitProfile._9_2_6_Dash,
+			Arrays.asList(RoleTactique.Elite),
+			Arrays.asList(StormcastWeapons.BecEtGriffesCruels),
+			null,
+			Arrays.asList(StormcastRule.AttaquesAuPassage, StormcastRule.CriDAlarme),
+			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Renforcees),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.GryphDogues)),
+
+	ProsecutorsMarteaux(
+			UnitProfile._12_2_7_4,
+			Arrays.asList(RoleTactique.Elite),
+			Arrays.asList(StormcastWeapons.GrandeArme),
+			null,
+			Arrays.asList(GeneriqueUnitRule.Vol, StormcastRule.FormationDispersee, StormcastRule.HerautsDeVertu),
+			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Armes, UnitOptionCategory.Renforcees),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Angelos, KeyWord.Prosecutors,
+					KeyWord.ProsecutorsMarteaux)),
 
 	;
 

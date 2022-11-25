@@ -66,13 +66,18 @@ public enum KeyWord implements IHaveDisplayName {
 	TombBanshee,
 
 	// StormCast
+	Angelos,
+	Castigators,
 	Chevalier,
 	Draconithe,
 	Fulgurant,
+	GryphDogues,
 	Judicators,
 	JudicatorsArc,
 	Justicar,
 	Liberators,
+	Prosecutors,
+	ProsecutorsMarteaux,
 	Redempteur,
 	SacroSaint,
 	Seigneur,

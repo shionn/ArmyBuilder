@@ -69,8 +69,10 @@ public enum UnitOption implements IUnitOption {
 
 	AppelALAide(StormcastOptimisation.AppelALAide),
 	ArmeDesCieuxEtBouclierDeSigmarite(StormcastOptimisation.ArmeDesCieuxEtBouclierDeSigmarite),
+	CastigatorPrimus(StormcastOptimisation.CastigatorPrimus),
 	CoupDeTonerreFinal(StormcastOptimisation.CoupDeTonerreFinal),
 	DechainezVotreAine(StormcastOptimisation.DechainezVotreAine),
+	GryphDogueAlpha(StormcastOptimisation.GryphDogueAlpha),
 	JudicatorArcPrimus(StormcastOptimisation.JudicatorArcPrimus),
 	LiberatorPrimus(StormcastOptimisation.LiberatorPrimus),
 	MarcheImpertubable(StormcastOptimisation.MarcheImpertubable),
@@ -79,6 +81,10 @@ public enum UnitOption implements IUnitOption {
 	SignifereAzyrite(StormcastOptimisation.SignifereAzyrite),
 	VindictorPrimus(StormcastOptimisation.VindictorPrimus),
 	VoleeDEclairs(StormcastOptimisation.VoleeDEclairs),
+	ProsecutorPrimus(StormcastOptimisation.ProsecutorPrimus),
+
+	MarteauCelesteEtBouclierDeSigmarite(StormcastOptimisation.MarteauCelesteEtBouclierDeSigmarite),
+	PaireDeMarteauxCelestes(StormcastOptimisation.PaireDeMarteauxCelestes),
 	;
 
 	private IUnitOption sub;
