@@ -4,7 +4,8 @@ import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.model.unit.weapon.WeaponType;
 
 public enum StormcastWeapons implements IUnitWeapon {
-	MarteauRelique("Marteau Relique", WeaponType.Melee, "1", "4", "3+", "3+", "-1", "2");
+	MarteauRelique("Marteau Relique", WeaponType.Melee, "1", "4", "3+", "3+", "-1", "2"),
+	LanceDOrage("Lance d'Orage", WeaponType.Melee, "2", "2", "3+", "3+", "-1", "1")
 	;
 
 	private String displayName;

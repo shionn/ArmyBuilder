@@ -40,6 +40,7 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	CoeurDeFureur(DokUnitModel.CoeurDeFureur),
 
 	SeigneurRelictor(StormcastUnitModel.SeigneurRelictor),
+	Vindictor(StormcastUnitModel.Vindictor),
 
 	;
 

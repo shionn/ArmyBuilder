@@ -68,7 +68,12 @@ public enum KeyWord implements IHaveDisplayName {
 	// StormCast
 	StormCast,
 	Seigneur,
+	Chevalier,
+	Draconithe,
 	SeigneurRelictor,
+	Fulgurant,
+	Redempteur,
+	Vindictor,
 
 	;
 

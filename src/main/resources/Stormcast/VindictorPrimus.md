@@ -1,0 +1,1 @@
+1 figurine de cette unité peut être un Vindictor-Primus. Ajoutez 1 à la caractéristique d’Attaques de sa Lance d'Orage.

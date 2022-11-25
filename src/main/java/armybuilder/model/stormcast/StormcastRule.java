@@ -10,45 +10,24 @@ import armybuilder.serialisation.DescriptionReader;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum StormcastRule implements IRule<StormcastRule> {
+	AppelALAide(RuleType.TraitsDeCommandement),
+	MarcheImpertubable(RuleType.TraitsDeCommandement),
+	VoleeDEclairs(RuleType.TraitsDeCommandement),
+	DechainezVotreAine(RuleType.TraitsDeCommandement),
+	CoupDeTonerreFinal(RuleType.TraitsDeCommandement),
+
 	FlamboiementDeGloire(RuleType.TraisDeBataille),
 	DescendantsDeLOrage(RuleType.TraisDeBataille),
 
+	ArsenalDAmesOrageuses(RuleType.Aptitude, RuleType.TraisUnitee),
 	PretreMortis(RuleType.Aptitude, RuleType.TraisUnitee),
 
 	OrageGuerisseur(RuleType.Priere),
 	OrageFoudroyant(RuleType.Priere),
 
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
-//	AAA(RuleType.Aptitude),
+	VindictorPrimus(RuleType.Composition),
+	SignifereAzyrite(RuleType.Composition),
+
 	;
 
 	private List<RuleType> types;

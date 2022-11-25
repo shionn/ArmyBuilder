@@ -1,0 +1,1 @@
+Si le jet de touche non modifhé pour une attaque effectuée avec une Lance d'Orage est 6, l'attaque inflige 1 blessure mortelle à la cible et la séquence d'attaque se termine (ne faites pas de jet de blessure ni de sauvegarde).

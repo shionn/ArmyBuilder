@@ -26,7 +26,17 @@ public enum StormcastUnitModel implements IUnitModel<StormcastUnitModel> {
 			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.TraisDeCommandement,
 					UnitOptionCategory.Priere),
 			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Heros, KeyWord.Pretre, KeyWord.Totem,
-					KeyWord.Seigneur, KeyWord.SeigneurRelictor))
+					KeyWord.Seigneur, KeyWord.SeigneurRelictor)),
+
+	Vindictor(
+			UnitProfile._5_2_7_3,
+			Arrays.asList(RoleTactique.Ligne),
+			Arrays.asList(StormcastWeapons.LanceDOrage),
+			null,
+			Arrays.asList(StormcastRule.ArsenalDAmesOrageuses),
+			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Banniere),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Fulgurant, KeyWord.Redempteur, KeyWord.Vindictor)),
+
 	;
 
 	private int pts;

@@ -40,9 +40,10 @@ public enum GeneriqueRule implements IRule<GeneriqueRule> {
 			RuleType.TraisUnitee),
 
 	Benediction(
+			// donne une protection a 6+ donc onutil pour les DoK
 			a -> a.units(KeyWord.Pretre)
 					.stream()
-					.filter(u -> !a.is(Allegiance.DoK)) // TODO pourquoi j'ai filtrer les DOK ?
+					.filter(u -> !a.is(Allegiance.DoK))
 					.forEach(u -> u.add(GeneriqueRule.valueOf("Benediction"))),
 			RuleType.Priere,
 			RuleType.TraisUnitee),

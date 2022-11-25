@@ -1,0 +1,1 @@
+Vous pouvez utiliser cette aptitude de commandement une fois par bataille à votre phase des héros. L'ordre peut seulement être donné par un CHEVALIER ami à une unité entièrement à 12" de lui, ou par un SEIGNEUR Ou un DRACONITHE ami à une unité entièrement à 18" de lui. L'unité qui reçoit l'ordre doit être une unité JUSTICAR où ANGELOS amie. Elle peut tirer à cette phase.

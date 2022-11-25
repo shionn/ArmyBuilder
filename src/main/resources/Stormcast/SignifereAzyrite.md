@@ -1,0 +1,1 @@
+1 figurine de cette unité sur 5 peut être un Signifère Azyrite. Ajoutez 1 à la caractéristique de Bravoure de cette unité tant qu’elle inclut un ou plusieurs Signifères Azyrites.

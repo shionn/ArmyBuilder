@@ -1,6 +1,7 @@
 package armybuilder.model.unit.option;
 
 import armybuilder.model.dok.DokOptimisations;
+import armybuilder.model.stormcast.StormcastOptimisation;
 import armybuilder.model.unit.Unit;
 
 public enum UnitOption implements IUnitOption {
@@ -64,7 +65,15 @@ public enum UnitOption implements IUnitOption {
 	FouetBarbeleEtCouteauSacrificiel(DokOptimisations.FouetBarbeleEtCouteauSacrificiel),
 	Krone(DokOptimisations.Krone),
 	Gorgai(DokOptimisations.Gorgai),
-	ShroudQueen(DokOptimisations.ShroudQueen);
+	ShroudQueen(DokOptimisations.ShroudQueen),
+
+	AppelALAide(StormcastOptimisation.AppelALAide),
+	MarcheImpertubable(StormcastOptimisation.MarcheImpertubable),
+	VoleeDEclairs(StormcastOptimisation.VoleeDEclairs),
+	DechainezVotreAine(StormcastOptimisation.DechainezVotreAine),
+	CoupDeTonerreFinal(StormcastOptimisation.CoupDeTonerreFinal),
+	VindictorPrimus(StormcastOptimisation.VindictorPrimus),
+	SignifereAzyrite(StormcastOptimisation.SignifereAzyrite),
 
 	;
 
