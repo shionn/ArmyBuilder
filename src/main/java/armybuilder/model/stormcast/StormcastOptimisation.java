@@ -10,14 +10,28 @@ import armybuilder.model.unit.option.UnitOptionCategory;
 
 public enum StormcastOptimisation implements IUnitOption {
 	AppelALAide(UnitOptionCategory.TraisDeCommandement, u -> true),
+	CoupDeTonerreFinal(UnitOptionCategory.TraisDeCommandement, u -> true),
+	DechainezVotreAine(UnitOptionCategory.TraisDeCommandement, u -> true),
 	MarcheImpertubable(UnitOptionCategory.TraisDeCommandement, u -> true),
 	VoleeDEclairs(UnitOptionCategory.TraisDeCommandement, u -> true),
-	DechainezVotreAine(UnitOptionCategory.TraisDeCommandement, u -> true),
-	CoupDeTonerreFinal(UnitOptionCategory.TraisDeCommandement, u -> true),
 
-	VindictorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Vindictor)),
-	SignifereAzyrite(UnitOptionCategory.Banniere, u -> u.is(KeyWord.Vindictor)),
+	VindictorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Vindictors)),
+	LiberatorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Liberators)),
+	SignifereAzyrite(UnitOptionCategory.Banniere, u -> u.is(KeyWord.Vindictors)),
 
+	ArmeDesCieuxEtBouclierDeSigmarite(
+			"Arme des Cieux & Bouclier de Sigmarite",
+			UnitOptionCategory.Armes,
+			u -> u.is(KeyWord.Liberators),
+			u -> {
+				u.add(StormcastWeapons.ArmeDesCieux);
+				u.add(StormcastRule.BouclierDeSigmarite);
+			}),
+	PaireDArmesDesCieux(
+			"Paire d'Armes des Cieux",
+			UnitOptionCategory.Armes,
+			u -> u.is(KeyWord.Liberators),
+			u -> u.add(StormcastWeapons.PairesDArmesDesCieux)),
 	;
 
 	private String displayName;
@@ -26,11 +40,14 @@ public enum StormcastOptimisation implements IUnitOption {
 	private Consumer<Unit> decorate;
 
 	StormcastOptimisation(UnitOptionCategory category, Function<Unit, Boolean> available) {
-		this(category, available, null);
+		this.displayName = StormcastRule.valueOf(name()).getDisplayName();
+		this.category = category;
+		this.available = available;
 	}
 
-	StormcastOptimisation(UnitOptionCategory category, Function<Unit, Boolean> available, Consumer<Unit> decorate) {
-		this.displayName = StormcastRule.valueOf(name()).getDisplayName();
+	StormcastOptimisation(String displayName, UnitOptionCategory category, Function<Unit, Boolean> available,
+			Consumer<Unit> decorate) {
+		this.displayName = displayName;
 		this.category = category;
 		this.available = available;
 		this.decorate = decorate;

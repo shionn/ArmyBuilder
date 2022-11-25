@@ -68,13 +68,15 @@ public enum UnitOption implements IUnitOption {
 	ShroudQueen(DokOptimisations.ShroudQueen),
 
 	AppelALAide(StormcastOptimisation.AppelALAide),
-	MarcheImpertubable(StormcastOptimisation.MarcheImpertubable),
-	VoleeDEclairs(StormcastOptimisation.VoleeDEclairs),
-	DechainezVotreAine(StormcastOptimisation.DechainezVotreAine),
+	ArmeDesCieuxEtBouclierDeSigmarite(StormcastOptimisation.ArmeDesCieuxEtBouclierDeSigmarite),
 	CoupDeTonerreFinal(StormcastOptimisation.CoupDeTonerreFinal),
-	VindictorPrimus(StormcastOptimisation.VindictorPrimus),
+	DechainezVotreAine(StormcastOptimisation.DechainezVotreAine),
+	LiberatorPrimus(StormcastOptimisation.LiberatorPrimus),
+	MarcheImpertubable(StormcastOptimisation.MarcheImpertubable),
+	PaireDArmesDesCieux(StormcastOptimisation.PaireDArmesDesCieux),
 	SignifereAzyrite(StormcastOptimisation.SignifereAzyrite),
-
+	VindictorPrimus(StormcastOptimisation.VindictorPrimus),
+	VoleeDEclairs(StormcastOptimisation.VoleeDEclairs),
 	;
 
 	private IUnitOption sub;

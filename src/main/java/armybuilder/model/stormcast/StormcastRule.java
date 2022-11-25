@@ -20,11 +20,14 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	DescendantsDeLOrage(RuleType.TraisDeBataille),
 
 	ArsenalDAmesOrageuses(RuleType.Aptitude, RuleType.TraisUnitee),
+	BouclierDeSigmarite(RuleType.Aptitude, RuleType.TraisUnitee),
+	RenversezLesTyrans(RuleType.Aptitude, RuleType.TraisUnitee),
 	PretreMortis(RuleType.Aptitude, RuleType.TraisUnitee),
 
 	OrageGuerisseur(RuleType.Priere),
 	OrageFoudroyant(RuleType.Priere),
 
+	LiberatorPrimus(RuleType.Composition),
 	VindictorPrimus(RuleType.Composition),
 	SignifereAzyrite(RuleType.Composition),
 

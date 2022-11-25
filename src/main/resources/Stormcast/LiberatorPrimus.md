@@ -1,0 +1,1 @@
+1 figurine de cette unité peut être un Libérator-Primus. Ajoutez 1 à la caractéristique d'Attaques de l'Arme des Cieux, Paire d'Armes des Cieux ou Grande Arme de cette figurine.

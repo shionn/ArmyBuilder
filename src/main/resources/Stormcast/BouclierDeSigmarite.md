@@ -1,0 +1,1 @@
+Ajoutez 1 aux jets de sauvegarde pour les attaques qui ciblent cette unité si au moins la moitié des figurines de cette unité (en arrondissant à l’inférieur) est armée de Boucliers de Sigmarite.

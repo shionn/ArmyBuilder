@@ -4,8 +4,11 @@ import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.model.unit.weapon.WeaponType;
 
 public enum StormcastWeapons implements IUnitWeapon {
+	ArmeDesCieux("Arme des Cieux", WeaponType.Melee, "1", "2", "3+", "4+", "-1", "1"),
+	GrandeArme("Grande Arme", WeaponType.Melee, "1", "2", "3+", "3+", "-1", "2"),
+	LanceDOrage("Lance d'Orage", WeaponType.Melee, "2", "2", "3+", "3+", "-1", "1"),
 	MarteauRelique("Marteau Relique", WeaponType.Melee, "1", "4", "3+", "3+", "-1", "2"),
-	LanceDOrage("Lance d'Orage", WeaponType.Melee, "2", "2", "3+", "3+", "-1", "1")
+	PairesDArmesDesCieux("Paire d'Armes des Cieux", WeaponType.Melee, "1", "3", "3+", "4+", "-1", "1"),
 	;
 
 	private String displayName;
