@@ -181,7 +181,6 @@
 
 				<form:form>
 					<fieldset>
-<!-- 						<legend>Options / Optimisation</legend> -->
 						<c:forEach items="${unit.optionsCategories}" var="cat">
 							<c:if test="${cat.type == 'bool' }">
 								<spring:url value="/unit/edit/${unit.id}/${unit.optionValue(cat)}" var="url" />

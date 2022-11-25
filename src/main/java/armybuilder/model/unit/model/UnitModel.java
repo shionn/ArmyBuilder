@@ -5,6 +5,7 @@ import java.util.List;
 import armybuilder.model.army.Army;
 import armybuilder.model.dok.DokUnitModel;
 import armybuilder.model.rule.IRule;
+import armybuilder.model.stormcast.StormcastUnitModel;
 import armybuilder.model.unit.ProfileDegressif;
 import armybuilder.model.unit.UnitProfile;
 import armybuilder.model.unit.keyword.KeyWord;
@@ -36,7 +37,11 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	EgorgeusesKhinerai(DokUnitModel.EgorgeusesKhinerai),
 //	BloodwrackViper(DokUnitModel.BloodwrackViper),
 //	Bladewind(DokUnitModel.Bladewind),
-	CoeurDeFureur(DokUnitModel.CoeurDeFureur);
+	CoeurDeFureur(DokUnitModel.CoeurDeFureur),
+
+	SeigneurRelictor(StormcastUnitModel.SeigneurRelictor),
+
+	;
 
 	private IUnitModel<?> sub;
 

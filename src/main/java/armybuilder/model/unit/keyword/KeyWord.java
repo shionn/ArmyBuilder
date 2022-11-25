@@ -64,8 +64,11 @@ public enum KeyWord implements IHaveDisplayName {
 	MyrmournBanshees,
 	Nighthaunt,
 	TombBanshee,
-	TousLesTemples,
 
+	// StormCast
+	StormCast,
+	Seigneur,
+	SeigneurRelictor,
 
 	;
 

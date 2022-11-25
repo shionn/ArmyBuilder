@@ -21,7 +21,6 @@ public enum UnitOptionCategory implements IHaveDisplayName {
 	Armes(UnitOptionType.select, (u, o) -> u.setArme(o), Unit::getArme),
 	Invoquee(UnitOptionType.bool, (u, o) -> u.setInvoquee(o), Unit::getInvoquee),
 	Renforcees(UnitOptionType.select, (u, o) -> u.setRenforcee(o), Unit::getRenforcee),
-	Bataillon(UnitOptionType.select, null, null),
 
 	;
 

@@ -7,6 +7,7 @@ import java.util.function.Consumer;
 import armybuilder.model.IHaveDisplayName;
 import armybuilder.model.dok.DokRule;
 import armybuilder.model.rule.IRule;
+import armybuilder.model.stormcast.StormcastRule;
 import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.modelold.deprecated.nighthaunt.NighthauntRule;
 import armybuilder.serialisation.EnumPropertyLoader;
@@ -28,7 +29,11 @@ public enum Allegiance implements IHaveDisplayName, IDecoreArmy {
 					NighthauntRule.EspritsImperissables, NighthauntRule.IlsViennentDesSousMondes,
 					NighthauntRule.NourrisDeTerreur, NighthauntRule.RestituerLesFigurinesTuees,
 					NighthauntRule.VagueDeTerreur),
-			null);
+			null),
+	StormCast(
+			Arrays.asList(StormcastRule.FlamboiementDeGloire, StormcastRule.DescendantsDeLOrage),
+			null
+			);
 
 	private String displayName;
 	private List<IRule<?>> rules;

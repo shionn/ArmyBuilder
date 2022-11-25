@@ -30,7 +30,11 @@ public class EnumPropertyLoader {
 	}
 
 	public String name(Enum<?> e) {
-		return props(e, "name");
+		String value = props(e, "name");
+		if (value == null) {
+			throw new IllegalArgumentException("can't read name for " + e.getClass().getSimpleName() + "." + e.name());
+		}
+		return value;
 	}
 
 	public int pts(Enum<?> e) {

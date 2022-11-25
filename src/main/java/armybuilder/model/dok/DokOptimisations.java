@@ -145,7 +145,7 @@ public enum DokOptimisations implements IUnitOption {
 
 	@Override
 	public boolean availableFor(armybuilder.model.unit.Unit unit) {
-		return available.apply(unit);
+		return unit.is(KeyWord.FilleDeKhaine) && available.apply(unit);
 	}
 
 

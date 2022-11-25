@@ -1,0 +1,1 @@
+Orage Foudroyant est une prière qui a une valeur d'exaucement de 4 et une portée de 12”. Si elle est exaucée, choisissez 1 unité ennemie à portée et visible du prêtre. L'unité choisie subit D3 blessures mortelles. En outre, soustrayez 1 aux jets de touche des attaques effectuées par l'unité choisie jusqu'à votre prochaine phase des héros.
