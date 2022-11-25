@@ -71,6 +71,7 @@ public enum UnitOption implements IUnitOption {
 	ArmeDesCieuxEtBouclierDeSigmarite(StormcastOptimisation.ArmeDesCieuxEtBouclierDeSigmarite),
 	CoupDeTonerreFinal(StormcastOptimisation.CoupDeTonerreFinal),
 	DechainezVotreAine(StormcastOptimisation.DechainezVotreAine),
+	JudicatorArcPrimus(StormcastOptimisation.JudicatorArcPrimus),
 	LiberatorPrimus(StormcastOptimisation.LiberatorPrimus),
 	MarcheImpertubable(StormcastOptimisation.MarcheImpertubable),
 	PaireDArmesDesCieux(StormcastOptimisation.PaireDArmesDesCieux),

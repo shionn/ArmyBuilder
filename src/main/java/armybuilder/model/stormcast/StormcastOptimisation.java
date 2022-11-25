@@ -15,6 +15,7 @@ public enum StormcastOptimisation implements IUnitOption {
 	MarcheImpertubable(UnitOptionCategory.TraisDeCommandement, u -> true),
 	VoleeDEclairs(UnitOptionCategory.TraisDeCommandement, u -> true),
 
+	JudicatorArcPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.JudicatorsArc)),
 	LiberatorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Liberators)),
 	SequitorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Sequitors), u -> {
 		u.add(StormcastRule.SequitorPrimus);

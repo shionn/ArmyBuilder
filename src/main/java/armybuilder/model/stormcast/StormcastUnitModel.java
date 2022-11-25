@@ -53,7 +53,18 @@ public enum StormcastUnitModel implements IUnitModel<StormcastUnitModel> {
 			null,
 			Arrays.asList(StormcastRule.EtheriqueDeSequitors),
 			Arrays.asList(UnitOptionCategory.Chef),
-			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.SacroSaint, KeyWord.Redempteur, KeyWord.Sequitors))
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.SacroSaint, KeyWord.Redempteur, KeyWord.Sequitors)),
+
+	JudicatorsArcs(
+			UnitProfile._5_2_7_4,
+			Arrays.asList(RoleTactique.Ligne),
+			Arrays.asList(StormcastWeapons.ArcFoudreciel, StormcastWeapons.ArcFoudrefleche,
+					StormcastWeapons.GlaiveDOrage),
+			null,
+			Arrays.asList(StormcastRule.DeflagrationCeleste),
+			Arrays.asList(UnitOptionCategory.Chef),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Judicators, KeyWord.Judicators,
+					KeyWord.JudicatorsArc))
 
 	;
 

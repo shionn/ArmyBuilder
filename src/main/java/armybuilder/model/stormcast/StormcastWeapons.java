@@ -4,8 +4,11 @@ import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.model.unit.weapon.WeaponType;
 
 public enum StormcastWeapons implements IUnitWeapon {
+	ArcFoudreciel("Arc Foudreciel", WeaponType.Projectil, "24", "2", "3+", "3+", "-1", "1"),
+	ArcFoudrefleche("Arc Foudreflèche", WeaponType.Projectil, "24", "D6", "3+", "3+", "-1", "1"),
 	ArmeDesCieux("Arme des Cieux", WeaponType.Melee, "1", "2", "3+", "4+", "-1", "1"),
 	ArmesSacroSaintes("Armes Sacro-saintes", WeaponType.Melee, "1", "2", "3+", "3+", "-1", "1"),
+	GlaiveDOrage("Glaive d'Orage", WeaponType.Melee, "1", "1", "3+", "4+", "-1", "1"),
 	GrandeMassueDeSanction("Grande Massue de Sanction", WeaponType.Melee, "1", "2", "3+", "3+", "-1", "2"),
 	GrandeArme("Grande Arme", WeaponType.Melee, "1", "2", "3+", "3+", "-1", "2"),
 	LanceDOrage("Lance d'Orage", WeaponType.Melee, "2", "2", "3+", "3+", "-1", "1"),

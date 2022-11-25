@@ -43,6 +43,7 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	Vindictor(StormcastUnitModel.Vindictors),
 	Liberators(StormcastUnitModel.Liberators),
 	Sequitors(StormcastUnitModel.Sequitors),
+	JudicatorsArcs(StormcastUnitModel.JudicatorsArcs),
 
 	;
 
