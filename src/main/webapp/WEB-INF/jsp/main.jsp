@@ -92,7 +92,7 @@
 </div>
 
 <h2>Units</h2>
-<div class="units columns2" style="page-break-after: always;">
+<div class="units columns2">
 	<c:forEach items="${army.units}" var="unit">
 		<article class="unit">
 			<spring:url value="/unit/rm/${unit.id}" var="url" />
@@ -232,13 +232,18 @@
 			</c:if>
 		</article>
 	</c:forEach>
+</div>
+<div class="units columns2" style="page-break-inside: avoid;">
+	<h2>Rules</h2>
 	<c:forEach items="${army.bataillons}" var="bat">
 		<article class="bataillon">
 			<spring:url value="/bataillon/rm/${bat.id}" var="url" />
 			<header>${bat.displayName} <a href="${url}"><i class="fa fa-trash"></i></a>
 				<span>
 					<c:forEach items="${bat.compositions}" var="c">
-						<img src="img/${c.img}.png"<c:if test="${c.opt}"> class="opt"</c:if>>
+						<c:forEach begin="1" end="${c.count}">
+							<img src="img/${c.img}.png"<c:if test="${c.opt}"> class="opt"</c:if>>
+						</c:forEach>
 					</c:forEach>
 				</span>
 			</header>
@@ -261,17 +266,19 @@
 	</c:forEach>
 </div>
 
-<h2>Rules</h2>
-<c:forEach items="${RuleType.values()}" var="type">
-	<c:if test="${type.displayed and not empty army.rules(type)}">
-		<h3>${type.displayName}</h3>
-		<div class="columns2">
-			<c:forEach items="${army.rules(type)}" var="rule">
-				<div class="rule"><span>${rule.displayName}:</span>${rule.description}</div>
-			</c:forEach>
-		</div>
-	</c:if>
-</c:forEach>
+<div style="page-break-inside: avoid;">
+	<h2>Rules</h2>
+	<c:forEach items="${RuleType.values()}" var="type">
+		<c:if test="${type.displayed and not empty army.rules(type)}">
+			<h3>${type.displayName}</h3>
+			<div class="columns2">
+				<c:forEach items="${army.rules(type)}" var="rule">
+					<div class="rule"><span>${rule.displayName}:</span>${rule.description}</div>
+				</c:forEach>
+			</div>
+		</c:if>
+	</c:forEach>
+</div>
 </jsp:attribute>
 <jsp:attribute name="scripts">
 <%-- 	<script type="text/javascript" src='<spring:url value="/js/army.js"/>'></script> --%>
