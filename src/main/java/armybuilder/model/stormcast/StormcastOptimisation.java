@@ -15,16 +15,18 @@ public enum StormcastOptimisation implements IUnitOption {
 	MarcheImpertubable(UnitOptionCategory.TraisDeCommandement, u -> true),
 	VoleeDEclairs(UnitOptionCategory.TraisDeCommandement, u -> true),
 
+	AnnihilatorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Annihilators)),
 	CastigatorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Castigators)),
 	JudicatorArcPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.JudicatorsArc)),
 	GryphDogueAlpha(UnitOptionCategory.Chef, u -> u.is(KeyWord.GryphDogues)),
 	LiberatorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Liberators)),
+	ProsecutorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Prosecutors)),
+	RetributorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Retributors)),
 	SequitorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Sequitors), u -> {
 		u.add(StormcastRule.SequitorPrimus);
 		u.add(StormcastRule.CacheDeRedemption);
 	}),
 	VindictorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Vindictors)),
-	ProsecutorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Prosecutors)),
 
 	SignifereAzyrite(UnitOptionCategory.Banniere, u -> u.is(KeyWord.Vindictors)),
 

@@ -15,20 +15,15 @@ public enum StormcastWeapons implements IUnitWeapon {
 	GrandeMassueDeSanction("Grande Massue de Sanction", WeaponType.Melee, "1", "2", "3+", "3+", "-1", "2"),
 	LanceDOrage("Lance d'Orage", WeaponType.Melee, "2", "2", "3+", "3+", "-1", "1"),
 	LourdeCrosse("Lourde Crosse", WeaponType.Melee, "1", "2", "4+", "3+", "-", "1"),
+	MarteauDeFoudre("Marteau de Foudre", WeaponType.Melee, "1", "3", "3+", "3+", "-2", "2"),
 	MarteauRelique("Marteau Relique", WeaponType.Melee, "1", "4", "3+", "3+", "-1", "2"),
-	PairesDArmesDesCieux("Paire d'Armes des Cieux", WeaponType.Melee, "1", "3", "3+", "4+", "-1", "1"),
-	MarteauxCelestesProjectil("Marteaux Céleste", WeaponType.Projectil, "9", "2", "4+", "4+", "-1", "1"),
-	PaireDeMarteauxCelestesProjectil(
-			"Paire de Marteaux Célestes",
-			WeaponType.Projectil,
-			"9",
-			"3",
-			"4+",
-			"4+",
-			"-1",
-			"1"),
+	MarteauMeteorique("Marteau Météorique", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "2"),
 	MarteauxCelestesMelee("Marteaux Céleste", WeaponType.Melee, "1", "2", "3+", "3+", "-1", "1"),
+	MarteauxCelestesProjectil("Marteaux Céleste", WeaponType.Projectil, "9", "2", "4+", "4+", "-1", "1"),
+	PairesDArmesDesCieux("Paire d'Armes des Cieux", WeaponType.Melee, "1", "3", "3+", "4+", "-1", "1"),
+	PaireDeMarteauxCelestesProjectil("Paire de Marteaux Célestes", WeaponType.Projectil, "9", "3", "4+", "4+", "-1", "1"),
 	PaireDeMarteauxCelestesMelee("Paire de Marteaux Célestes", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "1"),
+	MasseDAsterie("Masse d'Astérie", WeaponType.Melee, "1", "1", "*", "*", "*", "*"),
 	;
 
 	private String displayName;

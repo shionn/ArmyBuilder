@@ -60,8 +60,6 @@ public enum GeneriqueRule implements IRule<GeneriqueRule> {
 
 	// regle
 	DissiperLesSorts(null, RuleType.Rule, RuleType.PhaseDesHeros),
-	Fiascos(null, RuleType.Rule, RuleType.PhaseDesHeros),
-	TestsDeDeroute(null, RuleType.Rule, RuleType.PhaseDeDeroute),
 
 	;
 

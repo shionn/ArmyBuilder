@@ -95,6 +95,24 @@ public enum StormcastUnitModel implements IUnitModel<StormcastUnitModel> {
 			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Angelos, KeyWord.Prosecutors,
 					KeyWord.ProsecutorsMarteaux)),
 
+	Annihilators(
+			UnitProfile._4_3_7_2,
+			Arrays.asList(RoleTactique.Elite),
+			Arrays.asList(StormcastWeapons.MarteauMeteorique),
+			null,
+			Arrays.asList(StormcastRule.ImpactFlamboyant, StormcastRule.LaForceDUneEtoileFilante),
+			Arrays.asList(UnitOptionCategory.Chef),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Fulgurant, KeyWord.Paladin, KeyWord.Annihilators)),
+
+	Retributors(
+			UnitProfile._4_3_7_3,
+			Arrays.asList(RoleTactique.Elite),
+			Arrays.asList(StormcastWeapons.MarteauDeFoudre, StormcastWeapons.MasseDAsterie),
+			null,
+			Arrays.asList(StormcastRule.MasseDAsterie, StormcastRule.ReduitsEnCendres),
+			Arrays.asList(UnitOptionCategory.Chef),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Paladin, KeyWord.Retributors)),
+
 	;
 
 	private int pts;

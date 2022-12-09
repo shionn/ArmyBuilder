@@ -67,6 +67,7 @@ public enum UnitOption implements IUnitOption {
 	Gorgai(DokOptimisations.Gorgai),
 	ShroudQueen(DokOptimisations.ShroudQueen),
 
+	AnnihilatorPrimus(StormcastOptimisation.AnnihilatorPrimus),
 	AppelALAide(StormcastOptimisation.AppelALAide),
 	ArmeDesCieuxEtBouclierDeSigmarite(StormcastOptimisation.ArmeDesCieuxEtBouclierDeSigmarite),
 	CastigatorPrimus(StormcastOptimisation.CastigatorPrimus),
@@ -82,6 +83,7 @@ public enum UnitOption implements IUnitOption {
 	VindictorPrimus(StormcastOptimisation.VindictorPrimus),
 	VoleeDEclairs(StormcastOptimisation.VoleeDEclairs),
 	ProsecutorPrimus(StormcastOptimisation.ProsecutorPrimus),
+	RetributorPrimus(StormcastOptimisation.RetributorPrimus),
 
 	MarteauCelesteEtBouclierDeSigmarite(StormcastOptimisation.MarteauCelesteEtBouclierDeSigmarite),
 	PaireDeMarteauxCelestes(StormcastOptimisation.PaireDeMarteauxCelestes),

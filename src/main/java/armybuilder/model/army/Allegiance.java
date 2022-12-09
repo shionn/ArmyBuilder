@@ -9,7 +9,6 @@ import armybuilder.model.dok.DokRule;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.stormcast.StormcastRule;
 import armybuilder.model.unit.keyword.KeyWord;
-import armybuilder.modelold.deprecated.nighthaunt.NighthauntRule;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum Allegiance implements IHaveDisplayName, IDecoreArmy {
@@ -24,12 +23,13 @@ public enum Allegiance implements IHaveDisplayName, IDecoreArmy {
 				a.addIf(a.is(SubAllegiance.HaggNar) || a.is(SubAllegiance.KheltNar), DokRule.HaineDuChaos);
 				a.addIf(a.count(KeyWord.RodeursDeLOmbre) > 0, DokRule.AttaqueInatendue);
 			}),
-	Nighthaunt(
-			Arrays.asList(NighthauntRule.AuraDEffroi, NighthauntRule.ConvocationSpectrale,
-					NighthauntRule.EspritsImperissables, NighthauntRule.IlsViennentDesSousMondes,
-					NighthauntRule.NourrisDeTerreur, NighthauntRule.RestituerLesFigurinesTuees,
-					NighthauntRule.VagueDeTerreur),
-			null),
+//	Nighthaunt(
+//			Arrays.asList(NighthauntRule.AuraDEffroi, NighthauntRule.ConvocationSpectrale,
+//					NighthauntRule.EspritsImperissables, NighthauntRule.IlsViennentDesSousMondes,
+//					NighthauntRule.NourrisDeTerreur, NighthauntRule.RestituerLesFigurinesTuees,
+//					NighthauntRule.VagueDeTerreur),
+//			null),
+	Skaven(null, null),
 	StormCast(
 			Arrays.asList(StormcastRule.FlamboiementDeGloire, StormcastRule.DescendantsDeLOrage),
 			null

@@ -31,7 +31,7 @@ public enum RuleType {
 	PhaseDeCombat(false),
 	PhaseDeDeroute(false),
 
-	Rule(false),
+	Rule(true),
 
 	;
 	private String displayName;

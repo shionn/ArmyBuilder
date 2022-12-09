@@ -29,21 +29,27 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	DeflagrationCeleste(RuleType.Aptitude, RuleType.TraisUnitee),
 	ExplosionDEnergieCeleste(RuleType.Aptitude, RuleType.TraisUnitee),
 	FormationDispersee(RuleType.Aptitude, RuleType.TraisUnitee),
+	ImpactFlamboyant(RuleType.Aptitude, RuleType.TraisUnitee),
 	HerautsDeVertu(RuleType.Aptitude, RuleType.TraisUnitee),
+	LaForceDUneEtoileFilante(RuleType.Aptitude, RuleType.TraisUnitee),
+	MasseDAsterie(RuleType.Aptitude, RuleType.TraisUnitee),
+	ReduitsEnCendres(RuleType.Aptitude, RuleType.TraisUnitee),
 	RenversezLesTyrans(RuleType.Aptitude, RuleType.TraisUnitee),
 	PretreMortis(RuleType.Aptitude, RuleType.TraisUnitee),
 
 	OrageGuerisseur(RuleType.Priere),
 	OrageFoudroyant(RuleType.Priere),
 
+	AnnihilatorPrimus(RuleType.Composition),
 	CastigatorPrimus(RuleType.Composition),
 	GryphDogueAlpha(RuleType.Composition),
 	JudicatorArcPrimus(RuleType.Composition),
 	LiberatorPrimus(RuleType.Composition),
 	ProsecutorPrimus(RuleType.Composition),
-	VindictorPrimus(RuleType.Composition),
+	RetributorPrimus(RuleType.Composition),
 	SequitorPrimus(RuleType.Composition),
 	SignifereAzyrite(RuleType.Composition),
+	VindictorPrimus(RuleType.Composition),
 	;
 
 	private List<RuleType> types;

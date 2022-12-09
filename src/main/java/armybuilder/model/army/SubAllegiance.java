@@ -9,7 +9,6 @@ import armybuilder.model.dok.DokRule;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.role.RoleTactique;
-import armybuilder.modelold.deprecated.nighthaunt.NighthauntRule;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum SubAllegiance implements IHaveDisplayName, IDecoreArmy {
@@ -48,10 +47,10 @@ public enum SubAllegiance implements IHaveDisplayName, IDecoreArmy {
 					.stream()
 					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
 					.forEach(u -> u.add(KeyWord.Kraith))),
-	LOstEmeraude(
-			Arrays.asList(NighthauntRule.LaMaledictionEmeraude, NighthauntRule.ChevaliersDuRegret),
-			Allegiance.Nighthaunt,
-			null),
+//	LOstEmeraude(
+//			Arrays.asList(NighthauntRule.LaMaledictionEmeraude, NighthauntRule.ChevaliersDuRegret),
+//			Allegiance.Nighthaunt,
+//			null),
 	ZaintharKai(
 			Arrays.asList(DokRule.LessenceDeKhaine),
 			Allegiance.DoK,

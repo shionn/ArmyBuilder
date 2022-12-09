@@ -67,6 +67,7 @@ public enum KeyWord implements IHaveDisplayName {
 
 	// StormCast
 	Angelos,
+	Annihilators,
 	Castigators,
 	Chevalier,
 	Draconithe,
@@ -76,9 +77,11 @@ public enum KeyWord implements IHaveDisplayName {
 	JudicatorsArc,
 	Justicar,
 	Liberators,
+	Paladin,
 	Prosecutors,
 	ProsecutorsMarteaux,
 	Redempteur,
+	Retributors,
 	SacroSaint,
 	Seigneur,
 	SeigneurRelictor,

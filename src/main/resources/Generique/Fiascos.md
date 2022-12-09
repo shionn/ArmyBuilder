@@ -1,1 +1,0 @@
-Sur un jet de lancement non modifié de 2, le sort est un __Fiasco__. Le sort n’est pas lancé avec succès, le lanceur subit D3 blessures mortelles, et le lanceur ne peut plus tenter de lancer des sorts à cette phase des héros.
