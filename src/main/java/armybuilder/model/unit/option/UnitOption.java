@@ -84,6 +84,8 @@ public enum UnitOption implements IUnitOption {
 	VoleeDEclairs(StormcastOptimisation.VoleeDEclairs),
 	ProsecutorPrimus(StormcastOptimisation.ProsecutorPrimus),
 	RetributorPrimus(StormcastOptimisation.RetributorPrimus),
+	PraetorPrimus(StormcastOptimisation.PraetorPrimus),
+	EvocatorPrimus(StormcastOptimisation.EvocatorPrimus),
 
 	MarteauCelesteEtBouclierDeSigmarite(StormcastOptimisation.MarteauCelesteEtBouclierDeSigmarite),
 	PaireDeMarteauxCelestes(StormcastOptimisation.PaireDeMarteauxCelestes),

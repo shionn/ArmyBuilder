@@ -113,6 +113,36 @@ public enum StormcastUnitModel implements IUnitModel<StormcastUnitModel> {
 			Arrays.asList(UnitOptionCategory.Chef),
 			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Paladin, KeyWord.Retributors)),
 
+	Praetors(
+			UnitProfile._4_3_8_3,
+			Arrays.asList(RoleTactique.Elite),
+			Arrays.asList(StormcastWeapons.HallebardeDeGardeDesAmes),
+			null,
+			Arrays.asList(StormcastRule.GardiensAuxAmesSoudees),
+			Arrays.asList(UnitOptionCategory.Chef),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Fulgurant, KeyWord.Praetors)),
+
+	EvocatorsSurDracolinesCelestes(
+			UnitProfile._12_5_8_4,
+			Arrays.asList(RoleTactique.Elite),
+			Arrays.asList(StormcastWeapons.LameTempeteEtSceptreDOrage, StormcastWeapons.GrandSceptreEvocatorDracoline,
+					StormcastWeapons.GriffesMonstrueuses),
+			null,
+			Arrays.asList(StormcastRule.SorcierEvocators, StormcastRule.ArcsDeFoudreCeleste,
+					StormcastRule.BondTonitruant, StormcastRule.Essor),
+			Arrays.asList(UnitOptionCategory.Chef),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.SacroSaint, KeyWord.Corpuscant, KeyWord.Dracoline,
+					KeyWord.Evocators)),
+
+	Evocators(
+			UnitProfile._5_3_8_4,
+			Arrays.asList(RoleTactique.Elite),
+			Arrays.asList(StormcastWeapons.LameTempeteEtSceptreDOrage, StormcastWeapons.GrandSceptre),
+			null,
+			Arrays.asList(StormcastRule.SorcierEvocators, StormcastRule.ArcsDeFoudreCeleste, StormcastRule.Essor),
+			Arrays.asList(UnitOptionCategory.Chef),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.SacroSaint, KeyWord.Corpuscant, KeyWord.Evocators)),
+
 	;
 
 	private int pts;

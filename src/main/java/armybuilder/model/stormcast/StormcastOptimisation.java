@@ -17,9 +17,11 @@ public enum StormcastOptimisation implements IUnitOption {
 
 	AnnihilatorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Annihilators)),
 	CastigatorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Castigators)),
+	EvocatorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Evocators)),
 	JudicatorArcPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.JudicatorsArc)),
 	GryphDogueAlpha(UnitOptionCategory.Chef, u -> u.is(KeyWord.GryphDogues)),
 	LiberatorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Liberators)),
+	PraetorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Praetors)),
 	ProsecutorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Prosecutors)),
 	RetributorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Retributors)),
 	SequitorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Sequitors), u -> {

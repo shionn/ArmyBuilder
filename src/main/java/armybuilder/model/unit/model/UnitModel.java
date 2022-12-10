@@ -49,6 +49,9 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	ProsecutorsMarteaux(StormcastUnitModel.ProsecutorsMarteaux),
 	Annihilators(StormcastUnitModel.Annihilators),
 	Retributors(StormcastUnitModel.Retributors),
+	Praetors(StormcastUnitModel.Praetors),
+	EvocatorsSurDracolinesCelestes(StormcastUnitModel.EvocatorsSurDracolinesCelestes),
+	Evocators(StormcastUnitModel.Evocators),
 	;
 
 	private IUnitModel<?> sub;

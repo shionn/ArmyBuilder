@@ -19,8 +19,10 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	FlamboiementDeGloire(RuleType.TraisDeBataille),
 	DescendantsDeLOrage(RuleType.TraisDeBataille),
 
+	ArcsDeFoudreCeleste(RuleType.Aptitude, RuleType.TraisUnitee),
 	ArsenalDAmesOrageuses(RuleType.Aptitude, RuleType.TraisUnitee),
 	AttaquesAuPassage(RuleType.Aptitude, RuleType.TraisUnitee),
+	BondTonitruant(RuleType.Aptitude, RuleType.TraisUnitee),
 	BouclierDeSigmarite(RuleType.Aptitude, RuleType.TraisUnitee),
 	CacheDeRedemption(RuleType.Aptitude, RuleType.TraisUnitee),
 	CanalisationEtheriqueDeCastigators(RuleType.Aptitude, RuleType.TraisUnitee),
@@ -29,27 +31,35 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	DeflagrationCeleste(RuleType.Aptitude, RuleType.TraisUnitee),
 	ExplosionDEnergieCeleste(RuleType.Aptitude, RuleType.TraisUnitee),
 	FormationDispersee(RuleType.Aptitude, RuleType.TraisUnitee),
-	ImpactFlamboyant(RuleType.Aptitude, RuleType.TraisUnitee),
+	GardiensAuxAmesSoudees(RuleType.Aptitude, RuleType.TraisUnitee),
 	HerautsDeVertu(RuleType.Aptitude, RuleType.TraisUnitee),
+	ImpactFlamboyant(RuleType.Aptitude, RuleType.TraisUnitee),
 	LaForceDUneEtoileFilante(RuleType.Aptitude, RuleType.TraisUnitee),
 	MasseDAsterie(RuleType.Aptitude, RuleType.TraisUnitee),
+	PretreMortis(RuleType.Aptitude, RuleType.TraisUnitee),
 	ReduitsEnCendres(RuleType.Aptitude, RuleType.TraisUnitee),
 	RenversezLesTyrans(RuleType.Aptitude, RuleType.TraisUnitee),
-	PretreMortis(RuleType.Aptitude, RuleType.TraisUnitee),
+	SorcierEvocators(RuleType.Aptitude, RuleType.TraisUnitee),
 
 	OrageGuerisseur(RuleType.Priere),
 	OrageFoudroyant(RuleType.Priere),
 
+	Essor(RuleType.Sort),
+
 	AnnihilatorPrimus(RuleType.Composition),
 	CastigatorPrimus(RuleType.Composition),
+	EvocatorPrimus(RuleType.Composition),
 	GryphDogueAlpha(RuleType.Composition),
 	JudicatorArcPrimus(RuleType.Composition),
 	LiberatorPrimus(RuleType.Composition),
+	PraetorPrimus(RuleType.Composition),
 	ProsecutorPrimus(RuleType.Composition),
 	RetributorPrimus(RuleType.Composition),
 	SequitorPrimus(RuleType.Composition),
 	SignifereAzyrite(RuleType.Composition),
 	VindictorPrimus(RuleType.Composition),
+
+
 	;
 
 	private List<RuleType> types;
