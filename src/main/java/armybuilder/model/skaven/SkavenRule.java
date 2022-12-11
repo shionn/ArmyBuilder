@@ -16,6 +16,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 
 	// aptitude des heoro de sous clan
 	ManipulateursHabiles(RuleType.Aptitude, RuleType.TraisUnitee),
+	ToujoursTroisCoupsDeGriffesDAvance(RuleType.AptitudesDeCommandement),
 
 	;
 

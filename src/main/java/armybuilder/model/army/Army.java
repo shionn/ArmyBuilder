@@ -67,8 +67,8 @@ public class Army implements IHaveRule {
 	/**
 	 * units
 	 */
-	public int count(KeyWord keyWord) {
-		return units(keyWord).size();
+	public int count(KeyWord... keyWords) {
+		return units(keyWords).size();
 	}
 
 	public List<Unit> units(KeyWord... keyWords) {

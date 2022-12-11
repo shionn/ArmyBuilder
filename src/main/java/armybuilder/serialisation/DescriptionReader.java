@@ -25,7 +25,7 @@ public class DescriptionReader {
 	}
 
 	public String read(Enum<?> e) {
-		return read(e.getClass().getSimpleName().replaceAll("Rule", ""), e.name());
+		return read(e.getClass().getSimpleName().replaceAll("Rule", "") + "/", e.name());
 	}
 
 	public String read(String folder, String name) {

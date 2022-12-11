@@ -30,14 +30,13 @@ public enum Allegiance implements IHaveDisplayName, IDecoreArmy {
 //					NighthauntRule.NourrisDeTerreur, NighthauntRule.RestituerLesFigurinesTuees,
 //					NighthauntRule.VagueDeTerreur),
 //			null),
-	Skaven(Arrays.asList(SkavenRule.DirigerDepuisLArriere, SkavenRule.SauveQuiPeut), null),
-	StormCast(
-			Arrays.asList(StormcastRule.FlamboiementDeGloire, StormcastRule.DescendantsDeLOrage),
+	Skaven(Arrays.asList(SkavenRule.DirigerDepuisLArriere, SkavenRule.SauveQuiPeut, SkavenRule.SauveQuiPeut),
 			a -> {
-				a.units(KeyWord.Heros, KeyWord.Maitreclan)
-						.forEach(u -> u.add(SkavenRule.ManipulateursHabiles));
+				a.units(KeyWord.Heros, KeyWord.Maitreclan).forEach(u -> u.add(SkavenRule.ManipulateursHabiles));
+				a.addIf(a.count(KeyWord.Heros, KeyWord.Maitreclan) > 2, SkavenRule.ToujoursTroisCoupsDeGriffesDAvance);
 			}
-			);
+	),
+	StormCast(Arrays.asList(StormcastRule.FlamboiementDeGloire, StormcastRule.DescendantsDeLOrage), null);
 
 	private String displayName;
 	private List<IRule<?>> rules;
