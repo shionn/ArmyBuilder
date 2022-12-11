@@ -1,0 +1,1 @@
+A la phase de combat, lorsque vous choisissez un HÉROS SKAVEN ami qui n'a pas de monture pour le faire combattre, vous pouvez dire qu'il va se sauver au lieu de combattre. Si vous le faites, le HÉROS peut se replier.

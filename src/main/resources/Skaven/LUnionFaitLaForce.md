@@ -1,0 +1,1 @@
+Ajoutez 1" à la portée des armes de mêlée des unités SKAVENS amies pour chaque tranche complète de 10 figurines de l'unité qui attaque (jusqu'à un maximum de 3").

@@ -7,6 +7,7 @@ import java.util.function.Consumer;
 import armybuilder.model.IHaveDisplayName;
 import armybuilder.model.dok.DokRule;
 import armybuilder.model.rule.IRule;
+import armybuilder.model.skaven.SkavenRule;
 import armybuilder.model.stormcast.StormcastRule;
 import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.serialisation.EnumPropertyLoader;
@@ -29,10 +30,13 @@ public enum Allegiance implements IHaveDisplayName, IDecoreArmy {
 //					NighthauntRule.NourrisDeTerreur, NighthauntRule.RestituerLesFigurinesTuees,
 //					NighthauntRule.VagueDeTerreur),
 //			null),
-	Skaven(null, null),
+	Skaven(Arrays.asList(SkavenRule.DirigerDepuisLArriere, SkavenRule.SauveQuiPeut), null),
 	StormCast(
 			Arrays.asList(StormcastRule.FlamboiementDeGloire, StormcastRule.DescendantsDeLOrage),
-			null
+			a -> {
+				a.units(KeyWord.Heros, KeyWord.Maitreclan)
+						.forEach(u -> u.add(SkavenRule.ManipulateursHabiles));
+			}
 			);
 
 	private String displayName;

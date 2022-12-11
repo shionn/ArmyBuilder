@@ -1,0 +1,1 @@
+Soustrayez 1 aux jets de touche pour les attaques d'armes de mêlée si la cible est un HÉROS SKAVEN ami qui n'est pas un MONSTRE et qui est à 3" d'une ou plusieurs unités SKAVENS amies comptant au moins 3 figurines.

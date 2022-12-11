@@ -71,8 +71,8 @@ public class Army implements IHaveRule {
 		return units(keyWord).size();
 	}
 
-	public List<Unit> units(KeyWord keyWord) {
-		return units.stream().filter(u -> u.is(keyWord)).collect(Collectors.toList());
+	public List<Unit> units(KeyWord... keyWords) {
+		return units.stream().filter(u -> u.is(keyWords)).collect(Collectors.toList());
 	}
 
 	public List<Unit> units(RoleTactique role) {

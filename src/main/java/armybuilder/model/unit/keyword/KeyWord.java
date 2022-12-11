@@ -65,6 +65,9 @@ public enum KeyWord implements IHaveDisplayName {
 	Nighthaunt,
 	TombBanshee,
 
+	// Skaven
+	Maitreclan,
+
 	// StormCast
 	Angelos,
 	Annihilators,
@@ -92,6 +95,7 @@ public enum KeyWord implements IHaveDisplayName {
 	StormCast,
 	Vindictors,
 	Corpuscant,
+
 
 	;
 

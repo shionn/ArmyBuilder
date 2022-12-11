@@ -2,6 +2,7 @@ package armybuilder.serialisation;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.Properties;
 
 public class EnumPropertyLoader {
@@ -13,7 +14,14 @@ public class EnumPropertyLoader {
 	private Properties props = new Properties();
 
 	private EnumPropertyLoader() {
-		try (InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("enums.properties")) {
+		for (String file : Arrays.asList("enums", "Dok", "Skaven", "Stormcast"))
+		load(file);
+	}
+
+	private void load(String file) {
+		try (InputStream is = Thread.currentThread()
+				.getContextClassLoader()
+				.getResourceAsStream(file + ".properties")) {
 			props.load(is);
 		} catch (IOException e) {
 			throw new IllegalStateException(e);

@@ -1,0 +1,1 @@
+-1 touche melee sur _Hero !Monstre_ si unité ami à 3" de 3+ figurine.

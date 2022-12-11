@@ -24,6 +24,10 @@ public class DescriptionReader {
 		}).reduce((a, b) -> (a + b)).get();
 	}
 
+	public String read(Enum<?> e) {
+		return read(e.getClass().getSimpleName().replaceAll("Rule", ""), e.name());
+	}
+
 	public String read(String folder, String name) {
 		try {
 			try {

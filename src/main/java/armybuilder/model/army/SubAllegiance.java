@@ -12,6 +12,7 @@ import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum SubAllegiance implements IHaveDisplayName, IDecoreArmy {
+	None(Arrays.asList(), null, null),
 	DraichiGaneth(
 			Arrays.asList(DokRule.TueusesHerisseesDeLames),
 			Allegiance.DoK,
@@ -75,7 +76,7 @@ public enum SubAllegiance implements IHaveDisplayName, IDecoreArmy {
 	}
 
 	public boolean availableFor(Army army) {
-		return army.is(allegiance);
+		return allegiance == null || army.is(allegiance);
 	}
 
 	@Override
@@ -86,7 +87,9 @@ public enum SubAllegiance implements IHaveDisplayName, IDecoreArmy {
 	@Override
 	public void decorate(Army army) {
 		rules.forEach(army::add);
-		modifier.accept(army);
+		if (modifier != null) {
+			modifier.accept(army);
+		}
 	}
 
 }

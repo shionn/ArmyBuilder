@@ -6,8 +6,8 @@ import java.util.List;
 public interface IHaveKeyWord {
 	List<KeyWord> getKeyWords();
 
-	default boolean is(KeyWord keyWord) {
-		return getKeyWords().contains(keyWord);
+	default boolean is(KeyWord... keyWords) {
+		return getKeyWords().containsAll(Arrays.asList(keyWords));
 	}
 
 	default boolean isOne(KeyWord... keyWords) {
