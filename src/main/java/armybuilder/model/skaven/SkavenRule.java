@@ -18,6 +18,17 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	ManipulateursHabiles(RuleType.Aptitude, RuleType.TraisUnitee),
 	ToujoursTroisCoupsDeGriffesDAvance(RuleType.AptitudesDeCommandement),
 
+	// aptitude d'unité
+	AppelDesCrevasses(RuleType.Aptitude, RuleType.TraisUnitee),
+	AutelDuGrandRatCornu(RuleType.Aptitude, RuleType.TraisUnitee),
+	AvalancheDEnergie(RuleType.Aptitude, RuleType.TraisUnitee),
+	CarillonFuneste(RuleType.Aptitude, RuleType.TraisUnitee),
+	PousseeVersLaBataille(RuleType.Aptitude, RuleType.TraisUnitee),
+	RemousParDelaLeVoile(RuleType.Aptitude, RuleType.TraisUnitee),
+	FragmentsDeMalepierre(RuleType.Aptitude, RuleType.TraisUnitee),
+
+	Fletrissement(RuleType.Sort),
+
 	;
 
 	private List<RuleType> types;

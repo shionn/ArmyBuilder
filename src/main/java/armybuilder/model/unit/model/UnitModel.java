@@ -5,6 +5,7 @@ import java.util.List;
 import armybuilder.model.army.Army;
 import armybuilder.model.dok.DokUnitModel;
 import armybuilder.model.rule.IRule;
+import armybuilder.model.skaven.SkavenUnitModel;
 import armybuilder.model.stormcast.StormcastUnitModel;
 import armybuilder.model.unit.ProfileDegressif;
 import armybuilder.model.unit.UnitProfile;
@@ -39,6 +40,9 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 //	Bladewind(DokUnitModel.Bladewind),
 	CoeurDeFureur(DokUnitModel.CoeurDeFureur),
 
+	PropheteGrisSurClocheHurlante(SkavenUnitModel.PropheteGrisSurClocheHurlante),
+	PropheteGris(SkavenUnitModel.PropheteGris),
+
 	SeigneurRelictor(StormcastUnitModel.SeigneurRelictor),
 	Vindictor(StormcastUnitModel.Vindictors),
 	Liberators(StormcastUnitModel.Liberators),
@@ -52,6 +56,7 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	Praetors(StormcastUnitModel.Praetors),
 	EvocatorsSurDracolinesCelestes(StormcastUnitModel.EvocatorsSurDracolinesCelestes),
 	Evocators(StormcastUnitModel.Evocators),
+
 	;
 
 	private IUnitModel<?> sub;

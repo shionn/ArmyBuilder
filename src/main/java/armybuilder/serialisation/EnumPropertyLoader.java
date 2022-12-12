@@ -3,7 +3,13 @@ package armybuilder.serialisation;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
+
+import armybuilder.model.unit.UnitProfile;
+import armybuilder.model.unit.keyword.KeyWord;
+import armybuilder.model.unit.option.UnitOptionCategory;
+import armybuilder.model.unit.role.RoleTactique;
 
 public class EnumPropertyLoader {
 
@@ -51,6 +57,22 @@ public class EnumPropertyLoader {
 		} catch (NumberFormatException ex) {
 			throw new IllegalArgumentException("can't read pts for " + e.name(), ex);
 		}
+	}
+
+	public List<RoleTactique> roles(Enum<?> e) {
+		return Arrays.stream(props(e, "roles").split(",")).map(RoleTactique::valueOf).toList();
+	}
+
+	public UnitProfile profile(Enum<?> e) {
+		return UnitProfile.valueOf(props(e, "profile"));
+	}
+
+	public List<KeyWord> keywords(Enum<?> e) {
+		return Arrays.stream(props(e, "keywords").split(",")).map(KeyWord::valueOf).toList();
+	}
+
+	public List<UnitOptionCategory> options(Enum<?> e) {
+		return Arrays.stream(props(e, "options").split(",")).map(UnitOptionCategory::valueOf).toList();
 	}
 
 }

@@ -6,6 +6,7 @@ import armybuilder.serialisation.EnumPropertyLoader;
 public enum KeyWord implements IHaveDisplayName {
 	// Generique
 	Aelf,
+	Chaos,
 	Heros,
 	Unique,
 	Monstre,
@@ -66,7 +67,11 @@ public enum KeyWord implements IHaveDisplayName {
 	TombBanshee,
 
 	// Skaven
+	ClocheHurlante,
+	MachineDeGuerre,
 	Maitreclan,
+	PropheteGris,
+	Skavens,
 
 	// StormCast
 	Angelos,

@@ -1,0 +1,1 @@
+Ajoutez la valeur d'Avalanche d'Énergie du tableau de dégâts de cette unité aux jets de lancement et de récitation pour cette unité.

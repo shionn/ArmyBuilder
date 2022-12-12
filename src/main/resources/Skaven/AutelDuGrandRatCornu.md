@@ -1,0 +1,1 @@
+Cette unité a une protection de 5+. De plus, au début de votre phase des héros, vous pouvez dire que l'unité va supplier le Grand Rat Cornu au lieu de tenter de lancer des sorts à cette phase. Si vous le faites, à cette phase, cette unité est considérée comme ayant le mot-clé PRÊTRE au lieu du mot-clé SORCIER.
