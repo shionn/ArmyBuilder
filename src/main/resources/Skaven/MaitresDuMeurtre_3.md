@@ -1,0 +1,1 @@
+Ajoutez 1 aux jets de touche et de blessure pour les attaques des unités CLANS ESHIN amies qui ciblent tous les HÉROS choisi.

@@ -67,6 +67,7 @@ public enum KeyWord implements IHaveDisplayName {
 	TombBanshee,
 
 	// Skaven
+	ClansEchin,
 	ClocheHurlante,
 	Maitreclan,
 	MachineDeGuerre,

@@ -1,0 +1,1 @@
+Au début du premier round de bataille, après avoir déterminé qui a le premier tour mais avant le début du premier tour, vous pouvez choisir 1 HÉROS ennemi sur le champ de bataille. Ajoutez 1 aux jets de touche et de blessure pour les attaques des unités CLANS ESHIN amies qui ciblent le HÉROS choisi.

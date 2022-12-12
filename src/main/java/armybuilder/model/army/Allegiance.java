@@ -36,6 +36,8 @@ public enum Allegiance implements IHaveDisplayName, IDecoreArmy {
 				a.addIf(a.count(KeyWord.Heros, KeyWord.Maitreclan) > 2, SkavenRule.ToujoursTroisCoupsDeGriffesDAvance);
 				a.addIf(Arrays.asList(1, 2).contains(a.count(KeyWord.MaitresMoulder)), SkavenRule.CreationsPrisees_1);
 				a.addIf(a.count(KeyWord.MaitresMoulder) > 2, SkavenRule.CreationsPrisees_3);
+				a.addIf(a.count(KeyWord.Heros, KeyWord.ClansEchin) < 3, SkavenRule.MaitresDuMeurtre_1);
+				a.addIf(a.count(KeyWord.Heros, KeyWord.ClansEchin) > 2, SkavenRule.MaitresDuMeurtre_3);
 
 			}
 	),

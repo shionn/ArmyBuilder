@@ -19,6 +19,8 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	CreationsPrisees_3(RuleType.TraisDeBataille),
 	ManipulateursHabiles(RuleType.Aptitude, RuleType.TraisUnitee),
 	ToujoursTroisCoupsDeGriffesDAvance(RuleType.AptitudesDeCommandement),
+	MaitresDuMeurtre_1(RuleType.TraisDeBataille),
+	MaitresDuMeurtre_3(RuleType.TraisDeBataille),
 
 
 	// aptitude d'unité
