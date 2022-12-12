@@ -15,8 +15,11 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	LUnionFaitLaForce(RuleType.TraisDeBataille),
 
 	// aptitude des heoro de sous clan
+	CreationsPrisees_1(RuleType.TraisDeBataille),
+	CreationsPrisees_3(RuleType.TraisDeBataille),
 	ManipulateursHabiles(RuleType.Aptitude, RuleType.TraisUnitee),
 	ToujoursTroisCoupsDeGriffesDAvance(RuleType.AptitudesDeCommandement),
+
 
 	// aptitude d'unité
 	AppelDesCrevasses(RuleType.Aptitude, RuleType.TraisUnitee),

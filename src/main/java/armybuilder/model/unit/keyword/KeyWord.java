@@ -68,8 +68,9 @@ public enum KeyWord implements IHaveDisplayName {
 
 	// Skaven
 	ClocheHurlante,
-	MachineDeGuerre,
 	Maitreclan,
+	MachineDeGuerre,
+	MaitresMoulder,
 	PropheteGris,
 	Skavens,
 
