@@ -1,0 +1,3 @@
+C'est une action héroïque que vous pouvez accomplir avec 1 GRIFFARQUE ami au lieu d'en choisir une dans le tableau des règles de base. Si vous le faites, choisissez 1 trait de commandement éligible des pages 70-71 que ce GRIFFARQUE n'a pas encore et appliquez lui son effet jusqu'à la fin du tour.
+
+Si votre armée de départ inclut au moins 3 GRIFFARQUES, vous pouvez accomplir cette action héroïque avec chaque GRIFFARQUE ami au lieu d'un seul. Un trait de commandement ne peut pas être choisi grâce à cette aptitude plus d'une fois par tour.

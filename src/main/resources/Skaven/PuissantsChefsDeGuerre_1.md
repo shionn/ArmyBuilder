@@ -1,0 +1,1 @@
+C'est une action héroïque que vous pouvez accomplir avec 1 GRIFFARQUE ami au lieu d'en choisir une dans le tableau des règles de base. Si vous le faites, choisissez 1 trait de commandement éligible des pages 70-71 que ce GRIFFARQUE n'a pas encore et appliquez lui son effet jusqu'à la fin du tour.
