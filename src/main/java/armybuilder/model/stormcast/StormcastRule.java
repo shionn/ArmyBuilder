@@ -24,9 +24,15 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	DechainezVotreAine(RuleType.AptitudesDeCommandement),
 	CoupDeTonerreFinal(RuleType.AptitudesDeCommandement),
 
+	AmuletteDeSigmarite(RuleType.Artefact),
+	AmuletteDObsidienne(RuleType.Artefact),
+	ArmureDecaillesDeDrac(RuleType.Artefact),
+	BouclierMiroir(RuleType.Artefact),
+	BreuvageDeVifArgent(RuleType.Artefact),
 	CrocDeDracothion(RuleType.Artefact),
 	LameDeHero(RuleType.Artefact),
 	MarteauDePuissance(RuleType.Artefact),
+	PierreDeChance(RuleType.Artefact),
 
 	ArcsDeFoudreCeleste(RuleType.Aptitude, RuleType.TraisUnitee),
 	ArsenalDAmesOrageuses(RuleType.Aptitude, RuleType.TraisUnitee),

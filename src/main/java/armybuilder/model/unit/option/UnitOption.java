@@ -86,6 +86,21 @@ public enum UnitOption implements IUnitOption {
 	RetributorPrimus(StormcastOptimisation.RetributorPrimus),
 	PraetorPrimus(StormcastOptimisation.PraetorPrimus),
 	EvocatorPrimus(StormcastOptimisation.EvocatorPrimus),
+	ChocEtStupeur(StormcastOptimisation.ChocEtStupeur),
+	FerventDefenseur(StormcastOptimisation.FerventDefenseur),
+	MessagerDesCieux(StormcastOptimisation.MessagerDesCieux),
+	MaitreDeLaMenagerieCeleste(StormcastOptimisation.MaitreDeLaMenagerieCeleste),
+	AmuletteDeSigmarite(StormcastOptimisation.AmuletteDeSigmarite),
+	ArmureDecaillesDeDrac(StormcastOptimisation.ArmureDecaillesDeDrac),
+	BouclierMiroir(StormcastOptimisation.BouclierMiroir),
+	BreuvageDeVifArgent(StormcastOptimisation.BreuvageDeVifArgent),
+	CrocDeDracothion(StormcastOptimisation.CrocDeDracothion),
+	LameDeHero(StormcastOptimisation.LameDeHero),
+	MarteauDePuissance(StormcastOptimisation.MarteauDePuissance),
+	PierreDeChance(StormcastOptimisation.PierreDeChance),
+	AmuletteDObsidienne(StormcastOptimisation.AmuletteDObsidienne),
+
+	// TODO Sort et priere et trais de monture
 
 	MarteauCelesteEtBouclierDeSigmarite(StormcastOptimisation.MarteauCelesteEtBouclierDeSigmarite),
 	PaireDeMarteauxCelestes(StormcastOptimisation.PaireDeMarteauxCelestes),

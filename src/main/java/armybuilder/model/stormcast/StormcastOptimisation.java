@@ -26,9 +26,15 @@ public enum StormcastOptimisation implements IUnitOption {
 	MarcheImpertubable(UnitOptionCategory.TraisDeCommandement, u -> true),
 	VoleeDEclairs(UnitOptionCategory.TraisDeCommandement, u -> true),
 
+	AmuletteDeSigmarite(UnitOptionCategory.Artefact, u -> true),
+	AmuletteDObsidienne(UnitOptionCategory.Artefact, u -> true),
+	ArmureDecaillesDeDrac(UnitOptionCategory.Artefact, u -> true),
+	BouclierMiroir(UnitOptionCategory.Artefact, u -> true),
+	BreuvageDeVifArgent(UnitOptionCategory.Artefact, u -> true),
 	CrocDeDracothion(UnitOptionCategory.Artefact, u -> true),
 	LameDeHero(UnitOptionCategory.Artefact, u -> true),
 	MarteauDePuissance(UnitOptionCategory.Artefact, u -> true),
+	PierreDeChance(UnitOptionCategory.Artefact, u -> true),
 
 	AnnihilatorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Annihilators)),
 	CastigatorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Castigators)),
