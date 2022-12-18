@@ -14,6 +14,9 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	FlamboiementDeGloire(RuleType.TraisDeBataille),
 	DescendantsDeLOrage(RuleType.TraisDeBataille),
 
+	EchecInterdit(RuleType.TraisDeBataille),
+	SeulementLesFidèles(RuleType.TraisDeBataille),
+
 	ChocEtStupeur(RuleType.TraitsDeCommandement),
 	FerventDefenseur(RuleType.TraitsDeCommandement),
 	MaitreDeLaMenagerieCeleste(RuleType.TraitsDeCommandement),

@@ -6,7 +6,7 @@ public enum RuleType {
 	TraisDeBataille(true),
 	TraisUnitee(false),
 
-	SubAllegiance(false),
+//	SubAllegiance(false),
 
 	GrandeStrategie(true),
 	Triomphes(true),

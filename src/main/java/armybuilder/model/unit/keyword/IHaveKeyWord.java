@@ -14,4 +14,8 @@ public interface IHaveKeyWord {
 		return Arrays.asList(keyWords).stream().filter(this::is).findAny().isPresent();
 	}
 
+	default boolean isOneOf(KeyWord... keyWords) {
+		return Arrays.stream(keyWords).filter(k -> getKeyWords().contains(k)).count() > 0;
+	}
+
 }

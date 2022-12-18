@@ -80,7 +80,9 @@ public enum KeyWord implements IHaveDisplayName {
 	Angelos,
 	Annihilators,
 	Castigators,
+	Corpuscant,
 	Chevalier,
+	ChevaliersSanctifies,
 	Dracoline,
 	Draconithe,
 	Evocators,
@@ -90,6 +92,7 @@ public enum KeyWord implements IHaveDisplayName {
 	JudicatorsArc,
 	Justicar,
 	Liberators,
+	MarteauxDeSigmar,
 	Paladin,
 	Praetors,
 	Prosecutors,
@@ -102,7 +105,6 @@ public enum KeyWord implements IHaveDisplayName {
 	Sequitors,
 	StormCast,
 	Vindictors,
-	Corpuscant,
 
 
 	;
