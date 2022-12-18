@@ -1,0 +1,1 @@
+Vous pouvez relancer le dé qui détermine le nombre de blessures mortelles causées à une unité ennemie par une unité RÉDEMPTEUR FORT DE L'ORAGE amie utilisant le trait de bataille Bouclier de la Civilisation (p. 107) si l'unité amie est entièrement à 12" de ce général.

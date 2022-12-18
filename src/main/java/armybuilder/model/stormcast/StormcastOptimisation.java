@@ -9,11 +9,26 @@ import armybuilder.model.unit.option.IUnitOption;
 import armybuilder.model.unit.option.UnitOptionCategory;
 
 public enum StormcastOptimisation implements IUnitOption {
+
+	ChocEtStupeur(UnitOptionCategory.TraisDeCommandement,
+			u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique)),
+	FerventDefenseur(UnitOptionCategory.TraisDeCommandement,
+			u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique)),
+	MessagerDesCieux(UnitOptionCategory.TraisDeCommandement,
+			u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique)),
+	MaitreDeLaMenagerieCeleste(UnitOptionCategory.TraisDeCommandement,
+			u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Monstre)),
+
+	// Aptitude de commandement, cette option n'existe pas : TODO
 	AppelALAide(UnitOptionCategory.TraisDeCommandement, u -> true),
 	CoupDeTonerreFinal(UnitOptionCategory.TraisDeCommandement, u -> true),
 	DechainezVotreAine(UnitOptionCategory.TraisDeCommandement, u -> true),
 	MarcheImpertubable(UnitOptionCategory.TraisDeCommandement, u -> true),
 	VoleeDEclairs(UnitOptionCategory.TraisDeCommandement, u -> true),
+
+	CrocDeDracothion(UnitOptionCategory.Artefact, u -> true),
+	LameDeHero(UnitOptionCategory.Artefact, u -> true),
+	MarteauDePuissance(UnitOptionCategory.Artefact, u -> true),
 
 	AnnihilatorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Annihilators)),
 	CastigatorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Castigators)),

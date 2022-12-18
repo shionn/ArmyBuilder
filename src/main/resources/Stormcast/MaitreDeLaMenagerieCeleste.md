@@ -1,0 +1,1 @@
+Si ce général est un MONSTRE et est sur le champ de bataille, soustrayez 1 aux jets de blessure pour les attaques d'armes de mêlée qui ciblent les MONSTRES ÉTERNELS DE L'ORAGE amis.

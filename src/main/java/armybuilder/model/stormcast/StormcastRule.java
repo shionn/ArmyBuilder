@@ -10,14 +10,23 @@ import armybuilder.serialisation.DescriptionReader;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum StormcastRule implements IRule<StormcastRule> {
-	AppelALAide(RuleType.TraitsDeCommandement),
-	MarcheImpertubable(RuleType.TraitsDeCommandement),
-	VoleeDEclairs(RuleType.TraitsDeCommandement),
-	DechainezVotreAine(RuleType.TraitsDeCommandement),
-	CoupDeTonerreFinal(RuleType.TraitsDeCommandement),
 
 	FlamboiementDeGloire(RuleType.TraisDeBataille),
 	DescendantsDeLOrage(RuleType.TraisDeBataille),
+
+	ChocEtStupeur(RuleType.TraitsDeCommandement),
+	FerventDefenseur(RuleType.TraitsDeCommandement),
+	MaitreDeLaMenagerieCeleste(RuleType.TraitsDeCommandement),
+
+	AppelALAide(RuleType.AptitudesDeCommandement),
+	MarcheImpertubable(RuleType.AptitudesDeCommandement),
+	VoleeDEclairs(RuleType.AptitudesDeCommandement),
+	DechainezVotreAine(RuleType.AptitudesDeCommandement),
+	CoupDeTonerreFinal(RuleType.AptitudesDeCommandement),
+
+	CrocDeDracothion(RuleType.Artefact),
+	LameDeHero(RuleType.Artefact),
+	MarteauDePuissance(RuleType.Artefact),
 
 	ArcsDeFoudreCeleste(RuleType.Aptitude, RuleType.TraisUnitee),
 	ArsenalDAmesOrageuses(RuleType.Aptitude, RuleType.TraisUnitee),

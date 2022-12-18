@@ -1,0 +1,1 @@
+Si une figurine ÉTERNELS DE L'ORAGE amie est tuée alors qu'elle est entièrement à 12" de ce général, vous pouvez ajouter 1 aux jets de sauvegarde pour les attaques qui ciblent l'unité de la figurine tuée jusqu'à la fin de la phase. Une même unité ne peut pas bénéficier de cette aptitude plus d'une fois par tour.

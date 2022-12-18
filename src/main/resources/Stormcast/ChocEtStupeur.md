@@ -1,0 +1,1 @@
+Si votre armée est une armée de Descendants de l'Orage et si ce général est sur le champ de bataille à la fin de votre phase de mouvement, soustrayez 1 aux jets de touche pour les attaques qui ciblent les unités de DESCENDANTS DE L'ORAGE amies placées à cette phase et jusqu'à la fin du tour.
