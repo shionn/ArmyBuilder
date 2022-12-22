@@ -112,6 +112,8 @@ public enum UnitOption implements IUnitOption {
 	BenedictionDesArmes_18(StormcastOptimisation.BenedictionDesArmes_18),
 	Translocation(StormcastOptimisation.Translocation),
 	LumiereDivine(StormcastOptimisation.LumiereDivine),
+	MarteauxAstraux(StormcastOptimisation.MarteauxAstraux),
+	GrandMarteauxAstral(StormcastOptimisation.GrandMarteauxAstral),
 
 
 	;

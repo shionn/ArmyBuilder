@@ -77,6 +77,16 @@ public enum StormcastOptimisation implements IUnitOption {
 				u.add(StormcastWeapons.PaireDeMarteauxCelestesMelee);
 				u.add(StormcastWeapons.PaireDeMarteauxCelestesProjectil);
 			}),
+	MarteauxAstraux(
+			StormcastWeapons.MarteauxAstraux.getDisplayName(),
+			UnitOptionCategory.Armes,
+			u -> u.is(KeyWord.SeigneurOrdinator),
+			u -> u.add(StormcastWeapons.MarteauxAstraux)),
+	GrandMarteauxAstral(
+			StormcastWeapons.GrandMarteauxAstral.getDisplayName(),
+			UnitOptionCategory.Armes,
+			u -> u.is(KeyWord.SeigneurOrdinator),
+			u -> u.add(StormcastWeapons.GrandMarteauxAstral)),
 
 	SalveDEclairs(UnitOptionCategory.Sort, u -> true),
 	HaloAzyrite(UnitOptionCategory.Sort, u -> true),

@@ -52,6 +52,11 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	SeigneurImperatant(StormcastUnitModel.SeigneurImperatant),
 	SeigneurRelictor(StormcastUnitModel.SeigneurRelictor),
 	SeigneurExorciste(StormcastUnitModel.SeigneurExorciste),
+	SeigneurOrdinator(StormcastUnitModel.SeigneurOrdinator),
+	ChevalierVexillorAvecBanniereDeLApotheose(StormcastUnitModel.ChevalierVexillorAvecBanniereDeLApotheose),
+	ChevalierAzyros(StormcastUnitModel.ChevalierAzyros),
+	ChevalierArcanum(StormcastUnitModel.ChevalierArcanum),
+	ChevalierQuestor(StormcastUnitModel.ChevalierQuestor),
 	Vindictor(StormcastUnitModel.Vindictors),
 	Liberators(StormcastUnitModel.Liberators),
 	Sequitors(StormcastUnitModel.Sequitors),
@@ -65,7 +70,6 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	EvocatorsSurDracolinesCelestes(StormcastUnitModel.EvocatorsSurDracolinesCelestes),
 	Evocators(StormcastUnitModel.Evocators),
 	BalisteCelestar(StormcastUnitModel.BalisteCelestar),
-
 	;
 
 	private IUnitModel<?> sub;

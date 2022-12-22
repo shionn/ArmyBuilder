@@ -92,6 +92,62 @@ public enum StormcastUnitModel implements IUnitModel<StormcastUnitModel> {
 			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Heros, KeyWord.SacroSaint, KeyWord.Seigneur,
 					KeyWord.SeigneurExorciste)),
 
+	SeigneurOrdinator(
+			UnitProfile._5_6_9_3,
+			Arrays.asList(RoleTactique.Leader),
+			Arrays.asList(),
+			null,
+			Arrays.asList(StormcastRule.IngenieurCabaliste, StormcastRule.FrappeDeComete),
+			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.TraisDeCommandement,
+					UnitOptionCategory.Artefact, UnitOptionCategory.Armes),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Heros, KeyWord.SacroSaint, KeyWord.Seigneur,
+					KeyWord.SeigneurOrdinator)),
+
+	ChevalierVexillorAvecBanniereDeLApotheose(
+			UnitProfile._5_6_8_3,
+			Arrays.asList(RoleTactique.Leader),
+			Arrays.asList(StormcastWeapons.LameDeGuerreDeSigmarite),
+			null,
+			Arrays.asList(StormcastRule.LaBanniereDesReforges, StormcastRule.IconeGalvanisante),
+			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.TraisDeCommandement,
+					UnitOptionCategory.Artefact),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Heros, KeyWord.Fulgurant, KeyWord.Totem,
+					KeyWord.Chevalier, KeyWord.ChevalierVexillor, KeyWord.ChevalierVexillorAvecBanniereDeLApotheose)),
+
+	ChevalierAzyros(
+			UnitProfile._12_5_8_3,
+			Arrays.asList(RoleTactique.Leader),
+			Arrays.asList(StormcastWeapons.LameStellaire),
+			null,
+			Arrays.asList(GeneriqueUnitRule.Vol, StormcastRule.LaLumiereDeSigmar),
+			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.TraisDeCommandement,
+					UnitOptionCategory.Artefact),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Heros, KeyWord.Totem, KeyWord.Chevalier,
+					KeyWord.ChevalierAzyros)),
+
+	ChevalierArcanum(
+			UnitProfile._5_6_8_3,
+			Arrays.asList(RoleTactique.Leader),
+			Arrays.asList(StormcastWeapons.SceptreDuValedictor),
+			null,
+			Arrays.asList(GeneriqueUnitRule.Sorcier_1_1, StormcastRule.ChercheursMystiquesIndomptables,
+					StormcastRule.FlamboiementDesCieux),
+			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.TraisDeCommandement, UnitOptionCategory.Sort,
+					UnitOptionCategory.Artefact),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Heros, KeyWord.Fulgurant, KeyWord.Sorcier,
+					KeyWord.Chevalier, KeyWord.ChevalierArcanum)),
+
+	ChevalierQuestor(
+			UnitProfile._5_5_8_3,
+			Arrays.asList(RoleTactique.Leader),
+			Arrays.asList(StormcastWeapons.LameDeQuestor),
+			null,
+			Arrays.asList(StormcastRule.FrappeFulguree, StormcastRule.DefiHeroique),
+			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.TraisDeCommandement,
+					UnitOptionCategory.Artefact),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Heros, KeyWord.Chevalier,
+					KeyWord.ChevalierQuestor)),
+
 	Vindictors(
 			UnitProfile._5_2_7_3,
 			Arrays.asList(RoleTactique.Ligne),

@@ -1,1 +1,1 @@
-_début phase combat_ soit 6 éxplosif, soit protecion 5+.
+_début phase combat_ gagne 6 éxplosif ou protecion 5+.
