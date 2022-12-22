@@ -54,23 +54,34 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	CanalisationEtheriqueDeCastigators(RuleType.Aptitude, RuleType.TraisUnitee),
 	CanalisationEtheriqueDeSequitors(RuleType.Aptitude, RuleType.TraisUnitee),
 	CriDAlarme(RuleType.Aptitude, RuleType.TraisUnitee),
+	CycleDeLOrage(RuleType.Aptitude, RuleType.TraisUnitee),
 	DeflagrationCeleste(RuleType.Aptitude, RuleType.TraisUnitee),
+	EnergieSpirituelleDuPremierOst(RuleType.Aptitude, RuleType.TraisUnitee),
 	ExplosionDEnergieCeleste(RuleType.Aptitude, RuleType.TraisUnitee),
 	FormationDispersee(RuleType.Aptitude, RuleType.TraisUnitee),
 	GardiensAuxAmesSoudees(RuleType.Aptitude, RuleType.TraisUnitee),
 	HerautsDeVertu(RuleType.Aptitude, RuleType.TraisUnitee),
 	ImpactFlamboyant(RuleType.Aptitude, RuleType.TraisUnitee),
+	ImpulsionFoudroyante(RuleType.Aptitude, RuleType.TraisUnitee),
 	LaForceDUneEtoileFilante(RuleType.Aptitude, RuleType.TraisUnitee),
 	MasseDAsterie(RuleType.Aptitude, RuleType.TraisUnitee),
 	PretreMortis(RuleType.Aptitude, RuleType.TraisUnitee),
 	ReduitsEnCendres(RuleType.Aptitude, RuleType.TraisUnitee),
 	RenversezLesTyrans(RuleType.Aptitude, RuleType.TraisUnitee),
 	SorcierEvocators(RuleType.Aptitude, RuleType.TraisUnitee),
+	AlphaDeLaMeute(RuleType.Aptitude, RuleType.TraisUnitee),
 
 	OrageGuerisseur(RuleType.Priere),
 	OrageFoudroyant(RuleType.Priere),
 
 	Essor(RuleType.Sort),
+	SalveDEclairs(RuleType.Sort),
+	HaloAzyrite(RuleType.Sort),
+	LamesCelestes(RuleType.Sort),
+	ChocDuTonnerre(RuleType.Sort),
+	ChuteDEtoile(RuleType.Sort),
+	ChaineDEclairs(RuleType.Sort),
+	LanceDOrage(RuleType.Sort),
 
 	AnnihilatorPrimus(RuleType.Composition),
 	CastigatorPrimus(RuleType.Composition),
@@ -85,6 +96,12 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	SignifereAzyrite(RuleType.Composition),
 	VindictorPrimus(RuleType.Composition),
 
+	VitesseEtherique(RuleType.TraitsDeMonture),
+	MessagerDeLaFoudre(RuleType.TraitsDeMonture),
+	InstinctCeleste(RuleType.TraitsDeMonture),
+	TraineeScintillante(RuleType.TraitsDeMonture),
+	LumiereDesJeunesEtoiles(RuleType.TraitsDeMonture),
+	PresenceTonitruante(RuleType.TraitsDeMonture),
 
 	;
 

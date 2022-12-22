@@ -21,7 +21,8 @@ public interface UnitEditDao {
 			+ "trais_de_commandement = #{traisDeCommandement}, trais_de_monstre = #{traisDeMonstre}, " //
 			+ "artefact = #{artefact}, sort = #{sort}, priere = #{priere}, " //
 			+ "chef = #{chef}, musicien = #{musicien}, banniere = #{banniere}, " //
-			+ "arme = #{arme}, renforcee = #{renforcee}, invoquee = #{invoquee} " //
+			+ "arme = #{arme}, renforcee = #{renforcee}, invoquee = #{invoquee}, "
+			+ "trais_de_monture = #{traisDeMonture} " //
 			+ "WHERE id = #{id}")
 	int update(Unit unit);
 

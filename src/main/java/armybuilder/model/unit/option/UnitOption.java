@@ -68,20 +68,15 @@ public enum UnitOption implements IUnitOption {
 	ShroudQueen(DokOptimisations.ShroudQueen),
 
 	AnnihilatorPrimus(StormcastOptimisation.AnnihilatorPrimus),
-	AppelALAide(StormcastOptimisation.AppelALAide),
 	ArmeDesCieuxEtBouclierDeSigmarite(StormcastOptimisation.ArmeDesCieuxEtBouclierDeSigmarite),
 	CastigatorPrimus(StormcastOptimisation.CastigatorPrimus),
-	CoupDeTonerreFinal(StormcastOptimisation.CoupDeTonerreFinal),
-	DechainezVotreAine(StormcastOptimisation.DechainezVotreAine),
 	GryphDogueAlpha(StormcastOptimisation.GryphDogueAlpha),
 	JudicatorArcPrimus(StormcastOptimisation.JudicatorArcPrimus),
 	LiberatorPrimus(StormcastOptimisation.LiberatorPrimus),
-	MarcheImpertubable(StormcastOptimisation.MarcheImpertubable),
 	PaireDArmesDesCieux(StormcastOptimisation.PaireDArmesDesCieux),
 	SequitorPrimus(StormcastOptimisation.SequitorPrimus),
 	SignifereAzyrite(StormcastOptimisation.SignifereAzyrite),
 	VindictorPrimus(StormcastOptimisation.VindictorPrimus),
-	VoleeDEclairs(StormcastOptimisation.VoleeDEclairs),
 	ProsecutorPrimus(StormcastOptimisation.ProsecutorPrimus),
 	RetributorPrimus(StormcastOptimisation.RetributorPrimus),
 	PraetorPrimus(StormcastOptimisation.PraetorPrimus),
@@ -99,10 +94,22 @@ public enum UnitOption implements IUnitOption {
 	MarteauDePuissance(StormcastOptimisation.MarteauDePuissance),
 	PierreDeChance(StormcastOptimisation.PierreDeChance),
 	AmuletteDObsidienne(StormcastOptimisation.AmuletteDObsidienne),
-
-
+	SalveDEclairs(StormcastOptimisation.SalveDEclairs),
+	HaloAzyrite(StormcastOptimisation.HaloAzyrite),
+	LamesCelestes(StormcastOptimisation.LamesCelestes),
+	ChocDuTonnerre(StormcastOptimisation.ChocDuTonnerre),
+	ChuteDEtoile(StormcastOptimisation.ChuteDEtoile),
+	ChaineDEclairs(StormcastOptimisation.ChaineDEclairs),
 	MarteauCelesteEtBouclierDeSigmarite(StormcastOptimisation.MarteauCelesteEtBouclierDeSigmarite),
 	PaireDeMarteauxCelestes(StormcastOptimisation.PaireDeMarteauxCelestes),
+	VitesseEtherique(StormcastOptimisation.VitesseEtherique),
+	MessagerDeLaFoudre(StormcastOptimisation.MessagerDeLaFoudre),
+	InstinctCeleste(StormcastOptimisation.InstinctCeleste),
+	TraineeScintillante(StormcastOptimisation.TraineeScintillante),
+	LumiereDesJeunesEtoiles(StormcastOptimisation.LumiereDesJeunesEtoiles),
+	PresenceTonitruante(StormcastOptimisation.PresenceTonitruante),
+
+
 	;
 
 	private IUnitOption sub;

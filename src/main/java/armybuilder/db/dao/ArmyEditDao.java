@@ -15,10 +15,11 @@ public interface ArmyEditDao {
 	public int create(Army army);
 
 	@Update("UPDATE Army " //
-			+ "SET subAllegiance    = #{subAllegiance}, " //
-			+ "    pack_de_bataille = #{packDeBataille}, " //
-			+ "    grande_strategie = #{grandeStrategie}, " //
-			+ "    triomphes        = #{triomphes}  " //
+			+ "SET subAllegiance          = #{subAllegiance}, " //
+			+ "    pack_de_bataille       = #{packDeBataille}, " //
+			+ "    grande_strategie       = #{grandeStrategie}, " //
+			+ "    triomphes              = #{triomphes}, " //
+			+ "    aptitudeDeCommandement = #{aptitudeDeCommandement} " //
 			+ "WHERE id = #{id}")
 	public int edit(Army army);
 

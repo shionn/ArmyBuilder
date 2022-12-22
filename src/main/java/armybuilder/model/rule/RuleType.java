@@ -16,6 +16,7 @@ public enum RuleType {
 	Aptitude(true),
 	AptitudesDeCommandement(true),
 	TraitsDeCommandement(true),
+	TraitsDeMonture(false),
 	FureursMonstrueuses(true),
 	ActionsHeroiques(true),
 	Artefact(true),

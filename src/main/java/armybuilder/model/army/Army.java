@@ -25,6 +25,7 @@ public class Army implements IHaveRule {
 	private PackDeBataille packDeBataille;
 	private GrandeStrategie grandeStrategie;
 	private Triomphes triomphes;
+	private AptitudeDeCommandement aptitudeDeCommandement;
 	private List<Unit> units = new ArrayList<Unit>();
 	private List<Bataillon> bataillons = new ArrayList<Bataillon>();
 
@@ -32,7 +33,7 @@ public class Army implements IHaveRule {
 
 	public void decorate() {
 		units.forEach(Unit::decorate);
-		Arrays.asList(allegiance, subAllegiance, packDeBataille, grandeStrategie, triomphes)
+		Arrays.asList(allegiance, subAllegiance, packDeBataille, grandeStrategie, triomphes, aptitudeDeCommandement)
 				.stream()
 				.filter(Objects::nonNull)
 				.forEach(opt -> opt.decorate(this));
@@ -195,4 +196,15 @@ public class Army implements IHaveRule {
 		return bataillons.stream().filter(b -> b.getType() == type).count();
 	}
 
+	public AptitudeDeCommandement getAptitudeDeCommandement() {
+		return aptitudeDeCommandement;
+	}
+
+	public void setAptitudeDeCommandement(AptitudeDeCommandement aptitudeDeCommandement) {
+		this.aptitudeDeCommandement = aptitudeDeCommandement;
+	}
+
+	public boolean is(AptitudeDeCommandement aptitudeDeCommandement) {
+		return this.aptitudeDeCommandement == aptitudeDeCommandement;
+	}
 }

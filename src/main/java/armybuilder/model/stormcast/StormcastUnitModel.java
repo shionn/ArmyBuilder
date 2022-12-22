@@ -18,6 +18,32 @@ import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum StormcastUnitModel implements IUnitModel<StormcastUnitModel> {
 
+	AstreiaSolbrigh(
+			UnitProfile._12_8_10_3,
+			Arrays.asList(RoleTactique.Leader),
+			Arrays.asList(StormcastWeapons.SceptreDEther, StormcastWeapons.GriffesMonstrueuses),
+			null,
+			Arrays.asList(GeneriqueUnitRule.Sorcier_1_1, StormcastRule.CycleDeLOrage, StormcastRule.BondTonitruant,
+					StormcastRule.EnergieSpirituelleDuPremierOst, StormcastRule.ImpulsionFoudroyante),
+			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.Sort),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.MarteauxDeSigmar, KeyWord.SacroSaint, KeyWord.Heros,
+					KeyWord.Sorcier, KeyWord.Dracoline, KeyWord.Seigneur, KeyWord.SeigneurArcanum,
+					KeyWord.AstreiaSolbrigh, KeyWord.Unique)),
+
+	// TODO Neave Blacktalon
+
+	SeigneurArcanumSurDracolineCeleste(
+			UnitProfile._12_8_9_3,
+			Arrays.asList(RoleTactique.Leader),
+			Arrays.asList(StormcastWeapons.SceptreDEther, StormcastWeapons.GriffesMonstrueuses),
+			null,
+			Arrays.asList(GeneriqueUnitRule.Sorcier_1_1, StormcastRule.CycleDeLOrage, StormcastRule.BondTonitruant,
+					StormcastRule.AlphaDeLaMeute, StormcastRule.LanceDOrage),
+			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.TraisDeCommandement,
+					UnitOptionCategory.Artefact, UnitOptionCategory.TraisDeMonture, UnitOptionCategory.Sort),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.SacroSaint, KeyWord.Heros, KeyWord.Sorcier,
+					KeyWord.Dracoline, KeyWord.Seigneur, KeyWord.SeigneurArcanum)),
+
 	SeigneurRelictor(
 			UnitProfile._5_6_9_3,
 			Arrays.asList(RoleTactique.Leader),
@@ -25,7 +51,7 @@ public enum StormcastUnitModel implements IUnitModel<StormcastUnitModel> {
 			null,
 			Arrays.asList(StormcastRule.PretreMortis, StormcastRule.OrageGuerisseur, StormcastRule.OrageFoudroyant),
 			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.TraisDeCommandement,
-					UnitOptionCategory.Priere),
+					UnitOptionCategory.Artefact, UnitOptionCategory.Priere),
 			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Heros, KeyWord.Pretre, KeyWord.Totem,
 					KeyWord.Seigneur, KeyWord.SeigneurRelictor)),
 

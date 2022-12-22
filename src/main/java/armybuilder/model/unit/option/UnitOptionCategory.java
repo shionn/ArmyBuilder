@@ -11,6 +11,7 @@ public enum UnitOptionCategory implements IHaveDisplayName {
 	General(UnitOptionType.bool, (u, o) -> u.setGeneral(o), Unit::getGeneral),
 	TraisDeCommandement(UnitOptionType.select, (u, o) -> u.setTraisDeCommandement(o), Unit::getTraisDeCommandement),
 	TraisDeMonstre(UnitOptionType.select, (u, o) -> u.setTraisDeMonstre(o), Unit::getTraisDeMonstre),
+	TraisDeMonture(UnitOptionType.select, (u, o) -> u.setTraisDeMonture(o), Unit::getTraisDeMonture),
 	Artefact(UnitOptionType.select, (u, o) -> u.setArtefact(o), Unit::getArtefact),
 	Sort(UnitOptionType.select, (u, o) -> u.setSort(o), Unit::getSort),
 	Priere(UnitOptionType.select, (u, o) -> u.setPriere(o), Unit::getPriere),

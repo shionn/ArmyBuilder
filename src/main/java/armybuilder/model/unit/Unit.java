@@ -26,6 +26,7 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 	private UnitOption general;
 	private UnitOption traisDeCommandement;
 	private UnitOption traisDeMonstre;
+	private UnitOption traisDeMonture;
 	private UnitOption artefact;
 	private UnitOption sort;
 	private UnitOption priere;
@@ -49,8 +50,8 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 		this.keyWords.addAll(model.getKeyWords());
 		this.weapons.addAll(model.getWeapons());
 		// TODO unit model rebuild
-		Arrays.asList(general, traisDeCommandement, traisDeMonstre, artefact, sort, priere, chef, musicien, banniere,
-				arme, renforcee, invoquee)
+		Arrays.asList(general, traisDeCommandement, traisDeMonstre, traisDeMonture, artefact, sort, priere, chef,
+				musicien, banniere, arme, renforcee, invoquee)
 				.stream()
 				.filter(Objects::nonNull)
 				.forEach(o -> o.decorate(this));
@@ -286,4 +287,11 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 		this.bataillon = bataillon;
 	}
 
+	public UnitOption getTraisDeMonture() {
+		return traisDeMonture;
+	}
+
+	public void setTraisDeMonture(UnitOption traisDeMonture) {
+		this.traisDeMonture = traisDeMonture;
+	}
 }

@@ -1,6 +1,8 @@
 <%@ page pageEncoding="UTF-8"%>
 <%@ page import="armybuilder.model.army.SubAllegiance" %>
+<%@ page import="armybuilder.model.army.Allegiance" %>
 <%@ page import="armybuilder.model.army.PackDeBataille" %>
+<%@ page import="armybuilder.model.army.AptitudeDeCommandement" %>
 <%@ page import="armybuilder.model.army.GrandeStrategie" %>
 <%@ page import="armybuilder.model.army.Triomphes" %>
 <%@ page import="armybuilder.model.army.bataillon.BataillonType" %>
@@ -55,6 +57,18 @@
 				<option value="${sub}"<c:if test="${army.is(sub)}"> selected="selected"</c:if>>${sub.displayName}</option>
 			</c:forEach>
 		</select>
+		<c:if test="${army.is(Allegiance.StormCast)}">
+			<select name="aptitudeDeCommandement">
+				<c:if test="${empty army.aptitudeDeCommandement}">
+					<option value="NULL">- Aptitude De Commandement -</option>
+				</c:if>
+				<c:forEach items="${AptitudeDeCommandement.values()}" var="sub">
+					<c:if test="${sub.availableFor(army)}">
+						<option value="${sub}"<c:if test="${army.is(sub)}"> selected="selected"</c:if>>${sub.displayName}</option>
+					</c:if>
+				</c:forEach>
+			</select>
+		</c:if>
 		<input type="submit" value="Editer">
 	</fieldset>
 </form:form>

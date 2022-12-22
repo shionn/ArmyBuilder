@@ -19,13 +19,6 @@ public enum StormcastOptimisation implements IUnitOption {
 	MaitreDeLaMenagerieCeleste(UnitOptionCategory.TraisDeCommandement,
 			u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Monstre)),
 
-	// Aptitude de commandement, cette option n'existe pas : TODO
-	AppelALAide(UnitOptionCategory.TraisDeCommandement, u -> true),
-	CoupDeTonerreFinal(UnitOptionCategory.TraisDeCommandement, u -> true),
-	DechainezVotreAine(UnitOptionCategory.TraisDeCommandement, u -> true),
-	MarcheImpertubable(UnitOptionCategory.TraisDeCommandement, u -> true),
-	VoleeDEclairs(UnitOptionCategory.TraisDeCommandement, u -> true),
-
 	AmuletteDeSigmarite(UnitOptionCategory.Artefact, u -> true),
 	AmuletteDObsidienne(UnitOptionCategory.Artefact, u -> true),
 	ArmureDecaillesDeDrac(UnitOptionCategory.Artefact, u -> true),
@@ -85,7 +78,22 @@ public enum StormcastOptimisation implements IUnitOption {
 				u.add(StormcastWeapons.PaireDeMarteauxCelestesProjectil);
 			}),
 
-	// TODO Sort et priere et trais de monture
+	SalveDEclairs(UnitOptionCategory.Sort, u -> true),
+	HaloAzyrite(UnitOptionCategory.Sort, u -> true),
+	LamesCelestes(UnitOptionCategory.Sort, u -> true),
+	ChocDuTonnerre(UnitOptionCategory.Sort, u -> true),
+	ChuteDEtoile(UnitOptionCategory.Sort, u -> true),
+	ChaineDEclairs(UnitOptionCategory.Sort, u -> true),
+
+	VitesseEtherique(
+			UnitOptionCategory.TraisDeMonture,
+			u -> u.isOneOf(KeyWord.GryphDestrier, KeyWord.Dracoth, KeyWord.Dracoline)),
+	MessagerDeLaFoudre(UnitOptionCategory.TraisDeMonture, u -> true),
+	InstinctCeleste(UnitOptionCategory.TraisDeMonture, u -> true),
+	TraineeScintillante(UnitOptionCategory.TraisDeMonture, u -> true),
+	LumiereDesJeunesEtoiles(UnitOptionCategory.TraisDeMonture, u -> u.is(KeyWord.Dracastral)),
+	PresenceTonitruante(UnitOptionCategory.TraisDeMonture, u -> u.is(KeyWord.Draconithe)),
+	// TODO priere et trais de monture
 
 	;
 
