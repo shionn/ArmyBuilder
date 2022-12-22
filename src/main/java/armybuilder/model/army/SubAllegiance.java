@@ -30,19 +30,19 @@ public enum SubAllegiance implements IHaveDisplayName, IDecoreArmy {
 	// StormCast
 	BellicistesCelestes(Arrays.asList(StormcastRule.ClairvoyanceIntrepide), Allegiance.StormCast, null),
 	ChevaliersExcelsiors(
-			Arrays.asList(StormcastRule.SeulementLesFidèles),
+			Arrays.asList(StormcastRule.SeulementLesFideles),
 			Allegiance.StormCast,
 			a -> a.getUnits()
 					.stream()
 					.filter(u -> u.is(KeyWord.ChevaliersExcelsiors, KeyWord.Paladin))
 					.forEach(u -> u.add(StormcastRule.TempeteDAnnihilation))),
 	ChevaliersSanctifies(
-			Arrays.asList(StormcastRule.SeulementLesFidèles),
+			Arrays.asList(StormcastRule.SeulementLesFideles),
 			Allegiance.StormCast,
 			a -> a.getUnits()
 					.stream()
 					.filter(u -> u.is(KeyWord.ChevaliersSanctifies, KeyWord.Redempteur))
-					.forEach(u -> u.add(StormcastRule.SeulementLesFidèles))),
+					.forEach(u -> u.add(StormcastRule.SeulementLesFideles))),
 	EnclumesDeLHeldenhammer(
 			Arrays.asList(StormcastRule.AuraMorbide),
 			Allegiance.StormCast,

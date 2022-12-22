@@ -20,12 +20,13 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	LOstAltier(RuleType.TraisDeBataille),
 	MusParLaVengeance(RuleType.TraisDeBataille),
 	Rabatteurs(RuleType.TraisDeBataille),
-	SeulementLesFidèles(RuleType.TraisDeBataille),
+	SeulementLesFideles(RuleType.TraisDeBataille),
 	TempeteDAnnihilation(RuleType.TraisDeBataille),
 
 	ChocEtStupeur(RuleType.TraitsDeCommandement),
 	FerventDefenseur(RuleType.TraitsDeCommandement),
 	MaitreDeLaMenagerieCeleste(RuleType.TraitsDeCommandement),
+	MessagerDesCieux(RuleType.TraitsDeCommandement),
 
 	AppelALAide(RuleType.AptitudesDeCommandement),
 	MarcheImpertubable(RuleType.AptitudesDeCommandement),

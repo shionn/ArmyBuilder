@@ -96,6 +96,7 @@ public enum KeyWord implements IHaveDisplayName {
 	Justicar,
 	Liberators,
 	MarteauxDeSigmar,
+	MessagerDesCieux,
 	Paladin,
 	Praetors,
 	Prosecutors,
