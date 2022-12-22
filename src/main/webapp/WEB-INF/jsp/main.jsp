@@ -79,7 +79,7 @@
 			<legend>Ajout d'unitée</legend>
 			<label>Unité</label>
 			<select name="model">
-				<c:forEach items="${UnitModel.values()}" var="model">
+				<c:forEach items="${UnitModel.sorteds()}" var="model">
 					<c:if test="${model.availableFor(army)}">
 						<option value="${model}">${model.displayName}</option>
 					</c:if>

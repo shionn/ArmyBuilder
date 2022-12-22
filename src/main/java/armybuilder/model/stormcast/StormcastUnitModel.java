@@ -57,6 +57,18 @@ public enum StormcastUnitModel implements IUnitModel<StormcastUnitModel> {
 			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.SacroSaint, KeyWord.Heros, KeyWord.Sorcier,
 					KeyWord.GryphDestrier, KeyWord.Seigneur, KeyWord.SeigneurArcanum)),
 
+	SeigneurImperatant(
+			UnitProfile._5_7_9_3,
+			Arrays.asList(RoleTactique.Leader),
+			Arrays.asList(StormcastWeapons.SceptreFulgurivoque, StormcastWeapons.MarteauDeGuerreBeni,
+					StormcastWeapons.BecEtGriffesCruels),
+			null,
+			Arrays.asList(StormcastRule.ChefEminent, StormcastRule.GuidesParLaFoudre),
+			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.TraisDeCommandement,
+					UnitOptionCategory.Artefact),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Heros, KeyWord.Fulgurant, KeyWord.Seigneur,
+					KeyWord.SeigneurImperatant)),
+
 	SeigneurRelictor(
 			UnitProfile._5_6_9_3,
 			Arrays.asList(RoleTactique.Leader),

@@ -231,7 +231,7 @@ public enum DokUnitModel implements IUnitModel<DokUnitModel> {
 			Arrays.asList()),
 
 	@Deprecated
-	ConjurateursDuFeuMaudit(UnitProfile.None, Arrays.asList(), null, null, null, null, null, null),
+	ConjurateursDuFeuMaudit(UnitProfile.None, Arrays.asList(RoleTactique.Elite), null, null, null, null, null, null),
 
 	AvatarDeKhaine(
 			UnitProfile._9_9_10_4,
@@ -282,7 +282,7 @@ public enum DokUnitModel implements IUnitModel<DokUnitModel> {
 			Arrays.asList()),
 
 	@Deprecated
-	EgorgeusesKhinerai(UnitProfile.None, Arrays.asList(), null, null, null, null, null, null),
+	EgorgeusesKhinerai(UnitProfile.None, Arrays.asList(RoleTactique.Elite), null, null, null, null, null, null),
 
 	@Deprecated
 	BloodwrackViper(

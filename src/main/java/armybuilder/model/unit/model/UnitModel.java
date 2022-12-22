@@ -1,6 +1,9 @@
 package armybuilder.model.unit.model;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import armybuilder.model.army.Army;
 import armybuilder.model.dok.DokUnitModel;
@@ -45,6 +48,8 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 
 	AstreiaSolbrigh(StormcastUnitModel.AstreiaSolbrigh),
 	SeigneurArcanumSurDracolineCeleste(StormcastUnitModel.SeigneurArcanumSurDracolineCeleste),
+	SeigneurArcanumSurGryphDestrier(StormcastUnitModel.SeigneurArcanumSurGryphDestrier),
+	SeigneurImperatant(StormcastUnitModel.SeigneurImperatant),
 	SeigneurRelictor(StormcastUnitModel.SeigneurRelictor),
 	Vindictor(StormcastUnitModel.Vindictors),
 	Liberators(StormcastUnitModel.Liberators),
@@ -58,13 +63,26 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	Praetors(StormcastUnitModel.Praetors),
 	EvocatorsSurDracolinesCelestes(StormcastUnitModel.EvocatorsSurDracolinesCelestes),
 	Evocators(StormcastUnitModel.Evocators),
-	BalisteCelestar(StormcastUnitModel.BalisteCelestar),
-	;
+	BalisteCelestar(StormcastUnitModel.BalisteCelestar),;
 
 	private IUnitModel<?> sub;
 
 	UnitModel(IUnitModel<?> sub) {
 		this.sub = sub;
+	}
+
+	public static List<UnitModel> sorteds() {
+		return Arrays.stream(values()).sorted(new Comparator<UnitModel>() {
+			@Override
+			public int compare(UnitModel o1, UnitModel o2) {
+				int result = Integer.compare(o1.getRoleTactiques().get(0).ordinal(),
+						o2.getRoleTactiques().get(0).ordinal());
+				if (result == 0) {
+					result = o1.getDisplayName().compareTo(o2.getDisplayName());
+				}
+				return result;
+			}
+		}).collect(Collectors.toList());
 	}
 
 	@Override
@@ -82,7 +100,6 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 		return sub.getWeapons();
 	}
 
-
 	@Override
 	public List<KeyWord> getKeyWords() {
 		return sub.getKeyWords();
@@ -95,7 +112,11 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 
 	@Override
 	public List<RoleTactique> getRoleTactiques() {
-		return sub.getRoleTactiques();
+		List<RoleTactique> roles = sub.getRoleTactiques();
+		if (roles.isEmpty()) {
+			throw new IllegalStateException("No roles for " + this.name());
+		}
+		return roles;
 	}
 
 	@Override
@@ -107,7 +128,6 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	public List<UnitOptionCategory> getOptionsCategories() {
 		return sub.getOptionsCategories();
 	}
-
 
 	@Override
 	public UnitProfile getProfile() {

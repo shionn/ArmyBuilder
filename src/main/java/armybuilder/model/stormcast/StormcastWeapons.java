@@ -23,6 +23,7 @@ public enum StormcastWeapons implements IUnitWeapon {
 	LanceDOrage("Lance d'Orage", WeaponType.Melee, "2", "2", "3+", "3+", "-1", "1"),
 	LourdeCrosse("Lourde Crosse", WeaponType.Melee, "1", "2", "4+", "3+", "-", "1"),
 	MarteauDeFoudre("Marteau de Foudre", WeaponType.Melee, "1", "3", "3+", "3+", "-2", "2"),
+	MarteauDeGuerreBeni("Marteau de Guerre Béni", WeaponType.Melee, "1", "4", "3+", "3+", "-1", "2"),
 	MarteauRelique("Marteau Relique", WeaponType.Melee, "1", "4", "3+", "3+", "-1", "2"),
 	MarteauMeteorique("Marteau Météorique", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "2"),
 	MarteauxCelestesMelee("Marteaux Céleste", WeaponType.Melee, "1", "2", "3+", "3+", "-1", "1"),
@@ -32,9 +33,9 @@ public enum StormcastWeapons implements IUnitWeapon {
 	PaireDeMarteauxCelestesProjectil("Paire de Marteaux Célestes", WeaponType.Projectil, "9", "3", "4+", "4+", "-1", "1"),
 	PaireDeMarteauxCelestesMelee("Paire de Marteaux Célestes", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "1"),
 	SceptreDEther("Sceptre d'Éther", WeaponType.Melee, "2", "4", "3+", "3+", "-1", "2"),
+	SceptreFulgurivoque("Sceptre Fulgurivoque", WeaponType.Projectil, "18", "D6", "3+", "3+", "-1", "1"),
 	TraitsDeCelestarTirFoudroyant("Traits de Célestar: Tir Foudroyant", WeaponType.Projectil, "36","1","3+","2+","-3","D6"),
 	TraitsDeCelestarTirRapide("Traits de Célestar: Tir Rapide", WeaponType.Projectil, "18","2D6","4+","3+","-2","1"),
-
 
 	;
 
