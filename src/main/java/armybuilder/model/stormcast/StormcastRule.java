@@ -44,6 +44,7 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	MarteauDePuissance(RuleType.Artefact),
 	PierreDeChance(RuleType.Artefact),
 
+	AlphaDeLaMeute(RuleType.Aptitude, RuleType.TraisUnitee),
 	ArcsDeFoudreCeleste(RuleType.Aptitude, RuleType.TraisUnitee),
 	ArmePolyvalente(RuleType.Aptitude, RuleType.TraisUnitee),
 	ArsenalDAmesOrageuses(RuleType.Aptitude, RuleType.TraisUnitee),
@@ -53,6 +54,7 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	CacheDeRedemption(RuleType.Aptitude, RuleType.TraisUnitee),
 	CanalisationEtheriqueDeCastigators(RuleType.Aptitude, RuleType.TraisUnitee),
 	CanalisationEtheriqueDeSequitors(RuleType.Aptitude, RuleType.TraisUnitee),
+	ChevaucherLesVentsEtheriques(RuleType.Aptitude, RuleType.TraisUnitee),
 	CriDAlarme(RuleType.Aptitude, RuleType.TraisUnitee),
 	CycleDeLOrage(RuleType.Aptitude, RuleType.TraisUnitee),
 	DeflagrationCeleste(RuleType.Aptitude, RuleType.TraisUnitee),
@@ -69,7 +71,6 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	ReduitsEnCendres(RuleType.Aptitude, RuleType.TraisUnitee),
 	RenversezLesTyrans(RuleType.Aptitude, RuleType.TraisUnitee),
 	SorcierEvocators(RuleType.Aptitude, RuleType.TraisUnitee),
-	AlphaDeLaMeute(RuleType.Aptitude, RuleType.TraisUnitee),
 
 	OrageGuerisseur(RuleType.Priere),
 	OrageFoudroyant(RuleType.Priere),
@@ -82,6 +83,7 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	ChuteDEtoile(RuleType.Sort),
 	ChaineDEclairs(RuleType.Sort),
 	LanceDOrage(RuleType.Sort),
+	LumiereGuerisseuse(RuleType.Sort),
 
 	AnnihilatorPrimus(RuleType.Composition),
 	CastigatorPrimus(RuleType.Composition),

@@ -15,6 +15,7 @@ public enum StormcastWeapons implements IUnitWeapon {
 	GrandSceptre("Grand Sceptre (2/3)", WeaponType.Melee, "1", "3", "3+", "3+", "-", "2"),
 	GrandeArme("Grande Arme", WeaponType.Melee, "1", "2", "3+", "3+", "-1", "2"),
 	GrandeMassueDeSanction("Grande Massue de Sanction", WeaponType.Melee, "1", "2", "3+", "3+", "-1", "2"),
+	GriffesEtBecAcere("Griffes et Bec Acéré", WeaponType.Melee, "1", "3", "3+", "3+", "-2", "1"),
 	GriffesMonstrueuses("Griffes Monstrueuses", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "D3"),
 	HallebardeDeGardeDesAmes("Hallebarde de Garde des Âmes", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "2"),
 	LamesDeSigmarite("Lames de Sigmarite", WeaponType.Melee, "1", "4", "3+", "3+", "-1", "1"),
@@ -30,7 +31,7 @@ public enum StormcastWeapons implements IUnitWeapon {
 	PairesDArmesDesCieux("Paire d'Armes des Cieux", WeaponType.Melee, "1", "3", "3+", "4+", "-1", "1"),
 	PaireDeMarteauxCelestesProjectil("Paire de Marteaux Célestes", WeaponType.Projectil, "9", "3", "4+", "4+", "-1", "1"),
 	PaireDeMarteauxCelestesMelee("Paire de Marteaux Célestes", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "1"),
-	SceptreDEther("Sceptre d'Éther", WeaponType.Melee, "1", "4", "3+", "3+", "-1", "2"),
+	SceptreDEther("Sceptre d'Éther", WeaponType.Melee, "2", "4", "3+", "3+", "-1", "2"),
 	TraitsDeCelestarTirFoudroyant("Traits de Célestar: Tir Foudroyant", WeaponType.Projectil, "36","1","3+","2+","-3","D6"),
 	TraitsDeCelestarTirRapide("Traits de Célestar: Tir Rapide", WeaponType.Projectil, "18","2D6","4+","3+","-2","1"),
 
