@@ -143,6 +143,17 @@ public enum StormcastUnitModel implements IUnitModel<StormcastUnitModel> {
 			Arrays.asList(UnitOptionCategory.Chef),
 			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.SacroSaint, KeyWord.Corpuscant, KeyWord.Evocators)),
 
+	BalisteCelestar(
+			UnitProfile._3_9_7_4,
+			Arrays.asList(RoleTactique.Artillerie),
+			Arrays.asList(StormcastWeapons.TraitsDeCelestarTirFoudroyant, StormcastWeapons.TraitsDeCelestarTirRapide,
+					StormcastWeapons.LamesDeSigmarite),
+			null,
+			Arrays.asList(StormcastRule.ArmePolyvalente),
+			Arrays.asList(),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.SacroSaint, KeyWord.Ordinatus,
+					KeyWord.MachineDeGuerre, KeyWord.BalisteCelestar)),
+
 	;
 
 	private int pts;

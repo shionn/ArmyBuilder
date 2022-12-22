@@ -79,6 +79,7 @@ public enum KeyWord implements IHaveDisplayName {
 	// StormCast
 	Angelos,
 	Annihilators,
+	BalisteCelestar,
 	BellicistesCelestes,
 	Castigators,
 	Corpuscant,
@@ -97,6 +98,7 @@ public enum KeyWord implements IHaveDisplayName {
 	Liberators,
 	MarteauxDeSigmar,
 	MessagerDesCieux,
+	Ordinatus,
 	Paladin,
 	Praetors,
 	Prosecutors,

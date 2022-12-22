@@ -31,7 +31,7 @@
 		</select>
 		<select name="packdebataille">
 			<c:if test="${empty army.packDeBataille}">
-				<option>- Pacte de Bataille -</option>
+				<option value="NULL">- Pacte de Bataille -</option>
 			</c:if>
 			<c:forEach items="${PackDeBataille.values()}" var="pack">
 				<option value="${pack}"<c:if test="${army.is(pack)}"> selected="selected"</c:if>>${pack.displayName}</option>
@@ -39,7 +39,7 @@
 		</select>
 		<select name="grandestrategie">
 			<c:if test="${empty army.grandeStrategie}">
-				<option>- Grande Stratégie -</option>
+				<option value="NULL">- Grande Stratégie -</option>
 			</c:if>
 			<c:forEach items="${GrandeStrategie.values()}" var="sub">
 				<c:if test="${sub.availableFor(army)}">
@@ -49,7 +49,7 @@
 		</select>
 		<select name="triomphes">
 			<c:if test="${empty army.triomphes}">
-				<option>- Triomphes -</option>
+				<option value="NULL">- Triomphes -</option>
 			</c:if>
 			<c:forEach items="${Triomphes.values()}" var="sub">
 				<option value="${sub}"<c:if test="${army.is(sub)}"> selected="selected"</c:if>>${sub.displayName}</option>

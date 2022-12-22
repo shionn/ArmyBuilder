@@ -45,6 +45,7 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	PierreDeChance(RuleType.Artefact),
 
 	ArcsDeFoudreCeleste(RuleType.Aptitude, RuleType.TraisUnitee),
+	ArmePolyvalente(RuleType.Aptitude, RuleType.TraisUnitee),
 	ArsenalDAmesOrageuses(RuleType.Aptitude, RuleType.TraisUnitee),
 	AttaquesAuPassage(RuleType.Aptitude, RuleType.TraisUnitee),
 	BondTonitruant(RuleType.Aptitude, RuleType.TraisUnitee),

@@ -1,0 +1,1 @@
+Protection 6+ si ∈ 12" d'un objectif.

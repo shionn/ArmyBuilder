@@ -1,0 +1,1 @@
+_début combat_ 1 unité __Vengeurs Célestes__ qui à charger gagne 6 explosif.

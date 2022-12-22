@@ -1,0 +1,1 @@
+_tuée avant d'être retirer_ 1D6 par PV (+1 si __Fulgurant__), sur 6+ 1BM à 1" à la fin de la phase.

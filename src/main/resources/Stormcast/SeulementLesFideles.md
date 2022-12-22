@@ -1,6 +1,3 @@
-Les Chevaliers
-Sanctifiés ont juré d'appliquer le précepte
-de leur ordre jusqu’à la mort et au-delà.
-Seulement les Fidèles: Les Chevaliers
-Sanctifiés ont juré d'appliquer le précepte
-de leur ordre jusqu’à la mort et au-delà.
+Si une figurine __RÉDEMPTEUR__ CHEVALIERS SANCTIFIÉS amie est tuée
+à 3" d’une ou plusieurs unités ennemies, jetez un dé. Sur 4+, la figurine peut
+combattre avant d’être retirée du jeu.

@@ -22,7 +22,10 @@ public interface IHaveKeyWord {
 
 	default boolean isSubAllegied() {
 		return isOneOf(
-				Arrays.stream(SubAllegiance.values()).map(s -> KeyWord.valueOf(s.name())).toArray(s -> new KeyWord[s]));
+				Arrays.stream(SubAllegiance.values())
+						.filter(sub -> sub != SubAllegiance.None)
+						.map(s -> KeyWord.valueOf(s.name()))
+						.toArray(s -> new KeyWord[s]));
 	}
 
 }

@@ -1,0 +1,1 @@
+_déploiement_, 1 unitée _Réserve_ pour chaque unitée déployée.
