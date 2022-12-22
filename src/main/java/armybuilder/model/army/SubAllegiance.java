@@ -15,59 +15,50 @@ import armybuilder.serialisation.EnumPropertyLoader;
 public enum SubAllegiance implements IHaveDisplayName, IDecoreArmy {
 	None(Arrays.asList(), null, null),
 
-	DraichiGaneth(Arrays.asList(DokRule.TueusesHerisseesDeLames), Allegiance.DoK,
-			a -> a.getUnits()
-					.stream()
-					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
-					.forEach(u -> u.add(KeyWord.DraichiGaneth))),
-	HaggNar(Arrays.asList(DokRule.FillesDuPremierTemple), Allegiance.DoK,
-			a -> a.getUnits()
-					.stream()
-					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
-					.forEach(u -> u.add(KeyWord.HaggNar))),
-	KheltNar(Arrays.asList(DokRule.FrapperEtSeRetirer), Allegiance.DoK,
-			a -> a.getUnits()
-					.stream()
-					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
-					.forEach(u -> u.add(KeyWord.KheltNar))),
-	Khailebron(Arrays.asList(DokRule.MaitressesDesOmbrevoies), Allegiance.DoK,
-			a -> a.getUnits()
-					.stream()
-					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
-					.forEach(u -> u.add(KeyWord.Khailebron))),
-	Kraith(Arrays.asList(DokRule.DisciplesDuMassacre), Allegiance.DoK,
-			a -> a.getUnits()
-					.stream()
-					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
-					.forEach(u -> u.add(KeyWord.Kraith))),
+	// Dok
+	DraichiGaneth(Arrays.asList(DokRule.TueusesHerisseesDeLames), Allegiance.DoK, null),
+	HaggNar(Arrays.asList(DokRule.FillesDuPremierTemple), Allegiance.DoK, null),
+	KheltNar(Arrays.asList(DokRule.FrapperEtSeRetirer), Allegiance.DoK, null),
+	Khailebron(Arrays.asList(DokRule.MaitressesDesOmbrevoies), Allegiance.DoK, null),
+	Kraith(Arrays.asList(DokRule.DisciplesDuMassacre), Allegiance.DoK, null),
+	ZaintharKai(Arrays.asList(DokRule.LessenceDeKhaine), Allegiance.DoK, null),
 //	LOstEmeraude(
 //			Arrays.asList(NighthauntRule.LaMaledictionEmeraude, NighthauntRule.ChevaliersDuRegret),
 //			Allegiance.Nighthaunt,
 //			null),
-	ZaintharKai(Arrays.asList(DokRule.LessenceDeKhaine), Allegiance.DoK,
-			a -> a.getUnits()
-					.stream()
-					.filter(u -> !u.is(KeyWord.HaggNar) && !u.is(RoleTactique.SortsPersistantsEtInvocation))
-					.forEach(u -> u.add(KeyWord.ZaintharKai))),
 
-	MarteauxDeSigmar(Arrays.asList(StormcastRule.EchecInterdit), Allegiance.StormCast,
+	// StormCast
+	BellicistesCelestes(Arrays.asList(StormcastRule.ClairvoyanceIntrepide), Allegiance.StormCast, null),
+	ChevaliersExcelsiors(
+			Arrays.asList(StormcastRule.SeulementLesFidèles),
+			Allegiance.StormCast,
 			a -> a.getUnits()
 					.stream()
-					.filter(u -> !u.isOne(KeyWord.MarteauxDeSigmar, KeyWord.ChevaliersSanctifies)
-							&& !u.is(RoleTactique.SortsPersistantsEtInvocation))
-					.forEach(u -> u.add(KeyWord.MarteauxDeSigmar))),
+					.filter(u -> u.is(KeyWord.ChevaliersExcelsiors, KeyWord.Paladin))
+					.forEach(u -> u.add(StormcastRule.TempeteDAnnihilation))),
+	ChevaliersSanctifies(
+			Arrays.asList(StormcastRule.SeulementLesFidèles),
+			Allegiance.StormCast,
+			a -> a.getUnits()
+					.stream()
+					.filter(u -> u.is(KeyWord.ChevaliersSanctifies, KeyWord.Redempteur))
+					.forEach(u -> u.add(StormcastRule.SeulementLesFidèles))),
+	EnclumesDeLHeldenhammer(
+			Arrays.asList(StormcastRule.AuraMorbide),
+			Allegiance.StormCast,
+			a -> a.getUnits()
+					.stream()
+					.filter(u -> u.is(KeyWord.EnclumesDeLHeldenhammer))
+					.forEach(u -> u.add(StormcastRule.AuraMorbide))),
+	MarteauxDeSigmar(Arrays.asList(StormcastRule.EchecInterdit), Allegiance.StormCast, null),
+	SeigneursDeLaTempete(Arrays.asList(StormcastRule.LOstAltier), Allegiance.StormCast, null),
+	TempliersSiellaires(Arrays.asList(StormcastRule.Rabatteurs), Allegiance.StormCast, null),
+	VengeursCelestes(Arrays.asList(StormcastRule.MusParLaVengeance), Allegiance.StormCast, null),
 
-	ChevaliersSanctifies(Arrays.asList(StormcastRule.SeulementLesFidèles), Allegiance.StormCast,
-			a -> a.getUnits()
-					.stream()
-					.filter(u -> !u.isOneOf(KeyWord.MarteauxDeSigmar, KeyWord.ChevaliersSanctifies)
-							&& !u.is(RoleTactique.SortsPersistantsEtInvocation))
-					.forEach(u -> {
-						u.add(KeyWord.ChevaliersSanctifies);
-						if (u.is(KeyWord.Redempteur)) {
-							u.add(StormcastRule.SeulementLesFidèles);
-						}
-					})),;
+
+
+
+	;
 
 	private String displayName;
 	private List<IRule<?>> rules;
@@ -93,6 +84,12 @@ public enum SubAllegiance implements IHaveDisplayName, IDecoreArmy {
 	@Override
 	public void decorate(Army army) {
 		rules.forEach(army::add);
+		if (this != None) {
+			army.getUnits()
+					.stream()
+					.filter(u -> !u.isSubAllegied() && !u.is(RoleTactique.SortsPersistantsEtInvocation))
+					.forEach(u -> u.add(KeyWord.valueOf(name())));
+		}
 		if (modifier != null) {
 			modifier.accept(army);
 		}

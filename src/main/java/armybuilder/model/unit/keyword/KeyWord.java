@@ -79,12 +79,15 @@ public enum KeyWord implements IHaveDisplayName {
 	// StormCast
 	Angelos,
 	Annihilators,
+	BellicistesCelestes,
 	Castigators,
 	Corpuscant,
 	Chevalier,
+	ChevaliersExcelsiors,
 	ChevaliersSanctifies,
 	Dracoline,
 	Draconithe,
+	EnclumesDeLHeldenhammer,
 	Evocators,
 	Fulgurant,
 	GryphDogues,
@@ -102,10 +105,12 @@ public enum KeyWord implements IHaveDisplayName {
 	SacroSaint,
 	Seigneur,
 	SeigneurRelictor,
+	SeigneursDeLaTempete,
 	Sequitors,
 	StormCast,
+	TempliersSiellaires,
+	VengeursCelestes,
 	Vindictors,
-
 
 	;
 

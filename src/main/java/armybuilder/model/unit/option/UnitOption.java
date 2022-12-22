@@ -100,7 +100,6 @@ public enum UnitOption implements IUnitOption {
 	PierreDeChance(StormcastOptimisation.PierreDeChance),
 	AmuletteDObsidienne(StormcastOptimisation.AmuletteDObsidienne),
 
-	// TODO Sort et priere et trais de monture
 
 	MarteauCelesteEtBouclierDeSigmarite(StormcastOptimisation.MarteauCelesteEtBouclierDeSigmarite),
 	PaireDeMarteauxCelestes(StormcastOptimisation.PaireDeMarteauxCelestes),

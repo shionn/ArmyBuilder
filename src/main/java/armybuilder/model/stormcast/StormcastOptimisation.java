@@ -85,6 +85,8 @@ public enum StormcastOptimisation implements IUnitOption {
 				u.add(StormcastWeapons.PaireDeMarteauxCelestesProjectil);
 			}),
 
+	// TODO Sort et priere et trais de monture
+
 	;
 
 	private String displayName;
