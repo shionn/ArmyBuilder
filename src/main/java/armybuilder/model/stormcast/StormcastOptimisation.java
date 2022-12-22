@@ -85,6 +85,11 @@ public enum StormcastOptimisation implements IUnitOption {
 	ChuteDEtoile(UnitOptionCategory.Sort, u -> true),
 	ChaineDEclairs(UnitOptionCategory.Sort, u -> true),
 
+	BenedictionDesArmes_12(UnitOptionCategory.Priere, u -> !u.isOneOf(KeyWord.Seigneur, KeyWord.Chevalier)),
+	BenedictionDesArmes_18(UnitOptionCategory.Priere, u -> u.isOneOf(KeyWord.Seigneur, KeyWord.Chevalier)),
+	Translocation(UnitOptionCategory.Priere, u -> true),
+	LumiereDivine(UnitOptionCategory.Priere, u -> true),
+
 	VitesseEtherique(
 			UnitOptionCategory.TraisDeMonture,
 			u -> u.isOneOf(KeyWord.GryphDestrier, KeyWord.Dracoth, KeyWord.Dracoline)),

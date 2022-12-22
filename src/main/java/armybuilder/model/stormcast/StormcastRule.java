@@ -73,9 +73,14 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	ReduitsEnCendres(RuleType.Aptitude, RuleType.TraisUnitee),
 	RenversezLesTyrans(RuleType.Aptitude, RuleType.TraisUnitee),
 	SorcierEvocators(RuleType.Aptitude, RuleType.TraisUnitee),
+	CoffretRedempteur(RuleType.Aptitude, RuleType.TraisUnitee),
 
 	OrageGuerisseur(RuleType.Priere),
 	OrageFoudroyant(RuleType.Priere),
+	BenedictionDesArmes_12(RuleType.Priere),
+	BenedictionDesArmes_18(RuleType.Priere),
+	Translocation(RuleType.Priere),
+	LumiereDivine(RuleType.Priere),
 
 	Essor(RuleType.Sort),
 	SalveDEclairs(RuleType.Sort),
@@ -86,6 +91,7 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	ChaineDEclairs(RuleType.Sort),
 	LanceDOrage(RuleType.Sort),
 	LumiereGuerisseuse(RuleType.Sort),
+	SoufflePurificateur(RuleType.Sort),
 
 	AnnihilatorPrimus(RuleType.Composition),
 	CastigatorPrimus(RuleType.Composition),

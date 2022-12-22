@@ -108,6 +108,10 @@ public enum UnitOption implements IUnitOption {
 	TraineeScintillante(StormcastOptimisation.TraineeScintillante),
 	LumiereDesJeunesEtoiles(StormcastOptimisation.LumiereDesJeunesEtoiles),
 	PresenceTonitruante(StormcastOptimisation.PresenceTonitruante),
+	BenedictionDesArmes_12(StormcastOptimisation.BenedictionDesArmes_12),
+	BenedictionDesArmes_18(StormcastOptimisation.BenedictionDesArmes_18),
+	Translocation(StormcastOptimisation.Translocation),
+	LumiereDivine(StormcastOptimisation.LumiereDivine),
 
 
 	;

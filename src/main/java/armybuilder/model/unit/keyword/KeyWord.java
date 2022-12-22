@@ -113,6 +113,7 @@ public enum KeyWord implements IHaveDisplayName {
 	Seigneur,
 	SeigneurArcanum,
 	SeigneurImperatant,
+	SeigneurExorciste,
 	SeigneurRelictor,
 	SeigneursDeLaTempete,
 	Sequitors,

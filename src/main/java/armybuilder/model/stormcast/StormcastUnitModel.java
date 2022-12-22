@@ -80,6 +80,18 @@ public enum StormcastUnitModel implements IUnitModel<StormcastUnitModel> {
 			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Heros, KeyWord.Pretre, KeyWord.Totem,
 					KeyWord.Seigneur, KeyWord.SeigneurRelictor)),
 
+	SeigneurExorciste(
+			UnitProfile._5_6_9_3,
+			Arrays.asList(RoleTactique.Leader),
+			Arrays.asList(StormcastWeapons.SceptreDeRedemption),
+			null,
+			Arrays.asList(GeneriqueUnitRule.Sorcier_1_1, StormcastRule.CoffretRedempteur,
+					StormcastRule.SoufflePurificateur),
+			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.TraisDeCommandement,
+					UnitOptionCategory.Artefact, UnitOptionCategory.Sort),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Heros, KeyWord.SacroSaint, KeyWord.Seigneur,
+					KeyWord.SeigneurExorciste)),
+
 	Vindictors(
 			UnitProfile._5_2_7_3,
 			Arrays.asList(RoleTactique.Ligne),

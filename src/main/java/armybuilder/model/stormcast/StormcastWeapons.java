@@ -32,6 +32,7 @@ public enum StormcastWeapons implements IUnitWeapon {
 	PairesDArmesDesCieux("Paire d'Armes des Cieux", WeaponType.Melee, "1", "3", "3+", "4+", "-1", "1"),
 	PaireDeMarteauxCelestesProjectil("Paire de Marteaux Célestes", WeaponType.Projectil, "9", "3", "4+", "4+", "-1", "1"),
 	PaireDeMarteauxCelestesMelee("Paire de Marteaux Célestes", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "1"),
+	SceptreDeRedemption("Sceptre de Rédemption", WeaponType.Melee, "1", "4", "3+", "3+", "-1", "2"),
 	SceptreDEther("Sceptre d'Éther", WeaponType.Melee, "2", "4", "3+", "3+", "-1", "2"),
 	SceptreFulgurivoque("Sceptre Fulgurivoque", WeaponType.Projectil, "18", "D6", "3+", "3+", "-1", "1"),
 	TraitsDeCelestarTirFoudroyant("Traits de Célestar: Tir Foudroyant", WeaponType.Projectil, "36","1","3+","2+","-3","D6"),
