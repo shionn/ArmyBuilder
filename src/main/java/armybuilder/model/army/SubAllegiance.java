@@ -30,7 +30,7 @@ public enum SubAllegiance implements IHaveDisplayName, IDecoreArmy {
 	// StormCast
 	BellicistesCelestes(Arrays.asList(StormcastRule.ClairvoyanceIntrepide), Allegiance.StormCast, null),
 	ChevaliersExcelsiors(
-			Arrays.asList(StormcastRule.SeulementLesFideles),
+			Arrays.asList(StormcastRule.TempeteDAnnihilation),
 			Allegiance.StormCast,
 			a -> a.getUnits()
 					.stream()

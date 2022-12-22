@@ -137,6 +137,18 @@ public enum StormcastUnitModel implements IUnitModel<StormcastUnitModel> {
 			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Heros, KeyWord.Fulgurant, KeyWord.Sorcier,
 					KeyWord.Chevalier, KeyWord.ChevalierArcanum)),
 
+	ChevalierIncantator(
+			UnitProfile._5_5_8_3,
+			Arrays.asList(RoleTactique.Leader),
+			Arrays.asList(StormcastWeapons.BatondIncantor),
+			null,
+			Arrays.asList(GeneriqueUnitRule.Sorcier_1_1, StormcastRule.ParcheminDOrageNegatif,
+					StormcastRule.OrageSpirituel),
+			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.TraisDeCommandement, UnitOptionCategory.Sort,
+					UnitOptionCategory.Artefact),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Heros, KeyWord.SacroSaint, KeyWord.Sorcier,
+					KeyWord.Chevalier, KeyWord.ChevalierIncantator)),
+
 	ChevalierQuestor(
 			UnitProfile._5_5_8_3,
 			Arrays.asList(RoleTactique.Leader),

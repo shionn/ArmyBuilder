@@ -56,6 +56,7 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	ChevalierVexillorAvecBanniereDeLApotheose(StormcastUnitModel.ChevalierVexillorAvecBanniereDeLApotheose),
 	ChevalierAzyros(StormcastUnitModel.ChevalierAzyros),
 	ChevalierArcanum(StormcastUnitModel.ChevalierArcanum),
+	ChevalierIncantator(StormcastUnitModel.ChevalierIncantator),
 	ChevalierQuestor(StormcastUnitModel.ChevalierQuestor),
 	Vindictor(StormcastUnitModel.Vindictors),
 	Liberators(StormcastUnitModel.Liberators),

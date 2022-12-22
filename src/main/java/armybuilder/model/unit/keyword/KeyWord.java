@@ -87,6 +87,7 @@ public enum KeyWord implements IHaveDisplayName {
 	Chevalier,
 	ChevalierArcanum,
 	ChevalierAzyros,
+	ChevalierIncantator,
 	ChevalierQuestor,
 	ChevalierVexillor,
 	ChevalierVexillorAvecBanniereDeLApotheose,

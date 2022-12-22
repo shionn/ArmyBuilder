@@ -43,7 +43,7 @@ public enum StormcastWeapons implements IUnitWeapon {
 	LameStellaire("Lame Stellaire", WeaponType.Melee, "1", "5", "3+", "3+", "-1", "2"),
 	SceptreDuValedictor("Sceptre du Valedictor", WeaponType.Melee, "2", "3", "3+", "4+", "-1", "D3"),
 	LameDeQuestor("Lame de Questor", WeaponType.Melee, "1", "5", "3+", "3+", "-1", "2"),
-
+	BatondIncantor("Bâton d'Incantor", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "2"),
 	;
 
 	private String displayName;

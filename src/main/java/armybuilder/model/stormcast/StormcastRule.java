@@ -82,6 +82,7 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	ChercheursMystiquesIndomptables(RuleType.Aptitude, RuleType.TraisUnitee),
 	FrappeFulguree(RuleType.Aptitude, RuleType.TraisUnitee),
 	DefiHeroique(RuleType.Aptitude, RuleType.TraisUnitee),
+	ParcheminDOrageNegatif(RuleType.Aptitude, RuleType.TraisUnitee),
 
 	OrageGuerisseur(RuleType.Priere),
 	OrageFoudroyant(RuleType.Priere),
@@ -101,6 +102,7 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	LumiereGuerisseuse(RuleType.Sort),
 	SoufflePurificateur(RuleType.Sort),
 	FlamboiementDesCieux(RuleType.Sort),
+	OrageSpirituel(RuleType.Sort),
 
 	AnnihilatorPrimus(RuleType.Composition),
 	CastigatorPrimus(RuleType.Composition),
