@@ -42,14 +42,14 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 	private List<IRule<?>> rules = new ArrayList<IRule<?>>();
 	private List<KeyWord> keyWords = new ArrayList<KeyWord>();
 	private List<IUnitWeapon> weapons = new ArrayList<IUnitWeapon>();
-
+	private UnitProfile profile;
 
 	public void decorate() {
 		this.points = model.getPoints();
+		this.profile = model.getProfile();
 		this.rules.addAll(model.getRules());
 		this.keyWords.addAll(model.getKeyWords());
 		this.weapons.addAll(model.getWeapons());
-		// TODO unit model rebuild
 		Arrays.asList(general, traisDeCommandement, traisDeMonstre, traisDeMonture, artefact, sort, priere, chef,
 				musicien, banniere, arme, renforcee, invoquee)
 				.stream()
@@ -58,6 +58,7 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 		if (bataillon != null) {
 			bataillon.decorate(this);
 		}
+		this.rules.forEach(r -> r.decorater(this));
 	}
 
 	/**
@@ -148,7 +149,11 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 	}
 
 	public UnitProfile getProfile() {
-		return model.getProfile();
+		return profile;
+	}
+
+	public void setProfile(UnitProfile profile) {
+		this.profile = profile;
 	}
 
 	public ProfileDegressif getProfileDegressif() {

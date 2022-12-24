@@ -1,0 +1,1 @@
+Toutes les unités amies doivent combatre ou être détruites.

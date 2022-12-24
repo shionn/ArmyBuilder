@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import armybuilder.model.IHaveDisplayName;
+import armybuilder.model.unit.Unit;
 
 public interface IRule<T extends Enum<T> & IRule<T>> extends IHaveDisplayName {
 
@@ -13,6 +14,10 @@ public interface IRule<T extends Enum<T> & IRule<T>> extends IHaveDisplayName {
 
 	default boolean is(RuleType type) {
 		return getTypes().contains(type);
+	}
+
+	default void decorater(Unit unit) {
+		// nothing to do
 	}
 
 }

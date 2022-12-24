@@ -3,10 +3,12 @@ package armybuilder.model.dok;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 import armybuilder.model.rule.IRule;
 import armybuilder.model.rule.RuleType;
+import armybuilder.model.unit.Unit;
 import armybuilder.serialisation.DescriptionReader;
 import armybuilder.serialisation.EnumPropertyLoader;
 
@@ -116,7 +118,7 @@ public enum DokRule implements IRule<DokRule> {
 	Ecorcheuse(RuleType.Composition),
 
 	// Armes
-	RondacheTranchante(RuleType.Aptitude),
+	RondacheTranchante(u -> u.setProfile(u.getProfile().setSvg(5)), RuleType.Aptitude),
 
 	// sort persistant et aptitude
 	CoeurDeFureurConv(RuleType.Aptitude),
@@ -180,18 +182,18 @@ public enum DokRule implements IRule<DokRule> {
 	private List<RuleType> types;
 	private String displayName;
 	private Supplier<String> description;
-
+	private Consumer<Unit> modifier;
 
 	DokRule(RuleType... types) {
 		this.displayName = EnumPropertyLoader.instance().name(this);
 		this.types = Arrays.asList(types);
 	}
 
-	DokRule(Supplier<String> description, RuleType... types) {
-		this.displayName = EnumPropertyLoader.instance().name(this);
-		this.description = description;
-		this.types = Arrays.asList(types);
+	DokRule(Consumer<Unit> modifier, RuleType... types) {
+		this(types);
+		this.modifier = modifier;
 	}
+
 
 	@Override
 	public List<RuleType> getTypes() {
@@ -212,6 +214,13 @@ public enum DokRule implements IRule<DokRule> {
 			return new DescriptionReader().read("Dok/", name());
 		}
 		return description.get();
+	}
+
+	@Override
+	public void decorater(Unit unit) {
+		if (modifier != null) {
+			modifier.accept(unit);
+		}
 	}
 
 }

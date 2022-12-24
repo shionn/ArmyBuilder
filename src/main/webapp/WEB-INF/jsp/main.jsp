@@ -247,8 +247,8 @@
 		</article>
 	</c:forEach>
 </div>
+<h2>Bataillons</h2>
 <div class="units columns2" style="page-break-inside: avoid;">
-	<h2>Bataillons</h2>
 	<c:forEach items="${army.bataillons}" var="bat">
 		<article class="bataillon">
 			<spring:url value="/bataillon/rm/${bat.id}" var="url" />

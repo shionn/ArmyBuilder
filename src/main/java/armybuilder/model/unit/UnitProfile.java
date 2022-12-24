@@ -68,4 +68,8 @@ public enum UnitProfile {
 		return args[3];
 	}
 
+	public UnitProfile setSvg(int svg) {
+		return UnitProfile.valueOf("_" + getMvt() + "_" + getLife() + "_" + getCmd() + "_" + svg);
+	}
+
 }

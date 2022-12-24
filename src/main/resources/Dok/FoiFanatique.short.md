@@ -1,1 +1,1 @@
-∀ __FDoK__ gagne protection 6+.
+∀ __DoK__ gagne protection 6+.
