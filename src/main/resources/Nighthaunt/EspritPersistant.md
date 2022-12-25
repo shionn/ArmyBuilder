@@ -1,1 +1,1 @@
-Ajoutez 1 à la caractéristique de Blessures de ce général. 
+Ce général a une protection de 4+ contre les dégâts infligés par des blessures mortelles.

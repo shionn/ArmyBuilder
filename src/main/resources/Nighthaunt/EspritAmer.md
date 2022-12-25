@@ -1,1 +1,6 @@
-Jetez un dé chaque fois que vous allouez à ce général une blessure qui a été infligée par une arme de mêlée. Sur 5+, l'unité atlaquante subit 1 blessure mortelle une fois toutes ses attaques résolues. 
+À la fin de la phase de combat, si ce général s’est
+vu allouer des blessures qui n’ont pas été annulées
+pendant cette phase, vous pouvez jeter autant de dés
+que sa caractéristique de Blessures. Pour chaque jet
+de 4+, chaque unité ennemie à 6" de ce général subit
+1 blessure mortelle.

@@ -1,1 +1,3 @@
-Au début de la phase de mouvement ennemie, jetez un dé pour chaque unité ennemie à 3" ou moins de cette figurine. Si le jet est supérieur ou égal à la caractéristique de Bravoure de cette unité ennemie, celle-ci doit se replier à cette phase de mouvement. 
+Les unités ennemies sont terrifiées si elles sont à 6"
+de ce général (au lieu de 3") pour les besoins du trait
+de bataille Aura d’Effroi (p. 58).

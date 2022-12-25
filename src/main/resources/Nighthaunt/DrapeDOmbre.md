@@ -1,1 +1,3 @@
-Soustrayez 1aux jets de touche pour les attaques d 'armes à projectiles qui c iblent ce général. 
+Ce général ne peut pas être choisi comme cible
+d’une attaque de tir ou de combat par plus d’une
+unité par phase.

@@ -1,15 +1,31 @@
-package armybuilder.modelold.deprecated.nighthaunt;
+package armybuilder.model.nighthaunt;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import armybuilder.model.rule.RuleType;
 import armybuilder.model.rule.IRule;
+import armybuilder.model.rule.RuleType;
 import armybuilder.serialisation.DescriptionReader;
+import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum NighthauntRule implements IRule<NighthauntRule> {
-	AuraDEffroi("Aura d'Effroi", RuleType.TraisDeBataille),
+	ApparitionsInstables(RuleType.TraisDeBataille),
+	AuraDEffroi(RuleType.TraisDeBataille),
+	Etheres(RuleType.TraisDeBataille),
+	Incorporels(RuleType.TraisDeBataille, RuleType.AptitudesDeCommandement),
+	VagueDeTerreur(RuleType.TraisDeBataille),
+	ToucherEffroyable(RuleType.TraisDeBataille),
+
+	// Todo Optimisation
+	DrapeDOmbre(RuleType.TraitsDeCommandement),
+	EntiteTerrifiante(RuleType.TraitsDeCommandement),
+	EspritPersistant(RuleType.TraitsDeCommandement),
+	HaineDesVivants(RuleType.TraitsDeCommandement),
+	MaitreDesOstsSpectraux(RuleType.TraitsDeCommandement),
+	EspritAmer(RuleType.TraitsDeCommandement),
+
+	// OLD
 	ChevaliersDuRegret("Chevaliers du Regret", RuleType.TraisDeBataille),
 	ConvocationSpectrale(
 			"Convocation Spectrale",
@@ -24,13 +40,7 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 	LaMaledictionEmeraude("La Malédiction Émeraude", RuleType.TraisDeBataille),
 	NourrisDeTerreur("Nourris de Terreur", RuleType.TraisDeBataille),
 	RestituerLesFigurinesTuees("Restituer Les Figurines Tuées", RuleType.TraisDeBataille),
-	VagueDeTerreur("Vague de Terreur", RuleType.TraisDeBataille, RuleType.PhaseDeCharge),
 
-	DrapeDOmbre("Drapé d'Ombre", RuleType.TraitsDeCommandement),
-	EntiteTerrifiante("Entité Terrifiante", RuleType.TraitsDeCommandement),
-	EspritAmer("Esprit Amer", RuleType.TraitsDeCommandement),
-	EspritPersistant("Esprit Persistant", RuleType.TraitsDeCommandement),
-	HaineDesVivants("Haine des Vivants", RuleType.TraitsDeCommandement),
 	MaitreDesOstsDEsprits("Maître des Osts d'Esprits", RuleType.TraitsDeCommandement),
 	SeigneurDeLOst("Seigneur de l'Ost", RuleType.TraitsDeCommandement),
 
@@ -62,7 +72,6 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 			RuleType.Aptitude,
 			RuleType.PhaseDeMouvement,
 			RuleType.TraisUnitee),
-	Etheres("Éthérés", RuleType.Aptitude),
 	HordeEffroyable("Horde Effroyable", RuleType.Aptitude),
 	LaPointeDeLaMort("La Pointe de la Mort", RuleType.Aptitude),
 	MaledictionDeLoyaute("Malédiction de Loyauté", RuleType.Aptitude),
@@ -83,6 +92,11 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 	private String displayName;
 	private List<RuleType> types;
 
+	private NighthauntRule(RuleType... types) {
+		this.displayName = EnumPropertyLoader.instance().name(this);
+		this.types = Arrays.asList(types);
+	}
+
 	private NighthauntRule(String displayName, RuleType... types) {
 		this.displayName = displayName;
 		this.types = Arrays.asList(types);
@@ -100,12 +114,8 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 
 	@Override
 	public String getDescription() throws IOException {
-		return new DescriptionReader().read("Nighthaunt/", getName());
+		return new DescriptionReader().read(this);
 	}
 
-	@Override
-	public String toString() {
-		return getName() + getTypes();
-	}
 
 }

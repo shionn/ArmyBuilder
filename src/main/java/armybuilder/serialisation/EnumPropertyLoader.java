@@ -20,7 +20,7 @@ public class EnumPropertyLoader {
 	private Properties props = new Properties();
 
 	private EnumPropertyLoader() {
-		for (String file : Arrays.asList("enums", "Dok", "Skaven", "Stormcast"))
+		for (String file : Arrays.asList("enums", "Dok", "Nighthaunt", "Skaven", "Stormcast"))
 		load(file);
 	}
 
