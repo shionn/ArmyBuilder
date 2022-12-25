@@ -78,6 +78,11 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 	SoifDeSangMeurtriere(RuleType.Aptitude),
 	UnMaillonDeLaChaine(RuleType.Aptitude),
 
+	Affregarde(RuleType.Composition),
+	QuesteurDeShyish(RuleType.Composition),
+	TambourDArythmie(RuleType.Composition),
+	Tailladeuse(RuleType.Composition),
+
 	// OLD
 	ChevaliersDuRegret("Chevaliers du Regret", RuleType.TraisDeBataille),
 	ConvocationSpectrale(
@@ -114,9 +119,6 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 	ToucherFuneste("Toucher Funeste", RuleType.Aptitude),
 
 	// Composition
-	Dreadwarden("Dreadwarden", RuleType.Composition),
-	TambourDArythmie("Tambour d'Arythmie", RuleType.Composition),
-	VarclavLeCruel("Varclav le Cruel", RuleType.Composition),
 
 	;
 

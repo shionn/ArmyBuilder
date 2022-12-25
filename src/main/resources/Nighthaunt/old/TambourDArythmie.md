@@ -1,1 +1,0 @@
-Une unité qui comprend  un ou plusieurs Tambours d'Arythmie peut se replier et charger au même tour. 
