@@ -82,6 +82,7 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 	QuesteurDeShyish(RuleType.Composition),
 	TambourDArythmie(RuleType.Composition),
 	Tailladeuse(RuleType.Composition),
+	SpectreInfernal(RuleType.Composition),
 
 	// OLD
 	ChevaliersDuRegret("Chevaliers du Regret", RuleType.TraisDeBataille),
