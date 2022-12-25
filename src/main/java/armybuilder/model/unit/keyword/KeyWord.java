@@ -16,6 +16,9 @@ public enum KeyWord implements IHaveDisplayName {
 	Sorcier,
 	Totem,
 
+	// Manuel du general
+	VeteransDeGallet,
+
 	// DoK
 	AvatarDeKhaine,
 	ChaudronDeSang,
@@ -43,8 +46,7 @@ public enum KeyWord implements IHaveDisplayName {
 	SoeurDuMassacre,
 	ZaintharKai,
 
-	// Manuel du general
-	VeteransDeGallet,
+
 
 	// fait au dessus
 	BloodStalkers,
@@ -65,6 +67,8 @@ public enum KeyWord implements IHaveDisplayName {
 	MyrmournBanshees,
 	Nighthaunt,
 	TombBanshee,
+
+	// Nighthaunt
 
 	// Skaven
 	ClansEchin,

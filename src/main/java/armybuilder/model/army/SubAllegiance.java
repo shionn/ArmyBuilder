@@ -14,24 +14,24 @@ import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum SubAllegiance implements IHaveDisplayName, IDecoreArmy {
-	None(Arrays.asList(), null, null),
+	None(Arrays.asList(), null),
 
 	// Dok
-	DraichiGaneth(Arrays.asList(DokRule.TueusesHerisseesDeLames), Allegiance.DoK, null),
-	HaggNar(Arrays.asList(DokRule.FillesDuPremierTemple), Allegiance.DoK, null),
-	KheltNar(Arrays.asList(DokRule.FrapperEtSeRetirer), Allegiance.DoK, null),
-	Khailebron(Arrays.asList(DokRule.MaitressesDesOmbrevoies), Allegiance.DoK, null),
-	Kraith(Arrays.asList(DokRule.DisciplesDuMassacre), Allegiance.DoK, null),
-	ZaintharKai(Arrays.asList(DokRule.LessenceDeKhaine), Allegiance.DoK, null),
+	DraichiGaneth(Arrays.asList(DokRule.TueusesHerisseesDeLames), Allegiance.DoK),
+	HaggNar(Arrays.asList(DokRule.FillesDuPremierTemple), Allegiance.DoK),
+	KheltNar(Arrays.asList(DokRule.FrapperEtSeRetirer), Allegiance.DoK),
+	Khailebron(Arrays.asList(DokRule.MaitressesDesOmbrevoies), Allegiance.DoK),
+	Kraith(Arrays.asList(DokRule.DisciplesDuMassacre), Allegiance.DoK),
+	ZaintharKai(Arrays.asList(DokRule.LessenceDeKhaine), Allegiance.DoK),
 
 	// Nighthaunt
-	LaLegionEploree(Arrays.asList(NighthauntRule.EntrainesDansLaTombe), Allegiance.Nighthaunt, null),
-	LeFleauEcarlate(Arrays.asList(NighthauntRule.VortexDeViolenceFrenetique), Allegiance.Nighthaunt, null),
-	LesMortsDeVifArgent(Arrays.asList(NighthauntRule.ArtisansDUneMortEffroyable), Allegiance.Nighthaunt, null),
-	LOstEmeraude(Arrays.asList(NighthauntRule.LaMaledictionEmeraude), Allegiance.Nighthaunt, null),
+	LegionEploree(Arrays.asList(NighthauntRule.EntrainesDansLaTombe), Allegiance.Nighthaunt),
+	LeFleauEcarlate(Arrays.asList(NighthauntRule.VortexDeViolenceFrenetique), Allegiance.Nighthaunt),
+	LesMortsDeVifArgent(Arrays.asList(NighthauntRule.ArtisansDUneMortEffroyable), Allegiance.Nighthaunt),
+	LOstEmeraude(Arrays.asList(NighthauntRule.LaMaledictionEmeraude), Allegiance.Nighthaunt),
 
 	// StormCast
-	BellicistesCelestes(Arrays.asList(StormcastRule.ClairvoyanceIntrepide), Allegiance.StormCast, null),
+	BellicistesCelestes(Arrays.asList(StormcastRule.ClairvoyanceIntrepide), Allegiance.StormCast),
 	ChevaliersExcelsiors(
 			Arrays.asList(StormcastRule.TempeteDAnnihilation),
 			Allegiance.StormCast,
@@ -53,10 +53,10 @@ public enum SubAllegiance implements IHaveDisplayName, IDecoreArmy {
 					.stream()
 					.filter(u -> u.is(KeyWord.EnclumesDeLHeldenhammer))
 					.forEach(u -> u.add(StormcastRule.AuraMorbide))),
-	MarteauxDeSigmar(Arrays.asList(StormcastRule.EchecInterdit), Allegiance.StormCast, null),
-	SeigneursDeLaTempete(Arrays.asList(StormcastRule.LOstAltier), Allegiance.StormCast, null),
-	TempliersSiellaires(Arrays.asList(StormcastRule.Rabatteurs), Allegiance.StormCast, null),
-	VengeursCelestes(Arrays.asList(StormcastRule.MusParLaVengeance), Allegiance.StormCast, null),
+	MarteauxDeSigmar(Arrays.asList(StormcastRule.EchecInterdit), Allegiance.StormCast),
+	SeigneursDeLaTempete(Arrays.asList(StormcastRule.LOstAltier), Allegiance.StormCast),
+	TempliersSiellaires(Arrays.asList(StormcastRule.Rabatteurs), Allegiance.StormCast),
+	VengeursCelestes(Arrays.asList(StormcastRule.MusParLaVengeance), Allegiance.StormCast),
 
 
 
@@ -73,6 +73,10 @@ public enum SubAllegiance implements IHaveDisplayName, IDecoreArmy {
 		this.rules = rules;
 		this.allegiance = allegiance;
 		this.modifier = modifier;
+	}
+
+	private SubAllegiance(List<IRule<?>> rules, Allegiance allegiance) {
+		this(rules, allegiance, null);
 	}
 
 	public boolean availableFor(Army army) {

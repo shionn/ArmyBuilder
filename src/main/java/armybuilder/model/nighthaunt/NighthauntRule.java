@@ -49,6 +49,8 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 	VoleurDeVie(RuleType.Sort),
 	SceauDeShyish(RuleType.Sort),
 
+	SiJeNePeuxRegnerNulNeLePourra(RuleType.Aptitude),
+
 	// OLD
 	ChevaliersDuRegret("Chevaliers du Regret", RuleType.TraisDeBataille),
 	ConvocationSpectrale(

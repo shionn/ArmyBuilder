@@ -1,6 +1,7 @@
 package armybuilder.model.unit.option;
 
 import armybuilder.model.dok.DokOptimisations;
+import armybuilder.model.nighthaunt.NighthauntOptimisation;
 import armybuilder.model.stormcast.StormcastOptimisation;
 import armybuilder.model.unit.Unit;
 
@@ -66,6 +67,30 @@ public enum UnitOption implements IUnitOption {
 	Krone(DokOptimisations.Krone),
 	Gorgai(DokOptimisations.Gorgai),
 	ShroudQueen(DokOptimisations.ShroudQueen),
+
+	DrapeDOmbre(NighthauntOptimisation.DrapeDOmbre),
+	EntiteTerrifiante(NighthauntOptimisation.EntiteTerrifiante),
+	EspritAmer(NighthauntOptimisation.EspritAmer),
+	EspritPersistant(NighthauntOptimisation.EspritPersistant),
+	HaineDesVivants(NighthauntOptimisation.HaineDesVivants),
+	MaitreDesOstsSpectraux(NighthauntOptimisation.MaitreDesOstsSpectraux),
+	AnneauDuFeuDeLame(NighthauntOptimisation.AnneauDuFeuDeLame),
+	CapeDeLaLuneCroissante(NighthauntOptimisation.CapeDeLaLuneCroissante),
+	EclatDeLuneDesMoissons(NighthauntOptimisation.EclatDeLuneDesMoissons),
+	FamilierAvide(NighthauntOptimisation.FamilierAvide),
+	FanalDeNagashizzar(NighthauntOptimisation.FanalDeNagashizzar),
+	FaucheLesPeines(NighthauntOptimisation.FaucheLesPeines),
+	FilDeLOmbre(NighthauntOptimisation.FilDeLOmbre),
+	GrimoireDeMinuit(NighthauntOptimisation.GrimoireDeMinuit),
+	Inciseur(NighthauntOptimisation.Inciseur),
+	LanterneDeSorcellumiere(NighthauntOptimisation.LanterneDeSorcellumiere),
+	PendentifDuVentMaussade(NighthauntOptimisation.PendentifDuVentMaussade),
+	BrumeSepulcrale(NighthauntOptimisation.BrumeSepulcrale),
+	CageAAmes(NighthauntOptimisation.CageAAmes),
+	CanuleSpectrale(NighthauntOptimisation.CanuleSpectrale),
+	DrainDEsprit(NighthauntOptimisation.DrainDEsprit),
+	VoleurDeVie(NighthauntOptimisation.VoleurDeVie),
+	SceauDeShyish(NighthauntOptimisation.SceauDeShyish),
 
 	AnnihilatorPrimus(StormcastOptimisation.AnnihilatorPrimus),
 	ArmeDesCieuxEtBouclierDeSigmarite(StormcastOptimisation.ArmeDesCieuxEtBouclierDeSigmarite),

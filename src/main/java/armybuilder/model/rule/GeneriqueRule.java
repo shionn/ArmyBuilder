@@ -40,7 +40,7 @@ public enum GeneriqueRule implements IRule<GeneriqueRule> {
 			RuleType.TraisUnitee),
 
 	Benediction(
-			// donne une protection a 6+ donc onutil pour les DoK
+			// donne une protection a 6+ donc inutil pour les DoK
 			a -> a.units(KeyWord.Pretre)
 					.stream()
 					.filter(u -> !a.is(Allegiance.DoK))
@@ -53,13 +53,18 @@ public enum GeneriqueRule implements IRule<GeneriqueRule> {
 			RuleType.TraisUnitee),
 
 	// fureur monstrueuse
-	Rugissement(null, RuleType.FureursMonstrueuses),
-	Pietinement(null, RuleType.FureursMonstrueuses),
-	DuelTitanesque(null, RuleType.FureursMonstrueuses),
-	Ecroulement(null, RuleType.FureursMonstrueuses),
+	Rugissement(a -> a.addIf(a.count(KeyWord.Monstre) > 0, GeneriqueRule.valueOf("Rugissement")),
+			RuleType.FureursMonstrueuses),
+	Pietinement(a -> a.addIf(a.count(KeyWord.Monstre) > 0, GeneriqueRule.valueOf("Pietinement")),
+			RuleType.FureursMonstrueuses),
+	DuelTitanesque(a -> a.addIf(a.count(KeyWord.Monstre) > 0, GeneriqueRule.valueOf("DuelTitanesque")),
+			RuleType.FureursMonstrueuses),
+	Ecroulement(a -> a.addIf(a.count(KeyWord.Monstre) > 0, GeneriqueRule.valueOf("Ecroulement")),
+			RuleType.FureursMonstrueuses),
 
 	// regle
-	DissiperLesSorts(null, RuleType.Rule, RuleType.PhaseDesHeros),
+	DissiperLesSorts(a -> a.addIf(a.count(KeyWord.Sorcier) > 0, GeneriqueRule.valueOf("DissiperLesSorts")),
+			RuleType.Rule),
 
 	;
 
