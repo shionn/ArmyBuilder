@@ -60,15 +60,17 @@ public enum KeyWord implements IHaveDisplayName {
 	LaBladeCoven,
 	LaReineDesRonces,
 	LOstEmeraude,
-	Malignant,
 	MelusaiIronscale,
 	MirrorghastBanshee,
 	MorgwaethTheBloodied,
 	MyrmournBanshees,
-	Nighthaunt,
 	TombBanshee,
 
 	// Nighthaunt
+	Hantenuits,
+	KurdossValentian,
+	LegionEploree,
+	Malfaisants,
 
 	// Skaven
 	ClansEchin,

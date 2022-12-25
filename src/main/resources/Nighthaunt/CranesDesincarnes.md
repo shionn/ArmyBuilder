@@ -1,0 +1,1 @@
+Cette unité a une protection de 5+.

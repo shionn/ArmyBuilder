@@ -1,1 +1,0 @@
-Vous pouvez relancer les jets de blessure de 1 pour cette unité quand elle compte 10 figurines ou plus.
