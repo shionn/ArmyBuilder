@@ -1,1 +1,7 @@
-Voleur de Vie a une valeur de lancement de 7.  S'il est lancé avec succès, choisissez une unité  ennemie à 12" ou moins et visible du lanceur.  L'unité choisie subit 03 blessures mortelles. Pour  chaque blessure mortelle subie par l'unité, vous  pouvez guérir 1 blessure allouée au lanceur.  
+Voleur de Vie est un sort qui a une valeur de
+lancement de 7 et une portée de 12". S'il est lancé
+avec succès, choisissez 1 unité ennemie à portée
+et visible du lanceur. La cible subit D3 blessures
+mortelles. Vous pouvez guérir 1 blessure allouée
+au lanceur pour chaque blessure mortelle qui a été
+allouée (sans être annulée) par ce sort.

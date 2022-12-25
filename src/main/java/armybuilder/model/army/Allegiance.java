@@ -6,6 +6,7 @@ import java.util.function.Consumer;
 
 import armybuilder.model.IHaveDisplayName;
 import armybuilder.model.dok.DokRule;
+import armybuilder.model.nighthaunt.NighthauntRule;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.skaven.SkavenRule;
 import armybuilder.model.stormcast.StormcastRule;
@@ -24,12 +25,10 @@ public enum Allegiance implements IHaveDisplayName, IDecoreArmy {
 				a.addIf(a.is(SubAllegiance.HaggNar) || a.is(SubAllegiance.KheltNar), DokRule.HaineDuChaos);
 				a.addIf(a.count(KeyWord.RodeursDeLOmbre) > 0, DokRule.AttaqueInatendue);
 			}),
-//	Nighthaunt(
-//			Arrays.asList(NighthauntRule.AuraDEffroi, NighthauntRule.ConvocationSpectrale,
-//					NighthauntRule.EspritsImperissables, NighthauntRule.IlsViennentDesSousMondes,
-//					NighthauntRule.NourrisDeTerreur, NighthauntRule.RestituerLesFigurinesTuees,
-//					NighthauntRule.VagueDeTerreur),
-//			null),
+	Nighthaunt(
+			Arrays.asList(NighthauntRule.ApparitionsInstables, NighthauntRule.AuraDEffroi, NighthauntRule.Etheres,
+					NighthauntRule.Incorporels, NighthauntRule.VagueDeTerreur, NighthauntRule.ToucherEffroyable),
+			null),
 	Skaven(Arrays.asList(SkavenRule.DirigerDepuisLArriere, SkavenRule.SauveQuiPeut, SkavenRule.SauveQuiPeut),
 			a -> {
 				a.units(KeyWord.Heros, KeyWord.Maitreclan).forEach(u -> u.add(SkavenRule.ManipulateursHabiles));

@@ -1,1 +1,0 @@
-Brume Sépulcrale a une valeur de lancement de 6. S'il est lancé avec succès, choisissez une unité **Nighthaunt** amie visible du lanceur et entièrement à 12" ou moins de lui. Soustrayez 1 aux jets de blessure pour les attaques qui ciblent l'unité choisie jusqu'au début de votre prochaine phase des héros. 

@@ -6,6 +6,7 @@ import java.util.function.Consumer;
 
 import armybuilder.model.IHaveDisplayName;
 import armybuilder.model.dok.DokRule;
+import armybuilder.model.nighthaunt.NighthauntRule;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.stormcast.StormcastRule;
 import armybuilder.model.unit.keyword.KeyWord;
@@ -22,10 +23,12 @@ public enum SubAllegiance implements IHaveDisplayName, IDecoreArmy {
 	Khailebron(Arrays.asList(DokRule.MaitressesDesOmbrevoies), Allegiance.DoK, null),
 	Kraith(Arrays.asList(DokRule.DisciplesDuMassacre), Allegiance.DoK, null),
 	ZaintharKai(Arrays.asList(DokRule.LessenceDeKhaine), Allegiance.DoK, null),
-//	LOstEmeraude(
-//			Arrays.asList(NighthauntRule.LaMaledictionEmeraude, NighthauntRule.ChevaliersDuRegret),
-//			Allegiance.Nighthaunt,
-//			null),
+
+	// Nighthaunt
+	LaLegionEploree(Arrays.asList(NighthauntRule.EntrainesDansLaTombe), Allegiance.Nighthaunt, null),
+	LeFleauEcarlate(Arrays.asList(NighthauntRule.VortexDeViolenceFrenetique), Allegiance.Nighthaunt, null),
+	LesMortsDeVifArgent(Arrays.asList(NighthauntRule.ArtisansDUneMortEffroyable), Allegiance.Nighthaunt, null),
+	LOstEmeraude(Arrays.asList(NighthauntRule.LaMaledictionEmeraude), Allegiance.Nighthaunt, null),
 
 	// StormCast
 	BellicistesCelestes(Arrays.asList(StormcastRule.ClairvoyanceIntrepide), Allegiance.StormCast, null),

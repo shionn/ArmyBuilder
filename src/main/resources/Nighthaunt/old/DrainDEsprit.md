@@ -1,1 +1,0 @@
-Drain d'Esprit a une valeur de lancement de 4. S'il est lancé avec s uccès, choisissez une figurine ennemie visible du lanceur et à 18" ou moins de lui. Jetez un nombre de dés égal à la caractéristique de Blessures de cette figurine. Pour chaque jet de 6+, la figurine choisie subit 1 blessu re mortelle.

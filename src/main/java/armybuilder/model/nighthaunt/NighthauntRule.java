@@ -17,13 +17,37 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 	VagueDeTerreur(RuleType.TraisDeBataille),
 	ToucherEffroyable(RuleType.TraisDeBataille),
 
-	// Todo Optimisation
+	// TODO sous allegiance
+	ArtisansDUneMortEffroyable(RuleType.TraisDeBataille),
+	EntrainesDansLaTombe(RuleType.TraisDeBataille),
+	LaMaledictionEmeraude(RuleType.TraisDeBataille),
+	VortexDeViolenceFrenetique(RuleType.TraisDeBataille),
+
 	DrapeDOmbre(RuleType.TraitsDeCommandement),
 	EntiteTerrifiante(RuleType.TraitsDeCommandement),
+	EspritAmer(RuleType.TraitsDeCommandement),
 	EspritPersistant(RuleType.TraitsDeCommandement),
 	HaineDesVivants(RuleType.TraitsDeCommandement),
 	MaitreDesOstsSpectraux(RuleType.TraitsDeCommandement),
-	EspritAmer(RuleType.TraitsDeCommandement),
+
+	AnneauDuFeuDeLame(RuleType.Artefact),
+	CapeDeLaLuneCroissante(RuleType.Artefact),
+	EclatDeLuneDesMoissons(RuleType.Artefact),
+	FamilierAvide(RuleType.Artefact),
+	FanalDeNagashizzar(RuleType.Artefact),
+	FaucheLesPeines(RuleType.Artefact),
+	FilDeLOmbre(RuleType.Artefact),
+	GrimoireDeMinuit(RuleType.Artefact),
+	Inciseur(RuleType.Artefact),
+	LanterneDeSorcellumiere(RuleType.Artefact),
+	PendentifDuVentMaussade(RuleType.Artefact),
+
+	BrumeSepulcrale(RuleType.Sort),
+	CageAAmes(RuleType.Sort),
+	CanuleSpectrale(RuleType.Sort),
+	DrainDEsprit(RuleType.Sort),
+	VoleurDeVie(RuleType.Sort),
+	SceauDeShyish(RuleType.Sort),
 
 	// OLD
 	ChevaliersDuRegret("Chevaliers du Regret", RuleType.TraisDeBataille),
@@ -37,24 +61,15 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 			"Ils Viennent des Sous-Mondes",
 			RuleType.TraisDeBataille,
 			RuleType.PhaseDeMouvement),
-	LaMaledictionEmeraude("La Malédiction Émeraude", RuleType.TraisDeBataille),
 	NourrisDeTerreur("Nourris de Terreur", RuleType.TraisDeBataille),
 	RestituerLesFigurinesTuees("Restituer Les Figurines Tuées", RuleType.TraisDeBataille),
 
 	MaitreDesOstsDEsprits("Maître des Osts d'Esprits", RuleType.TraitsDeCommandement),
 	SeigneurDeLOst("Seigneur de l'Ost", RuleType.TraitsDeCommandement),
 
-	BrumeSepulcrale("Brume Sépulcrale", RuleType.Sort, RuleType.TraisUnitee),
-	CageAAmes("Cage à Âmes", RuleType.Sort, RuleType.TraisUnitee),
-	CanuleSpectrale("Canule Spectrale", RuleType.Sort, RuleType.TraisUnitee),
-	DrainDEsprit("Drain d'Esprit", RuleType.Sort, RuleType.TraisUnitee),
 	FauxGlaneuse("Faux Glaneuse", RuleType.Sort, RuleType.TraisUnitee),
-	VoleurDeVie("Voleur de Vie", RuleType.Sort, RuleType.TraisUnitee),
 	VortexHurlant("Vortex Hurlant", RuleType.Sort, RuleType.TraisUnitee),
 
-	FaucheLesPeines("Fauche-les-Peines", RuleType.Artefact),
-	FilDeLOmbre("Fil de l'Ombre", RuleType.Artefact),
-	Inciseur("Inciseur", RuleType.Artefact),
 	JugementDuBourreau("Jugement du Bourreau", RuleType.Artefact),
 	LaLameDuChevalierFelon("La Lame du Chevalier Félon", RuleType.Artefact),
 	LameDeFeuMaudit("Lame de Feu Maudit", RuleType.Artefact),
