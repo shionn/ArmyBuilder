@@ -92,6 +92,10 @@ public enum UnitOption implements IUnitOption {
 	VoleurDeVie(NighthauntOptimisation.VoleurDeVie),
 	SceauDeShyish(NighthauntOptimisation.SceauDeShyish),
 	QuesteurDeShyish(NighthauntOptimisation.QuesteurDeShyish),
+	Affregarde(NighthauntOptimisation.Affregarde),
+	TambourDArythmie(NighthauntOptimisation.TambourDArythmie),
+	Tailladeuse(NighthauntOptimisation.Tailladeuse),
+	SpectreInfernal(NighthauntOptimisation.SpectreInfernal),
 
 	AnnihilatorPrimus(StormcastOptimisation.AnnihilatorPrimus),
 	ArmeDesCieuxEtBouclierDeSigmarite(StormcastOptimisation.ArmeDesCieuxEtBouclierDeSigmarite),

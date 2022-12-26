@@ -14,7 +14,7 @@ import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum Allegiance implements IHaveDisplayName, IDecoreArmy {
-	CoS(null, null),
+//	CoS(null, null),
 	DoK(
 			Arrays.asList(DokRule.RitesDeSang, DokRule.FoiFanatique, DokRule.FureurDeBataille, DokRule.MassacreTotal),
 			a -> {

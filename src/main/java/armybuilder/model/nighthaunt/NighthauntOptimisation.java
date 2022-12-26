@@ -41,7 +41,11 @@ public enum NighthauntOptimisation implements IUnitOption {
 	VoleurDeVie(UnitOptionCategory.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
 	SceauDeShyish(UnitOptionCategory.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
 
+	Affregarde(UnitOptionCategory.Chef, u -> u.is(KeyWord.Raclechaines)),
 	QuesteurDeShyish(UnitOptionCategory.Chef, u -> u.is(KeyWord.FaucheursMornemanes)),
+	Tailladeuse(UnitOptionCategory.Chef, u -> u.is(KeyWord.CarognesFaucheuses)),
+	SpectreInfernal(UnitOptionCategory.Chef, u -> u.is(KeyWord.Sorcespectres)),
+	TambourDArythmie(UnitOptionCategory.Musicien, u -> u.is(KeyWord.RodeursHastespectres)),
 
 	// Composition
 //	Dreadwarden(UnitOptionCategory.Chef, u -> u.is(NighthauntUnitModel.ChainraspHorde)),

@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import armybuilder.db.dao.ArmyDao;
 import armybuilder.model.army.Allegiance;
 import armybuilder.model.army.Army;
+import armybuilder.model.comparator.DisplayNameComparator;
 
 @Controller
 public class HomeContoller {
@@ -27,6 +28,7 @@ public class HomeContoller {
 		Map<Allegiance, List<Army>> menus = armies.stream()
 				.map(a -> a.getAllegiance())
 				.distinct()
+				.sorted(new DisplayNameComparator())
 				.collect(Collectors.toMap(a -> a,
 						allegiance -> armies.stream()
 								.filter(army -> army.getAllegiance() == allegiance)

@@ -58,6 +58,13 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	BansheeDesTertres(NighthauntUnitModel.BansheeDesTertres),
 	SpectreDesCairns(NighthauntUnitModel.SpectreDesCairns),
 	FaucheursMornemanes(NighthauntUnitModel.FaucheursMornemanes),
+	Raclechaines(NighthauntUnitModel.Raclechaines),
+	RevenantsLamemanes(NighthauntUnitModel.RevenantsLamemanes),
+	RodeursHastespectres(NighthauntUnitModel.RodeursHastespectres),
+	NueesDEsprits(NighthauntUnitModel.NueesDEsprits),
+	BansheesDolentes(NighthauntUnitModel.BansheesDolentes),
+	CarognesFaucheuses(NighthauntUnitModel.CarognesFaucheuses),
+	Sorcespectres(NighthauntUnitModel.Sorcespectres),
 
 	PropheteGrisSurClocheHurlante(SkavenUnitModel.PropheteGrisSurClocheHurlante),
 	PropheteGris(SkavenUnitModel.PropheteGris),

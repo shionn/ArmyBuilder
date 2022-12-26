@@ -3,6 +3,8 @@ package armybuilder.model.nighthaunt;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.commons.collections.ListUtils;
+
 import armybuilder.model.army.Allegiance;
 import armybuilder.model.army.Army;
 import armybuilder.model.rule.GeneriqueUnitRule;
@@ -53,13 +55,25 @@ public enum NighthauntUnitModel implements IUnitModel<NighthauntUnitModel> {
 
 	FaucheursMornemanes(Arrays.asList(NighthauntUnitWeapon.FauxDEstafier),
 			Arrays.asList(NighthauntRule.FauchesCommeLesBles)),
-//	Raclechaines(Arrays.asList(), Arrays.asList()),
-//	RevenantsLamemanes(Arrays.asList(), Arrays.asList()),
-//	RodeursHastespectres(Arrays.asList(), Arrays.asList()),
-//	NueesDEsprits(Arrays.asList(), Arrays.asList()),
-//	BansheesDolentes(Arrays.asList(), Arrays.asList()),
-//	CarognesFaucheuses(Arrays.asList(), Arrays.asList()),
-//	Sorcespectres(Arrays.asList(), Arrays.asList()),
+	Raclechaines(Arrays.asList(NighthauntUnitWeapon.ArmeDeMalfaisant), Arrays.asList(NighthauntRule.HordeEffroyable)),
+	RevenantsLamemanes(
+			Arrays.asList(NighthauntUnitWeapon.GrandeLameDeLaTombe),
+			Arrays.asList(GeneriqueUnitRule.Elite, NighthauntRule.MortTourbillonnante)),
+	RodeursHastespectres(
+			Arrays.asList(NighthauntUnitWeapon.VougeDeChasseur),
+			Arrays.asList(GeneriqueUnitRule.Elite, NighthauntRule.LaPointeDeLaMort)),
+	NueesDEsprits(
+			Arrays.asList(NighthauntUnitWeapon.GriffesEtDaguesSpectrales),
+			Arrays.asList(GeneriqueUnitRule.Elite, NighthauntRule.AttireesParLaGuerre)),
+	BansheesDolentes(
+			Arrays.asList(NighthauntUnitWeapon.DagueDeFrisson),
+			Arrays.asList(GeneriqueUnitRule.Elite, NighthauntRule.MangeSorts)),
+	CarognesFaucheuses(
+			Arrays.asList(NighthauntUnitWeapon.MembresFaucheurs),
+			Arrays.asList(NighthauntRule.SoifDeSangMeurtriere, NighthauntRule.HurlementPerturbant)),
+	Sorcespectres(
+			Arrays.asList(NighthauntUnitWeapon.FauxSpectrale, NighthauntUnitWeapon.DentsEtSabots),
+			Arrays.asList(NighthauntRule.ProgressionFantomatique, NighthauntRule.ChasseursSpectraux)),
 
 	;
 
@@ -72,6 +86,7 @@ public enum NighthauntUnitModel implements IUnitModel<NighthauntUnitModel> {
 	private List<IRule<?>> rules;
 	private List<UnitOptionCategory> options;
 
+	@SuppressWarnings("unchecked")
 	private NighthauntUnitModel(List<IUnitWeapon> weapons, List<IRule<?>> rules) {
 		this.name = EnumPropertyLoader.instance().name(this);
 		this.pts = EnumPropertyLoader.instance().pts(this);
@@ -80,7 +95,7 @@ public enum NighthauntUnitModel implements IUnitModel<NighthauntUnitModel> {
 		this.keywords = EnumPropertyLoader.instance().keywords(this);
 		this.options = EnumPropertyLoader.instance().options(this);
 		this.weapons = weapons;
-		this.rules = rules;
+		this.rules = ListUtils.sum(Arrays.asList(GeneriqueUnitRule.Vol), rules);
 	}
 
 	@Override
