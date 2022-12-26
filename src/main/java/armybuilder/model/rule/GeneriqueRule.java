@@ -26,7 +26,8 @@ public enum GeneriqueRule implements IRule<GeneriqueRule> {
 	EnAvantVersLaVictoire(null, RuleType.AptitudesDeCommandement, RuleType.PhaseDeCharge),
 	DechainerLesEnfers(null, RuleType.AptitudesDeCommandement, RuleType.PhaseDeCharge),
 	AttaqueEnRegle(null, RuleType.AptitudesDeCommandement, RuleType.PhaseDeTir, RuleType.PhaseDeCombat),
-	DefenseEnRegle(null, RuleType.AptitudesDeCommandement, RuleType.PhaseDeTir, RuleType.PhaseDeCombat),
+	DefenseEnRegle(a -> a.addIf(!a.is(Allegiance.Nighthaunt), GeneriqueRule.valueOf("DefenseEnRegle")),
+			RuleType.AptitudesDeCommandement, RuleType.PhaseDeTir, RuleType.PhaseDeCombat),
 	PresenceExaltante(null, RuleType.AptitudesDeCommandement, RuleType.PhaseDeDeroute),
 
 	// Sort

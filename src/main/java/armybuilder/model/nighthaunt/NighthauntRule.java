@@ -15,7 +15,6 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 	ApparitionsInstables(RuleType.TraisDeBataille),
 	AuraDEffroi(RuleType.TraisDeBataille),
 	Etheres(RuleType.TraisDeBataille),
-	Incorporels(RuleType.TraisDeBataille, RuleType.AptitudesDeCommandement),
 	VagueDeTerreur(RuleType.TraisDeBataille),
 	ToucherEffroyable(RuleType.TraisDeBataille),
 
@@ -37,6 +36,8 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 	LaMortParUnMillierDeCoupures(RuleType.TactiquesDeBataille),
 	UnAllerSimple(RuleType.TactiquesDeBataille),
 	CauchemarsIncessants(RuleType.TactiquesDeBataille),
+
+	Incorporels(RuleType.AptitudesDeCommandement),
 
 	AnneauDuFeuDeLame(RuleType.Artefact),
 	CapeDeLaLuneCroissante(RuleType.Artefact),
