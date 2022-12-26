@@ -1,0 +1,1 @@
+_avant 1er round_ jusqu'à D3+1 μ différentes déploiées. _∀ fin round_ ∀ μ choisie, sur 2+ subit D3(+1 si __Monstre__)BM.

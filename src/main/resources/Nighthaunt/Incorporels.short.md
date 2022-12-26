@@ -1,1 +1,1 @@
-_phase de tir || phase de combat_ __Hantenuits__ Gagne protection 5+.
+_phase de tir || phase de combat_ Gagne protection 5+.
