@@ -1,6 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.shionn</groupId>
 	<artifactId>ArmyBuilder
@@ -10,7 +8,7 @@
 
 	<properties>
 		<version.spring>5.3.8</version.spring>
-<!-- 		<version.spring>6.0.2</version.spring> -->
+		<!-- 		<version.spring>6.0.2</version.spring> -->
 		<version.spring.security>5.5.1</version.spring.security>
 		<version.jstl>1.2</version.jstl>
 	</properties>
@@ -129,14 +127,6 @@
 			<version>${version.spring.security}</version>
 		</dependency>
 
-		<!-- pour multipart/form-data -->
-		<dependency>
-			<groupId>commons-fileupload</groupId>
-			<artifactId>commons-fileupload</artifactId>
-			<version>1.3.3</version>
-			<scope>runtime</scope>
-		</dependency>
-
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -152,6 +142,11 @@
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
 			<version>3.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.12.0</version>
 		</dependency>
 
 		<!-- Persistence / MyBatis / Serialisation -->
@@ -189,9 +184,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.13.2</version>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<version>5.8.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

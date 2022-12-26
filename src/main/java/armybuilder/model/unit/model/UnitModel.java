@@ -6,7 +6,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import armybuilder.model.army.Army;
+import armybuilder.model.comparator.DisplayNameComparator;
+import armybuilder.model.comparator.EnumOrdinalComparator;
 import armybuilder.model.dok.DokUnitModel;
+import armybuilder.model.nighthaunt.NighthauntUnitModel;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.skaven.SkavenUnitModel;
 import armybuilder.model.stormcast.StormcastUnitModel;
@@ -33,15 +36,28 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	SoeurDuMassacre(DokUnitModel.SoeurDuMassacre),
 	Erinyes(DokUnitModel.Erinyes),
 //	KhainiteShadowstalkers(DokUnitModel.KhainiteShadowstalkers),
-	ConjurateursDuFeuMaudit(DokUnitModel.ConjurateursDuFeuMaudit),
-	AvatarDeKhaine(DokUnitModel.AvatarDeKhaine),
-	BloodStalkers(DokUnitModel.BloodStalkers),
-	BloodSisters(DokUnitModel.BloodSisters),
+//	ConjurateursDuFeuMaudit(DokUnitModel.ConjurateursDuFeuMaudit),
+//	AvatarDeKhaine(DokUnitModel.AvatarDeKhaine),
+//	BloodStalkers(DokUnitModel.BloodStalkers),
+//	BloodSisters(DokUnitModel.BloodSisters),
 	EtripeusesKhinerai(DokUnitModel.EtripeusesKhinerai),
-	EgorgeusesKhinerai(DokUnitModel.EgorgeusesKhinerai),
+//	EgorgeusesKhinerai(DokUnitModel.EgorgeusesKhinerai),
 //	BloodwrackViper(DokUnitModel.BloodwrackViper),
 //	Bladewind(DokUnitModel.Bladewind),
 	CoeurDeFureur(DokUnitModel.CoeurDeFureur),
+
+	KurdossValentian(NighthauntUnitModel.KurdossValentian),
+	ReikenorLeSombreChantre(NighthauntUnitModel.ReikenorLeSombreChantre),
+	ChevalierDesSuaires(NighthauntUnitModel.ChevalierDesSuaires),
+	ChevalierDesSuairesSurCoursierEthere(NighthauntUnitModel.ChevalierDesSuairesSurCoursierEthere),
+	EcumeurAffrelame(NighthauntUnitModel.EcumeurAffrelame),
+	SeigneurBourreau(NighthauntUnitModel.SeigneurBourreau),
+	GardienDesAmes(NighthauntUnitModel.GardienDesAmes),
+	EspritTourmenteur(NighthauntUnitModel.EspritTourmenteur),
+	ManesEnchaines(NighthauntUnitModel.ManesEnchaines),
+	BansheeDesTertres(NighthauntUnitModel.BansheeDesTertres),
+	SpectreDesCairns(NighthauntUnitModel.SpectreDesCairns),
+	FaucheursMornemanes(NighthauntUnitModel.FaucheursMornemanes),
 
 	PropheteGrisSurClocheHurlante(SkavenUnitModel.PropheteGrisSurClocheHurlante),
 	PropheteGris(SkavenUnitModel.PropheteGris),
@@ -75,7 +91,7 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 
 	private IUnitModel<?> sub;
 
-	UnitModel(IUnitModel<?> sub) {
+	private UnitModel(IUnitModel<?> sub) {
 		this.sub = sub;
 	}
 
@@ -83,10 +99,10 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 		return Arrays.stream(values()).sorted(new Comparator<UnitModel>() {
 			@Override
 			public int compare(UnitModel o1, UnitModel o2) {
-				int result = Integer.compare(o1.getRoleTactiques().get(0).ordinal(),
-						o2.getRoleTactiques().get(0).ordinal());
+				int result = new EnumOrdinalComparator().compare(o1.getRoleTactiques().get(0),
+						o2.getRoleTactiques().get(0));
 				if (result == 0) {
-					result = o1.getDisplayName().compareTo(o2.getDisplayName());
+					result = new DisplayNameComparator().compare(o1, o2);
 				}
 				return result;
 			}

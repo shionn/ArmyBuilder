@@ -97,51 +97,51 @@ public enum DokUnitModel implements IUnitModel<DokUnitModel> {
 					KeyWord.MeduseIncarnate),
 			Arrays.asList()),
 
-	@Deprecated
-	MorgwaethTheBloodied(
-			UnitProfile._6_1_7_6,
-			Arrays.asList(RoleTactique.Leader),
-			Arrays.asList(DokUnitWeapon.VougeDeKhaine),
-			null,
-			Arrays.asList(DokRule.RuneDeKhaine_Priere, DokRule.BrouetDeSang),
-			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.Priere, UnitOptionCategory.TraisDeCommandement,
-					UnitOptionCategory.Artefact),
-			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.HaggNar, KeyWord.Heros,
-					KeyWord.Pretre, KeyWord.ReineMatriarche, KeyWord.MorgwaethTheBloodied, KeyWord.Unique),
-			Arrays.asList()),
-
-	@Deprecated
-	LeBladeCoven(
-			UnitProfile._6_1_7_6,
-			Arrays.asList(RoleTactique.Elite),
-			Arrays.asList(DokUnitWeapon.ArcCherchecoeur, DokUnitWeapon.ArmesSacrificielles),
-			null,
-			Arrays.asList(DokRule.Cherchecoeurs, DokRule.ZelotesDuPremierTemple),
-			Arrays.asList(),
-			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.Meduse, KeyWord.FilleDeKhaine,
-					KeyWord.HaggNar, KeyWord.LaBladeCoven, KeyWord.Unique),
-			Arrays.asList()),
-
-	@Deprecated
-	ReineMatriacheSurChaudronDeSang(
-			UnitProfile._S_13_8_5,
-			Arrays.asList(RoleTactique.Leader, RoleTactique.Behemoth),
-			Arrays.asList(DokUnitWeapon.TorrentDeSangBrulant, DokUnitWeapon.EpeeDAvatar, DokUnitWeapon.LameDeKhaine,
-					DokUnitWeapon.CouteauxSacrificiels_Chaudron),
-			new ProfileDegressif("Mouvement", DokUnitWeapon.CouteauxSacrificiels_Chaudron.getDisplayName(),
-					DokRule.BouclierDeSang.getDisplayName()).add("0-3", "6\"", "8", "18\"")
-					.add("4-6", "5\"", "7", "14\"")
-					.add("7-9", "4\"", "6", "10\"")
-					.add("10+", "3\"", "5", "6\""),
-			Arrays.asList(DokRule.ImpactLame, DokRule.BouclierDeSang, DokRule.ObjetDAdoration,
-					DokRule.RuneDeKhaine_Priere, DokRule.CaresseDeLaMort, DokRule.ColereDeKhaine, DokRule.BrouetDeSang),
-			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.Priere, UnitOptionCategory.TraisDeCommandement,
-					UnitOptionCategory.Artefact),
-			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.Heros, KeyWord.Pretre,
-					KeyWord.Totem, KeyWord.Erinyes, KeyWord.ReineMatriarche, KeyWord.AvatarDeKhaine,
-					KeyWord.ChaudronDeSang),
-			Arrays.asList()),
-
+//	@Deprecated
+//	MorgwaethTheBloodied(
+//			UnitProfile._6_1_7_6,
+//			Arrays.asList(RoleTactique.Leader),
+//			Arrays.asList(DokUnitWeapon.VougeDeKhaine),
+//			null,
+//			Arrays.asList(DokRule.RuneDeKhaine_Priere, DokRule.BrouetDeSang),
+//			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.Priere, UnitOptionCategory.TraisDeCommandement,
+//					UnitOptionCategory.Artefact),
+//			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.HaggNar, KeyWord.Heros,
+//					KeyWord.Pretre, KeyWord.ReineMatriarche, KeyWord.MorgwaethTheBloodied, KeyWord.Unique),
+//			Arrays.asList()),
+//
+//	@Deprecated
+//	LeBladeCoven(
+//			UnitProfile._6_1_7_6,
+//			Arrays.asList(RoleTactique.Elite),
+//			Arrays.asList(DokUnitWeapon.ArcCherchecoeur, DokUnitWeapon.ArmesSacrificielles),
+//			null,
+//			Arrays.asList(DokRule.Cherchecoeurs, DokRule.ZelotesDuPremierTemple),
+//			Arrays.asList(),
+//			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.Meduse, KeyWord.FilleDeKhaine,
+//					KeyWord.HaggNar, KeyWord.LaBladeCoven, KeyWord.Unique),
+//			Arrays.asList()),
+//
+//	@Deprecated
+//	ReineMatriacheSurChaudronDeSang(
+//			UnitProfile._S_13_8_5,
+//			Arrays.asList(RoleTactique.Leader, RoleTactique.Behemoth),
+//			Arrays.asList(DokUnitWeapon.TorrentDeSangBrulant, DokUnitWeapon.EpeeDAvatar, DokUnitWeapon.LameDeKhaine,
+//					DokUnitWeapon.CouteauxSacrificiels_Chaudron),
+//			new ProfileDegressif("Mouvement", DokUnitWeapon.CouteauxSacrificiels_Chaudron.getDisplayName(),
+//					DokRule.BouclierDeSang.getDisplayName()).add("0-3", "6\"", "8", "18\"")
+//					.add("4-6", "5\"", "7", "14\"")
+//					.add("7-9", "4\"", "6", "10\"")
+//					.add("10+", "3\"", "5", "6\""),
+//			Arrays.asList(DokRule.ImpactLame, DokRule.BouclierDeSang, DokRule.ObjetDAdoration,
+//					DokRule.RuneDeKhaine_Priere, DokRule.CaresseDeLaMort, DokRule.ColereDeKhaine, DokRule.BrouetDeSang),
+//			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.Priere, UnitOptionCategory.TraisDeCommandement,
+//					UnitOptionCategory.Artefact),
+//			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.Heros, KeyWord.Pretre,
+//					KeyWord.Totem, KeyWord.Erinyes, KeyWord.ReineMatriarche, KeyWord.AvatarDeKhaine,
+//					KeyWord.ChaudronDeSang),
+//			Arrays.asList()),
+//
 	ReineMatriache(
 			UnitProfile._6_5_8_5,
 			Arrays.asList(RoleTactique.Leader),
@@ -172,19 +172,19 @@ public enum DokUnitModel implements IUnitModel<DokUnitModel> {
 					KeyWord.Totem, KeyWord.AvatarDeKhaine, KeyWord.ChaudronDeSang, KeyWord.ReineDuMassacre),
 			Arrays.asList()),
 
-	@Deprecated
-	ReineDuMassacre(
-			UnitProfile._6_5_8_5,
-			Arrays.asList(RoleTactique.Leader),
-			Arrays.asList(DokUnitWeapon.EpeeDeMortEtLameDeKhaine, DokUnitWeapon.LameDeKhaine),
-			null,
-			Arrays.asList(DokRule.DanseDAgonie, DokRule.RuneDeKhaine_Priere, DokRule.CaresseDeLaMort,
-					DokRule.OrgieDeMassacre),
-			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.Artefact, UnitOptionCategory.Priere,
-					UnitOptionCategory.TraisDeCommandement),
-			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.Heros, KeyWord.Pretre,
-					KeyWord.ReineDuMassacre),
-			Arrays.asList()),
+//	@Deprecated
+//	ReineDuMassacre(
+//			UnitProfile._6_5_8_5,
+//			Arrays.asList(RoleTactique.Leader),
+//			Arrays.asList(DokUnitWeapon.EpeeDeMortEtLameDeKhaine, DokUnitWeapon.LameDeKhaine),
+//			null,
+//			Arrays.asList(DokRule.DanseDAgonie, DokRule.RuneDeKhaine_Priere, DokRule.CaresseDeLaMort,
+//					DokRule.OrgieDeMassacre),
+//			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.Artefact, UnitOptionCategory.Priere,
+//					UnitOptionCategory.TraisDeCommandement),
+//			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.Heros, KeyWord.Pretre,
+//					KeyWord.ReineDuMassacre),
+//			Arrays.asList()),
 
 	GrandeGladiatrice(
 			UnitProfile._8_6_8_5,
@@ -219,19 +219,19 @@ public enum DokUnitModel implements IUnitModel<DokUnitModel> {
 			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Aelf, KeyWord.Erinyes),
 			Arrays.asList()),
 
-	@Deprecated
-	KhainiteShadowstalkers(
-			UnitProfile._6_1_7_5,
-			Arrays.asList(RoleTactique.Elite),
-			Arrays.asList(DokUnitWeapon.ProjectilesMaudits, DokUnitWeapon.LameDAssassin),
-			null,
-			Arrays.asList(DokRule.BondDeLOmbre, DokRule.ProjectilesMaudits, DokRule.ProfiterDeLOmbre),
-			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Renforcees),
-			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.RodeursDeLOmbre),
-			Arrays.asList()),
-
-	@Deprecated
-	ConjurateursDuFeuMaudit(UnitProfile.None, Arrays.asList(RoleTactique.Elite), null, null, null, null, null, null),
+//	@Deprecated
+//	KhainiteShadowstalkers(
+//			UnitProfile._6_1_7_5,
+//			Arrays.asList(RoleTactique.Elite),
+//			Arrays.asList(DokUnitWeapon.ProjectilesMaudits, DokUnitWeapon.LameDAssassin),
+//			null,
+//			Arrays.asList(DokRule.BondDeLOmbre, DokRule.ProjectilesMaudits, DokRule.ProfiterDeLOmbre),
+//			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Renforcees),
+//			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.RodeursDeLOmbre),
+//			Arrays.asList()),
+//
+//	@Deprecated
+//	ConjurateursDuFeuMaudit(UnitProfile.None, Arrays.asList(RoleTactique.Elite), null, null, null, null, null, null),
 
 	AvatarDeKhaine(
 			UnitProfile._9_9_10_4,
@@ -244,31 +244,31 @@ public enum DokUnitModel implements IUnitModel<DokUnitModel> {
 			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Totem, KeyWord.AvatarDeKhaine),
 			Arrays.asList()),
 
-	@Deprecated
-	BloodStalkers(
-			UnitProfile._8_2_8_5,
-			Arrays.asList(RoleTactique.Elite),
-			Arrays.asList(DokUnitWeapon.ArcCherchecoeur, DokUnitWeapon.Scianlar),
-			null,
-			Arrays.asList(DokRule.Cherchecoeurs),
-			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Renforcees),
-			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Meduse, KeyWord.BloodStalkers),
-//			Arrays.asList(UnitModifiers.roleIfGeneral(KeyWord.MeduseIncarnate, RoleTactique.Ligne),
-//					UnitModifiers.roleIfGeneral(KeyWord.MelusaiIronscale, RoleTactique.Ligne)),
-			Arrays.asList()),
+//	@Deprecated
+//	BloodStalkers(
+//			UnitProfile._8_2_8_5,
+//			Arrays.asList(RoleTactique.Elite),
+//			Arrays.asList(DokUnitWeapon.ArcCherchecoeur, DokUnitWeapon.Scianlar),
+//			null,
+//			Arrays.asList(DokRule.Cherchecoeurs),
+//			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Renforcees),
+//			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Meduse, KeyWord.BloodStalkers),
+////			Arrays.asList(UnitModifiers.roleIfGeneral(KeyWord.MeduseIncarnate, RoleTactique.Ligne),
+////					UnitModifiers.roleIfGeneral(KeyWord.MelusaiIronscale, RoleTactique.Ligne)),
+//			Arrays.asList()),
 
-	@Deprecated
-	BloodSisters(
-			UnitProfile._8_2_8_5,
-			Arrays.asList(RoleTactique.Elite),
-			Arrays.asList(DokUnitWeapon.VougeBrisecoeur),
-			null,
-			Arrays.asList(DokRule.TransmuteEnCristal),
-			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Renforcees),
-			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Meduse, KeyWord.BloodSister),
-//			Arrays.asList(UnitModifiers.roleIfGeneral(KeyWord.MeduseIncarnate, RoleTactique.Ligne),
-//					UnitModifiers.roleIfGeneral(KeyWord.MelusaiIronscale, RoleTactique.Ligne)),
-			Arrays.asList()),
+//	@Deprecated
+//	BloodSisters(
+//			UnitProfile._8_2_8_5,
+//			Arrays.asList(RoleTactique.Elite),
+//			Arrays.asList(DokUnitWeapon.VougeBrisecoeur),
+//			null,
+//			Arrays.asList(DokRule.TransmuteEnCristal),
+//			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Renforcees),
+//			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Meduse, KeyWord.BloodSister),
+////			Arrays.asList(UnitModifiers.roleIfGeneral(KeyWord.MeduseIncarnate, RoleTactique.Ligne),
+////					UnitModifiers.roleIfGeneral(KeyWord.MelusaiIronscale, RoleTactique.Ligne)),
+//			Arrays.asList()),
 
 	EtripeusesKhinerai(
 			UnitProfile._14_1_7_5,

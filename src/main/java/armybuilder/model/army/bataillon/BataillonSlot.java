@@ -14,10 +14,10 @@ public enum BataillonSlot {
 	Monstre(u -> u.is(RoleTactique.Behemoth) && !u.is(RoleTactique.Leader)),
 	SousCommandant(u -> u.is(RoleTactique.Leader) && u.getModel().getProfile().getIntLife() < 10),
 	Troupe(u -> u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite)),
-	// Dok
-	ConjurateursDuFauMaudit(u -> u.is(UnitModel.ConjurateursDuFeuMaudit)),
-	GuerriereKhinerai(u -> u.is(UnitModel.EtripeusesKhinerai) || u.is(UnitModel.EgorgeusesKhinerai)),
-	GuerriereMelusai(u -> u.is(UnitModel.BloodSisters) || u.is(UnitModel.BloodStalkers)),
+	// TODO Dok
+//	ConjurateursDuFauMaudit(u -> u.is(UnitModel.ConjurateursDuFeuMaudit)),
+//	GuerriereKhinerai(u -> u.is(UnitModel.EtripeusesKhinerai) || u.is(UnitModel.EgorgeusesKhinerai)),
+//	GuerriereMelusai(u -> u.is(UnitModel.BloodSisters) || u.is(UnitModel.BloodStalkers)),
 	KhainiteLeader(u -> u.is(KeyWord.MeduseIncarnate) || u.is(KeyWord.FerecailleMelusai)),
 	Morathi(u -> u.is(UnitModel.MorathiKhaine) || u.is(UnitModel.LaReineDeLOmbre)),
 	// Pack de Bataille

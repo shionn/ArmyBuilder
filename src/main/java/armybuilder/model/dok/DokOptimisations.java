@@ -88,15 +88,15 @@ public enum DokOptimisations implements IUnitOption {
 	// ---- fait au dessus
 
 	// Compositioon
-	Krone(UnitOptionCategory.Chef, u -> u.is(UnitModel.BloodStalkers), u -> {
-		u.add(DokRule.Krone);
-		u.add(DokUnitWeapon.GuivreDeSang);
-	}),
-	Gorgai(UnitOptionCategory.Chef, u -> u.is(UnitModel.BloodSisters), null),
-	ShroudQueen(UnitOptionCategory.Chef, u -> u.is(KeyWord.RodeursDeLOmbre), u -> {
-		u.add(DokUnitWeapon.LameObscures);
-		u.add(DokRule.ShroudQueen);
-	}),
+//	Krone(UnitOptionCategory.Chef, u -> u.is(UnitModel.BloodStalkers), u -> {
+//		u.add(DokRule.Krone);
+//		u.add(DokUnitWeapon.GuivreDeSang);
+//	}),
+//	Gorgai(UnitOptionCategory.Chef, u -> u.is(UnitModel.BloodSisters), null),
+//	ShroudQueen(UnitOptionCategory.Chef, u -> u.is(KeyWord.RodeursDeLOmbre), u -> {
+//		u.add(DokUnitWeapon.LameObscures);
+//		u.add(DokRule.ShroudQueen);
+//	}),
 
 
 	;

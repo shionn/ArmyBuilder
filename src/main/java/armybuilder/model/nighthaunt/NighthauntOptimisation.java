@@ -41,6 +41,7 @@ public enum NighthauntOptimisation implements IUnitOption {
 	VoleurDeVie(UnitOptionCategory.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
 	SceauDeShyish(UnitOptionCategory.Sort, u -> u.is(KeyWord.Heros) && u.is(KeyWord.Sorcier)),
 
+	QuesteurDeShyish(UnitOptionCategory.Chef, u -> u.is(KeyWord.FaucheursMornemanes)),
 
 	// Composition
 //	Dreadwarden(UnitOptionCategory.Chef, u -> u.is(NighthauntUnitModel.ChainraspHorde)),
@@ -53,7 +54,7 @@ public enum NighthauntOptimisation implements IUnitOption {
 	private Function<Unit, Boolean> available;
 	private Consumer<Unit> modifier;
 
-	private NighthauntOptimisation(String displayName, UnitOptionCategory option, Function<Unit, Boolean> available,
+	private NighthauntOptimisation(UnitOptionCategory option, Function<Unit, Boolean> available,
 			Consumer<Unit> modifier) {
 		this.option = option;
 		this.available = available;

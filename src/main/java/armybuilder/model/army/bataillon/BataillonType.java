@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.function.Function;
 
 import armybuilder.model.IHaveDisplayName;
-import armybuilder.model.army.Allegiance;
 import armybuilder.model.army.Army;
 import armybuilder.model.army.IDecoreArmy;
 import armybuilder.model.army.PackDeBataille;
@@ -69,15 +68,15 @@ public enum BataillonType implements IHaveDisplayName, IDecoreArmy, IDecorateUni
 			contain(BataillonSlot.Commandant, 1),
 			contain(BataillonSlot.SousCommandant, 2),
 			opt(BataillonSlot.SousCommandant, 1)),
-	GardeVyperine("Garde Vypérine",
-			l->l.is(Allegiance.DoK),
-			Arrays.asList(BataillonRule.Strateges),
-			Arrays.asList(),
-			contain(BataillonSlot.Morathi, 2),
-			contain(BataillonSlot.KhainiteLeader, 1),
-			opt(BataillonSlot.KhainiteLeader, 2),
-			contain(BataillonSlot.GuerriereMelusai, 2),
-			opt(BataillonSlot.GuerriereMelusai, 4)),
+// TODO	GardeVyperine("Garde Vypérine",
+//			l->l.is(Allegiance.DoK),
+//			Arrays.asList(BataillonRule.Strateges),
+//			Arrays.asList(),
+//			contain(BataillonSlot.Morathi, 2),
+//			contain(BataillonSlot.KhainiteLeader, 1),
+//			opt(BataillonSlot.KhainiteLeader, 2),
+//			contain(BataillonSlot.GuerriereMelusai, 2),
+//			opt(BataillonSlot.GuerriereMelusai, 4)),
 	GrandeBatterie(
 			"Grande Batterie",
 			l -> true,
@@ -93,20 +92,20 @@ public enum BataillonType implements IHaveDisplayName, IDecoreArmy, IDecorateUni
 			Arrays.asList(),
 			contain(BataillonSlot.Monstre, 2),
 			opt(BataillonSlot.Monstre, 1)),
-	PatrouilleDeLOmbreU(
-			"Patrouille de l'Ombre (Unifiés)",
-			l -> l.is(Allegiance.DoK),
-			Arrays.asList(BataillonRule.Unifies),
-			Arrays.asList(),
-			contain(BataillonSlot.ConjurateursDuFauMaudit, 2),
-			contain(BataillonSlot.GuerriereKhinerai, 4)),
-	PatrouilleDeLOmbreR(
-			"Patrouille de l'Ombre (Rapides)",
-			l -> l.is(Allegiance.DoK),
-			Arrays.asList(BataillonRule.Rapides),
-			Arrays.asList(),
-			contain(BataillonSlot.ConjurateursDuFauMaudit, 2),
-			contain(BataillonSlot.GuerriereKhinerai, 4)),
+// TODO	PatrouilleDeLOmbreU(
+//			"Patrouille de l'Ombre (Unifiés)",
+//			l -> l.is(Allegiance.DoK),
+//			Arrays.asList(BataillonRule.Unifies),
+//			Arrays.asList(),
+//			contain(BataillonSlot.ConjurateursDuFauMaudit, 2),
+//			contain(BataillonSlot.GuerriereKhinerai, 4)),
+//	TODO PatrouilleDeLOmbreR(
+//			"Patrouille de l'Ombre (Rapides)",
+//			l -> l.is(Allegiance.DoK),
+//			Arrays.asList(BataillonRule.Rapides),
+//			Arrays.asList(),
+//			contain(BataillonSlot.ConjurateursDuFauMaudit, 2),
+//			contain(BataillonSlot.GuerriereKhinerai, 4)),
 	RegimentDeBataille(
 			"Régiment de Bataille",
 			l -> true,

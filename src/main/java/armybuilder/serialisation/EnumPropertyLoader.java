@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
+import org.apache.commons.lang3.StringUtils;
+
 import armybuilder.model.unit.UnitProfile;
 import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.option.UnitOptionCategory;
@@ -72,7 +74,10 @@ public class EnumPropertyLoader {
 	}
 
 	public List<UnitOptionCategory> options(Enum<?> e) {
-		return Arrays.stream(props(e, "options").split(",")).map(UnitOptionCategory::valueOf).toList();
+		return Arrays.stream(props(e, "options").split(","))
+				.filter(v -> StringUtils.isNotEmpty(v))
+				.map(UnitOptionCategory::valueOf)
+				.toList();
 	}
 
 }

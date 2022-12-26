@@ -26,9 +26,9 @@ public enum SubAllegiance implements IHaveDisplayName, IDecoreArmy {
 
 	// Nighthaunt
 	LegionEploree(Arrays.asList(NighthauntRule.EntrainesDansLaTombe), Allegiance.Nighthaunt),
-	LeFleauEcarlate(Arrays.asList(NighthauntRule.VortexDeViolenceFrenetique), Allegiance.Nighthaunt),
-	LesMortsDeVifArgent(Arrays.asList(NighthauntRule.ArtisansDUneMortEffroyable), Allegiance.Nighthaunt),
-	LOstEmeraude(Arrays.asList(NighthauntRule.LaMaledictionEmeraude), Allegiance.Nighthaunt),
+	FleauEcarlate(Arrays.asList(NighthauntRule.VortexDeViolenceFrenetique), Allegiance.Nighthaunt),
+	MortsDeVifArgent(Arrays.asList(NighthauntRule.ArtisansDUneMortEffroyable), Allegiance.Nighthaunt),
+	OstEmeraude(Arrays.asList(NighthauntRule.LaMaledictionEmeraude), Allegiance.Nighthaunt),
 
 	// StormCast
 	BellicistesCelestes(Arrays.asList(StormcastRule.ClairvoyanceIntrepide), Allegiance.StormCast),

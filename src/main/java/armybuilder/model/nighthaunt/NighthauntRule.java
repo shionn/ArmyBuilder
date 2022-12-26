@@ -3,9 +3,11 @@ package armybuilder.model.nighthaunt;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 
 import armybuilder.model.rule.IRule;
 import armybuilder.model.rule.RuleType;
+import armybuilder.model.unit.Unit;
 import armybuilder.serialisation.DescriptionReader;
 import armybuilder.serialisation.EnumPropertyLoader;
 
@@ -79,7 +81,7 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 	UnMaillonDeLaChaine(RuleType.Aptitude),
 
 	Affregarde(RuleType.Composition),
-	QuesteurDeShyish(RuleType.Composition),
+	QuesteurDeShyish(u -> u.add(NighthauntUnitWeapon.GlasMortel), RuleType.Composition),
 	TambourDArythmie(RuleType.Composition),
 	Tailladeuse(RuleType.Composition),
 	SpectreInfernal(RuleType.Composition),
@@ -125,10 +127,16 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 
 	private String displayName;
 	private List<RuleType> types;
+	private Consumer<Unit> modifier;
 
 	private NighthauntRule(RuleType... types) {
 		this.displayName = EnumPropertyLoader.instance().name(this);
 		this.types = Arrays.asList(types);
+	}
+
+	private NighthauntRule(Consumer<Unit> modifier, RuleType... types) {
+		this(types);
+		this.modifier = modifier;
 	}
 
 	private NighthauntRule(String displayName, RuleType... types) {
@@ -151,5 +159,11 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 		return new DescriptionReader().read(this);
 	}
 
+	@Override
+	public void decorater(Unit unit) {
+		if (modifier != null) {
+			modifier.accept(unit);
+		}
+	}
 
 }

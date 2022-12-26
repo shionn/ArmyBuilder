@@ -64,9 +64,9 @@ public enum UnitOption implements IUnitOption {
 	SciansaEtRondacheTranchante(DokOptimisations.SciansaEtRondacheTranchante),
 	FouetBarbeleEtRondacheTranchante(DokOptimisations.FouetBarbeleEtRondacheTranchante),
 	FouetBarbeleEtCouteauSacrificiel(DokOptimisations.FouetBarbeleEtCouteauSacrificiel),
-	Krone(DokOptimisations.Krone),
-	Gorgai(DokOptimisations.Gorgai),
-	ShroudQueen(DokOptimisations.ShroudQueen),
+//	TODO Krone(DokOptimisations.Krone),
+//	Gorgai(DokOptimisations.Gorgai),
+//	ShroudQueen(DokOptimisations.ShroudQueen),
 
 	DrapeDOmbre(NighthauntOptimisation.DrapeDOmbre),
 	EntiteTerrifiante(NighthauntOptimisation.EntiteTerrifiante),
@@ -91,6 +91,7 @@ public enum UnitOption implements IUnitOption {
 	DrainDEsprit(NighthauntOptimisation.DrainDEsprit),
 	VoleurDeVie(NighthauntOptimisation.VoleurDeVie),
 	SceauDeShyish(NighthauntOptimisation.SceauDeShyish),
+	QuesteurDeShyish(NighthauntOptimisation.QuesteurDeShyish),
 
 	AnnihilatorPrimus(StormcastOptimisation.AnnihilatorPrimus),
 	ArmeDesCieuxEtBouclierDeSigmarite(StormcastOptimisation.ArmeDesCieuxEtBouclierDeSigmarite),

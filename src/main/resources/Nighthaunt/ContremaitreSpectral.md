@@ -13,5 +13,5 @@ HANTENUITS CONVOCABLE amie
 entièrement à 12" de cette unité et qui
 n'a pas encore combattu à cette phase.
 Cette unité et l'unité HANTENUITS
-Con vocABLE peuvent combattre l'une
+Convocable peuvent combattre l'une
 après l’autre dans l’ordre de votre choix.
