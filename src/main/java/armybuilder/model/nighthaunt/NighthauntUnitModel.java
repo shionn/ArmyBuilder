@@ -42,7 +42,8 @@ public enum NighthauntUnitModel implements IUnitModel<NighthauntUnitModel> {
 	SeigneurBourreau(Arrays.asList(NighthauntUnitWeapon.GrandeHacheDeDecapitation),
 			Arrays.asList(NighthauntRule.FaireFaceALaMort, NighthauntRule.CranesDesincarnes)),
 	GardienDesAmes(Arrays.asList(NighthauntUnitWeapon.LameDeFrisson),
-			Arrays.asList(NighthauntRule.LanterneDeCauchemar, NighthauntRule.LeurreSpectral)),
+			Arrays.asList(GeneriqueUnitRule.Sorcier_1_1, NighthauntRule.LanterneDeCauchemar,
+					NighthauntRule.LeurreSpectral)),
 	EspritTourmenteur(Arrays.asList(NighthauntUnitWeapon.ChainesBagnespectre),
 			Arrays.asList(NighthauntRule.EnergieDAmesCaptives)),
 	ManesEnchaines(

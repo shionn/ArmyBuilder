@@ -64,6 +64,7 @@ public enum KeyWord implements IHaveDisplayName {
 	BansheeDesTertres,
 	BansheesDolentes,
 	CarognesFaucheuses,
+	CarrosseNoir,
 	ChevalierDesSuaires,
 	ChevalierDesSuairesSurCoursierEthere,
 	EcumeurAffrelame,

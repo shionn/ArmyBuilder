@@ -16,19 +16,24 @@ import armybuilder.serialisation.EnumPropertyLoader;
 public enum Allegiance implements IHaveDisplayName, IDecoreArmy {
 //	CoS(null, null),
 	DoK(
-			Arrays.asList(DokRule.RitesDeSang, DokRule.FoiFanatique, DokRule.FureurDeBataille, DokRule.MassacreTotal),
+			Arrays.asList(DokRule.RitesDeSang, DokRule.FoiFanatique, DokRule.FureurDeBataille, DokRule.MassacreTotal,
+					DokRule.FracasDesArmes, DokRule.MareeDeLames),
 			a -> {
-				a.add(DokRule.FracasDesArmes);
-				a.addIf(a.count(KeyWord.Khinerai) >1, DokRule.RegalCruel);
-				a.add(DokRule.MareeDeLames);
+				a.addIf(a.count(KeyWord.Khinerai) > 1, DokRule.RegalCruel);
 				a.addIf(a.count(KeyWord.GrandeGladiatrice) > 0, DokRule.CulteDeLExecutrice);
 				a.addIf(a.is(SubAllegiance.HaggNar) || a.is(SubAllegiance.KheltNar), DokRule.HaineDuChaos);
 				a.addIf(a.count(KeyWord.RodeursDeLOmbre) > 0, DokRule.AttaqueInatendue);
 			}),
 	Nighthaunt(
 			Arrays.asList(NighthauntRule.ApparitionsInstables, NighthauntRule.AuraDEffroi, NighthauntRule.Etheres,
-					NighthauntRule.Incorporels, NighthauntRule.VagueDeTerreur, NighthauntRule.ToucherEffroyable),
-			null),
+					NighthauntRule.Incorporels, NighthauntRule.VagueDeTerreur, NighthauntRule.ToucherEffroyable,
+					NighthauntRule.SubmergesParLEffroi, NighthauntRule.MareesDeTerreur, NighthauntRule.PaniqueDeMasse,
+					NighthauntRule.CauchemarsIncessants),
+			a -> {
+				a.addIf(a.count(KeyWord.Raclechaines) + a.count(KeyWord.NueesDEsprits) > 0,
+						NighthauntRule.LaMortParUnMillierDeCoupures);
+				a.addIf(a.count(KeyWord.CarrosseNoir) > 0, NighthauntRule.UnAllerSimple);
+			}),
 	Skaven(Arrays.asList(SkavenRule.DirigerDepuisLArriere, SkavenRule.SauveQuiPeut, SkavenRule.SauveQuiPeut),
 			a -> {
 				a.units(KeyWord.Heros, KeyWord.Maitreclan).forEach(u -> u.add(SkavenRule.ManipulateursHabiles));

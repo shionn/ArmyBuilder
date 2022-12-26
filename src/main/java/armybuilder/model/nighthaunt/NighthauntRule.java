@@ -31,6 +31,13 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 	HaineDesVivants(RuleType.TraitsDeCommandement),
 	MaitreDesOstsSpectraux(RuleType.TraitsDeCommandement),
 
+	SubmergesParLEffroi(RuleType.TactiquesDeBataille),
+	MareesDeTerreur(RuleType.TactiquesDeBataille),
+	PaniqueDeMasse(RuleType.TactiquesDeBataille),
+	LaMortParUnMillierDeCoupures(RuleType.TactiquesDeBataille),
+	UnAllerSimple(RuleType.TactiquesDeBataille),
+	CauchemarsIncessants(RuleType.TactiquesDeBataille),
+
 	AnneauDuFeuDeLame(RuleType.Artefact),
 	CapeDeLaLuneCroissante(RuleType.Artefact),
 	EclatDeLuneDesMoissons(RuleType.Artefact),

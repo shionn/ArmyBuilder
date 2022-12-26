@@ -11,8 +11,6 @@ import armybuilder.model.rule.RuleType;
 import armybuilder.serialisation.DescriptionReader;
 
 public enum GrandeStrategie implements IHaveDisplayName, IDecoreArmy, IRule<GrandeStrategie> {
-	BainDeSang("Bain de Sang", l -> l.is(Allegiance.DoK)),
-	ConquisAuNomDeKhaine("Conquis au nom de Khaine", l -> l.is(Allegiance.DoK)),
 	CoupezLaTete(
 			"Coupez la Tête",
 			l -> l.is(PackDeBataille.LutteDeGeneraux) || l.is(PackDeBataille.BataillesRangees2021)),
@@ -27,13 +25,20 @@ public enum GrandeStrategie implements IHaveDisplayName, IDecoreArmy, IRule<Gran
 	PrendreCeQuIlsOnt("Prendre ce qu'ils ont", l -> l.is(PackDeBataille.BataillesRangees2022)),
 	PresenceDominante("Présence Dominante", l -> l.is(PackDeBataille.BataillesRangees2021)),
 	PreuveDeDominance("Preuve de Dominance", l -> l.is(PackDeBataille.BataillesRangees2022)),
-	RienQueLaDestruction("Rien que la Destruction", l -> l.is(Allegiance.DoK)),
 	TenezLaLigne(
 			"Tenez la Ligne",
 			l -> l.is(PackDeBataille.LutteDeGeneraux) || l.is(PackDeBataille.BataillesRangees2021)),
 	Vendetta("Vendetta", l -> l.is(PackDeBataille.LutteDeGeneraux) || l.is(PackDeBataille.BataillesRangees2021)),
+
+	BainDeSang("Bain de Sang", l -> l.is(Allegiance.DoK)),
+	ConquisAuNomDeKhaine("Conquis au nom de Khaine", l -> l.is(Allegiance.DoK)),
+	RienQueLaDestruction("Rien que la Destruction", l -> l.is(Allegiance.DoK)),
 	ZelotesSanguinaires("Zélotes Sanguinaires", l -> l.is(Allegiance.DoK)),
 
+	DemembrezLeBrave("Démembrez le Brave", l -> l.is(Allegiance.Nighthaunt)),
+	FuirOuLaisserFuir("Fuir ou Laisser Fuir", l -> l.is(Allegiance.Nighthaunt)),
+	NourrisDeTerreur("Nourris de Terreur", l -> l.is(Allegiance.Nighthaunt)),
+	UneAmeAPrendre("Une Ame à Prendre", l -> l.is(Allegiance.Nighthaunt)),
 	;
 
 	private String displayName;
