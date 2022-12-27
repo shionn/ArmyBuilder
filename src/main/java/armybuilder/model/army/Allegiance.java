@@ -11,6 +11,7 @@ import armybuilder.model.rule.IRule;
 import armybuilder.model.skaven.SkavenRule;
 import armybuilder.model.stormcast.StormcastRule;
 import armybuilder.model.unit.keyword.KeyWord;
+import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum Allegiance implements IHaveDisplayName, IDecoreArmy {
@@ -33,6 +34,10 @@ public enum Allegiance implements IHaveDisplayName, IDecoreArmy {
 				a.addIf(a.count(KeyWord.Raclechaines) + a.count(KeyWord.NueesDEsprits) > 0,
 						NighthauntRule.LaMortParUnMillierDeCoupures);
 				a.addIf(a.count(KeyWord.CarrosseNoir) > 0, NighthauntRule.UnAllerSimple);
+				if (a.count(KeyWord.KurdossValentian) > 0) {
+					a.units(KeyWord.GardeDuTroneVeule)
+							.forEach(u -> u.changeRole(RoleTactique.Elite, RoleTactique.Ligne));
+				}
 			}),
 	Skaven(Arrays.asList(SkavenRule.DirigerDepuisLArriere, SkavenRule.SauveQuiPeut, SkavenRule.SauveQuiPeut),
 			a -> {

@@ -70,6 +70,7 @@ public enum KeyWord implements IHaveDisplayName {
 	EcumeurAffrelame,
 	EspritTourmenteur,
 	FaucheursMornemanes,
+	GardeDuTroneVeule,
 	GardienDesAmes,
 	KurdossValentian,
 	ManesEnchaines,

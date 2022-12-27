@@ -42,6 +42,7 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 	private List<IRule<?>> rules = new ArrayList<IRule<?>>();
 	private List<KeyWord> keyWords = new ArrayList<KeyWord>();
 	private List<IUnitWeapon> weapons = new ArrayList<IUnitWeapon>();
+	private List<RoleTactique> roles = new ArrayList<RoleTactique>();
 	private UnitProfile profile;
 
 	public void decorate() {
@@ -50,6 +51,7 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 		this.rules.addAll(model.getRules());
 		this.keyWords.addAll(model.getKeyWords());
 		this.weapons.addAll(model.getWeapons());
+		this.roles.addAll(model.getRoleTactiques());
 		Arrays.asList(general, traisDeCommandement, traisDeMonstre, traisDeMonture, artefact, sort, priere, chef,
 				musicien, banniere, arme, renforcee, invoquee)
 				.stream()
@@ -78,7 +80,13 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 	 */
 	@Override
 	public List<RoleTactique> getRoleTactiques() {
-		return model.getRoleTactiques();
+		return roles;
+	}
+
+	public void changeRole(RoleTactique oldRole, RoleTactique newRole) {
+		if (roles.remove(oldRole)) {
+			roles.add(newRole);
+		}
 	}
 
 	/**
@@ -299,4 +307,5 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 	public void setTraisDeMonture(UnitOption traisDeMonture) {
 		this.traisDeMonture = traisDeMonture;
 	}
+
 }

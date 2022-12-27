@@ -2,7 +2,6 @@ package armybuilder.model.army;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -10,6 +9,7 @@ import java.util.stream.Collectors;
 import armybuilder.model.army.bataillon.Bataillon;
 import armybuilder.model.army.bataillon.BataillonType;
 import armybuilder.model.comparator.DisplayNameComparator;
+import armybuilder.model.comparator.SubEnumOrdinalComparator;
 import armybuilder.model.rule.GeneriqueRule;
 import armybuilder.model.rule.IHaveRule;
 import armybuilder.model.rule.IRule;
@@ -135,12 +135,7 @@ public class Army implements IHaveRule {
 	}
 
 	public List<Unit> getUnits() {
-		units.sort(new Comparator<Unit>() {
-			@Override
-			public int compare(Unit o1, Unit o2) {
-				return Integer.compare(o1.getModel().ordinal(), o2.getModel().ordinal());
-			}
-		});
+		units.sort(new SubEnumOrdinalComparator<Unit>(Unit::getModel));
 		return units;
 	}
 

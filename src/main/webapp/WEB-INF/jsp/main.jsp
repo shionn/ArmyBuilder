@@ -239,6 +239,9 @@
 			</main>
 			<c:if test="${not empty unit.keyWords}">
 				<footer>
+					<c:forEach items="${unit.roleTactiques}" var="r">
+						<span>${r.name()}</span>
+					</c:forEach>
 					<c:forEach items="${unit.keyWords}" var="k">
 						<span>${k.displayName}</span>
 					</c:forEach>
