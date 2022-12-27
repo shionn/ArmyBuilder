@@ -25,6 +25,7 @@ public class HomeContoller {
 	@GetMapping(path = "/")
 	public ModelAndView home() {
 		List<armybuilder.model.army.Army> armies = session.getMapper(ArmyDao.class).list();
+		// TODO utiliser une List de Pair pour resoudre le probleme de tri
 		Map<Allegiance, List<Army>> menus = armies.stream()
 				.map(a -> a.getAllegiance())
 				.distinct()
