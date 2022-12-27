@@ -17,9 +17,9 @@ public class UnitModelTest {
 	@ParameterizedTest
 	@MethodSource("leaders")
 	public void testLeaders(UnitModel model) {
-		if (model.is(KeyWord.Unique)) {
-			assertThat(model.getOptionsCategories()).contains(UnitOptionCategory.General);
-		} else {
+		assertThat(model.getOptionsCategories()).contains(UnitOptionCategory.General)
+				.doesNotContain(UnitOptionCategory.Renforcees);
+		if (!model.is(KeyWord.Unique)) {
 			assertThat(model.getOptionsCategories()).contains(UnitOptionCategory.General,
 					UnitOptionCategory.TraisDeCommandement, UnitOptionCategory.Artefact);
 		}
@@ -29,6 +29,12 @@ public class UnitModelTest {
 	@MethodSource("sorciers")
 	public void testSorciers(UnitModel model) {
 		assertThat(model.getOptionsCategories()).contains(UnitOptionCategory.Sort);
+	}
+
+	@ParameterizedTest
+	@MethodSource("units")
+	public void testUnits(UnitModel model) {
+		assertThat(model.getOptionsCategories()).contains(UnitOptionCategory.Renforcees);
 	}
 
 	static Stream<UnitModel> leaders() {
@@ -41,6 +47,12 @@ public class UnitModelTest {
 		return Arrays.stream(UnitModel.values())
 				.filter(u -> u.is(KeyWord.Sorcier))
 				.filter(u -> !u.is(KeyWord.MorathiKhaine));
+	}
+
+	static Stream<UnitModel> units() {
+		return Arrays.stream(UnitModel.values())
+				.filter(u -> u.is(RoleTactique.Ligne) || u.is(RoleTactique.Elite))
+				.filter(u -> !u.is(KeyWord.Unique));
 	}
 
 }

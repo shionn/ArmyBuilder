@@ -232,7 +232,7 @@ public enum StormcastUnitModel implements IUnitModel<StormcastUnitModel> {
 			Arrays.asList(StormcastWeapons.MarteauMeteorique),
 			null,
 			Arrays.asList(StormcastRule.ImpactFlamboyant, StormcastRule.LaForceDUneEtoileFilante),
-			Arrays.asList(UnitOptionCategory.Chef),
+			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Renforcees),
 			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Fulgurant, KeyWord.Paladin, KeyWord.Annihilators)),
 
 	Retributors(
@@ -241,7 +241,7 @@ public enum StormcastUnitModel implements IUnitModel<StormcastUnitModel> {
 			Arrays.asList(StormcastWeapons.MarteauDeFoudre, StormcastWeapons.MasseDAsterie),
 			null,
 			Arrays.asList(StormcastRule.MasseDAsterie, StormcastRule.ReduitsEnCendres),
-			Arrays.asList(UnitOptionCategory.Chef),
+			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Renforcees),
 			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Paladin, KeyWord.Retributors)),
 
 	Praetors(
@@ -250,7 +250,7 @@ public enum StormcastUnitModel implements IUnitModel<StormcastUnitModel> {
 			Arrays.asList(StormcastWeapons.HallebardeDeGardeDesAmes),
 			null,
 			Arrays.asList(StormcastRule.GardiensAuxAmesSoudees),
-			Arrays.asList(UnitOptionCategory.Chef),
+			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Renforcees),
 			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Fulgurant, KeyWord.Praetors)),
 
 	EvocatorsSurDracolinesCelestes(
@@ -261,7 +261,7 @@ public enum StormcastUnitModel implements IUnitModel<StormcastUnitModel> {
 			null,
 			Arrays.asList(StormcastRule.SorcierEvocators, StormcastRule.ArcsDeFoudreCeleste,
 					StormcastRule.BondTonitruant, StormcastRule.Essor),
-			Arrays.asList(UnitOptionCategory.Chef),
+			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Renforcees),
 			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.SacroSaint, KeyWord.Corpuscant, KeyWord.Dracoline,
 					KeyWord.Evocators)),
 
@@ -271,7 +271,7 @@ public enum StormcastUnitModel implements IUnitModel<StormcastUnitModel> {
 			Arrays.asList(StormcastWeapons.LameTempeteEtSceptreDOrage, StormcastWeapons.GrandSceptre),
 			null,
 			Arrays.asList(StormcastRule.SorcierEvocators, StormcastRule.ArcsDeFoudreCeleste, StormcastRule.Essor),
-			Arrays.asList(UnitOptionCategory.Chef),
+			Arrays.asList(UnitOptionCategory.Chef, UnitOptionCategory.Renforcees),
 			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.SacroSaint, KeyWord.Corpuscant, KeyWord.Evocators)),
 
 	BalisteCelestar(
