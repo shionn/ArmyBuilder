@@ -1,0 +1,1 @@
+1 figurine de cette unité. +1 Attaques.

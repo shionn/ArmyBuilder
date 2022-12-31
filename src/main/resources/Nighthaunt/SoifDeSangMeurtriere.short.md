@@ -1,0 +1,1 @@
+Si μ ennemie à 6" est bléssée ou subit des pertes, gagne +1 touche.

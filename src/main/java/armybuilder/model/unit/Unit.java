@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import armybuilder.model.army.bataillon.Bataillon;
@@ -16,6 +17,7 @@ import armybuilder.model.unit.option.UnitOption;
 import armybuilder.model.unit.option.UnitOptionCategory;
 import armybuilder.model.unit.role.IHaveRoleTactique;
 import armybuilder.model.unit.role.RoleTactique;
+import armybuilder.model.unit.weapon.AlteredWeapon;
 import armybuilder.model.unit.weapon.IHaveWeapons;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 
@@ -73,6 +75,20 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 
 	public void add(IUnitWeapon weapon) {
 		this.weapons.add(weapon);
+	}
+
+	public void alter(IUnitWeapon weapon, Consumer<AlteredWeapon> modifier) {
+		this.weapons.replaceAll(w -> {
+			if (w.is(weapon)) {
+				AlteredWeapon altered = new AlteredWeapon(w);
+				modifier.accept(altered);
+				return altered;
+			}
+			return w;
+		});
+
+		// this.weapons.stream().filter(w -> w.is(weapon)).map(w->new
+		// AlteredWeapon(weapon)).forEach(w->this.weapons.replaceAll());
 	}
 
 	/**

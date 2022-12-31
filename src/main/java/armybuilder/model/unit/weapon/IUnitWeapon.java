@@ -18,8 +18,11 @@ public interface IUnitWeapon extends IHaveDisplayName {
 
 	String getDegats();
 
+	boolean is(IUnitWeapon weapon);
+
 	default boolean is(WeaponType type) {
 		return getType() == type;
 	}
+
 
 }

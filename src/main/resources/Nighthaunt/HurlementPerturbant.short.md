@@ -1,0 +1,1 @@
+_si charge_ ∀ μ ennemies à 3" gagne -1 blesse.

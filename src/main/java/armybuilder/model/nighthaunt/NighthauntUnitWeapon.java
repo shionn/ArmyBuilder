@@ -89,4 +89,9 @@ public enum NighthauntUnitWeapon implements IUnitWeapon {
 		return stats[5];
 	}
 
+	@Override
+	public boolean is(IUnitWeapon weapon) {
+		return weapon == this;
+	}
+
 }
