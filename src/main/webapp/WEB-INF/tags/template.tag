@@ -21,7 +21,7 @@
 	<header>
 		<nav class="menu">
 			<ul>
-				<c:forEach items="${menus.entrySet()}" var="e">
+				<c:forEach items="${menus}" var="e">
 					<li>
 						<a href="#">${e.key.name()}</a>
 						<ul>

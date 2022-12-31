@@ -1,9 +1,9 @@
 package armybuilder.controller;
 
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.apache.commons.lang3.tuple.Pair;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,16 +24,14 @@ public class HomeContoller {
 
 	@GetMapping(path = "/")
 	public ModelAndView home() {
-		List<armybuilder.model.army.Army> armies = session.getMapper(ArmyDao.class).list();
-		// TODO utiliser une List de Pair pour resoudre le probleme de tri
-		Map<Allegiance, List<Army>> menus = armies.stream()
-				.map(a -> a.getAllegiance())
+		List<Army> armies = session.getMapper(ArmyDao.class).list();
+		List<Pair<Allegiance, List<Army>>> menus = armies.stream()
+				.map(army -> army.getAllegiance())
 				.distinct()
 				.sorted(new DisplayNameComparator())
-				.collect(Collectors.toMap(a -> a,
-						allegiance -> armies.stream()
-								.filter(army -> army.getAllegiance() == allegiance)
-								.collect(Collectors.toList())));
+				.map(allegiance -> Pair.of(allegiance,
+						armies.stream().filter(army -> army.is(allegiance)).collect(Collectors.toList())))
+				.collect(Collectors.toList());
 		return new ModelAndView("main").addObject("menus", menus).addObject("army", army);
 	}
 
