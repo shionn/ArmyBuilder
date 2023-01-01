@@ -86,6 +86,8 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	DefiHeroique(RuleType.Aptitude, RuleType.TraisUnitee),
 	ParcheminDOrageNegatif(RuleType.Aptitude, RuleType.TraisUnitee),
 	TirALaTete(RuleType.Aptitude, RuleType.TraisUnitee),
+	VoueALaDestruction(RuleType.Aptitude, RuleType.TraisUnitee),
+	ChasseursEnPique(RuleType.Aptitude, RuleType.TraisUnitee),
 
 	OrageGuerisseur(RuleType.Priere),
 	OrageFoudroyant(RuleType.Priere),

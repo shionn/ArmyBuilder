@@ -214,6 +214,12 @@ public enum StormcastUnitModel implements IUnitModel<StormcastUnitModel> {
 			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Justicar, KeyWord.RaptorsDAvantGarde,
 					KeyWord.RaptorsDAvantGardeAvecArbaletesLonguefrappe)),
 
+	Etherviers(UnitProfile._12_2_6_Dash, Arrays.asList(RoleTactique.Elite),
+			Arrays.asList(StormcastWeapons.BecEtSerres), null,
+			Arrays.asList(StormcastRule.ChasseursEnPique, StormcastRule.VoueALaDestruction),
+			Arrays.asList(UnitOptionCategory.Renforcees),
+			Arrays.asList(KeyWord.Ordre, KeyWord.StormCast, KeyWord.Etherviers)),
+
 	GryphDogues(
 			UnitProfile._9_2_6_Dash,
 			Arrays.asList(RoleTactique.Elite),

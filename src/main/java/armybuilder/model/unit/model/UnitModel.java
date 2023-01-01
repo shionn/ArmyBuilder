@@ -86,6 +86,8 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	Sequitors(StormcastUnitModel.Sequitors),
 	JudicatorsArcs(StormcastUnitModel.JudicatorsArcs),
 	Castigators(StormcastUnitModel.Castigators),
+	RaptorsDAvantGardeAvecArbaletesLonguefrappe(StormcastUnitModel.RaptorsDAvantGardeAvecArbaletesLonguefrappe),
+	Etherviers(StormcastUnitModel.Etherviers),
 	GryphDogues(StormcastUnitModel.GryphDogues),
 	ProsecutorsMarteaux(StormcastUnitModel.ProsecutorsMarteaux),
 	Annihilators(StormcastUnitModel.Annihilators),
@@ -94,7 +96,6 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	EvocatorsSurDracolinesCelestes(StormcastUnitModel.EvocatorsSurDracolinesCelestes),
 	Evocators(StormcastUnitModel.Evocators),
 	BalisteCelestar(StormcastUnitModel.BalisteCelestar),
-	RaptorsDAvantGardeAvecArbaletesLonguefrappe(StormcastUnitModel.RaptorsDAvantGardeAvecArbaletesLonguefrappe),
 	;
 
 	private IUnitModel<?> sub;

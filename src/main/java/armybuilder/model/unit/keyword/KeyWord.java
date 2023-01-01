@@ -117,6 +117,7 @@ public enum KeyWord implements IHaveDisplayName {
 	EnclumesDeLHeldenhammer,
 	Evocators,
 	Fulgurant,
+	Etherviers,
 	GryphDestrier,
 	GryphDogues,
 	Judicators,
