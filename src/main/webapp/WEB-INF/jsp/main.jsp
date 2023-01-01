@@ -70,6 +70,17 @@
 			</select>
 		</c:if>
 		<input type="submit" value="Editer">
+		<div class="print-hidden columns2">
+			<c:forEach items="${army.subAllegiance.rules}" var="rule">
+				<div class="rule"><span>${rule.displayName}:</span>${rule.description}</div>
+			</c:forEach>
+			<c:if test="${not empty army.grandeStrategie}">
+				<div class="rule"><span>${army.grandeStrategie.displayName}:</span>${army.grandeStrategie.description}</div>
+			</c:if>
+<%-- 			<c:if test="${not empty army.aptitudeDeCommandement}"> --%>
+<%-- 				<div class="rule"><span>${army.aptitudeDeCommandement.displayName}:</span>${army.aptitudeDeCommandement.description}</div> --%>
+<%-- 			</c:if> --%>
+		</div>
 	</fieldset>
 </form:form>
 <div style="display: flex">

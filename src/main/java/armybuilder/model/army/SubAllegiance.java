@@ -89,6 +89,10 @@ public enum SubAllegiance implements IHaveDisplayName, IDecoreArmy {
 		return allegiance == null || army.is(allegiance);
 	}
 
+	public List<IRule<?>> getRules() {
+		return rules;
+	}
+
 	@Override
 	public String getDisplayName() {
 		return displayName;

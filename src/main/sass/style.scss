@@ -47,6 +47,12 @@ body {
 		}
 	}
 
+	.print-hidden {
+		@media print {
+			display: none;
+		}
+	}
+
 	table {
 		border: 1px dashed $color-dark;
 		@media print {

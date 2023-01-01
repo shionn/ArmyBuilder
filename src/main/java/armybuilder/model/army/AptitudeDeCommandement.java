@@ -4,6 +4,7 @@ import armybuilder.model.IHaveDisplayName;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.stormcast.StormcastRule;
 
+// TODO faire copmme grand strrategie
 public enum AptitudeDeCommandement implements IHaveDisplayName, IDecoreArmy {
 
 	AppelALAide(StormcastRule.AppelALAide, Allegiance.StormCast),

@@ -63,7 +63,6 @@ public enum GrandeStrategie implements IHaveDisplayName, IDecoreArmy, IRule<Gran
 		return new DescriptionReader().read("GrandeStrategie/", name());
 	}
 
-
 	@Override
 	public void decorate(Army army) {
 		army.add(this);
