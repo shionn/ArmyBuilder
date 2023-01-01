@@ -82,7 +82,7 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 	LaPointeDeLaMort(RuleType.Aptitude),
 	MaledictionDeLoyaute(RuleType.Aptitude),
 	MangeSorts(RuleType.Aptitude),
-	MortTourbillonnante(u -> u.alter(NighthauntUnitWeapon.GrandeLameDeLaTombe, AlteredWeapon::attaquesAddSlashPlusOne),
+	MortTourbillonnante(u -> u.alter(NighthauntUnitWeapon.GrandeLameDeLaTombe, w -> w.setAltAttaque("+1")),
 			RuleType.Aptitude),
 	PourvoyeursDeMortEffrenes(RuleType.Aptitude),
 	ProgressionFantomatique(RuleType.Aptitude),
@@ -93,11 +93,11 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 			RuleType.Aptitude),
 	UnMaillonDeLaChaine(RuleType.Aptitude),
 
-	Affregarde(u -> u.alter(NighthauntUnitWeapon.ArmeDeMalfaisant, AlteredWeapon::attaquesAddSlashPlusOne),
+	Affregarde(u -> u.alter(NighthauntUnitWeapon.ArmeDeMalfaisant, w -> w.setAltAttaque("+1")),
 			RuleType.Composition),
 	QuesteurDeShyish(u -> u.add(NighthauntUnitWeapon.GlasMortel), RuleType.Composition),
 	TambourDArythmie(RuleType.Composition),
-	Tailladeuse(u -> u.alter(NighthauntUnitWeapon.MembresFaucheurs, AlteredWeapon::attaquesAddSlashPlusOne),
+	Tailladeuse(u -> u.alter(NighthauntUnitWeapon.MembresFaucheurs, w -> w.setAltAttaque("+1")),
 			RuleType.Composition),
 	SpectreInfernal(RuleType.Composition),
 

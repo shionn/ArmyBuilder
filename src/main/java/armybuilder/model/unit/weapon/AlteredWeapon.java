@@ -3,13 +3,13 @@ package armybuilder.model.unit.weapon;
 public class AlteredWeapon implements IUnitWeapon {
 
 	private IUnitWeapon source;
+	private String altAttaque;
 	private String attaque;
 	private String blesser;
 	private String toucher;
 
 	public AlteredWeapon(IUnitWeapon source) {
 		this.source = source;
-		this.attaque = source.getAttaques();
 		this.blesser = source.getBlesser();
 		this.toucher = source.getToucher();
 	}
@@ -34,8 +34,13 @@ public class AlteredWeapon implements IUnitWeapon {
 		return attaque;
 	}
 
-	public void attaquesAddSlashPlusOne() {
-		attaque = attaque + "/" + (Integer.parseInt(attaque) + 1);
+	public void setAltAttaque(String altAttaque) {
+		this.altAttaque = altAttaque;
+	}
+
+	@Override
+	public String getAltAttaques() {
+		return altAttaque;
 	}
 
 	@Override

@@ -9,6 +9,7 @@ import java.util.function.Supplier;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.rule.RuleType;
 import armybuilder.model.unit.Unit;
+import armybuilder.model.unit.weapon.AlteredWeapon;
 import armybuilder.serialisation.DescriptionReader;
 import armybuilder.serialisation.EnumPropertyLoader;
 
@@ -89,7 +90,10 @@ public enum DokRule implements IRule<DokRule> {
 	DanseDeLaMort(RuleType.Aptitude, RuleType.TraisUnitee),
 	DeuxCorpsUneSeuleAme(RuleType.Aptitude, RuleType.TraisUnitee),
 	DeuxCorpsUneSeuleAme_Shadow(RuleType.Aptitude, RuleType.TraisUnitee),
-	FerveurFrenetique(RuleType.Aptitude, RuleType.PhaseDeCombat),
+	FerveurFrenetique(u -> {
+		u.alter(DokUnitWeapon.Sciansa, AlteredWeapon::blesserAddParrenthesisPlusOne);
+		u.alter(DokUnitWeapon.SciansaAppairees, AlteredWeapon::blesserAddParrenthesisPlusOne);
+	}, RuleType.Aptitude, RuleType.TraisUnitee),
 	FureurDeLaReineDeLOmbre(RuleType.Aptitude, RuleType.TraisUnitee),
 	ImpactLame(RuleType.Aptitude, RuleType.PhaseDeCharge, RuleType.TraisUnitee),
 	MaitreDeGuerre(RuleType.Aptitude, RuleType.TraisUnitee),
@@ -100,22 +104,25 @@ public enum DokRule implements IRule<DokRule> {
 	RegardIncarnat(RuleType.Aptitude, RuleType.PhaseDeTir, RuleType.TraisUnitee),
 	SoeurDesMelusai(RuleType.Aptitude, RuleType.PhaseDeCombat, RuleType.TraisUnitee),
 	SorcierMorathi(RuleType.Aptitude, RuleType.TraisUnitee),
-	TransmuteEnCristal_Ferecaille(
-			RuleType.Aptitude,
-			RuleType.PhaseDeCombat,
-			RuleType.TraisUnitee),
-	TransmuteEnCristal(
-			RuleType.Aptitude,
-			RuleType.PhaseDeCombat,
-			RuleType.TraisUnitee),
+	TransmuteEnCristal_Ferecaille(RuleType.Aptitude, RuleType.TraisUnitee),
+	TransmuteEnCristal(RuleType.Aptitude, RuleType.TraisUnitee),
 	VoleeEtVolteFace(RuleType.Aptitude, RuleType.PhaseDeTir, RuleType.TraisUnitee),
 
 	// Conposition
-	Matriache(RuleType.Composition),
+	Matriache(u -> {
+		u.alter(DokUnitWeapon.Sciansa, w -> w.setAltAttaque("+1"));
+		u.alter(DokUnitWeapon.SciansaAppairees, w -> w.setAltAttaque("+1"));
+	}, RuleType.Composition),
 	PorteuseDePennonDeMort(RuleType.Composition),
-	Servante(RuleType.Composition),
+	Servante(u -> {
+		u.alter(DokUnitWeapon.FouetBarbele, w -> w.setAltAttaque("+1"));
+		u.alter(DokUnitWeapon.CouteauxSacrificiel, w -> w.setAltAttaque("+1"));
+	}, RuleType.Composition),
 	SonneuseDeCor(RuleType.Composition),
-	Ecorcheuse(RuleType.Composition),
+	Ecorcheuse(u -> {
+		u.alter(DokUnitWeapon.JavelineBarbelee_M, w -> w.setAltAttaque("+1"));
+		u.alter(DokUnitWeapon.JavelineBarbelee_P, w -> w.setAltAttaque("+1"));
+	}, RuleType.Composition),
 
 	// Armes
 	RondacheTranchante(u -> u.setProfile(u.getProfile().setSvg(5)), RuleType.Aptitude),

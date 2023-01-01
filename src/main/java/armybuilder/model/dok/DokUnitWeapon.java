@@ -86,6 +86,11 @@ public enum DokUnitWeapon implements IUnitWeapon {
 	}
 
 	@Override
+	public String getAltAttaques() {
+		return null;
+	}
+
+	@Override
 	public String getToucher() {
 		return stats[2];
 	}

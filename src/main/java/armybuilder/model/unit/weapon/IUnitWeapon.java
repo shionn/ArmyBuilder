@@ -9,6 +9,7 @@ public interface IUnitWeapon extends IHaveDisplayName {
 	String getPortee();
 
 	String getAttaques();
+	String getAltAttaques();
 
 	String getToucher();
 

@@ -103,4 +103,9 @@ public enum StormcastWeapons implements IUnitWeapon {
 	public boolean is(IUnitWeapon weapon) {
 		return weapon == this;
 	}
+
+	@Override
+	public String getAltAttaques() {
+		return null;
+	}
 }

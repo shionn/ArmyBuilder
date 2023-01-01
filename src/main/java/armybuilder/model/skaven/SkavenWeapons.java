@@ -64,4 +64,8 @@ public enum SkavenWeapons implements IUnitWeapon {
 		return weapon == this;
 	}
 
+	@Override
+	public String getAltAttaques() {
+		return null;
+	}
 }
