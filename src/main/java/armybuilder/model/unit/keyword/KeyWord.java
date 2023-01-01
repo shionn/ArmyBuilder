@@ -130,6 +130,8 @@ public enum KeyWord implements IHaveDisplayName {
 	Praetors,
 	Prosecutors,
 	ProsecutorsMarteaux,
+	RaptorsDAvantGarde,
+	RaptorsDAvantGardeAvecArbaletesLonguefrappe,
 	Redempteur,
 	Retributors,
 	SacroSaint,

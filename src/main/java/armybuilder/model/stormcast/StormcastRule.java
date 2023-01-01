@@ -3,9 +3,11 @@ package armybuilder.model.stormcast;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 
 import armybuilder.model.rule.IRule;
 import armybuilder.model.rule.RuleType;
+import armybuilder.model.unit.Unit;
 import armybuilder.serialisation.DescriptionReader;
 import armybuilder.serialisation.EnumPropertyLoader;
 
@@ -83,6 +85,7 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	FrappeFulguree(RuleType.Aptitude, RuleType.TraisUnitee),
 	DefiHeroique(RuleType.Aptitude, RuleType.TraisUnitee),
 	ParcheminDOrageNegatif(RuleType.Aptitude, RuleType.TraisUnitee),
+	TirALaTete(RuleType.Aptitude, RuleType.TraisUnitee),
 
 	OrageGuerisseur(RuleType.Priere),
 	OrageFoudroyant(RuleType.Priere),
@@ -113,9 +116,10 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	PraetorPrimus(RuleType.Composition),
 	ProsecutorPrimus(RuleType.Composition),
 	RetributorPrimus(RuleType.Composition),
-	SequitorPrimus(RuleType.Composition),
+	SequitorPrimus(u -> u.add(StormcastRule.CacheDeRedemption), RuleType.Composition),
 	SignifereAzyrite(RuleType.Composition),
 	VindictorPrimus(RuleType.Composition),
+	RaptorPrimus(u -> u.add(StormcastWeapons.BecEtSerres), RuleType.Composition),
 
 	VitesseEtherique(RuleType.TraitsDeMonture),
 	MessagerDeLaFoudre(RuleType.TraitsDeMonture),
@@ -128,10 +132,16 @@ public enum StormcastRule implements IRule<StormcastRule> {
 
 	private List<RuleType> types;
 	private String displayName;
+	private Consumer<Unit> modifier;
 
 	private StormcastRule(RuleType... types) {
 		this.displayName = EnumPropertyLoader.instance().name(this);
 		this.types = Arrays.asList(types);
+	}
+
+	private StormcastRule(Consumer<Unit> modifier, RuleType... types) {
+		this(types);
+		this.modifier = modifier;
 	}
 
 	@Override
@@ -147,6 +157,13 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	@Override
 	public String getDescription() throws IOException {
 		return new DescriptionReader().read("Stormcast/", name());
+	}
+
+	@Override
+	public void decorate(Unit unit) {
+		if (modifier != null) {
+			modifier.accept(unit);
+		}
 	}
 
 }

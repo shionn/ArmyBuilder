@@ -217,7 +217,7 @@ public enum DokRule implements IRule<DokRule> {
 	}
 
 	@Override
-	public void decorater(Unit unit) {
+	public void decorate(Unit unit) {
 		if (modifier != null) {
 			modifier.accept(unit);
 		}

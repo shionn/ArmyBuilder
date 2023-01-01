@@ -144,6 +144,7 @@ public enum UnitOption implements IUnitOption {
 	LumiereDivine(StormcastOptimisation.LumiereDivine),
 	MarteauxAstraux(StormcastOptimisation.MarteauxAstraux),
 	GrandMarteauxAstral(StormcastOptimisation.GrandMarteauxAstral),
+	RaptorPrimus(StormcastOptimisation.RaptorPrimus),
 
 
 	;

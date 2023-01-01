@@ -4,13 +4,20 @@ import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.model.unit.weapon.WeaponType;
 
 public enum StormcastWeapons implements IUnitWeapon {
+	ArbaleteLonguefrappe("ArbalèteLonguefrappe", WeaponType.Projectil, "30", "2", "3+", "2+", "-2", "2"),
 	ArcFoudreciel("Arc Foudreciel", WeaponType.Projectil, "24", "2", "3+", "3+", "-1", "1"),
 	ArcFoudrefleche("Arc Foudreflèche", WeaponType.Projectil, "24", "D6", "3+", "3+", "-1", "1"),
+	GrandArcFulgurant("Grand Arc Fulgurant", WeaponType.Projectil, "18", "D3", "3+", "3+", "-1", "1"),
+	MarteauxCelestesProjectil("Marteaux Céleste", WeaponType.Projectil, "9", "2", "4+", "4+", "-1", "1"),
+	PaireDeMarteauxCelestesProjectil("Paire de Marteaux Célestes", WeaponType.Projectil, "9", "3", "4+", "4+", "-1", "1"),
+	SceptreFulgurivoque("Sceptre Fulgurivoque", WeaponType.Projectil, "18", "D6", "3+", "3+", "-1", "1"),
+	TraitsDeCelestarTirFoudroyant("Traits de Célestar: Tir Foudroyant", WeaponType.Projectil, "36", "1", "3+", "2+", "-3", "D6"),
+	TraitsDeCelestarTirRapide("Traits de Célestar: Tir Rapide", WeaponType.Projectil, "18", "2D6", "4+", "3+", "-2", "1"),
+
 	ArmeDesCieux("Arme des Cieux", WeaponType.Melee, "1", "2", "3+", "4+", "-1", "1"),
 	ArmesSacroSaintes("Armes Sacro-saintes", WeaponType.Melee, "1", "2", "3+", "3+", "-1", "1"),
 	BecEtGriffesCruels("Bec et Griffes Cruels", WeaponType.Melee, "1", "4", "3+", "4+", "-", "1"),
 	GlaiveDOrage("Glaive d'Orage", WeaponType.Melee, "1", "1", "3+", "4+", "-1", "1"),
-	GrandArcFulgurant("Grand Arc Fulgurant", WeaponType.Projectil, "18", "D3", "3+", "3+", "-1", "1"),
 	GrandMarteauxAstral("Grand Marteaux Astral", WeaponType.Melee, "1", "3", "3+", "2+", "-2", "2"),
 	GrandSceptreEvocatorDracoline("Grand Sceptre", WeaponType.Melee, "1", "3", "3+", "3+", "-", "2"),
 	GrandSceptre("Grand Sceptre (2/3)", WeaponType.Melee, "1", "3", "3+", "3+", "-", "2"),
@@ -30,20 +37,16 @@ public enum StormcastWeapons implements IUnitWeapon {
 	MarteauMeteorique("Marteau Météorique", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "2"),
 	MarteauxAstraux("Marteaux Astraux", WeaponType.Melee, "1", "5", "3+", "3+", "-1", "2"),
 	MarteauxCelestesMelee("Marteaux Céleste", WeaponType.Melee, "1", "2", "3+", "3+", "-1", "1"),
-	MarteauxCelestesProjectil("Marteaux Céleste", WeaponType.Projectil, "9", "2", "4+", "4+", "-1", "1"),
 	MasseDAsterie("Masse d'Astérie (2/5)", WeaponType.Melee, "1", "1", "*", "*", "*", "*"),
 	PairesDArmesDesCieux("Paire d'Armes des Cieux", WeaponType.Melee, "1", "3", "3+", "4+", "-1", "1"),
-	PaireDeMarteauxCelestesProjectil("Paire de Marteaux Célestes", WeaponType.Projectil, "9", "3", "4+", "4+", "-1", "1"),
 	PaireDeMarteauxCelestesMelee("Paire de Marteaux Célestes", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "1"),
 	SceptreDeRedemption("Sceptre de Rédemption", WeaponType.Melee, "1", "4", "3+", "3+", "-1", "2"),
 	SceptreDEther("Sceptre d'Éther", WeaponType.Melee, "2", "4", "3+", "3+", "-1", "2"),
-	SceptreFulgurivoque("Sceptre Fulgurivoque", WeaponType.Projectil, "18", "D6", "3+", "3+", "-1", "1"),
-	TraitsDeCelestarTirFoudroyant("Traits de Célestar: Tir Foudroyant", WeaponType.Projectil, "36","1","3+","2+","-3","D6"),
-	TraitsDeCelestarTirRapide("Traits de Célestar: Tir Rapide", WeaponType.Projectil, "18","2D6","4+","3+","-2","1"),
 	LameStellaire("Lame Stellaire", WeaponType.Melee, "1", "5", "3+", "3+", "-1", "2"),
 	SceptreDuValedictor("Sceptre du Valedictor", WeaponType.Melee, "2", "3", "3+", "4+", "-1", "D3"),
 	LameDeQuestor("Lame de Questor", WeaponType.Melee, "1", "5", "3+", "3+", "-1", "2"),
 	BatondIncantor("Bâton d'Incantor", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "2"),
+	BecEtSerres("Bec et Serres", WeaponType.Melee, "1", "2", "4+", "3+", "-", "1"),
 	;
 
 	private String displayName;

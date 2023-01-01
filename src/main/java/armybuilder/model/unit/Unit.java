@@ -62,7 +62,7 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 		if (bataillon != null) {
 			bataillon.decorate(this);
 		}
-		this.rules.forEach(r -> r.decorater(this));
+		this.rules.forEach(r -> r.decorate(this));
 	}
 
 	/**

@@ -94,6 +94,7 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	EvocatorsSurDracolinesCelestes(StormcastUnitModel.EvocatorsSurDracolinesCelestes),
 	Evocators(StormcastUnitModel.Evocators),
 	BalisteCelestar(StormcastUnitModel.BalisteCelestar),
+	RaptorsDAvantGardeAvecArbaletesLonguefrappe(StormcastUnitModel.RaptorsDAvantGardeAvecArbaletesLonguefrappe),
 	;
 
 	private IUnitModel<?> sub;

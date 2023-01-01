@@ -38,11 +38,9 @@ public enum StormcastOptimisation implements IUnitOption {
 	PraetorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Praetors)),
 	ProsecutorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Prosecutors)),
 	RetributorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Retributors)),
-	SequitorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Sequitors), u -> {
-		u.add(StormcastRule.SequitorPrimus);
-		u.add(StormcastRule.CacheDeRedemption);
-	}),
+	SequitorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Sequitors)),
 	VindictorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.Vindictors)),
+	RaptorPrimus(UnitOptionCategory.Chef, u -> u.is(KeyWord.RaptorsDAvantGardeAvecArbaletesLonguefrappe)),
 
 	SignifereAzyrite(UnitOptionCategory.Banniere, u -> u.is(KeyWord.Vindictors)),
 
@@ -108,7 +106,6 @@ public enum StormcastOptimisation implements IUnitOption {
 	TraineeScintillante(UnitOptionCategory.TraisDeMonture, u -> true),
 	LumiereDesJeunesEtoiles(UnitOptionCategory.TraisDeMonture, u -> u.is(KeyWord.Dracastral)),
 	PresenceTonitruante(UnitOptionCategory.TraisDeMonture, u -> u.is(KeyWord.Draconithe)),
-	// TODO priere et trais de monture
 
 	;
 

@@ -16,7 +16,7 @@ public interface IRule<T extends Enum<T> & IRule<T>> extends IHaveDisplayName {
 		return getTypes().contains(type);
 	}
 
-	default void decorater(Unit unit) {
+	default void decorate(Unit unit) {
 		// nothing to do
 	}
 

@@ -139,7 +139,7 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 	}
 
 	@Override
-	public void decorater(Unit unit) {
+	public void decorate(Unit unit) {
 		if (modifier != null) {
 			modifier.accept(unit);
 		}
