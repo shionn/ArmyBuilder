@@ -94,8 +94,4 @@ public enum NighthauntUnitWeapon implements IUnitWeapon {
 		return weapon == this;
 	}
 
-	@Override
-	public String getAltAttaques() {
-		return null;
-	}
 }

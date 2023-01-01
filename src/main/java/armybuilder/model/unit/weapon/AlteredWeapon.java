@@ -3,15 +3,12 @@ package armybuilder.model.unit.weapon;
 public class AlteredWeapon implements IUnitWeapon {
 
 	private IUnitWeapon source;
-	private String altAttaque;
-	private String attaque;
-	private String blesser;
-	private String toucher;
+	private String altAttaques;
+	private String altBlesser;
+	private String altToucher;
 
 	public AlteredWeapon(IUnitWeapon source) {
 		this.source = source;
-		this.blesser = source.getBlesser();
-		this.toucher = source.getToucher();
 	}
 
 	@Override
@@ -31,34 +28,41 @@ public class AlteredWeapon implements IUnitWeapon {
 
 	@Override
 	public String getAttaques() {
-		return attaque;
+		String attaques = source.getAttaques();
+		if (altAttaques != null) {
+			attaques += "<small> (" + altAttaques + ")</small>";
+		}
+		return attaques;
 	}
 
-	public void setAltAttaque(String altAttaque) {
-		this.altAttaque = altAttaque;
-	}
-
-	@Override
-	public String getAltAttaques() {
-		return altAttaque;
+	public void setAltAttaques(String altAttaque) {
+		this.altAttaques = altAttaque;
 	}
 
 	@Override
 	public String getToucher() {
+		String toucher = source.getToucher();
+		if (altToucher != null) {
+			toucher += "<small> (" + altToucher + ")</small>";
+		}
 		return toucher;
 	}
 
-	public void toucherAddParrenthesisPlusOne() {
-		toucher += "(+1)";
+	public void setAltToucher(String altToucher) {
+		this.altToucher = altToucher;
 	}
 
 	@Override
 	public String getBlesser() {
+		String blesser = source.getBlesser();
+		if (altBlesser != null) {
+			blesser += "<small> (" + altBlesser + ")</small>";
+		}
 		return blesser;
 	}
 
-	public void blesserAddParrenthesisPlusOne() {
-		blesser += "(+1)";
+	public void setAltBlesser(String altBlesser) {
+		this.altBlesser = altBlesser;
 	}
 
 	@Override

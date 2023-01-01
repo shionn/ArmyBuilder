@@ -139,7 +139,7 @@
 								<tr>
 									<td>${w.displayName}</td>
 									<td>${w.portee}</td>
-									<td>${w.attaques}<c:if test="${not empty w.altAttaques}"><small> (${w.altAttaques})</small></c:if></td>
+									<td>${w.attaques}</td>
 									<td>${w.toucher}</td>
 									<td>${w.blesser}</td>
 									<td>${w.perf}</td>

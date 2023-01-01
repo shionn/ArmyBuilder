@@ -9,7 +9,6 @@ import java.util.function.Supplier;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.rule.RuleType;
 import armybuilder.model.unit.Unit;
-import armybuilder.model.unit.weapon.AlteredWeapon;
 import armybuilder.serialisation.DescriptionReader;
 import armybuilder.serialisation.EnumPropertyLoader;
 
@@ -91,8 +90,8 @@ public enum DokRule implements IRule<DokRule> {
 	DeuxCorpsUneSeuleAme(RuleType.Aptitude, RuleType.TraisUnitee),
 	DeuxCorpsUneSeuleAme_Shadow(RuleType.Aptitude, RuleType.TraisUnitee),
 	FerveurFrenetique(u -> {
-		u.alter(DokUnitWeapon.Sciansa, AlteredWeapon::blesserAddParrenthesisPlusOne);
-		u.alter(DokUnitWeapon.SciansaAppairees, AlteredWeapon::blesserAddParrenthesisPlusOne);
+		u.alter(DokUnitWeapon.Sciansa, w -> w.setAltBlesser("+1"));
+		u.alter(DokUnitWeapon.SciansaAppairees, w -> w.setAltBlesser("+1"));
 	}, RuleType.Aptitude, RuleType.TraisUnitee),
 	FureurDeLaReineDeLOmbre(RuleType.Aptitude, RuleType.TraisUnitee),
 	ImpactLame(RuleType.Aptitude, RuleType.PhaseDeCharge, RuleType.TraisUnitee),
@@ -110,18 +109,18 @@ public enum DokRule implements IRule<DokRule> {
 
 	// Conposition
 	Matriache(u -> {
-		u.alter(DokUnitWeapon.Sciansa, w -> w.setAltAttaque("+1"));
-		u.alter(DokUnitWeapon.SciansaAppairees, w -> w.setAltAttaque("+1"));
+		u.alter(DokUnitWeapon.Sciansa, w -> w.setAltAttaques("+1"));
+		u.alter(DokUnitWeapon.SciansaAppairees, w -> w.setAltAttaques("+1"));
 	}, RuleType.Composition),
 	PorteuseDePennonDeMort(RuleType.Composition),
 	Servante(u -> {
-		u.alter(DokUnitWeapon.FouetBarbele, w -> w.setAltAttaque("+1"));
-		u.alter(DokUnitWeapon.CouteauxSacrificiel, w -> w.setAltAttaque("+1"));
+		u.alter(DokUnitWeapon.FouetBarbele, w -> w.setAltAttaques("+1"));
+		u.alter(DokUnitWeapon.CouteauxSacrificiel, w -> w.setAltAttaques("+1"));
 	}, RuleType.Composition),
 	SonneuseDeCor(RuleType.Composition),
 	Ecorcheuse(u -> {
-		u.alter(DokUnitWeapon.JavelineBarbelee_M, w -> w.setAltAttaque("+1"));
-		u.alter(DokUnitWeapon.JavelineBarbelee_P, w -> w.setAltAttaque("+1"));
+		u.alter(DokUnitWeapon.JavelineBarbelee_M, w -> w.setAltAttaques("+1"));
+		u.alter(DokUnitWeapon.JavelineBarbelee_P, w -> w.setAltAttaques("+1"));
 	}, RuleType.Composition),
 
 	// Armes
