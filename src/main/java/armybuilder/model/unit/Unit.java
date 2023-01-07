@@ -86,9 +86,14 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 			}
 			return w;
 		});
+	}
 
-		// this.weapons.stream().filter(w -> w.is(weapon)).map(w->new
-		// AlteredWeapon(weapon)).forEach(w->this.weapons.replaceAll());
+	public void alterAllWeapons(Consumer<AlteredWeapon> modifier) {
+		this.weapons.replaceAll(w -> {
+			AlteredWeapon altered = new AlteredWeapon(w);
+			modifier.accept(altered);
+			return altered;
+		});
 	}
 
 	/**

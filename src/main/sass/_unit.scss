@@ -50,7 +50,7 @@ article.unit, article.bataillon  {
 	footer {
 		background-color: $color-mid;
 		color: $color-white;
-		padding: 5px;
+		padding: 5px 5px 0;
 		span:not(:last-child)::after {
 			content: ',';
 		}

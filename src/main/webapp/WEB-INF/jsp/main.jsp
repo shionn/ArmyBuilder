@@ -77,9 +77,9 @@
 			<c:if test="${not empty army.grandeStrategie}">
 				<div class="rule"><span>${army.grandeStrategie.displayName}:</span>${army.grandeStrategie.description}</div>
 			</c:if>
-<%-- 			<c:if test="${not empty army.aptitudeDeCommandement}"> --%>
-<%-- 				<div class="rule"><span>${army.aptitudeDeCommandement.displayName}:</span>${army.aptitudeDeCommandement.description}</div> --%>
-<%-- 			</c:if> --%>
+			<c:if test="${not empty army.aptitudeDeCommandement}">
+				<div class="rule"><span>${army.aptitudeDeCommandement.displayName}:</span>${army.aptitudeDeCommandement.description}</div>
+			</c:if>
 		</div>
 	</fieldset>
 </form:form>
