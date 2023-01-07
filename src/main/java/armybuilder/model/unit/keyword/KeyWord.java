@@ -58,6 +58,7 @@ public enum KeyWord implements IHaveDisplayName {
 	Hantenuits,
 	LegionEploree,
 	Malfaisants,
+	Mortaque,
 	MortsDeVifArgent,
 	OstEmeraude,
 
@@ -67,6 +68,7 @@ public enum KeyWord implements IHaveDisplayName {
 	CarrosseNoir,
 	ChevalierDesSuaires,
 	ChevalierDesSuairesSurCoursierEthere,
+	DameOlynder,
 	EcumeurAffrelame,
 	EspritTourmenteur,
 	FaucheursMornemanes,

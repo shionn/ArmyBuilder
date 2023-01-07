@@ -59,6 +59,7 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 	VoleurDeVie(RuleType.Sort),
 	TempeteSpectrale(RuleType.Sort),
 	SceauDeShyish(RuleType.Sort),
+	SuaireDeDesespoir(RuleType.Sort),
 
 	AttireesParLaGuerre(RuleType.Aptitude),
 	BougiesDeCadavre(RuleType.Aptitude),
@@ -81,10 +82,14 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 	LaPointeDeLaMort(RuleType.Aptitude),
 	MaledictionDeLoyaute(RuleType.Aptitude),
 	MangeSorts(RuleType.Aptitude),
+	MortarqueDuDeuil(RuleType.Aptitude),
 	MortTourbillonnante(u -> u.alter(NighthauntUnitWeapon.GrandeLameDeLaTombe, w -> w.setAltAttaques("+1")),
 			RuleType.Aptitude),
+	PasDeRepitPourLesDamnees(RuleType.Aptitude),
 	PourvoyeursDeMortEffrenes(RuleType.Aptitude),
 	ProgressionFantomatique(RuleType.Aptitude),
+	ReleverLeVoile(RuleType.Aptitude),
+	SablesDuTemps(RuleType.Aptitude),
 	SeigneurDesSpectres(RuleType.Aptitude),
 	SiJeNePeuxRegnerNulNeLePourra(RuleType.Aptitude),
 	SoifDeSangMeurtriere(

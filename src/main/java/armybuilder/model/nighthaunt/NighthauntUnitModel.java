@@ -22,7 +22,10 @@ public enum NighthauntUnitModel implements IUnitModel<NighthauntUnitModel> {
 
 
 
-	// LADY Olynder (Arrays.asList(), Arrays.asList()),
+	DameOlynder(Arrays.asList(NighthauntUnitWeapon.BatonDeMinuit, NighthauntUnitWeapon.GriffesSpectrales),
+			Arrays.asList(GeneriqueUnitRule.Sorcier_2_2, GeneriqueUnitRule.MaitreDeGuerre,
+					NighthauntRule.SablesDuTemps, NighthauntRule.PasDeRepitPourLesDamnees,
+					NighthauntRule.MortarqueDuDeuil, NighthauntRule.ReleverLeVoile, NighthauntRule.SuaireDeDesespoir)),
 
 	KurdossValentian(Arrays.asList(NighthauntUnitWeapon.SceptreSepulcral, NighthauntUnitWeapon.GriffesSpectrales),
 			Arrays.asList(NighthauntRule.SiJeNePeuxRegnerNulNeLePourra)),

@@ -46,6 +46,7 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 //	Bladewind(DokUnitModel.Bladewind),
 	CoeurDeFureur(DokUnitModel.CoeurDeFureur),
 
+	DameOlynder(NighthauntUnitModel.DameOlynder),
 	KurdossValentian(NighthauntUnitModel.KurdossValentian),
 	ReikenorLeSombreChantre(NighthauntUnitModel.ReikenorLeSombreChantre),
 	ChevalierDesSuaires(NighthauntUnitModel.ChevalierDesSuaires),

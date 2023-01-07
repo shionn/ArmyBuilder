@@ -23,21 +23,35 @@ public class ArmyEditController {
 	private CurrentArmyId current;
 
 	@PostMapping("/army/edit")
-	public String edit(@RequestParam("suballegiance") SubAllegiance sub,
-			@RequestParam("packdebataille") PackDeBataille packDeBataille,
-			@RequestParam(name = "grandestrategie") String grandeStrategie,
-			@RequestParam(name = "triomphes") String triomphes,
+	public String edit(@RequestParam(name = "suballegiance", defaultValue = "NULL") String sub,
+			@RequestParam(name = "packdebataille", defaultValue = "NULL") String packDeBataille,
+			@RequestParam(name = "grandestrategie", defaultValue = "NULL") String grandeStrategie,
+			@RequestParam(name = "triomphes", defaultValue = "NULL") String triomphes,
 			@RequestParam(name = "aptitudeDeCommandement", defaultValue = "NULL") String aptitudeDeCommandement) {
 		ArmyEditDao dao = session.getMapper(ArmyEditDao.class);
 		Army army = dao.read(current.id());
-		army.setSubAllegiance(sub);
-		army.setPackDeBataille(packDeBataille);
+		army.setSubAllegiance(toSubAllegiance(sub));
+		army.setPackDeBataille(toPackDeBataille(packDeBataille));
 		army.setGrandeStrategie(toGS(grandeStrategie));
 		army.setTriomphes(toTriomphes(triomphes));
 		army.setAptitudeDeCommandement(toAptitudeDeCommandement(aptitudeDeCommandement));
 		dao.edit(army);
 		session.commit();
 		return "redirect:/";
+	}
+
+	private SubAllegiance toSubAllegiance(String subAllegiance) {
+		if ("NULL".equals(subAllegiance)) {
+			return null;
+		}
+		return SubAllegiance.valueOf(subAllegiance);
+	}
+
+	private PackDeBataille toPackDeBataille(String packDeBataille) {
+		if ("NULL".equals(packDeBataille)) {
+			return null;
+		}
+		return PackDeBataille.valueOf(packDeBataille);
 	}
 
 	private AptitudeDeCommandement toAptitudeDeCommandement(String aptitudeDeCommandement) {

@@ -19,6 +19,7 @@ public enum GeneriqueUnitRule implements IRule<GeneriqueUnitRule> {
 	Sorcier_3_2_1(RuleType.Aptitude),
 
 	Elite(RuleType.Aptitude),
+	MaitreDeGuerre(RuleType.Aptitude),
 	Vol(RuleType.Aptitude),
 
 	ArmeEnflammee(RuleType.Sort, RuleType.TraisUnitee),

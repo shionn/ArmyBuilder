@@ -95,7 +95,6 @@ public enum DokRule implements IRule<DokRule> {
 	}, RuleType.Aptitude, RuleType.TraisUnitee),
 	FureurDeLaReineDeLOmbre(RuleType.Aptitude, RuleType.TraisUnitee),
 	ImpactLame(RuleType.Aptitude, RuleType.PhaseDeCharge, RuleType.TraisUnitee),
-	MaitreDeGuerre(RuleType.Aptitude, RuleType.TraisUnitee),
 	PacteDeSang(RuleType.Aptitude, RuleType.TraisUnitee),
 	ParangonDuMassacre(RuleType.Aptitude, RuleType.TraisUnitee),
 	PlongeonDansLaBataille(RuleType.Aptitude, RuleType.PhaseDeMouvement, RuleType.TraisUnitee),

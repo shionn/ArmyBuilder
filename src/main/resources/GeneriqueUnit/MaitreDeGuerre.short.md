@@ -1,0 +1,1 @@
+Traitée comme un général.

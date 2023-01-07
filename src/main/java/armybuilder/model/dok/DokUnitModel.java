@@ -19,6 +19,7 @@ import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum DokUnitModel implements IUnitModel<DokUnitModel> {
 
+	// TODO ajouter maitre de Guerre
 	MorathiKhaine(
 			UnitProfile._6_6_8_4,
 			Arrays.asList(RoleTactique.Leader),

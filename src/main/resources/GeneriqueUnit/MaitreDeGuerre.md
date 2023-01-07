@@ -1,0 +1,1 @@
+Si cette unité est incluse dans une armée de la même Allégiance, elle est traitée comme un général même si elle n’est pas la figurine choisie pour être le général.
