@@ -1,0 +1,1 @@
+_debut votre phase de tir_, 1 μ ennemie à 12", sur 2+ subie résultat (+1 si _terrifiée_) BM. ∀ figurines tuées, guérir D3 blessures.
