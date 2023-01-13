@@ -1,0 +1,1 @@
+_une seule fois, fin votre phase mouvement_, choississez 1 μ __convocable__ détruite. Sur 4+, une ½ nouvelle μ placer la _!engagé_  ∈ 12".

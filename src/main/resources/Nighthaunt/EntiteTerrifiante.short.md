@@ -1,0 +1,1 @@
+∀ μ à 6" sont __terrifiées__.
