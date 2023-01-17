@@ -14,6 +14,18 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	SauveQuiPeut(RuleType.TraisDeBataille),
 	LUnionFaitLaForce(RuleType.TraisDeBataille),
 
+	// trais de co
+	AdversaireSournois(RuleType.TraitsDeCommandement),
+	ManipulateurSupreme(RuleType.TraitsDeCommandement),
+	MaitreDeLaMagie(RuleType.TraitsDeCommandement),
+	IntrigantDiabolique(RuleType.TraitsDeCommandement),
+	MutateurAstucieux(RuleType.TraitsDeCommandement),
+	ModeleurSupreme(RuleType.TraitsDeCommandement),
+	MaitreDeHorde(RuleType.TraitsDeCommandement),
+	TueurSansEgal(RuleType.TraitsDeCommandement),
+	MaitreDesOmbres(RuleType.TraitsDeCommandement),
+	AgiliteIncroyable(RuleType.TraitsDeCommandement),
+
 	// aptitude des sous clan
 	CreationsPrisees_1(RuleType.TraisDeBataille),
 	CreationsPrisees_3(RuleType.TraisDeBataille),
