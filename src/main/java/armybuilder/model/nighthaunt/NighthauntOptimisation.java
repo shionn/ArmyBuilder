@@ -77,7 +77,7 @@ public enum NighthauntOptimisation implements IUnitOption {
 
 	@Override
 	public boolean availableFor(Unit unit) {
-		return available.apply(unit);
+		return unit.is(KeyWord.Hantenuits) && available.apply(unit);
 	}
 
 	@Override

@@ -10,14 +10,12 @@ import armybuilder.model.unit.option.UnitOptionCategory;
 
 public enum StormcastOptimisation implements IUnitOption {
 
-	ChocEtStupeur(UnitOptionCategory.TraisDeCommandement,
-			u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique)),
-	FerventDefenseur(UnitOptionCategory.TraisDeCommandement,
-			u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique)),
-	MessagerDesCieux(UnitOptionCategory.TraisDeCommandement,
-			u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique)),
-	MaitreDeLaMenagerieCeleste(UnitOptionCategory.TraisDeCommandement,
-			u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Monstre)),
+	ChocEtStupeur(UnitOptionCategory.TraisDeCommandement, u -> u.is(UnitOptionCategory.General)),
+	FerventDefenseur(UnitOptionCategory.TraisDeCommandement, u -> u.is(UnitOptionCategory.General)),
+	MessagerDesCieux(UnitOptionCategory.TraisDeCommandement, u -> u.is(UnitOptionCategory.General)),
+	MaitreDeLaMenagerieCeleste(
+			UnitOptionCategory.TraisDeCommandement,
+			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.Monstre)),
 
 	AmuletteDeSigmarite(UnitOptionCategory.Artefact, u -> true),
 	AmuletteDObsidienne(UnitOptionCategory.Artefact, u -> true),

@@ -12,29 +12,24 @@ import armybuilder.model.unit.role.RoleTactique;
 public enum OptimisationsUniverselles implements IUnitOption {
 
 	SoifDeBataille(
-			GeneriqueUnitRule.SoifDeBataille.getDisplayName(),
 			UnitOptionCategory.TraisDeCommandement,
-			u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique),
+			u -> u.is(UnitOptionCategory.General),
 			u -> u.add(GeneriqueUnitRule.SoifDeBataille)),
 	LeaderCompetent(
-			GeneriqueUnitRule.LeaderCompetent.getDisplayName(),
 			UnitOptionCategory.TraisDeCommandement,
-			u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique),
+			u -> u.is(UnitOptionCategory.General),
 			u -> u.add(GeneriqueUnitRule.LeaderCompetent)),
 	GrandPretre(
-			GeneriqueUnitRule.GrandPretre.getDisplayName(),
 			UnitOptionCategory.TraisDeCommandement,
-			u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Pretre),
+			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.Pretre),
 			u -> u.add(GeneriqueUnitRule.GrandPretre)),
 	StatureHeroique(
-			GeneriqueUnitRule.StatureHeroique.getDisplayName(),
 			UnitOptionCategory.TraisDeCommandement,
-			u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique),
+			u -> u.is(UnitOptionCategory.General),
 			u -> u.add(GeneriqueUnitRule.StatureHeroique)),
 	MaitreDeLaMagie(
-			GeneriqueUnitRule.MaitreDeLaMagie.getDisplayName(),
 			UnitOptionCategory.TraisDeCommandement,
-			u -> u.is(UnitOptionCategory.General) && !u.is(KeyWord.Unique) && u.is(KeyWord.Sorcier),
+			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.Sorcier),
 			u -> u.add(GeneriqueUnitRule.MaitreDeLaMagie)),
 
 	AmuletteDeLaDestinee(
@@ -122,11 +117,17 @@ public enum OptimisationsUniverselles implements IUnitOption {
 	private Function<Unit, Boolean> available;
 	private Consumer<Unit> modifier;
 
-	OptimisationsUniverselles(String displayName, UnitOptionCategory option,
-			Function<Unit, Boolean> available) {
+	OptimisationsUniverselles(String displayName, UnitOptionCategory option, Function<Unit, Boolean> available) {
 		this.displayName = displayName;
 		this.category = option;
 		this.available = available;
+	}
+
+	OptimisationsUniverselles(UnitOptionCategory option, Function<Unit, Boolean> available, Consumer<Unit> modifier) {
+		this.displayName = GeneriqueUnitRule.valueOf(name()).getDisplayName();
+		this.category = option;
+		this.available = available;
+		this.modifier = modifier;
 	}
 
 	OptimisationsUniverselles(String displayName, UnitOptionCategory option,
