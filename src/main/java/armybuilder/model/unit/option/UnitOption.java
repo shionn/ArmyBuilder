@@ -2,6 +2,7 @@ package armybuilder.model.unit.option;
 
 import armybuilder.model.dok.DokOptimisations;
 import armybuilder.model.nighthaunt.NighthauntOptimisation;
+import armybuilder.model.skaven.SkavenOptimisation;
 import armybuilder.model.stormcast.StormcastOptimisation;
 import armybuilder.model.unit.Unit;
 
@@ -96,6 +97,12 @@ public enum UnitOption implements IUnitOption {
 	TambourDArythmie(NighthauntOptimisation.TambourDArythmie),
 	Tailladeuse(NighthauntOptimisation.Tailladeuse),
 	SpectreInfernal(NighthauntOptimisation.SpectreInfernal),
+
+	LanceRouillee(SkavenOptimisation.LanceRouillee),
+	LameRouillee(SkavenOptimisation.LameRouillee),
+	Maitregriffe(SkavenOptimisation.Maitregriffe),
+	PorteEtendardDesClans(SkavenOptimisation.PorteEtendardDesClans),
+	SonneurDeClocheDesClans(SkavenOptimisation.SonneurDeClocheDesClans),
 
 	AnnihilatorPrimus(StormcastOptimisation.AnnihilatorPrimus),
 	ArmeDesCieuxEtBouclierDeSigmarite(StormcastOptimisation.ArmeDesCieuxEtBouclierDeSigmarite),

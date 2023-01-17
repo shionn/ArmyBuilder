@@ -1,1 +1,1 @@
-Vous accomplissez cette tactique s'il y a au moins 2 unités de votre armée de départ entièrement en territoire adverse à la fin de ce tous. Si au moins 2 de ces unités sotn des __Érinyes__ vous marquez 1 point de victoire supplémentaire.
+Vous accomplissez cette tactique s'il y a au moins 2 unités de votre armée de départ entièrement en territoire adverse à la fin de ce tous.

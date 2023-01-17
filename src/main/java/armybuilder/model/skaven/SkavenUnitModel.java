@@ -35,8 +35,10 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 			null,
 			Arrays.asList(GeneriqueUnitRule.Sorcier_2_2, SkavenRule.FragmentsDeMalepierre, SkavenRule.Fletrissement)),
 
-//	AAA(Arrays.asList(), null, Arrays.asList()),
-//	BBB(Arrays.asList(), null, Arrays.asList()),
+	Griffarque(Arrays.asList(SkavenWeapons.LameDeMalepierre), null,
+			Arrays.asList(SkavenRule.FureurCernee, SkavenRule.RongezRongezLeursOs)),
+
+	RatsDesClans(Arrays.asList(), null, Arrays.asList(SkavenRule.NueeGrouillante)),
 //	CCC(Arrays.asList(), null, Arrays.asList()),
 //	DDD(Arrays.asList(), null, Arrays.asList()),
 //	EEE(Arrays.asList(), null, Arrays.asList()),

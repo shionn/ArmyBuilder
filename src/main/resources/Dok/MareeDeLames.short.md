@@ -1,1 +1,1 @@
-Accomplie si 2+ départ unités entièrement en territoire adverse à la fin de ce tour. Si 2+ unités __Érinyes__ +1 pt de victoire.
+Accomplie si 2+ départ unités entièrement en territoire adverse à la fin de ce tour.

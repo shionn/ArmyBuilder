@@ -29,11 +29,22 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	AutelDuGrandRatCornu(RuleType.Aptitude, RuleType.TraisUnitee),
 	AvalancheDEnergie(RuleType.Aptitude, RuleType.TraisUnitee),
 	CarillonFuneste(RuleType.Aptitude, RuleType.TraisUnitee),
+	FragmentsDeMalepierre(RuleType.Aptitude, RuleType.TraisUnitee),
+	FureurCernee(RuleType.Aptitude, RuleType.TraisUnitee),
 	PousseeVersLaBataille(RuleType.Aptitude, RuleType.TraisUnitee),
 	RemousParDelaLeVoile(RuleType.Aptitude, RuleType.TraisUnitee),
-	FragmentsDeMalepierre(RuleType.Aptitude, RuleType.TraisUnitee),
+	RongezRongezLeursOs(RuleType.Aptitude, RuleType.TraisUnitee),
+	NueeGrouillante(RuleType.Aptitude, RuleType.TraisUnitee),
 
+	// sort
 	Fletrissement(RuleType.Sort),
+	// priere
+	// artefact
+	// aptitude de co
+	// composition
+	Maitregriffe(RuleType.Aptitude, RuleType.Composition),
+	PorteEtendardDesClans(RuleType.Aptitude, RuleType.Composition),
+	SonneurDeClocheDesClans(RuleType.Aptitude, RuleType.Composition),
 
 	;
 

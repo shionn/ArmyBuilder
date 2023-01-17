@@ -86,6 +86,7 @@ public enum KeyWord implements IHaveDisplayName {
 	Sorcespectres,
 
 	// Skaven
+	ClansVerminus,
 	ClansEchin,
 	ClocheHurlante,
 	Griffarque,
@@ -93,6 +94,7 @@ public enum KeyWord implements IHaveDisplayName {
 	MachineDeGuerre,
 	MaitresMoulder,
 	PropheteGris,
+	RatsDesClans,
 	Skavens,
 
 	// StormCast

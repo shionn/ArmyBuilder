@@ -69,6 +69,8 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 
 	PropheteGrisSurClocheHurlante(SkavenUnitModel.PropheteGrisSurClocheHurlante),
 	PropheteGris(SkavenUnitModel.PropheteGris),
+	Griffarque(SkavenUnitModel.Griffarque),
+	RatsDesClans(SkavenUnitModel.RatsDesClans),
 
 	AstreiaSolbrigh(StormcastUnitModel.AstreiaSolbrigh),
 	SeigneurArcanumSurDracolineCeleste(StormcastUnitModel.SeigneurArcanumSurDracolineCeleste),
