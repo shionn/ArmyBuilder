@@ -41,14 +41,25 @@ public enum Allegiance implements IHaveDisplayName, IDecoreArmy {
 			}),
 	Skaven(Arrays.asList(SkavenRule.DirigerDepuisLArriere, SkavenRule.SauveQuiPeut, SkavenRule.SauveQuiPeut),
 			a -> {
+				// Maitreclan
 				a.units(KeyWord.Heros, KeyWord.Maitreclan).forEach(u -> u.add(SkavenRule.ManipulateursHabiles));
 				a.addIf(a.count(KeyWord.Heros, KeyWord.Maitreclan) > 2, SkavenRule.ToujoursTroisCoupsDeGriffesDAvance);
-				a.addIf(Arrays.asList(1, 2).contains(a.count(KeyWord.MaitresMoulder)), SkavenRule.CreationsPrisees_1);
-				a.addIf(a.count(KeyWord.MaitresMoulder) > 2, SkavenRule.CreationsPrisees_3);
-				a.addIf(a.count(KeyWord.Heros, KeyWord.ClansEchin) < 3, SkavenRule.MaitresDuMeurtre_1);
+
+				// clanmoulder
+				a.addIf(Arrays.asList(1, 2).contains(a.count(KeyWord.AbominationDeMalefosse)),
+						SkavenRule.CreationsPrisees_1);
+				a.addIf(a.count(KeyWord.MaitresMoulder) > 2 && a.count(KeyWord.AbominationDeMalefosse) > 1,
+						SkavenRule.CreationsPrisees_3);
+
+				// clan echin
+				a.addIf(a.count(KeyWord.ClansEchin) > 1 && a.count(KeyWord.Heros, KeyWord.ClansEchin) < 3,
+						SkavenRule.MaitresDuMeurtre_1);
 				a.addIf(a.count(KeyWord.Heros, KeyWord.ClansEchin) > 2, SkavenRule.MaitresDuMeurtre_3);
-				a.addIf(a.count(KeyWord.Griffarque) < 3, SkavenRule.PuissantsChefsDeGuerre_1);
+
+				// clanverminus
+				a.addIf(Arrays.asList(1, 2).contains(a.count(KeyWord.Griffarque)), SkavenRule.PuissantsChefsDeGuerre_1);
 				a.addIf(a.count(KeyWord.Griffarque) > 2, SkavenRule.PuissantsChefsDeGuerre_3);
+
 
 			}
 	),

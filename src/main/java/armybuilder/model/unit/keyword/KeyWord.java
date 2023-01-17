@@ -86,6 +86,7 @@ public enum KeyWord implements IHaveDisplayName {
 	Sorcespectres,
 
 	// Skaven
+	AbominationDeMalefosse,
 	ClansVerminus,
 	ClansEchin,
 	ClocheHurlante,
