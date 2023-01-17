@@ -87,8 +87,10 @@ public enum KeyWord implements IHaveDisplayName {
 
 	// Skaven
 	AbominationDeMalefosse,
-	ClansVerminus,
 	ClansEchin,
+	ClansPestilens,
+	ClansVerminus,
+	ClansSkryre,
 	ClocheHurlante,
 	Griffarque,
 	Maitreclan,

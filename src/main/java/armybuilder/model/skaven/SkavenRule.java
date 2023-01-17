@@ -14,7 +14,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	SauveQuiPeut(RuleType.TraisDeBataille),
 	LUnionFaitLaForce(RuleType.TraisDeBataille),
 
-	// aptitude des heoro de sous clan
+	// aptitude des sous clan
 	CreationsPrisees_1(RuleType.TraisDeBataille),
 	CreationsPrisees_3(RuleType.TraisDeBataille),
 	ManipulateursHabiles(RuleType.Aptitude, RuleType.TraisUnitee),
@@ -23,6 +23,9 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	MaitresDuMeurtre_3(RuleType.TraisDeBataille),
 	PuissantsChefsDeGuerre_1(RuleType.ActionsHeroiques),
 	PuissantsChefsDeGuerre_3(RuleType.ActionsHeroiques),
+	BougiesDeMalepierre_1(RuleType.TraisDeBataille),
+	BougiesDeMalepierre_3(RuleType.TraisDeBataille),
+	EchosDesGrandesPlaies(RuleType.TraisDeBataille),
 
 	// aptitude d'unité
 	AppelDesCrevasses(RuleType.Aptitude, RuleType.TraisUnitee),
