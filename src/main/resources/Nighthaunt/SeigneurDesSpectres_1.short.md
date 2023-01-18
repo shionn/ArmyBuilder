@@ -1,0 +1,1 @@
+_une fois par round_, donne __Attaque en Règle__ à μ __convocable__ sans dépenser de pts.

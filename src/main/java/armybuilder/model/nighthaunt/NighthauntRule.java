@@ -72,9 +72,8 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 	EnergieDAmesCaptives(RuleType.Aptitude),
 	FauchesCommeLesBles(RuleType.Aptitude),
 	FaireFaceALaMort(RuleType.Aptitude),
-	HeuresVolees(RuleType.Aptitude),
-	HordeEffroyable(u -> u.alter(NighthauntUnitWeapon.ArmeDeMalfaisant, w -> w.setAltBlesser("+1")),
-			RuleType.Aptitude),
+	HeuresVolees(u -> u.alter(NighthauntUnitWeapon.EpeeDesHeuresVolees, w -> w.setAltBlesser("+1")), RuleType.Aptitude),
+	HordeEffroyable(u -> u.alter(NighthauntUnitWeapon.ArmeDeMalfaisant, w -> w.setAltBlesser("+1")), RuleType.Aptitude),
 	HurlementFunebre(RuleType.Aptitude),
 	HurlementPerturbant(RuleType.Aptitude),
 	JusticeFuneste(RuleType.Aptitude),
@@ -83,28 +82,27 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 	MaledictionDeLoyaute(RuleType.Aptitude),
 	MangeSorts(RuleType.Aptitude),
 	MortarqueDuDeuil(RuleType.Aptitude),
-	MortTourbillonnante(u -> u.alter(NighthauntUnitWeapon.GrandeLameDeLaTombe, w -> w.setAltAttaques("+1")),
+	MortTourbillonnante(
+			u -> u.alter(NighthauntUnitWeapon.GrandeLameDeLaTombe, w -> w.setAltAttaques("+1")),
 			RuleType.Aptitude),
 	PasDeRepitPourLesDamnees(RuleType.Aptitude),
 	PourvoyeursDeMortEffrenes(RuleType.Aptitude),
 	ProgressionFantomatique(RuleType.Aptitude),
 	ReleverLeVoile(RuleType.Aptitude),
 	SablesDuTemps(RuleType.Aptitude),
-	SeigneurDesSpectres(RuleType.Aptitude),
+	SeigneurDesSpectres_1(RuleType.Aptitude),
+	SeigneurDesSpectres_2(RuleType.Aptitude),
 	SiJeNePeuxRegnerNulNeLePourra(RuleType.Aptitude),
 	SoifDeSangMeurtriere(
 			u -> u.alter(NighthauntUnitWeapon.MembresFaucheurs, w -> w.setAltToucher("+1")),
 			RuleType.Aptitude),
 	UnMaillonDeLaChaine(RuleType.Aptitude),
 
-	Affregarde(u -> u.alter(NighthauntUnitWeapon.ArmeDeMalfaisant, w -> w.setAltAttaques("+1")),
-			RuleType.Composition),
+	Affregarde(u -> u.alter(NighthauntUnitWeapon.ArmeDeMalfaisant, w -> w.setAltAttaques("+1")), RuleType.Composition),
 	QuesteurDeShyish(u -> u.add(NighthauntUnitWeapon.GlasMortel), RuleType.Composition),
 	TambourDArythmie(RuleType.Composition),
-	Tailladeuse(u -> u.alter(NighthauntUnitWeapon.MembresFaucheurs, w -> w.setAltAttaques("+1")),
-			RuleType.Composition),
+	Tailladeuse(u -> u.alter(NighthauntUnitWeapon.MembresFaucheurs, w -> w.setAltAttaques("+1")), RuleType.Composition),
 	SpectreInfernal(RuleType.Composition),
-
 
 	;
 

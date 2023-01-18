@@ -1,0 +1,1 @@
+_fin phase combat_ si 1+ μ tuée avec __Épée des Heures Volées__, guérir 1 blessure et gagne +1 blessure.

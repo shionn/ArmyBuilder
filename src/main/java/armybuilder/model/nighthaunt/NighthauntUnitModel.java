@@ -20,44 +20,53 @@ import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum NighthauntUnitModel implements IUnitModel<NighthauntUnitModel> {
 
+	DameOlynder(
+			Arrays.asList(NighthauntUnitWeapon.BatonDeMinuit, NighthauntUnitWeapon.GriffesSpectrales),
+			Arrays.asList(GeneriqueUnitRule.Sorcier_2_2, GeneriqueUnitRule.MaitreDeGuerre, NighthauntRule.SablesDuTemps,
+					NighthauntRule.PasDeRepitPourLesDamnees, NighthauntRule.MortarqueDuDeuil,
+					NighthauntRule.ReleverLeVoile, NighthauntRule.SuaireDeDesespoir)),
 
-
-	DameOlynder(Arrays.asList(NighthauntUnitWeapon.BatonDeMinuit, NighthauntUnitWeapon.GriffesSpectrales),
-			Arrays.asList(GeneriqueUnitRule.Sorcier_2_2, GeneriqueUnitRule.MaitreDeGuerre,
-					NighthauntRule.SablesDuTemps, NighthauntRule.PasDeRepitPourLesDamnees,
-					NighthauntRule.MortarqueDuDeuil, NighthauntRule.ReleverLeVoile, NighthauntRule.SuaireDeDesespoir)),
-
-	KurdossValentian(Arrays.asList(NighthauntUnitWeapon.SceptreSepulcral, NighthauntUnitWeapon.GriffesSpectrales),
+	KurdossValentian(
+			Arrays.asList(NighthauntUnitWeapon.SceptreSepulcral, NighthauntUnitWeapon.GriffesSpectrales),
 			Arrays.asList(NighthauntRule.SiJeNePeuxRegnerNulNeLePourra)),
 	ReikenorLeSombreChantre(
 			Arrays.asList(NighthauntUnitWeapon.Aprefauche, NighthauntUnitWeapon.SabotsEtDentsFantomatiquesReikenor),
-			Arrays.asList(GeneriqueUnitRule.Sorcier_1_1, NighthauntRule.BougiesDeCadavre,
-					NighthauntRule.JusticeFuneste, NighthauntRule.TempeteSpectrale)),
+			Arrays.asList(GeneriqueUnitRule.Sorcier_1_1, NighthauntRule.BougiesDeCadavre, NighthauntRule.JusticeFuneste,
+					NighthauntRule.TempeteSpectrale)),
 //	TODO Scribot Mortis(Arrays.asList(), Arrays.asList()),
-	ChevalierDesSuaires(Arrays.asList(NighthauntUnitWeapon.EpeeDesHeuresVolees),
+	ChevalierDesSuaires(
+			Arrays.asList(NighthauntUnitWeapon.EpeeDesHeuresVolees),
 			Arrays.asList(NighthauntRule.HeuresVolees, NighthauntRule.ContremaitreSpectral)),
-	ChevalierDesSuairesSurCoursierEthere(Arrays.asList(NighthauntUnitWeapon.EpeeDesHeuresVolees,
-			NighthauntUnitWeapon.SabotsEtDentsFantomatiquesSuaires),
-			Arrays.asList(NighthauntRule.HeuresVolees, NighthauntRule.SeigneurDesSpectres)),
+	ChevalierDesSuairesSurCoursierEthere(
+			Arrays.asList(NighthauntUnitWeapon.EpeeDesHeuresVolees,
+					NighthauntUnitWeapon.SabotsEtDentsFantomatiquesSuaires),
+			Arrays.asList(NighthauntRule.HeuresVolees, NighthauntRule.SeigneurDesSpectres_1,
+					NighthauntRule.SeigneurDesSpectres_2)),
 	EcumeurAffrelame(
 			Arrays.asList(NighthauntUnitWeapon.Affrelame, NighthauntUnitWeapon.SabotsEtDentsFantomatiquesEcumeur),
 			Arrays.asList(NighthauntRule.Dematerialisation, NighthauntRule.MaledictionDeLoyaute)),
-	SeigneurBourreau(Arrays.asList(NighthauntUnitWeapon.GrandeHacheDeDecapitation),
+	SeigneurBourreau(
+			Arrays.asList(NighthauntUnitWeapon.GrandeHacheDeDecapitation),
 			Arrays.asList(NighthauntRule.FaireFaceALaMort, NighthauntRule.CranesDesincarnes)),
-	GardienDesAmes(Arrays.asList(NighthauntUnitWeapon.LameDeFrisson),
+	GardienDesAmes(
+			Arrays.asList(NighthauntUnitWeapon.LameDeFrisson),
 			Arrays.asList(GeneriqueUnitRule.Sorcier_1_1, NighthauntRule.LanterneDeCauchemar,
 					NighthauntRule.LeurreSpectral)),
-	EspritTourmenteur(Arrays.asList(NighthauntUnitWeapon.ChainesBagnespectre),
+	EspritTourmenteur(
+			Arrays.asList(NighthauntUnitWeapon.ChainesBagnespectre),
 			Arrays.asList(NighthauntRule.EnergieDAmesCaptives)),
 	ManesEnchaines(
 			Arrays.asList(NighthauntUnitWeapon.FleauxSpectrauxProjectil, NighthauntUnitWeapon.FleauxSpectrauxMelee),
 			Arrays.asList(NighthauntRule.UnMaillonDeLaChaine)),
-	BansheeDesTertres(Arrays.asList(NighthauntUnitWeapon.CriPerçant, NighthauntUnitWeapon.DagueDeFrisson),
+	BansheeDesTertres(
+			Arrays.asList(NighthauntUnitWeapon.CriPerçant, NighthauntUnitWeapon.DagueDeFrisson),
 			Arrays.asList(NighthauntRule.HurlementFunebre)),
-	SpectreDesCairns(Arrays.asList(NighthauntUnitWeapon.FauxDeGrandCairn),
+	SpectreDesCairns(
+			Arrays.asList(NighthauntUnitWeapon.FauxDeGrandCairn),
 			Arrays.asList(NighthauntRule.PourvoyeursDeMortEffrenes)),
 
-	FaucheursMornemanes(Arrays.asList(NighthauntUnitWeapon.FauxDEstafier),
+	FaucheursMornemanes(
+			Arrays.asList(NighthauntUnitWeapon.FauxDEstafier),
 			Arrays.asList(NighthauntRule.FauchesCommeLesBles)),
 	Raclechaines(Arrays.asList(NighthauntUnitWeapon.ArmeDeMalfaisant), Arrays.asList(NighthauntRule.HordeEffroyable)),
 	RevenantsLamemanes(

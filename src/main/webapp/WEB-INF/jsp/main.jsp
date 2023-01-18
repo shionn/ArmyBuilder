@@ -92,7 +92,7 @@
 			<select name="model">
 				<c:forEach items="${UnitModel.sorteds()}" var="model">
 					<c:if test="${model.availableFor(army)}">
-						<option value="${model}">${model.displayName}</option>
+						<option value="${model}">${model.roleTactiques.get(0)} ${model.displayName} ${model.points}</option>
 					</c:if>
 				</c:forEach>
 			</select>
