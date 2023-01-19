@@ -1,1 +1,1 @@
-_votre phase de héro_ une seule fois, +1pc.
+_votre, une seule fois_, +1pc.

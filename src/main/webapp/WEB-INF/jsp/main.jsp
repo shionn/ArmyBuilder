@@ -7,6 +7,7 @@
 <%@ page import="armybuilder.model.army.Triomphes" %>
 <%@ page import="armybuilder.model.army.bataillon.BataillonType" %>
 <%@ page import="armybuilder.model.rule.RuleType" %>
+<%@ page import="armybuilder.model.rule.RuleIcons" %>
 <%@ page import="armybuilder.model.unit.model.UnitModel" %>
 <%@ page import="armybuilder.model.unit.role.RoleTactique" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -245,7 +246,9 @@
 <%-- 					</c:forEach> --%>
 <!-- 				</div> -->
 				<c:forEach items="${unit.rules}" var="rule">
-					<div class="rule"><span>${rule.displayName}:</span>${rule.description}</div>
+					<div class="rule">
+						<span>${rule.displayName} <c:forEach var="icon" items="${RuleIcons.get(rule)}"><img src="img/${icon.img}.png" style="${icon.style}"></c:forEach>:</span>${rule.description}
+					</div>
 				</c:forEach>
 			</main>
 			<c:if test="${not empty unit.keyWords}">
@@ -261,7 +264,7 @@
 		</article>
 	</c:forEach>
 </div>
-<h2>Bataillons</h2>
+<h3>Bataillons</h3>
 <div class="units columns2" style="page-break-inside: avoid;">
 	<c:forEach items="${army.bataillons}" var="bat">
 		<article class="bataillon">
@@ -287,7 +290,9 @@
 <%-- 					</c:forEach> --%>
 <!-- 				</div> -->
 				<c:forEach items="${bat.rules}" var="rule">
-					<div class="rule"><span>${rule.displayName}:</span>${rule.description}</div>
+					<div class="rule">
+						<span>${rule.displayName} <c:forEach var="icon" items="${RuleIcons.get(rule)}"><img src="img/${icon.img}.png" style="${icon.style}"></c:forEach>:</span>${rule.description}
+					</div>
 				</c:forEach>
 			</main>
 		</article>
@@ -301,7 +306,9 @@
 			<h3>${type.displayName}</h3>
 			<div class="columns2">
 				<c:forEach items="${army.rules(type)}" var="rule">
-					<div class="rule"><span>${rule.displayName}:</span>${rule.description}</div>
+					<div class="rule">
+						<span>${rule.displayName} <c:forEach var="icon" items="${RuleIcons.get(rule)}"><img src="img/${icon.img}.png" style="${icon.style}"></c:forEach>:</span>${rule.description}
+					</div>
 				</c:forEach>
 			</div>
 		</c:if>

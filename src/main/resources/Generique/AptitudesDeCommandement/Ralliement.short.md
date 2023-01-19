@@ -1,1 +1,1 @@
-_début phase des héros_ +3" unités ennemies. 1D6 pour chaque tuée de l’unité. Sur chaque 6, ramener 1 figurine.
+_début_ μ __!engagé__. 1D6 pour chaque tuée de l’unité. Sur chaque 6, ramener 1 figurine.

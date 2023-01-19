@@ -1,1 +1,1 @@
-_une seule fois, votre phase des héros_ ∀ μ __convocable__ ramener 1 figurine tuée.
+_votre, une seule fois_ ∀ μ __convocable__ ramener 1 figurine tuée.

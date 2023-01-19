@@ -1,1 +1,1 @@
-_sort_ 5+ ∈ 12". +1 sauvegarde ==> votre prochaine phase des héros.
+5+ ∈ 12". +1 sauvegarde => _votre prochaine héros_.

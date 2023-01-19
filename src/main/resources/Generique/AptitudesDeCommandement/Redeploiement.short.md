@@ -1,1 +1,1 @@
-_phase de mouvement adverse_ si <9" de l’unité ennemie et !engagé, alors mouvement D6", ne peu tirer.
+_adverse_ si <9" de μ ennemie et __!engagé__, alors mouvement D6", ne peu tirer.

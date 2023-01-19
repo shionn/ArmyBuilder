@@ -1,1 +1,1 @@
-_phase de tir || phase de combat_ Gagne protection 5+.
+Gagne protection 5+.

@@ -13,6 +13,10 @@ body {
 	margin:0 auto;
 	background-color: white;
 
+	@media print {
+		color: black !important;
+	}
+
 	a {
 		text-decoration: none;
 		color: $color-dark;

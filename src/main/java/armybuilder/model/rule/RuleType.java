@@ -10,19 +10,21 @@ public enum RuleType {
 
 	GrandeStrategie(true),
 	Triomphes(true),
-	Composition(true),
+	Composition(false),
 	TactiquesDeBataille(true),
 
-	Aptitude(true),
+	Aptitude(false),
 	AptitudesDeCommandement(true),
 	TraitsDeCommandement(true),
 	TraitsDeMonture(false),
 	FureursMonstrueuses(true),
 	ActionsHeroiques(true),
 	Artefact(true),
-	Sort(true),
 	Priere(true),
 	EndLessSpell(true),
+
+	Sort(true),
+	Aura(false),
 
 	PhaseBeforeStart(false),
 	PhaseDeCharge(false),
@@ -30,6 +32,8 @@ public enum RuleType {
 	PhaseDeMouvement(false),
 	PhaseDeTir(false),
 	PhaseDeCombat(false),
+	PhaseDeCombatDebut(false),
+	PhaseDeCombatFin(false),
 	PhaseDeDeroute(false),
 
 	Rule(true),

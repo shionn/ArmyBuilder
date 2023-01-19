@@ -35,12 +35,12 @@ public enum OptimisationsUniverselles implements IUnitOption {
 	AmuletteDeLaDestinee(
 			GeneriqueUnitRule.AmuletteDeLaDestinee.getDisplayName(),
 			UnitOptionCategory.Artefact,
-			u -> !u.is(KeyWord.Unique),
+			u -> !u.isOneOf(KeyWord.Unique, KeyWord.FilleDeKhaine, KeyWord.Hantenuits),
 			u -> u.add(GeneriqueUnitRule.AmuletteDeLaDestinee)),
 	VolumeObscur(
 			GeneriqueUnitRule.VolumeObscur.getDisplayName(),
 			UnitOptionCategory.Artefact,
-			u -> !u.is(KeyWord.Unique),
+			u -> !u.isOneOf(KeyWord.Unique),
 			u -> {
 				u.add(GeneriqueUnitRule.VolumeObscur);
 				if (!u.is(KeyWord.Sorcier)) {

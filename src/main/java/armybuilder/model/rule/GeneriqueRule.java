@@ -36,7 +36,10 @@ public enum GeneriqueRule implements IRule<GeneriqueRule> {
 			RuleType.Sort,
 			RuleType.TraisUnitee),
 	BouclierMystique(
-			a -> a.units(KeyWord.Sorcier).stream().forEach(u -> u.add(GeneriqueRule.valueOf("BouclierMystique"))),
+			a -> a.units(KeyWord.Sorcier)
+					.stream()
+					.filter(u -> !u.is(KeyWord.Hantenuits))
+					.forEach(u -> u.add(GeneriqueRule.valueOf("BouclierMystique"))),
 			RuleType.Sort,
 			RuleType.TraisUnitee),
 
