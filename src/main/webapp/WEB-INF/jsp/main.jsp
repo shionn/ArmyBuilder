@@ -264,8 +264,9 @@
 		</article>
 	</c:forEach>
 </div>
-<h3>Bataillons</h3>
-<div class="units columns2" style="page-break-inside: avoid;">
+<div style="page-break-inside: avoid;">
+	<h3>Bataillons</h3>
+	<div class="units columns2" >
 	<c:forEach items="${army.bataillons}" var="bat">
 		<article class="bataillon">
 			<spring:url value="/bataillon/rm/${bat.id}" var="url" />
@@ -297,6 +298,7 @@
 			</main>
 		</article>
 	</c:forEach>
+	</div>
 </div>
 
 <div style="page-break-inside: avoid;">

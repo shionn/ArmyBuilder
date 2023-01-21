@@ -40,7 +40,7 @@
 	<main>
 		<jsp:invoke fragment="content" />
 	</main>
-	<footer>
+	<footer class="print-hidden">
 		ArmyBuilder by <a href="mailto:shionn@gmail.com">shionn</a>
 	</footer>
 	<script type="text/javascript" src='<spring:url value="/js/scripts.js"/>'></script>
