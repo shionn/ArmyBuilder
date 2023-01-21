@@ -14,6 +14,7 @@
 <meta name="mobile-web-app-capable" content="yes" />
 <link rel="shortcut icon" type="image/x-icon" href='<spring:url value="/img/favicon.ico"/>'/>
 <link rel="stylesheet" href="<spring:url value="/css/style.css"/>" />
+<link rel="stylesheet" href="<spring:url value="/css/rpg-awesome.css"/>" />
 <script src="https://kit.fontawesome.com/064a1a2fe3.js" crossorigin="anonymous"></script>
 <title>ArmyBuilder - by Shionn</title>
 </head>
@@ -42,7 +43,7 @@
 	</main>
 	<footer class="print-hidden">
 		ArmyBuilder by <a href="mailto:shionn@gmail.com">shionn</a>
-	</footer>
+	</footer>e
 	<script type="text/javascript" src='<spring:url value="/js/scripts.js"/>'></script>
 	<script type="text/javascript" src='<spring:url value="/js/menu.js"/>'></script>
 	<script type="text/javascript" src='<spring:url value="/js/ajax.js"/>'></script>

@@ -247,7 +247,7 @@
 <!-- 				</div> -->
 				<c:forEach items="${unit.rules}" var="rule">
 					<div class="rule">
-						<span>${rule.displayName} <c:forEach var="icon" items="${RuleIcons.get(rule)}"><img src="img/${icon.img}.png" style="${icon.style}"></c:forEach>:</span>${rule.description}
+						<span>${rule.displayName} <c:forEach var="icon" items="${RuleIcons.get(rule)}"><i class="${icon.style}"></i></c:forEach>:</span>${rule.description}
 					</div>
 				</c:forEach>
 			</main>
@@ -292,7 +292,7 @@
 <!-- 				</div> -->
 				<c:forEach items="${bat.rules}" var="rule">
 					<div class="rule">
-						<span>${rule.displayName} <c:forEach var="icon" items="${RuleIcons.get(rule)}"><img src="img/${icon.img}.png" style="${icon.style}"></c:forEach>:</span>${rule.description}
+						<span>${rule.displayName} <c:forEach var="icon" items="${RuleIcons.get(rule)}"><i class="${icon.style}"></i></c:forEach>:</span>${rule.description}
 					</div>
 				</c:forEach>
 			</main>
@@ -309,7 +309,7 @@
 			<div class="columns2">
 				<c:forEach items="${army.rules(type)}" var="rule">
 					<div class="rule">
-						<span>${rule.displayName} <c:forEach var="icon" items="${RuleIcons.get(rule)}"><img src="img/${icon.img}.png" style="${icon.style}"></c:forEach>:</span>${rule.description}
+						<span>${rule.displayName} <c:forEach var="icon" items="${RuleIcons.get(rule)}"><i class="${icon.style}"></i></c:forEach>:</span>${rule.description}
 					</div>
 				</c:forEach>
 			</div>
