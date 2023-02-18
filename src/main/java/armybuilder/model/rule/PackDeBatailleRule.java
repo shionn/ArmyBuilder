@@ -5,27 +5,120 @@ import static armybuilder.model.rule.ShortDescriptionBuilder.sh;
 import java.util.Arrays;
 import java.util.List;
 
+import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.serialisation.DescriptionReader;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum PackDeBatailleRule implements IRule<PackDeBatailleRule> {
-	ActionDeseperee(RuleType.ActionsHeroiques, RuleType.PhaseDesHeros),
+	ActionDeseperee(
+			sh().text("second joueur du round")
+					.comma()
+					.un()
+					.keyword(KeyWord.ChampionDeGallet)
+					.ami()
+					.text("peu effecter")
+					.deux()
+					.different()
+					.ruleType(RuleType.ActionsHeroiques),
+			RuleType.ActionsHeroiques,
+			RuleType.PhaseDesHeros),
 	CleDeLaVictoire(
-			sh().si()
-					.a(1)
+			sh().si().un().unitée().ami().role(RoleTactique.Ligne).non().cible().projectil(),
+			RuleType.Aptitude,
+			RuleType.TraisUnitee,
+			RuleType.PhaseDeTir),
+	DentGrincantesDeGallet(
+			sh().desPlus(6)
+					.a(12)
+					.choissisez()
+					.un()
+					.objectif()
+					.visible()
+					.dot()
+					.pourChaque()
+					.unitée()
+					.a(6)
+					.objectif()
+					.sur(4)
+					.twoPoints()
+					.subit()
+					.D6()
+					.BM(),
+			RuleType.Sort,
+			RuleType.TraisUnitee),
+	FrappeDOuverture(
+			sh().un()
+					.keyword(KeyWord.ChampionDeGallet)
+					.ami()
+					.non()
+					.a(3)
+					.unitée()
+					.ennemi()
+					.text("peu combattre")
+					.dot()
+					.gagne()
+					.frappeEnDerner()
+					.jusquà()
+					.finDeTour(),
+			RuleType.ActionsHeroiques,
+			RuleType.PhaseDesHeros),
+	MenerParLExemple(
+			sh().un()
+					.keyword(KeyWord.ChampionDeGallet)
+					.ami()
+					.apres()
+					.rule(FrappeDOuverture)
+					.avec()
+					.unitée()
+					.keyword(KeyWord.GardeAssermentee)
+					.entierment(6)
+					.et()
+					.a(3)
+					.unitée()
+					.ennemi()
+					.dot()
 					.unitée()
 					.ami()
-					.role(RoleTactique.Ligne)
+					.keyword(KeyWord.GardeAssermentee)
+					.text("peu combattre")
+					.et()
+					.gagne()
+					.frappeEnDerner()
+					.jusquà()
+					.finDeTour(),
+			RuleType.ActionsHeroiques,
+			RuleType.PhaseDesHeros),
+	Metamorphose(RuleType.Sort, RuleType.TraisUnitee),
+	PasDeRepliPasDeReddition(
+			sh().debut()
+					.comma()
+					.un()
+					.unitée()
+					.ami()
 					.non()
-					.text("cible de projectil"),
-			RuleType.Aptitude,
-			RuleType.TraisUnitee, RuleType.PhaseDeTir),
-	FrappeDOuverture(RuleType.ActionsHeroiques, RuleType.PhaseDesHeros),
+					.keyword(KeyWord.Heros)
+					.non()
+					.keyword(KeyWord.Monstre)
+					.text("n'ayant pas chargé")
+					.et()
+					.a(3)
+					.unitée()
+					.ennemi()
+					.dot()
+					.gagne()
+					.non()
+					.mouvementEngagement()
+					.et()
+					.plus(1)
+					.attaque()
+					.melee()
+					.non()
+					.monture(),
+			RuleType.AptitudesDeCommandement,
+			RuleType.PhaseDeCombatDebut),
 	RegardDeGhur(RuleType.Sort, RuleType.TraisUnitee),
 	RugissementSauvage(RuleType.AptitudesDeCommandement, RuleType.PhaseDeCombat),
-	MenerParLExemple(RuleType.ActionsHeroiques, RuleType.PhaseDesHeros),
-	Metamorphose(RuleType.Sort, RuleType.TraisUnitee),
 
 	;
 

@@ -31,8 +31,10 @@ public enum PackDeBataille implements IHaveDisplayName, IDecoreArmy {
 				.forEach(u -> u.add(KeyWord.ChampionDeGallet));
 		a.units(KeyWord.ChampionDeGallet).forEach(u -> u.add(PackDeBatailleRule.CleDeLaVictoire));
 		a.add(PackDeBatailleRule.ActionDeseperee, PackDeBatailleRule.FrappeDOuverture,
-				PackDeBatailleRule.MenerParLExemple);
-	});
+				PackDeBatailleRule.MenerParLExemple, PackDeBatailleRule.PasDeRepliPasDeReddition);
+		a.units(KeyWord.Sorcier).forEach(u -> u.add(PackDeBatailleRule.DentGrincantesDeGallet));
+	}),
+	;
 
 	private String displayName;
 	private Consumer<Army> modifier;
