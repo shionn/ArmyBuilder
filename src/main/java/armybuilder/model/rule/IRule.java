@@ -14,6 +14,8 @@ public interface IRule<T extends Enum<T> & IRule<T>> extends IHaveDisplayName {
 
 	String getDescription();
 
+	// TODO a supprimer pou l'enum ShortDescription
+	@Deprecated
 	default String getShortDescription() {
 		return null;
 	}

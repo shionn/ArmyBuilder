@@ -33,6 +33,7 @@ public enum PackDeBataille implements IHaveDisplayName, IDecoreArmy {
 		a.add(PackDeBatailleRule.ActionDeseperee, PackDeBatailleRule.FrappeDOuverture,
 				PackDeBatailleRule.MenerParLExemple, PackDeBatailleRule.PasDeRepliPasDeReddition);
 		a.units(KeyWord.Sorcier).forEach(u -> u.add(PackDeBatailleRule.DentGrincantesDeGallet));
+		// TODO Tactique de Bataille & GrandeStrategie
 	}),
 	;
 

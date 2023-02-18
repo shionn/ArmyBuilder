@@ -1,126 +1,36 @@
 package armybuilder.model.rule;
 
-import static armybuilder.model.rule.ShortDescriptionBuilder.sh;
-
 import java.util.Arrays;
 import java.util.List;
 
-import armybuilder.model.unit.keyword.KeyWord;
-import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.serialisation.DescriptionReader;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum PackDeBatailleRule implements IRule<PackDeBatailleRule> {
-	ActionDeseperee(
-			sh().text("second joueur du round")
-					.comma()
-					.un()
-					.keyword(KeyWord.ChampionDeGallet)
-					.ami()
-					.text("peu effecter")
-					.deux()
-					.different()
-					.ruleType(RuleType.ActionsHeroiques),
-			RuleType.ActionsHeroiques,
-			RuleType.PhaseDesHeros),
-	CleDeLaVictoire(
-			sh().non().cible().projectil().comma().si().a(1).unitée().ami().role(RoleTactique.Ligne),
-			RuleType.Aptitude,
-			RuleType.TraisUnitee,
-			RuleType.PhaseDeTir),
-	DentGrincantesDeGallet(
-			sh().desPlus(6)
-					.a(12)
-					.choissisez()
-					.un()
-					.objectif()
-					.visible()
-					.dot()
-					.pourChaque()
-					.unitée()
-					.a(6)
-					.objectif()
-					.sur(4)
-					.deuxPoint()
-					.subit()
-					.D6()
-					.BM(),
-			RuleType.Sort,
-			RuleType.TraisUnitee),
-	FrappeDOuverture(
-			sh().un()
-					.keyword(KeyWord.ChampionDeGallet)
-					.ami()
-					.non()
-					.a(3)
-					.unitée()
-					.ennemi()
-					.text("peu combattre")
-					.dot()
-					.gagne()
-					.frappeEnDerner()
-					.jusquà()
-					.finDeTour(),
-			RuleType.ActionsHeroiques,
-			RuleType.PhaseDesHeros),
-	MenerParLExemple(
-			sh().un()
-					.keyword(KeyWord.ChampionDeGallet)
-					.ami()
-					.apres()
-					.rule(FrappeDOuverture)
-					.avec()
-					.unitée()
-					.keyword(KeyWord.GardeAssermentee)
-					.entierment(6)
-					.et()
-					.a(3)
-					.unitée()
-					.ennemi()
-					.dot()
-					.unitée()
-					.ami()
-					.keyword(KeyWord.GardeAssermentee)
-					.text("peu combattre")
-					.et()
-					.gagne()
-					.frappeEnDerner()
-					.jusquà()
-					.finDeTour(),
-			RuleType.ActionsHeroiques,
-			RuleType.PhaseDesHeros),
+
 	Metamorphose(RuleType.Sort, RuleType.TraisUnitee),
-	PasDeRepliPasDeReddition(
-			sh().debut()
-					.comma()
-					.un()
-					.unitée()
-					.ami()
-					.non()
-					.keyword(KeyWord.Heros)
-					.non()
-					.keyword(KeyWord.Monstre)
-					.text("n'ayant pas chargé")
-					.et()
-					.a(3)
-					.unitée()
-					.ennemi()
-					.dot()
-					.gagne()
-					.non()
-					.mouvementEngagement()
-					.et()
-					.plus(1)
-					.attaque()
-					.melee()
-					.non()
-					.monture(),
-			RuleType.AptitudesDeCommandement,
-			RuleType.PhaseDeCombatDebut),
 	RegardDeGhur(RuleType.Sort, RuleType.TraisUnitee),
 	RugissementSauvage(RuleType.AptitudesDeCommandement, RuleType.PhaseDeCombat),
 
-	;
+	/**
+	 * Pack de bataile 2023 saison 2
+	 */
+	ActionDeseperee(RuleType.ActionsHeroiques, RuleType.PhaseDesHeros),
+	AlimenteParLaRageDeGhur(RuleType.Aptitude),
+	AutoriteDuDominant(RuleType.Aptitude),
+	CleDeLaVictoire(RuleType.Aptitude, RuleType.PhaseDeTir),
+	DentGrincantesDeGallet(RuleType.Sort),
+	EnteteCommeUnRhinox(RuleType.Aptitude),
+	FrappeDOuverture(RuleType.ActionsHeroiques, RuleType.PhaseDesHeros),
+	MaitreDesTunnels(RuleType.PhaseDeMouvement, RuleType.TraisUnitee),
+	MenerParLExemple(RuleType.ActionsHeroiques, RuleType.PhaseDesHeros),
+	PasDeRepliPasDeReddition(RuleType.AptitudesDeCommandement, RuleType.PhaseDeCombatDebut),
+
+	HeameDIvoire(RuleType.Artefact, RuleType.PhaseDeCharge),
+	CapeDeNictoptere(RuleType.Artefact),
+	CharmeDePlumeDeGriffe(RuleType.Artefact),
+
+;
 
 	private List<RuleType> types;
 	private String displayName;

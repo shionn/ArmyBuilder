@@ -17,11 +17,15 @@ public class DescriptionReader {
 	}
 
 	public String read(String folder, IRule<?> e) {
-		if (e.getShortDescription() != null) {
-			Node node = Parser.builder().build().parse(e.getShortDescription());
-			return HtmlRenderer.builder().build().render(node);
+		try {
+			return ShortDescription.valueOf(e).getValue();
+		} catch (RuntimeException ex) {
+			if (e.getShortDescription() != null) {
+				Node node = Parser.builder().build().parse(e.getShortDescription());
+				return HtmlRenderer.builder().build().render(node);
+			}
+			return read(folder, e.name());
 		}
-		return read(folder, e.name());
 	}
 
 	private String read(String folder, String name) {

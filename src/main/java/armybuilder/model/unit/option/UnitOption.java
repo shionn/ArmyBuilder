@@ -1,10 +1,14 @@
 package armybuilder.model.unit.option;
 
+import static armybuilder.model.unit.option.BaseUnitOption.builder;
+
 import armybuilder.model.dok.DokOptimisations;
 import armybuilder.model.nighthaunt.NighthauntOptimisation;
+import armybuilder.model.rule.PackDeBatailleRule;
 import armybuilder.model.skaven.SkavenOptimisation;
 import armybuilder.model.stormcast.StormcastOptimisation;
 import armybuilder.model.unit.Unit;
+import armybuilder.model.unit.keyword.KeyWord;
 
 public enum UnitOption implements IUnitOption {
 	SoifDeBataille(OptimisationsUniverselles.SoifDeBataille),
@@ -28,10 +32,14 @@ public enum UnitOption implements IUnitOption {
 	RenforceesUneFois(OptimisationsUniverselles.RenforceesUneFois),
 	RenforceesDeuxFois(OptimisationsUniverselles.RenforceesDeuxFois),
 
-	MaitreDesTunnels(AspectsDuChampion.MaitreDesTunnels),
-	AlimenteParLaRageDeGhur(AspectsDuChampion.AlimenteParLaRageDeGhur),
-	EnteteCommeUnRhinox(AspectsDuChampion.EnteteCommeUnRhinox),
-	AutoriteDuDominant(AspectsDuChampion.AutoriteDuDominant),
+	AlimenteParLaRageDeGhur(builder().aspectsDuChampion(PackDeBatailleRule.AlimenteParLaRageDeGhur)),
+	EnteteCommeUnRhinox(builder().aspectsDuChampion(PackDeBatailleRule.EnteteCommeUnRhinox)),
+	MaitreDesTunnels(builder().aspectsDuChampion(PackDeBatailleRule.MaitreDesTunnels)),
+	AutoriteDuDominant(builder().aspectsDuChampion(PackDeBatailleRule.AutoriteDuDominant)),
+
+	CapeDeNictoptere(builder().artefact(PackDeBatailleRule.CapeDeNictoptere).availableFor(KeyWord.ChampionDeGallet)),
+	CharmeDePlumeDeGriffe(builder().artefact(PackDeBatailleRule.CharmeDePlumeDeGriffe).availableFor(KeyWord.ChampionDeGallet)),
+	HeameDIvoire(builder().artefact(PackDeBatailleRule.HeameDIvoire).availableFor(KeyWord.ChampionDeGallet)),
 
 	BainDeSang(DokOptimisations.BainDeSang),
 	MaitriseDesArcanes(DokOptimisations.MaitriseDesArcanes),
@@ -174,6 +182,20 @@ public enum UnitOption implements IUnitOption {
 
 	UnitOption(IUnitOption sub) {
 		this.sub = sub;
+	}
+
+	UnitOption(BaseUnitOption.Builder sub) {
+		this.sub = sub.build();
+	}
+
+	public String getFullDisplayName() {
+		if (sub instanceof OptimisationsUniverselles) {
+			return "Universelle: " + getDisplayName();
+		}
+		if (sub instanceof NighthauntOptimisation) {
+			return "Hantenuits: " + getDisplayName();
+		}
+		return getDisplayName();
 	}
 
 	@Override

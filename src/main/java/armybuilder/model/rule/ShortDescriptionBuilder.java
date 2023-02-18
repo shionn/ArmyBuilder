@@ -292,4 +292,8 @@ public class ShortDescriptionBuilder {
 		return space().text("sans dépenser de pts");
 	}
 
+	public ShortDescriptionBuilder protection(int x) {
+		return space().word("protection").plus(x);
+	}
+
 }
