@@ -110,6 +110,10 @@ public class ShortDescriptionBuilder {
 		return space().word("à ").number(x).character('"');
 	}
 
+	public ShortDescriptionBuilder aPlus(int x) {
+		return space().word("à +").number(x).character('"');
+	}
+
 	public ShortDescriptionBuilder aUnDemiPouce() {
 		return space().word("à ").character('½').character('"');
 	}
@@ -130,6 +134,10 @@ public class ShortDescriptionBuilder {
 		return space().number(2);
 	}
 
+	public ShortDescriptionBuilder dix() {
+		return space().number(10);
+	}
+
 	public ShortDescriptionBuilder dot() {
 		return character('.');
 	}
@@ -143,8 +151,17 @@ public class ShortDescriptionBuilder {
 	}
 
 	public ShortDescriptionBuilder debut() {
-		return character('*').word("début").character('*');
+		return space().character('*').word("début").character('*');
 	}
+
+	public ShortDescriptionBuilder uneFoisParBataille() {
+		return space().character('*').word("une seule fois").character('*');
+	}
+
+	public ShortDescriptionBuilder finDeTour() {
+		return space().character('*').word("fin de tour").character('*');
+	}
+
 
 	public ShortDescriptionBuilder si() {
 		return space().word("si");
@@ -172,10 +189,6 @@ public class ShortDescriptionBuilder {
 
 	public ShortDescriptionBuilder jusquà() {
 		return space().word("=>");
-	}
-
-	public ShortDescriptionBuilder finDeTour() {
-		return space().word("*fin de tour*");
 	}
 
 
@@ -233,6 +246,26 @@ public class ShortDescriptionBuilder {
 
 	public ShortDescriptionBuilder figurine() {
 		return space().word("ƒ");
+	}
+
+	public ShortDescriptionBuilder teleport() {
+		return space().word("téléport");
+	}
+
+	public ShortDescriptionBuilder contest() {
+		return space().word("contest");
+	}
+
+	public ShortDescriptionBuilder contesté() {
+		return space().word("contesté");
+	}
+
+	public ShortDescriptionBuilder pour() {
+		return space().word("pour");
+	}
+
+	public ShortDescriptionBuilder sur() {
+		return space().word("sur");
 	}
 
 }

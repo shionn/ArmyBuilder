@@ -22,7 +22,7 @@ public interface UnitEditDao {
 			+ "artefact = #{artefact}, sort = #{sort}, priere = #{priere}, " //
 			+ "chef = #{chef}, musicien = #{musicien}, banniere = #{banniere}, " //
 			+ "arme = #{arme}, renforcee = #{renforcee}, invoquee = #{invoquee}, "
-			+ "trais_de_monture = #{traisDeMonture} " //
+			+ "trais_de_monture = #{traisDeMonture}, aspect_champion = #{aspectChampion} " //
 			+ "WHERE id = #{id}")
 	int update(Unit unit);
 

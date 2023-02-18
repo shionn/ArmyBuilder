@@ -1,0 +1,1 @@
+Une fois par bataille, avant d'allouer un blessure ou blessure mortelle à ce __Champion de Gallet__ et si cette blessure ou blessure mortelle est censée le tuer, vous pouvez jeter un dé. Sur 3+, la blessure ou blessure mortelle est annulée, vous pouivez guérir jusqu'à D3 blessurees qui lui sont allouées, et toute blkessure restant actuellement à lui allouer est annullée.

@@ -28,6 +28,8 @@ public enum UnitOption implements IUnitOption {
 	RenforceesUneFois(OptimisationsUniverselles.RenforceesUneFois),
 	RenforceesDeuxFois(OptimisationsUniverselles.RenforceesDeuxFois),
 
+	MaitreDesTunnels(AspectsDuChampion.MaitreDesTunnels),
+
 	BainDeSang(DokOptimisations.BainDeSang),
 	MaitriseDesArcanes(DokOptimisations.MaitriseDesArcanes),
 	MaitreDesPoisons(DokOptimisations.MaitreDesPoisons),

@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import armybuilder.model.army.bataillon.Bataillon;
 import armybuilder.model.comparator.DisplayNameComparator;
+import armybuilder.model.comparator.EnumOrdinalComparator;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.keyword.IHaveKeyWord;
 import armybuilder.model.unit.keyword.KeyWord;
@@ -38,6 +39,7 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 	private UnitOption arme;
 	private UnitOption renforcee;
 	private UnitOption invoquee;
+	private UnitOption aspectChampion;
 	private Bataillon bataillon;
 
 	private int points;
@@ -144,7 +146,12 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 	 * Options
 	 */
 	public List<UnitOptionCategory> getOptionsCategories() {
-		return model.getOptionsCategories();
+		List<UnitOptionCategory> options = new ArrayList<UnitOptionCategory>(model.getOptionsCategories());
+		if (is(KeyWord.ChampionDeGallet)) {
+			options.add(UnitOptionCategory.AspectDuChampion);
+		}
+		options.sort(new EnumOrdinalComparator());
+		return options;
 	}
 
 	public boolean is(UnitOption option) {
@@ -335,4 +342,11 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 		this.traisDeMonture = traisDeMonture;
 	}
 
+	public UnitOption getAspectChampion() {
+		return aspectChampion;
+	}
+
+	public void setAspectChampion(UnitOption aspectChampion) {
+		this.aspectChampion = aspectChampion;
+	}
 }
