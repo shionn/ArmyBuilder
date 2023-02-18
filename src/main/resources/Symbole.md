@@ -1,7 +1,10 @@
 ∀
 μ
+μ<sup>e</sup>
+μ<sub>a</sub>
 ƒ
 ½
+≠
 
 BM Blesse Auto sur Toucher 6+.
 
@@ -22,6 +25,7 @@ _adverse_
 _vous choissisez cette μ pour combatre_,
 
 => _votre prochaine héros_
+=> _fin du tour_
 
 
 

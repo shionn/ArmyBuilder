@@ -1,6 +1,5 @@
 package armybuilder.model.skaven;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -82,7 +81,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	}
 
 	@Override
-	public String getDescription() throws IOException {
+	public String getDescription() {
 		return new DescriptionReader().read(this);
 	}
 

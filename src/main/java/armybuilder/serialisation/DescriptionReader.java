@@ -3,8 +3,6 @@ package armybuilder.serialisation;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-import java.util.Arrays;
-import java.util.function.Supplier;
 
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
@@ -14,21 +12,19 @@ import armybuilder.model.rule.IRule;
 
 public class DescriptionReader {
 
-	public static Supplier<String> rules(IRule<?>... rules) {
-		return () -> Arrays.stream(rules).map(r -> {
-			try {
-				return "<div class=\"rule\"><h3>" + r.getDisplayName() + " : </h3>" + r.getDescription() + "</div>";
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-		}).reduce((a, b) -> (a + b)).get();
+	public String read(IRule<?> e) {
+		return read(e.getClass().getSimpleName().replaceAll("Rule", "") + "/", e);
 	}
 
-	public String read(Enum<?> e) {
-		return read(e.getClass().getSimpleName().replaceAll("Rule", "") + "/", e.name());
+	public String read(String folder, IRule<?> e) {
+		if (e.getShortDescription() != null) {
+			Node node = Parser.builder().build().parse(e.getShortDescription());
+			return HtmlRenderer.builder().build().render(node);
+		}
+		return read(folder, e.name());
 	}
 
-	public String read(String folder, String name) {
+	private String read(String folder, String name) {
 		try {
 			try {
 				try {

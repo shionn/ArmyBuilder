@@ -1,6 +1,5 @@
 package armybuilder.model.rule;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -57,8 +56,8 @@ public enum GeneriqueUnitRule implements IRule<GeneriqueUnitRule> {
 	}
 
 	@Override
-	public String getDescription() throws IOException {
-		return new DescriptionReader().read("GeneriqueUnit/", name());
+	public String getDescription() {
+		return new DescriptionReader().read("GeneriqueUnit/", this);
 	}
 
 	@Override

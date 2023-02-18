@@ -1,0 +1,1 @@
+2nd joueur du round, 1 __Champion de Gallet__ 2 action héroique ≠.

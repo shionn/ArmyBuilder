@@ -1,6 +1,5 @@
 package armybuilder.model.army;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -48,7 +47,7 @@ public enum AptitudeDeCommandement implements IHaveDisplayName, IDecoreArmy, IRu
 	}
 
 	@Override
-	public String getDescription() throws IOException {
+	public String getDescription() {
 		return new DescriptionReader().read(this);
 	}
 

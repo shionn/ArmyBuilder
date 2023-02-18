@@ -1,6 +1,5 @@
 package armybuilder.model.stormcast;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
@@ -151,8 +150,8 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	}
 
 	@Override
-	public String getDescription() throws IOException {
-		return new DescriptionReader().read("Stormcast/", name());
+	public String getDescription() {
+		return new DescriptionReader().read("Stormcast/", this);
 	}
 
 	@Override

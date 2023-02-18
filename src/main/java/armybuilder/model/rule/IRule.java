@@ -1,6 +1,5 @@
 package armybuilder.model.rule;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -9,9 +8,15 @@ import armybuilder.model.unit.Unit;
 
 public interface IRule<T extends Enum<T> & IRule<T>> extends IHaveDisplayName {
 
+	String name();
+
 	List<RuleType> getTypes();
 
-	String getDescription() throws IOException;
+	String getDescription();
+
+	default String getShortDescription() {
+		return null;
+	}
 
 	default boolean is(RuleType type) {
 		return getTypes().contains(type);
@@ -25,5 +30,8 @@ public interface IRule<T extends Enum<T> & IRule<T>> extends IHaveDisplayName {
 		// nothing to do
 	}
 
+	public static ShortDescriptionBuilder sh() {
+		return new ShortDescriptionBuilder();
+	}
 
 }

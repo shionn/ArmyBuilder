@@ -1,0 +1,1 @@
+Choisissez 1 __Champion de Gallet__ ami à 3" d'une unité ennemie. Ce __Héros__ peut combatre s'il n'a pas déjà combattu à cette phase, et l'effet de frappe en dernier s'applique à lui jusqu'à la fin du tour.

@@ -1,6 +1,5 @@
 package armybuilder.model.army;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
@@ -59,8 +58,8 @@ public enum GrandeStrategie implements IHaveDisplayName, IDecoreArmy, IRule<Gran
 	}
 
 	@Override
-	public String getDescription() throws IOException {
-		return new DescriptionReader().read("GrandeStrategie/", name());
+	public String getDescription() {
+		return new DescriptionReader().read("GrandeStrategie/", this);
 	}
 
 	@Override

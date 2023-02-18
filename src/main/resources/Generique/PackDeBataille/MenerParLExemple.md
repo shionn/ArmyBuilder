@@ -1,0 +1,1 @@
+Choisissez 1 __Champion de Gallet__ ami ayant une unité de Garde Assermentée et venant d'effectuer héroique _Frappe d'Ouverture_. Si l'unité de Garde Assermentée est entierement à 6" du __Champion de Gallet__ et à 3" d'une unité ennemie, elle ppeut combattre si elle n'a pas déjà combattu à cette phase, et l'effet de frappe en dernier s'applique à elle jusqu'à la fin du tour.

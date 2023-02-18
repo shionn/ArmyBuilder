@@ -1,6 +1,5 @@
 package armybuilder.model.nighthaunt;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
@@ -144,7 +143,7 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 	}
 
 	@Override
-	public String getDescription() throws IOException {
+	public String getDescription() {
 		return new DescriptionReader().read(this);
 	}
 

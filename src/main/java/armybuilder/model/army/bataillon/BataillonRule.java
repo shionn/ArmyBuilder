@@ -1,6 +1,5 @@
 package armybuilder.model.army.bataillon;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -40,8 +39,8 @@ public enum BataillonRule implements IRule<BataillonRule> {
 	}
 
 	@Override
-	public String getDescription() throws IOException {
-		return new DescriptionReader().read("Generique/Bataillon/", name());
+	public String getDescription() {
+		return new DescriptionReader().read("Generique/Bataillon/", this);
 	}
 
 

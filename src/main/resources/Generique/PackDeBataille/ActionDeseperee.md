@@ -1,0 +1,1 @@
+Si vous avez le second tour du round de bataille en cours, au debut de votre phase des héros, vous pouvez choisir 1 __champion de Gallet__ ami sur le champ de batille pour effectuer 2 action héroique différentes à cette phaser au lieu d'une seule.

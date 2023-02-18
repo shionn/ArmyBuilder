@@ -1,6 +1,5 @@
 package armybuilder.model.dok;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
@@ -214,9 +213,9 @@ public enum DokRule implements IRule<DokRule> {
 	}
 
 	@Override
-	public String getDescription() throws IOException {
+	public String getDescription() {
 		if (description == null) {
-			return new DescriptionReader().read("Dok/", name());
+			return new DescriptionReader().read("Dok/", this);
 		}
 		return description.get();
 	}

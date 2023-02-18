@@ -1,1 +1,1 @@
-∀ μ __Champions de Gallet__ ∈ 1" μ _ligne_.
+∀ μ __Champions de Gallet__ à 1" μ<sub>a</sub> __ligne__ ne peuvent être pris pour cible de projectil.

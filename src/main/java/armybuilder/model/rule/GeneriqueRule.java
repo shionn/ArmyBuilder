@@ -1,6 +1,5 @@
 package armybuilder.model.rule;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
@@ -88,14 +87,14 @@ public enum GeneriqueRule implements IRule<GeneriqueRule> {
 	}
 
 	@Override
-	public String getDescription() throws IOException {
+	public String getDescription() {
 		if (is(RuleType.AptitudesDeCommandement)) {
-			return new DescriptionReader().read("Generique/AptitudesDeCommandement/", name());
+			return new DescriptionReader().read("Generique/AptitudesDeCommandement/", this);
 		}
 		if (is(RuleType.ActionsHeroiques)) {
-			return new DescriptionReader().read("Generique/ActionsHeroiques/", name());
+			return new DescriptionReader().read("Generique/ActionsHeroiques/", this);
 		}
-		return new DescriptionReader().read("Generique/", name());
+		return new DescriptionReader().read("Generique/", this);
 	}
 
 	@Override

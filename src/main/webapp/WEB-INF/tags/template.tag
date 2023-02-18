@@ -43,7 +43,7 @@
 	</main>
 	<footer class="print-hidden">
 		ArmyBuilder by <a href="mailto:shionn@gmail.com">shionn</a>
-	</footer>e
+	</footer>
 	<script type="text/javascript" src='<spring:url value="/js/scripts.js"/>'></script>
 	<script type="text/javascript" src='<spring:url value="/js/menu.js"/>'></script>
 	<script type="text/javascript" src='<spring:url value="/js/ajax.js"/>'></script>
