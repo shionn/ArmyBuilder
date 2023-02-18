@@ -66,6 +66,10 @@ public class ShortDescriptionBuilder {
 		return space().character('≠');
 	}
 
+	public ShortDescriptionBuilder ou() {
+		return space().word("||");
+	}
+
 	public ShortDescriptionBuilder desPlus(int x) {
 		return space().number(5).character('+');
 	}
@@ -79,7 +83,11 @@ public class ShortDescriptionBuilder {
 	}
 
 	public ShortDescriptionBuilder plus(int x) {
-		return space().character('+').number(1);
+		return space().character('+').number(x);
+	}
+
+	public ShortDescriptionBuilder fois(int x) {
+		return space().number(1).character('x');
 	}
 
 	public ShortDescriptionBuilder ami() {
@@ -99,11 +107,11 @@ public class ShortDescriptionBuilder {
 	}
 
 	public ShortDescriptionBuilder ruleType(RuleType type) {
-		return space().character('*').word(type.getDisplayName()).character('*');
+		return space().word("__").word(type.getDisplayName()).word("__");
 	}
 
 	public ShortDescriptionBuilder rule(IRule<?> rule) {
-		return space().character('*').word(rule.getDisplayName()).character('*');
+		return space().word("__").word(rule.getDisplayName()).word("__");
 	}
 
 	public ShortDescriptionBuilder a(int x) {
@@ -146,7 +154,7 @@ public class ShortDescriptionBuilder {
 		return character(',');
 	}
 
-	public ShortDescriptionBuilder twoPoints() {
+	public ShortDescriptionBuilder deuxPoint() {
 		return character(':');
 	}
 
@@ -156,6 +164,10 @@ public class ShortDescriptionBuilder {
 
 	public ShortDescriptionBuilder uneFoisParBataille() {
 		return space().character('*').word("une seule fois").character('*');
+	}
+
+	public ShortDescriptionBuilder uneFoisParRound() {
+		return space().character('*').word("une seule par round").character('*');
 	}
 
 	public ShortDescriptionBuilder finDeTour() {
@@ -266,6 +278,18 @@ public class ShortDescriptionBuilder {
 
 	public ShortDescriptionBuilder sur() {
 		return space().word("sur");
+	}
+
+	public ShortDescriptionBuilder donne() {
+		return space().word("donne");
+	}
+
+	public ShortDescriptionBuilder ordre() {
+		return space().word("ordre");
+	}
+
+	public ShortDescriptionBuilder sansDepenserDePts() {
+		return space().text("sans dépenser de pts");
 	}
 
 }

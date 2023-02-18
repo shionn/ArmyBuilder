@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import armybuilder.model.rule.GeneriqueRule;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.rule.RuleType;
 import armybuilder.model.rule.ShortDescriptionBuilder;
@@ -29,20 +30,32 @@ public enum AspectsDuChampion implements IUnitOption, IRule<AspectsDuChampion> {
 					.non()
 					.contesté()
 					.keyword(KeyWord.ChampionDeGallet)
-					.ennemi())
+					.ennemi()),
+	AutoriteDuDominant(sh().uneFoisParBataille()
+			.donne()
+			.fois(3)
+			.ordre()
+			.rule(GeneriqueRule.Ralliement)
+			.comma()
+			.rule(GeneriqueRule.AttaqueEnRegle)
+			.comma()
+			.rule(GeneriqueRule.DefenseEnRegle)
+			.comma()
+			.rule(GeneriqueRule.Redeploiement)),
+
 	;
 
 	private String shortDesciprion;
 	private ArrayList<RuleType> types;
 
 	private AspectsDuChampion( RuleType... types) {
-		this(null, types);
-	}
-	private AspectsDuChampion(ShortDescriptionBuilder sh, RuleType... types) {
-		this.shortDesciprion = sh.build();
 		this.types = new ArrayList<RuleType>(Arrays.asList(types));
 		this.types.add(RuleType.Aptitude);
 		this.types.add(RuleType.TraisUnitee);
+	}
+	private AspectsDuChampion(ShortDescriptionBuilder sh, RuleType... types) {
+		this(types);
+		this.shortDesciprion = sh.build();
 	}
 
 	@Override

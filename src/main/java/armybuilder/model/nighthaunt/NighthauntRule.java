@@ -1,12 +1,17 @@
 package armybuilder.model.nighthaunt;
 
+import static armybuilder.model.rule.ShortDescriptionBuilder.sh;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
+import armybuilder.model.rule.GeneriqueRule;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.rule.RuleType;
+import armybuilder.model.rule.ShortDescriptionBuilder;
 import armybuilder.model.unit.Unit;
+import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.serialisation.DescriptionReader;
 import armybuilder.serialisation.EnumPropertyLoader;
 
@@ -65,7 +70,18 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 	BougiesSorcieres(RuleType.Aptitude),
 	ChasseursSpectraux(RuleType.Aptitude),
 	CondamnationALEternelTourment(RuleType.Aptitude),
-	ContremaitreSpectral(RuleType.Aptitude),
+	ContremaitreSpectral_1(
+			sh().uneFoisParRound()
+					.comma()
+					.donne()
+					.rule(GeneriqueRule.Redeploiement)
+					.ou()
+					.rule(GeneriqueRule.DechainerLesEnfers)
+					.unitée()
+					.keyword(KeyWord.Convocable)
+					.sansDepenserDePts(),
+			RuleType.Aptitude, RuleType.PhaseDeMouvement, RuleType.PhaseDeCharge),
+	ContremaitreSpectral_2(RuleType.Aptitude, RuleType.PhaseDeCombat),
 	CranesDesincarnes(RuleType.Aptitude),
 	Dematerialisation(RuleType.Aptitude),
 	EnergieDAmesCaptives(RuleType.Aptitude),
@@ -113,23 +129,22 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 
 	;
 
-	private String displayName;
 	private List<RuleType> types;
 	private Consumer<Unit> modifier;
+	private String shortDescription;
 
 	private NighthauntRule(RuleType... types) {
-		this.displayName = EnumPropertyLoader.instance().name(this);
 		this.types = Arrays.asList(types);
+	}
+
+	private NighthauntRule(ShortDescriptionBuilder sh, RuleType... types) {
+		this.types = Arrays.asList(types);
+		this.shortDescription = sh.build();
 	}
 
 	private NighthauntRule(Consumer<Unit> modifier, RuleType... types) {
 		this(types);
 		this.modifier = modifier;
-	}
-
-	private NighthauntRule(String displayName, RuleType... types) {
-		this.displayName = displayName;
-		this.types = Arrays.asList(types);
 	}
 
 	@Override
@@ -139,7 +154,7 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 
 	@Override
 	public String getDisplayName() {
-		return displayName;
+		return EnumPropertyLoader.instance().name(this);
 	}
 
 	@Override
@@ -152,6 +167,11 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 		if (modifier != null) {
 			modifier.accept(unit);
 		}
+	}
+
+	@Override
+	public String getShortDescription() {
+		return shortDescription;
 	}
 
 }

@@ -24,7 +24,7 @@ public enum PackDeBatailleRule implements IRule<PackDeBatailleRule> {
 			RuleType.ActionsHeroiques,
 			RuleType.PhaseDesHeros),
 	CleDeLaVictoire(
-			sh().si().un().unitée().ami().role(RoleTactique.Ligne).non().cible().projectil(),
+			sh().non().cible().projectil().comma().si().a(1).unitée().ami().role(RoleTactique.Ligne),
 			RuleType.Aptitude,
 			RuleType.TraisUnitee,
 			RuleType.PhaseDeTir),
@@ -41,7 +41,7 @@ public enum PackDeBatailleRule implements IRule<PackDeBatailleRule> {
 					.a(6)
 					.objectif()
 					.sur(4)
-					.twoPoints()
+					.deuxPoint()
 					.subit()
 					.D6()
 					.BM(),

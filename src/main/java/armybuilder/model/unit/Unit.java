@@ -57,7 +57,7 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 		this.weapons.addAll(model.getWeapons());
 		this.roles.addAll(model.getRoleTactiques());
 		Arrays.asList(general, traisDeCommandement, traisDeMonstre, traisDeMonture, artefact, sort, priere, chef,
-				musicien, banniere, arme, renforcee, invoquee)
+				musicien, banniere, arme, renforcee, aspectChampion, invoquee)
 				.stream()
 				.filter(Objects::nonNull)
 				.forEach(o -> o.decorate(this));
@@ -139,7 +139,7 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 	}
 
 	public void add(IRule<?>... rules) {
-		Arrays.stream(rules).forEach(this.rules::add);
+		Arrays.stream(rules).filter(rule -> !this.rules.contains(rule)).forEach(this.rules::add);
 	}
 
 	/**

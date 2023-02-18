@@ -36,7 +36,8 @@ public enum NighthauntUnitModel implements IUnitModel<NighthauntUnitModel> {
 //	TODO Scribot Mortis(Arrays.asList(), Arrays.asList()),
 	ChevalierDesSuaires(
 			Arrays.asList(NighthauntUnitWeapon.EpeeDesHeuresVolees),
-			Arrays.asList(NighthauntRule.HeuresVolees, NighthauntRule.ContremaitreSpectral)),
+			Arrays.asList(NighthauntRule.HeuresVolees, NighthauntRule.ContremaitreSpectral_1,
+					NighthauntRule.ContremaitreSpectral_2)),
 	ChevalierDesSuairesSurCoursierEthere(
 			Arrays.asList(NighthauntUnitWeapon.EpeeDesHeuresVolees,
 					NighthauntUnitWeapon.SabotsEtDentsFantomatiquesSuaires),
