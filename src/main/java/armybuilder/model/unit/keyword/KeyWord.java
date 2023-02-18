@@ -5,18 +5,22 @@ import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum KeyWord implements IHaveDisplayName {
 	// Generique
-	Aelf,
 	Chaos,
+	Mort,
+	Ordre,
+
+	Aelf,
+
 	Heros,
 	Unique,
 	Monstre,
-	Mort,
-	Ordre,
 	Pretre,
 	Sorcier,
 	Totem,
+	Monture,
 
 	// Manuel du general
+	ChampionDeGallet,
 	VeteransDeGallet,
 
 	// DoK

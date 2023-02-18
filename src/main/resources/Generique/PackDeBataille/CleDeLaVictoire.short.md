@@ -1,0 +1,1 @@
+∀ μ __Champions de Gallet__ ∈ 1" μ _ligne_.

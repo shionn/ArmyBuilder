@@ -21,6 +21,17 @@ public enum PackDeBataille implements IHaveDisplayName, IDecoreArmy {
 				.forEach(u -> u.add(KeyWord.VeteransDeGallet));
 		a.units(KeyWord.Sorcier).forEach(u -> u.add(PackDeBatailleRule.RegardDeGhur));
 		// TODO Tactique de Bataille
+	}),
+	BataillesRangees2023("BR Saison 2 2023", a -> {
+		a.units(RoleTactique.Leader)
+				.stream()
+				.filter(u -> u.getModel().getProfile().getIntLife() < 10)
+				.filter(u -> !u.is(KeyWord.Unique))
+				.filter(u -> !u.is(KeyWord.Monture))
+				.forEach(u -> u.add(KeyWord.ChampionDeGallet));
+		a.units(KeyWord.ChampionDeGallet).forEach(u -> u.add(PackDeBatailleRule.CleDeLaVictoire));
+		a.add(PackDeBatailleRule.ActionDeseperee, PackDeBatailleRule.FrappeDOuverture,
+				PackDeBatailleRule.MenerParLExemple);
 	});
 
 	private String displayName;

@@ -202,4 +202,5 @@ public class Army implements IHaveRule {
 	public boolean is(AptitudeDeCommandement aptitudeDeCommandement) {
 		return this.aptitudeDeCommandement == aptitudeDeCommandement;
 	}
+
 }

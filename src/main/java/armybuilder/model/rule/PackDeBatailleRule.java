@@ -8,9 +8,13 @@ import armybuilder.serialisation.DescriptionReader;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum PackDeBatailleRule implements IRule<PackDeBatailleRule> {
-	RugissementSauvage(RuleType.AptitudesDeCommandement, RuleType.PhaseDeCombat),
-	Metamorphose(RuleType.Sort, RuleType.TraisUnitee),
+	ActionDeseperee(RuleType.ActionsHeroiques, RuleType.PhaseDesHeros),
+	CleDeLaVictoire(RuleType.Aptitude, RuleType.TraisUnitee, RuleType.PhaseDeTir),
+	FrappeDOuverture(RuleType.ActionsHeroiques, RuleType.PhaseDesHeros),
 	RegardDeGhur(RuleType.Sort, RuleType.TraisUnitee),
+	RugissementSauvage(RuleType.AptitudesDeCommandement, RuleType.PhaseDeCombat),
+	MenerParLExemple(RuleType.ActionsHeroiques, RuleType.PhaseDesHeros),
+	Metamorphose(RuleType.Sort, RuleType.TraisUnitee),
 
 	;
 

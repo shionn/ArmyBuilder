@@ -1,0 +1,1 @@
+Les __Champions de Gallet__ amis ne peuvent pas être choisis comme cible d'attauqe d'armes à projectiles tans qu'ils à 1" d'une ou plusieurs unités de Ligne amies.
