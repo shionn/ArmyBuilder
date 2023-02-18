@@ -110,6 +110,10 @@ public class ShortDescriptionBuilder {
 		return space().word("à ").number(x).character('"');
 	}
 
+	public ShortDescriptionBuilder aUnDemiPouce() {
+		return space().word("à ").character('½').character('"');
+	}
+
 	public ShortDescriptionBuilder entierment(int x) {
 		return space().word("∈ ").number(x).character('"');
 	}
@@ -217,6 +221,18 @@ public class ShortDescriptionBuilder {
 
 	public ShortDescriptionBuilder monture() {
 		return space().word("monture");
+	}
+
+	public ShortDescriptionBuilder elligible() {
+		return space().word("élligible");
+	}
+
+	public ShortDescriptionBuilder toutes() {
+		return space().word("toutes");
+	}
+
+	public ShortDescriptionBuilder figurine() {
+		return space().word("ƒ");
 	}
 
 }

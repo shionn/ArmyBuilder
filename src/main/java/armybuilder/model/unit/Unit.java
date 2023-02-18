@@ -123,6 +123,12 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 		this.keyWords.add(keyWord);
 	}
 
+	public void addIf(boolean condition, KeyWord keyWord) {
+		if (condition) {
+			this.keyWords.add(keyWord);
+		}
+	}
+
 	/**
 	 * rules
 	 */

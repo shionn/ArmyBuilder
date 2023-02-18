@@ -21,7 +21,11 @@ public enum BataillonSlot {
 	KhainiteLeader(u -> u.is(KeyWord.MeduseIncarnate) || u.is(KeyWord.FerecailleMelusai)),
 	Morathi(u -> u.is(UnitModel.MorathiKhaine) || u.is(UnitModel.LaReineDeLOmbre)),
 	// Pack de Bataille
+	ChampionDeGallet(u -> u.is(KeyWord.ChampionDeGallet)),
 	VeteranDeGallet(u -> u.is(KeyWord.VeteransDeGallet)),
+	Infanterie(
+			u -> !u.isOne(RoleTactique.Leader, RoleTactique.Artillerie, RoleTactique.Behemoth) && !u.is(KeyWord.Monture)
+					&& u.getProfile().getIntLife() <= 4),
 
 	;
 	private Function<Unit, Boolean> is;
