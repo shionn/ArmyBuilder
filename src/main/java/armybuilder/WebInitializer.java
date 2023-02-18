@@ -64,7 +64,7 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 		public void addResourceHandlers(ResourceHandlerRegistry registry) {
 			registry.addResourceHandler("/css/**").addResourceLocations("/css/");
 			registry.addResourceHandler("/js/**").addResourceLocations("/js/");
-			registry.addResourceHandler("/font/**").addResourceLocations("/font/");
+			registry.addResourceHandler("/fonts/**").addResourceLocations("/fonts/");
 			registry.addResourceHandler("/img/**").addResourceLocations("/img/");
 		}
 

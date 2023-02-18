@@ -7,15 +7,16 @@ import java.util.stream.Collectors;
 
 public enum RuleIcons {
 
-	Heros(r -> r.isOne(RuleType.PhaseDesHeros)),
-	Mouvement(r -> r.isOne(RuleType.PhaseDeMouvement)),
-	Tir(r -> r.isOne(RuleType.PhaseDeTir)),
-	Charge(r -> r.isOne(RuleType.PhaseDeCharge)),
-	Combat(r -> r.isOne(RuleType.PhaseDeCombatDebut, RuleType.PhaseDeCombat, RuleType.PhaseDeCombatFin)),
-	Deroute(r -> r.is(RuleType.PhaseDeDeroute)),
+	Heros("ra ra-player", r -> r.isOne(RuleType.PhaseDesHeros)),
+	Mouvement("ra ra-footprint", r -> r.isOne(RuleType.PhaseDeMouvement)),
+	Tir("ra ra-crossbow", r -> r.isOne(RuleType.PhaseDeTir)),
+	Charge("fa fa-forward", r -> r.isOne(RuleType.PhaseDeCharge)),
+	Combat("ra ra-crossed-swords",
+			r -> r.isOne(RuleType.PhaseDeCombatDebut, RuleType.PhaseDeCombat, RuleType.PhaseDeCombatFin)),
+	Deroute("fa fa-flag", r -> r.is(RuleType.PhaseDeDeroute)),
 
-	Sort(r -> r.is(RuleType.Sort)),
-	Aura(r -> r.is(RuleType.Aura)),
+	Sort("ra ra-lightning-storm", r -> r.is(RuleType.Sort)),
+	Aura("ra ra-rss", r -> r.is(RuleType.Aura)),
 	;
 
 
@@ -23,10 +24,10 @@ public enum RuleIcons {
 	private String img;
 	private String style;
 
-	private RuleIcons(Function<IRule<?>, Boolean> visible) {
+	private RuleIcons(String style, Function<IRule<?>, Boolean> visible) {
 		this.visible = visible;
 		this.img = name();
-		this.style = "filter: brightness(0%)";
+		this.style = style;
 	}
 
 	public String getImg() {

@@ -57,8 +57,6 @@
 				</executions>
 				<configuration>
 					<sassSourceDirectory>src/main/sass/</sassSourceDirectory>
-					<includes>style.scss</includes>
-					<excludes>**/*.scss</excludes>
 					<destination>src/main/webapp/css/</destination>
 				</configuration>
 			</plugin>
