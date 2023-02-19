@@ -12,7 +12,7 @@ public enum DokUnitWeapon implements IUnitWeapon {
 	EcorcheCoeur("Écorche-cœur", WeaponType.Melee, "2", "3", "3+", "3+", "-2", "D3"),
 	EcorcheCoeur_Shadow("Écorche-cœur", WeaponType.Melee, "2", "*", "3+", "3+", "-2", "3"),
 	EpeeDAvatar("Épée d'Avatar", WeaponType.Melee, "2", "4", "3+", "3+", "-2", "3"),
-	EpeeDeMortEtLameDeKhaine("Épée de Mort et Lame de Khaine", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "D3"),
+	EpeeDeMortEtLameDeKhaine("Épée de Mort et Lame de Khaine", WeaponType.Melee, "1", "4", "3+", "3+", "-1", "D3"),
 	FouetBarbele("Fouet Barbelé", WeaponType.Melee, "2", "2", "3+", "4+", "-", "1"),
 	FouetBarbeleGr("Fouer Barbelé", WeaponType.Melee, "3", "4", "3+", "3+", "-1", "1"),
 	GriffeMurmure("Griffe-murmure ", WeaponType.Melee, "1", "4", "4+", "3+", "-", "1"),

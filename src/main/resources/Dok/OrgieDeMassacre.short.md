@@ -1,1 +1,1 @@
-_votre phase des héros_ 1 unité __DoK__ engagée peut combattre.
+_1pc_ 1 μ __DoK__<sub>a</sub> engagée peut combattre.

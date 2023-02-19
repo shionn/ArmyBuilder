@@ -29,6 +29,7 @@ public enum RuleType {
 	PhaseBeforeStart(false),
 	PhaseDeCharge(false),
 	PhaseDesHeros(false),
+	PhaseDesHerosPlayer(false),
 	PhaseDeMouvement(false),
 	PhaseDeTir(false),
 	PhaseDeCombat(false),

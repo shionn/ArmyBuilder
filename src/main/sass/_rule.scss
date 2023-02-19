@@ -21,4 +21,9 @@ div.rule {
 	ol, ul {
 		margin: 0;
 	}
+
+	.fa.underline, .ra.underline {
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
 }

@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 public enum RuleIcons {
 
 	Heros("ra ra-player", r -> r.isOne(RuleType.PhaseDesHeros)),
+	HerosPlyerTurn("ra ra-player underline", r -> r.isOne(RuleType.PhaseDesHerosPlayer)),
 	Mouvement("ra ra-footprint", r -> r.isOne(RuleType.PhaseDeMouvement)),
 	Tir("ra ra-crossbow", r -> r.isOne(RuleType.PhaseDeTir)),
 	Charge("fa fa-forward", r -> r.isOne(RuleType.PhaseDeCharge)),
@@ -16,6 +17,7 @@ public enum RuleIcons {
 	Deroute("fa fa-flag", r -> r.is(RuleType.PhaseDeDeroute)),
 
 	Sort("ra ra-lightning-storm", r -> r.is(RuleType.Sort)),
+	Priere("ra ra-candle", r -> r.is(RuleType.Priere)),
 	Aura("ra ra-rss", r -> r.is(RuleType.Aura)),
 	;
 

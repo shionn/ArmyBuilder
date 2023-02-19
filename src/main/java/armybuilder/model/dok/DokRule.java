@@ -44,65 +44,61 @@ public enum DokRule implements IRule<DokRule> {
 	VeninFleauDuSang(RuleType.Artefact),
 
 	// Sort
-	Affaiblissement(RuleType.Sort, RuleType.TraisUnitee),
-	DanseSymetrique(RuleType.Sort, RuleType.TraisUnitee),
-	Deperissement(RuleType.Sort, RuleType.TraisUnitee),
-	DestrierDOmbres(RuleType.Sort, RuleType.TraisUnitee),
-	HorreurNoireDUlgu(RuleType.Sort, RuleType.TraisUnitee),
-	PuitsDeTenebres(RuleType.Sort, RuleType.TraisUnitee),
-	RasoirMental(RuleType.Sort, RuleType.TraisUnitee),
-	SuaireDeDesespoir(RuleType.Sort, RuleType.TraisUnitee),
+	Affaiblissement(RuleType.Sort),
+	DanseSymetrique(RuleType.Sort),
+	Deperissement(RuleType.Sort),
+	DestrierDOmbres(RuleType.Sort),
+	HorreurNoireDUlgu(RuleType.Sort),
+	PuitsDeTenebres(RuleType.Sort),
+	RasoirMental(RuleType.Sort),
+	SuaireDeDesespoir(RuleType.Sort),
 
 	// Prieres
-	BenedictionDeKhaine(RuleType.Priere, RuleType.TraisUnitee),
-	CaresseDeLaMort(RuleType.Priere, RuleType.TraisUnitee),
-	CatechismeDuMeurtre(RuleType.Priere, RuleType.TraisUnitee),
-	CouventDuCoeurDeFer(RuleType.Priere, RuleType.TraisUnitee),
-	DanseMaudite(RuleType.Priere, RuleType.TraisUnitee),
-	SacreDeSang(RuleType.Priere, RuleType.TraisUnitee),
-	SacrificeDuMartyr(RuleType.Priere, RuleType.TraisUnitee),
-	ResurrectionPourpre(RuleType.Priere, RuleType.TraisUnitee),
+	BenedictionDeKhaine(RuleType.Priere),
+	CaresseDeLaMort(RuleType.Priere),
+	CatechismeDuMeurtre(RuleType.Priere),
+	CouventDuCoeurDeFer(RuleType.Priere),
+	DanseMaudite(RuleType.Priere),
+	SacreDeSang(RuleType.Priere),
+	SacrificeDuMartyr(RuleType.Priere),
+	ResurrectionPourpre(RuleType.Priere),
 
 	// Aptitude de Commandement
-	OrgieDeMassacre(RuleType.AptitudesDeCommandement, RuleType.PhaseDesHeros, RuleType.TraisUnitee),
-	VenerationParLeSang(RuleType.AptitudesDeCommandement, RuleType.PhaseDesHeros, RuleType.TraisUnitee),
+	OrgieDeMassacre(RuleType.AptitudesDeCommandement, RuleType.PhaseDesHerosPlayer),
+	VenerationParLeSang(RuleType.AptitudesDeCommandement, RuleType.PhaseDesHeros),
 
 	// Aptitude de Commandement sous allegiance
 	MaitressesDesOmbrevoies(RuleType.TraisDeBataille, RuleType.AptitudesDeCommandement, RuleType.PhaseDeMouvement),
 
 	// Aptitude
-	AnimuseDeSorcellerieEtDeSacrifice(RuleType.Aptitude, RuleType.TraisUnitee),
-	AuraDAgonie(RuleType.Aptitude, RuleType.PhaseDesHeros, RuleType.TraisUnitee),
+	AnimuseDeSorcellerieEtDeSacrifice(RuleType.Aptitude),
+	AuraDAgonie(RuleType.Aptitude, RuleType.PhaseDesHeros),
 	AutelDeKhaine(RuleType.Aptitude),
-	BouclierDeSang(RuleType.Aptitude, RuleType.TraisUnitee),
-	BrouetDeSang(RuleType.Aptitude, RuleType.PhaseDesHeros, RuleType.TraisUnitee),
-	ColereDeKhaine(RuleType.Aptitude, RuleType.TraisUnitee),
-	ColereDesMoirenees(
-			RuleType.TraisDeBataille,
-			RuleType.AptitudesDeCommandement,
-			RuleType.PhaseDeCharge,
-			RuleType.TraisUnitee),
-	CoupDeGrace(RuleType.Aptitude, RuleType.TraisUnitee),
-	CoeurDeFerDeKhaine(RuleType.Aptitude, RuleType.TraisUnitee),
-	DanseDeLaMort(RuleType.Aptitude, RuleType.TraisUnitee),
-	DeuxCorpsUneSeuleAme(RuleType.Aptitude, RuleType.TraisUnitee),
-	DeuxCorpsUneSeuleAme_Shadow(RuleType.Aptitude, RuleType.TraisUnitee),
+	BouclierDeSang(RuleType.Aptitude),
+	BrouetDeSang(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
+	ColereDeKhaine(RuleType.Aptitude),
+	ColereDesMoirenees(RuleType.TraisDeBataille, RuleType.AptitudesDeCommandement, RuleType.PhaseDeCharge),
+	CoupDeGrace(RuleType.Aptitude, RuleType.PhaseDeCombat),
+	CoeurDeFerDeKhaine(RuleType.Aptitude),
+	DanseDeLaMort(RuleType.Aptitude, RuleType.PhaseDeCombat),
+	DeuxCorpsUneSeuleAme(RuleType.Aptitude),
+	DeuxCorpsUneSeuleAme_Shadow(RuleType.Aptitude),
 	FerveurFrenetique(u -> {
 		u.alter(DokUnitWeapon.Sciansa, w -> w.setAltBlesser("+1"));
 		u.alter(DokUnitWeapon.SciansaAppairees, w -> w.setAltBlesser("+1"));
-	}, RuleType.Aptitude, RuleType.TraisUnitee),
-	FureurDeLaReineDeLOmbre(RuleType.Aptitude, RuleType.TraisUnitee),
-	ImpactLame(RuleType.Aptitude, RuleType.PhaseDeCharge, RuleType.TraisUnitee),
-	PacteDeSang(RuleType.Aptitude, RuleType.TraisUnitee),
-	ParangonDuMassacre(RuleType.Aptitude, RuleType.TraisUnitee),
-	PlongeonDansLaBataille(RuleType.Aptitude, RuleType.PhaseDeMouvement, RuleType.TraisUnitee),
-	PresenceIntimidante(RuleType.Aptitude, RuleType.TraisUnitee),
-	RegardIncarnat(RuleType.Aptitude, RuleType.PhaseDeTir, RuleType.TraisUnitee),
-	SoeurDesMelusai(RuleType.Aptitude, RuleType.PhaseDeCombat, RuleType.TraisUnitee),
-	SorcierMorathi(RuleType.Aptitude, RuleType.TraisUnitee),
-	TransmuteEnCristal_Ferecaille(RuleType.Aptitude, RuleType.TraisUnitee),
-	TransmuteEnCristal(RuleType.Aptitude, RuleType.TraisUnitee),
-	VoleeEtVolteFace(RuleType.Aptitude, RuleType.PhaseDeTir, RuleType.TraisUnitee),
+	}, RuleType.Aptitude),
+	FureurDeLaReineDeLOmbre(RuleType.Aptitude),
+	ImpactLame(RuleType.Aptitude, RuleType.PhaseDeCharge),
+	PacteDeSang(RuleType.Aptitude),
+	ParangonDuMassacre(RuleType.Aptitude, RuleType.PhaseDeCombat),
+	PlongeonDansLaBataille(RuleType.Aptitude, RuleType.PhaseDeMouvement),
+	PresenceIntimidante(RuleType.Aptitude),
+	RegardIncarnat(RuleType.Aptitude, RuleType.PhaseDeTir),
+	SoeurDesMelusai(RuleType.Aptitude, RuleType.PhaseDeCombat),
+	SorcierMorathi(RuleType.Aptitude),
+	TransmuteEnCristal_Ferecaille(RuleType.Aptitude),
+	TransmuteEnCristal(RuleType.Aptitude),
+	VoleeEtVolteFace(RuleType.Aptitude, RuleType.PhaseDeTir),
 
 	// Conposition
 	Matriache(u -> {
@@ -148,37 +144,28 @@ public enum DokRule implements IRule<DokRule> {
 	Krone(RuleType.Composition),
 
 	//
-	BondDeLOmbre(
-			RuleType.Aptitude,
-			RuleType.PhaseDeMouvement,
-			RuleType.TraisUnitee),
+	BondDeLOmbre(RuleType.Aptitude, RuleType.PhaseDeMouvement),
 	Cherchecoeurs(RuleType.Aptitude),
-	LaMortVientDuCiel(RuleType.Aptitude, RuleType.TraisUnitee),
+	LaMortVientDuCiel(RuleType.Aptitude),
 	ObjetDAdoration(RuleType.Aptitude, RuleType.PhaseDeDeroute),
-	OffrandeSanguinolente(
-			RuleType.Aptitude,
-			RuleType.PhaseDeCombat,
-			RuleType.TraisUnitee),
+	OffrandeSanguinolente(RuleType.Aptitude, RuleType.PhaseDeCombat),
 	PaireDeCouteauxSacrificiels(RuleType.Aptitude),
 	ProfiterDeLOmbre(RuleType.Aptitude),
 	ProjectilesMaudits(RuleType.Aptitude),
 	SangDeLOracle(RuleType.Aptitude),
 	ZelotesDuPremierTemple(RuleType.Aptitude),
 
-
 	//
 
 	//
 
-	DanseDAgonie(RuleType.Priere, RuleType.TraisUnitee),
-	RuneDeKhaine_Priere(RuleType.Priere, RuleType.TraisUnitee),
+	RuneDeKhaine_Priere(RuleType.Priere),
 
 	//
 	AttaqueDeCrochets(RuleType.Aptitude),
 	BloodWrackViperConv(RuleType.Aptitude),
 	BladewindConv(RuleType.Aptitude),
 	TranchantSurnaturel(RuleType.Aptitude),
-
 
 	;
 
@@ -195,7 +182,6 @@ public enum DokRule implements IRule<DokRule> {
 		this(types);
 		this.modifier = modifier;
 	}
-
 
 	@Override
 	public List<RuleType> getTypes() {

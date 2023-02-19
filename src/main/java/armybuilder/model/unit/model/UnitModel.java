@@ -31,7 +31,7 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 //	HagQueenSurChaudron(DokUnitModel.HagQueenSurChaudron),
 	ReineMatriache(DokUnitModel.ReineMatriache),
 	ReineDuMassacreSurChaudronDeSang(DokUnitModel.ReineDuMassacreSurChaudronDeSang),
-//	SlaughterQueen(DokUnitModel.SlaughterQueen),
+	ReineDuMassacre(DokUnitModel.ReineDuMassacre),
 	GrandeGladiatrice(DokUnitModel.GrandeGladiatrice),
 	SoeurDuMassacre(DokUnitModel.SoeurDuMassacre),
 	Erinyes(DokUnitModel.Erinyes),

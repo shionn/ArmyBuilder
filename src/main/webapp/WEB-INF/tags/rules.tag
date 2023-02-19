@@ -1,6 +1,6 @@
 <%@ tag pageEncoding="UTF-8"%>
 <%@ tag import="armybuilder.model.rule.RuleIcons" %>
-<%@ tag import="armybuilder.serialisation.DescriptionMode" %>
+<%@ tag import="armybuilder.model.rule.desc.DescriptionMode" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ attribute name="rules" type="java.util.List"%>
