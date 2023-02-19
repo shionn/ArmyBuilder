@@ -16,6 +16,7 @@ import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.role.RoleTactique;
+import armybuilder.serialisation.DescriptionMode;
 
 public class Army implements IHaveRule {
 	private int id;
@@ -26,6 +27,7 @@ public class Army implements IHaveRule {
 	private GrandeStrategie grandeStrategie;
 	private Triomphes triomphes;
 	private AptitudeDeCommandement aptitudeDeCommandement;
+	private DescriptionMode descriptionMode;
 	private List<Unit> units = new ArrayList<Unit>();
 	private List<Bataillon> bataillons = new ArrayList<Bataillon>();
 
@@ -201,6 +203,14 @@ public class Army implements IHaveRule {
 
 	public boolean is(AptitudeDeCommandement aptitudeDeCommandement) {
 		return this.aptitudeDeCommandement == aptitudeDeCommandement;
+	}
+
+	public DescriptionMode getDescriptionMode() {
+		return descriptionMode;
+	}
+
+	public void setDescriptionMode(DescriptionMode descriptionMode) {
+		this.descriptionMode = descriptionMode;
 	}
 
 }

@@ -10,7 +10,7 @@ import armybuilder.model.rule.PackDeBatailleRule;
 import armybuilder.model.rule.RuleType;
 import armybuilder.model.rule.ShortDescriptionBuilder;
 import armybuilder.model.unit.keyword.KeyWord;
-import armybuilder.serialisation.DescriptionReader;
+import armybuilder.serialisation.Description;
 
 public enum BataillonRule implements IRule<BataillonRule> {
 	Unifies("Unifiés", RuleType.Aptitude),
@@ -75,8 +75,8 @@ public enum BataillonRule implements IRule<BataillonRule> {
 	}
 
 	@Override
-	public String getDescription() {
-		return new DescriptionReader().read("Generique/Bataillon/", this);
+	public Description getDescription() {
+		return new Description("Generique/Bataillon/", this);
 	}
 
 	@Override

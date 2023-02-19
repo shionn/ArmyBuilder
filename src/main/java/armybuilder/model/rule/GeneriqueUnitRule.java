@@ -3,7 +3,7 @@ package armybuilder.model.rule;
 import java.util.Arrays;
 import java.util.List;
 
-import armybuilder.serialisation.DescriptionReader;
+import armybuilder.serialisation.Description;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum GeneriqueUnitRule implements IRule<GeneriqueUnitRule> {
@@ -56,8 +56,8 @@ public enum GeneriqueUnitRule implements IRule<GeneriqueUnitRule> {
 	}
 
 	@Override
-	public String getDescription() {
-		return new DescriptionReader().read("GeneriqueUnit/", this);
+	public Description getDescription() {
+		return new Description(this);
 	}
 
 	@Override

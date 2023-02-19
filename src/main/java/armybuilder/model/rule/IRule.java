@@ -5,6 +5,7 @@ import java.util.List;
 
 import armybuilder.model.IHaveDisplayName;
 import armybuilder.model.unit.Unit;
+import armybuilder.serialisation.Description;
 
 public interface IRule<T extends Enum<T> & IRule<T>> extends IHaveDisplayName {
 
@@ -12,9 +13,9 @@ public interface IRule<T extends Enum<T> & IRule<T>> extends IHaveDisplayName {
 
 	List<RuleType> getTypes();
 
-	String getDescription();
+	Description getDescription();
 
-	// TODO a supprimer pou l'enum ShortDescription
+	// TODO a supprimer pour les enum ShortDescription
 	@Deprecated
 	default String getShortDescription() {
 		return null;
@@ -30,10 +31,6 @@ public interface IRule<T extends Enum<T> & IRule<T>> extends IHaveDisplayName {
 
 	default void decorate(Unit unit) {
 		// nothing to do
-	}
-
-	public static ShortDescriptionBuilder sh() {
-		return new ShortDescriptionBuilder();
 	}
 
 }

@@ -3,7 +3,7 @@ package armybuilder.model.rule;
 import java.util.Arrays;
 import java.util.List;
 
-import armybuilder.serialisation.DescriptionReader;
+import armybuilder.serialisation.Description;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum PackDeBatailleRule implements IRule<PackDeBatailleRule> {
@@ -53,8 +53,8 @@ public enum PackDeBatailleRule implements IRule<PackDeBatailleRule> {
 	}
 
 	@Override
-	public String getDescription() {
-		return new DescriptionReader().read("Generique/PackDeBataille/", this);
+	public Description getDescription() {
+		return new Description("Generique/PackDeBataille/", this);
 	}
 
 	@Override

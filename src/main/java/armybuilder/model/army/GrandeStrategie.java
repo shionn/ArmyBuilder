@@ -7,7 +7,7 @@ import java.util.function.Function;
 import armybuilder.model.IHaveDisplayName;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.rule.RuleType;
-import armybuilder.serialisation.DescriptionReader;
+import armybuilder.serialisation.Description;
 
 public enum GrandeStrategie implements IHaveDisplayName, IDecoreArmy, IRule<GrandeStrategie> {
 	CoupezLaTete(
@@ -58,8 +58,8 @@ public enum GrandeStrategie implements IHaveDisplayName, IDecoreArmy, IRule<Gran
 	}
 
 	@Override
-	public String getDescription() {
-		return new DescriptionReader().read("GrandeStrategie/", this);
+	public Description getDescription() {
+		return new Description(this);
 	}
 
 	@Override

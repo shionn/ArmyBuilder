@@ -12,7 +12,7 @@ import armybuilder.model.rule.RuleType;
 import armybuilder.model.rule.ShortDescriptionBuilder;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.keyword.KeyWord;
-import armybuilder.serialisation.DescriptionReader;
+import armybuilder.serialisation.Description;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum NighthauntRule implements IRule<NighthauntRule> {
@@ -158,8 +158,8 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 	}
 
 	@Override
-	public String getDescription() {
-		return new DescriptionReader().read(this);
+	public Description getDescription() {
+		return new Description(this);
 	}
 
 	@Override

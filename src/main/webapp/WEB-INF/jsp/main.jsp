@@ -10,6 +10,7 @@
 <%@ page import="armybuilder.model.rule.RuleIcons" %>
 <%@ page import="armybuilder.model.unit.model.UnitModel" %>
 <%@ page import="armybuilder.model.unit.role.RoleTactique" %>
+<%@ page import="armybuilder.serialisation.DescriptionMode" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -70,16 +71,21 @@
 				</c:forEach>
 			</select>
 		</c:if>
+		<select name="descriptionMode">
+			<c:forEach items="${DescriptionMode.values()}" var="sub">
+				<option value="${sub}"<c:if test="${army.descriptionMode == sub}"> selected="selected"</c:if>>${sub}</option>
+			</c:forEach>
+		</select>
 		<input type="submit" value="Editer">
 		<div class="print-hidden columns2">
 			<c:forEach items="${army.subAllegiance.rules}" var="rule">
-				<div class="rule"><span>${rule.displayName}:</span>${rule.description}</div>
+				<div class="rule"><span>${rule.displayName}:</span>${rule.description.full}</div>
 			</c:forEach>
 			<c:if test="${not empty army.grandeStrategie}">
-				<div class="rule"><span>${army.grandeStrategie.displayName}:</span>${army.grandeStrategie.description}</div>
+				<div class="rule"><span>${army.grandeStrategie.displayName}:</span>${army.grandeStrategie.description.full}</div>
 			</c:if>
 			<c:if test="${not empty army.aptitudeDeCommandement}">
-				<div class="rule"><span>${army.aptitudeDeCommandement.displayName}:</span>${army.aptitudeDeCommandement.description}</div>
+				<div class="rule"><span>${army.aptitudeDeCommandement.displayName}:</span>${army.aptitudeDeCommandement.description.full}</div>
 			</c:if>
 		</div>
 	</fieldset>
@@ -240,16 +246,7 @@
 						</c:if>
 					</fieldset>
 				</form:form>
-<!-- 				<div class="rules"> -->
-<%-- 					<c:forEach items="${unit.rules}" var="rule"> --%>
-<%-- 						<span>${rule.displayName}</span> --%>
-<%-- 					</c:forEach> --%>
-<!-- 				</div> -->
-				<c:forEach items="${unit.rules}" var="rule">
-					<div class="rule">
-						<span>${rule.displayName} <c:forEach var="icon" items="${RuleIcons.get(rule)}"><i class="${icon.style}"></i></c:forEach>:</span>${rule.description}
-					</div>
-				</c:forEach>
+				<t:rules rules="${unit.rules}" mode="${army.descriptionMode}"></t:rules>
 			</main>
 			<c:if test="${not empty unit.keyWords}">
 				<footer>
@@ -285,16 +282,7 @@
 						<li>${unit.displayName}</li>
 					</c:forEach>
 				</ul>
-<!-- 				<div class="rules"> -->
-<%-- 					<c:forEach items="${bat.rules}" var="rule"> --%>
-<%-- 						<span>${rule.displayName}</span> --%>
-<%-- 					</c:forEach> --%>
-<!-- 				</div> -->
-				<c:forEach items="${bat.rules}" var="rule">
-					<div class="rule">
-						<span>${rule.displayName} <c:forEach var="icon" items="${RuleIcons.get(rule)}"><i class="${icon.style}"></i></c:forEach>:</span>${rule.description}
-					</div>
-				</c:forEach>
+				<t:rules rules="${bat.rules}" mode="${army.descriptionMode}"></t:rules>
 			</main>
 		</article>
 	</c:forEach>
@@ -307,11 +295,7 @@
 		<c:if test="${type.displayed and not empty army.rules(type)}">
 			<h3>${type.displayName}</h3>
 			<div class="columns2">
-				<c:forEach items="${army.rules(type)}" var="rule">
-					<div class="rule">
-						<span>${rule.displayName} <c:forEach var="icon" items="${RuleIcons.get(rule)}"><i class="${icon.style}"></i></c:forEach>:</span>${rule.description}
-					</div>
-				</c:forEach>
+				<t:rules rules="${army.rules(type)}" mode="${army.descriptionMode}"></t:rules>
 			</div>
 		</c:if>
 	</c:forEach>

@@ -3,12 +3,11 @@ package armybuilder.model.dok;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 import armybuilder.model.rule.IRule;
 import armybuilder.model.rule.RuleType;
 import armybuilder.model.unit.Unit;
-import armybuilder.serialisation.DescriptionReader;
+import armybuilder.serialisation.Description;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum DokRule implements IRule<DokRule> {
@@ -185,7 +184,6 @@ public enum DokRule implements IRule<DokRule> {
 
 	private List<RuleType> types;
 	private String displayName;
-	private Supplier<String> description;
 	private Consumer<Unit> modifier;
 
 	DokRule(RuleType... types) {
@@ -213,11 +211,8 @@ public enum DokRule implements IRule<DokRule> {
 	}
 
 	@Override
-	public String getDescription() {
-		if (description == null) {
-			return new DescriptionReader().read("Dok/", this);
-		}
-		return description.get();
+	public Description getDescription() {
+		return new Description(this);
 	}
 
 	@Override

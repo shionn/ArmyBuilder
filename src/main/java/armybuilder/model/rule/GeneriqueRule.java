@@ -7,7 +7,7 @@ import java.util.function.Consumer;
 import armybuilder.model.army.Allegiance;
 import armybuilder.model.army.Army;
 import armybuilder.model.unit.keyword.KeyWord;
-import armybuilder.serialisation.DescriptionReader;
+import armybuilder.serialisation.Description;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum GeneriqueRule implements IRule<GeneriqueRule> {
@@ -87,14 +87,14 @@ public enum GeneriqueRule implements IRule<GeneriqueRule> {
 	}
 
 	@Override
-	public String getDescription() {
+	public Description getDescription() {
 		if (is(RuleType.AptitudesDeCommandement)) {
-			return new DescriptionReader().read("Generique/AptitudesDeCommandement/", this);
+			return new Description("Generique/AptitudesDeCommandement/", this);
 		}
 		if (is(RuleType.ActionsHeroiques)) {
-			return new DescriptionReader().read("Generique/ActionsHeroiques/", this);
+			return new Description("Generique/ActionsHeroiques/", this);
 		}
-		return new DescriptionReader().read("Generique/", this);
+		return new Description(this);
 	}
 
 	@Override

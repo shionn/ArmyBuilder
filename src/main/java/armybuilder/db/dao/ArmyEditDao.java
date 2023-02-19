@@ -19,7 +19,8 @@ public interface ArmyEditDao {
 			+ "    pack_de_bataille       = #{packDeBataille}, " //
 			+ "    grande_strategie       = #{grandeStrategie}, " //
 			+ "    triomphes              = #{triomphes}, " //
-			+ "    aptitudeDeCommandement = #{aptitudeDeCommandement} " //
+			+ "    aptitudeDeCommandement = #{aptitudeDeCommandement}, " //
+			+ "    description_mode       = #{descriptionMode} " //
 			+ "WHERE id = #{id}")
 	public int edit(Army army);
 

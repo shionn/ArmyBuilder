@@ -7,7 +7,7 @@ import java.util.function.Consumer;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.rule.RuleType;
 import armybuilder.model.unit.Unit;
-import armybuilder.serialisation.DescriptionReader;
+import armybuilder.serialisation.Description;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum StormcastRule implements IRule<StormcastRule> {
@@ -150,8 +150,8 @@ public enum StormcastRule implements IRule<StormcastRule> {
 	}
 
 	@Override
-	public String getDescription() {
-		return new DescriptionReader().read("Stormcast/", this);
+	public Description getDescription() {
+		return new Description(this);
 	}
 
 	@Override
