@@ -1,1 +1,1 @@
-_début_ μ __!engagé__. 1D6 pour chaque tuée de l’unité. Sur chaque 6, ramener 1 figurine.
+_début_ μ __!engagé__. Lancer 1D6 ∀ ƒ tuée. Sur 6+, ramener 1 ƒ.

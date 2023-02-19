@@ -1,16 +1,24 @@
-package armybuilder.serialisation;
+package armybuilder.model.rule.desc;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
+import armybuilder.model.dok.DokRule;
+import armybuilder.model.dok.DokShortDescription;
 import armybuilder.model.rule.IRule;
+import armybuilder.model.rule.PackDeBatailleRule;
 
 public class Description {
+
+	private Map<Class<?>, Class<?>> ENUM_MAPPING = buildMappingEnums();
 
 	private IRule<?> rule;
 	private String folder;
@@ -39,7 +47,15 @@ public class Description {
 
 	public String getShortByCode() {
 		try {
-			return ShortDescription.valueOf(rule).getValue();
+			Class<?> enums = ENUM_MAPPING.get(rule.getClass());
+			String content = Arrays.stream(enums.getEnumConstants())
+					.map(e -> (Enum<?>) e)
+					.filter(e -> e.name() == rule.name())
+					.map(e -> e.toString())
+					.findFirst()
+					.orElseThrow();
+			Node node = Parser.builder().build().parse(content);
+			return HtmlRenderer.builder().build().render(node);
 		} catch (RuntimeException ex) {
 			if (rule.getShortDescription() != null) {
 				Node node = Parser.builder().build().parse(rule.getShortDescription());
@@ -48,6 +64,7 @@ public class Description {
 			return getShortMd() + append("MD");
 		}
 	}
+
 
 	private String append(String suffix) {
 		return "<em class=\"print-hidden\"> -" + suffix + "-</em>";
@@ -79,6 +96,13 @@ public class Description {
 			Node node = Parser.builder().build().parseReader(isr);
 			return HtmlRenderer.builder().build().render(node);
 		}
+	}
+
+	private static Map<Class<?>, Class<?>> buildMappingEnums() {
+		Map<Class<?>, Class<?>> shortDescs = new HashMap<>();
+		shortDescs.put(PackDeBatailleRule.class, PackDeBatailleRuleShortDescription.class);
+		shortDescs.put(DokRule.class, DokShortDescription.class);
+		return shortDescs;
 	}
 
 }

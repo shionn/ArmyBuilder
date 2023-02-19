@@ -1,7 +1,9 @@
-package armybuilder.model.rule;
+package armybuilder.model.rule.desc;
 
 import java.util.Arrays;
 
+import armybuilder.model.rule.IRule;
+import armybuilder.model.rule.RuleType;
 import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.role.RoleTactique;
 
@@ -294,6 +296,10 @@ public class ShortDescriptionBuilder {
 
 	public ShortDescriptionBuilder protection(int x) {
 		return space().word("protection").plus(x);
+	}
+
+	public ShortDescriptionBuilder round() {
+		return space().word("round");
 	}
 
 }

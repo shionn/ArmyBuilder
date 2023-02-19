@@ -1,4 +1,4 @@
-package armybuilder.serialisation;
+package armybuilder.model.rule.desc;
 
 public enum DescriptionMode {
 

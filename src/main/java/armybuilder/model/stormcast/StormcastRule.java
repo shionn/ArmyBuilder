@@ -6,8 +6,8 @@ import java.util.function.Consumer;
 
 import armybuilder.model.rule.IRule;
 import armybuilder.model.rule.RuleType;
+import armybuilder.model.rule.desc.Description;
 import armybuilder.model.unit.Unit;
-import armybuilder.serialisation.Description;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum StormcastRule implements IRule<StormcastRule> {

@@ -6,7 +6,7 @@ import java.util.List;
 import armybuilder.model.IHaveDisplayName;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.rule.RuleType;
-import armybuilder.serialisation.Description;
+import armybuilder.model.rule.desc.Description;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum AptitudeDeCommandement implements IHaveDisplayName, IDecoreArmy, IRule<GrandeStrategie> {

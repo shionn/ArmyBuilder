@@ -3,7 +3,7 @@ package armybuilder.model.rule;
 import java.util.Arrays;
 import java.util.List;
 
-import armybuilder.serialisation.Description;
+import armybuilder.model.rule.desc.Description;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum GeneriqueUnitRule implements IRule<GeneriqueUnitRule> {

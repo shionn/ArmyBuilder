@@ -1,1 +1,1 @@
-_action héroïque_ 1 __Héros DoK !Monstre__. +2 Attaques mêlée __!Monture__ ==> fin de ce tour.
+1 __Héros DoK !Monstre__. +2 Attaques mêlée __!Monture__ => _fin du tour_.

@@ -13,7 +13,7 @@ import armybuilder.model.army.GrandeStrategie;
 import armybuilder.model.army.PackDeBataille;
 import armybuilder.model.army.SubAllegiance;
 import armybuilder.model.army.Triomphes;
-import armybuilder.serialisation.DescriptionMode;
+import armybuilder.model.rule.desc.DescriptionMode;
 
 @Controller
 public class ArmyEditController {

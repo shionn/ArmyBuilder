@@ -13,10 +13,10 @@ import armybuilder.model.comparator.SubEnumOrdinalComparator;
 import armybuilder.model.rule.GeneriqueRule;
 import armybuilder.model.rule.IHaveRule;
 import armybuilder.model.rule.IRule;
+import armybuilder.model.rule.desc.DescriptionMode;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.role.RoleTactique;
-import armybuilder.serialisation.DescriptionMode;
 
 public class Army implements IHaveRule {
 	private int id;

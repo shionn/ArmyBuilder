@@ -1,6 +1,6 @@
 package armybuilder.model.nighthaunt;
 
-import static armybuilder.model.rule.ShortDescriptionBuilder.sh;
+import static armybuilder.model.rule.desc.ShortDescriptionBuilder.sh;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,10 +9,10 @@ import java.util.function.Consumer;
 import armybuilder.model.rule.GeneriqueRule;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.rule.RuleType;
-import armybuilder.model.rule.ShortDescriptionBuilder;
+import armybuilder.model.rule.desc.Description;
+import armybuilder.model.rule.desc.ShortDescriptionBuilder;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.keyword.KeyWord;
-import armybuilder.serialisation.Description;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum NighthauntRule implements IRule<NighthauntRule> {

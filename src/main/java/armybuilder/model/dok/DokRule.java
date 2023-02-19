@@ -6,17 +6,17 @@ import java.util.function.Consumer;
 
 import armybuilder.model.rule.IRule;
 import armybuilder.model.rule.RuleType;
+import armybuilder.model.rule.desc.Description;
 import armybuilder.model.unit.Unit;
-import armybuilder.serialisation.Description;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum DokRule implements IRule<DokRule> {
-	// TraisDeBataille
+	// allegiance
 	FoiFanatique(RuleType.TraisDeBataille),
 	RitesDeSang(RuleType.TraisDeBataille),
-	FureurDeBataille(RuleType.TraisDeBataille, RuleType.ActionsHeroiques),
-	MassacreTotal(RuleType.TraisDeBataille, RuleType.AptitudesDeCommandement),
-	// TraisDeBataille sous allegiance
+	FureurDeBataille(RuleType.ActionsHeroiques),
+	MassacreTotal(RuleType.AptitudesDeCommandement),
+	// sous allegiance
 	DisciplesDuMassacre(RuleType.TraisDeBataille),
 	FillesDuPremierTemple(RuleType.TraisDeBataille),
 	FrapperEtSeRetirer(RuleType.TraisDeBataille),

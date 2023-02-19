@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import armybuilder.model.IHaveDisplayName;
+import armybuilder.model.rule.desc.Description;
 import armybuilder.model.unit.Unit;
-import armybuilder.serialisation.Description;
 
 public interface IRule<T extends Enum<T> & IRule<T>> extends IHaveDisplayName {
 

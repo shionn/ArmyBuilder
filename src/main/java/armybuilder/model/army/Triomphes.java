@@ -6,7 +6,7 @@ import java.util.List;
 import armybuilder.model.IHaveDisplayName;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.rule.RuleType;
-import armybuilder.serialisation.Description;
+import armybuilder.model.rule.desc.Description;
 
 public enum Triomphes implements IHaveDisplayName, IDecoreArmy, IRule<Triomphes> {
 	Sanguinaires("Sanguinaires", Arrays.asList(RuleType.Triomphes, RuleType.PhaseDeCharge)),

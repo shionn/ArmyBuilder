@@ -6,8 +6,8 @@ import java.util.function.Consumer;
 
 import armybuilder.model.army.Allegiance;
 import armybuilder.model.army.Army;
+import armybuilder.model.rule.desc.Description;
 import armybuilder.model.unit.keyword.KeyWord;
-import armybuilder.serialisation.Description;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum GeneriqueRule implements IRule<GeneriqueRule> {
@@ -30,17 +30,12 @@ public enum GeneriqueRule implements IRule<GeneriqueRule> {
 	PresenceExaltante(null, RuleType.AptitudesDeCommandement, RuleType.PhaseDeDeroute),
 
 	// Sort
-	TraitMagique(
-			a -> a.units(KeyWord.Sorcier).stream().forEach(u -> u.add(GeneriqueRule.valueOf("TraitMagique"))),
-			RuleType.Sort,
-			RuleType.TraisUnitee),
-	BouclierMystique(
-			a -> a.units(KeyWord.Sorcier)
-					.stream()
-					.filter(u -> !u.is(KeyWord.Hantenuits))
-					.forEach(u -> u.add(GeneriqueRule.valueOf("BouclierMystique"))),
-			RuleType.Sort,
-			RuleType.TraisUnitee),
+	TraitMagique(a -> a.units(KeyWord.Sorcier).stream().forEach(u -> u.add(GeneriqueRule.valueOf("TraitMagique"))),
+			RuleType.Sort),
+	BouclierMystique(a -> a.units(KeyWord.Sorcier)
+			.stream()
+			.filter(u -> !u.is(KeyWord.Hantenuits))
+			.forEach(u -> u.add(GeneriqueRule.valueOf("BouclierMystique"))), RuleType.Sort),
 
 	Benediction(
 			// donne une protection a 6+ donc inutil pour les DoK
@@ -48,12 +43,9 @@ public enum GeneriqueRule implements IRule<GeneriqueRule> {
 					.stream()
 					.filter(u -> !a.is(Allegiance.DoK))
 					.forEach(u -> u.add(GeneriqueRule.valueOf("Benediction"))),
-			RuleType.Priere,
-			RuleType.TraisUnitee),
-	Chatiment(
-			a -> a.units(KeyWord.Pretre).stream().forEach(u -> u.add(GeneriqueRule.valueOf("Chatiment"))),
-			RuleType.Priere,
-			RuleType.TraisUnitee),
+			RuleType.Priere),
+	Chatiment(a -> a.units(KeyWord.Pretre).stream().forEach(u -> u.add(GeneriqueRule.valueOf("Chatiment"))),
+			RuleType.Priere),
 
 	// fureur monstrueuse
 	Rugissement(a -> a.addIf(a.count(KeyWord.Monstre) > 0, GeneriqueRule.valueOf("Rugissement")),

@@ -1,6 +1,6 @@
 package armybuilder.model.army.bataillon;
 
-import static armybuilder.model.rule.ShortDescriptionBuilder.sh;
+import static armybuilder.model.rule.desc.ShortDescriptionBuilder.sh;
 
 import java.util.Arrays;
 import java.util.List;
@@ -8,9 +8,9 @@ import java.util.List;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.rule.PackDeBatailleRule;
 import armybuilder.model.rule.RuleType;
-import armybuilder.model.rule.ShortDescriptionBuilder;
+import armybuilder.model.rule.desc.Description;
+import armybuilder.model.rule.desc.ShortDescriptionBuilder;
 import armybuilder.model.unit.keyword.KeyWord;
-import armybuilder.serialisation.Description;
 
 public enum BataillonRule implements IRule<BataillonRule> {
 	Unifies("Unifiés", RuleType.Aptitude),
