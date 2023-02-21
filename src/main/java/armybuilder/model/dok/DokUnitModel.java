@@ -96,27 +96,18 @@ public enum DokUnitModel implements IUnitModel<DokUnitModel> {
 //			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.Meduse, KeyWord.FilleDeKhaine,
 //					KeyWord.HaggNar, KeyWord.LaBladeCoven, KeyWord.Unique),
 //			Arrays.asList()),
-//
-//	@Deprecated
-//	ReineMatriacheSurChaudronDeSang(
-//			UnitProfile._S_13_8_5,
-//			Arrays.asList(RoleTactique.Leader, RoleTactique.Behemoth),
-//			Arrays.asList(DokUnitWeapon.TorrentDeSangBrulant, DokUnitWeapon.EpeeDAvatar, DokUnitWeapon.LameDeKhaine,
-//					DokUnitWeapon.CouteauxSacrificiels_Chaudron),
-//			new ProfileDegressif("Mouvement", DokUnitWeapon.CouteauxSacrificiels_Chaudron.getDisplayName(),
-//					DokRule.BouclierDeSang.getDisplayName()).add("0-3", "6\"", "8", "18\"")
-//					.add("4-6", "5\"", "7", "14\"")
-//					.add("7-9", "4\"", "6", "10\"")
-//					.add("10+", "3\"", "5", "6\""),
-//			Arrays.asList(DokRule.ImpactLame, DokRule.BouclierDeSang, DokRule.ObjetDAdoration,
-//					DokRule.RuneDeKhaine_Priere, DokRule.CaresseDeLaMort, DokRule.ColereDeKhaine, DokRule.BrouetDeSang),
-//			Arrays.asList(UnitOptionCategory.General, UnitOptionCategory.Priere, UnitOptionCategory.TraisDeCommandement,
-//					UnitOptionCategory.Artefact),
-//			Arrays.asList(KeyWord.Ordre, KeyWord.Aelf, KeyWord.FilleDeKhaine, KeyWord.Heros, KeyWord.Pretre,
-//					KeyWord.Totem, KeyWord.Erinyes, KeyWord.ReineMatriarche, KeyWord.AvatarDeKhaine,
-//					KeyWord.ChaudronDeSang),
-//			Arrays.asList()),
-//
+
+	ReineMatriacheSurChaudronDeSang(
+			Arrays.asList(DokUnitWeapon.TorrentDeSangBrulant, DokUnitWeapon.EpeeDAvatar, DokUnitWeapon.LameDeKhaine,
+					DokUnitWeapon.Sciansa_Chaudron),
+			new ProfileDegressif("Mouvement", DokUnitWeapon.Sciansa_Chaudron.getDisplayName(),
+					DokRule.BouclierDeSang.getDisplayName()).add("0-6", "6\"", "8", "18\"")
+					.add("7-8", "5\"", "7", "14\"")
+					.add("6-10", "4\"", "6", "10\"")
+					.add("11+", "3\"", "5", "6\""),
+			Arrays.asList(DokRule.AutelDeKhaine, DokRule.ImpactLame, DokRule.BouclierDeSang, DokRule.BrouetDeSang,
+					DokRule.CaresseDeLaMort)),
+
 	ReineMatriache(UnitProfile._6_5_8_5,
 			Arrays.asList(RoleTactique.Leader),
 			Arrays.asList(DokUnitWeapon.LameDeKhaine),

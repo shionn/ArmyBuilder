@@ -35,15 +35,6 @@ public enum DokUnitWeapon implements IUnitWeapon {
 
 	ArcCherchecoeur("Arc Cherchecœur", WeaponType.Projectil, "24", "2", "3+", "3+", "-1", "1"),
 	ArmesSacrificielles("Armes Sacrificielles", WeaponType.Melee, "1", "3", "3+", "4+", "-", "1"),
-	CouteauxSacrificiels_Chaudron(
-			"Couteaux Sacrificiels",
-			WeaponType.Melee,
-			"1",
-			"*",
-			"3+",
-			"4+",
-			"-",
-			"1"),
 	GuivreDeSang("Guivre de Sang", WeaponType.Melee, "1", "1", "3+", "3+", "-", "1"),
 	LameDAssassin("Lames d'Assassins", WeaponType.Melee, "1", "2", "4+", "3+", "-", "1"),
 	LameObscures("Lames Obscures", WeaponType.Melee, "1", "3", "3+", "3+", "-1", "D3"),
