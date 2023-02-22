@@ -1,0 +1,1 @@
+Compte __Monstre__ pour la règle __Fureur Monstrueuse__, mais seulement _Piétinement_ ou _Écroulement_. Ne peu être choisie comme cible d'une fureur monstrueuse.

@@ -37,7 +37,7 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	Erinyes(DokUnitModel.Erinyes),
 //	KhainiteShadowstalkers(DokUnitModel.KhainiteShadowstalkers),
 //	ConjurateursDuFeuMaudit(DokUnitModel.ConjurateursDuFeuMaudit),
-//	AvatarDeKhaine(DokUnitModel.AvatarDeKhaine),
+	AvatarDeKhaine(DokUnitModel.AvatarDeKhaine),
 //	BloodStalkers(DokUnitModel.BloodStalkers),
 //	BloodSisters(DokUnitModel.BloodSisters),
 	EtripeusesKhinerai(DokUnitModel.EtripeusesKhinerai),

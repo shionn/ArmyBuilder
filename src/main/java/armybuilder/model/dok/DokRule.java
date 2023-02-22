@@ -29,7 +29,7 @@ public enum DokRule implements IRule<DokRule> {
 	MaitriseDesArcanes(RuleType.TraitsDeCommandement),
 	OrateurZele(RuleType.TraitsDeCommandement),
 	PousseParLaVengeance(RuleType.TraitsDeCommandement),
-	SacrificateurSanglant(RuleType.TraitsDeCommandement),
+	SacrificateurSanglant(RuleType.TraitsDeCommandement, RuleType.PhaseDeCombat),
 	VraiCroyant(RuleType.TraitsDeCommandement),
 
 	// Artefact
@@ -72,11 +72,11 @@ public enum DokRule implements IRule<DokRule> {
 
 	// Aptitude
 	AnimuseDeSorcellerieEtDeSacrifice(RuleType.Aptitude),
-	AuraDAgonie(RuleType.Aptitude, RuleType.PhaseDesHeros),
-	AutelDeKhaine(RuleType.Aptitude),
+	AuraDAgonie(RuleType.Aptitude, RuleType.PhaseDesHeros, RuleType.Aura),
+	AutelDeKhaine(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
 	BouclierDeSang(RuleType.Aptitude),
 	BrouetDeSang(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
-	ColereDeKhaine(RuleType.Aptitude),
+	ColereDeKhaine(RuleType.Aptitude, RuleType.PhaseDeCharge),
 	ColereDesMoirenees(RuleType.TraisDeBataille, RuleType.AptitudesDeCommandement, RuleType.PhaseDeCharge),
 	CoupDeGrace(RuleType.Aptitude, RuleType.PhaseDeCombat),
 	CoeurDeFerDeKhaine(RuleType.Aptitude),

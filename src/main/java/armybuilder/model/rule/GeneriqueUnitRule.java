@@ -21,13 +21,13 @@ public enum GeneriqueUnitRule implements IRule<GeneriqueUnitRule> {
 	MaitreDeGuerre(RuleType.Aptitude),
 	Vol(RuleType.Aptitude),
 
-	ArmeEnflammee(RuleType.Sort, RuleType.TraisUnitee),
-	BrumeFantome(RuleType.Sort, RuleType.TraisUnitee),
-	Levitation(RuleType.Sort, RuleType.TraisUnitee),
+	ArmeEnflammee(RuleType.Sort),
+	BrumeFantome(RuleType.Sort),
+	Levitation(RuleType.Sort),
 
-	Guerison(RuleType.Priere, RuleType.TraisUnitee),
-	Malediction(RuleType.Priere, RuleType.TraisUnitee),
-	Supervision(RuleType.Priere, RuleType.TraisUnitee),
+	Guerison(RuleType.Priere),
+	Malediction(RuleType.Priere),
+	Supervision(RuleType.Priere),
 
 	AmuletteDeLaDestinee(RuleType.Artefact),
 	VolumeObscur(RuleType.Artefact),

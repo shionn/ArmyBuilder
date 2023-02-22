@@ -169,14 +169,11 @@ public enum DokUnitModel implements IUnitModel<DokUnitModel> {
 //	@Deprecated
 //	ConjurateursDuFeuMaudit(UnitProfile.None, Arrays.asList(RoleTactique.Elite), null, null, null, null, null, null),
 
-	AvatarDeKhaine(UnitProfile._9_9_10_4,
-			Arrays.asList(RoleTactique.Behemoth),
+	AvatarDeKhaine(
 			Arrays.asList(DokUnitWeapon.TorrentDeSangBrulant, DokUnitWeapon.EpeeDAvatar),
 			null,
 			Arrays.asList(DokRule.AutelDeKhaine, DokRule.AnimuseDeSorcellerieEtDeSacrifice, DokRule.ColereDeKhaine,
-					GeneriqueRule.Ecroulement, GeneriqueRule.Pietinement),
-			Arrays.asList(),
-			Arrays.asList(KeyWord.Ordre, KeyWord.FilleDeKhaine, KeyWord.Totem, KeyWord.AvatarDeKhaine)),
+					GeneriqueRule.Ecroulement, GeneriqueRule.Pietinement)),
 
 //	@Deprecated
 //	BloodStalkers(

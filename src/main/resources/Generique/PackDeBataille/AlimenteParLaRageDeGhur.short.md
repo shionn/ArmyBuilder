@@ -1,0 +1,1 @@
+_une seul fois_, si un blessure ou BM devais la tuer. Sur 3+, annuler et guerrisser D3.

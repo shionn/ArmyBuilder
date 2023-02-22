@@ -19,6 +19,7 @@ _si charge_
 
 __!engagé__
 
+_une seul fois_
 _debut_
 _fin_
 _adverse_
