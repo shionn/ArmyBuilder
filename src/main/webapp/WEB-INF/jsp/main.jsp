@@ -222,9 +222,9 @@
 							<c:if test="${cat.type == 'select' and not empty unit.optionValues(cat)}">
 								<spring:url value="/unit/edit/${unit.id}" var="url" />
 								<select name="option" class="ajax" data-url="${url}" data-update="body>main" >
-									<c:if test="${empty cat.get(unit)}">
+<%-- 									<c:if test="${empty cat.get(unit)}"> --%>
 										<option value="null">-- ${cat.displayName} --
-									</c:if>
+<%-- 									</c:if> --%>
 									<c:forEach items="${unit.optionValues(cat)}" var="opt">
 										<option value="${opt}"<c:if test="${unit.is(opt)}"> selected="selected"</c:if>>${opt.fullDisplayName}
 									</c:forEach>

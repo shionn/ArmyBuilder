@@ -53,7 +53,7 @@ public enum NighthauntRule implements IRule<NighthauntRule> {
 	GrimoireDeMinuit(RuleType.Artefact),
 	Inciseur(RuleType.Artefact),
 	LanterneDeSorcellumiere(RuleType.Artefact),
-	PendentifDuVentMaussade(RuleType.Artefact),
+	PendentifDuVentMaussade(RuleType.Artefact, RuleType.PhaseDeCombat),
 
 	BrumeSepulcrale(RuleType.Sort),
 	CageAAmes(RuleType.Sort),

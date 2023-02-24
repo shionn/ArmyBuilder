@@ -1,0 +1,1 @@
+∀ μ<sub>a</sub> à 3" gagne -1 blesse.
