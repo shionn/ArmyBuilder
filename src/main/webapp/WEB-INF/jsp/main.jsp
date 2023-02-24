@@ -123,6 +123,13 @@
 	</form:form>
 </div>
 
+<h2 class="print-hidden">Erreurs</h2>
+<div class="print-hidden">
+	<ul>
+		<c:forEach items="${army.checks}" var="c"><li>${c}</li></c:forEach>
+	</ul>
+</div>
+
 <h2>Units</h2>
 <div class="units columns2">
 	<c:forEach items="${army.units}" var="unit">
