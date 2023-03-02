@@ -43,8 +43,8 @@ public class Army implements IHaveRule {
 		Arrays.stream(GeneriqueRule.values()).forEach(r -> r.decorate(this));
 	}
 
-	public List<Check> getChecks() {
-		return Arrays.stream(Check.values()).filter(c -> c.verify(this)).toList();
+	public List<CheckRule> getChecks() {
+		return Arrays.stream(CheckRule.values()).filter(c -> c.verify(this)).toList();
 	}
 
 	/**

@@ -5,7 +5,7 @@ import java.util.function.Function;
 import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.option.UnitOptionCategory;
 
-public enum Check {
+public enum CheckRule {
 	MissingGeneral(a -> count(a, UnitOptionCategory.General) < 1),
 	MissingTraisDeCommandement(a -> count(a, UnitOptionCategory.TraisDeCommandement) < 1),
 	MissingArtefact(a -> count(a, UnitOptionCategory.Artefact) < 1),
@@ -30,7 +30,7 @@ public enum Check {
 
 	private Function<Army, Boolean> verify;
 
-	private Check(Function<Army, Boolean> verify) {
+	private CheckRule(Function<Army, Boolean> verify) {
 		this.verify = verify;
 	}
 

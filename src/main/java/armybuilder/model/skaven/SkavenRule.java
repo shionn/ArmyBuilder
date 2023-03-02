@@ -24,6 +24,15 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	TueurSansEgal(RuleType.TraitsDeCommandement),
 	MaitreDesOmbres(RuleType.TraitsDeCommandement),
 	AgiliteIncroyable(RuleType.TraitsDeCommandement),
+	VaillanceVermineuse(RuleType.TraitsDeCommandement),
+	SeigneurSauvage(RuleType.TraitsDeCommandement),
+	PuissantAlpha(RuleType.TraitsDeCommandement),
+	SuperviseurDeDestruction(RuleType.TraitsDeCommandement),
+	CollectionneurEmerite(RuleType.TraitsDeCommandement),
+	InventeurDerange(RuleType.TraitsDeCommandement),
+	MaîtreDeLaPourritureEtDeLaRuine(RuleType.TraitsDeCommandement),
+	ArchitecteDeLaMort(RuleType.TraitsDeCommandement),
+	Scrofuleux(RuleType.TraitsDeCommandement),
 
 	// aptitude des sous clan
 	CreationsPrisees_1(RuleType.TraisDeBataille),

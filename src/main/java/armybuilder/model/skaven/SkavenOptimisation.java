@@ -39,6 +39,33 @@ public enum SkavenOptimisation implements IUnitOption {
 	AgiliteIncroyable(
 			UnitOptionCategory.TraisDeCommandement,
 			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.ClansEchin)),
+	VaillanceVermineuse(
+			UnitOptionCategory.TraisDeCommandement,
+			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.ClansVerminus)),
+	SeigneurSauvage(
+			UnitOptionCategory.TraisDeCommandement,
+			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.ClansVerminus)),
+	PuissantAlpha(
+			UnitOptionCategory.TraisDeCommandement,
+			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.ClansVerminus)),
+	SuperviseurDeDestruction(
+			UnitOptionCategory.TraisDeCommandement,
+			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.ClansSkryre)),
+	CollectionneurEmerite(
+			UnitOptionCategory.TraisDeCommandement,
+			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.ClansSkryre)),
+	InventeurDerange(
+			UnitOptionCategory.TraisDeCommandement,
+			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.ClansSkryre)),
+	MaîtreDeLaPourritureEtDeLaRuine(
+			UnitOptionCategory.TraisDeCommandement,
+			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.ClansPestilens)),
+	ArchitecteDeLaMort(
+			UnitOptionCategory.TraisDeCommandement,
+			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.ClansPestilens)),
+	Scrofuleux(
+			UnitOptionCategory.TraisDeCommandement,
+			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.ClansPestilens)),
 
 	LanceRouillee(
 			SkavenWeapons.LanceRouillee.getDisplayName(),
