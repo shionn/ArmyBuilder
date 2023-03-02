@@ -34,6 +34,17 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	ArchitecteDeLaMort(RuleType.TraitsDeCommandement),
 	Scrofuleux(RuleType.TraitsDeCommandement),
 
+	// artos
+	LeRongeclat(RuleType.Artefact),
+	Skavenectar(RuleType.Artefact),
+	SceptreDeSuprematieLegitime(RuleType.Artefact),
+	FouetDeCrocs(RuleType.Artefact),
+	CouronneEnragee(RuleType.Artefact),
+	Salecuir(RuleType.Artefact),
+	BabioleTenebromagnetique(RuleType.Artefact),
+	CapeDetaleuse(RuleType.Artefact),
+	Rongebombe(RuleType.Artefact),
+
 	// aptitude des sous clan
 	CreationsPrisees_1(RuleType.TraisDeBataille),
 	CreationsPrisees_3(RuleType.TraisDeBataille),

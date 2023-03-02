@@ -67,6 +67,17 @@ public enum SkavenOptimisation implements IUnitOption {
 			UnitOptionCategory.TraisDeCommandement,
 			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.ClansPestilens)),
 
+	// artos
+	LeRongeclat(UnitOptionCategory.Artefact, u -> u.is(KeyWord.Maitreclan)),
+	Skavenectar(UnitOptionCategory.Artefact, u -> u.is(KeyWord.Maitreclan)),
+	SceptreDeSuprematieLegitime(UnitOptionCategory.Artefact, u -> u.is(KeyWord.Maitreclan)),
+	FouetDeCrocs(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansMoulder)),
+	CouronneEnragee(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansMoulder)),
+	Salecuir(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansMoulder)),
+	BabioleTenebromagnetique(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansEchin)),
+	CapeDetaleuse(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansEchin)),
+	Rongebombe(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansEchin)),
+
 	LanceRouillee(
 			SkavenWeapons.LanceRouillee.getDisplayName(),
 			UnitOptionCategory.Armes,
