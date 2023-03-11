@@ -57,7 +57,7 @@ public enum SkavenOptimisation implements IUnitOption {
 	InventeurDerange(
 			UnitOptionCategory.TraisDeCommandement,
 			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.ClansSkryre)),
-	MaîtreDeLaPourritureEtDeLaRuine(
+	MaitreDeLaPourritureEtDeLaRuine(
 			UnitOptionCategory.TraisDeCommandement,
 			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.ClansPestilens)),
 	ArchitecteDeLaMort(
@@ -77,6 +77,15 @@ public enum SkavenOptimisation implements IUnitOption {
 	BabioleTenebromagnetique(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansEchin)),
 	CapeDetaleuse(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansEchin)),
 	Rongebombe(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansEchin)),
+	BouclierDeDistraction(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansVerminus)),
+	ArmureDeMalerouille(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansVerminus)),
+	CharmeDeMalepierre(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansVerminus)),
+	ResonateurEsoteriqueAMalepierre(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansSkryre)),
+	FioleDuFulminateur(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansSkryre)),
+	LOrbeDAirain(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansSkryre)),
+	LeFumigatus(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansPestilens)),
+	CloquepusLeKysteVivant(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansPestilens)),
+	LameDeCorruption(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansPestilens)),
 
 	LanceRouillee(
 			SkavenWeapons.LanceRouillee.getDisplayName(),
