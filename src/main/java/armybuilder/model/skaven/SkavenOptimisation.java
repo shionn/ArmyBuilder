@@ -87,6 +87,19 @@ public enum SkavenOptimisation implements IUnitOption {
 	CloquepusLeKysteVivant(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansPestilens)),
 	LameDeCorruption(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansPestilens)),
 
+	// sort et priere
+	Brulure(UnitOptionCategory.Sort, u -> u.is(KeyWord.PropheteGris)),
+	Evasion(UnitOptionCategory.Sort, u -> u.is(KeyWord.PropheteGris)),
+	FrenesieMortelle(UnitOptionCategory.Sort, u -> u.is(KeyWord.PropheteGris)),
+	PlusPlusPlusDeVilPouvoir(UnitOptionCategory.Sort, u -> u.is(KeyWord.ClansSkryre)),
+	ChaineDeMalefoudre(UnitOptionCategory.Sort, u -> u.is(KeyWord.ClansSkryre)),
+	BouclierDeMalefoudre(UnitOptionCategory.Sort, u -> u.is(KeyWord.ClansSkryre)),
+	PestePeste(UnitOptionCategory.Priere, u -> u.is(KeyWord.ClansPestilens)),
+	CrasseCrasse(UnitOptionCategory.Priere, u -> u.is(KeyWord.ClansPestilens)),
+	RageRage(UnitOptionCategory.Priere, u -> u.is(KeyWord.ClansPestilens)),
+
+
+	// armes
 	LanceRouillee(
 			SkavenWeapons.LanceRouillee.getDisplayName(),
 			UnitOptionCategory.Armes,
@@ -98,6 +111,7 @@ public enum SkavenOptimisation implements IUnitOption {
 			u -> u.is(KeyWord.RatsDesClans),
 			u -> u.add(SkavenWeapons.LameRouillee)),
 
+	// composition
 	Maitregriffe(UnitOptionCategory.Chef, u -> u.is(KeyWord.RatsDesClans)),
 	PorteEtendardDesClans(UnitOptionCategory.Banniere, u -> u.is(KeyWord.RatsDesClans)),
 	SonneurDeClocheDesClans(UnitOptionCategory.Musicien, u -> u.is(KeyWord.RatsDesClans)),;

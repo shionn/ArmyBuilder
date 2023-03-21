@@ -99,6 +99,7 @@ public enum KeyWord implements IHaveDisplayName {
 	ClansSkryre,
 	ClocheHurlante,
 	Griffarque,
+	IngenieurTechnomage,
 	Maitreclan,
 	MachineDeGuerre,
 	MaitresMoulder,

@@ -54,11 +54,21 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	LOrbeDAirain(RuleType.Artefact),
 	LameDeCorruption(RuleType.Artefact),
 
+	// sort et priere
+	Brulure(RuleType.Sort),
+	Evasion(RuleType.Sort),
+	FrenesieMortelle(RuleType.Sort),
+	PlusPlusPlusDeVilPouvoir(RuleType.Sort),
+	ChaineDeMalefoudre(RuleType.Sort),
+	BouclierDeMalefoudre(RuleType.Sort),
+	PestePeste(RuleType.Priere),
+	CrasseCrasse(RuleType.Priere),
+	RageRage(RuleType.Priere),
 
 	// aptitude des sous clan
 	CreationsPrisees_1(RuleType.TraisDeBataille),
 	CreationsPrisees_3(RuleType.TraisDeBataille),
-	ManipulateursHabiles(RuleType.Aptitude, RuleType.TraisUnitee),
+	ManipulateursHabiles(RuleType.Aptitude),
 	ToujoursTroisCoupsDeGriffesDAvance(RuleType.AptitudesDeCommandement),
 	MaitresDuMeurtre_1(RuleType.TraisDeBataille),
 	MaitresDuMeurtre_3(RuleType.TraisDeBataille),
@@ -69,19 +79,22 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	EchosDesGrandesPlaies(RuleType.TraisDeBataille),
 
 	// aptitude d'unité
-	AppelDesCrevasses(RuleType.Aptitude, RuleType.TraisUnitee),
-	AutelDuGrandRatCornu(RuleType.Aptitude, RuleType.TraisUnitee),
-	AvalancheDEnergie(RuleType.Aptitude, RuleType.TraisUnitee),
-	CarillonFuneste(RuleType.Aptitude, RuleType.TraisUnitee),
-	FragmentsDeMalepierre(RuleType.Aptitude, RuleType.TraisUnitee),
-	FureurCernee(RuleType.Aptitude, RuleType.TraisUnitee),
-	PousseeVersLaBataille(RuleType.Aptitude, RuleType.TraisUnitee),
-	RemousParDelaLeVoile(RuleType.Aptitude, RuleType.TraisUnitee),
-	RongezRongezLeursOs(RuleType.Aptitude, RuleType.TraisUnitee),
-	NueeGrouillante(RuleType.Aptitude, RuleType.TraisUnitee),
+	AppelDesCrevasses(RuleType.Aptitude),
+	AutelDuGrandRatCornu(RuleType.Aptitude),
+	AvalancheDEnergie(RuleType.Aptitude),
+	CarillonFuneste(RuleType.Aptitude),
+	FragmentsDeMalepierre(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
+	FureurCernee(RuleType.Aptitude),
+	NueeGrouillante(RuleType.Aptitude, RuleType.PhaseDeDeroute),
+	PlusPlusDeMalenergie(RuleType.Aptitude, RuleType.PhaseDeCombat),
+	PousseeVersLaBataille(RuleType.Aptitude),
+	RemousParDelaLeVoile(RuleType.Aptitude),
+	RongezRongezLeursOs(RuleType.Aptitude, RuleType.AptitudesDeCommandement, RuleType.PhaseDeCombat),
 
 	// sort
 	Fletrissement(RuleType.Sort),
+	Malefoudre(RuleType.Sort),
+
 	// priere
 	// artefact
 	// aptitude de co

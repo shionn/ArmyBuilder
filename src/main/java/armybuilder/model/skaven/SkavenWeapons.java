@@ -7,9 +7,12 @@ public enum SkavenWeapons implements IUnitWeapon {
 	BatonDeMalepierre("Bâton de Malepierre", WeaponType.Melee, "2", "3", "4+", "4+", "-1", "D3"),
 	GriffesEtDentsDechiqueteuses("Griffes et Dents Déchiqueteuses", WeaponType.Melee, "1", "4", "4+", "3+", "-1", "2"),
 	LanceRouillee("Lance Rouillée", WeaponType.Melee, "2", "1", "5+", "4+", "-", "1"),
+	LameAMalenergie("Lame à Malénergie", WeaponType.Melee, "1", "D3", "4+", "3+", "-1", "1"),
 	LameDeMalepierre("Lame de Malepierre", WeaponType.Melee, "1", "6", "3+", "3+", "-1", "2"),
 	LameRouillee("Lame Rouillée", WeaponType.Melee, "1", "1", "4+", "4+", "-", "1"),
 	PiquesRouillees("Piques Rouillées", WeaponType.Melee, "1", "*", "3+", "3+", "-1", "1"),
+
+	PistoletAMalepierre("Pistolet à Malepierre", WeaponType.Projectil, "9", "3", "3+", "3+", "-2", "1"),
 
 	;
 	private String displayName;

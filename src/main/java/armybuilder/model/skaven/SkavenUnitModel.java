@@ -18,6 +18,12 @@ import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 
+	// maitre clan
+	PropheteGris(
+			Arrays.asList(SkavenWeapons.BatonDeMalepierre),
+			null,
+			Arrays.asList(GeneriqueUnitRule.Sorcier_2_2, SkavenRule.FragmentsDeMalepierre, SkavenRule.Fletrissement)),
+
 	PropheteGrisSurClocheHurlante(
 			Arrays.asList(SkavenWeapons.BatonDeMalepierre, SkavenWeapons.GriffesEtDentsDechiqueteuses,
 					SkavenWeapons.PiquesRouillees),
@@ -30,16 +36,18 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 					SkavenRule.AutelDuGrandRatCornu, SkavenRule.AvalancheDEnergie, SkavenRule.CarillonFuneste,
 					SkavenRule.RemousParDelaLeVoile, SkavenRule.AppelDesCrevasses)),
 
-	PropheteGris(
-			Arrays.asList(SkavenWeapons.BatonDeMalepierre),
-			null,
-			Arrays.asList(GeneriqueUnitRule.Sorcier_2_2, SkavenRule.FragmentsDeMalepierre, SkavenRule.Fletrissement)),
-
+	// verminus
 	Griffarque(Arrays.asList(SkavenWeapons.LameDeMalepierre), null,
 			Arrays.asList(SkavenRule.FureurCernee, SkavenRule.RongezRongezLeursOs)),
 
 	RatsDesClans(Arrays.asList(), null, Arrays.asList(SkavenRule.NueeGrouillante)),
-//	CCC(Arrays.asList(), null, Arrays.asList()),
+
+	// skryre
+	IngenieurTechnomage(
+			Arrays.asList(SkavenWeapons.PistoletAMalepierre, SkavenWeapons.LameAMalenergie),
+			null,
+			Arrays.asList(GeneriqueUnitRule.Sorcier_1_1, SkavenRule.Malefoudre)),
+
 //	DDD(Arrays.asList(), null, Arrays.asList()),
 //	EEE(Arrays.asList(), null, Arrays.asList()),
 //	FFF(Arrays.asList(), null, Arrays.asList()),
