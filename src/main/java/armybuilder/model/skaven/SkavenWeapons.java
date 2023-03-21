@@ -5,14 +5,22 @@ import armybuilder.model.unit.weapon.WeaponType;
 
 public enum SkavenWeapons implements IUnitWeapon {
 	BatonDeMalepierre("Bâton de Malepierre", WeaponType.Melee, "2", "3", "4+", "4+", "-1", "D3"),
+	CoupsDeMassue("Coups de Massue", WeaponType.Melee, "1", "4", "4+", "3+", "-", "2"),
+	GanteletsChoc("Gantelets Choc", WeaponType.Melee, "1", "4", "3+", "3+", "-1", "2"),
+	GanteletsEcorcheurs("Gantelets Écorcheurs", WeaponType.Melee, "1", "2D3", "3+", "3+", "-2", "D3"),
 	GriffesEtDentsDechiqueteuses("Griffes et Dents Déchiqueteuses", WeaponType.Melee, "1", "4", "4+", "3+", "-1", "2"),
 	LanceRouillee("Lance Rouillée", WeaponType.Melee, "2", "1", "5+", "4+", "-", "1"),
 	LameAMalenergie("Lame à Malénergie", WeaponType.Melee, "1", "D3", "4+", "3+", "-1", "1"),
 	LameDeMalepierre("Lame de Malepierre", WeaponType.Melee, "1", "6", "3+", "3+", "-1", "2"),
 	LameRouillee("Lame Rouillée", WeaponType.Melee, "1", "1", "4+", "4+", "-", "1"),
 	PiquesRouillees("Piques Rouillées", WeaponType.Melee, "1", "*", "3+", "3+", "-1", "1"),
+	PoingsConcasseurs("Poings Concasseurs", WeaponType.Melee, "1", "4", "3+", "3+", "-2", "2"),
 
+
+	BombardesAGlobesToxiques("Bombardes à Globes Toxiques", WeaponType.Projectil, "24", "3", "4+", "3+", "-3", "D3"),
+	CanonsRatlings("Canons Ratlings", WeaponType.Projectil, "12", "3D6", "3+", "3+", "-1", "1"),
 	PistoletAMalepierre("Pistolet à Malepierre", WeaponType.Projectil, "9", "3", "3+", "3+", "-2", "1"),
+	ProjecteursAMaleflamme("Projecteurs à Maleflamme", WeaponType.Projectil, "8", "--", "--", "*", "--", "--"),
 
 	;
 	private String displayName;

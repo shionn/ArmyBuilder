@@ -48,7 +48,9 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 			null,
 			Arrays.asList(GeneriqueUnitRule.Sorcier_1_1, SkavenRule.Malefoudre)),
 
-//	DDD(Arrays.asList(), null, Arrays.asList()),
+	// skryre & Moulder
+	ColossesDeChoc(Arrays.asList(), null, Arrays.asList(GeneriqueUnitRule.Elite)),
+
 //	EEE(Arrays.asList(), null, Arrays.asList()),
 //	FFF(Arrays.asList(), null, Arrays.asList()),
 //	GGG(Arrays.asList(), null, Arrays.asList()),

@@ -111,6 +111,22 @@ public enum SkavenOptimisation implements IUnitOption {
 			u -> u.is(KeyWord.RatsDesClans),
 			u -> u.add(SkavenWeapons.LameRouillee)),
 
+	ColosseProjectil(
+			"Projectils",
+			UnitOptionCategory.Armes,
+			u -> u.is(KeyWord.ColossesDeChoc),
+			u -> {
+				u.add(SkavenWeapons.BombardesAGlobesToxiques, SkavenWeapons.CanonsRatlings, SkavenWeapons.CoupsDeMassue,
+						SkavenWeapons.GanteletsEcorcheurs);
+				u.add(SkavenRule.GanteletsEcorcheurs, SkavenRule.ArmureSertieDeMalepierre,
+						SkavenRule.BombardesAGlobesToxiques);
+			}),
+	ColosseMelee("Melees", UnitOptionCategory.Armes, u -> u.is(KeyWord.ColossesDeChoc), u -> {
+		u.add(SkavenWeapons.ProjecteursAMaleflamme, SkavenWeapons.CoupsDeMassue, SkavenWeapons.PoingsConcasseurs,
+				SkavenWeapons.GanteletsChoc);
+		u.add(SkavenRule.TunneliersAPoingsConcasseurs, SkavenRule.GanteletsChoc, SkavenRule.ProjecteursAMaleflamme);
+	}),
+
 	// composition
 	Maitregriffe(UnitOptionCategory.Chef, u -> u.is(KeyWord.RatsDesClans)),
 	PorteEtendardDesClans(UnitOptionCategory.Banniere, u -> u.is(KeyWord.RatsDesClans)),

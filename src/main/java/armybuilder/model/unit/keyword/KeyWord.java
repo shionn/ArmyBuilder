@@ -98,6 +98,7 @@ public enum KeyWord implements IHaveDisplayName {
 	ClansVerminus,
 	ClansSkryre,
 	ClocheHurlante,
+	ColossesDeChoc,
 	Griffarque,
 	IngenieurTechnomage,
 	Maitreclan,

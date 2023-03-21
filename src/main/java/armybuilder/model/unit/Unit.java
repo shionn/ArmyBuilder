@@ -75,8 +75,8 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 		return weapons;
 	}
 
-	public void add(IUnitWeapon weapon) {
-		this.weapons.add(weapon);
+	public void add(IUnitWeapon... weapons) {
+		this.weapons.addAll(Arrays.asList(weapons));
 	}
 
 	public void alter(IUnitWeapon weapon, Consumer<AlteredWeapon> modifier) {

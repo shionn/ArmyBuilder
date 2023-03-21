@@ -64,6 +64,8 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	PestePeste(RuleType.Priere),
 	CrasseCrasse(RuleType.Priere),
 	RageRage(RuleType.Priere),
+	Fletrissement(RuleType.Sort),
+	Malefoudre(RuleType.Sort),
 
 	// aptitude des sous clan
 	CreationsPrisees_1(RuleType.TraisDeBataille),
@@ -80,23 +82,23 @@ public enum SkavenRule implements IRule<SkavenRule> {
 
 	// aptitude d'unité
 	AppelDesCrevasses(RuleType.Aptitude),
+	ArmureSertieDeMalepierre(RuleType.Aptitude),
 	AutelDuGrandRatCornu(RuleType.Aptitude),
 	AvalancheDEnergie(RuleType.Aptitude),
+	BombardesAGlobesToxiques(RuleType.Aptitude, RuleType.PhaseDeTir),
 	CarillonFuneste(RuleType.Aptitude),
 	FragmentsDeMalepierre(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
 	FureurCernee(RuleType.Aptitude),
+	GanteletsChoc(RuleType.Aptitude, RuleType.PhaseDeCombat),
+	GanteletsEcorcheurs(RuleType.Aptitude, RuleType.PhaseDeCharge, RuleType.PhaseDeCombat),
 	NueeGrouillante(RuleType.Aptitude, RuleType.PhaseDeDeroute),
 	PlusPlusDeMalenergie(RuleType.Aptitude, RuleType.PhaseDeCombat),
 	PousseeVersLaBataille(RuleType.Aptitude),
+	ProjecteursAMaleflamme(RuleType.Aptitude, RuleType.PhaseDeTir),
 	RemousParDelaLeVoile(RuleType.Aptitude),
 	RongezRongezLeursOs(RuleType.Aptitude, RuleType.AptitudesDeCommandement, RuleType.PhaseDeCombat),
+	TunneliersAPoingsConcasseurs(RuleType.Aptitude, RuleType.PhaseDeMouvement),
 
-	// sort
-	Fletrissement(RuleType.Sort),
-	Malefoudre(RuleType.Sort),
-
-	// priere
-	// artefact
 	// aptitude de co
 	// composition
 	Maitregriffe(RuleType.Aptitude, RuleType.Composition),
