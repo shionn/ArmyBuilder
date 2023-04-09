@@ -92,6 +92,7 @@ public enum KeyWord implements IHaveDisplayName {
 
 	// Skaven
 	AbominationDeMalefosse,
+	CanonAMalefoudre,
 	ClansEchin,
 	ClansMoulder,
 	ClansPestilens,
@@ -107,6 +108,7 @@ public enum KeyWord implements IHaveDisplayName {
 	PropheteGris,
 	RatsDesClans,
 	Skavens,
+	VerminesDeChoc,
 
 	// StormCast
 	Angelos,

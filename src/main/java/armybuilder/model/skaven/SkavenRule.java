@@ -92,6 +92,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	FureurCernee(RuleType.Aptitude),
 	GanteletsChoc(RuleType.Aptitude, RuleType.PhaseDeCombat),
 	GanteletsEcorcheurs(RuleType.Aptitude, RuleType.PhaseDeCharge, RuleType.PhaseDeCombat),
+	GardesDuCorpsDElite(RuleType.Aptitude),
 	NueeGrouillante(RuleType.Aptitude, RuleType.PhaseDeDeroute),
 	PlusPlusDeMalefoudre(RuleType.Aptitude, RuleType.PhaseDeTir),
 	PlusPlusDeMalenergie(RuleType.Aptitude, RuleType.PhaseDeCombat),
@@ -103,9 +104,12 @@ public enum SkavenRule implements IRule<SkavenRule> {
 
 	// aptitude de co
 	// composition
+	Maitrecroc(RuleType.Aptitude, RuleType.Composition),
 	Maitregriffe(RuleType.Aptitude, RuleType.Composition),
+	PorteEtendardDeChoc(RuleType.Aptitude, RuleType.Composition),
 	PorteEtendardDesClans(RuleType.Aptitude, RuleType.Composition),
 	SonneurDeClocheDesClans(RuleType.Aptitude, RuleType.Composition),
+	TambourDeChoc(RuleType.Aptitude, RuleType.Composition),
 
 
 	;

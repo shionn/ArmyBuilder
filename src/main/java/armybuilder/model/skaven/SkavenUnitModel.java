@@ -41,6 +41,10 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 			Arrays.asList(SkavenRule.FureurCernee, SkavenRule.RongezRongezLeursOs)),
 
 	RatsDesClans(Arrays.asList(), null, Arrays.asList(SkavenRule.NueeGrouillante)),
+	VerminesDeChoc(
+			Arrays.asList(SkavenWeapons.HallebardeRouillee),
+			null,
+			Arrays.asList(SkavenRule.GardesDuCorpsDElite)),
 
 	// skryre
 	IngenieurTechnomage(

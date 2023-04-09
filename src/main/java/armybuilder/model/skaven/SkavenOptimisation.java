@@ -128,9 +128,14 @@ public enum SkavenOptimisation implements IUnitOption {
 	}),
 
 	// composition
+	Maitrecroc(UnitOptionCategory.Chef, u -> u.is(KeyWord.VerminesDeChoc)),
 	Maitregriffe(UnitOptionCategory.Chef, u -> u.is(KeyWord.RatsDesClans)),
+	PorteEtendardDeChoc(UnitOptionCategory.Banniere, u -> u.is(KeyWord.VerminesDeChoc)),
 	PorteEtendardDesClans(UnitOptionCategory.Banniere, u -> u.is(KeyWord.RatsDesClans)),
-	SonneurDeClocheDesClans(UnitOptionCategory.Musicien, u -> u.is(KeyWord.RatsDesClans)),;
+	SonneurDeClocheDesClans(UnitOptionCategory.Musicien, u -> u.is(KeyWord.RatsDesClans)),
+	TambourDeChoc(UnitOptionCategory.Musicien, u -> u.is(KeyWord.VerminesDeChoc)),
+
+	;
 
 	private String displayName;
 	private UnitOptionCategory category;
