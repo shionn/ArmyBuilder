@@ -6,6 +6,7 @@ import armybuilder.model.unit.weapon.WeaponType;
 public enum SkavenWeapons implements IUnitWeapon {
 	BatonDeMalepierre("Bâton de Malepierre", WeaponType.Melee, "2", "3", "4+", "4+", "-1", "D3"),
 	CoupsDeMassue("Coups de Massue", WeaponType.Melee, "1", "4", "4+", "3+", "-", "2"),
+	DechargeDeMalefoudre("Décharge de Malefoudre", WeaponType.Projectil, "24", "--", "--", "*", "--", "--"),
 	GanteletsChoc("Gantelets Choc", WeaponType.Melee, "1", "4", "3+", "3+", "-1", "2"),
 	GanteletsEcorcheurs("Gantelets Écorcheurs", WeaponType.Melee, "1", "2D3", "3+", "3+", "-2", "D3"),
 	GriffesEtDentsDechiqueteuses("Griffes et Dents Déchiqueteuses", WeaponType.Melee, "1", "4", "4+", "3+", "-1", "2"),

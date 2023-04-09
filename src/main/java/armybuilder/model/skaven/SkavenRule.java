@@ -87,11 +87,13 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	AvalancheDEnergie(RuleType.Aptitude),
 	BombardesAGlobesToxiques(RuleType.Aptitude, RuleType.PhaseDeTir),
 	CarillonFuneste(RuleType.Aptitude),
+	DechargeDeMalefoudre(RuleType.Aptitude, RuleType.PhaseDeTir),
 	FragmentsDeMalepierre(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
 	FureurCernee(RuleType.Aptitude),
 	GanteletsChoc(RuleType.Aptitude, RuleType.PhaseDeCombat),
 	GanteletsEcorcheurs(RuleType.Aptitude, RuleType.PhaseDeCharge, RuleType.PhaseDeCombat),
 	NueeGrouillante(RuleType.Aptitude, RuleType.PhaseDeDeroute),
+	PlusPlusDeMalefoudre(RuleType.Aptitude, RuleType.PhaseDeTir),
 	PlusPlusDeMalenergie(RuleType.Aptitude, RuleType.PhaseDeCombat),
 	PousseeVersLaBataille(RuleType.Aptitude),
 	ProjecteursAMaleflamme(RuleType.Aptitude, RuleType.PhaseDeTir),
@@ -104,6 +106,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	Maitregriffe(RuleType.Aptitude, RuleType.Composition),
 	PorteEtendardDesClans(RuleType.Aptitude, RuleType.Composition),
 	SonneurDeClocheDesClans(RuleType.Aptitude, RuleType.Composition),
+
 
 	;
 
