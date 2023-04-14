@@ -11,6 +11,7 @@ public enum RuleIcons {
 	HerosPlyerTurn("ra ra-player underline", r -> r.isOne(RuleType.PhaseDesHerosPlayer)),
 	Mouvement("ra ra-footprint", r -> r.isOne(RuleType.PhaseDeMouvement)),
 	Tir("ra ra-crossbow", r -> r.isOne(RuleType.PhaseDeTir)),
+	TirPlayer("ra ra-crossbow underline", r -> r.isOne(RuleType.PhaseDeTirPlayer)),
 	Charge("fa fa-forward", r -> r.isOne(RuleType.PhaseDeCharge)),
 	Combat("ra ra-crossed-swords",
 			r -> r.isOne(RuleType.PhaseDeCombatDebut, RuleType.PhaseDeCombat, RuleType.PhaseDeCombatFin)),

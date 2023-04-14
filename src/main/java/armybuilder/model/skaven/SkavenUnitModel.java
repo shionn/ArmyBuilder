@@ -23,7 +23,6 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 			Arrays.asList(SkavenWeapons.BatonDeMalepierre),
 			null,
 			Arrays.asList(GeneriqueUnitRule.Sorcier_2_2, SkavenRule.FragmentsDeMalepierre, SkavenRule.Fletrissement)),
-
 	PropheteGrisSurClocheHurlante(
 			Arrays.asList(SkavenWeapons.BatonDeMalepierre, SkavenWeapons.GriffesEtDentsDechiqueteuses,
 					SkavenWeapons.PiquesRouillees),
@@ -39,7 +38,6 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 	// verminus
 	Griffarque(Arrays.asList(SkavenWeapons.LameDeMalepierre), null,
 			Arrays.asList(SkavenRule.FureurCernee, SkavenRule.RongezRongezLeursOs)),
-
 	RatsDesClans(Arrays.asList(), null, Arrays.asList(SkavenRule.NueeGrouillante)),
 	VerminesDeChoc(
 			Arrays.asList(SkavenWeapons.HallebardeRouillee),
@@ -51,11 +49,18 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 			Arrays.asList(SkavenWeapons.PistoletAMalepierre, SkavenWeapons.LameAMalenergie),
 			null,
 			Arrays.asList(GeneriqueUnitRule.Sorcier_1_1, SkavenRule.Malefoudre)),
-
 	CanonAMalefoudre(
 			Arrays.asList(SkavenWeapons.DechargeDeMalefoudre),
 			null,
 			Arrays.asList(SkavenRule.DechargeDeMalefoudre, SkavenRule.PlusPlusDeMalefoudre)),
+	CanonRatling(
+			Arrays.asList(SkavenWeapons.CanonsRatlings_EA, SkavenWeapons.PoignardsRouilles),
+			null,
+			Arrays.asList(SkavenRule.PlusPlusDeMaleplomb, SkavenRule.ServantsDArmeCaches)),
+	LanceFeu(
+			Arrays.asList(SkavenWeapons.LanceFeu, SkavenWeapons.PoignardsRouilles),
+			null,
+			Arrays.asList(SkavenRule.LanceFeu, SkavenRule.PlusPlusDeMaleflammes, SkavenRule.ServantsDArmeCaches)),
 
 	// skryre & Moulder
 	ColossesDeChoc(Arrays.asList(), null, Arrays.asList(GeneriqueUnitRule.Elite)),

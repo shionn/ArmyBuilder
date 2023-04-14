@@ -16,11 +16,14 @@ public enum SkavenWeapons implements IUnitWeapon {
 	LameDeMalepierre("Lame de Malepierre", WeaponType.Melee, "1", "6", "3+", "3+", "-1", "2"),
 	LameRouillee("Lame Rouillée", WeaponType.Melee, "1", "1", "4+", "4+", "-", "1"),
 	PiquesRouillees("Piques Rouillées", WeaponType.Melee, "1", "*", "3+", "3+", "-1", "1"),
+	PoignardsRouilles("Poignards Rouillés", WeaponType.Melee, "1", "2", "4+", "4+", "-", "1"),
 	PoingsConcasseurs("Poings Concasseurs", WeaponType.Melee, "1", "4", "3+", "3+", "-2", "2"),
 
 
 	BombardesAGlobesToxiques("Bombardes à Globes Toxiques", WeaponType.Projectil, "24", "3", "4+", "3+", "-3", "D3"),
 	CanonsRatlings("Canons Ratlings", WeaponType.Projectil, "12", "3D6", "3+", "3+", "-1", "1"),
+	CanonsRatlings_EA("Canons Ratlings", WeaponType.Projectil, "12", "2D6+3", "4+", "4+", "-1", "1"),
+	LanceFeu("Lance-Feu", WeaponType.Projectil, "8", "--", "--", "*", "--", "--"),
 	PistoletAMalepierre("Pistolet à Malepierre", WeaponType.Projectil, "9", "3", "3+", "3+", "-2", "1"),
 	ProjecteursAMaleflamme("Projecteurs à Maleflamme", WeaponType.Projectil, "8", "--", "--", "*", "--", "--"),
 

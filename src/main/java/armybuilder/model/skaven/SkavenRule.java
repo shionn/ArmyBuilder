@@ -93,14 +93,19 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	GanteletsChoc(RuleType.Aptitude, RuleType.PhaseDeCombat),
 	GanteletsEcorcheurs(RuleType.Aptitude, RuleType.PhaseDeCharge, RuleType.PhaseDeCombat),
 	GardesDuCorpsDElite(RuleType.Aptitude),
+	LanceFeu(RuleType.Aptitude, RuleType.PhaseDeTir),
 	NueeGrouillante(RuleType.Aptitude, RuleType.PhaseDeDeroute),
+	PlusPlusDeMaleflammes(RuleType.Aptitude, RuleType.PhaseDeTir),
 	PlusPlusDeMalefoudre(RuleType.Aptitude, RuleType.PhaseDeTir),
 	PlusPlusDeMalenergie(RuleType.Aptitude, RuleType.PhaseDeCombat),
+	PlusPlusDeMaleplomb(RuleType.Aptitude, RuleType.PhaseDeTir),
 	PousseeVersLaBataille(RuleType.Aptitude),
 	ProjecteursAMaleflamme(RuleType.Aptitude, RuleType.PhaseDeTir),
 	RemousParDelaLeVoile(RuleType.Aptitude),
 	RongezRongezLeursOs(RuleType.Aptitude, RuleType.AptitudesDeCommandement, RuleType.PhaseDeCombat),
+	ServantsDArmeCaches(RuleType.Aptitude, RuleType.PhaseBeforeStart, RuleType.PhaseDeTirPlayer),
 	TunneliersAPoingsConcasseurs(RuleType.Aptitude, RuleType.PhaseDeMouvement),
+
 
 	// aptitude de co
 	// composition

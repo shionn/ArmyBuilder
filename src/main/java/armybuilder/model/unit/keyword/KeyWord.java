@@ -93,6 +93,7 @@ public enum KeyWord implements IHaveDisplayName {
 	// Skaven
 	AbominationDeMalefosse,
 	CanonAMalefoudre,
+	CanonRatling,
 	ClansEchin,
 	ClansMoulder,
 	ClansPestilens,
@@ -100,8 +101,10 @@ public enum KeyWord implements IHaveDisplayName {
 	ClansSkryre,
 	ClocheHurlante,
 	ColossesDeChoc,
+	EquipeDArme,
 	Griffarque,
 	IngenieurTechnomage,
+	LanceFeu,
 	Maitreclan,
 	MachineDeGuerre,
 	MaitresMoulder,
