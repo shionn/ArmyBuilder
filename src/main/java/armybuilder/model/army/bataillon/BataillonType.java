@@ -155,7 +155,7 @@ public enum BataillonType implements IHaveDisplayName, IDecoreArmy, IDecorateUni
 	VeteransDeGallet(
 			"Vétérans de Gallet",
 			a -> a.is(PackDeBataille.BataillesRangees2023),
-			Arrays.asList(BataillonRule.FreterniteDuCombat),
+			Arrays.asList(BataillonRule.FraterniteDuCombat),
 			null,
 			Arrays.asList(),
 			contain(BataillonSlot.Infanterie, 2),

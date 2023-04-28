@@ -1,0 +1,1 @@
+Quand une figurine de ce bataillon fait une attaque d'arme de mêlée, vous pouvez cibler une unité ennemie qui est à 1/2" d'une figurine de l'unité attaquante, au lieu d'utiliser la caracteristique de Portée de l'arme pour cette attaque. Dans ce cas, la figurine qui attaque doit être à 1/2" d'une autre figurine de son unité etant elle-même à 1/2" de la cible.

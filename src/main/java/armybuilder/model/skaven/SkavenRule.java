@@ -2,10 +2,12 @@ package armybuilder.model.skaven;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 
 import armybuilder.model.rule.IRule;
 import armybuilder.model.rule.RuleType;
 import armybuilder.model.rule.desc.Description;
+import armybuilder.model.unit.Unit;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum SkavenRule implements IRule<SkavenRule> {
@@ -121,8 +123,15 @@ public enum SkavenRule implements IRule<SkavenRule> {
 
 	private List<RuleType> types;
 	private String name;
+	private Consumer<Unit> modifier;
 
-	SkavenRule(RuleType... types) {
+	private SkavenRule(RuleType... types) {
+		this.types = Arrays.asList(types);
+		this.name = EnumPropertyLoader.instance().name(this);
+	}
+
+	private SkavenRule(Consumer<Unit> modifier, RuleType... types) {
+		this.modifier = modifier;
 		this.types = Arrays.asList(types);
 		this.name = EnumPropertyLoader.instance().name(this);
 	}
@@ -140,6 +149,13 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	@Override
 	public Description getDescription() {
 		return new Description(this);
+	}
+
+	@Override
+	public void decorate(Unit unit) {
+		if (modifier != null) {
+			modifier.accept(unit);
+		}
 	}
 
 }

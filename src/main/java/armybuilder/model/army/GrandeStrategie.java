@@ -8,26 +8,39 @@ import armybuilder.model.IHaveDisplayName;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.rule.RuleType;
 import armybuilder.model.rule.desc.Description;
+import armybuilder.model.unit.keyword.KeyWord;
 
 public enum GrandeStrategie implements IHaveDisplayName, IDecoreArmy, IRule<GrandeStrategie> {
 	CoupezLaTete(
 			"Coupez la Tête",
 			l -> l.is(PackDeBataille.LutteDeGeneraux) || l.is(PackDeBataille.BataillesRangees2021)),
-	DefendreCeQuiNousAppartient("Défendre ce qui nous appartient", l -> l.is(PackDeBataille.BataillesRangees2022)),
+	CeJourEstLeNotre(
+			"Ce jour est le nôtre",
+			l -> l.is(PackDeBataille.BataillesRangees2023)),
+	DefendreCeQuiNousAppartient(
+			"Défendre ce qui nous appartient",
+			l -> l.is(PackDeBataille.BataillesRangees2022) || l.is(PackDeBataille.BataillesRangees2023)),
 	DemonstrationDeForce("Démonstration de Force", l -> l.is(PackDeBataille.BataillesRangees2022)),
 	DomaineDuPredateur("Domaine du Prédateur", l -> l.is(PackDeBataille.BataillesRangees2021)),
-	DomptezLaTerre("Domptez la Terre", l -> l.is(PackDeBataille.BataillesRangees2022)),
+	DomptezLaTerre("Domptez la Terre", l -> l.is(PackDeBataille.BataillesRangees2022) || l.is(PackDeBataille.BataillesRangees2023)),
+	InstinctDuSurvivant("Instinct du Survivant", l -> l.is(PackDeBataille.BataillesRangees2023)),
 	MaitreDesBetes("Maitre des Bêtes", l -> l.is(PackDeBataille.BataillesRangees2021)),
 	PasDePlacePourLesFaibles("Pas de Place pour les Faibles", l -> l.is(PackDeBataille.BataillesRangees2022)),
 	PiliersDeLaCoryance("Piliers de la Croyance", l -> l.is(PackDeBataille.BataillesRangees2021)),
 	PrecieuseSorcellerie("Précieuse Sorcellerie", l -> l.is(PackDeBataille.BataillesRangees2021)),
-	PrendreCeQuIlsOnt("Prendre ce qu'ils ont", l -> l.is(PackDeBataille.BataillesRangees2022)),
+	PrendreCeQuIlsOnt(
+			"Prendre ce qu'ils ont",
+			l -> l.is(PackDeBataille.BataillesRangees2022) || l.is(PackDeBataille.BataillesRangees2023)),
 	PresenceDominante("Présence Dominante", l -> l.is(PackDeBataille.BataillesRangees2021)),
 	PreuveDeDominance("Preuve de Dominance", l -> l.is(PackDeBataille.BataillesRangees2022)),
+	Revendication(
+			"Revendication",
+			l -> l.is(PackDeBataille.BataillesRangees2023) && l.count(KeyWord.ChampionDeGallet) >= 3),
 	TenezLaLigne(
 			"Tenez la Ligne",
 			l -> l.is(PackDeBataille.LutteDeGeneraux) || l.is(PackDeBataille.BataillesRangees2021)),
 	Vendetta("Vendetta", l -> l.is(PackDeBataille.LutteDeGeneraux) || l.is(PackDeBataille.BataillesRangees2021)),
+
 
 	BainDeSang("Bain de Sang", l -> l.is(Allegiance.DoK)),
 	ConquisAuNomDeKhaine("Conquis au nom de Khaine", l -> l.is(Allegiance.DoK)),

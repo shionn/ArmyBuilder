@@ -72,7 +72,7 @@ public enum OptimisationsUniverselles implements IUnitOption {
 			u -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.BrumeFantome)),
 	Levitation(
-			GeneriqueUnitRule.Guerison.getDisplayName(),
+			GeneriqueUnitRule.Levitation.getDisplayName(),
 			UnitOptionCategory.Sort,
 			u -> u.is(KeyWord.Sorcier) && !u.is(KeyWord.Unique),
 			u -> u.add(GeneriqueUnitRule.Levitation)),

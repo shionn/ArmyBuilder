@@ -34,7 +34,7 @@ public enum BataillonRule implements IRule<BataillonRule> {
 					.rule(PackDeBatailleRule.MenerParLExemple),
 			RuleType.Aptitude,
 			RuleType.PhaseDeCombat),
-	FreterniteDuCombat(
+	FraterniteDuCombat(
 			"Fraternité du Combat",
 			sh().toutes()
 					.figurine()
