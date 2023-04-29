@@ -110,6 +110,7 @@ public enum KeyWord implements IHaveDisplayName {
 	MaitresMoulder,
 	PropheteGris,
 	RatsDesClans,
+	RatsOgors,
 	Skavens,
 	VerminesDeChoc,
 

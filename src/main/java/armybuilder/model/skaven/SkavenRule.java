@@ -37,24 +37,24 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	VaillanceVermineuse(RuleType.TraitsDeCommandement),
 
 	// artos
-	LeRongeclat(RuleType.Artefact),
-	Skavenectar(RuleType.Artefact),
-	SceptreDeSuprematieLegitime(RuleType.Artefact),
-	FouetDeCrocs(RuleType.Artefact),
-	CouronneEnragee(RuleType.Artefact),
-	Salecuir(RuleType.Artefact),
-	BabioleTenebromagnetique(RuleType.Artefact),
-	CapeDetaleuse(RuleType.Artefact),
-	Rongebombe(RuleType.Artefact),
-	BouclierDeDistraction(RuleType.Artefact),
 	ArmureDeMalerouille(RuleType.Artefact),
+	BabioleTenebromagnetique(RuleType.Artefact),
+	BouclierDeDistraction(RuleType.Artefact),
+	CapeDetaleuse(RuleType.Artefact),
 	CharmeDeMalepierre(RuleType.Artefact),
-	ResonateurEsoteriqueAMalepierre(RuleType.Artefact),
-	FioleDuFulminateur(RuleType.Artefact),
-	LeFumigatus(RuleType.Artefact),
 	CloquepusLeKysteVivant(RuleType.Artefact),
-	LOrbeDAirain(RuleType.Artefact),
+	CouronneEnragee(RuleType.Artefact),
+	FioleDuFulminateur(RuleType.Artefact),
+	FouetDeCrocs(RuleType.Artefact),
 	LameDeCorruption(RuleType.Artefact),
+	LeFumigatus(RuleType.Artefact),
+	LeRongeclat(RuleType.Artefact),
+	LOrbeDAirain(RuleType.Artefact),
+	ResonateurEsoteriqueAMalepierre(RuleType.Artefact),
+	Rongebombe(RuleType.Artefact),
+	Salecuir(RuleType.Artefact),
+	SceptreDeSuprematieLegitime(RuleType.Artefact),
+	Skavenectar(RuleType.Artefact, RuleType.PhaseDesHerosPlayer),
 
 	// sort et priere
 	Brulure(RuleType.Sort),
@@ -118,6 +118,12 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	SonneurDeClocheDesClans(RuleType.Aptitude, RuleType.Composition),
 	TambourDeChoc(RuleType.Aptitude, RuleType.Composition),
 
+
+	// Tactique de Bataille
+	CrescendoDuChoeurInfecte(RuleType.TactiquesDeBataille),
+	FeuFeuPlusPlus(RuleType.TactiquesDeBataille),
+	MarqueDeLaMort(RuleType.TactiquesDeBataille),
+	SoignerLaBete(RuleType.TactiquesDeBataille),
 
 	;
 

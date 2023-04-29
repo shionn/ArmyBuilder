@@ -19,17 +19,17 @@ public enum PackDeBatailleRule implements IRule<PackDeBatailleRule> {
 	ActionDeseperee(RuleType.ActionsHeroiques, RuleType.PhaseDesHeros),
 	AlimenteParLaRageDeGhur(RuleType.Aptitude),
 	AutoriteDuDominant(RuleType.Aptitude),
+	CapeDeNictoptere(RuleType.Artefact),
+	CharmeDePlumeDeGriffe(RuleType.Artefact),
 	CleDeLaVictoire(RuleType.Aptitude, RuleType.PhaseDeTir),
 	DentGrincantesDeGallet(RuleType.Sort),
 	EnteteCommeUnRhinox(RuleType.Aptitude),
 	FrappeDOuverture(RuleType.ActionsHeroiques, RuleType.PhaseDesHeros),
+	HeameDIvoire(RuleType.Artefact, RuleType.PhaseDeCharge),
 	MaitreDesTunnels(RuleType.PhaseDeMouvement, RuleType.TraisUnitee),
 	MenerParLExemple(RuleType.ActionsHeroiques, RuleType.PhaseDesHeros),
 	PasDeRepliPasDeReddition(RuleType.AptitudesDeCommandement, RuleType.PhaseDeCombatDebut),
 
-	HeameDIvoire(RuleType.Artefact, RuleType.PhaseDeCharge),
-	CapeDeNictoptere(RuleType.Artefact),
-	CharmeDePlumeDeGriffe(RuleType.Artefact),
 
 ;
 

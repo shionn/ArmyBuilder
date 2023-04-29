@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import armybuilder.model.army.bataillon.Bataillon;
@@ -84,6 +85,10 @@ public class Army implements IHaveRule {
 
 	public List<Unit> units(RoleTactique role) {
 		return units.stream().filter(u -> u.is(role)).collect(Collectors.toList());
+	}
+
+	public List<Unit> units(Predicate<Unit> filter) {
+		return units.stream().filter(filter).collect(Collectors.toList());
 	}
 
 	/**

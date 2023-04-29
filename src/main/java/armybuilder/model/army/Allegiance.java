@@ -50,11 +50,13 @@ public enum Allegiance implements IHaveDisplayName, IDecoreArmy {
 						SkavenRule.CreationsPrisees_1);
 				a.addIf(a.count(KeyWord.MaitresMoulder) > 2 && a.count(KeyWord.AbominationDeMalefosse) > 1,
 						SkavenRule.CreationsPrisees_3);
+				a.addIf(a.count(KeyWord.RatsOgors) > 0, SkavenRule.SoignerLaBete);
 
 				// clan echin
 				a.addIf(a.count(KeyWord.ClansEchin) > 1 && a.count(KeyWord.Heros, KeyWord.ClansEchin) < 3,
 						SkavenRule.MaitresDuMeurtre_1);
 				a.addIf(a.count(KeyWord.Heros, KeyWord.ClansEchin) > 2, SkavenRule.MaitresDuMeurtre_3);
+				a.addIf(a.count(KeyWord.ClansEchin) > 0, SkavenRule.MarqueDeLaMort);
 
 				// clan verminus
 				a.addIf(Arrays.asList(1, 2).contains(a.count(KeyWord.Griffarque)), SkavenRule.PuissantsChefsDeGuerre_1);
@@ -64,9 +66,12 @@ public enum Allegiance implements IHaveDisplayName, IDecoreArmy {
 				a.addIf(Arrays.asList(1, 2).contains(a.count(KeyWord.Heros, KeyWord.ClansSkryre)),
 						SkavenRule.BougiesDeMalepierre_1);
 				a.addIf(a.count(KeyWord.Heros, KeyWord.ClansSkryre) > 2, SkavenRule.BougiesDeMalepierre_3);
+				a.addIf(a.count(KeyWord.ClansSkryre) > 0, SkavenRule.FeuFeuPlusPlus);
 
 				// clan Pestilien
 				a.addIf(a.count(KeyWord.Pretre, KeyWord.ClansPestilens) > 0, SkavenRule.EchosDesGrandesPlaies);
+				a.addIf(a.count(KeyWord.Pretre, KeyWord.ClansPestilens) > 0, SkavenRule.CrescendoDuChoeurInfecte);
+
 
 			}
 	),
