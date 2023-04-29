@@ -14,6 +14,7 @@ OLD : _sort_ 5+ ∈ 12".
 OLD : _fin phase_
 
 1 figurine de cette unité. +1 Attaques.
+_1 ƒ sur 10_.
 
 _si charge_
 

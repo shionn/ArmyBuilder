@@ -65,6 +65,12 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 	// skryre & Moulder
 	ColossesDeChoc(Arrays.asList(), null, Arrays.asList(GeneriqueUnitRule.Elite)),
 
+	// sans clans
+	TrouDeVermine(
+			Arrays.asList(),
+			null,
+			Arrays.asList(GeneriqueUnitRule.Infranchissable, SkavenRule.TunnelsDansLaRealite,
+					SkavenRule.AuraDuGrandRatCornu)),
 //	EEE(Arrays.asList(), null, Arrays.asList()),
 //	FFF(Arrays.asList(), null, Arrays.asList()),
 //	GGG(Arrays.asList(), null, Arrays.asList()),

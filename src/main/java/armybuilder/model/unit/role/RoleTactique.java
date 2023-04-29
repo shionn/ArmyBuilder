@@ -1,7 +1,7 @@
 package armybuilder.model.unit.role;
 
 public enum RoleTactique {
-	Leader, Ligne, Elite, Behemoth, Artillerie, SortsPersistantsEtInvocation,;
+	Leader, Ligne, Elite, Behemoth, Artillerie, SortsPersistantsEtInvocation, TerrainDeFaction,;
 
 	public String getDisplayName() {
 		// TODO displayname depuis enum

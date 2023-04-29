@@ -3,6 +3,7 @@ package armybuilder.serialisation;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 
@@ -66,11 +67,18 @@ public class EnumPropertyLoader {
 	}
 
 	public UnitProfile profile(Enum<?> e) {
-		return UnitProfile.valueOf(props(e, "profile"));
+		String value = props(e, "profile");
+		if ("NULL".equals(value))
+			return null;
+		return UnitProfile.valueOf(value);
 	}
 
 	public List<KeyWord> keywords(Enum<?> e) {
-		return Arrays.stream(props(e, "keywords").split(",")).map(KeyWord::valueOf).toList();
+		String value = props(e, "keywords");
+		if (StringUtils.isBlank(value)) {
+			return Collections.emptyList();
+		}
+		return Arrays.stream(value.split(",")).map(KeyWord::valueOf).toList();
 	}
 
 	public List<UnitOptionCategory> options(Enum<?> e) {

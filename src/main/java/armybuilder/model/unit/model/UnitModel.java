@@ -77,6 +77,7 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	LanceFeu(SkavenUnitModel.LanceFeu),
 	CanonRatling(SkavenUnitModel.CanonRatling),
 	ColossesDeChoc(SkavenUnitModel.ColossesDeChoc),
+	TrouDeVermine(SkavenUnitModel.TrouDeVermine),
 
 	AstreiaSolbrigh(StormcastUnitModel.AstreiaSolbrigh),
 	SeigneurArcanumSurDracolineCeleste(StormcastUnitModel.SeigneurArcanumSurDracolineCeleste),

@@ -72,7 +72,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	// aptitude des sous clan
 	CreationsPrisees_1(RuleType.TraisDeBataille),
 	CreationsPrisees_3(RuleType.TraisDeBataille),
-	ManipulateursHabiles(RuleType.Aptitude),
+	ManipulateursHabiles(RuleType.Aptitude), // TODO alter profil
 	ToujoursTroisCoupsDeGriffesDAvance(RuleType.AptitudesDeCommandement),
 	MaitresDuMeurtre_1(RuleType.TraisDeBataille),
 	MaitresDuMeurtre_3(RuleType.TraisDeBataille),
@@ -85,13 +85,14 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	// aptitude d'unité
 	AppelDesCrevasses(RuleType.Aptitude),
 	ArmureSertieDeMalepierre(RuleType.Aptitude),
+	AuraDuGrandRatCornu(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer, RuleType.Aura, RuleType.Priere, RuleType.Sort),
 	AutelDuGrandRatCornu(RuleType.Aptitude),
 	AvalancheDEnergie(RuleType.Aptitude),
 	BombardesAGlobesToxiques(RuleType.Aptitude, RuleType.PhaseDeTir),
 	CarillonFuneste(RuleType.Aptitude),
 	DechargeDeMalefoudre(RuleType.Aptitude, RuleType.PhaseDeTir),
-	FragmentsDeMalepierre(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
-	FureurCernee(RuleType.Aptitude),
+	FragmentsDeMalepierre(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer, RuleType.Sort),
+	FureurCernee(u -> u.alterAllWeapons(w -> w.setAltAttaques("+*")), RuleType.Aptitude),
 	GanteletsChoc(RuleType.Aptitude, RuleType.PhaseDeCombat),
 	GanteletsEcorcheurs(RuleType.Aptitude, RuleType.PhaseDeCharge, RuleType.PhaseDeCombat),
 	GardesDuCorpsDElite(RuleType.Aptitude),
@@ -107,16 +108,16 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	RongezRongezLeursOs(RuleType.Aptitude, RuleType.AptitudesDeCommandement, RuleType.PhaseDeCombat),
 	ServantsDArmeCaches(RuleType.Aptitude, RuleType.PhaseBeforeStart, RuleType.PhaseDeTirPlayer),
 	TunneliersAPoingsConcasseurs(RuleType.Aptitude, RuleType.PhaseDeMouvement),
-
+	TunnelsDansLaRealite(RuleType.Aptitude, RuleType.PhaseDeMouvement),
 
 	// aptitude de co
 	// composition
-	Maitrecroc(RuleType.Aptitude, RuleType.Composition),
-	Maitregriffe(RuleType.Aptitude, RuleType.Composition),
-	PorteEtendardDeChoc(RuleType.Aptitude, RuleType.Composition),
-	PorteEtendardDesClans(RuleType.Aptitude, RuleType.Composition),
-	SonneurDeClocheDesClans(RuleType.Aptitude, RuleType.Composition),
-	TambourDeChoc(RuleType.Aptitude, RuleType.Composition),
+	Maitrecroc(u -> u.alterAllWeapons(w -> w.setAltAttaques("+1")), RuleType.Aptitude, RuleType.Composition),
+	Maitregriffe(u -> u.alterAllWeapons(w -> w.setAltAttaques("+1")), RuleType.Aptitude, RuleType.Composition),
+	PorteEtendardDeChoc(RuleType.Aptitude, RuleType.Composition, RuleType.PhaseDeMouvement),
+	PorteEtendardDesClans(RuleType.Aptitude, RuleType.Composition, RuleType.PhaseDeMouvement),
+	SonneurDeClocheDesClans(RuleType.Aptitude, RuleType.Composition, RuleType.PhaseDeMouvement),
+	TambourDeChoc(RuleType.Aptitude, RuleType.Composition, RuleType.PhaseDeMouvement),
 
 
 	// Tactique de Bataille
