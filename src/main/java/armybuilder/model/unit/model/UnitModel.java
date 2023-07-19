@@ -67,16 +67,25 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	CarognesFaucheuses(NighthauntUnitModel.CarognesFaucheuses),
 	Sorcespectres(NighthauntUnitModel.Sorcespectres),
 
-	PropheteGrisSurClocheHurlante(SkavenUnitModel.PropheteGrisSurClocheHurlante),
+	// skaven
 	PropheteGris(SkavenUnitModel.PropheteGris),
+	PropheteGrisSurClocheHurlante(SkavenUnitModel.PropheteGrisSurClocheHurlante),
 	Griffarque(SkavenUnitModel.Griffarque),
+	IngenieurTechnomage(SkavenUnitModel.IngenieurTechnomage),
+	MaitreMoulder(SkavenUnitModel.MaitreMoulder),
+	PretreDeLaPeste(SkavenUnitModel.PretreDeLaPeste),
+
 	RatsDesClans(SkavenUnitModel.RatsDesClans),
 	VerminesDeChoc(SkavenUnitModel.VerminesDeChoc),
-	IngenieurTechnomage(SkavenUnitModel.IngenieurTechnomage),
-	CanonAMalefoudre(SkavenUnitModel.CanonAMalefoudre),
-	LanceFeu(SkavenUnitModel.LanceFeu),
-	CanonRatling(SkavenUnitModel.CanonRatling),
+
 	ColossesDeChoc(SkavenUnitModel.ColossesDeChoc),
+	RatsOgors(SkavenUnitModel.RatsOgors),
+
+	CanonRatling(SkavenUnitModel.CanonRatling),
+	LanceFeu(SkavenUnitModel.LanceFeu),
+
+	CanonAMalefoudre(SkavenUnitModel.CanonAMalefoudre),
+	CatapulteDeLaPeste(SkavenUnitModel.CatapulteDeLaPeste),
 	TrouDeVermine(SkavenUnitModel.TrouDeVermine),
 
 	AstreiaSolbrigh(StormcastUnitModel.AstreiaSolbrigh),

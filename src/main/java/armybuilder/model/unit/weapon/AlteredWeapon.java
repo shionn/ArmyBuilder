@@ -6,6 +6,7 @@ public class AlteredWeapon implements IUnitWeapon {
 	private String altAttaques;
 	private String altBlesser;
 	private String altToucher;
+	private String altDegats;
 
 	public AlteredWeapon(IUnitWeapon source) {
 		this.source = source;
@@ -70,9 +71,17 @@ public class AlteredWeapon implements IUnitWeapon {
 		return source.getPerf();
 	}
 
+	public void setAltDegats(String altDegats) {
+		this.altDegats = altDegats;
+	}
+
 	@Override
 	public String getDegats() {
-		return source.getDegats();
+		String degat = source.getDegats();
+		if (altDegats != null) {
+			degat += "<small> (" + altDegats + ")</small>";
+		}
+		return degat;
 	}
 
 	@Override

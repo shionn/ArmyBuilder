@@ -18,7 +18,11 @@ import armybuilder.model.rule.desc.DescriptionMode;
 import armybuilder.model.unit.Unit;
 import armybuilder.model.unit.keyword.KeyWord;
 import armybuilder.model.unit.role.RoleTactique;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class Army implements IHaveRule {
 	private int id;
 	private String name;
@@ -31,7 +35,6 @@ public class Army implements IHaveRule {
 	private DescriptionMode descriptionMode;
 	private List<Unit> units = new ArrayList<Unit>();
 	private List<Bataillon> bataillons = new ArrayList<Bataillon>();
-
 	private List<IRule<?>> rules = new ArrayList<IRule<?>>();
 
 	public void decorate() {
@@ -105,44 +108,12 @@ public class Army implements IHaveRule {
 		return units.stream().map(u -> u.getPoints()).reduce(Integer.valueOf(0), (a, b) -> a + b);
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public boolean is(Allegiance allegiance) {
 		return this.allegiance == allegiance;
 	}
 
-	public Allegiance getAllegiance() {
-		return allegiance;
-	}
-
-	public void setAllegiance(Allegiance allegiance) {
-		this.allegiance = allegiance;
-	}
-
 	public boolean is(SubAllegiance sub) {
 		return this.subAllegiance == sub;
-	}
-
-	public SubAllegiance getSubAllegiance() {
-		return subAllegiance;
-	}
-
-	public void setSubAllegiance(SubAllegiance subAllegiance) {
-		this.subAllegiance = subAllegiance;
 	}
 
 	public List<Unit> getUnits() {
@@ -150,76 +121,24 @@ public class Army implements IHaveRule {
 		return units;
 	}
 
-	public void setUnits(List<Unit> units) {
-		this.units = units;
-	}
-
-	public PackDeBataille getPackDeBataille() {
-		return packDeBataille;
-	}
-
-	public void setPackDeBataille(PackDeBataille packDeBataille) {
-		this.packDeBataille = packDeBataille;
-	}
-
 	public boolean is(PackDeBataille packDeBataille) {
 		return this.packDeBataille == packDeBataille;
-	}
-
-	public void setGrandeStrategie(GrandeStrategie grandeStrategie) {
-		this.grandeStrategie = grandeStrategie;
-	}
-
-	public GrandeStrategie getGrandeStrategie() {
-		return grandeStrategie;
 	}
 
 	public boolean is(GrandeStrategie grandeStrategie) {
 		return this.grandeStrategie == grandeStrategie;
 	}
 
-	public void setTriomphes(Triomphes triomphes) {
-		this.triomphes = triomphes;
-	}
-
-	public Triomphes getTriomphes() {
-		return triomphes;
-	}
-
 	public boolean is(Triomphes triomphes) {
 		return this.triomphes == triomphes;
-	}
-
-	public List<Bataillon> getBataillons() {
-		return bataillons;
-	}
-
-	public void setBataillons(List<Bataillon> bataillons) {
-		this.bataillons = bataillons;
 	}
 
 	public long count(BataillonType type) {
 		return bataillons.stream().filter(b -> b.getType() == type).count();
 	}
 
-	public AptitudeDeCommandement getAptitudeDeCommandement() {
-		return aptitudeDeCommandement;
-	}
-
-	public void setAptitudeDeCommandement(AptitudeDeCommandement aptitudeDeCommandement) {
-		this.aptitudeDeCommandement = aptitudeDeCommandement;
-	}
-
 	public boolean is(AptitudeDeCommandement aptitudeDeCommandement) {
 		return this.aptitudeDeCommandement == aptitudeDeCommandement;
-	}
-
-	public DescriptionMode getDescriptionMode() {
-		return descriptionMode;
-	}
-
-	public void setDescriptionMode(DescriptionMode descriptionMode) {
-		this.descriptionMode = descriptionMode;
 	}
 
 }

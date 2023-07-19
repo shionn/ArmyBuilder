@@ -58,16 +58,18 @@ public enum SkavenRule implements IRule<SkavenRule> {
 
 	// sort et priere
 	Brulure(RuleType.Sort),
+	BouclierDeMalefoudre(RuleType.Sort),
+	ChaineDeMalefoudre(RuleType.Sort),
 	Evasion(RuleType.Sort),
 	FrenesieMortelle(RuleType.Sort),
-	PlusPlusPlusDeVilPouvoir(RuleType.Sort),
-	ChaineDeMalefoudre(RuleType.Sort),
-	BouclierDeMalefoudre(RuleType.Sort),
-	PestePeste(RuleType.Priere),
-	CrasseCrasse(RuleType.Priere),
-	RageRage(RuleType.Priere),
-	Fletrissement(RuleType.Sort),
 	Malefoudre(RuleType.Sort),
+	PlusPlusPlusDeVilPouvoir(RuleType.Sort),
+
+	CrasseCrasse(RuleType.Priere),
+	Fletrissement(RuleType.Priere),
+	PestePeste(RuleType.Priere),
+	PestilencePestilence(RuleType.Priere),
+	RageRage(RuleType.Priere),
 
 	// aptitude des sous clan
 	CreationsPrisees_1(RuleType.TraisDeBataille),
@@ -85,18 +87,32 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	// aptitude d'unité
 	AppelDesCrevasses(RuleType.Aptitude),
 	ArmureSertieDeMalepierre(RuleType.Aptitude),
+	AssautFrenetique(u -> u.alterAllWeapons(w -> w.setAltAttaques("+1")), RuleType.Aptitude, RuleType.PhaseDeCombat),
 	AuraDuGrandRatCornu(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer, RuleType.Aura, RuleType.Priere, RuleType.Sort),
 	AutelDuGrandRatCornu(RuleType.Aptitude),
 	AvalancheDEnergie(RuleType.Aptitude),
+	BarrageDeContagion(u -> u.alter(SkavenWeapons.CatapulteDeLaPeste, w -> {
+		w.setAltToucher("+1");
+		w.setAltDegats("*");
+	}), RuleType.Aptitude, RuleType.PhaseDeTirPlayer),
 	BombardesAGlobesToxiques(RuleType.Aptitude, RuleType.PhaseDeTir),
 	CarillonFuneste(RuleType.Aptitude),
 	DechargeDeMalefoudre(RuleType.Aptitude, RuleType.PhaseDeTir),
+	FaireClaquerLeFouet(RuleType.Aptitude, RuleType.PhaseDeMouvementPlayer),
 	FragmentsDeMalepierre(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer, RuleType.Sort),
+	FumeesEmpoisonnees(RuleType.Aptitude, RuleType.PhaseDeCombat),
 	FureurCernee(u -> u.alterAllWeapons(w -> w.setAltAttaques("+*")), RuleType.Aptitude),
+	FureurEnragee(
+			u -> u.alter(SkavenWeapons.GriffesLamesEtDentsDechiqueteuses, w -> w.setAltToucher("*")),
+			RuleType.Aptitude,
+			RuleType.PhaseDeCombat),
 	GanteletsChoc(RuleType.Aptitude, RuleType.PhaseDeCombat),
 	GanteletsEcorcheurs(RuleType.Aptitude, RuleType.PhaseDeCharge, RuleType.PhaseDeCombat),
 	GardesDuCorpsDElite(RuleType.Aptitude),
 	LanceFeu(RuleType.Aptitude, RuleType.PhaseDeTir),
+	LachezPlusPlusDeBetes(RuleType.Aptitude, RuleType.AptitudesDeCommandement),
+	MaitreModeleur(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
+	MortAtroce(RuleType.Aptitude, RuleType.PhaseDeDeroute),
 	NueeGrouillante(RuleType.Aptitude, RuleType.PhaseDeDeroute),
 	PlusPlusDeMaleflammes(RuleType.Aptitude, RuleType.PhaseDeTir),
 	PlusPlusDeMalefoudre(RuleType.Aptitude, RuleType.PhaseDeTir),

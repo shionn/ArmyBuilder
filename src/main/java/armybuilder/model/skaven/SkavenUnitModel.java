@@ -15,7 +15,9 @@ import armybuilder.model.unit.option.UnitOptionCategory;
 import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.serialisation.EnumPropertyLoader;
+import lombok.Getter;
 
+@Getter
 public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 
 	// maitre clan
@@ -50,7 +52,7 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 			null,
 			Arrays.asList(GeneriqueUnitRule.Sorcier_1_1, SkavenRule.Malefoudre)),
 	CanonAMalefoudre(
-			Arrays.asList(SkavenWeapons.DechargeDeMalefoudre),
+			Arrays.asList(SkavenWeapons.DechargeDeMalefoudre, SkavenWeapons.CrocsEtPoignards),
 			null,
 			Arrays.asList(SkavenRule.DechargeDeMalefoudre, SkavenRule.PlusPlusDeMalefoudre)),
 	CanonRatling(
@@ -65,16 +67,33 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 	// skryre & Moulder
 	ColossesDeChoc(Arrays.asList(), null, Arrays.asList(GeneriqueUnitRule.Elite)),
 
+	// Moulder
+	MaitreMoulder(
+			Arrays.asList(),
+			null,
+			Arrays.asList(SkavenRule.MaitreModeleur, SkavenRule.FaireClaquerLeFouet, SkavenRule.LachezPlusPlusDeBetes)),
+	RatsOgors(
+			Arrays.asList(SkavenWeapons.CanonAMaleflamme, SkavenWeapons.GriffesLamesEtDentsDechiqueteuses),
+			null,
+			Arrays.asList(SkavenRule.FureurEnragee)),
+
+	// Pestilien
+	PretreDeLaPeste(
+			Arrays.asList(SkavenWeapons.BourdonDeMalepierre, SkavenWeapons.EncensoirAPestilence),
+			null,
+			Arrays.asList(SkavenRule.AssautFrenetique, SkavenRule.FumeesEmpoisonnees, SkavenRule.PestilencePestilence)),
+//	HHH(Arrays.asList(), null, Arrays.asList()),
+	CatapulteDeLaPeste(
+			Arrays.asList(SkavenWeapons.CatapulteDeLaPeste, SkavenWeapons.PoignardsRouilles_Catapulte),
+			null,
+			Arrays.asList(SkavenRule.BarrageDeContagion, SkavenRule.MortAtroce)),
+
 	// sans clans
 	TrouDeVermine(
 			Arrays.asList(),
 			null,
 			Arrays.asList(GeneriqueUnitRule.Infranchissable, SkavenRule.TunnelsDansLaRealite,
 					SkavenRule.AuraDuGrandRatCornu)),
-//	EEE(Arrays.asList(), null, Arrays.asList()),
-//	FFF(Arrays.asList(), null, Arrays.asList()),
-//	GGG(Arrays.asList(), null, Arrays.asList()),
-//	HHH(Arrays.asList(), null, Arrays.asList()),
 //	III(Arrays.asList(), null, Arrays.asList()),
 //	JJJ(Arrays.asList(), null, Arrays.asList()),
 //	KKK(Arrays.asList(), null, Arrays.asList()),
@@ -82,76 +101,31 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 
 	;
 
-	private String name;
-	private int pts;
+	private String displayName;
+	private int points;
 	private UnitProfile profile;
 	private ProfileDegressif profileDegressif;
-	private List<RoleTactique> roles;
+	private List<RoleTactique> roleTactiques;
 	private List<IUnitWeapon> weapons;
-	private List<KeyWord> keywords;
+	private List<KeyWord> keyWords;
 	private List<IRule<?>> rules;
-	private List<UnitOptionCategory> options;
+	private List<UnitOptionCategory> optionsCategories;
 
 	private SkavenUnitModel(List<IUnitWeapon> weapons, ProfileDegressif profileDegressif, List<IRule<?>> rules) {
-		this.name = EnumPropertyLoader.instance().name(this);
-		this.pts = EnumPropertyLoader.instance().pts(this);
-		this.roles = EnumPropertyLoader.instance().roles(this);
+		this.displayName = EnumPropertyLoader.instance().name(this);
+		this.points = EnumPropertyLoader.instance().pts(this);
+		this.roleTactiques = EnumPropertyLoader.instance().roles(this);
 		this.profile = EnumPropertyLoader.instance().profile(this);
-		this.keywords = EnumPropertyLoader.instance().keywords(this);
-		this.options = EnumPropertyLoader.instance().options(this);
+		this.keyWords = EnumPropertyLoader.instance().keywords(this);
+		this.optionsCategories = EnumPropertyLoader.instance().options(this);
 		this.weapons = weapons;
 		this.profileDegressif = profileDegressif;
 		this.rules = rules;
 	}
 
 	@Override
-	public List<IUnitWeapon> getWeapons() {
-		return weapons;
-	}
-
-	@Override
-	public List<RoleTactique> getRoleTactiques() {
-		return roles;
-	}
-
-	@Override
-	public List<KeyWord> getKeyWords() {
-		return keywords;
-	}
-
-	@Override
-	public String getDisplayName() {
-		return name;
-	}
-
-	@Override
 	public boolean availableFor(Army army) {
 		return army.is(Allegiance.Skaven);
-	}
-
-	@Override
-	public List<IRule<?>> getRules() {
-		return rules;
-	}
-
-	@Override
-	public int getPoints() {
-		return pts;
-	}
-
-	@Override
-	public List<UnitOptionCategory> getOptionsCategories() {
-		return options;
-	}
-
-	@Override
-	public UnitProfile getProfile() {
-		return profile;
-	}
-
-	@Override
-	public ProfileDegressif getProfileDegressif() {
-		return profileDegressif;
 	}
 
 }

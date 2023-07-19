@@ -48,7 +48,7 @@ public enum Allegiance implements IHaveDisplayName, IDecoreArmy {
 				// clan moulder
 				a.addIf(Arrays.asList(1, 2).contains(a.count(KeyWord.AbominationDeMalefosse)),
 						SkavenRule.CreationsPrisees_1);
-				a.addIf(a.count(KeyWord.MaitresMoulder) > 2 && a.count(KeyWord.AbominationDeMalefosse) > 1,
+				a.addIf(a.count(KeyWord.MaitreMoulder) > 2 && a.count(KeyWord.AbominationDeMalefosse) > 1,
 						SkavenRule.CreationsPrisees_3);
 				a.addIf(a.count(KeyWord.RatsOgors) > 0, SkavenRule.SoignerLaBete);
 

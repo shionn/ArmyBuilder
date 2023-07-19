@@ -110,6 +110,16 @@ public enum SkavenOptimisation implements IUnitOption {
 			UnitOptionCategory.Armes,
 			u -> u.is(KeyWord.RatsDesClans),
 			u -> u.add(SkavenWeapons.LameRouillee)),
+	FouetDeMalepierre(
+			SkavenWeapons.FouetDeMalepierre.getDisplayName(),
+			UnitOptionCategory.Armes,
+			u -> u.is(KeyWord.MaitreMoulder),
+			u -> u.add(SkavenWeapons.FouetDeMalepierre)),
+	AttrapeChoses(
+			SkavenWeapons.AttrapeChoses.getDisplayName(),
+			UnitOptionCategory.Armes,
+			u -> u.is(KeyWord.MaitreMoulder),
+			u -> u.add(SkavenWeapons.AttrapeChoses)),
 
 	ColosseProjectil(
 			"Projectils",

@@ -9,6 +9,10 @@ public enum KeyWord implements IHaveDisplayName {
 	Mort,
 	Ordre,
 
+	FilleDeKhaine,
+	Nurgle,
+	Skavens,
+
 	Aelf,
 
 	Heros,
@@ -31,7 +35,6 @@ public enum KeyWord implements IHaveDisplayName {
 	Erinyes,
 	EtripeusesKhinerai,
 	FerecailleMelusai,
-	FilleDeKhaine,
 	GrandeGladiatrice,
 	HaggNar,
 	Khailebron,
@@ -92,8 +95,10 @@ public enum KeyWord implements IHaveDisplayName {
 
 	// Skaven
 	AbominationDeMalefosse,
+	BeteDeCombat,
 	CanonAMalefoudre,
 	CanonRatling,
+	CatapulteDeLaPeste,
 	ClansEchin,
 	ClansMoulder,
 	ClansPestilens,
@@ -107,11 +112,12 @@ public enum KeyWord implements IHaveDisplayName {
 	LanceFeu,
 	Maitreclan,
 	MachineDeGuerre,
-	MaitresMoulder,
+	MaitreMoulder,
+	Meute,
 	PropheteGris,
+	PretreDeLaPeste,
 	RatsDesClans,
 	RatsOgors,
-	Skavens,
 	VerminesDeChoc,
 
 	// StormCast
