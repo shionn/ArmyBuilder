@@ -98,7 +98,6 @@ public enum SkavenOptimisation implements IUnitOption {
 	CrasseCrasse(UnitOptionCategory.Priere, u -> u.is(KeyWord.ClansPestilens)),
 	RageRage(UnitOptionCategory.Priere, u -> u.is(KeyWord.ClansPestilens)),
 
-
 	// armes
 	LanceRouillee(
 			SkavenWeapons.LanceRouillee.getDisplayName(),
@@ -120,6 +119,16 @@ public enum SkavenOptimisation implements IUnitOption {
 			UnitOptionCategory.Armes,
 			u -> u.is(KeyWord.MaitreMoulder),
 			u -> u.add(SkavenWeapons.AttrapeChoses)),
+	PaireDeLamesFetides(
+			SkavenWeapons.PaireDeLamesFetides.getDisplayName(),
+			UnitOptionCategory.Armes,
+			u -> u.is(KeyWord.MoinesDeLaPeste),
+			u -> u.add(SkavenWeapons.PaireDeLamesFetides)),
+	LameFetideEtBatonDesPlaies(
+			SkavenWeapons.LameFetideEtBatonDesPlaies.getDisplayName(),
+			UnitOptionCategory.Armes,
+			u -> u.is(KeyWord.MoinesDeLaPeste),
+			u -> u.add(SkavenWeapons.LameFetideEtBatonDesPlaies)),
 
 	ColosseProjectil(
 			"Projectils",
@@ -139,11 +148,16 @@ public enum SkavenOptimisation implements IUnitOption {
 
 	// composition
 	Maitrecroc(UnitOptionCategory.Chef, u -> u.is(KeyWord.VerminesDeChoc)),
-	Maitregriffe(UnitOptionCategory.Chef, u -> u.is(KeyWord.RatsDesClans)),
 	PorteEtendardDeChoc(UnitOptionCategory.Banniere, u -> u.is(KeyWord.VerminesDeChoc)),
+	TambourDeChoc(UnitOptionCategory.Musicien, u -> u.is(KeyWord.VerminesDeChoc)),
+
+	Maitregriffe(UnitOptionCategory.Chef, u -> u.is(KeyWord.RatsDesClans)),
 	PorteEtendardDesClans(UnitOptionCategory.Banniere, u -> u.is(KeyWord.RatsDesClans)),
 	SonneurDeClocheDesClans(UnitOptionCategory.Musicien, u -> u.is(KeyWord.RatsDesClans)),
-	TambourDeChoc(UnitOptionCategory.Musicien, u -> u.is(KeyWord.VerminesDeChoc)),
+
+	LegatDeLaPeste(UnitOptionCategory.Chef, u -> u.is(KeyWord.MoinesDeLaPeste)),
+	IconeDeLentropie(UnitOptionCategory.Banniere, u -> u.is(KeyWord.MoinesDeLaPeste)),
+	HerautDeLaPeste(UnitOptionCategory.Musicien, u -> u.is(KeyWord.MoinesDeLaPeste)),
 
 	;
 

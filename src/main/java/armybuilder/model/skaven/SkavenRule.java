@@ -90,6 +90,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	AssautFrenetique(u -> u.alterAllWeapons(w -> w.setAltAttaques("+1")), RuleType.Aptitude, RuleType.PhaseDeCombat),
 	AuraDuGrandRatCornu(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer, RuleType.Aura, RuleType.Priere, RuleType.Sort),
 	AutelDuGrandRatCornu(RuleType.Aptitude),
+	AutelDuGrandRatCornu_Creuset(RuleType.Aptitude),
 	AvalancheDEnergie(RuleType.Aptitude),
 	BarrageDeContagion(u -> u.alter(SkavenWeapons.CatapulteDeLaPeste, w -> {
 		w.setAltToucher("+1");
@@ -109,8 +110,11 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	GanteletsChoc(RuleType.Aptitude, RuleType.PhaseDeCombat),
 	GanteletsEcorcheurs(RuleType.Aptitude, RuleType.PhaseDeCharge, RuleType.PhaseDeCombat),
 	GardesDuCorpsDElite(RuleType.Aptitude),
-	LanceFeu(RuleType.Aptitude, RuleType.PhaseDeTir),
+	GrandEncensoirAPestilence(RuleType.Aptitude, RuleType.PhaseDeCombat),
 	LachezPlusPlusDeBetes(RuleType.Aptitude, RuleType.AptitudesDeCommandement),
+	LameFetides(u -> u.alterAllWeapons(w -> w.setAltToucher("*")), RuleType.Aptitude, RuleType.PhaseDeCombat),
+	LanceFeu(RuleType.Aptitude, RuleType.PhaseDeTir),
+	LivreDesPlaies(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
 	MaitreModeleur(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
 	MortAtroce(RuleType.Aptitude, RuleType.PhaseDeDeroute),
 	NueeGrouillante(RuleType.Aptitude, RuleType.PhaseDeDeroute),
@@ -134,7 +138,9 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	PorteEtendardDesClans(RuleType.Aptitude, RuleType.Composition, RuleType.PhaseDeMouvement),
 	SonneurDeClocheDesClans(RuleType.Aptitude, RuleType.Composition, RuleType.PhaseDeMouvement),
 	TambourDeChoc(RuleType.Aptitude, RuleType.Composition, RuleType.PhaseDeMouvement),
-
+	LegatDeLaPeste(RuleType.Aptitude, RuleType.Composition),
+	IconeDeLentropie(RuleType.Aptitude, RuleType.Composition),
+	HerautDeLaPeste(RuleType.Aptitude, RuleType.Composition),
 
 	// Tactique de Bataille
 	CrescendoDuChoeurInfecte(RuleType.TactiquesDeBataille),

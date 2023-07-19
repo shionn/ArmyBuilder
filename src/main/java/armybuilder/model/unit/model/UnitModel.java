@@ -74,9 +74,11 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	IngenieurTechnomage(SkavenUnitModel.IngenieurTechnomage),
 	MaitreMoulder(SkavenUnitModel.MaitreMoulder),
 	PretreDeLaPeste(SkavenUnitModel.PretreDeLaPeste),
+	PretreDeLaPesteSurCreuset(SkavenUnitModel.PretreDeLaPesteSurCreuset),
 
 	RatsDesClans(SkavenUnitModel.RatsDesClans),
 	VerminesDeChoc(SkavenUnitModel.VerminesDeChoc),
+	MoinesDeLaPeste(SkavenUnitModel.MoinesDeLaPeste),
 
 	ColossesDeChoc(SkavenUnitModel.ColossesDeChoc),
 	RatsOgors(SkavenUnitModel.RatsOgors),

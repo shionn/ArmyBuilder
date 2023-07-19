@@ -82,7 +82,21 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 			Arrays.asList(SkavenWeapons.BourdonDeMalepierre, SkavenWeapons.EncensoirAPestilence),
 			null,
 			Arrays.asList(SkavenRule.AssautFrenetique, SkavenRule.FumeesEmpoisonnees, SkavenRule.PestilencePestilence)),
-//	HHH(Arrays.asList(), null, Arrays.asList()),
+	PretreDeLaPesteSurCreuset(
+			Arrays.asList(SkavenWeapons.GrandEncensoirAPestilence, SkavenWeapons.BourdonDeMalepierre,
+					SkavenWeapons.LameFetides_Creuset, SkavenWeapons.PointesRouillees),
+			new ProfileDegressif("Blessures Subies", "Mouvement", "Grand Encensoir à Pestilence", "Pointes Rouillées")
+					.add("0-6", "6", "D3+4", "6")
+					.add("7-9", "5", "D3+3", "5")
+					.add("10-12", "4", "D3+2", "4")
+					.add("13+", "3", "D3+1", "3"),
+			Arrays.asList(SkavenRule.PousseeVersLaBataille, SkavenRule.AutelDuGrandRatCornu_Creuset,
+					SkavenRule.GrandEncensoirAPestilence, SkavenRule.FumeesEmpoisonnees,
+					SkavenRule.PestilencePestilence)),
+	MoinesDeLaPeste(
+			Arrays.asList(),
+			null,
+			Arrays.asList(SkavenRule.LivreDesPlaies, SkavenRule.LameFetides, SkavenRule.AssautFrenetique)),
 	CatapulteDeLaPeste(
 			Arrays.asList(SkavenWeapons.CatapulteDeLaPeste, SkavenWeapons.PoignardsRouilles_Catapulte),
 			null,
@@ -94,7 +108,6 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 			null,
 			Arrays.asList(GeneriqueUnitRule.Infranchissable, SkavenRule.TunnelsDansLaRealite,
 					SkavenRule.AuraDuGrandRatCornu)),
-//	III(Arrays.asList(), null, Arrays.asList()),
 //	JJJ(Arrays.asList(), null, Arrays.asList()),
 //	KKK(Arrays.asList(), null, Arrays.asList()),
 //	LLL(Arrays.asList(), null, Arrays.asList()),

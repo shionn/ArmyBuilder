@@ -169,6 +169,11 @@ public enum UnitOption implements IUnitOption {
 	TambourDeChoc(SkavenOptimisation.TambourDeChoc),
 	FouetDeMalepierre(SkavenOptimisation.FouetDeMalepierre),
 	AttrapeChoses(SkavenOptimisation.AttrapeChoses),
+	LegatDeLaPeste(SkavenOptimisation.LegatDeLaPeste),
+	IconeDeLentropie(SkavenOptimisation.IconeDeLentropie),
+	HerautDeLaPeste(SkavenOptimisation.HerautDeLaPeste),
+	PaireDeLamesFetides(SkavenOptimisation.PaireDeLamesFetides),
+	LameFetideEtBatonDesPlaies(SkavenOptimisation.LameFetideEtBatonDesPlaies),
 
 	AnnihilatorPrimus(StormcastOptimisation.AnnihilatorPrimus),
 	ArmeDesCieuxEtBouclierDeSigmarite(StormcastOptimisation.ArmeDesCieuxEtBouclierDeSigmarite),
