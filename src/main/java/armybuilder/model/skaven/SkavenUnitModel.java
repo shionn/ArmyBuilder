@@ -85,7 +85,7 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 	PretreDeLaPesteSurCreuset(
 			Arrays.asList(SkavenWeapons.GrandEncensoirAPestilence, SkavenWeapons.BourdonDeMalepierre,
 					SkavenWeapons.LameFetides_Creuset, SkavenWeapons.PointesRouillees),
-			new ProfileDegressif("Blessures Subies", "Mouvement", "Grand Encensoir à Pestilence", "Pointes Rouillées")
+			new ProfileDegressif("Mouvement", "Grand Encensoir à Pestilence", "Pointes Rouillées")
 					.add("0-6", "6", "D3+4", "6")
 					.add("7-9", "5", "D3+3", "5")
 					.add("10-12", "4", "D3+2", "4")

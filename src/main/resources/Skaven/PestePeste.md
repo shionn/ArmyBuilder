@@ -9,5 +9,4 @@ figurine de l’unité choisie. Pour
 chaque jet de 5+, l’unité subit 1
 blessure mortelle. Cette prière
 n'a pas d'effet sur les unités
-
 de NURGLE.

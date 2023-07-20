@@ -57,6 +57,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	Skavenectar(RuleType.Artefact, RuleType.PhaseDesHerosPlayer),
 
 	// sort et priere
+	AppelDesCrevasses(RuleType.Sort),
 	Brulure(RuleType.Sort),
 	BouclierDeMalefoudre(RuleType.Sort),
 	ChaineDeMalefoudre(RuleType.Sort),
@@ -85,11 +86,10 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	EchosDesGrandesPlaies(RuleType.TraisDeBataille),
 
 	// aptitude d'unité
-	AppelDesCrevasses(RuleType.Aptitude),
 	ArmureSertieDeMalepierre(RuleType.Aptitude),
 	AssautFrenetique(u -> u.alterAllWeapons(w -> w.setAltAttaques("+1")), RuleType.Aptitude, RuleType.PhaseDeCombat),
 	AuraDuGrandRatCornu(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer, RuleType.Aura, RuleType.Priere, RuleType.Sort),
-	AutelDuGrandRatCornu(RuleType.Aptitude),
+	AutelDuGrandRatCornu(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
 	AutelDuGrandRatCornu_Creuset(RuleType.Aptitude),
 	AvalancheDEnergie(RuleType.Aptitude),
 	BarrageDeContagion(u -> u.alter(SkavenWeapons.CatapulteDeLaPeste, w -> {
@@ -97,7 +97,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 		w.setAltDegats("*");
 	}), RuleType.Aptitude, RuleType.PhaseDeTirPlayer),
 	BombardesAGlobesToxiques(RuleType.Aptitude, RuleType.PhaseDeTir),
-	CarillonFuneste(RuleType.Aptitude),
+	CarillonFuneste(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
 	DechargeDeMalefoudre(RuleType.Aptitude, RuleType.PhaseDeTir),
 	FaireClaquerLeFouet(RuleType.Aptitude, RuleType.PhaseDeMouvementPlayer),
 	FragmentsDeMalepierre(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer, RuleType.Sort),
@@ -124,7 +124,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	PlusPlusDeMaleplomb(RuleType.Aptitude, RuleType.PhaseDeTir),
 	PousseeVersLaBataille(RuleType.Aptitude),
 	ProjecteursAMaleflamme(RuleType.Aptitude, RuleType.PhaseDeTir),
-	RemousParDelaLeVoile(RuleType.Aptitude),
+	RemousParDelaLeVoile(RuleType.Aptitude, RuleType.PhaseDesHeros),
 	RongezRongezLeursOs(RuleType.Aptitude, RuleType.AptitudesDeCommandement, RuleType.PhaseDeCombat),
 	ServantsDArmeCaches(RuleType.Aptitude, RuleType.PhaseBeforeStart, RuleType.PhaseDeTirPlayer),
 	TunneliersAPoingsConcasseurs(RuleType.Aptitude, RuleType.PhaseDeMouvement),

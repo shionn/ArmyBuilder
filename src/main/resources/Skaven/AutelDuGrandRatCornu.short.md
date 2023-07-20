@@ -1,0 +1,1 @@
+Protection de 5+. Peu devenir __prêtre__ à la place de __sorcier__.
