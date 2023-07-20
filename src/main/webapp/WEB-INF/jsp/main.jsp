@@ -253,7 +253,7 @@
 						</c:if>
 					</fieldset>
 				</form:form>
-				<t:rules rules="${unit.rules}" mode="${army.descriptionMode}"></t:rules>
+				<t:rules rules="${unit.displayRules}" mode="${army.descriptionMode}"></t:rules>
 			</main>
 			<c:if test="${not empty unit.keyWords}">
 				<footer>

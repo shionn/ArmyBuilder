@@ -66,4 +66,9 @@ public enum GeneriqueUnitRule implements IRule<GeneriqueUnitRule> {
 		return displayName;
 	}
 
+	@Override
+	public String toString() {
+		return name() + getTypes();
+	}
+
 }

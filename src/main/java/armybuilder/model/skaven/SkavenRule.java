@@ -9,6 +9,7 @@ import armybuilder.model.rule.RuleType;
 import armybuilder.model.rule.desc.Description;
 import armybuilder.model.unit.Unit;
 import armybuilder.serialisation.EnumPropertyLoader;
+import lombok.Getter;
 
 public enum SkavenRule implements IRule<SkavenRule> {
 	DirigerDepuisLArriere(RuleType.TraisDeBataille, RuleType.Aptitude, RuleType.PhaseDeCombat),
@@ -26,7 +27,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	MaitreDeLaPourritureEtDeLaRuine(RuleType.TraitsDeCommandement),
 	MaitreDeHorde(RuleType.TraitsDeCommandement),
 	MaitreDesOmbres(RuleType.TraitsDeCommandement),
-	ManipulateurSupreme(RuleType.TraitsDeCommandement),
+	ManipulateurSupreme(RuleType.Aptitude, RuleType.TraitsDeCommandement),
 	ModeleurSupreme(RuleType.TraitsDeCommandement),
 	MutateurAstucieux(RuleType.TraitsDeCommandement),
 	PuissantAlpha(RuleType.TraitsDeCommandement),
@@ -91,7 +92,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	AuraDuGrandRatCornu(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer, RuleType.Aura, RuleType.Priere, RuleType.Sort),
 	AutelDuGrandRatCornu(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
 	AutelDuGrandRatCornu_Creuset(RuleType.Aptitude),
-	AvalancheDEnergie(RuleType.Aptitude),
+	AvalancheDEnergie(RuleType.Aptitude, RuleType.Sort),
 	BarrageDeContagion(u -> u.alter(SkavenWeapons.CatapulteDeLaPeste, w -> {
 		w.setAltToucher("+1");
 		w.setAltDegats("*");
@@ -100,7 +101,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	CarillonFuneste(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
 	DechargeDeMalefoudre(RuleType.Aptitude, RuleType.PhaseDeTir),
 	FaireClaquerLeFouet(RuleType.Aptitude, RuleType.PhaseDeMouvementPlayer),
-	FragmentsDeMalepierre(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer, RuleType.Sort),
+	FragmentsDeMalepierre(RuleType.Aptitude, RuleType.Sort),
 	FumeesEmpoisonnees(RuleType.Aptitude, RuleType.PhaseDeCombat),
 	FureurCernee(u -> u.alterAllWeapons(w -> w.setAltAttaques("+*")), RuleType.Aptitude),
 	FureurEnragee(
@@ -122,7 +123,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	PlusPlusDeMalefoudre(RuleType.Aptitude, RuleType.PhaseDeTir),
 	PlusPlusDeMalenergie(RuleType.Aptitude, RuleType.PhaseDeCombat),
 	PlusPlusDeMaleplomb(RuleType.Aptitude, RuleType.PhaseDeTir),
-	PousseeVersLaBataille(RuleType.Aptitude),
+	PousseeVersLaBataille(RuleType.Aptitude, RuleType.PhaseDeMouvement),
 	ProjecteursAMaleflamme(RuleType.Aptitude, RuleType.PhaseDeTir),
 	RemousParDelaLeVoile(RuleType.Aptitude, RuleType.PhaseDesHeros),
 	RongezRongezLeursOs(RuleType.Aptitude, RuleType.AptitudesDeCommandement, RuleType.PhaseDeCombat),
@@ -150,29 +151,21 @@ public enum SkavenRule implements IRule<SkavenRule> {
 
 	;
 
+	@Getter
 	private List<RuleType> types;
-	private String name;
+	@Getter
+	private String displayName;
 	private Consumer<Unit> modifier;
 
 	private SkavenRule(RuleType... types) {
 		this.types = Arrays.asList(types);
-		this.name = EnumPropertyLoader.instance().name(this);
+		this.displayName = EnumPropertyLoader.instance().name(this);
 	}
 
 	private SkavenRule(Consumer<Unit> modifier, RuleType... types) {
 		this.modifier = modifier;
 		this.types = Arrays.asList(types);
-		this.name = EnumPropertyLoader.instance().name(this);
-	}
-
-	@Override
-	public String getDisplayName() {
-		return name;
-	}
-
-	@Override
-	public List<RuleType> getTypes() {
-		return types;
+		this.displayName = EnumPropertyLoader.instance().name(this);
 	}
 
 	@Override
@@ -185,6 +178,11 @@ public enum SkavenRule implements IRule<SkavenRule> {
 		if (modifier != null) {
 			modifier.accept(unit);
 		}
+	}
+
+	@Override
+	public String toString() {
+		return name() + getTypes();
 	}
 
 }

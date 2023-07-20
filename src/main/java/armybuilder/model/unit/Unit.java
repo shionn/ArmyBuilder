@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import armybuilder.model.army.bataillon.Bataillon;
 import armybuilder.model.comparator.DisplayNameComparator;
+import armybuilder.model.comparator.DisplayRuleComparator;
 import armybuilder.model.comparator.EnumOrdinalComparator;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.keyword.IHaveKeyWord;
@@ -21,6 +22,7 @@ import armybuilder.model.unit.role.RoleTactique;
 import armybuilder.model.unit.weapon.AlteredWeapon;
 import armybuilder.model.unit.weapon.IHaveWeapons;
 import armybuilder.model.unit.weapon.IUnitWeapon;
+import lombok.Getter;
 
 public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 
@@ -43,8 +45,10 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 	private Bataillon bataillon;
 
 	private int points;
+	@Getter
 	private List<IRule<?>> rules = new ArrayList<IRule<?>>();
 	private List<KeyWord> keyWords = new ArrayList<KeyWord>();
+	@Getter
 	private List<IUnitWeapon> weapons = new ArrayList<IUnitWeapon>();
 	private List<RoleTactique> roles = new ArrayList<RoleTactique>();
 	private UnitProfile profile;
@@ -70,11 +74,6 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 	/**
 	 * weapons
 	 */
-	@Override
-	public List<IUnitWeapon> getWeapons() {
-		return weapons;
-	}
-
 	public void add(IUnitWeapon... weapons) {
 		this.weapons.addAll(Arrays.asList(weapons));
 	}
@@ -134,8 +133,8 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
 	/**
 	 * rules
 	 */
-	public List<IRule<?>> getRules() {
-		return rules;
+	public List<IRule<?>> getDisplayRules() {
+		return rules.stream().sorted(new DisplayRuleComparator()).toList();
 	}
 
 	public void add(IRule<?>... rules) {
