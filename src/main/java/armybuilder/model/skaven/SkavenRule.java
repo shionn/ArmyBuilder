@@ -11,8 +11,8 @@ import armybuilder.model.unit.Unit;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum SkavenRule implements IRule<SkavenRule> {
-	DirigerDepuisLArriere(RuleType.TraisDeBataille),
-	SauveQuiPeut(RuleType.TraisDeBataille),
+	DirigerDepuisLArriere(RuleType.TraisDeBataille, RuleType.Aptitude, RuleType.PhaseDeCombat),
+	SauveQuiPeut(RuleType.TraisDeBataille, RuleType.Aptitude, RuleType.PhaseDeCombat),
 	LUnionFaitLaForce(RuleType.TraisDeBataille),
 
 	// trais de co

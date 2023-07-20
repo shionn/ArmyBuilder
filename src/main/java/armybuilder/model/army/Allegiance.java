@@ -39,8 +39,17 @@ public enum Allegiance implements IHaveDisplayName, IDecoreArmy {
 							.forEach(u -> u.changeRole(RoleTactique.Elite, RoleTactique.Ligne));
 				}
 			}),
-	Skaven(Arrays.asList(SkavenRule.DirigerDepuisLArriere, SkavenRule.SauveQuiPeut, SkavenRule.SauveQuiPeut),
+	Skaven(Arrays.asList(SkavenRule.LUnionFaitLaForce),
 			a -> {
+				a.units(KeyWord.Heros)
+						.stream()
+						.filter(u -> !u.is(KeyWord.Monstre))
+						.forEach(u -> u.add(SkavenRule.DirigerDepuisLArriere));
+				a.units(KeyWord.Heros)
+						.stream()
+						.filter(u -> !u.is(KeyWord.Monture))
+						.forEach(u -> u.add(SkavenRule.SauveQuiPeut));
+
 				// Maitreclan
 				a.units(KeyWord.Heros, KeyWord.Maitreclan).forEach(u -> u.add(SkavenRule.ManipulateursHabiles));
 				a.addIf(a.count(KeyWord.Heros, KeyWord.Maitreclan) > 2, SkavenRule.ToujoursTroisCoupsDeGriffesDAvance);
@@ -70,7 +79,7 @@ public enum Allegiance implements IHaveDisplayName, IDecoreArmy {
 
 				// clan Pestilien
 				a.addIf(a.count(KeyWord.Pretre, KeyWord.ClansPestilens) > 0, SkavenRule.EchosDesGrandesPlaies);
-				a.addIf(a.count(KeyWord.Pretre, KeyWord.ClansPestilens) > 0, SkavenRule.CrescendoDuChoeurInfecte);
+				a.addIf(a.count(KeyWord.Pretre, KeyWord.ClansPestilens) > 2, SkavenRule.CrescendoDuChoeurInfecte);
 
 
 			}
