@@ -9,13 +9,11 @@ import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum PackDeBatailleRule implements IRule<PackDeBatailleRule> {
 
-	Metamorphose(RuleType.Sort, RuleType.TraisUnitee),
-	RegardDeGhur(RuleType.Sort, RuleType.TraisUnitee),
+	Metamorphose(RuleType.Sort),
+	RegardDeGhur(RuleType.Sort),
 	RugissementSauvage(RuleType.AptitudesDeCommandement, RuleType.PhaseDeCombat),
 
-	/**
-	 * Pack de bataile 2023 saison 2
-	 */
+	/** V3 saison 2 */
 	ActionDeseperee(RuleType.ActionsHeroiques, RuleType.PhaseDesHeros),
 	AlimenteParLaRageDeGhur(RuleType.Aptitude),
 	AutoriteDuDominant(RuleType.Aptitude),
@@ -29,7 +27,9 @@ public enum PackDeBatailleRule implements IRule<PackDeBatailleRule> {
 	MaitreDesTunnels(RuleType.PhaseDeMouvement, RuleType.TraisUnitee),
 	MenerParLExemple(RuleType.ActionsHeroiques, RuleType.PhaseDesHeros),
 	PasDeRepliPasDeReddition(RuleType.AptitudesDeCommandement, RuleType.PhaseDeCombatDebut),
-
+	/** V3 saison 3 */
+	OptimalFocus(RuleType.TraisDeBataille, RuleType.PhaseDesHeros),
+	Hoarfrost(RuleType.Sort),
 
 ;
 

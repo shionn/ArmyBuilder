@@ -21,15 +21,14 @@
 					<source>17</source>
 					<target>17</target>
 					<encoding>UTF-8</encoding>
-					<annotationProcessors>
+					<annotationProcessorPaths>
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 							<version>1.18.28</version>
 						</path>
-					</annotationProcessors>
+					</annotationProcessorPaths>
 				</configuration>
-				<version>3.8.1</version>
 			</plugin>
 
 			<plugin>

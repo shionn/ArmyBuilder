@@ -26,6 +26,7 @@ public enum KeyWord implements IHaveDisplayName {
 	// Manuel du general
 	ChampionDeGallet,
 	GardeAssermentee,
+	LocusAndtorien,
 	VeteransDeGallet,
 
 	// DoK

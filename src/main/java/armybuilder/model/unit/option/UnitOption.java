@@ -32,14 +32,19 @@ public enum UnitOption implements IUnitOption {
 	RenforceesUneFois(OptimisationsUniverselles.RenforceesUneFois),
 	RenforceesDeuxFois(OptimisationsUniverselles.RenforceesDeuxFois),
 
+	/** manuel de general 2022 */
 	AlimenteParLaRageDeGhur(builder().aspectsDuChampion(PackDeBatailleRule.AlimenteParLaRageDeGhur)),
 	EnteteCommeUnRhinox(builder().aspectsDuChampion(PackDeBatailleRule.EnteteCommeUnRhinox)),
 	MaitreDesTunnels(builder().aspectsDuChampion(PackDeBatailleRule.MaitreDesTunnels)),
 	AutoriteDuDominant(builder().aspectsDuChampion(PackDeBatailleRule.AutoriteDuDominant)),
 
+	/** manuel de general 2023 */
 	CapeDeNictoptere(builder().artefact(PackDeBatailleRule.CapeDeNictoptere).availableFor(KeyWord.ChampionDeGallet)),
 	CharmeDePlumeDeGriffe(builder().artefact(PackDeBatailleRule.CharmeDePlumeDeGriffe).availableFor(KeyWord.ChampionDeGallet)),
 	HeameDIvoire(builder().artefact(PackDeBatailleRule.HeameDIvoire).availableFor(KeyWord.ChampionDeGallet)),
+
+	/** manuel de general 2023-2024 */
+// TODO nullstone
 
 	BainDeSang(DokOptimisations.BainDeSang),
 	MaitriseDesArcanes(DokOptimisations.MaitriseDesArcanes),
