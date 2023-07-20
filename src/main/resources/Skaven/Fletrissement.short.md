@@ -1,0 +1,1 @@
+7+ à 13" μ<sup>e</sup> lancer 2D6 si > Blessure subit D3 BM et -1 touche melee => _votre prochaine héros_.

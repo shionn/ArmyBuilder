@@ -63,11 +63,11 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	ChaineDeMalefoudre(RuleType.Sort),
 	Evasion(RuleType.Sort),
 	FrenesieMortelle(RuleType.Sort),
+	Fletrissement(RuleType.Sort),
 	Malefoudre(RuleType.Sort),
 	PlusPlusPlusDeVilPouvoir(RuleType.Sort),
 
 	CrasseCrasse(RuleType.Priere),
-	Fletrissement(RuleType.Priere),
 	PestePeste(RuleType.Priere),
 	PestilencePestilence(RuleType.Priere),
 	RageRage(RuleType.Priere),
