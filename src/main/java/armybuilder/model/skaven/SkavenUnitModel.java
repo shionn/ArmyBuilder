@@ -58,11 +58,13 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 	CanonRatling(
 			Arrays.asList(SkavenWeapons.CanonsRatlings_EA, SkavenWeapons.PoignardsRouilles),
 			null,
-			Arrays.asList(SkavenRule.PlusPlusDeMaleplomb, SkavenRule.ServantsDArmeCaches)),
+			Arrays.asList(SkavenRule.PlusPlusDeMaleplomb, SkavenRule.ServantsDArmeCachesDeploiement,
+					SkavenRule.ServantsDArmeCachesTir)),
 	LanceFeu(
 			Arrays.asList(SkavenWeapons.LanceFeu, SkavenWeapons.PoignardsRouilles),
 			null,
-			Arrays.asList(SkavenRule.LanceFeu, SkavenRule.PlusPlusDeMaleflammes, SkavenRule.ServantsDArmeCaches)),
+			Arrays.asList(SkavenRule.LanceFeu, SkavenRule.PlusPlusDeMaleflammes,
+					SkavenRule.ServantsDArmeCachesDeploiement, SkavenRule.ServantsDArmeCachesTir)),
 
 	// skryre & Moulder
 	ColossesDeChoc(Arrays.asList(), null, Arrays.asList(GeneriqueUnitRule.Elite)),

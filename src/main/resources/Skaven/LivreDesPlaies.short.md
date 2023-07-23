@@ -1,0 +1,1 @@
+1 μ<sup>e</sup> !Nurgle à 13" du Légat, jeter 1D6. 1-2: rien, 3-4: 1 BM, 5-6: D3 BM.

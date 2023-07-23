@@ -1,0 +1,1 @@
+Surcharge : Portée à 12", +1 au D6. ∀ 1 subit 1BM.

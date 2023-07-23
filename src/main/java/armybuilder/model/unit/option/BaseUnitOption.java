@@ -76,6 +76,10 @@ public class BaseUnitOption implements IUnitOption {
 			return option;
 		}
 
+		public Builder scenario() {
+			option.displayName = "Scenario : " + option.displayName;
+			return this;
+		}
 
 	}
 

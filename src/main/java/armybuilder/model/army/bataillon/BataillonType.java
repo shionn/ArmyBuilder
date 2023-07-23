@@ -143,7 +143,7 @@ public enum BataillonType implements IHaveDisplayName, IDecoreArmy, IDecorateUni
 			contain(BataillonSlot.Troupe, 1),
 			opt(BataillonSlot.Troupe, 1)),
 
-	// Manuel du general 2022-23
+	// Manuel du general 2022-23 Saison 2
 	EtatMajorDeGallet(
 			"Etat-Major de Gallet",
 			a -> a.is(PackDeBataille.BataillesRangees2023),
