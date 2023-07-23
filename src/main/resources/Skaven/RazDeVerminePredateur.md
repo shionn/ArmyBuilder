@@ -1,0 +1,1 @@
+Ce sort persistant est un sort persistant prédateur. II peut se déplacer de jusqu’a 7".

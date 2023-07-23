@@ -75,6 +75,7 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	MaitreMoulder(SkavenUnitModel.MaitreMoulder),
 	PretreDeLaPeste(SkavenUnitModel.PretreDeLaPeste),
 	PretreDeLaPesteSurCreuset(SkavenUnitModel.PretreDeLaPesteSurCreuset),
+	MaitreMort(SkavenUnitModel.MaitreMort),
 
 	RatsDesClans(SkavenUnitModel.RatsDesClans),
 	VerminesDeChoc(SkavenUnitModel.VerminesDeChoc),
@@ -88,7 +89,10 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 
 	CanonAMalefoudre(SkavenUnitModel.CanonAMalefoudre),
 	CatapulteDeLaPeste(SkavenUnitModel.CatapulteDeLaPeste),
+
+
 	TrouDeVermine(SkavenUnitModel.TrouDeVermine),
+	RazDeVermine(SkavenUnitModel.RazDeVermine),
 
 	AstreiaSolbrigh(StormcastUnitModel.AstreiaSolbrigh),
 	SeigneurArcanumSurDracolineCeleste(StormcastUnitModel.SeigneurArcanumSurDracolineCeleste),

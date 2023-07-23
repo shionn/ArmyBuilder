@@ -1,0 +1,1 @@
+Cette unité peut courir et quand méme tirer au méme tour.

@@ -62,10 +62,10 @@ public enum Allegiance implements IHaveDisplayName, IDecoreArmy {
 				a.addIf(a.count(KeyWord.RatsOgors) > 0, SkavenRule.SoignerLaBete);
 
 				// clan echin
-				a.addIf(a.count(KeyWord.ClansEchin) > 1 && a.count(KeyWord.Heros, KeyWord.ClansEchin) < 3,
+				a.addIf(a.count(KeyWord.ClansEshin) > 1 && a.count(KeyWord.Heros, KeyWord.ClansEshin) < 3,
 						SkavenRule.MaitresDuMeurtre_1);
-				a.addIf(a.count(KeyWord.Heros, KeyWord.ClansEchin) > 2, SkavenRule.MaitresDuMeurtre_3);
-				a.addIf(a.count(KeyWord.ClansEchin) > 0, SkavenRule.MarqueDeLaMort);
+				a.addIf(a.count(KeyWord.Heros, KeyWord.ClansEshin) > 2, SkavenRule.MaitresDuMeurtre_3);
+				a.addIf(a.count(KeyWord.ClansEshin) > 0, SkavenRule.MarqueDeLaMort);
 
 				// clan verminus
 				a.addIf(Arrays.asList(1, 2).contains(a.count(KeyWord.Griffarque)), SkavenRule.PuissantsChefsDeGuerre_1);

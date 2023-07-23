@@ -67,6 +67,8 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	Fletrissement(RuleType.Sort),
 	Malefoudre(RuleType.Sort),
 	PlusPlusPlusDeVilPouvoir(RuleType.Sort),
+	RazDeVermineConvocation(RuleType.Sort),
+	RazDeVerminePredateur(RuleType.Sort),
 
 	CrasseCrasse(RuleType.Priere),
 	PestePeste(RuleType.Priere),
@@ -112,8 +114,10 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	GanteletsEcorcheurs(RuleType.Aptitude, RuleType.PhaseDeCharge, RuleType.PhaseDeCombat),
 	GardesDuCorpsDElite(RuleType.Aptitude),
 	GrandEncensoirAPestilence(RuleType.Aptitude, RuleType.PhaseDeCombat),
+	HordeVorace(RuleType.Aptitude, RuleType.PhaseDeMouvement),
 	LachezPlusPlusDeBetes(RuleType.Aptitude, RuleType.AptitudesDeCommandement),
 	LameFetides(u -> u.alterAllWeapons(w -> w.setAltToucher("*")), RuleType.Aptitude, RuleType.PhaseDeCombat),
+	LaMortQuiCourt(RuleType.Aptitude, RuleType.PhaseDeMouvementPlayer, RuleType.PhaseDeTirPlayer),
 	LanceFeu(RuleType.Aptitude, RuleType.PhaseDeTir),
 	LivreDesPlaies(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
 	MaitreModeleur(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
@@ -128,8 +132,12 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	RemousParDelaLeVoile(RuleType.Aptitude, RuleType.PhaseDesHeros),
 	RongezRongezLeursOs(RuleType.Aptitude, RuleType.AptitudesDeCommandement, RuleType.PhaseDeCombat),
 	ServantsDArmeCaches(RuleType.Aptitude, RuleType.PhaseBeforeStart, RuleType.PhaseDeTirPlayer),
+	ToxineEshin(RuleType.Aptitude, RuleType.PhaseDeCombat),
+	TueurCacheCombat(RuleType.Aptitude, RuleType.PhaseDeCombatDebut),
+	TueurCacheDeploiement(RuleType.Aptitude, RuleType.PhaseBeforeStart),
 	TunneliersAPoingsConcasseurs(RuleType.Aptitude, RuleType.PhaseDeMouvement),
 	TunnelsDansLaRealite(RuleType.Aptitude, RuleType.PhaseDeMouvement),
+
 
 	// aptitude de co
 	// composition

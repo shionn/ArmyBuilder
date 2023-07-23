@@ -32,13 +32,13 @@ public enum SkavenOptimisation implements IUnitOption {
 			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.ClansMoulder)),
 	TueurSansEgal(
 			UnitOptionCategory.TraisDeCommandement,
-			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.ClansEchin)),
+			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.ClansEshin)),
 	MaitreDesOmbres(
 			UnitOptionCategory.TraisDeCommandement,
-			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.ClansEchin)),
+			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.ClansEshin)),
 	AgiliteIncroyable(
 			UnitOptionCategory.TraisDeCommandement,
-			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.ClansEchin)),
+			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.ClansEshin)),
 	VaillanceVermineuse(
 			UnitOptionCategory.TraisDeCommandement,
 			u -> u.is(UnitOptionCategory.General) && u.is(KeyWord.ClansVerminus)),
@@ -74,9 +74,9 @@ public enum SkavenOptimisation implements IUnitOption {
 	FouetDeCrocs(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansMoulder)),
 	CouronneEnragee(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansMoulder)),
 	Salecuir(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansMoulder)),
-	BabioleTenebromagnetique(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansEchin)),
-	CapeDetaleuse(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansEchin)),
-	Rongebombe(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansEchin)),
+	BabioleTenebromagnetique(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansEshin)),
+	CapeDetaleuse(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansEshin)),
+	Rongebombe(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansEshin)),
 	BouclierDeDistraction(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansVerminus)),
 	ArmureDeMalerouille(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansVerminus)),
 	CharmeDeMalepierre(UnitOptionCategory.Artefact, u -> u.is(KeyWord.ClansVerminus)),

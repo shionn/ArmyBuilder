@@ -102,12 +102,25 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 			null,
 			Arrays.asList(SkavenRule.BarrageDeContagion, SkavenRule.MortAtroce)),
 
+	// eshin
+	MaitreMort(
+			Arrays.asList(SkavenWeapons.EtoileDeJetEshin, SkavenWeapons.LameSuintante),
+			null,
+			Arrays.asList(SkavenRule.TueurCacheCombat, SkavenRule.TueurCacheDeploiement)),
+
 	// sans clans
 	TrouDeVermine(
 			Arrays.asList(),
 			null,
 			Arrays.asList(GeneriqueUnitRule.Infranchissable, SkavenRule.TunnelsDansLaRealite,
 					SkavenRule.AuraDuGrandRatCornu)),
+
+	RazDeVermine(
+			Arrays.asList(),
+			null,
+			Arrays.asList(SkavenRule.RazDeVermineConvocation, SkavenRule.RazDeVerminePredateur,
+					SkavenRule.HordeVorace)),
+
 //	JJJ(Arrays.asList(), null, Arrays.asList()),
 //	KKK(Arrays.asList(), null, Arrays.asList()),
 //	LLL(Arrays.asList(), null, Arrays.asList()),
