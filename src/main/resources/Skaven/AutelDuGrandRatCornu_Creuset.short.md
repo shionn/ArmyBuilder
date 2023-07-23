@@ -1,0 +1,1 @@
+Protection de 5+. Pas de test de déroute ∀ μ<sub>a</sub> ∈ 13".

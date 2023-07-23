@@ -1,0 +1,1 @@
+_une fois par tour, au jet de lancement_, 3D6 !relançable !modifiable. Si 13 sort irrésitible et subit D3 BM !annuable. Sinon retirer 1 dés.

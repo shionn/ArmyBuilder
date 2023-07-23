@@ -1,0 +1,1 @@
+5+ à 13" 1 μ<sup>e</sup> inflige D3 BM. Peut être surchargé inflige D6 BM mais si !lancé ou dissipé, subit D6 NM !annulable.

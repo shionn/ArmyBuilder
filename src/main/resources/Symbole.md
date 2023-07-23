@@ -5,11 +5,13 @@
 ƒ
 ½
 ≠
+∑
 
 BM Blesse Auto sur Toucher 6+.
 
 OLD : _sort_ 5+ ∈ 12".
 5+ ∈ 12"
+6+ à 13" 1 μ<sup>e</sup>.
 
 OLD : _fin phase_
 

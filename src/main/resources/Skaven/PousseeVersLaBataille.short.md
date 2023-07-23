@@ -1,0 +1,1 @@
+!Déplacable si ∑ ƒsub>a</sub> à 6" < 10.

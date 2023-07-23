@@ -1,5 +1,4 @@
 Crasse-crasse! est une prière
-
 qui a une valeur d’exaucement
 de 3 et une portée de 13". Si elle
 est exaucée, choisissez 1 unité
