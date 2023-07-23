@@ -143,6 +143,7 @@ public enum BataillonType implements IHaveDisplayName, IDecoreArmy, IDecorateUni
 			contain(BataillonSlot.Troupe, 1),
 			opt(BataillonSlot.Troupe, 1)),
 
+	// Manuel du general 2022-23
 	EtatMajorDeGallet(
 			"Etat-Major de Gallet",
 			a -> a.is(PackDeBataille.BataillesRangees2023),
@@ -151,7 +152,6 @@ public enum BataillonType implements IHaveDisplayName, IDecoreArmy, IDecorateUni
 			Arrays.asList(),
 			contain(BataillonSlot.ChampionDeGallet, 1),
 			contain(BataillonSlot.Infanterie, 1)),
-
 	VeteransDeGallet(
 			"Vétérans de Gallet",
 			a -> a.is(PackDeBataille.BataillesRangees2023),
@@ -159,7 +159,27 @@ public enum BataillonType implements IHaveDisplayName, IDecoreArmy, IDecorateUni
 			null,
 			Arrays.asList(),
 			contain(BataillonSlot.Infanterie, 2),
-			opt(BataillonSlot.Infanterie, 2))
+			opt(BataillonSlot.Infanterie, 2)),
+
+	// Manuel du general 2023-24
+	AndtorianAcolytes(
+			"Andtorian Acolytes",
+			a -> a.is(PackDeBataille.BataillesRangees2023_2024),
+			Arrays.asList(BataillonRule.CoordinatedAugmentation),
+			null,
+			Arrays.asList(),
+			contain(BataillonSlot.SousCommandant, 2),
+			opt(BataillonSlot.SousCommandant, 1)),
+	WizardFindersOfAndtor(
+			"Wizard-Finders of Andtor",
+			a -> a.is(PackDeBataille.BataillesRangees2023_2024),
+			Arrays.asList(BataillonRule.MagicHunters),
+			null,
+			Arrays.asList(),
+			contain(BataillonSlot.SousCommandant, 1),
+			contain(BataillonSlot.Troupe, 1),
+			opt(BataillonSlot.Troupe, 1),
+			opt(BataillonSlot.Monstre, 1))
 
 	;
 

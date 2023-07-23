@@ -48,6 +48,9 @@ public enum BataillonRule implements IRule<BataillonRule> {
 					.text("est à porté"),
 			RuleType.Aptitude,
 			RuleType.PhaseDeCombat),
+	// manuel du general 2023-24
+	CoordinatedAugmentation("Coordinated Augmentation", RuleType.PhaseDesHerosPlayer),
+	MagicHunters("Magic Hunters", RuleType.PhaseDeCombat),
 	;
 	private String displayName;
 	private List<RuleType> types;

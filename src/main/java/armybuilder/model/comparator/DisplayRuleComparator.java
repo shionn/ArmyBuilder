@@ -46,7 +46,6 @@ public class DisplayRuleComparator implements Comparator<IRule<?>> {
 		if (result == 0) {
 			result = compare(o1, o2, RuleType.PhaseDesHerosPlayer);
 		}
-		System.out.println(result + " " + o1 + " " + o2);
 		return result;
 	}
 

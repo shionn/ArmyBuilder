@@ -2,9 +2,10 @@ package armybuilder.model.rule;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 
 import armybuilder.model.rule.desc.Description;
-import armybuilder.model.rule.desc.ShortDescriptionBuilder;
+import armybuilder.model.unit.Unit;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum PackDeBatailleRule implements IRule<PackDeBatailleRule> {
@@ -30,22 +31,28 @@ public enum PackDeBatailleRule implements IRule<PackDeBatailleRule> {
 	/** V3 saison 3 */
 	OptimalFocus(RuleType.TraisDeBataille, RuleType.PhaseDesHeros),
 	Hoarfrost(RuleType.Sort),
+	Rupture(RuleType.Sort),
+	MercilessBlizzard(RuleType.Sort),
+	ShamanOfTheChilledLands(u -> u.add(Hoarfrost, Rupture, MercilessBlizzard), RuleType.TraitsDeCommandement),
+	EyeOfTheBlizzard(RuleType.TraitsDeCommandement, RuleType.PhaseDesHerosPlayer),
+	ChilledToTheBone(RuleType.TraitsDeCommandement, RuleType.Sort),
+	EaterOfMagic(RuleType.TraitsDeCommandement, RuleType.Sort),
 
 ;
 
 	private List<RuleType> types;
 	private String displayName;
 	private String shortDescription;
+	private Consumer<Unit> modifier;
 
 	PackDeBatailleRule(RuleType... types) {
 		this.displayName = EnumPropertyLoader.instance().name(this);
 		this.types = Arrays.asList(types);
 	}
 
-	PackDeBatailleRule(ShortDescriptionBuilder sh, RuleType... types) {
-		this.shortDescription = sh.build();
-		this.displayName = EnumPropertyLoader.instance().name(this);
-		this.types = Arrays.asList(types);
+	PackDeBatailleRule(Consumer<Unit> modifier, RuleType... types) {
+		this(types);
+		this.modifier = modifier;
 	}
 
 	@Override
@@ -66,6 +73,13 @@ public enum PackDeBatailleRule implements IRule<PackDeBatailleRule> {
 	@Override
 	public String getShortDescription() {
 		return shortDescription;
+	}
+
+	@Override
+	public void decorate(Unit unit) {
+		if (modifier != null) {
+			modifier.accept(unit);
+		}
 	}
 
 }

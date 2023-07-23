@@ -45,6 +45,16 @@ public enum UnitOption implements IUnitOption {
 
 	/** manuel de general 2023-2024 */
 // TODO nullstone
+	Hoarfrost(builder().sort(PackDeBatailleRule.Hoarfrost).availableFor(KeyWord.LocusAndtorien)),
+	Rupture(builder().sort(PackDeBatailleRule.Rupture).availableFor(KeyWord.LocusAndtorien)),
+	MercilessBlizzard(builder().sort(PackDeBatailleRule.MercilessBlizzard).availableFor(KeyWord.LocusAndtorien)),
+	ShamanOfTheChilledLands(
+			builder().traitDeCo(PackDeBatailleRule.ShamanOfTheChilledLands)
+					.availableFor(KeyWord.LocusAndtorien)
+					.availableFor(KeyWord.Sorcier)),
+	EyeOfTheBlizzard(builder().traitDeCo(PackDeBatailleRule.EyeOfTheBlizzard).availableFor(KeyWord.LocusAndtorien)),
+	ChilledToTheBone(builder().traitDeCo(PackDeBatailleRule.ChilledToTheBone).availableFor(KeyWord.LocusAndtorien)),
+	EaterOfMagic(builder().traitDeCo(PackDeBatailleRule.EaterOfMagic).availableFor(KeyWord.LocusAndtorien)),
 
 	BainDeSang(DokOptimisations.BainDeSang),
 	MaitriseDesArcanes(DokOptimisations.MaitriseDesArcanes),

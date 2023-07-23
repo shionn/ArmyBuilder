@@ -28,6 +28,18 @@ public class BaseUnitOption implements IUnitOption {
 					.availableFor(u -> !u.is(KeyWord.Unique) && u.is(RoleTactique.Leader));
 		}
 
+		public Builder sort(PackDeBatailleRule rule) {
+			return name(rule).category(UnitOptionCategory.Sort)
+					.decorate(rule)
+					.availableFor(u -> !u.is(KeyWord.Unique) && u.is(RoleTactique.Leader) && u.is(KeyWord.Sorcier));
+		}
+
+		public Builder traitDeCo(PackDeBatailleRule rule) {
+			return name(rule).category(UnitOptionCategory.TraisDeCommandement)
+					.decorate(rule)
+					.availableFor(u -> !u.is(KeyWord.Unique) && u.is(UnitOptionCategory.General));
+		}
+
 		public Builder name(IRule<?> rule) {
 			option.displayName = rule.getDisplayName();
 			return this;
@@ -63,6 +75,8 @@ public class BaseUnitOption implements IUnitOption {
 		public IUnitOption build() {
 			return option;
 		}
+
+
 	}
 
 	public static Builder builder() {

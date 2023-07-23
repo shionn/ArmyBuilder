@@ -22,7 +22,7 @@ public enum PackDeBataille implements IHaveDisplayName, IDecoreArmy {
 		a.units(KeyWord.Sorcier).forEach(u -> u.add(PackDeBatailleRule.RegardDeGhur));
 		// TODO Tactique de Bataille
 	}),
-	BataillesRangees2023("BR Saison 2 2023", a -> {
+	BataillesRangees2023("BR Saison 2 2022-23", a -> {
 		a.units(RoleTactique.Leader)
 				.stream()
 				.filter(u -> u.getModel().getProfile().getIntLife() < 10)
@@ -42,7 +42,6 @@ public enum PackDeBataille implements IHaveDisplayName, IDecoreArmy {
 				.filter(u -> !u.is(KeyWord.Unique))
 				.forEach(u -> u.add(KeyWord.LocusAndtorien));
 		a.add(PackDeBatailleRule.OptimalFocus);
-		a.units(KeyWord.Sorcier, KeyWord.LocusAndtorien).forEach(u -> u.add(PackDeBatailleRule.Hoarfrost));
 	}),
 	;
 
