@@ -27,6 +27,7 @@ _debut_
 _fin_
 _adverse_
 _vous choissisez cette μ pour combatre_,
+_séquence d’attaque_,
 
 => _votre prochaine héros_
 => _fin du tour_

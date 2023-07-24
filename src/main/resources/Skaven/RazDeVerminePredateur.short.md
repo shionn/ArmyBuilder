@@ -1,0 +1,1 @@
+Sort persistant prédateur se déplace de 7".

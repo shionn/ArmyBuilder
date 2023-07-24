@@ -1,1 +1,1 @@
-+1 jets de lancement, de dissipation et de conjuration à 3".
++1 jets de lancement, de récitation, de dissipation et de conjuration à 3".

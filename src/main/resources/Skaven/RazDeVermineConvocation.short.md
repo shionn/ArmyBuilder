@@ -1,0 +1,1 @@
+5+ ∈ 18 à plus 1" de toute autre ƒ.

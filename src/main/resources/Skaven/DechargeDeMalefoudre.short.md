@@ -1,0 +1,1 @@
+_séquence d’attaque_, ∀ 6D6 >= 1D6 inflige 1 BM.

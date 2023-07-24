@@ -99,7 +99,10 @@ public enum SkavenRule implements IRule<SkavenRule> {
 		w.setAltToucher("+1");
 		w.setAltDegats("*");
 	}), RuleType.Aptitude, RuleType.PhaseDeTirPlayer),
-	BombardesAGlobesToxiques(RuleType.Aptitude, RuleType.PhaseDeTir),
+	BombardesAGlobesToxiques(
+			u -> u.alter(SkavenWeapons.BombardesAGlobesToxiques, w -> w.setAltBlesser("+1")),
+			RuleType.Aptitude,
+			RuleType.PhaseDeTir),
 	CarillonFuneste(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
 	DechargeDeMalefoudre(RuleType.Aptitude, RuleType.PhaseDeTir),
 	FaireClaquerLeFouet(RuleType.Aptitude, RuleType.PhaseDeMouvementPlayer),
@@ -111,7 +114,11 @@ public enum SkavenRule implements IRule<SkavenRule> {
 			RuleType.Aptitude,
 			RuleType.PhaseDeCombat),
 	GanteletsChoc(RuleType.Aptitude, RuleType.PhaseDeCombat),
-	GanteletsEcorcheurs(RuleType.Aptitude, RuleType.PhaseDeCharge, RuleType.PhaseDeCombat),
+	GanteletsEcorcheurs(
+			u -> u.alter(SkavenWeapons.GanteletsEcorcheurs, w -> w.setAltAttaques("+1")),
+			RuleType.Aptitude,
+			RuleType.PhaseDeCharge,
+			RuleType.PhaseDeCombat),
 	GardesDuCorpsDElite(RuleType.Aptitude),
 	GrandEncensoirAPestilence(RuleType.Aptitude, RuleType.PhaseDeCombat),
 	HordeVorace(RuleType.Aptitude, RuleType.PhaseDeMouvement),

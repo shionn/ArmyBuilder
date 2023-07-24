@@ -1,1 +1,1 @@
-_1 figurine de cette unité_. +1 Attaques.
+_1 ƒ_. +1 Attaques.

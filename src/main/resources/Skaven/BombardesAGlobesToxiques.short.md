@@ -1,0 +1,1 @@
+Tir sans ligne de vue. +1 blessure si cible μ de 10+ ƒ.

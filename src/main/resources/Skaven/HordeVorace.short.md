@@ -1,0 +1,1 @@
+Après déplacement 1 μ à 3" ou si 1 μ finit un mouvement normal ou de charge à 3", 13D6 ∀ 6 inflige 1BM.
