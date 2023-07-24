@@ -17,17 +17,17 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	LUnionFaitLaForce(RuleType.TraisDeBataille),
 
 	// trais de co
-	AdversaireSournois(RuleType.TraitsDeCommandement),
+	AdversaireSournois(RuleType.TraitsDeCommandement, RuleType.PhaseDeCombat),
 	AgiliteIncroyable(RuleType.TraitsDeCommandement),
 	ArchitecteDeLaMort(RuleType.TraitsDeCommandement),
 	CollectionneurEmerite(RuleType.TraitsDeCommandement),
 	IntrigantDiabolique(RuleType.TraitsDeCommandement),
 	InventeurDerange(RuleType.TraitsDeCommandement),
 	MaitreDeLaMagie(RuleType.TraitsDeCommandement),
-	MaitreDeLaPourritureEtDeLaRuine(RuleType.TraitsDeCommandement),
+	MaitreDeLaPourritureEtDeLaRuine(RuleType.TraitsDeCommandement, RuleType.Priere),
 	MaitreDeHorde(RuleType.TraitsDeCommandement),
 	MaitreDesOmbres(RuleType.TraitsDeCommandement),
-	ManipulateurSupreme(RuleType.Aptitude, RuleType.TraitsDeCommandement),
+	ManipulateurSupreme(RuleType.TraitsDeCommandement, RuleType.PhaseDesHeros),
 	ModeleurSupreme(RuleType.TraitsDeCommandement),
 	MutateurAstucieux(RuleType.TraitsDeCommandement),
 	PuissantAlpha(RuleType.TraitsDeCommandement),
@@ -43,14 +43,14 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	BouclierDeDistraction(RuleType.Artefact),
 	CapeDetaleuse(RuleType.Artefact),
 	CharmeDeMalepierre(RuleType.Artefact),
-	CloquepusLeKysteVivant(RuleType.Artefact),
+	CloquepusLeKysteVivant(RuleType.Artefact, RuleType.PhaseDeCombat),
 	CouronneEnragee(RuleType.Artefact),
 	FioleDuFulminateur(RuleType.Artefact),
 	FouetDeCrocs(RuleType.Artefact),
 	LameDeCorruption(RuleType.Artefact),
-	LeFumigatus(RuleType.Artefact),
-	LeRongeclat(RuleType.Artefact),
-	LOrbeDAirain(RuleType.Artefact),
+	LeFumigatus(RuleType.Artefact, RuleType.PhaseDeCombat),
+	LeRongeclat(RuleType.Artefact, RuleType.PhaseDeCombat),
+	LOrbeDAirain(RuleType.Artefact, RuleType.PhaseDesHerosPlayer),
 	ResonateurEsoteriqueAMalepierre(RuleType.Artefact),
 	Rongebombe(RuleType.Artefact),
 	Salecuir(RuleType.Artefact),
@@ -62,13 +62,15 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	Brulure(RuleType.Sort),
 	BouclierDeMalefoudre(RuleType.Sort),
 	ChaineDeMalefoudre(RuleType.Sort),
+	ClocheDeLApocalypseConvocation(RuleType.Sort),
+	ClocheDeLApocalypsePredateur(RuleType.PhaseDeMouvement),
 	Evasion(RuleType.Sort),
 	FrenesieMortelle(RuleType.Sort),
 	Fletrissement(RuleType.Sort),
 	Malefoudre(RuleType.Sort),
 	PlusPlusPlusDeVilPouvoir(RuleType.Sort),
 	RazDeVermineConvocation(RuleType.Sort),
-	RazDeVerminePredateur(RuleType.Sort),
+	RazDeVerminePredateur(RuleType.PhaseDeMouvement),
 
 	CrasseCrasse(RuleType.Priere),
 	PestePeste(RuleType.Priere),
@@ -91,6 +93,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	// aptitude d'unité
 	ArmureSertieDeMalepierre(RuleType.Aptitude),
 	AssautFrenetique(u -> u.alterAllWeapons(w -> w.setAltAttaques("+1")), RuleType.Aptitude, RuleType.PhaseDeCombat),
+	AudaceOuDesespoir(RuleType.Aptitude, RuleType.PhaseDeDeroute),
 	AuraDuGrandRatCornu(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer, RuleType.Aura, RuleType.Priere, RuleType.Sort),
 	AutelDuGrandRatCornu(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
 	AutelDuGrandRatCornu_Creuset(RuleType.Aptitude),
@@ -120,6 +123,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 			RuleType.PhaseDeCharge,
 			RuleType.PhaseDeCombat),
 	GardesDuCorpsDElite(RuleType.Aptitude),
+	GlasApocalypse(RuleType.Aptitude, RuleType.PhaseDeMouvement),
 	GrandEncensoirAPestilence(RuleType.Aptitude, RuleType.PhaseDeCombat),
 	HordeVorace(RuleType.Aptitude, RuleType.PhaseDeMouvement),
 	LachezPlusPlusDeBetes(RuleType.Aptitude, RuleType.AptitudesDeCommandement),
@@ -146,7 +150,6 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	TunneliersAPoingsConcasseurs(RuleType.Aptitude, RuleType.PhaseDeMouvement),
 	TunnelsDansLaRealite(RuleType.Aptitude, RuleType.PhaseDeMouvement),
 
-
 	// aptitude de co
 	// composition
 	Maitrecroc(u -> u.alterAllWeapons(w -> w.setAltAttaques("+1")), RuleType.Aptitude, RuleType.Composition),
@@ -164,6 +167,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	FeuFeuPlusPlus(RuleType.TactiquesDeBataille),
 	MarqueDeLaMort(RuleType.TactiquesDeBataille),
 	SoignerLaBete(RuleType.TactiquesDeBataille),
+
 
 	;
 

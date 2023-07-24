@@ -1,7 +1,9 @@
-HÉROS des CLANS SKRYRE seulement. Une fois
-par bataille, au début de votre phase des héros,
-vous pouvez choisir 1 unité ennemie à 6" du
-porteur et jeter un dé. Sur 3+, retirez l'unité choisie
-du champ de bataille. À la fin de ce tour, votre
-adversaire doit la replacer entièrement sur ce
-territoire et à plus de 9" des unités ennemies.
+Heros des CLANS PESTILENS seulement.
+Les effets de frappe en premier s’appliquent au
+porteur s'il a effectué un mouvement de charge
+au méme tour. A partir du deuxiéme round de
+bataille, au début de votre phase des héros, vous
+devez transférer cet artéfact 4 une autre unité
+HERos des CLANS PESTILENS amie sur le champ
+de bataille si Cest possible, méme si l’autre HEROs
+a déja un artéfact de pouvoir.

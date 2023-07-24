@@ -90,9 +90,9 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	CanonAMalefoudre(SkavenUnitModel.CanonAMalefoudre),
 	CatapulteDeLaPeste(SkavenUnitModel.CatapulteDeLaPeste),
 
-
-	TrouDeVermine(SkavenUnitModel.TrouDeVermine),
+	ClocheDeLApocalypse(SkavenUnitModel.ClocheDeLApocalypse),
 	RazDeVermine(SkavenUnitModel.RazDeVermine),
+	TrouDeVermine(SkavenUnitModel.TrouDeVermine),
 
 	AstreiaSolbrigh(StormcastUnitModel.AstreiaSolbrigh),
 	SeigneurArcanumSurDracolineCeleste(StormcastUnitModel.SeigneurArcanumSurDracolineCeleste),

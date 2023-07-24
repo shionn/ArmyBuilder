@@ -117,11 +117,16 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 			Arrays.asList(GeneriqueUnitRule.Infranchissable, SkavenRule.TunnelsDansLaRealite,
 					SkavenRule.AuraDuGrandRatCornu)),
 
+	ClocheDeLApocalypse(
+			Arrays.asList(),
+			null,
+			Arrays.asList(SkavenRule.ClocheDeLApocalypseConvocation, SkavenRule.ClocheDeLApocalypsePredateur,
+					SkavenRule.HordeVorace)),
 	RazDeVermine(
 			Arrays.asList(),
 			null,
 			Arrays.asList(SkavenRule.RazDeVermineConvocation, SkavenRule.RazDeVerminePredateur,
-					SkavenRule.HordeVorace)),
+					SkavenRule.GlasApocalypse, SkavenRule.AudaceOuDesespoir)),
 
 //	JJJ(Arrays.asList(), null, Arrays.asList()),
 //	KKK(Arrays.asList(), null, Arrays.asList()),

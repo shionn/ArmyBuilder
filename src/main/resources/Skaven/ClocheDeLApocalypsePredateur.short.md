@@ -1,0 +1,1 @@
+Sort persistant prédateur vol se déplace de 2D6".

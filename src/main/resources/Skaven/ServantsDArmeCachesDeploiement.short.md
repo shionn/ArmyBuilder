@@ -1,0 +1,1 @@
+Peut-être cacher dans μ __Rats des Clans__ ou de __Vermines de Choc__ par tranche de 10. Si μ détruite, les μ cachées aussi.
