@@ -2,10 +2,6 @@ package armybuilder;
 
 import java.util.TimeZone;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRegistration;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,11 +12,14 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRegistration.Dynamic;
+
 @Configuration
 public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	@Override
-	public void onStartup(ServletContext servletContext) throws ServletException {
+	public void onStartup(jakarta.servlet.ServletContext servletContext) throws ServletException {
 		TimeZone.setDefault(TimeZone.getTimeZone("Europe/Paris"));
 		super.onStartup(servletContext);
 	}
@@ -41,8 +40,9 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 	}
 
 	@Override
-	public void customizeRegistration(ServletRegistration.Dynamic registration) {
+	protected void customizeRegistration(Dynamic registration) {
 		registration.setInitParameter("throwExceptionIfNoHandlerFound", "true");
+		super.customizeRegistration(registration);
 	}
 
 	@EnableWebMvc

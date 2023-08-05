@@ -1,16 +1,14 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.shionn</groupId>
-	<artifactId>ArmyBuilder
-	</artifactId>
+	<artifactId>ArmyBuilder</artifactId>
 	<packaging>war</packaging>
 	<version>0.2-SNAPSHOT</version>
 
 	<properties>
-		<version.spring>5.3.8</version.spring>
-		<!-- 		<version.spring>6.0.2</version.spring> -->
-		<version.spring.security>5.5.1</version.spring.security>
-		<version.jstl>1.2</version.jstl>
+		<version.spring>6.0.11</version.spring>
 	</properties>
 
 	<build>
@@ -29,6 +27,12 @@
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.1.0</version>
 			</plugin>
 
 			<plugin>
@@ -94,7 +98,8 @@
 			<id>dev</id>
 			<properties>
 				<mybatis.driver>com.mysql.cj.jdbc.Driver</mybatis.driver>
-				<mybatis.url>jdbc:mysql://${armybuilder.mysql.host}:3306/armybuilder?serverTimezone=Europe/Paris</mybatis.url>
+				<mybatis.url>
+					jdbc:mysql://${armybuilder.mysql.host}:3306/armybuilder?serverTimezone=Europe/Paris</mybatis.url>
 				<mybatis.username>${armybuilder.mysql.user}</mybatis.username>
 				<mybatis.password>${armybuilder.mysql.pass}</mybatis.password>
 			</properties>
@@ -104,7 +109,8 @@
 			<id>proxmox</id>
 			<properties>
 				<mybatis.driver>com.mysql.cj.jdbc.Driver</mybatis.driver>
-				<mybatis.url>jdbc:mysql://${armybuilder.mysql.host}:3306/armybuilder?serverTimezone=Europe/Paris</mybatis.url>
+				<mybatis.url>
+					jdbc:mysql://${armybuilder.mysql.host}:3306/armybuilder?serverTimezone=Europe/Paris</mybatis.url>
 				<mybatis.username>${armybuilder.mysql.user}</mybatis.username>
 				<mybatis.password>${armybuilder.mysql.pass}</mybatis.password>
 			</properties>
@@ -114,29 +120,37 @@
 
 
 	<dependencies>
-		<!-- Spring -->
+		<!-- Spring / web -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${version.spring}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>${version.spring.security}</version>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
+			<version>3.0.0</version>
+			<!--			<scope>provided</scope>-->
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>${version.spring.security}</version>
+			<groupId>jakarta.servlet.jsp.jstl</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+			<version>3.0.0</version>
 		</dependency>
-
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>${version.jstl}</version>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+			<version>5.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.servlet.jsp</groupId>
+			<artifactId>jakarta.servlet.jsp-api</artifactId>
+			<version>3.0.0</version>
+			<scope>provided</scope>
 		</dependency>
 
+		<!-- commons -->
 		<dependency>
 			<groupId>com.atlassian.commonmark</groupId>
 			<artifactId>commonmark</artifactId>
@@ -152,23 +166,17 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.12.0</version>
 		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.28</version>
-			<scope>provided</scope>
-		</dependency>
 
 		<!-- Persistence / MyBatis / Serialisation -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
-			<version>3.5.7</version>
+			<version>3.5.13</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.25</version>
+			<version>8.0.33</version>
 			<scope>runtime</scope>
 		</dependency>
 
@@ -181,18 +189,13 @@
 
 		<!-- Spec -->
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet.jsp</groupId>
-			<artifactId>javax.servlet.jsp-api</artifactId>
-			<version>2.3.3</version>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.28</version>
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- test -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-params</artifactId>

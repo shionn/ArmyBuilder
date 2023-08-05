@@ -2,7 +2,7 @@
 <%@ tag import="armybuilder.model.rule.RuleIcons" %>
 <%@ tag import="armybuilder.model.rule.desc.DescriptionMode" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ attribute name="rules" type="java.util.List"%>
 <%@ attribute name="mode" type="DescriptionMode"%>
 <c:forEach items="${rules}" var="rule">
