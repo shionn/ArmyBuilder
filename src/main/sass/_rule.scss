@@ -7,7 +7,7 @@ div.rule {
 	@media print {
 		border: 2px solid black;
 	}
-	span {
+	&>span:first-child {
 		margin-right: 5px;
 		font-weight: bold;
 	}

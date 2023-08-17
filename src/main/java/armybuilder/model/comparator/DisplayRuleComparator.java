@@ -29,10 +29,16 @@ public class DisplayRuleComparator implements Comparator<IRule<?>> {
 			result = compare(o1, o2, RuleType.PhaseDeTirPlayer);
 		}
 		if (result == 0) {
+			result = compare(o1, o2, RuleType.PhaseDeTirPlayerDebut);
+		}
+		if (result == 0) {
 			result = compare(o1, o2, RuleType.PhaseDeMouvement);
 		}
 		if (result == 0) {
 			result = compare(o1, o2, RuleType.PhaseDeMouvementPlayer);
+		}
+		if (result == 0) {
+			result = compare(o1, o2, RuleType.PhaseDeMouvementPlayerDebut);
 		}
 		if (result == 0) {
 			result = compare(o1, o2, RuleType.Sort);

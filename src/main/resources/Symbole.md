@@ -23,7 +23,7 @@ _si charge_
 
 __!engagé__
 
-_une seul fois_
+_une seul fois_1
 _debut_
 _fin_
 _adverse_
@@ -32,6 +32,7 @@ _séquence d’attaque_,
 
 => _votre prochaine héros_
 => _fin du tour_
+=> _votre prochain mouvement_
 
 
 

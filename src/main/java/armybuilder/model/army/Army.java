@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 
 import armybuilder.model.army.bataillon.Bataillon;
 import armybuilder.model.army.bataillon.BataillonType;
+import armybuilder.model.army.turn.TurnStep;
+import armybuilder.model.army.turn.TurnStepBuilder;
 import armybuilder.model.comparator.DisplayNameComparator;
 import armybuilder.model.comparator.SubEnumOrdinalComparator;
 import armybuilder.model.rule.GeneriqueRule;
@@ -49,6 +51,11 @@ public class Army implements IHaveRule {
 
 	public List<CheckRule> getChecks() {
 		return Arrays.stream(CheckRule.values()).filter(c -> c.verify(this)).toList();
+	}
+
+	public List<TurnStep> getSteps() {
+		return new TurnStepBuilder().build(this);
+
 	}
 
 	/**

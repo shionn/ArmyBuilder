@@ -121,12 +121,12 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 			Arrays.asList(),
 			null,
 			Arrays.asList(SkavenRule.ClocheDeLApocalypseConvocation, SkavenRule.ClocheDeLApocalypsePredateur,
-					SkavenRule.HordeVorace)),
+					SkavenRule.GlasApocalypse, SkavenRule.AudaceOuDesespoir)),
 	RazDeVermine(
 			Arrays.asList(),
 			null,
 			Arrays.asList(SkavenRule.RazDeVermineConvocation, SkavenRule.RazDeVerminePredateur,
-					SkavenRule.GlasApocalypse, SkavenRule.AudaceOuDesespoir)),
+					SkavenRule.HordeVorace)),
 
 //	JJJ(Arrays.asList(), null, Arrays.asList()),
 //	KKK(Arrays.asList(), null, Arrays.asList()),

@@ -3,6 +3,9 @@ package armybuilder.model.rule;
 import armybuilder.serialisation.EnumPropertyLoader;
 
 public enum RuleType {
+	Memo(false),
+	MemoDisplay(false),
+
 	TraisDeBataille(true),
 	TraisUnitee(false),
 
@@ -20,10 +23,10 @@ public enum RuleType {
 	FureursMonstrueuses(true),
 	ActionsHeroiques(true),
 	Artefact(true),
-	Priere(true),
-	EndLessSpell(true),
 
+	Priere(true),
 	Sort(true),
+	EndLessSpell(true),
 	Aura(false),
 
 	PhaseBeforeStart(false),
@@ -32,14 +35,16 @@ public enum RuleType {
 	PhaseDesHerosPlayer(false),
 	PhaseDeMouvement(false),
 	PhaseDeMouvementPlayer(false),
+	PhaseDeMouvementPlayerDebut(false),
 	PhaseDeTir(false),
 	PhaseDeTirPlayer(false),
+	PhaseDeTirPlayerDebut(false),
 	PhaseDeCombat(false),
 	PhaseDeCombatDebut(false),
 	PhaseDeCombatFin(false),
 	PhaseDeDeroute(false),
 
-	Rule(true),
+	Rule(false),
 
 	;
 	private String displayName;

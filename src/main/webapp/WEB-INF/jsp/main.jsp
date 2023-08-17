@@ -296,8 +296,34 @@
 	</div>
 </div>
 
+
 <div style="page-break-inside: avoid;">
 	<h2>Rules</h2>
+	<div class="columns2">
+		<ol>
+			<c:forEach items="${army.steps}" var="step">
+				<li style="page-break-inside: avoid;"><strong>${step.name}</strong>
+					<ol>
+						<c:forEach items="${step.subs}" var="step">
+							<li>${step.name}
+								<ul>
+									<c:forEach items="${step.subs}" var="step">
+										<li>${step.name}
+											<ul>
+												<c:forEach items="${step.subs}" var="step">
+													<li>${step.name}</li>
+												</c:forEach>
+											</ul>
+										</li>
+									</c:forEach>
+								</ul>
+							</li>
+						</c:forEach>
+					</ol>
+				</li>
+			</c:forEach>
+		</ol>
+	</div>
 	<c:forEach items="${RuleType.values()}" var="type">
 		<c:if test="${type.displayed and not empty army.rules(type)}">
 			<h3>${type.displayName}</h3>

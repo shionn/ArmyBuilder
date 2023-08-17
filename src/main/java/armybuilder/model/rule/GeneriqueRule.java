@@ -58,8 +58,9 @@ public enum GeneriqueRule implements IRule<GeneriqueRule> {
 			RuleType.FureursMonstrueuses),
 
 	// regle
-	DissiperLesSorts(a -> a.addIf(a.count(KeyWord.Sorcier) > 0, GeneriqueRule.valueOf("DissiperLesSorts")),
-			RuleType.Rule),
+	//DissiperLesSorts(a -> a.addIf(a.count(KeyWord.Sorcier) > 0, GeneriqueRule.valueOf("DissiperLesSorts")), RuleType.Rule),
+
+	DescriptionTour(a -> a.add(GeneriqueRule.valueOf("DescriptionTour")), RuleType.Memo),
 
 	;
 

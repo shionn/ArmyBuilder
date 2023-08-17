@@ -4,7 +4,7 @@ import armybuilder.model.unit.weapon.IUnitWeapon;
 import armybuilder.model.unit.weapon.WeaponType;
 
 public enum SkavenWeapons implements IUnitWeapon {
-	AttrapeChoses("Attrape-choses", WeaponType.Melee, "3", "6", "3+", "4+", "-1", "1"),
+	AttrapeChoses("Attrape-choses", WeaponType.Melee, "2", "4", "4+", "4+", "-1", "2"),
 	BatonDeMalepierre("Bâton de Malepierre", WeaponType.Melee, "2", "3", "4+", "4+", "-1", "D3"),
 	BourdonDeMalepierre("Bourdon de Malepierre", WeaponType.Melee, "2", "D3", "3+", "3+", "-1", "1"),
 	EncensoirAPestilence("Encensoir a Pestilence", WeaponType.Melee, "2", "2", "4+", "3+", "-1", "1"),

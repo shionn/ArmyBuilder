@@ -11,6 +11,7 @@ import armybuilder.model.army.bataillon.Bataillon;
 import armybuilder.model.comparator.DisplayNameComparator;
 import armybuilder.model.comparator.DisplayRuleComparator;
 import armybuilder.model.comparator.EnumOrdinalComparator;
+import armybuilder.model.rule.IHaveRule;
 import armybuilder.model.rule.IRule;
 import armybuilder.model.unit.keyword.IHaveKeyWord;
 import armybuilder.model.unit.keyword.KeyWord;
@@ -24,7 +25,7 @@ import armybuilder.model.unit.weapon.IHaveWeapons;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import lombok.Getter;
 
-public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord {
+public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord, IHaveRule {
 
 	private int id;
 	private UnitModel model;

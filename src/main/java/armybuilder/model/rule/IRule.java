@@ -21,8 +21,8 @@ public interface IRule<T extends Enum<T> & IRule<T>> extends IHaveDisplayName {
 		return null;
 	}
 
-	default boolean is(RuleType type) {
-		return getTypes().contains(type);
+	default boolean is(RuleType... types) {
+		return getTypes().containsAll(Arrays.asList(types));
 	}
 
 	default boolean isOne(RuleType... types) {
@@ -32,5 +32,4 @@ public interface IRule<T extends Enum<T> & IRule<T>> extends IHaveDisplayName {
 	default void decorate(Unit unit) {
 		// nothing to do
 	}
-
 }
