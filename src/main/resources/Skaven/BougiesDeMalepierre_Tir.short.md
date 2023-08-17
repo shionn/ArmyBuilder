@@ -1,0 +1,1 @@
+_debut_, _utilisé_, lui et jusqu'à 3 μ<sub>a</sub> _Clans Skryre_ ∈ 13". Gagne +1 dégâts projectiles => _fin de la phase_. D6 Sur 1, subit D3 BM.

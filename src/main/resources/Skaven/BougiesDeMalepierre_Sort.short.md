@@ -1,0 +1,1 @@
+_utilisé_, Peu relancer jets de lancement, et de dissipation => _fin de la phase_. D6 Sur 1, subit D3 BM.

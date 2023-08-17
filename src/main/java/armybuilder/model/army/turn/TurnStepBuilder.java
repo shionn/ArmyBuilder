@@ -40,10 +40,9 @@ public class TurnStepBuilder {
 	private TurnStep buildHeroDuring(Army army) {
 		List<TurnStep> subs = new ArrayList<TurnStep>();
 		subs.addAll(buildFromRule(army, r -> r.isOne(RuleType.PhaseDesHeros, RuleType.PhaseDesHerosPlayer)));
-		subs.addAll(buildFromRule(army, r -> r.is(RuleType.Sort, RuleType.Aptitude)));
 		subs.add(TurnStep.builder()
 				.name("Sort / Prière / Dissipation <em>(30\")</em>")
-				.subs(buildFromRule(army, r -> r.is(RuleType.Sort) && !r.is(RuleType.Aptitude)))
+				.subs(buildFromRule(army, r -> r.is(RuleType.Sort)))
 				.build());
 		return TurnStep.builder()
 				.name("En cours")
@@ -139,6 +138,7 @@ public class TurnStepBuilder {
 	private TurnStep buildBattleDuring(Army army) {
 		List<TurnStep> subs = new ArrayList<TurnStep>();
 		subs.add(TurnStep.builder().name("Attaque / Défense en Règle").build());
+		subs.addAll(buildFromRule(army, r -> r.isOne(RuleType.PhaseDeCombat)));
 		return TurnStep.builder().name("En cours").subs(subs).build();
 	}
 

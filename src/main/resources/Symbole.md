@@ -29,9 +29,11 @@ _fin_
 _adverse_
 _vous choissisez cette μ pour combatre_,
 _séquence d’attaque_,
+_avant bataille_
 
 => _votre prochaine héros_
 => _fin du tour_
+=> _fin de la phase_
 => _votre prochain mouvement_
 
 

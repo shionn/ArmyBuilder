@@ -88,6 +88,9 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	PuissantsChefsDeGuerre_3(RuleType.ActionsHeroiques),
 	BougiesDeMalepierre_1(RuleType.TraisDeBataille),
 	BougiesDeMalepierre_3(RuleType.TraisDeBataille),
+	BougiesDeMalepierre_Sort(RuleType.TraisDeBataille, RuleType.Aptitude, RuleType.Sort, RuleType.MemoDisplay),
+	BougiesDeMalepierre_Tir(RuleType.TraisDeBataille, RuleType.PhaseDeTirPlayerDebut, RuleType.MemoDisplay),
+	BougiesDeMalepierre_Combat(RuleType.TraisDeBataille, RuleType.PhaseDeCombat, RuleType.MemoDisplay),
 	EchosDesGrandesPlaies(RuleType.TraisDeBataille),
 
 	// aptitude d'unité

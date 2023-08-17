@@ -1,0 +1,1 @@
+Utiliser une bougie de malepierre pour : À la phase des héros, choisissez 1 SORCIER des CLANS SKRYRE ami. Vous pouvez relancer les jets de lancement et de dissipation pour le SORCIER choisi jusqu'à la fin de la phase. À la fin de la phase, jetez un dé. Sur 1, le SORCIER subit D3 blessures mortelles.
