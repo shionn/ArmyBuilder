@@ -9,6 +9,7 @@ import armybuilder.model.unit.role.RoleTactique;
 
 public enum PackDeBataille implements IHaveDisplayName, IDecoreArmy {
 	LutteDeGeneraux("Lutte de Généraux", null),
+	PourLaGloire("Pour la Gloire", null),
 	BataillesRangees2021("BR Saison 0 2021", a -> {
 		a.units(KeyWord.Sorcier).forEach(u -> u.add(PackDeBatailleRule.Metamorphose));
 		a.units(KeyWord.Monstre).forEach(u -> u.add(PackDeBatailleRule.RugissementSauvage));

@@ -32,17 +32,21 @@ public class TurnStepBuilder {
 	private TurnStep buildHeroStart(Army army) {
 		List<TurnStep> subs = new ArrayList<TurnStep>();
 		subs.add(TurnStep.builder().name("Actions héroĩques").build());
-		subs.add(TurnStep.builder().name("Ralliement").build());
 		subs.add(TurnStep.builder().name("Conjuration / Bannissement").build());
+		subs.add(TurnStep.builder().name("Ralliement").build());
+		subs.addAll(buildFromRule(army, r -> r.is(RuleType.PhaseDesHerosPlayerDebut)));
 		return TurnStep.builder().name("Début").subs(subs).build();
 	}
 
 	private TurnStep buildHeroDuring(Army army) {
 		List<TurnStep> subs = new ArrayList<TurnStep>();
 		subs.addAll(buildFromRule(army, r -> r.isOne(RuleType.PhaseDesHeros, RuleType.PhaseDesHerosPlayer)));
+		List<TurnStep> subSpells = new ArrayList<TurnStep>();
+		subSpells.add(TurnStep.builder().name("Sort Persistant").build());
+		subSpells.addAll(buildFromRule(army, r -> r.is(RuleType.Sort)));
 		subs.add(TurnStep.builder()
 				.name("Sort / Prière / Dissipation <em>(30\")</em>")
-				.subs(buildFromRule(army, r -> r.is(RuleType.Sort)))
+				.subs(subSpells)
 				.build());
 		return TurnStep.builder()
 				.name("En cours")

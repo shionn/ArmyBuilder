@@ -24,27 +24,67 @@ import armybuilder.model.unit.weapon.AlteredWeapon;
 import armybuilder.model.unit.weapon.IHaveWeapons;
 import armybuilder.model.unit.weapon.IUnitWeapon;
 import lombok.Getter;
+import lombok.Setter;
 
 public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord, IHaveRule {
 
+	@Getter
+	@Setter
 	private int id;
+	@Getter
+	@Setter
 	private UnitModel model;
+	@Getter
+	@Setter
 	private UnitOption general;
+	@Getter
+	@Setter
 	private UnitOption traisDeCommandement;
+	@Getter
+	@Setter
 	private UnitOption traisDeMonstre;
+	@Getter
+	@Setter
 	private UnitOption traisDeMonture;
+	@Getter
+	@Setter
 	private UnitOption artefact;
+	@Getter
+	@Setter
 	private UnitOption sort;
+	@Getter
+	@Setter
 	private UnitOption priere;
+	@Getter
+	@Setter
 	private UnitOption chef;
+	@Getter
+	@Setter
 	private UnitOption musicien;
+	@Getter
+	@Setter
 	private UnitOption banniere;
+	@Getter
+	@Setter
 	private UnitOption arme;
+	@Getter
+	@Setter
 	private UnitOption renforcee;
+	@Getter
+	@Setter
 	private UnitOption invoquee;
+	@Getter
+	@Setter
 	private UnitOption aspectChampion;
+	@Getter
+	@Setter
+	private UnitOption aptitudeDeVeteran;
+	@Getter
+	@Setter
 	private Bataillon bataillon;
 
+	@Getter
+	@Setter
 	private int points;
 	@Getter
 	private List<IRule<?>> rules = new ArrayList<IRule<?>>();
@@ -52,6 +92,8 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord, IHav
 	@Getter
 	private List<IUnitWeapon> weapons = new ArrayList<IUnitWeapon>();
 	private List<RoleTactique> roles = new ArrayList<RoleTactique>();
+	@Getter
+	@Setter
 	private UnitProfile profile;
 
 	public void decorate() {
@@ -190,163 +232,12 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord, IHav
 		return model.getDisplayName();
 	}
 
-	public UnitProfile getProfile() {
-		return profile;
-	}
-
-	public void setProfile(UnitProfile profile) {
-		this.profile = profile;
-	}
-
 	public ProfileDegressif getProfileDegressif() {
 		return model.getProfileDegressif();
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public UnitModel getModel() {
-		return model;
-	}
-
-	public void setModel(UnitModel model) {
-		this.model = model;
 	}
 
 	public boolean is(UnitModel model) {
 		return this.model == model;
 	}
 
-	public void setGeneral(UnitOption general) {
-		this.general = general;
-	}
-
-	public UnitOption getGeneral() {
-		return general;
-	}
-
-	public void setChef(UnitOption chef) {
-		this.chef = chef;
-	}
-
-	public UnitOption getChef() {
-		return chef;
-	}
-
-	public void setMusicien(UnitOption musicien) {
-		this.musicien = musicien;
-	}
-
-	public UnitOption getMusicien() {
-		return musicien;
-	}
-
-	public void setBanniere(UnitOption banniere) {
-		this.banniere = banniere;
-	}
-
-	public UnitOption getBanniere() {
-		return banniere;
-	}
-
-	public void setInvoquee(UnitOption invoquee) {
-		this.invoquee = invoquee;
-	}
-
-	public UnitOption getInvoquee() {
-		return invoquee;
-	}
-
-	public int getPoints() {
-		return points;
-	}
-
-	public void setPoints(int points) {
-		this.points = points;
-	}
-
-	public void setArme(UnitOption arme) {
-		this.arme = arme;
-	}
-
-	public UnitOption getArme() {
-		return arme;
-	}
-
-	public void setTraisDeCommandement(UnitOption traisDeCommandement) {
-		this.traisDeCommandement = traisDeCommandement;
-	}
-
-	public UnitOption getTraisDeCommandement() {
-		return traisDeCommandement;
-	}
-
-	public void setTraisDeMonstre(UnitOption traisDeMonstre) {
-		this.traisDeMonstre = traisDeMonstre;
-	}
-
-	public UnitOption getTraisDeMonstre() {
-		return traisDeMonstre;
-	}
-
-	public void setArtefact(UnitOption artefact) {
-		this.artefact = artefact;
-	}
-
-	public UnitOption getArtefact() {
-		return artefact;
-	}
-
-	public void setSort(UnitOption sort) {
-		this.sort = sort;
-	}
-
-	public UnitOption getSort() {
-		return sort;
-	}
-
-	public void setPriere(UnitOption priere) {
-		this.priere = priere;
-	}
-
-	public UnitOption getPriere() {
-		return priere;
-	}
-
-	public void setRenforcee(UnitOption renforcee) {
-		this.renforcee = renforcee;
-	}
-
-	public UnitOption getRenforcee() {
-		return renforcee;
-	}
-
-	public Bataillon getBataillon() {
-		return bataillon;
-	}
-
-	public void setBataillon(Bataillon bataillon) {
-		this.bataillon = bataillon;
-	}
-
-	public UnitOption getTraisDeMonture() {
-		return traisDeMonture;
-	}
-
-	public void setTraisDeMonture(UnitOption traisDeMonture) {
-		this.traisDeMonture = traisDeMonture;
-	}
-
-	public UnitOption getAspectChampion() {
-		return aspectChampion;
-	}
-
-	public void setAspectChampion(UnitOption aspectChampion) {
-		this.aspectChampion = aspectChampion;
-	}
 }

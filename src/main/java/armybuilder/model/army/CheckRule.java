@@ -22,8 +22,9 @@ public enum CheckRule {
 	MissingPTraisDeMonstre(a -> count(a, UnitOptionCategory.TraisDeMonstre) < 1 && a.count(KeyWord.Monstre) > 0),
 
 	TooManyGeneral(a -> count(a, UnitOptionCategory.General) > 1),
-	TooManyTraisDeCommandement(a -> count(a, UnitOptionCategory.TraisDeCommandement) > 1),
-	TooManyArtefact(a -> count(a, UnitOptionCategory.Artefact) > 1),
+	TooManyTraisDeCommandement(
+			a -> count(a, UnitOptionCategory.TraisDeCommandement) > 1 && !a.is(PackDeBataille.PourLaGloire)),
+	TooManyArtefact(a -> count(a, UnitOptionCategory.Artefact) > 1), // TODO compter les ajout d'amelioration
 	TooManyAspectDuChampion(a -> count(a, UnitOptionCategory.AspectDuChampion) > 1),
 
 	;

@@ -32,6 +32,9 @@ public enum UnitOption implements IUnitOption {
 	RenforceesUneFois(OptimisationsUniverselles.RenforceesUneFois),
 	RenforceesDeuxFois(OptimisationsUniverselles.RenforceesDeuxFois),
 
+	/** aptitude de Veteran **/
+	ParangonDeVaillance(AptitudeDeVeteran.ParangonDeVaillance),
+
 	/** manuel de general 2022 */
 	AlimenteParLaRageDeGhur(builder().aspectsDuChampion(PackDeBatailleRule.AlimenteParLaRageDeGhur)),
 	EnteteCommeUnRhinox(builder().aspectsDuChampion(PackDeBatailleRule.EnteteCommeUnRhinox)),
