@@ -22,7 +22,7 @@ public enum SkavenWeapons implements IUnitWeapon {
 	LanceRouillee("Lance Rouillée", WeaponType.Melee, "2", "1", "5+", "4+", "-", "1"),
 	LameAMalenergie("Lame à Malénergie", WeaponType.Melee, "1", "D3", "4+", "3+", "-1", "1"),
 	LameDeMalepierre("Lame de Malepierre", WeaponType.Melee, "1", "6", "3+", "3+", "-1", "2"),
-	LameFetideEtBatonDesPlaies("Lame Fétide et Bâton des Plaies", WeaponType.Melee, "1", "2", "3+", "4+", "-", "1"),
+	LameFetideEtBatonDesPlaies("Lame Fétide et Bâton des Plaies", WeaponType.Melee, "2", "2", "4+", "4+", "-", "1"),
 	LameFetides_Creuset("Lames Fétides", WeaponType.Melee, "1", "6", "3+", "4+", "-", "1"),
 	LameRouillee("Lame Rouillée", WeaponType.Melee, "1", "1", "4+", "4+", "-", "1"),
 	LameSuintante("Lame Suitante", WeaponType.Melee, "1", "5", "3+", "3+", "-1", "D3"),

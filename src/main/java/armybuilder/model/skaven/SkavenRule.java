@@ -23,7 +23,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	CollectionneurEmerite(RuleType.TraitsDeCommandement),
 	IntrigantDiabolique(RuleType.TraitsDeCommandement),
 	InventeurDerange(RuleType.TraitsDeCommandement),
-	MaitreDeLaMagie(RuleType.TraitsDeCommandement),
+	MaitreDeLaMagie(RuleType.TraitsDeCommandement, RuleType.PhaseDesHeros, RuleType.Sort),
 	MaitreDeLaPourritureEtDeLaRuine(RuleType.TraitsDeCommandement, RuleType.Priere),
 	MaitreDeHorde(RuleType.TraitsDeCommandement),
 	MaitreDesOmbres(RuleType.TraitsDeCommandement),
