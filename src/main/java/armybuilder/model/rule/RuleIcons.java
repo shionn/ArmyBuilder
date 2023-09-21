@@ -12,7 +12,8 @@ public enum RuleIcons {
 	Mouvement("ra ra-footprint", r -> r.isOne(RuleType.PhaseDeMouvement)),
 	MouvementPlayer(
 			"ra ra-footprint underline",
-			r -> r.isOne(RuleType.PhaseDeMouvementPlayer, RuleType.PhaseDeMouvementPlayerDebut)),
+			r -> r.isOne(RuleType.PhaseDeMouvementPlayer, RuleType.PhaseDeMouvementPlayerDebut,
+					RuleType.PhaseDeMouvementPlayerFin)),
 	Tir("ra ra-crossbow", r -> r.isOne(RuleType.PhaseDeTir)),
 	TirPlayer("ra ra-crossbow underline", r -> r.isOne(RuleType.PhaseDeTirPlayer, RuleType.PhaseDeTirPlayerDebut)),
 	Charge("fa fa-forward", r -> r.isOne(RuleType.PhaseDeCharge)),

@@ -1,0 +1,1 @@
+_fin_ 1 μ<sub>a</sub> 5+ ∈ 6"téléport à 6" d'un autre sans μ<sup>e</sup> à 3" à + de 9" des μ<sup>e</sup>.

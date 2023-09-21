@@ -64,7 +64,7 @@ public class TurnStepBuilder {
 	private TurnStep buildMovement(Army army) {
 		return TurnStep.builder()
 				.name("Mouvement")
-				.subs(Arrays.asList(buildMovementStart(army), buildMovementDuring(army)))
+				.subs(Arrays.asList(buildMovementStart(army), buildMovementDuring(army), buildMovementEnd(army)))
 				.build();
 	}
 
@@ -83,6 +83,13 @@ public class TurnStepBuilder {
 		return TurnStep.builder()
 				.name("En cours")
 				.subs(subs)
+				.build();
+	}
+
+	private TurnStep buildMovementEnd(Army army) {
+		return TurnStep.builder()
+				.name("Fin")
+				.subs(buildFromRule(army, r -> r.isOne(RuleType.PhaseDeMouvementPlayerFin)))
 				.build();
 	}
 
