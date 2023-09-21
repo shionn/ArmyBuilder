@@ -48,7 +48,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	FioleDuFulminateur(RuleType.Artefact),
 	FouetDeCrocs(RuleType.Artefact),
 	LameDeCorruption(RuleType.Artefact),
-	LeFumigatus(RuleType.Artefact, RuleType.PhaseDeCombat),
+	LeFumigatus(RuleType.Artefact, RuleType.PhaseDeCombatDebut, RuleType.MemoDisplay),
 	LeRongeclat(RuleType.Artefact, RuleType.PhaseDeCombat),
 	LOrbeDAirain(RuleType.Artefact, RuleType.PhaseDesHerosPlayer, RuleType.MemoDisplay),
 	ResonateurEsoteriqueAMalepierre(RuleType.Artefact),
@@ -151,7 +151,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	TueurCacheCombat(RuleType.Aptitude, RuleType.PhaseDeCombatDebut),
 	TueurCacheDeploiement(RuleType.Aptitude, RuleType.PhaseBeforeStart),
 	TunneliersAPoingsConcasseurs(RuleType.Aptitude, RuleType.PhaseDeMouvement),
-	TunnelsDansLaRealite(RuleType.Aptitude, RuleType.PhaseDeMouvement),
+	TunnelsDansLaRealite(RuleType.Aptitude, RuleType.PhaseDeMouvementPlayerFin, RuleType.MemoDisplay),
 
 	// aptitude de co
 	// composition

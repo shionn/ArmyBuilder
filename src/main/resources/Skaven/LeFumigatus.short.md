@@ -1,0 +1,1 @@
+_debut_ 1 μ<sup>e</sup> à 3" jeter 1D6, 1-2 : rien, 3-4 : subit D3BM, 5-6 ; subit D6BM.
