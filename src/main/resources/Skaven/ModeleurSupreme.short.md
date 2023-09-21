@@ -1,0 +1,1 @@
+∀ μ<sub>a</sub> __Bêtes de Combat__ ∈ 13" gagne +1 toucher & blesser.

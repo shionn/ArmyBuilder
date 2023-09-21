@@ -28,7 +28,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	MaitreDeHorde(RuleType.TraitsDeCommandement),
 	MaitreDesOmbres(RuleType.TraitsDeCommandement),
 	ManipulateurSupreme(RuleType.TraitsDeCommandement, RuleType.PhaseDesHeros),
-	ModeleurSupreme(RuleType.TraitsDeCommandement),
+	ModeleurSupreme(RuleType.TraitsDeCommandement, RuleType.PhaseDeTir, RuleType.PhaseDeCombat),
 	MutateurAstucieux(RuleType.TraitsDeCommandement),
 	PuissantAlpha(RuleType.TraitsDeCommandement),
 	Scrofuleux(RuleType.TraitsDeCommandement),
@@ -91,7 +91,8 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	BougiesDeMalepierre_Sort(RuleType.TraisDeBataille, RuleType.Aptitude, RuleType.Sort, RuleType.MemoDisplay),
 	BougiesDeMalepierre_Tir(RuleType.TraisDeBataille, RuleType.PhaseDeTirPlayerDebut, RuleType.MemoDisplay),
 	BougiesDeMalepierre_Combat(RuleType.TraisDeBataille, RuleType.PhaseDeCombat, RuleType.MemoDisplay),
-	EchosDesGrandesPlaies(RuleType.TraisDeBataille),
+	EchosDesGrandesPlaies(RuleType.TraisDeBataille, RuleType.Priere),
+	EchosDesGrandesPlaies_Unit(RuleType.TraisDeBataille, RuleType.Priere),
 
 	// aptitude d'unité
 	ArmureSertieDeMalepierre(RuleType.Aptitude),

@@ -83,6 +83,8 @@ public enum Allegiance implements IHaveDisplayName, IDecoreArmy {
 
 				// clan Pestilien
 				a.addIf(a.count(KeyWord.Pretre, KeyWord.ClansPestilens) > 0, SkavenRule.EchosDesGrandesPlaies);
+				a.units(KeyWord.Pretre, KeyWord.ClansPestilens)
+						.forEach(u -> u.add(SkavenRule.EchosDesGrandesPlaies_Unit));
 				a.addIf(a.count(KeyWord.Pretre, KeyWord.ClansPestilens) > 2, SkavenRule.CrescendoDuChoeurInfecte);
 
 

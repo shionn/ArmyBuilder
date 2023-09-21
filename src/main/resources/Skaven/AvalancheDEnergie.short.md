@@ -1,0 +1,1 @@
+gagne _Avalanche d'Énergie_ aux jets de lancement et de récitation.

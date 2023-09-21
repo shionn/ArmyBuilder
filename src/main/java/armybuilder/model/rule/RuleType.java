@@ -24,8 +24,8 @@ public enum RuleType {
 	ActionsHeroiques(true),
 	Artefact(true),
 
-	Priere(true),
-	Sort(true),
+	Priere(false),
+	Sort(false),
 	EndLessSpell(true),
 	Aura(false),
 
