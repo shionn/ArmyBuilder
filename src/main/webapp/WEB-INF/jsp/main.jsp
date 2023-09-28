@@ -133,141 +133,33 @@
 <h2>Units</h2>
 <div class="units columns2">
 	<c:forEach items="${army.units}" var="unit">
-		<article class="unit">
-			<spring:url value="/unit/rm/${unit.id}" var="url" />
-			<header>${unit.displayName} - ${unit.points} <a href="${url}"><i class="fa fa-trash"></i></a>
-				<span>
-					<c:if test="${not unit.is(RoleTactique.SortsPersistantsEtInvocation)}">
-						<i class="fa fa-walking"></i> ${unit.profile.mvt}&quot;
-						<i class="fa fa-heart"></i> ${unit.profile.life}
-						<i class="fa fa-flag"></i> ${unit.profile.cmd}
-						<i class="fa fa-shield-alt"></i> ${unit.profile.svg}
-					</c:if>
-				</span>
-			</header>
-			<main>
-				<table>
-					<c:if test="${not empty unit.weapons('Projectil')}">
-						<thead>
-							<tr>
-								<th>Armes à Projectiles</th>
-								<th>Portée</th>
-								<th>Attaques</th>
-								<th>Toucher</th>
-								<th>Blesser</th>
-								<th>Perf.</th>
-								<th>Dégâts</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${unit.weapons('Projectil')}" var="w">
-								<tr>
-									<td>${w.displayName}</td>
-									<td>${w.portee}</td>
-									<td>${w.attaques}</td>
-									<td>${w.toucher}</td>
-									<td>${w.blesser}</td>
-									<td>${w.perf}</td>
-									<td>${w.degats}</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</c:if>
-					<c:if test="${not empty unit.weapons('Melee')}">
-						<thead>
-							<tr>
-								<th>Armes de Mêlée</th>
-								<th>Portée</th>
-								<th>Attaques</th>
-								<th>Toucher</th>
-								<th>Blesser</th>
-								<th>Perf.</th>
-								<th>Dégâts</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${unit.weapons('Melee')}" var="w">
-								<tr>
-									<td>${w.displayName}</td>
-									<td>${w.portee}</td>
-									<td>${w.attaques}</td>
-									<td>${w.toucher}</td>
-									<td>${w.blesser}</td>
-									<td>${w.perf}</td>
-									<td>${w.degats}</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</c:if>
-				</table>
-				<c:if test="${not empty unit.profileDegressif}">
-					<table>
-						<thead>
-							<tr>
-								<th colspan="${unit.profileDegressif.titles.size()}">Tableau de Dégâts</th>
-							</tr>
-							<tr>
-								<c:forEach items="${unit.profileDegressif.titles}" var="t"><th>${t}</th></c:forEach>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${unit.profileDegressif.lines}" var="l">
-								<tr><c:forEach items="${l}" var="c"><td>${c}</td></c:forEach></tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</c:if>
-
-				<form:form>
-					<fieldset>
-						<c:forEach items="${unit.optionsCategories}" var="cat">
-							<c:if test="${cat.type == 'bool' }">
-								<spring:url value="/unit/edit/${unit.id}/${unit.optionValue(cat)}" var="url" />
-								<label>${unit.optionValue(cat).displayName}</label>
-								<input type="checkbox" name="${cat}" class="ajax" data-url="${url}" data-update="body>main" <c:if test="${unit.is(cat)}"> checked="checked"</c:if>>
-							</c:if>
-							<c:if test="${cat.type == 'select' and not empty unit.optionValues(cat)}">
-								<spring:url value="/unit/edit/${unit.id}" var="url" />
-								<select name="option" class="ajax" data-url="${url}" data-update="body>main" >
-<%-- 									<c:if test="${empty cat.get(unit)}"> --%>
-										<option value="null">-- ${cat.displayName} --
-<%-- 									</c:if> --%>
-									<c:forEach items="${unit.optionValues(cat)}" var="opt">
-										<option value="${opt}"<c:if test="${unit.is(opt)}"> selected="selected"</c:if>>${opt.fullDisplayName}
-									</c:forEach>
-								</select>
-								<c:if test="${not empty cat.get(unit)}">
-									<spring:url value="/unit/${unit.id}/rmopt/${cat}" var="url" />
-									<a href="${url}"><i class="fa fa-trash"></i></a>
-								</c:if>
-							</c:if>
-						</c:forEach>
-						<c:if test="${not empty army.bataillons(unit)}">
-							<spring:url value="/unit/bataillon/${unit.id}" var="url" />
-							<select name="bataillon" class="ajax" data-url="${url}" data-update="body>main" >
-								<option value="0">Aucun
-								<c:forEach items="${army.bataillons(unit)}" var="bat">
-									<option value="${bat.id}"<c:if test="${unit.bataillon.id == bat.id}"> selected="selected"</c:if>>${bat.displayName} ${bat.id}
-								</c:forEach>
-							</select>
-						</c:if>
-					</fieldset>
-				</form:form>
-				<t:rules rules="${unit.displayRules}" mode="${army.descriptionMode}"></t:rules>
-			</main>
-			<c:if test="${not empty unit.keyWords}">
-				<footer>
-					<c:forEach items="${unit.roleTactiques}" var="r">
-						<span>${r.name()}</span>
-					</c:forEach>
-					<c:forEach items="${unit.keyWords}" var="k">
-						<span>${k.displayName}</span>
-					</c:forEach>
-				</footer>
-			</c:if>
-		</article>
+		<t:unit army="${army}" unit="${unit}"></t:unit>
 	</c:forEach>
 </div>
+<!-- <div class="units columns2"> -->
+<%-- 	<c:forEach items="${army.leaders}" var="unit"> --%>
+<%-- 		<t:unit army="${army}" unit="${unit}"></t:unit> --%>
+<%-- 	</c:forEach> --%>
+<!-- </div> -->
+<!-- <hr> -->
+<!-- <div class="units columns2"> -->
+<%-- 	<c:forEach items="${army.troups}" var="unit"> --%>
+<%-- 		<t:unit army="${army}" unit="${unit}"></t:unit> --%>
+<%-- 	</c:forEach> --%>
+<!-- </div> -->
+<!-- <hr> -->
+<!-- <div class="units columns2"> -->
+<%-- 	<c:forEach items="${army.artilleries}" var="unit"> --%>
+<%-- 		<t:unit army="${army}" unit="${unit}"></t:unit> --%>
+<%-- 	</c:forEach> --%>
+<!-- </div> -->
+<!-- <hr> -->
+<!-- <div class="units columns2"> -->
+<%-- 	<c:forEach items="${army.others}" var="unit"> --%>
+<%-- 		<t:unit army="${army}" unit="${unit}"></t:unit> --%>
+<%-- 	</c:forEach> --%>
+<!-- </div> -->
+<!-- <hr> -->
 <div style="page-break-inside: avoid;">
 	<h3>Bataillons</h3>
 	<div class="units columns2" >

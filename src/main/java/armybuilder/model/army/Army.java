@@ -101,6 +101,23 @@ public class Army implements IHaveRule {
 		return units.stream().filter(filter).collect(Collectors.toList());
 	}
 
+	public List<Unit> getLeaders() {
+		return units(RoleTactique.Leader);
+	}
+
+	public List<Unit> getTroups() {
+		return units(u -> !u.isOne(RoleTactique.Leader, RoleTactique.Artillerie,
+				RoleTactique.SortsPersistantsEtInvocation, RoleTactique.TerrainDeFaction));
+	}
+
+	public List<Unit> getArtilleries() {
+		return units(u -> u.isOne(RoleTactique.Artillerie));
+	}
+
+	public List<Unit> getOthers() {
+		return units(u -> u.isOne(RoleTactique.SortsPersistantsEtInvocation, RoleTactique.TerrainDeFaction));
+	}
+
 	/**
 	 * bataillons
 	 */
