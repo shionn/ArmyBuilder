@@ -13,6 +13,7 @@ import armybuilder.model.army.GrandeStrategie;
 import armybuilder.model.army.PackDeBataille;
 import armybuilder.model.army.SubAllegiance;
 import armybuilder.model.army.Triomphes;
+import armybuilder.model.army.UnitGroupDisplay;
 import armybuilder.model.rule.desc.DescriptionMode;
 
 @Controller
@@ -29,7 +30,8 @@ public class ArmyEditController {
 			@RequestParam(name = "grandestrategie", defaultValue = "NULL") String grandeStrategie,
 			@RequestParam(name = "triomphes", defaultValue = "NULL") String triomphes,
 			@RequestParam(name = "aptitudeDeCommandement", defaultValue = "NULL") String aptitudeDeCommandement,
-			@RequestParam(name = "descriptionMode") DescriptionMode descriptionMode) {
+			@RequestParam(name = "descriptionMode") DescriptionMode descriptionMode,
+			@RequestParam(name = "unitGroupMode", defaultValue = "AllInOne") UnitGroupDisplay unitGroupMode) {
 		ArmyEditDao dao = session.getMapper(ArmyEditDao.class);
 		Army army = dao.read(current.id());
 		army.setDescriptionMode(descriptionMode);
@@ -38,6 +40,7 @@ public class ArmyEditController {
 		army.setGrandeStrategie(toGS(grandeStrategie));
 		army.setTriomphes(toTriomphes(triomphes));
 		army.setAptitudeDeCommandement(toAptitudeDeCommandement(aptitudeDeCommandement));
+		army.setUnitGroupDisplay(unitGroupMode);
 		dao.edit(army);
 		session.commit();
 		return "redirect:/";

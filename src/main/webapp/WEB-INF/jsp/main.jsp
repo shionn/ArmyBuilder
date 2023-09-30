@@ -5,6 +5,7 @@
 <%@ page import="armybuilder.model.army.AptitudeDeCommandement" %>
 <%@ page import="armybuilder.model.army.GrandeStrategie" %>
 <%@ page import="armybuilder.model.army.Triomphes" %>
+<%@ page import="armybuilder.model.army.UnitGroupDisplay" %>
 <%@ page import="armybuilder.model.army.bataillon.BataillonType" %>
 <%@ page import="armybuilder.model.rule.RuleType" %>
 <%@ page import="armybuilder.model.rule.RuleIcons" %>
@@ -76,6 +77,11 @@
 				<option value="${sub}"<c:if test="${army.descriptionMode == sub}"> selected="selected"</c:if>>${sub}</option>
 			</c:forEach>
 		</select>
+		<select name="unitGroupMode">
+			<c:forEach items="${UnitGroupDisplay.values()}" var="sub">
+				<option value="${sub}"<c:if test="${army.unitGroupDisplay == sub}"> selected="selected"</c:if>>${sub.displayName}</option>
+			</c:forEach>
+		</select>
 		<input type="submit" value="Editer">
 		<div class="print-hidden columns2">
 			<c:forEach items="${army.subAllegiance.rules}" var="rule">
@@ -131,35 +137,42 @@
 </div>
 
 <h2>Units</h2>
-<div class="units columns2">
-	<c:forEach items="${army.units}" var="unit">
-		<t:unit army="${army}" unit="${unit}"></t:unit>
-	</c:forEach>
-</div>
+<c:forEach items="${army.unitGroupDisplay.groups(army)}" var="group">
+	<c:if test="${army.unitGroupDisplay.displayTitles}">
+		<h3>${group.key}</h3>
+	</c:if>
+	<div class="units columns2">
+		<c:forEach items="${group.value}" var="unit">
+			<t:unit army="${army}" unit="${unit}"></t:unit>
+		</c:forEach>
+	</div>
+</c:forEach>
+
+<!-- <div class="units columns2"> -->
+<%-- 	<c:forEach items="${army.units}" var="unit"> --%>
+<%-- 		<t:unit army="${army}" unit="${unit}"></t:unit> --%>
+<%-- 	</c:forEach> --%>
+<!-- </div> -->
 <!-- <div class="units columns2"> -->
 <%-- 	<c:forEach items="${army.leaders}" var="unit"> --%>
 <%-- 		<t:unit army="${army}" unit="${unit}"></t:unit> --%>
 <%-- 	</c:forEach> --%>
 <!-- </div> -->
-<!-- <hr> -->
 <!-- <div class="units columns2"> -->
 <%-- 	<c:forEach items="${army.troups}" var="unit"> --%>
 <%-- 		<t:unit army="${army}" unit="${unit}"></t:unit> --%>
 <%-- 	</c:forEach> --%>
 <!-- </div> -->
-<!-- <hr> -->
 <!-- <div class="units columns2"> -->
 <%-- 	<c:forEach items="${army.artilleries}" var="unit"> --%>
 <%-- 		<t:unit army="${army}" unit="${unit}"></t:unit> --%>
 <%-- 	</c:forEach> --%>
 <!-- </div> -->
-<!-- <hr> -->
 <!-- <div class="units columns2"> -->
 <%-- 	<c:forEach items="${army.others}" var="unit"> --%>
 <%-- 		<t:unit army="${army}" unit="${unit}"></t:unit> --%>
 <%-- 	</c:forEach> --%>
 <!-- </div> -->
-<!-- <hr> -->
 <div style="page-break-inside: avoid;">
 	<h3>Bataillons</h3>
 	<div class="units columns2" >

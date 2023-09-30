@@ -20,7 +20,8 @@ public interface ArmyEditDao {
 			+ "    grande_strategie       = #{grandeStrategie}, " //
 			+ "    triomphes              = #{triomphes}, " //
 			+ "    aptitudeDeCommandement = #{aptitudeDeCommandement}, " //
-			+ "    description_mode       = #{descriptionMode} " //
+			+ "    description_mode       = #{descriptionMode}, " //
+			+ "    unit_group_display     = #{unitGroupDisplay} " //
 			+ "WHERE id = #{id}")
 	public int edit(Army army);
 

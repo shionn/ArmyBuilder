@@ -35,6 +35,7 @@ public class Army implements IHaveRule {
 	private Triomphes triomphes;
 	private AptitudeDeCommandement aptitudeDeCommandement;
 	private DescriptionMode descriptionMode;
+	private UnitGroupDisplay unitGroupDisplay;
 	private List<Unit> units = new ArrayList<Unit>();
 	private List<Bataillon> bataillons = new ArrayList<Bataillon>();
 	private List<IRule<?>> rules = new ArrayList<IRule<?>>();
@@ -99,23 +100,6 @@ public class Army implements IHaveRule {
 
 	public List<Unit> units(Predicate<Unit> filter) {
 		return units.stream().filter(filter).collect(Collectors.toList());
-	}
-
-	public List<Unit> getLeaders() {
-		return units(RoleTactique.Leader);
-	}
-
-	public List<Unit> getTroups() {
-		return units(u -> !u.isOne(RoleTactique.Leader, RoleTactique.Artillerie,
-				RoleTactique.SortsPersistantsEtInvocation, RoleTactique.TerrainDeFaction));
-	}
-
-	public List<Unit> getArtilleries() {
-		return units(u -> u.isOne(RoleTactique.Artillerie));
-	}
-
-	public List<Unit> getOthers() {
-		return units(u -> u.isOne(RoleTactique.SortsPersistantsEtInvocation, RoleTactique.TerrainDeFaction));
 	}
 
 	/**
