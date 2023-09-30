@@ -58,23 +58,23 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	Skavenectar(RuleType.Artefact, RuleType.PhaseDesHerosPlayer, RuleType.MemoDisplay),
 
 	// sort et priere
-	AppelDesCrevasses(RuleType.Sort),
+	AppelDesCrevasses(RuleType.Sort, RuleType.MemoDisplay),
 	Brulure(RuleType.Sort),
 	BouclierDeMalefoudre(RuleType.Sort),
 	ChaineDeMalefoudre(RuleType.Sort),
 	ClocheDeLApocalypseConvocation(RuleType.Sort),
 	ClocheDeLApocalypsePredateur(RuleType.PhaseDeMouvement),
 	Evasion(RuleType.Sort),
-	FrenesieMortelle(RuleType.Sort),
-	Fletrissement(RuleType.Sort),
+	FrenesieMortelle(RuleType.Sort, RuleType.MemoDisplay),
+	Fletrissement(RuleType.Sort, RuleType.MemoDisplay),
 	Malefoudre(RuleType.Sort),
-	PlusPlusPlusDeVilPouvoir(RuleType.Sort),
+	PlusPlusPlusDeVilPouvoir(RuleType.Sort, RuleType.MemoDisplay),
 	RazDeVermineConvocation(RuleType.Sort),
 	RazDeVerminePredateur(RuleType.PhaseDeMouvement),
 
-	CrasseCrasse(RuleType.Priere),
+	CrasseCrasse(RuleType.Priere, RuleType.MemoDisplay),
 	PestePeste(RuleType.Priere),
-	PestilencePestilence(RuleType.Priere),
+	PestilencePestilence(RuleType.Priere, RuleType.MemoDisplay),
 	RageRage(RuleType.Priere),
 
 	// aptitude des sous clan
@@ -134,7 +134,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	LameFetides(u -> u.alterAllWeapons(w -> w.setAltToucher("*")), RuleType.Aptitude, RuleType.PhaseDeCombat),
 	LaMortQuiCourt(RuleType.Aptitude, RuleType.PhaseDeMouvementPlayer, RuleType.PhaseDeTirPlayer),
 	LanceFeu(RuleType.Aptitude, RuleType.PhaseDeTir),
-	LivreDesPlaies(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
+	LivreDesPlaies(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer, RuleType.MemoDisplay),
 	MaitreModeleur(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer, RuleType.MemoDisplay),
 	MortAtroce(RuleType.Aptitude, RuleType.PhaseDeDeroute),
 	NueeGrouillante(RuleType.Aptitude, RuleType.PhaseDeDeroute),

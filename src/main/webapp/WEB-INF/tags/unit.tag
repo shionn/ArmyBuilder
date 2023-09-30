@@ -23,7 +23,7 @@
 	<spring:url value="/unit/rm/${unit.id}" var="url" />
 	<header>${unit.displayName} - ${unit.points} <a href="${url}"><i class="fa fa-trash"></i></a>
 		<span>
-			<c:if test="${not unit.is(RoleTactique.SortsPersistantsEtInvocation)}">
+			<c:if test="${not unit.isOne(RoleTactique.SortsPersistantsEtInvocation,RoleTactique.TerrainDeFaction)}">
 				<i class="fa fa-walking"></i> ${unit.profile.mvt}&quot;
 				<i class="fa fa-heart"></i> ${unit.profile.life}
 				<i class="fa fa-flag"></i> ${unit.profile.cmd}

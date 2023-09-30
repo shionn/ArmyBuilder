@@ -138,6 +138,7 @@
 
 <h2>Units</h2>
 <c:forEach items="${army.unitGroupDisplay.groups(army)}" var="group">
+	<div style="page-break-inside: avoid;">
 	<c:if test="${army.unitGroupDisplay.displayTitles}">
 		<h3>${group.key}</h3>
 	</c:if>
@@ -146,33 +147,9 @@
 			<t:unit army="${army}" unit="${unit}"></t:unit>
 		</c:forEach>
 	</div>
+	</div>
 </c:forEach>
 
-<!-- <div class="units columns2"> -->
-<%-- 	<c:forEach items="${army.units}" var="unit"> --%>
-<%-- 		<t:unit army="${army}" unit="${unit}"></t:unit> --%>
-<%-- 	</c:forEach> --%>
-<!-- </div> -->
-<!-- <div class="units columns2"> -->
-<%-- 	<c:forEach items="${army.leaders}" var="unit"> --%>
-<%-- 		<t:unit army="${army}" unit="${unit}"></t:unit> --%>
-<%-- 	</c:forEach> --%>
-<!-- </div> -->
-<!-- <div class="units columns2"> -->
-<%-- 	<c:forEach items="${army.troups}" var="unit"> --%>
-<%-- 		<t:unit army="${army}" unit="${unit}"></t:unit> --%>
-<%-- 	</c:forEach> --%>
-<!-- </div> -->
-<!-- <div class="units columns2"> -->
-<%-- 	<c:forEach items="${army.artilleries}" var="unit"> --%>
-<%-- 		<t:unit army="${army}" unit="${unit}"></t:unit> --%>
-<%-- 	</c:forEach> --%>
-<!-- </div> -->
-<!-- <div class="units columns2"> -->
-<%-- 	<c:forEach items="${army.others}" var="unit"> --%>
-<%-- 		<t:unit army="${army}" unit="${unit}"></t:unit> --%>
-<%-- 	</c:forEach> --%>
-<!-- </div> -->
 <div style="page-break-inside: avoid;">
 	<h3>Bataillons</h3>
 	<div class="units columns2" >
@@ -213,10 +190,15 @@
 							<li>${step.name}
 								<ul>
 									<c:forEach items="${step.subs}" var="step">
-										<li>${step.name}
+										<li>
+											<c:if test="${step.haveRule}"><t:rule rule="${step.rule}" mode="${army.descriptionMode}"></t:rule></c:if>
+											<c:if test="${not step.haveRule}">${step.name}</c:if>
 											<ul>
 												<c:forEach items="${step.subs}" var="step">
-													<li>${step.name}</li>
+													<li>
+														<c:if test="${step.haveRule}"><t:rule rule="${step.rule}" mode="${army.descriptionMode}"></t:rule></c:if>
+														<c:if test="${not step.haveRule}">${step.name}</c:if>
+													</li>
 												</c:forEach>
 											</ul>
 										</li>
