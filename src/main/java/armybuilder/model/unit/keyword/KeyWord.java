@@ -122,6 +122,7 @@ public enum KeyWord implements IHaveDisplayName {
 	PretreDeLaPeste,
 	RatsDesClans,
 	RatsOgors,
+	RoueInfernale,
 	VerminesDeChoc,
 
 	// StormCast

@@ -65,6 +65,11 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 			null,
 			Arrays.asList(SkavenRule.LanceFeu, SkavenRule.PlusPlusDeMaleflammes,
 					SkavenRule.ServantsDArmeCachesDeploiement, SkavenRule.ServantsDArmeCachesTir)),
+	RoueInfernale(
+			Arrays.asList(SkavenWeapons.TraitsDeMalefoudre, SkavenWeapons.RoueBroyeuse,
+					SkavenWeapons.CrocsEtPoignards_Roue),
+			null,
+			Arrays.asList(SkavenRule.MortRoulante, SkavenRule.PlusPlusDeVitesse, SkavenRule.PlusPlusDEclairs)),
 
 	// skryre & Moulder
 	ColossesDeChoc(Arrays.asList(), null, Arrays.asList(GeneriqueUnitRule.Elite)),
@@ -108,7 +113,8 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 	MaitreMort(
 			Arrays.asList(SkavenWeapons.EtoileDeJetEshin, SkavenWeapons.LameSuintante),
 			null,
-			Arrays.asList(SkavenRule.TueurCacheCombat, SkavenRule.TueurCacheDeploiement)),
+			Arrays.asList(SkavenRule.TueurCacheCombat, SkavenRule.TueurCacheDeploiement, SkavenRule.TueurCacheMort,
+					SkavenRule.ToxineEshin, SkavenRule.LaMortQuiCourt)),
 
 	// sans clans
 	TrouDeVermine(
@@ -128,7 +134,6 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 			Arrays.asList(SkavenRule.RazDeVermineConvocation, SkavenRule.RazDeVerminePredateur,
 					SkavenRule.HordeVorace)),
 
-//	JJJ(Arrays.asList(), null, Arrays.asList()),
 //	KKK(Arrays.asList(), null, Arrays.asList()),
 //	LLL(Arrays.asList(), null, Arrays.asList()),
 

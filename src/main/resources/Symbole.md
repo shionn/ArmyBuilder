@@ -36,5 +36,5 @@ _avant bataille_
 => _fin de la phase_
 => _votre prochain mouvement_
 
-
+2BM Blesse Auto sur Toucher 6+.
 

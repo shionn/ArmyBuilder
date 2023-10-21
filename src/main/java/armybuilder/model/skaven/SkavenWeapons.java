@@ -11,6 +11,7 @@ public enum SkavenWeapons implements IUnitWeapon {
 	CatapulteDeLaPeste("Catapulte de la Peste", WeaponType.Projectil, "6\"-30", "1", "3+", "2+", "-2", "D6"),
 	CoupsDeMassue("Coups de Massue", WeaponType.Melee, "1", "4", "4+", "3+", "-", "2"),
 	CrocsEtPoignards("Crocs et Poignards", WeaponType.Melee, "1", "D6", "4+", "4+", "-", "1"),
+	CrocsEtPoignards_Roue("Crocs et Poignards", WeaponType.Melee, "1", "6", "4+", "4+", "-", "1"),
 	DechargeDeMalefoudre("Décharge de Malefoudre", WeaponType.Projectil, "24", "--", "--", "*", "--", "--"),
 	FouetDeMalepierre("Fouet de Malepierre", WeaponType.Melee, "3", "6", "3+", "4+", "-1", "1"),
 	GanteletsChoc("Gantelets Choc", WeaponType.Melee, "1", "4", "3+", "3+", "-1", "2"),
@@ -32,6 +33,7 @@ public enum SkavenWeapons implements IUnitWeapon {
 	PoignardsRouilles_Catapulte("Poignards Rouillés", WeaponType.Melee, "1", "D6", "4+", "4+", "-", "1"),
 	PoingsConcasseurs("Poings Concasseurs", WeaponType.Melee, "1", "4", "3+", "3+", "-2", "2"),
 	PointesRouillees("Pointes Rouillées", WeaponType.Melee, "1", "*", "3+", "3+", "-1", "1"),
+	RoueBroyeuse("Roue Broyeuse", WeaponType.Melee, "1", "D6", "3+", "3+", "-1", "1"),
 
 	BombardesAGlobesToxiques("Bombardes à Globes Toxiques", WeaponType.Projectil, "24", "3", "4+", "3+", "-3", "D3"),
 	CanonAMaleflamme("Canon a Maleflamme", WeaponType.Projectil, "16", "D3", "4+", "3+", "-1", "2"),
@@ -41,6 +43,7 @@ public enum SkavenWeapons implements IUnitWeapon {
 	LanceFeu("Lance-Feu", WeaponType.Projectil, "8", "--", "--", "*", "--", "--"),
 	PistoletAMalepierre("Pistolet à Malepierre", WeaponType.Projectil, "9", "3", "3+", "3+", "-2", "1"),
 	ProjecteursAMaleflamme("Projecteurs à Maleflamme", WeaponType.Projectil, "8", "--", "--", "*", "--", "--"),
+	TraitsDeMalefoudre("Traits de Malefoudre", WeaponType.Projectil, "13", "D6", "3+", "3+", "-1", "D3"),
 
 	;
 	private String displayName;

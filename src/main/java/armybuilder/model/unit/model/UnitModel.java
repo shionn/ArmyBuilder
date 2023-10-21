@@ -86,6 +86,7 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 
 	CanonRatling(SkavenUnitModel.CanonRatling),
 	LanceFeu(SkavenUnitModel.LanceFeu),
+	RoueInfernale(SkavenUnitModel.RoueInfernale),
 
 	CanonAMalefoudre(SkavenUnitModel.CanonAMalefoudre),
 	CatapulteDeLaPeste(SkavenUnitModel.CatapulteDeLaPeste),
@@ -94,6 +95,7 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	RazDeVermine(SkavenUnitModel.RazDeVermine),
 	TrouDeVermine(SkavenUnitModel.TrouDeVermine),
 
+	// SCE
 	AstreiaSolbrigh(StormcastUnitModel.AstreiaSolbrigh),
 	SeigneurArcanumSurDracolineCeleste(StormcastUnitModel.SeigneurArcanumSurDracolineCeleste),
 	SeigneurArcanumSurGryphDestrier(StormcastUnitModel.SeigneurArcanumSurGryphDestrier),
