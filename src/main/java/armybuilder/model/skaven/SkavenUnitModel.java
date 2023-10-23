@@ -33,7 +33,7 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 					.add("7-9", "5\"", "5", "Lancement +1 / Récitation +1")
 					.add("10-12", "4\"", "4", "Lancement +1 / Récitation 0")
 					.add("13+", "3\"", "3", "Lancement 0 / Récitation 0"),
-			Arrays.asList(GeneriqueUnitRule.Sorcier_2_2, SkavenRule.PousseeVersLaBataille,
+			Arrays.asList(GeneriqueUnitRule.Sorcier_2_2,
 					SkavenRule.AutelDuGrandRatCornu, SkavenRule.AvalancheDEnergie, SkavenRule.CarillonFuneste,
 					SkavenRule.RemousParDelaLeVoile, SkavenRule.AppelDesCrevasses)),
 
@@ -97,7 +97,7 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 					.add("7-9", "5", "D3+3", "5")
 					.add("10-12", "4", "D3+2", "4")
 					.add("13+", "3", "D3+1", "3"),
-			Arrays.asList(SkavenRule.PousseeVersLaBataille, SkavenRule.AutelDuGrandRatCornu_Creuset,
+			Arrays.asList(SkavenRule.AutelDuGrandRatCornu_Creuset,
 					SkavenRule.GrandEncensoirAPestilence, SkavenRule.FumeesEmpoisonnees,
 					SkavenRule.PestilencePestilence)),
 	MoinesDeLaPeste(

@@ -148,6 +148,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 			u -> u.alter(SkavenWeapons.TraitsDeMalefoudre, w -> w.setAltAttaques("*")),
 			RuleType.Aptitude,
 			RuleType.PhaseDeTir),
+	@Deprecated()
 	PousseeVersLaBataille(RuleType.Aptitude, RuleType.PhaseDeMouvement),
 	ProjecteursAMaleflamme(RuleType.Aptitude, RuleType.PhaseDeTir),
 	RemousParDelaLeVoile(RuleType.Aptitude, RuleType.PhaseDesHeros, RuleType.MemoDisplay),
