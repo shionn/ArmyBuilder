@@ -139,6 +139,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	MortAtroce(RuleType.Aptitude, RuleType.PhaseDeDeroute),
 	MortRoulante(RuleType.Aptitude, RuleType.PhaseDeMouvement),
 	NueeGrouillante(RuleType.Aptitude, RuleType.PhaseDeDeroute),
+	PlacementTrouVermines(RuleType.PhaseBeforeStart),
 	PlusPlusDeMaleflammes(RuleType.Aptitude, RuleType.PhaseDeTir),
 	PlusPlusDeMalefoudre(RuleType.Aptitude, RuleType.PhaseDeTir),
 	PlusPlusDeMalenergie(RuleType.Aptitude, RuleType.PhaseDeCombat),

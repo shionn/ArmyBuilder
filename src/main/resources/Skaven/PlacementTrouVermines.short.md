@@ -1,0 +1,3 @@
+- à +3" des objectifs et autres terrains
+- à +18" des autres Trous de Vermine
+- ∈ 8" du bord du champ de bataille

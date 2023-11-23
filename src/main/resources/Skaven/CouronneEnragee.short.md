@@ -1,0 +1,1 @@
+∀ μ<sub>a</sub> **Bêtes de Combat** ou **Meutes** du **Clans Moulder** ∈ 13" gagne +1 touche.

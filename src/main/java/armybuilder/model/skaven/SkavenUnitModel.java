@@ -120,7 +120,8 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 	TrouDeVermine(
 			Arrays.asList(),
 			null,
-			Arrays.asList(GeneriqueUnitRule.Infranchissable, SkavenRule.TunnelsDansLaRealite,
+			Arrays.asList(GeneriqueUnitRule.Infranchissable, SkavenRule.PlacementTrouVermines,
+					SkavenRule.TunnelsDansLaRealite,
 					SkavenRule.AuraDuGrandRatCornu)),
 
 	ClocheDeLApocalypse(

@@ -129,12 +129,14 @@
 	</form:form>
 </div>
 
-<h2 class="print-hidden">Erreurs</h2>
-<div class="print-hidden">
-	<ul>
-		<c:forEach items="${army.checks}" var="c"><li>${c}</li></c:forEach>
-	</ul>
-</div>
+<c:if test="${not empty army.checks}">
+	<h2 class="print-hidden">Erreurs</h2>
+	<div class="print-hidden">
+		<ul>
+			<c:forEach items="${army.checks}" var="c"><li>${c}</li></c:forEach>
+		</ul>
+	</div>
+</c:if>
 
 <h2>Units</h2>
 <c:forEach items="${army.unitGroupDisplay.groups(army)}" var="group">
