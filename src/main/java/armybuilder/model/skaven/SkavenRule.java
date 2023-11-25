@@ -73,9 +73,9 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	RazDeVerminePredateur(RuleType.PhaseDeMouvement),
 
 	CrasseCrasse(RuleType.Priere, RuleType.MemoDisplay),
-	PestePeste(RuleType.Priere),
+	PestePeste(RuleType.Priere, RuleType.MemoDisplay),
 	PestilencePestilence(RuleType.Priere, RuleType.MemoDisplay),
-	RageRage(RuleType.Priere),
+	RageRage(RuleType.Priere, RuleType.MemoDisplay),
 
 	// aptitude des sous clan
 	CreationsPrisees_1(RuleType.TraisDeBataille),
