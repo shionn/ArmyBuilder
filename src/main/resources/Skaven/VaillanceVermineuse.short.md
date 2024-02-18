@@ -1,1 +1,1 @@
-Protection 3+ redirective à 3" sur μ<sub>a</sub> de 3+ ƒ.
+Garde du corp 3+ sur μ<sub>a</sub> de 3+ ƒ à 3" .
