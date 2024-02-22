@@ -75,7 +75,7 @@
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<configuration>
-					<url>http://192.168.50.131:80/manager/text</url>
+					<url>http://192.168.10.131:80/manager/text</url>
 					<server>Proxmox</server>
 					<path>/</path>
 					<skipTests>true</skipTests>
@@ -98,8 +98,7 @@
 			<id>dev</id>
 			<properties>
 				<mybatis.driver>com.mysql.cj.jdbc.Driver</mybatis.driver>
-				<mybatis.url>
-					jdbc:mysql://${armybuilder.mysql.host}:3306/armybuilder?serverTimezone=Europe/Paris</mybatis.url>
+				<mybatis.url>jdbc:mysql://${armybuilder.mysql.host}:3306/armybuilder?serverTimezone=Europe/Paris</mybatis.url>
 				<mybatis.username>${armybuilder.mysql.user}</mybatis.username>
 				<mybatis.password>${armybuilder.mysql.pass}</mybatis.password>
 			</properties>
@@ -109,8 +108,7 @@
 			<id>proxmox</id>
 			<properties>
 				<mybatis.driver>com.mysql.cj.jdbc.Driver</mybatis.driver>
-				<mybatis.url>
-					jdbc:mysql://${armybuilder.mysql.host}:3306/armybuilder?serverTimezone=Europe/Paris</mybatis.url>
+				<mybatis.url>jdbc:mysql://${armybuilder.mysql.host}:3306/armybuilder?serverTimezone=Europe/Paris</mybatis.url>
 				<mybatis.username>${armybuilder.mysql.user}</mybatis.username>
 				<mybatis.password>${armybuilder.mysql.pass}</mybatis.password>
 			</properties>
