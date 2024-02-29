@@ -1,0 +1,1 @@
+_séquence d’attaque_, ∀ ƒ à 3" de l μ<sup>e</sup> 1D6 >= valeur tableau inflige 1BM. Relançable si μ<sup>e</sup> a chargé.

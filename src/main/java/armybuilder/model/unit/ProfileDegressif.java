@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import armybuilder.model.IHaveDisplayName;
+
 public class ProfileDegressif {
 
 	private List<String> titles = new ArrayList<>();
@@ -12,6 +14,11 @@ public class ProfileDegressif {
 	public ProfileDegressif(String... cols) {
 		this.titles.add("Blessures Subies");
 		this.titles.addAll(Arrays.asList(cols));
+	}
+
+	public ProfileDegressif(IHaveDisplayName... names) {
+		this.titles.add("Blessures Subies");
+		Arrays.stream(names).forEach(name -> this.titles.add(name.getDisplayName()));
 	}
 
 	public ProfileDegressif add(String... values) {

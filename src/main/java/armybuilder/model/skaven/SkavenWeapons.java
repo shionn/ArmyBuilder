@@ -5,14 +5,14 @@ import armybuilder.model.unit.weapon.WeaponType;
 
 public enum SkavenWeapons implements IUnitWeapon {
 	AttrapeChoses("Attrape-choses", WeaponType.Melee, "2", "4", "4+", "4+", "-1", "2"),
+	AvalancheDeChair("Avalanche de Chair", WeaponType.Melee, "3", "--", "--", "*", "--", "- -"),
 	BatonDeMalepierre("Bâton de Malepierre", WeaponType.Melee, "2", "3", "4+", "4+", "-1", "D3"),
 	BourdonDeMalepierre("Bourdon de Malepierre", WeaponType.Melee, "2", "D3", "3+", "3+", "-1", "1"),
 	EncensoirAPestilence("Encensoir a Pestilence", WeaponType.Melee, "2", "2", "4+", "3+", "-1", "1"),
-	CatapulteDeLaPeste("Catapulte de la Peste", WeaponType.Projectil, "6\"-30", "1", "3+", "2+", "-2", "D6"),
 	CoupsDeMassue("Coups de Massue", WeaponType.Melee, "1", "4", "4+", "3+", "-", "2"),
 	CrocsEtPoignards("Crocs et Poignards", WeaponType.Melee, "1", "D6", "4+", "4+", "-", "1"),
 	CrocsEtPoignards_Roue("Crocs et Poignards", WeaponType.Melee, "1", "6", "4+", "4+", "-", "1"),
-	DechargeDeMalefoudre("Décharge de Malefoudre", WeaponType.Projectil, "24", "--", "--", "*", "--", "--"),
+	DentsRongeuses("Dents Rongeuses", WeaponType.Melee, "1", "6", "3+", "3+", "*", "2"),
 	FouetDeMalepierre("Fouet de Malepierre", WeaponType.Melee, "3", "6", "3+", "4+", "-1", "1"),
 	GanteletsChoc("Gantelets Choc", WeaponType.Melee, "1", "4", "3+", "3+", "-1", "2"),
 	GanteletsEcorcheurs("Gantelets Écorcheurs", WeaponType.Melee, "1", "2D3", "3+", "3+", "-2", "D3"),
@@ -32,6 +32,7 @@ public enum SkavenWeapons implements IUnitWeapon {
 	PoignardsRouilles("Poignards Rouillés", WeaponType.Melee, "1", "2", "4+", "4+", "-", "1"),
 	PoignardsRouilles_Catapulte("Poignards Rouillés", WeaponType.Melee, "1", "D6", "4+", "4+", "-", "1"),
 	PoingsConcasseurs("Poings Concasseurs", WeaponType.Melee, "1", "4", "3+", "3+", "-2", "2"),
+	PoingsFléaux("Poings-fléaux", WeaponType.Melee, "1", "*", "3+", "3+", "-1", "3"),
 	PointesRouillees("Pointes Rouillées", WeaponType.Melee, "1", "*", "3+", "3+", "-1", "1"),
 	RoueBroyeuse("Roue Broyeuse", WeaponType.Melee, "1", "D6", "3+", "3+", "-1", "1"),
 
@@ -39,6 +40,8 @@ public enum SkavenWeapons implements IUnitWeapon {
 	CanonAMaleflamme("Canon a Maleflamme", WeaponType.Projectil, "16", "D3", "4+", "3+", "-1", "2"),
 	CanonsRatlings("Canons Ratlings", WeaponType.Projectil, "12", "3D6", "3+", "3+", "-1", "1"),
 	CanonsRatlings_EA("Canons Ratlings", WeaponType.Projectil, "12", "2D6+3", "4+", "4+", "-1", "1"),
+	CatapulteDeLaPeste("Catapulte de la Peste", WeaponType.Projectil, "6\"-30", "1", "3+", "2+", "-2", "D6"),
+	DechargeDeMalefoudre("Décharge de Malefoudre", WeaponType.Projectil, "24", "--", "--", "*", "--", "--"),
 	EtoileDeJetEshin("Etoile de Jet Eshin", WeaponType.Projectil, "12", "5", "4+", "4+", "-", "D3"),
 	LanceFeu("Lance-Feu", WeaponType.Projectil, "8", "--", "--", "*", "--", "--"),
 	PistoletAMalepierre("Pistolet à Malepierre", WeaponType.Projectil, "9", "3", "3+", "3+", "-2", "1"),

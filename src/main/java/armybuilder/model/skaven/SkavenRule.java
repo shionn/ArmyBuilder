@@ -102,6 +102,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	AutelDuGrandRatCornu(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
 	AutelDuGrandRatCornu_Creuset(RuleType.Aptitude),
 	AvalancheDEnergie(RuleType.Aptitude, RuleType.Sort),
+	AvalancheDeChair(RuleType.Aptitude, RuleType.PhaseDeCombat),
 	BarrageDeContagion(u -> u.alter(SkavenWeapons.CatapulteDeLaPeste, w -> {
 		w.setAltToucher("+1");
 		w.setAltDegats("*");
@@ -136,9 +137,11 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	LanceFeu(RuleType.Aptitude, RuleType.PhaseDeTir),
 	LivreDesPlaies(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer, RuleType.MemoDisplay),
 	MaitreModeleur(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer, RuleType.MemoDisplay),
+	MonstruositeRegenerante(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
 	MortAtroce(RuleType.Aptitude, RuleType.PhaseDeDeroute, RuleType.MemoDisplay),
 	MortRoulante(RuleType.Aptitude, RuleType.PhaseDeMouvement),
 	NueeGrouillante(RuleType.Aptitude, RuleType.PhaseDeDeroute),
+	PieuxDeMalepierre(RuleType.Aptitude),
 	PlacementTrouVermines(RuleType.PhaseBeforeStart),
 	PlusPlusDeMaleflammes(RuleType.Aptitude, RuleType.PhaseDeTir),
 	PlusPlusDeMalefoudre(RuleType.Aptitude, RuleType.PhaseDeTir),
@@ -162,6 +165,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	TueurCacheDeploiement(RuleType.Aptitude, RuleType.PhaseBeforeStart),
 	TunneliersAPoingsConcasseurs(RuleType.Aptitude, RuleType.PhaseDeMouvement),
 	TunnelsDansLaRealite(RuleType.Aptitude, RuleType.PhaseDeMouvementPlayerFin, RuleType.MemoDisplay),
+	TropHorriblePourMourrir(RuleType.Aptitude),
 
 	// aptitude de co
 	// composition

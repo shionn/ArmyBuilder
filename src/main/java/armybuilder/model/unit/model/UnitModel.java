@@ -83,6 +83,7 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 
 	ColossesDeChoc(SkavenUnitModel.ColossesDeChoc),
 	RatsOgors(SkavenUnitModel.RatsOgors),
+	AbominationDeMalefosse(SkavenUnitModel.AbominationDeMalefosse),
 
 	CanonRatling(SkavenUnitModel.CanonRatling),
 	LanceFeu(SkavenUnitModel.LanceFeu),

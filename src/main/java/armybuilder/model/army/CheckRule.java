@@ -21,7 +21,7 @@ public enum CheckRule {
 					.filter(u -> u.is(KeyWord.Pretre) && u.getPriere() == null)
 					.findAny()
 					.isPresent()),
-	MissingPTraisDeMonstre(a -> count(a, UnitOptionCategory.TraisDeMonstre) < 1 && a.count(KeyWord.Monstre) > 0),
+//	MissingTraisDeMonstre(a -> count(a, UnitOptionCategory.TraisDeMonstre) < 1 && a.count(KeyWord.Monstre) > 0),
 
 	TooManyGeneral(a -> count(a, UnitOptionCategory.General) > 1),
 	TooManyTraisDeCommandement(

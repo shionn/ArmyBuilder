@@ -83,6 +83,15 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 			Arrays.asList(SkavenWeapons.CanonAMaleflamme, SkavenWeapons.GriffesLamesEtDentsDechiqueteuses),
 			null,
 			Arrays.asList(SkavenRule.FureurEnragee)),
+	AbominationDeMalefosse(
+			Arrays.asList(SkavenWeapons.AvalancheDeChair, SkavenWeapons.DentsRongeuses, SkavenWeapons.PoingsFléaux),
+			new ProfileDegressif(SkavenWeapons.DentsRongeuses, SkavenWeapons.PoingsFléaux, SkavenRule.AvalancheDeChair)
+					.add("0-6", "-3", "6", "2+")
+					.add("7-8", "-3", "5", "3+")
+					.add("9-10", "-2", "4", "4+")
+					.add("11+", "-1", "3", "5+"),
+			Arrays.asList(SkavenRule.AvalancheDeChair, SkavenRule.MonstruositeRegenerante,
+					SkavenRule.PieuxDeMalepierre, SkavenRule.TropHorriblePourMourrir)),
 
 	// Pestilien
 	PretreDeLaPeste(
