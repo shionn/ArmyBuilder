@@ -38,21 +38,21 @@ public class TurnStepBuilder {
 		subs.add(TurnStep.builder().name("Actions héroĩques").build());
 		subs.add(TurnStep.builder().name("Conjuration / Bannissement").build());
 		subs.add(TurnStep.builder().name("Ralliement").build());
-		subs.addAll(buildFromRule(army, r -> r.is(RuleType.PhaseDesHerosPlayerDebut)));
+		subs.addAll(buildFromUnitRule(army, r -> r.is(RuleType.PhaseDesHerosPlayerDebut)));
 		return TurnStep.builder().name(DÉBUT).subs(subs).build();
 	}
 
 	private TurnStep buildHeroDuring(Army army) {
 		List<TurnStep> subs = new ArrayList<TurnStep>();
-		subs.addAll(buildFromRule(army, r -> r.isOne(RuleType.PhaseDesHeros, RuleType.PhaseDesHerosPlayer)));
+		subs.addAll(buildFromUnitRule(army, r -> r.isOne(RuleType.PhaseDesHeros, RuleType.PhaseDesHerosPlayer)));
 		List<TurnStep> subSpells = new ArrayList<TurnStep>();
 		subSpells.add(TurnStep.builder().name("Sort Persistant").build());
-		subSpells.addAll(buildFromRule(army, r -> r.is(RuleType.Sort)));
+		subSpells.addAll(buildFromUnitRule(army, r -> r.is(RuleType.Sort)));
 		subs.add(TurnStep.builder()
 				.name("Sort / Dissipation <em>(30\")</em>")
 				.subs(subSpells)
 				.build());
-		subs.add(TurnStep.builder().name("Prière").subs(buildFromRule(army, r -> r.is(RuleType.Priere))).build());
+		subs.add(TurnStep.builder().name("Prière").subs(buildFromUnitRule(army, r -> r.is(RuleType.Priere))).build());
 		return TurnStep.builder()
 				.name(EN_COURS)
 				.subs(subs)
@@ -76,13 +76,13 @@ public class TurnStepBuilder {
 	private TurnStep buildMovementStart(Army army) {
 		return TurnStep.builder()
 				.name(DÉBUT)
-				.subs(buildFromRule(army, r -> r.isOne(RuleType.PhaseDeMouvementPlayerDebut)))
+				.subs(buildFromUnitRule(army, r -> r.isOne(RuleType.PhaseDeMouvementPlayerDebut)))
 				.build();
 	}
 
 	private TurnStep buildMovementDuring(Army army) {
 		List<TurnStep> subs = new ArrayList<TurnStep>();
-		subs.addAll(buildFromRule(army, r -> r.isOne(RuleType.PhaseDeMouvement, RuleType.PhaseDeMouvementPlayer)));
+		subs.addAll(buildFromUnitRule(army, r -> r.isOne(RuleType.PhaseDeMouvement, RuleType.PhaseDeMouvementPlayer)));
 		subs.add(TurnStep.builder().name("Au Pas de Course").build());
 		subs.add(TurnStep.builder().name("Redéploiement").build());
 		return TurnStep.builder()
@@ -94,7 +94,7 @@ public class TurnStepBuilder {
 	private TurnStep buildMovementEnd(Army army) {
 		return TurnStep.builder()
 				.name(FIN)
-				.subs(buildFromRule(army, r -> r.isOne(RuleType.PhaseDeMouvementPlayerFin)))
+				.subs(buildFromUnitRule(army, r -> r.isOne(RuleType.PhaseDeMouvementPlayerFin)))
 				.build();
 	}
 
@@ -108,7 +108,7 @@ public class TurnStepBuilder {
 	private TurnStep buildShotStart(Army army) {
 		return TurnStep.builder()
 				.name(DÉBUT)
-				.subs(buildFromRule(army, r -> r.isOne(RuleType.PhaseDeTirPlayerDebut)))
+				.subs(buildFromUnitRule(army, r -> r.isOne(RuleType.PhaseDeTirPlayerDebut)))
 				.build();
 	}
 
@@ -123,7 +123,8 @@ public class TurnStepBuilder {
 				.name("Charge")
 				.subs(Arrays.asList(
 //						buildChargeStart(army),
-						buildChargeDuring(army), buildChargeEnd(army)))
+						buildChargeDuring(army),
+						buildChargeEnd(army)))
 				.build();
 	}
 
@@ -140,7 +141,10 @@ public class TurnStepBuilder {
 
 	private TurnStep buildChargeEnd(Army army) {
 		List<TurnStep> subs = new ArrayList<TurnStep>();
-		subs.add(TurnStep.builder().name("Fureur monstrueuse").build());
+		subs.add(TurnStep.builder()
+				.name("Fureur monstrueuse")
+				.subs(buildFromArmyRule(army, r -> r.isOne(RuleType.FureursMonstrueuses)))
+				.build());
 		return TurnStep.builder().name(FIN).subs(subs).build();
 	}
 
@@ -153,23 +157,34 @@ public class TurnStepBuilder {
 
 	private TurnStep buildBattleStart(Army army) {
 		List<TurnStep> subs = new ArrayList<TurnStep>();
-		subs.addAll(buildFromRule(army, r -> r.isOne(RuleType.PhaseDeCombatDebut)));
+		subs.addAll(buildFromUnitRule(army, r -> r.isOne(RuleType.PhaseDeCombatDebut)));
 		return TurnStep.builder().name(DÉBUT).subs(subs).build();
 	}
 
 	private TurnStep buildBattleDuring(Army army) {
 		List<TurnStep> subs = new ArrayList<TurnStep>();
 		subs.add(TurnStep.builder().name("Attaque / Défense en Règle").build());
-		subs.addAll(buildFromRule(army, r -> r.isOne(RuleType.PhaseDeCombat)));
+		subs.addAll(buildFromUnitRule(army, r -> r.isOne(RuleType.PhaseDeCombat)));
 		return TurnStep.builder().name(EN_COURS).subs(subs).build();
 	}
 
-	private List<TurnStep> buildFromRule(Army army, Predicate<IRule<?>> predicate) {
+	private List<TurnStep> buildFromUnitRule(Army army, Predicate<IRule<?>> predicate) {
 		return army.getUnits()
 				.stream()
 				.flatMap(u -> u.rules(predicate)
 						.stream()
 						.filter(r -> r.is(RuleType.MemoDisplay)))
+				.distinct()
+				.sorted()
+				.map(rule -> TurnStep.builder().name(rule.getDisplayName()).rule(rule).build())
+				.toList();
+	}
+
+	private List<TurnStep> buildFromArmyRule(Army army, Predicate<IRule<?>> predicate) {
+		return army.getRules()
+				.stream()
+				.filter(predicate)
+				.filter(r -> r.is(RuleType.MemoDisplay))
 				.distinct()
 				.sorted()
 				.map(rule -> TurnStep.builder().name(rule.getDisplayName()).rule(rule).build())

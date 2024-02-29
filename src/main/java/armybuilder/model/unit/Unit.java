@@ -240,4 +240,9 @@ public class Unit implements IHaveWeapons, IHaveRoleTactique, IHaveKeyWord, IHav
 		return this.model == model;
 	}
 
+	@Override
+	public String toString() {
+		return this.model.name();
+	}
+
 }

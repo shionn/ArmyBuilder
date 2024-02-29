@@ -49,13 +49,17 @@ public enum GeneriqueRule implements IRule<GeneriqueRule> {
 
 	// fureur monstrueuse
 	Rugissement(a -> a.addIf(a.count(KeyWord.Monstre) > 0, GeneriqueRule.valueOf("Rugissement")),
-			RuleType.FureursMonstrueuses),
+			RuleType.FureursMonstrueuses,
+			RuleType.MemoDisplay),
 	Pietinement(a -> a.addIf(a.count(KeyWord.Monstre) > 0, GeneriqueRule.valueOf("Pietinement")),
-			RuleType.FureursMonstrueuses),
+			RuleType.FureursMonstrueuses,
+			RuleType.MemoDisplay),
 	DuelTitanesque(a -> a.addIf(a.count(KeyWord.Monstre) > 0, GeneriqueRule.valueOf("DuelTitanesque")),
-			RuleType.FureursMonstrueuses),
+			RuleType.FureursMonstrueuses,
+			RuleType.MemoDisplay),
 	Ecroulement(a -> a.addIf(a.count(KeyWord.Monstre) > 0, GeneriqueRule.valueOf("Ecroulement")),
-			RuleType.FureursMonstrueuses),
+			RuleType.FureursMonstrueuses,
+			RuleType.MemoDisplay),
 
 	// regle
 	//DissiperLesSorts(a -> a.addIf(a.count(KeyWord.Sorcier) > 0, GeneriqueRule.valueOf("DissiperLesSorts")), RuleType.Rule),

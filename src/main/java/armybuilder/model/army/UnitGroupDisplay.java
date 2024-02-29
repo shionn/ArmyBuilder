@@ -19,10 +19,25 @@ public enum UnitGroupDisplay {
 			"Leardes Troupes Artilleries Reste",
 			true,
 			Arrays.asList(Pair.of("Leaders", a -> a.units(RoleTactique.Leader)),
-					Pair.of("Troupes", a -> a.units(u -> !u.isOne(RoleTactique.Leader, RoleTactique.Artillerie,
-							RoleTactique.SortsPersistantsEtInvocation, RoleTactique.TerrainDeFaction))),
+					Pair.of("Troupes",
+							a -> a.units(u -> !u.isOne(RoleTactique.Leader, RoleTactique.Artillerie,
+									RoleTactique.SortsPersistantsEtInvocation, RoleTactique.TerrainDeFaction))),
 					Pair.of("Artilleries", a -> a.units(RoleTactique.Artillerie)),
 					Pair.of("Autres", a -> a.units(
+							u -> u.isOne(RoleTactique.SortsPersistantsEtInvocation, RoleTactique.TerrainDeFaction))))),
+
+	L_T_B_A_O(
+			"Leardes Troupes Behemot Artilleries Reste",
+			true,
+			Arrays.asList(
+					Pair.of("Leaders", a -> a.units(RoleTactique.Leader)), Pair
+							.of("Troupes",
+									a -> a.units(u -> !u.isOne(RoleTactique.Leader, RoleTactique.Artillerie,
+											RoleTactique.Behemoth, RoleTactique.SortsPersistantsEtInvocation,
+											RoleTactique.TerrainDeFaction))),
+					Pair.of("Behemoth",
+							a -> a.units(u -> !u.isOne(RoleTactique.Leader) && u.is(RoleTactique.Behemoth))),
+					Pair.of("Artilleries", a -> a.units(RoleTactique.Artillerie)), Pair.of("Autres", a -> a.units(
 							u -> u.isOne(RoleTactique.SortsPersistantsEtInvocation, RoleTactique.TerrainDeFaction)))));
 
 	@Getter

@@ -137,7 +137,7 @@ public enum SkavenRule implements IRule<SkavenRule> {
 	LanceFeu(RuleType.Aptitude, RuleType.PhaseDeTir),
 	LivreDesPlaies(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer, RuleType.MemoDisplay),
 	MaitreModeleur(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer, RuleType.MemoDisplay),
-	MonstruositeRegenerante(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer),
+	MonstruositeRegenerante(RuleType.Aptitude, RuleType.PhaseDesHerosPlayer, RuleType.MemoDisplay),
 	MortAtroce(RuleType.Aptitude, RuleType.PhaseDeDeroute, RuleType.MemoDisplay),
 	MortRoulante(RuleType.Aptitude, RuleType.PhaseDeMouvement),
 	NueeGrouillante(RuleType.Aptitude, RuleType.PhaseDeDeroute),
