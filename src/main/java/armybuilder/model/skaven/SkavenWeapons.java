@@ -35,6 +35,7 @@ public enum SkavenWeapons implements IUnitWeapon {
 	PoingsFléaux("Poings-fléaux", WeaponType.Melee, "1", "*", "3+", "3+", "-1", "3"),
 	PointesRouillees("Pointes Rouillées", WeaponType.Melee, "1", "*", "3+", "3+", "-1", "1"),
 	RoueBroyeuse("Roue Broyeuse", WeaponType.Melee, "1", "D6", "3+", "3+", "-1", "1"),
+	VougeDeRuine("Vouge de Ruine", WeaponType.Melee, "3", "6", "3+", "*", "-2", "2"),
 
 	BombardesAGlobesToxiques("Bombardes à Globes Toxiques", WeaponType.Projectil, "24", "3", "4+", "3+", "-3", "D3"),
 	CanonAMaleflamme("Canon a Maleflamme", WeaponType.Projectil, "16", "D3", "4+", "3+", "-1", "2"),
@@ -46,6 +47,7 @@ public enum SkavenWeapons implements IUnitWeapon {
 	LanceFeu("Lance-Feu", WeaponType.Projectil, "8", "--", "--", "*", "--", "--"),
 	PistoletAMalepierre("Pistolet à Malepierre", WeaponType.Projectil, "9", "3", "3+", "3+", "-2", "1"),
 	ProjecteursAMaleflamme("Projecteurs à Maleflamme", WeaponType.Projectil, "8", "--", "--", "*", "--", "--"),
+	QueuesPrehensibles("Queues Préhensible", WeaponType.Projectil, "6", "*", "3+", "3+", "-1", "1"),
 	TraitsDeMalefoudre("Traits de Malefoudre", WeaponType.Projectil, "13", "D6", "3+", "3+", "-1", "D3"),
 
 	;

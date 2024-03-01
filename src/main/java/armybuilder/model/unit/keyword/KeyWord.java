@@ -15,6 +15,8 @@ public enum KeyWord implements IHaveDisplayName {
 
 	Aelf,
 
+	Demon,
+
 	Heros,
 	Unique,
 	Monstre,
@@ -123,6 +125,8 @@ public enum KeyWord implements IHaveDisplayName {
 	RatsDesClans,
 	RatsOgors,
 	RoueInfernale,
+	Verminarque,
+	VerminarqueMaleprophete,
 	VerminesDeChoc,
 
 	// StormCast

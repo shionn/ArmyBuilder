@@ -37,6 +37,16 @@ public enum SkavenUnitModel implements IUnitModel<SkavenUnitModel> {
 					SkavenRule.AutelDuGrandRatCornu, SkavenRule.AvalancheDEnergie, SkavenRule.CarillonFuneste,
 					SkavenRule.RemousParDelaLeVoile, SkavenRule.AppelDesCrevasses)),
 
+	VerminarqueMaleprophete(
+			Arrays.asList(SkavenWeapons.QueuesPrehensibles, SkavenWeapons.VougeDeRuine),
+			new ProfileDegressif("Mouvement", "Queues Préhensible", "Vouge de Ruine").add("0-6", "12", "4", "2+")
+					.add("7-8", "10", "3", "2+")
+					.add("9-10", "8", "2", "3+")
+					.add("11+", "6", "1", "4+"),
+			Arrays.asList(GeneriqueUnitRule.Sorcier_2_2, SkavenRule.ProtectionduRatCornu,
+					SkavenRule.LesGrandsManipulateurs, SkavenRule.OrbeDevin, SkavenRule.EnAvantEnfantsDuRatCornu,
+					SkavenRule.RedoutableMaletornade)),
+
 	// verminus
 	Griffarque(Arrays.asList(SkavenWeapons.LameDeMalepierre), null,
 			Arrays.asList(SkavenRule.FureurCernee, SkavenRule.RongezRongezLeursOs)),

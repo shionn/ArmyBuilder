@@ -76,6 +76,7 @@ public enum UnitModel implements IUnitModel<UnitModel> {
 	PretreDeLaPeste(SkavenUnitModel.PretreDeLaPeste),
 	PretreDeLaPesteSurCreuset(SkavenUnitModel.PretreDeLaPesteSurCreuset),
 	MaitreMort(SkavenUnitModel.MaitreMort),
+	VerminarqueMaleprophete(SkavenUnitModel.VerminarqueMaleprophete),
 
 	RatsDesClans(SkavenUnitModel.RatsDesClans),
 	VerminesDeChoc(SkavenUnitModel.VerminesDeChoc),
