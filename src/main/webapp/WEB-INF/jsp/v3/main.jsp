@@ -162,7 +162,7 @@
 				<span>
 					<c:forEach items="${bat.compositions}" var="c">
 						<c:forEach begin="1" end="${c.count}">
-							<img src="img/${c.img}.png"<c:if test="${c.opt}"> class="opt"</c:if>>
+							<img src="img/v3/${c.img}.png"<c:if test="${c.opt}"> class="opt"</c:if>>
 						</c:forEach>
 					</c:forEach>
 				</span>

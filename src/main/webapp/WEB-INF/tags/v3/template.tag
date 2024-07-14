@@ -44,9 +44,9 @@
 	<footer class="print-hidden">
 		ArmyBuilder by <a href="mailto:shionn@gmail.com">shionn</a>
 	</footer>
-	<script type="text/javascript" src='<spring:url value="/js/scripts.js"/>'></script>
-	<script type="text/javascript" src='<spring:url value="/js/menu.js"/>'></script>
-	<script type="text/javascript" src='<spring:url value="/js/ajax.js"/>'></script>
+	<script type="text/javascript" src='<spring:url value="/js/v3/scripts.js"/>'></script>
+	<script type="text/javascript" src='<spring:url value="/js/v3/menu.js"/>'></script>
+	<script type="text/javascript" src='<spring:url value="/js/v3/ajax.js"/>'></script>
 	<jsp:invoke fragment="scripts" />
 </body>
 </html>

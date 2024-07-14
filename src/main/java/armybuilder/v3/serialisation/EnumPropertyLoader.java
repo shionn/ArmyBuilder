@@ -30,7 +30,7 @@ public class EnumPropertyLoader {
 	private void load(String file) {
 		try (InputStream is = Thread.currentThread()
 				.getContextClassLoader()
-				.getResourceAsStream(file + ".properties")) {
+				.getResourceAsStream("v3/" + file + ".properties")) {
 			props.load(is);
 		} catch (IOException e) {
 			throw new IllegalStateException(e);
