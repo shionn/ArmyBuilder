@@ -8,9 +8,10 @@ import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import armybuilder.model.unit.keyword.KeyWord;
-import armybuilder.model.unit.option.UnitOptionCategory;
-import armybuilder.model.unit.role.RoleTactique;
+import armybuilder.v3.model.unit.keyword.KeyWord;
+import armybuilder.v3.model.unit.model.UnitModel;
+import armybuilder.v3.model.unit.option.UnitOptionCategory;
+import armybuilder.v3.model.unit.role.RoleTactique;
 
 public class UnitModelTest {
 

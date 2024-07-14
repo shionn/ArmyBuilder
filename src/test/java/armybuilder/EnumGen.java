@@ -1,7 +1,7 @@
 package armybuilder;
 
-import armybuilder.model.IHaveDisplayName;
-import armybuilder.model.dok.DokRule;
+import armybuilder.v3.model.IHaveDisplayName;
+import armybuilder.v3.model.dok.DokRule;
 
 public class EnumGen {
 	public static void main(String[] args) {
