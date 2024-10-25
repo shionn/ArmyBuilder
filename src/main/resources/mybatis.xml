@@ -27,5 +27,6 @@
 	</environments>
 	<mappers>
 		<package name="armybuilder.v3.db.dao"/>
+		<package name="armybuilder.db.dao"/>
 	</mappers>
 </configuration>

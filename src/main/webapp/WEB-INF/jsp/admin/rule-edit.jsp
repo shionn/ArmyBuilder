@@ -8,12 +8,23 @@
 <t:template>
 <jsp:attribute name="content">
 <h1>Liste</h1>
+<table>
+	<c:forEach items="${rules}" var="rule">
+		<tr>
+			<td>${rule.name}</td>
+			<td>${rule.announce}</td>
+			<td>${rule.effect}</td>
+			<td>${rule.keywords}</td>
+		</tr>
+	</c:forEach>
+</table>
 <h1>Creation</h1>
 <spring:url value="/admin/rule/create" var="url"/>
 <form:form action="${url}" method="POST" class="row">
 	<div>
 		<label>Timing</label>
-		<select>
+		<select name="timing">
+			<option value="--">--</option>
 			<c:forEach items="${Timing.values()}" var="timing">
 				<option value="${timing}">${timing.displayName}</option>
 			</c:forEach>
@@ -44,6 +55,9 @@
 				<option value="${key}">${key}</option>
 			</c:forEach>
 		</select>
+	</div>
+	<div>
+		<input type="submit">
 	</div>
 </form:form>
 </jsp:attribute>

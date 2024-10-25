@@ -3,6 +3,7 @@ package armybuilder.v3.model.unit.keyword;
 import armybuilder.v3.model.IHaveDisplayName;
 import armybuilder.v3.serialisation.EnumPropertyLoader;
 
+@Deprecated
 public enum KeyWord implements IHaveDisplayName {
 	// Generique
 	Chaos,

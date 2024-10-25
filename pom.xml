@@ -98,7 +98,8 @@
 			<id>dev</id>
 			<properties>
 				<mybatis.driver>com.mysql.cj.jdbc.Driver</mybatis.driver>
-				<mybatis.url>jdbc:mysql://${armybuilder.mysql.host}:3306/armybuilder?serverTimezone=Europe/Paris</mybatis.url>
+				<mybatis.url>
+					jdbc:mysql://${armybuilder.mysql.host}:3306/armybuilder?serverTimezone=Europe/Paris</mybatis.url>
 				<mybatis.username>${armybuilder.mysql.user}</mybatis.username>
 				<mybatis.password>${armybuilder.mysql.pass}</mybatis.password>
 			</properties>
@@ -108,7 +109,8 @@
 			<id>proxmox</id>
 			<properties>
 				<mybatis.driver>com.mysql.cj.jdbc.Driver</mybatis.driver>
-				<mybatis.url>jdbc:mysql://${armybuilder.mysql.host}:3306/armybuilder?serverTimezone=Europe/Paris</mybatis.url>
+				<mybatis.url>
+					jdbc:mysql://${armybuilder.mysql.host}:3306/armybuilder?serverTimezone=Europe/Paris</mybatis.url>
 				<mybatis.username>${armybuilder.mysql.user}</mybatis.username>
 				<mybatis.password>${armybuilder.mysql.pass}</mybatis.password>
 			</properties>

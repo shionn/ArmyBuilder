@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Getter
 public enum Timing {
+	Deploy("Phase de Déploiement"),
 	YourShot("Votre Phase de Tir");
 
 	private final String displayName;
