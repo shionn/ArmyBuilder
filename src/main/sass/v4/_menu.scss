@@ -1,0 +1,33 @@
+@import "_variables.scss";
+
+body>header {
+	background-color: $color-theme-dark;
+	
+	a {
+		color: $color-theme-white;
+	}
+
+	&>nav {
+		margin: 0 auto;
+		width: $width-content;
+		display: block;
+		background-color: $color-theme;
+		color: $color-theme-white;
+
+		&>ul {
+			margin: 0;
+			padding: 0;
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-between;
+			list-style: none;
+			ul {
+				margin: 0;
+				padding: 0;
+				display: flex;
+				flex-direction: column;
+				list-style: none;
+			}
+		}
+	}
+}

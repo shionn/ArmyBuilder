@@ -1,0 +1,24 @@
+@import "_normalize.scss";
+@import "_variables.scss";
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font: 1em/1.25em "Source Sans Pro", Helvetica, sans-serif;
+	
+	a {
+		text-decoration: none;
+		color: $color-theme-dark;
+	}
+	
+	& > main {
+		width: 1200px;
+		margin: 0 auto;
+	}
+}
+
+@import "_menu.scss";
+@import "_form.scss";
+
