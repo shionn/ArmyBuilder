@@ -20,6 +20,7 @@ import armybuilder.v3.model.unit.option.UnitOptionCategory;
 import armybuilder.v3.model.unit.role.RoleTactique;
 import armybuilder.v3.model.unit.weapon.IUnitWeapon;
 
+@Deprecated
 public enum UnitModel implements IUnitModel<UnitModel> {
 	MorathiKhaine(DokUnitModel.MorathiKhaine),
 	LaReineDeLOmbre(DokUnitModel.LaReineDeLOmbre),

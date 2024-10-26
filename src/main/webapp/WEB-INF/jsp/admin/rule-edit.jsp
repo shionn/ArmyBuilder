@@ -63,6 +63,6 @@
 </jsp:attribute>
 <jsp:attribute name="scripts">
 	<script type="text/javascript" src='<spring:url value="/js/v4/scripts.js"/>'></script>
-	<script type="text/javascript" src='<spring:url value="/js/v4/admin-rule-edit.js"/>'></script>
+	<script type="text/javascript" src='<spring:url value="/js/v4/admin-keywords-edit.js"/>'></script>
 </jsp:attribute>
 </t:template>

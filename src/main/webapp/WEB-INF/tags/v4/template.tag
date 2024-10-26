@@ -28,8 +28,12 @@
 					</ul>
 				</li>
 				<li>Admin
-					<spring:url value="/admin/rule/edit" var="url"/>
-					<ul><a href="${url}">Rule</a></ul>
+					<ul>
+						<spring:url value="/admin/unit/edit" var="url"/>
+						<li><a href="${url}">Unit</a></li>
+						<spring:url value="/admin/rule/edit" var="url"/>
+						<li><a href="${url}">Rule</a></li>
+					</ul>
 				</li>
 			</ul>
 		</nav>

@@ -4,6 +4,7 @@ form {
 
 	&.row {
 		div {
+			display: flex;
 			label {
 				width: 150px;
 				display: inline-block;
@@ -11,6 +12,12 @@ form {
 				vertical-align: top;
 				margin-top: 4px;
 				margin-right: 4px;
+			}
+			input[readonly] {
+				background-color: lightgrey;
+			}
+			input[name='keywords'] {
+				width: 500px;
 			}
 		}
 	}
