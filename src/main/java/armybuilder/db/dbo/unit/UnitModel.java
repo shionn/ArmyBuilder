@@ -1,9 +1,11 @@
 package armybuilder.db.dbo.unit;
 
 import java.util.List;
-import java.util.function.BinaryOperator;
 
+import armybuilder.db.dao.admin.UnitModelRule;
 import armybuilder.db.dbo.Keyword;
+import armybuilder.db.dbo.army.ArmyModel;
+import armybuilder.db.dbo.aspect.HaveKeywords;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,20 +15,13 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UnitModel implements BinaryOperator<String> {
+public class UnitModel implements HaveKeywords {
 	private int id;
 	private String name;
 	private String mvt, life, control, save;
+	private ArmyModel army;
 	private List<UnitModelWeapon> weapons;
 	private List<Keyword> keywords;
-
-	public String getKeywordsAsString() {
-		return keywords.stream().map(Keyword::name).reduce(this).orElse("");
-	}
-
-	@Override
-	public String apply(String t, String u) {
-		return t + ',' + u;
-	}
+	private List<UnitModelRule> rules;
 
 }

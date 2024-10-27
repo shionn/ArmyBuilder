@@ -1,4 +1,4 @@
-package armybuilder.db.dbo.unit;
+package armybuilder.db.dbo.army;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,15 +6,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UnitModelWeapon {
+@Builder
+public class ArmyModel {
 
 	private int id;
-	private int unitId;
 	private String name;
-	private WeaponType type;
-	private String range, atk, hit, str, perf, deg, aptitude;
-
 }

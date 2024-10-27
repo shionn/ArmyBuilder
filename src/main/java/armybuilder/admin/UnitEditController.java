@@ -12,6 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import armybuilder.admin.request.EditRequest;
 import armybuilder.db.dao.admin.UnitModelEditDao;
+import armybuilder.db.dao.admin.UnitModelRule;
+import armybuilder.db.dbo.army.ArmyModel;
+import armybuilder.db.dbo.rule.Rule;
 import armybuilder.db.dbo.unit.UnitModel;
 import armybuilder.db.dbo.unit.UnitModelWeapon;
 import armybuilder.db.dbo.unit.WeaponType;
@@ -31,7 +34,10 @@ public class UnitEditController {
 	@GetMapping("/admin/unit/edit/{id}")
 	public ModelAndView read(@PathVariable("id") int id) {
 		UnitModelEditDao dao = session.getMapper(UnitModelEditDao.class);
-		return new ModelAndView("admin/unit-edit").addObject("units", dao.list()).addObject("unit", dao.read(id));
+		return new ModelAndView("admin/unit-edit").addObject("units", dao.list())
+				.addObject("unit", dao.read(id))
+				.addObject("armies", dao.listArmies())
+				.addObject("rules", dao.listRules());
 	}
 
 	@PostMapping("/admin/unit/edit/{id}")
@@ -44,24 +50,35 @@ public class UnitEditController {
 				.name(request.getName())
 				.save(request.getSave())
 				.keywords(request.keywords())
+				.army(ArmyModel.builder().id(request.getArmy().getId()).build())
 				.weapons(Arrays.stream(request.getWeapons())
 						.map(r -> UnitModelWeapon.builder()
 								.id(r.getId())
 								.name(r.getName())
 								.type(WeaponType.valueOf(r.getType()))
 								.unitId(id)
+								.range(r.getRange())
 								.atk(r.getAtk())
 								.hit(r.getHit())
 								.str(r.getStr())
 								.perf(r.getPerf())
 								.deg(r.getDeg())
+								.aptitude(r.getAptitude())
 								.build())
-						.toList()).build();
+						.toList())
+				.rules(Arrays.stream(request.getRules())
+						.map(m -> UnitModelRule.builder()
+								.id(m.getId())
+								.rule(Rule.builder().id(m.getRule().getId()).build())
+								.build())
+						.toList())
+				.build();
 		UnitModelEditDao dao = session.getMapper(UnitModelEditDao.class);
 		dao.update(unit);
 		dao.deleteKeywords(unit.getId());
 		unit.getKeywords().forEach(k -> dao.addKeywords(id, k));
 		unit.getWeapons().forEach(dao::updateWeapon);
+		unit.getRules().forEach(dao::updateRule);
 		session.commit();
 		return "redirect:/admin/unit/edit/" + id;
 	}
@@ -75,23 +92,36 @@ public class UnitEditController {
 		return "redirect:/admin/unit/edit/" + model.getId();
 	}
 
-	@PostMapping("/admin/unit/edit/{unit}/add-weapons")
-	public String addWeapons(@PathVariable("unit") int unit) {
+	@PostMapping("/admin/unit/edit/{unit}/add-weapon")
+	public String addWeapon(@PathVariable("unit") int unit) {
 		UnitModelEditDao dao = session.getMapper(UnitModelEditDao.class);
-		dao.addWeapons(unit);
+		dao.addWeapon(unit);
 		session.commit();
 		return "redirect:/admin/unit/edit/" + unit;
 	}
 
-	@PostMapping("/admin/unit/edit/{unit}/rm-weapons/{weapon}")
-	public String rmWeapons(@PathVariable("unit") int unit, @PathVariable("weapon") int weapon) {
+	@PostMapping("/admin/unit/edit/{unit}/rm-weapon/{weapon}")
+	public String rmWeapon(@PathVariable("unit") int unit, @PathVariable("weapon") int weapon) {
 		UnitModelEditDao dao = session.getMapper(UnitModelEditDao.class);
-		dao.rmWeapons(unit, weapon);
+		dao.rmWeapon(unit, weapon);
 		session.commit();
 		return "redirect:/admin/unit/edit/" + unit;
 	}
 
-	private void updateWeapon(UnitModelWeapon unitmodelweapon1) {
+	@PostMapping("/admin/unit/edit/{unit}/add-rule")
+	public String addRule(@PathVariable("unit") int unit) {
+		UnitModelEditDao dao = session.getMapper(UnitModelEditDao.class);
+		dao.addRule(unit);
+		session.commit();
+		return "redirect:/admin/unit/edit/" + unit;
+	}
+
+	@PostMapping("/admin/unit/edit/{unit}/rm-rule/{model}")
+	public String rmRule(@PathVariable("unit") int unit, @PathVariable("model") int rule) {
+		UnitModelEditDao dao = session.getMapper(UnitModelEditDao.class);
+		dao.rmRule(rule);
+		session.commit();
+		return "redirect:/admin/unit/edit/" + unit;
 	}
 
 }

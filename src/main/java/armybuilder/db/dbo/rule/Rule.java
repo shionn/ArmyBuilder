@@ -3,6 +3,7 @@ package armybuilder.db.dbo.rule;
 import java.util.List;
 
 import armybuilder.db.dbo.Keyword;
+import armybuilder.db.dbo.aspect.HaveKeywords;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,9 +13,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Rule {
+public class Rule implements HaveKeywords {
 	private int id;
 	private Timing timing;
+	private String condition;
 	private String name;
 	private String description;
 	private String announce;

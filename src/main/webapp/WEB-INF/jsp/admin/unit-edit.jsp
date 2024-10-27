@@ -12,6 +12,7 @@
 <table>
 	<c:forEach items="${units}" var="unit">
 		<tr>
+			<td>${unit.army.name}</td>
 			<td>${unit.name}</td>
 			<td>${unit.keywords}</td>
 			<spring:url value="/admin/unit/edit/${unit.id}" var="url"/>
@@ -27,6 +28,16 @@
 	<div>
 		<label>Name</label>
 		<input type="text" name="name" value="${unit.name}"/>
+	</div>
+	<div>
+		<label>Armée</label>
+		<select name="army.id">
+			<option value="--">--</option>
+			<c:forEach items="${armies}" var="a">
+				<option value="${a.id}"
+				<c:if test="${a.id == unit.army.id}">selected="selected"</c:if>>${a.name}</option>
+			</c:forEach>
+		</select>
 	</div>
 	<div>
 		<label>Mouv.</label>
@@ -49,7 +60,13 @@
 		<span>
 			<table>
 				<tr>
-					<th>Nom</th><th>type</th><th>Att.</th><th>Tou.</th><th>Ble.</th><th>Per.</th><th>Dég</th><th>#</th>
+					<th>Nom</th><th>type</th><th>Port.</th>
+					<th>Att.</th><th>Tou.</th><th>Ble.</th><th>Per.</th><th>Dég</th>
+					<th>Aptitude</th>
+					<th>
+						<spring:url value="/admin/unit/edit/${unit.id}/add-weapon" var="url"/>
+						<a class="ajax" data-update="#weapons" href="${url}">Ajouter</a>
+					</th>
 				</tr>
 				<c:forEach items="${unit.weapons}" var="w" varStatus="s">
 					<tr>
@@ -66,26 +83,57 @@
 								</c:forEach>
 							</select>
 						</td>
+						<td><input type="text" name="weapons[${s.index}].range" value="${w.range}" size="4"/></td>
 						<td><input type="text" name="weapons[${s.index}].atk" value="${w.atk}" size="4"/></td>
 						<td><input type="text" name="weapons[${s.index}].hit" value="${w.hit}" size="4"/></td>
 						<td><input type="text" name="weapons[${s.index}].str" value="${w.str}" size="4"/></td>
 						<td><input type="text" name="weapons[${s.index}].perf" value="${w.perf}" size="4"/></td>
 						<td><input type="text" name="weapons[${s.index}].deg" value="${w.deg}" size="4"/></td>
+						<td><input type="text" name="weapons[${s.index}].aptitude" value="${w.aptitude}" size="16"/></td>
 						<td>
-							<spring:url value="/admin/unit/edit/${unit.id}/rm-weapons/${w.id}" var="url"/>
+							<spring:url value="/admin/unit/edit/${unit.id}/rm-weapon/${w.id}" var="url"/>
 							<a class="ajax" data-update="#weapons" href="${url}">Suppr</a>
 						</td>
 					</tr>
 				</c:forEach>
 			</table>
-			<spring:url value="/admin/unit/edit/${unit.id}/add-weapons" var="url"/>
-			<a class="ajax" data-update="#weapons" href="${url}">Ajouter</a>
+		</span>
+	</div>
+	<div id="rules">
+		<label>Règle</label>
+		<span>
+			<table>
+				<tr>
+					<th>Nom</th>
+					<th>
+						<spring:url value="/admin/unit/edit/${unit.id}/add-rule" var="url"/>
+						<a class="ajax" data-update="#rules" href="${url}">Ajouter</a>
+					</th>
+				</tr>
+				<c:forEach items="${unit.rules}" var="m" varStatus="s">
+					<tr>
+						<td>
+							<input type="hidden" name="rules[${s.index}].id" value="${m.id}"/>
+							<select name="rules[${s.index}].rule.id">
+								<option value="--">--</option>
+								<c:forEach items="${rules}" var="rule">
+									<option value="${rule.id}" <c:if test="${m.rule.id == rule.id}">selected="selected"</c:if>>${rule.name}</option>
+								</c:forEach>
+							</select>
+						</td>
+						<td>
+							<spring:url value="/admin/unit/edit/${unit.id}/rm-rule/${m.id}" var="url"/>
+							<a class="ajax" data-update="#rules" href="${url}">Suppr</a>
+						</td>
+					</tr>
+				</c:forEach>
+			</table>
 		</span>
 	</div>
 	<div>
 		<label>Mots-clés</label>
 		<span>
-			<input type="text" name="keywords" value="${unit.keywordsAsString}" readonly="readonly"/><br/>
+			<input type="text" name="keywords" value="${unit.keywordsAsString()}" readonly="readonly"/><br/>
 			<select name="keyword">
 				<option value="--">--</option>
 				<c:forEach items="${Keyword.values()}" var="key">
