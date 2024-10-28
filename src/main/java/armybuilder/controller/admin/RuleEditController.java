@@ -1,4 +1,4 @@
-package armybuilder.admin;
+package armybuilder.controller.admin;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Controller;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import armybuilder.admin.request.EditRequest;
+import armybuilder.controller.admin.request.EditRequest;
 import armybuilder.db.dao.admin.RuleEditDao;
 import armybuilder.db.dbo.rule.Rule;
 import armybuilder.db.dbo.rule.Timing;

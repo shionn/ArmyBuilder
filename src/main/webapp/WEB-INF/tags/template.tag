@@ -20,13 +20,16 @@
 	<header>
 		<nav>
 			<ul>
-				<li>DoK</li>
-				<li>Skaven
-					<ul>
-						<li><a>Exemple Moulder 1000</a></li>
-						<li><a>Nouvelle</a></li>
-					</ul>
-				</li>
+				<c:forEach items="${menu.children}" var="a">
+					<li>${a.name}
+						<ul>
+							<c:forEach items="${a.children}" var="c">
+								<spring:url value="/army/${c.id}" var="url"/>
+								<li><a href="${url}">${c.name}</a>
+							</c:forEach>
+						</ul>
+					</li>
+				</c:forEach>
 				<li>Admin
 					<ul>
 						<spring:url value="/admin/unit/edit" var="url"/>
@@ -44,6 +47,8 @@
 	<footer class="print-hidden">
 		ArmyBuilder by <a href="mailto:shionn@gmail.com">shionn</a>
 	</footer>
+	<script type="text/javascript" src='<spring:url value="/js/scripts.js"/>'></script>
+	<script type="text/javascript" src='<spring:url value="/js/ajax.js"/>'></script>
 	<jsp:invoke fragment="scripts" />
 </body>
 </html>

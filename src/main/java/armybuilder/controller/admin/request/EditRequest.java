@@ -1,4 +1,4 @@
-package armybuilder.admin.request;
+package armybuilder.controller.admin.request;
 
 import java.util.Arrays;
 import java.util.Collections;

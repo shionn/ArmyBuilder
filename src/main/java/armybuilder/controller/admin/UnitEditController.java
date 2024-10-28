@@ -1,4 +1,4 @@
-package armybuilder.admin;
+package armybuilder.controller.admin;
 
 import java.util.Arrays;
 
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import armybuilder.admin.request.EditRequest;
+import armybuilder.controller.admin.request.EditRequest;
 import armybuilder.db.dao.admin.UnitModelEditDao;
 import armybuilder.db.dao.admin.UnitModelRule;
 import armybuilder.db.dbo.army.ArmyModel;

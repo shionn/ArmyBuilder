@@ -1,20 +1,17 @@
 package armybuilder.db.dbo.army;
 
-import java.util.List;
-
-import armybuilder.db.dbo.unit.UnitModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class ArmyModel {
+public class Army {
 
 	private int id;
 	private String name;
-	private List<UnitModel> units;
+	private ArmyModel model;
 }

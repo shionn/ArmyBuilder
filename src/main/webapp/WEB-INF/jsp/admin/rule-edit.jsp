@@ -5,7 +5,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
-<%@ taglib tagdir="/WEB-INF/tags/v4" prefix="t"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="t"%>
 <t:template>
 <jsp:attribute name="content">
 <h1>Liste</h1>
@@ -86,7 +86,6 @@
 </form:form>
 </jsp:attribute>
 <jsp:attribute name="scripts">
-	<script type="text/javascript" src='<spring:url value="/js/v4/scripts.js"/>'></script>
-	<script type="text/javascript" src='<spring:url value="/js/v4/admin-keywords-edit.js"/>'></script>
+	<script type="text/javascript" src='<spring:url value="/js/admin-keywords-edit.js"/>'></script>
 </jsp:attribute>
 </t:template>
