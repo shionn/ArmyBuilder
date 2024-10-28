@@ -23,6 +23,8 @@ public class EditRequest {
 	private String type;
 	private int id;
 	private String range, atk, hit, str, perf, deg, aptitude;
+	private String cost;
+	private String size;
 	private EditRequest[] weapons = {};
 	private EditRequest[] rules = {};
 	private EditRequest army;

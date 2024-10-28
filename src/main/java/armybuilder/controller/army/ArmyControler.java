@@ -17,18 +17,26 @@ public class ArmyControler {
 
 	private final SqlSession session;
 
-	@GetMapping("/army/{id}")
-	public ModelAndView open(@PathVariable("id")int id) {
+	@GetMapping("/army/{army}")
+	public ModelAndView open(@PathVariable("army") int army) {
 		ArmyDao dao = session.getMapper(ArmyDao.class);
-		return new ModelAndView("army").addObject("army", dao.read(id));
+		return new ModelAndView("army").addObject("army", dao.read(army));
 	}
 
-	@PostMapping("/army/{id}/add-unit")
-	public String asddUnit(@PathVariable("id") int id, @RequestHeader("model") int model) {
+	@PostMapping("/army/{army}/add-unit")
+	public String addUnit(@PathVariable("army") int army, @RequestHeader("model") int model) {
 		ArmyDao dao = session.getMapper(ArmyDao.class);
-		dao.addUnit(id, model);
+		dao.addUnit(army, model);
 		session.commit();
-		return "redirect:/army/" + id;
+		return "redirect:/army/" + army;
+	}
+
+	@GetMapping("/army/{army}/rm-unit/{unit}")
+	public String rmUnit(@PathVariable("army") int army, @PathVariable("unit") int unit) {
+		ArmyDao dao = session.getMapper(ArmyDao.class);
+		dao.rmUnit(unit);
+		session.commit();
+		return "redirect:/army/" + army;
 	}
 
 }

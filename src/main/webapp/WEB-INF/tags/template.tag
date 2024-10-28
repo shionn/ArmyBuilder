@@ -14,6 +14,7 @@
 <meta name="mobile-web-app-capable" content="yes" />
 <link rel="shortcut icon" type="image/x-icon" href='<spring:url value="/img/favicon.ico"/>'/>
 <link rel="stylesheet" href="<spring:url value="/css/style.css"/>" />
+<link rel="stylesheet" href="<spring:url value="/css/fa-4.7/font-awesome.css"/>" />
 <title>AoS v4 Army Builder - by Shionn</title>
 </head>
 <body>

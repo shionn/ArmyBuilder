@@ -27,6 +27,7 @@ public enum Keyword {
 	Protection_6("Protection(6+)"),
 	Pretre_1("Prêtre(1)"),
 	Pretre_2("Prêtre(2)"),
+	Saccage("Saccage"),
 	Sorcier_1("Sorcier(1)"),
 	Sorcier_2("Sorcier(2)"),
 	Sorcier_3("Sorcier(3)"),

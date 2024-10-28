@@ -12,10 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import armybuilder.controller.admin.request.EditRequest;
 import armybuilder.db.dao.admin.UnitModelEditDao;
-import armybuilder.db.dao.admin.UnitModelRule;
 import armybuilder.db.dbo.army.ArmyModel;
 import armybuilder.db.dbo.rule.Rule;
 import armybuilder.db.dbo.unit.UnitModel;
+import armybuilder.db.dbo.unit.UnitModelRule;
 import armybuilder.db.dbo.unit.UnitModelWeapon;
 import armybuilder.db.dbo.unit.WeaponType;
 import lombok.RequiredArgsConstructor;
@@ -50,6 +50,8 @@ public class UnitEditController {
 				.name(request.getName())
 				.save(request.getSave())
 				.keywords(request.keywords())
+				.cost(Integer.parseInt(request.getCost()))
+				.size(Integer.parseInt(request.getSize()))
 				.army(ArmyModel.builder().id(request.getArmy().getId()).build())
 				.weapons(Arrays.stream(request.getWeapons())
 						.map(r -> UnitModelWeapon.builder()

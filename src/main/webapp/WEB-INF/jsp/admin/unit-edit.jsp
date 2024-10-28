@@ -55,13 +55,21 @@
 		<label>Sauv.</label>
 		<input type="text" name="save" value="${unit.save}"/>
 	</div>
+	<div>
+		<label>Cout</label>
+		<input type="text" name="cost" value="${unit.cost}"/>
+	</div>
+	<div>
+		<label>Taille</label>
+		<input type="text" name="size" value="${unit.size}"/>
+	</div>
 	<div id="weapons">
 		<label>Armes</label>
 		<span>
 			<table>
 				<tr>
 					<th>Nom</th><th>type</th><th>Port.</th>
-					<th>Att.</th><th>Tou.</th><th>Ble.</th><th>Per.</th><th>Dég</th>
+					<th>Att.</th><th>Tou.</th><th>Ble.</th><th>Per.</th><th>Dég.</th>
 					<th>Aptitude</th>
 					<th>
 						<spring:url value="/admin/unit/edit/${unit.id}/add-weapon" var="url"/>

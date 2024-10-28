@@ -17,6 +17,7 @@ import armybuilder.db.dbo.Keyword;
 import armybuilder.db.dbo.army.ArmyModel;
 import armybuilder.db.dbo.rule.Rule;
 import armybuilder.db.dbo.unit.UnitModel;
+import armybuilder.db.dbo.unit.UnitModelRule;
 import armybuilder.db.dbo.unit.UnitModelWeapon;
 
 public interface UnitModelEditDao {
@@ -45,7 +46,8 @@ public interface UnitModelEditDao {
 	int create(UnitModel model);
 
 	@Update("UPDATE UnitModel " //
-			+ "SET name = #{name}, mvt = #{mvt}, life = #{life}, control = #{control}, save = #{save}, army_model = #{army.id} " //
+			+ "SET name = #{name}, mvt = #{mvt}, life = #{life}, control = #{control}, save = #{save}, "
+			+ "army_model = #{army.id}, size = #{size}, cost = #{cost} " //
 			+ "WHERE id = #{id}")
 	int update(UnitModel unit);
 

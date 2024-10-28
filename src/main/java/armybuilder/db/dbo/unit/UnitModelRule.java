@@ -1,7 +1,6 @@
-package armybuilder.db.dao.admin;
+package armybuilder.db.dbo.unit;
 
 import armybuilder.db.dbo.rule.Rule;
-import armybuilder.db.dbo.unit.UnitModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

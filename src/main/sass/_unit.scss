@@ -1,0 +1,140 @@
+@import "_variables.scss";
+
+article.unit {
+	border: 1px solid $color-theme-dark;
+	margin: 5px;
+
+	&>header {
+		background-color: $color-theme;
+		color: $color-theme-white;
+		padding: 0px 1px 3px 1px;
+
+		a {
+			color: $color-theme-white;
+		}
+
+		span {
+			float: right;
+		}
+	}
+
+	main {
+		position: relative;
+
+		div.bg {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: center;
+			opacity: 0.3;
+			z-index: -1;
+		}
+
+		table {
+			border: 1px solid $color-theme-dark;
+			border-collapse: collapse;
+			margin: 5px auto;
+
+			thead {
+				background-color: #50482d;
+				color: $color-theme-white;
+			}
+
+			td,
+			th {
+				text-align: center;
+				border-left: 1px solid $color-theme-dark;
+			}
+
+		}
+
+		article.rule {
+			margin: 5px;
+
+			header {
+				padding: 1px 1px 3px 3px;
+
+				img {
+					height: 18px;
+					margin: 1px 5px 1px 3px;
+					float: left;
+				}
+			}
+
+			main {
+				margin: 0 5px;
+
+				p {
+					margin: 0 0 8px 0;
+				}
+			}
+
+			&.shot {
+				border: 1px solid #053d53;
+
+				header,footer {
+					background-color: #053d53;
+					color: $color-theme-white;
+				}
+			}
+
+			&.hero {
+				border: 1px solid #886e29;
+
+				header,footer {
+					background-color: #886e29;
+					color: $color-theme-white;
+				}
+			}
+
+			&.charge {
+				border: 1px solid #9d4d1f;
+
+				header,footer {
+					background-color: #9d4d1f;
+					color: $color-theme-white;
+				}
+			}
+
+			&.end {
+				border: 1px solid #502e5b;
+
+				header,footer{
+					background-color: #502e5b;
+					color: $color-theme-white;
+				}
+			}
+
+			&.passif {
+				border: 1px solid #12100d;
+
+				header,footer {
+					background-color: #12100d;
+					color: $color-theme-white;
+				}
+			}
+
+			&.battle {
+				border: 1px solid #731516;
+
+				header,footer {
+					background-color: #731516;
+					color: $color-theme-white;
+				}
+			}
+		}
+	}
+
+	footer {
+		background-color: $color-theme;
+		color: $color-theme-white;
+		padding:0px 1px 3px 5px;;
+
+		span:not(:last-child)::after {
+			content: ',';
+		}
+	}
+
+}
