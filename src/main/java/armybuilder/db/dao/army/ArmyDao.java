@@ -14,11 +14,13 @@ import org.apache.ibatis.annotations.Select;
 import armybuilder.db.dbo.Keyword;
 import armybuilder.db.dbo.army.Army;
 import armybuilder.db.dbo.army.ArmyModel;
+import armybuilder.db.dbo.option.Option;
 import armybuilder.db.dbo.rule.Rule;
 import armybuilder.db.dbo.unit.Unit;
 import armybuilder.db.dbo.unit.UnitModel;
 import armybuilder.db.dbo.unit.UnitModelRule;
 import armybuilder.db.dbo.unit.UnitModelWeapon;
+import armybuilder.db.dbo.unit.option.UnitOptionValue;
 
 public interface ArmyDao {
 
@@ -33,6 +35,8 @@ public interface ArmyDao {
 	@Select("SELECT * FROM Unit WHERE army = #{army}")
 	@Results({ //
 			@Result(column = "model", property = "model", one = @One(select = "readUnitModel")),
+			@Result(column = "id", property = "id"),
+			@Result(column = "id", property = "options", many = @Many(select = "readUnitOptionValues"))
 	})
 	List<Unit> readUnits(int army);
 
@@ -82,4 +86,11 @@ public interface ArmyDao {
 
 	@Delete("DELETE FROM Unit WHERE id = #{id}")
 	int rmUnit(int unit);
+
+	@Insert("REPLACE INTO UnitOptionValue (unit, `option`, value) " //
+			+ "VALUES (#{unit}, #{option}, #{value}) ")
+	int setOptionValue(@Param("unit") int unit, @Param("option") Option option, @Param("value") String value);
+
+	@Select("SELECT * FROM UnitOptionValue WHERE unit = #{unit}")
+	List<UnitOptionValue> readUnitOptionValues(int unit);
 }

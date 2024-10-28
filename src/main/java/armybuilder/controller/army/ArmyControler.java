@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.servlet.ModelAndView;
 
 import armybuilder.db.dao.army.ArmyDao;
+import armybuilder.db.dbo.option.Option;
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -35,6 +36,15 @@ public class ArmyControler {
 	public String rmUnit(@PathVariable("army") int army, @PathVariable("unit") int unit) {
 		ArmyDao dao = session.getMapper(ArmyDao.class);
 		dao.rmUnit(unit);
+		session.commit();
+		return "redirect:/army/" + army;
+	}
+
+	@PostMapping("/army/{army}/unit/{unit}/option/{option}")
+	public String changeOption(@PathVariable("army") int army, @PathVariable("unit") int unit,
+			@PathVariable("option") Option option, @RequestHeader("value") String value) {
+		ArmyDao dao = session.getMapper(ArmyDao.class);
+		dao.setOptionValue(unit, option, value);
 		session.commit();
 		return "redirect:/army/" + army;
 	}

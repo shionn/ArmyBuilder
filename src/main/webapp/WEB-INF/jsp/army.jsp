@@ -1,5 +1,7 @@
 <%@ page pageEncoding="UTF-8"%>
 <%@ page import="armybuilder.db.dbo.unit.WeaponType" %>
+<%@ page import="armybuilder.db.dbo.option.Option" %>
+<%@ page import="armybuilder.db.dbo.option.OptionType" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
@@ -22,7 +24,7 @@
 </div>
 <div id="units">
 	<c:forEach items="${army.units}" var="unit">
-		<article class="unit">
+		<article class="unit" id="unit${unit.id}">
 			<header>${unit.model.name} - ${unit.cost} <a href="${base}/rm-unit/${unit.id}"><i class="fa fa-trash"></i></a>
 				<span>
 					<i class="fa fa-arrows"></i> ${unit.model.mvt}&quot;
@@ -94,6 +96,17 @@
 				<c:if test="${not empty unit.model.composition}">
 					<div class="composition">${markdown.format(unit.model.composition)}</div>
 				</c:if>
+				<div class="options">
+					<c:forEach items="${Option.values()}" var="opt">
+						<c:if test="${opt.isAvailable(unit)}">
+							<c:if test="${opt.type == OptionType.checkbox}">
+								<label><input name="value" type="checkbox" class="ajax" 
+										<c:if test="${unit.is(opt)}">checked="checked"</c:if>
+										data-url="${base}/unit/${unit.id}/option/${opt}" data-update="#unit${unit.id},.title">${opt.displayName}</label>
+							</c:if>
+						</c:if>
+					</c:forEach>
+				</div>
 				<c:forEach items="${unit.rules}" var="rule">
 					<article class="rule ${rule.timing.color}">
 						<header>

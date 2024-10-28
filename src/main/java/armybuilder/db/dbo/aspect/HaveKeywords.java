@@ -20,4 +20,8 @@ public interface HaveKeywords {
 		}).orElse("");
 	}
 
+	public default boolean is(Keyword keyword) {
+		return getKeywords() != null && getKeywords().contains(keyword);
+	}
+
 }

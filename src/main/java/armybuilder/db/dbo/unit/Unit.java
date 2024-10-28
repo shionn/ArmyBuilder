@@ -2,7 +2,9 @@ package armybuilder.db.dbo.unit;
 
 import java.util.List;
 
+import armybuilder.db.dbo.option.Option;
 import armybuilder.db.dbo.rule.Rule;
+import armybuilder.db.dbo.unit.option.UnitOptionValue;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,8 +17,12 @@ import lombok.NoArgsConstructor;
 public class Unit {
 	private int id;
 	private UnitModel model;
+	private List<UnitOptionValue> options;
 
 	public int getCost() {
+		if (is(Option.Reinforced)) {
+			return model.getCost() * 2;
+		}
 		return model.getCost();
 	}
 
@@ -28,5 +34,14 @@ public class Unit {
 
 	public List<Rule> getRules() {
 		return model.getRules().stream().map(m -> m.getRule()).toList();
+	}
+
+	public boolean is(Option option) {
+		return options.stream()
+				.filter(o -> o.getOption() == option)
+				.map(UnitOptionValue::getValue)
+				.map(Boolean::parseBoolean)
+				.findAny()
+				.orElse(false);
 	}
 }
