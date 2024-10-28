@@ -18,7 +18,13 @@
 	</select>
 </div>
 <div id="units">
-
+	<c:forEach items="${army.units}" var="unit">
+		<article class="unit">
+			<header>${unit.model.name} - ${unit.cost} <a href="${base}/rm-int/${unit.id}"><i class="fa fa-trash"></i></header>
+			<main></main>
+			<footer></footer>
+		</article>
+	</c:forEach>
 </div>
 </jsp:attribute>
 </t:template>

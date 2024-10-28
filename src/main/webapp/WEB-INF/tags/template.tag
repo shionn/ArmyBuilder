@@ -13,7 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <meta name="mobile-web-app-capable" content="yes" />
 <link rel="shortcut icon" type="image/x-icon" href='<spring:url value="/img/favicon.ico"/>'/>
-<link rel="stylesheet" href="<spring:url value="/css/v4/style.css"/>" />
+<link rel="stylesheet" href="<spring:url value="/css/style.css"/>" />
 <title>AoS v4 Army Builder - by Shionn</title>
 </head>
 <body>

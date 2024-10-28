@@ -31,5 +31,5 @@ public interface ArmyDao {
 	List<UnitModel> readUnitModels(int model);
 
 	@Insert("INSERT INTO Unit ( army, model ) VALUES ( #{army}, #{model} )")
-	void addUnit(@Param("army") int army, @Param("model") int model);
+	int addUnit(@Param("army") int army, @Param("model") int model);
 }
