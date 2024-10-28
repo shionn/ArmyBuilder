@@ -38,6 +38,7 @@ public class RuleEditController {
 				.id(request.getId())
 				.name(request.getName())
 				.timing(Timing.valueOf(request.getTiming()))
+				.cost(request.getCost())
 				.condition(request.getCondition())
 				.description(request.getDescription())
 				.announce(request.getAnnounce())

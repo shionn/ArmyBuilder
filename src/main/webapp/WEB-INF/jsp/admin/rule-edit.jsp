@@ -12,11 +12,11 @@
 <table>
 	<c:forEach items="${rules}" var="rule">
 		<tr>
+			<spring:url value="/admin/rule/edit/${rule.id}" var="url"/>
 			<td>${rule.timing}</td>
-			<td>${rule.name}</td>
+			<td><a href="${url}">${rule.name}</a></td>
 			<td>${fn:substring(rule.announce,0,40)}...</td>
 			<td>${fn:substring(rule.effect,0,40)}...</td>
-			<spring:url value="/admin/rule/edit/${rule.id}" var="url"/>
 			<td><a href="${url}">Edit</a></td>
 		</tr>
 	</c:forEach>
@@ -41,6 +41,10 @@
 		</select>
 	</div>
 	<div>
+		<label>Cout</label>
+		<input type="text" name="cost" value="${rule.cost}"/>
+	</div>
+	<div>
 		<label>Condition</label>
 		<textarea rows="5" cols="50" name="condition">${rule.condition}</textarea>
 	</div>
@@ -61,7 +65,7 @@
 		<input type="text" name="keywords" value="${rule.keywordsAsString()}"/>
 		<select name="keyword">
 			<option value="--">--</option>
-			<c:forEach items="${Keyword.values()}" var="key">
+			<c:forEach items="${Keyword.sorted()}" var="key">
 				<option value="${key}">${key}</option>
 			</c:forEach>
 		</select>

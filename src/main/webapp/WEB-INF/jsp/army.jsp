@@ -91,6 +91,9 @@
 						</tbody>
 					</c:if>
 				</table>
+				<c:if test="${not empty unit.model.composition}">
+					<div class="composition">${markdown.format(unit.model.composition)}</div>
+				</c:if>
 				<c:forEach items="${unit.rules}" var="rule">
 					<article class="rule ${rule.timing.color}">
 						<header>
@@ -98,6 +101,9 @@
 							${rule.timing.displayName}
 							<c:if test="${not empty rule.condition}">
 								: ${rule.condition}
+							</c:if>
+							<c:if test="${not empty rule.cost}">
+								<span class="cost">${rule.cost}</span>
 							</c:if>
 						</header>
 						<main>

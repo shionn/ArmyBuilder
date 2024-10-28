@@ -52,6 +52,7 @@ public class UnitEditController {
 				.keywords(request.keywords())
 				.cost(Integer.parseInt(request.getCost()))
 				.size(Integer.parseInt(request.getSize()))
+				.composition(request.getComposition())
 				.army(ArmyModel.builder().id(request.getArmy().getId()).build())
 				.weapons(Arrays.stream(request.getWeapons())
 						.map(r -> UnitModelWeapon.builder()

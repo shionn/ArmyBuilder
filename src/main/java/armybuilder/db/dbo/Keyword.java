@@ -1,5 +1,8 @@
 package armybuilder.db.dbo;
 
+import java.util.Arrays;
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -59,4 +62,7 @@ public enum Keyword {
 		displayName = name();
 	}
 
+	public static List<Keyword> sorted() {
+		return Arrays.stream(values()).sorted((a, b) -> a.getDisplayName().compareTo(b.getDisplayName())).toList();
+	}
 }

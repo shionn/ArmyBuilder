@@ -25,6 +25,7 @@ public class EditRequest {
 	private String range, atk, hit, str, perf, deg, aptitude;
 	private String cost;
 	private String size;
+	private String composition;
 	private EditRequest[] weapons = {};
 	private EditRequest[] rules = {};
 	private EditRequest army;

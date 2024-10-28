@@ -60,6 +60,10 @@
 		<input type="text" name="cost" value="${unit.cost}"/>
 	</div>
 	<div>
+		<label>Composition</label>
+		<textarea rows="5" cols="50" name="composition">${unit.composition}</textarea>
+	</div>
+	<div>
 		<label>Taille</label>
 		<input type="text" name="size" value="${unit.size}"/>
 	</div>
@@ -144,7 +148,7 @@
 			<input type="text" name="keywords" value="${unit.keywordsAsString()}" readonly="readonly"/><br/>
 			<select name="keyword">
 				<option value="--">--</option>
-				<c:forEach items="${Keyword.values()}" var="key">
+				<c:forEach items="${Keyword.sorted()}" var="key">
 					<option value="${key}">${key}</option>
 				</c:forEach>
 			</select>

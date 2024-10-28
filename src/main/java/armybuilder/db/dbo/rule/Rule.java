@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 public class Rule implements HaveKeywords {
 	private int id;
 	private Timing timing;
+	private String cost;
 	private String condition;
 	private String name;
 	private String description;

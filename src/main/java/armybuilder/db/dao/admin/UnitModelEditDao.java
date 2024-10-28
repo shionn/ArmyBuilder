@@ -47,7 +47,7 @@ public interface UnitModelEditDao {
 
 	@Update("UPDATE UnitModel " //
 			+ "SET name = #{name}, mvt = #{mvt}, life = #{life}, control = #{control}, save = #{save}, "
-			+ "army_model = #{army.id}, size = #{size}, cost = #{cost} " //
+			+ "army_model = #{army.id}, size = #{size}, cost = #{cost}, composition = #{composition} " //
 			+ "WHERE id = #{id}")
 	int update(UnitModel unit);
 

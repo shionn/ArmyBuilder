@@ -19,6 +19,7 @@ public class UnitModel implements HaveKeywords {
 	private String name;
 	private String mvt, life, control, save;
 	private int cost;
+	private String composition;
 	private int size;
 	private ArmyModel army;
 	private List<UnitModelWeapon> weapons;

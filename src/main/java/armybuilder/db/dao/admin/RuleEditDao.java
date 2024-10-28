@@ -36,7 +36,7 @@ public interface RuleEditDao {
 	Rule read(int id);
 
 	@Update("UPDATE Rule SET announce = #{announce}, `condition` = #{condition}, description = #{description}, "
-			+ "effect = #{effect}, name = #{name}, timing = #{timing} " //
+			+ "effect = #{effect}, name = #{name}, timing = #{timing}, cost = #{cost} " //
 			+ "WHERE id = #{id}")
 	int updateRule(Rule rule);
 
