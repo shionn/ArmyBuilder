@@ -2,7 +2,6 @@ package armybuilder.db.dbo.army;
 
 import java.util.List;
 
-import armybuilder.db.dbo.option.ArmyOptionModel;
 import armybuilder.db.dbo.option.ArmyOptionType;
 import armybuilder.db.dbo.option.UnitOptionType;
 import armybuilder.db.dbo.rule.Rule;
@@ -21,11 +20,10 @@ public class ArmyModel {
 	private int id;
 	private String name;
 	private List<UnitModel> units;
-	private List<ArmyOptionModel> options;
 	private List<Rule> optionRules;
 
-	public List<ArmyOptionModel> options(ArmyOptionType type) {
-		return options.stream().filter(o -> o.getType() == type).toList();
+	public List<Rule> options(ArmyOptionType type) {
+		return optionRules.stream().filter(o -> o.getOptionArmyType() == type).toList();
 	}
 
 

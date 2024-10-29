@@ -1,7 +1,9 @@
 package armybuilder.controller.army;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.Scriptable;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Component;
 import armybuilder.db.dao.decoration.DecorationDao;
 import armybuilder.db.dbo.army.Army;
 import armybuilder.db.dbo.option.ArmyOptionType;
+import armybuilder.db.dbo.rule.Rule;
 import lombok.RequiredArgsConstructor;
 
 @Component
@@ -28,9 +31,10 @@ public class Decoration {
 			Scriptable scope = cx.initStandardObjects();
 
 			ScriptableObject.putProperty(scope, "army", Context.javaToJS(new ArmyDecorated(dao, army), scope));
-			army.getOptions()
+			new ArrayList<Rule>(army.getRules())
 					.stream()
 					.map(o -> o.getScript())
+					.filter(StringUtils::isNoneBlank)
 					.forEach(script -> cx.evaluateString(scope, script, "truc", 0, null));
 		} finally {
 			Context.exit();

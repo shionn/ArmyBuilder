@@ -88,7 +88,10 @@
 			</c:forEach>
 		</select>
 	</div>
-	
+	<div >
+		<label>Script</label>
+		<textarea rows="5" cols="50" name="script">${rule.script}</textarea>
+	</div>
 	<div>
 		<label>Mots-clés</label>
 		<input type="text" name="keywords" value="${rule.keywordsAsString()}"/>

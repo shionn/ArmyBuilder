@@ -12,6 +12,7 @@ import lombok.Data;
 @Data
 public class EditRequest {
 
+	private int id;
 	private String announce;
 	private String description;
 	private String effect;
@@ -21,12 +22,12 @@ public class EditRequest {
 	private String condition;
 	private String mvt, life, control, save;
 	private String type;
-	private int id;
 	private String range, atk, hit, str, perf, deg, aptitude;
 	private String cost;
 	private String size;
 	private String composition;
 	private String script;
+	private boolean visible;
 	private EditRequest[] weapons = {};
 	private EditRequest[] rules = {};
 	private EditRequest army;

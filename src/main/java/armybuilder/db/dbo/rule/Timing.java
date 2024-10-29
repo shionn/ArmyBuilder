@@ -3,59 +3,78 @@ package armybuilder.db.dbo.rule;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 @Getter
+@RequiredArgsConstructor
 public enum Timing {
 
 //	AnyCharge("N’importe Quelle Phase de Charge", "charge"),
-	AnyBattle("N’importe Quelle Phase de Mêlée", "battle", "battle"),
-	AnyBattle_Movement("N’importe Quelle Phase de Mêlée", "battle", "movement"),
-	AnyBattle_Shield("N’importe Quelle Phase de Mêlée", "battle", "shield"),
-	AnyEndTurn_Shield("Fin de N’importe Quel Tour", "end", "shield"),
+	AnyBattle("N’importe Quelle Phase de Mêlée", TimingStep.Battle),
+	AnyBattle_Movement("N’importe Quelle Phase de Mêlée", TimingStep.Battle, "movement"),
+	AnyBattle_Shield("N’importe Quelle Phase de Mêlée", TimingStep.Battle, "shield"),
+	AnyEndTurn_Shield("Fin de N’importe Quel Tour", TimingStep.End, "shield"),
 //	AnyMovement("N’importe Quelle Phase de Mouvement", "movement"),
-	AnyHero("N’importe Quelle Phase des Héros", "hero", "wind-rose"),
-	AnyHero_Battle("N’importe Quelle Phase des Héros", "hero", "battle"),
+	AnyHero("N’importe Quelle Phase des Héros", TimingStep.Hero),
+	AnyHero_Battle("N’importe Quelle Phase des Héros", TimingStep.Hero, "battle"),
 
-	Deploy("Phase de Déploiement", "passif", "wind-rose"),
+	Deploy("Phase de Déploiement", TimingStep.Deploy),
 
-	Passif_Shield("Passif", "dark-green", "shield"),
-	Passif_WindRose("Passif", "hero", "wind-rose"),
-	PassifBattle("Passif", "battle", "shield"),
-	PassifMovement("Passif", "passif", "movement"),
-	PassifWeapon("Passif", "passif", "skull"),
+	PassifGreen_Shield("Passif", TimingStep.PassifGreen, "shield"),
+	PassifHero("Passif", TimingStep.Hero, "wind-rose"),
+	PassifBattle_Shield("Passif", TimingStep.Battle, "shield"),
+	PassifMovement("Passif", TimingStep.Movement),
+	PassifMovement_Shield("Passif", TimingStep.Movement, "shield"),
+	PassifWeapon("Passif", TimingStep.Passif, "skull"),
 
 //	ReactionBattle("Réaction", "battle"),
-	ReactionMovement("Réaction", "grey", "movement"),
-	ReactionShot("Réaction", "shot", "bow"),
-	
-	OnceBattleAnyBattle("Une Fois Par Bataille, N’importe Quelle Phase de Mêlée", "battle", "battle"),
+	ReactionMovement("Réaction", TimingStep.Movement),
+	ReactionShot("Réaction", TimingStep.Shot),
 
-	OnceRoundStartRound("Une Fois par Round de Bataille (Armée), Début du Round de Bataille", "passif", "wind-rose"),
+	OnceBattleAnyBattle("Une Fois Par Bataille, N’importe Quelle Phase de Mêlée", TimingStep.Battle),
 
-	OnceTurnAnyBattle("Une Fois Par Tour (Armée), N’importe Quelle Phase de Mêlée", "battle", "battle"),
-	OnceTurnAnyBattle_Movement("Une Fois Par Tour (Armée), N’importe Quelle Phase de Mêlée", "battle", "movement"),
-	OnceTurnAnyEndTurn_Battle("Une Fois Par Tour (Armée), Fin de N’importe Quel Tour", "end", "battle"),
+	OnceRoundStartRound("Une Fois par Round de Bataille (Armée), Début du Round de Bataille", TimingStep.StartRound),
 
-	OnceTurnOpponentHero_Movement("Une Fois Par Tour (Armée), Phase des Héros Adverse", "charge", "movement"),
+	OnceTurnAnyBattle("Une Fois Par Tour (Armée), N’importe Quelle Phase de Mêlée", TimingStep.Battle),
+	OnceTurnAnyBattle_Movement("Une Fois Par Tour (Armée), N’importe Quelle Phase de Mêlée", TimingStep.Battle,
+			"movement"),
+	OnceTurnAnyEndTurn_Battle("Une Fois Par Tour (Armée), Fin de N’importe Quel Tour", TimingStep.End, "battle"),
 
-	OnceTurnYourBattle("Une Fois Par Tour (Armée), Votre Phase de Mêlée", "battle", "battle"),
-	OnceTurnYourHero("Une Fois Par Tour (Armée), Votre Phase des Héros", "hero", "wind-rose"),
-	OnceTurnYourShot("Une Fois Par Tour (Armée), Votre Phase de Tir", "shot", "bow"),
-	OnceTurnYourEndTurn("Une Fois Par Tour (Armée), Fin de Votre Tour", "end", "flag"),
+	OnceTurnOpponentHero_Movement("Une Fois Par Tour (Armée), Phase des Héros Adverse", TimingStep.Hero, "movement"),
 
-	YourCharge("Votre Phase de Charge", "charge", "movement"),
-	YourHero("Votre Phase des Héros", "hero", "wind-rose"),
-	YourHero_Battle("Votre Phase des Héros", "hero", "battle"),
-	YourHero_Movement("Votre Phase des Héros", "hero", "movement"),
-	YourHero_Shield("Votre Phase des Héros", "hero", "shield"),
-	YourMovement("Votre Phase de Mouvement", "movement", "movement"),
+	OnceTurnYourBattle("Une Fois Par Tour (Armée), Votre Phase de Mêlée", TimingStep.Battle),
+	OnceTurnYourHero("Une Fois Par Tour (Armée), Votre Phase des Héros", TimingStep.Hero),
+	OnceTurnYourShot("Une Fois Par Tour (Armée), Votre Phase de Tir", TimingStep.Shot),
+	OnceTurnYourEndTurn("Une Fois Par Tour (Armée), Fin de Votre Tour", TimingStep.End),
+
+	YourCharge("Votre Phase de Charge", TimingStep.Charge),
+	YourHero("Votre Phase des Héros", TimingStep.Hero),
+	YourHero_Battle("Votre Phase des Héros", TimingStep.Hero, "battle"),
+	YourHero_Movement("Votre Phase des Héros", TimingStep.Hero, "movement"),
+	YourHero_Shield("Votre Phase des Héros", TimingStep.Hero, "shield"),
+	YourMovement("Votre Phase de Mouvement", TimingStep.Movement),
 //	YourShot("Votre Phase de Tir", "shot"),
-	
+
 	//
 	;
 
 	private final String displayName;
-	private final String color;
+	private final TimingStep step;
+//	private final String color;
 	private final String icon;
+
+	Timing(String name, TimingStep step) {
+		this(name, step, step.getIcon());
+	}
+
+	public static Timing from(String value) {
+		try {
+			return valueOf(value);
+		} catch (IllegalArgumentException e) {
+			return null;
+		}
+	}
+
+	public String getColor() {
+		return this.step.getColor();
+	}
 
 }

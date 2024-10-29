@@ -16,11 +16,11 @@ public interface ArmyDao {
 	@Delete("DELETE FROM Unit WHERE id = #{id}")
 	int rmUnit(int unit);
 
-	@Insert("REPLACE INTO UnitOptionValue (unit, `option`, value) " //
+	@Insert("REPLACE INTO UnitOption (unit, `option`, value) "
 			+ "VALUES (#{unit}, #{option}, #{value}) ")
 	int setUnitOptionValue(@Param("unit") int unit, @Param("option") UnitOptionType option, @Param("value") String value);
 
-	@Insert("REPLACE INTO ArmyOption (army, `type`, model) " //
+	@Insert("REPLACE INTO ArmyOption (army, `type`, model) " // TODO mettre rule a la place de model
 			+ "VALUES (#{army}, #{option}, #{model}) ")
 	int setArmyOptionValue(@Param("army") int army, @Param("option") ArmyOptionType option, @Param("model") int value);
 

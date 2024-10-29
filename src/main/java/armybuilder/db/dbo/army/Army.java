@@ -5,7 +5,6 @@ import java.util.Comparator;
 import java.util.List;
 
 import armybuilder.db.dbo.Keyword;
-import armybuilder.db.dbo.option.ArmyOptionModel;
 import armybuilder.db.dbo.option.ArmyOptionType;
 import armybuilder.db.dbo.rule.Rule;
 import armybuilder.db.dbo.unit.Unit;
@@ -25,14 +24,13 @@ public class Army {
 	private ArmyModel model;
 	private List<Unit> units;
 	private List<Rule> rules;
-	private List<ArmyOptionModel> options;
 
 	public int getCost() {
 		return units.stream().map(u -> u.getCost()).reduce(0, (a, b) -> a + b);
 	}
 
-	public ArmyOptionModel get(ArmyOptionType type) {
-		return options.stream().filter(o -> o.getType() == type).findAny().orElse(null);
+	public Rule get(ArmyOptionType type) {
+		return rules.stream().filter(o -> o.is(type)).findAny().orElse(null);
 	}
 	
 	public List<Unit> getSortedUnits() {
@@ -65,6 +63,25 @@ public class Army {
 			this.rules = new ArrayList<Rule>();
 		}
 		this.rules.addAll(rules);
+	}
+
+	public List<Rule> getSortedRules() {
+		return this.rules.stream().sorted(new Comparator<Rule>() {
+
+			@Override
+			public int compare(Rule o1, Rule o2) {
+
+				int compare = Boolean.compare(o1.getTiming() != null, o2.getTiming() != null);
+				if (compare == 0 && o1.getTiming() != null && o2.getTiming() != null) {
+					compare = Integer.compare(o1.getTiming().getStep().ordinal(), o2.getTiming().getStep().ordinal());
+				}
+				if (compare == 0) {
+					compare = o1.getName().compareTo(o2.getName());
+				}
+				return compare;
+			}
+
+		}).toList();
 	}
 
 }

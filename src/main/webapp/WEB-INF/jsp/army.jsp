@@ -16,8 +16,8 @@
 		<c:if test="${opt.editable}">
 			<select name="model" class="ajax" data-url="${base}/option/${opt}" data-update="#title" >
 				<option>${opt.name}</option>
-				<c:forEach items="${army.model.options(opt)}" var="v">
-					<option value="${v.id}" <c:if test="${army.get(opt).id == v.id}">selected="selected"</c:if>>${v.name}</option>
+				<c:forEach items="${army.model.options(opt)}" var="rule">
+					<option value="${rule.id}" <c:if test="${army.get(opt).id == rule.id}">selected="selected"</c:if>>${rule.name}</option>
 				</c:forEach>
 				
 			</select>
@@ -35,7 +35,8 @@
 	<article class="unit" id="title">
 		<header>${army.model.name} - ${army.cost}</header>
 		<main>
-			<c:forEach items="${army.rules}" var="rule">
+			<div class="bg" style="background-image: url('<spring:url value="/img/${army.model.name}/0.png"/>');"></div>
+			<c:forEach items="${army.sortedRules}" var="rule">
 				<t:rule rule="${rule}"></t:rule>
 			</c:forEach>
 		</main>
