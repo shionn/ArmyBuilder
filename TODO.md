@@ -1,17 +1,11 @@
 
-Ajouter les regle de faction (trait de bataille)
+Ajouter les regles de faction (trait de bataille)
 
 option d'armee
 - formation
-- domaine de sort
-- domaine de priere
-- domaine de manifestation
 
 option d'unitée
-- general
-- traits heroique
 - trais de monture
-- artéfacts de pouvoir
 - pas sur les unité unique
 
 regiment 

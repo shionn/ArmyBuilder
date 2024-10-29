@@ -41,7 +41,7 @@
 </div>
 
 <div id="units">
-	<c:forEach items="${army.units}" var="unit">
+	<c:forEach items="${army.sortedUnits}" var="unit">
 		<article class="unit" id="unit${unit.id}">
 			<header>${unit.model.name} - ${unit.cost} <a href="${base}/rm-unit/${unit.id}"><i class="fa fa-trash"></i></a>
 				<span>

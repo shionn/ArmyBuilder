@@ -3,6 +3,7 @@ package armybuilder.db.dbo.unit;
 import java.util.ArrayList;
 import java.util.List;
 
+import armybuilder.db.dbo.Keyword;
 import armybuilder.db.dbo.option.UnitOptionType;
 import armybuilder.db.dbo.rule.Rule;
 import armybuilder.db.dbo.unit.option.UnitOptionValue;
@@ -52,6 +53,10 @@ public class Unit {
 
 	public Rule get(UnitOptionType option) {
 		return rules.stream().filter(r -> r.is(option)).findAny().orElse(null);
+	}
+
+	public boolean is(Keyword keyword) {
+		return getModel().is(keyword);
 	}
 
 }
