@@ -1,5 +1,7 @@
 package armybuilder.controller.army;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.session.SqlSession;
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.Scriptable;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import armybuilder.db.dao.decoration.DecorationDao;
 import armybuilder.db.dbo.army.Army;
+import armybuilder.db.dbo.rule.Rule;
 import lombok.RequiredArgsConstructor;
 
 @Component
@@ -39,7 +42,9 @@ public class Decoration {
 		private final Army army;
 
 		public void addRule(int id) {
-			System.out.println(id);
+			if (army.getRules() == null) {
+				army.setRules(new ArrayList<Rule>());
+			}
 			army.getRules().add(dao.readRule(id));
 		}
 	}

@@ -1,6 +1,5 @@
 package armybuilder.db.dbo.army;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import armybuilder.db.dbo.option.ArmyOptionModel;
@@ -22,7 +21,7 @@ public class Army {
 	private String name;
 	private ArmyModel model;
 	private List<Unit> units;
-	private List<Rule> rules = new ArrayList<Rule>();
+	private List<Rule> rules;
 	private List<ArmyOptionModel> options;
 
 	public int getCost() {
@@ -32,4 +31,5 @@ public class Army {
 	public ArmyOptionModel get(ArmyOptionType type) {
 		return options.stream().filter(o -> o.getType() == type).findAny().orElse(null);
 	}
+	
 }

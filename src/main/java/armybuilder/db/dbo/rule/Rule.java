@@ -27,4 +27,8 @@ public class Rule implements HaveKeywords {
 	private ArmyModel optionArmy;
 	private UnitOptionType optionUnitType;
 	private List<Keyword> keywords;
+
+	public boolean is(UnitOptionType option) {
+		return option == this.optionUnitType;
+	}
 }

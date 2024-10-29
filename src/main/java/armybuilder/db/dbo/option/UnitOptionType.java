@@ -12,7 +12,12 @@ import lombok.RequiredArgsConstructor;
 public enum UnitOptionType {
 	Reinforced("Réenforcée", u -> u.getModel().is(Keyword.Infanterie) && u.getModel().getSize() > 1,
 			UnitOptionMode.checkbox),
-	HeroicAspect("Traits Héroiques", u -> u.getModel().is(Keyword.Heros), UnitOptionMode.select),;
+	General("Général", u -> u.getModel().is(Keyword.Infanterie) && u.getModel().getSize() > 1, UnitOptionMode.checkbox),
+	HeroicAspect("Traits Héroiques", u -> u.getModel().is(Keyword.Heros), UnitOptionMode.select),
+	Artefact("Artefact de Pouvoir", u -> u.getModel().is(Keyword.Heros), UnitOptionMode.select),
+
+	//
+	;
 
 
 	private final String name;

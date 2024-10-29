@@ -115,18 +115,28 @@
 					<div class="composition">${markdown.format(unit.model.composition)}</div>
 				</c:if>
 				<div class="options">
-					<c:forEach items="${Option.values()}" var="opt">
+					<c:forEach items="${UnitOptionType.values()}" var="opt">
 						<c:if test="${opt.isAvailable(unit)}">
-							<c:if test="${opt.type == OptionType.checkbox}">
+							<c:if test="${opt.type == UnitOptionMode.checkbox}">
 								<label><input name="value" type="checkbox" class="ajax" 
 										<c:if test="${unit.is(opt)}">checked="checked"</c:if>
 										data-url="${base}/unit/${unit.id}/option/${opt}" 
-										data-update="#unit${unit.id},#title">${opt.displayName}</label>
+										data-update="#unit${unit.id},#title">${opt.name}</label>
+							</c:if>
+							<c:if test="${opt.type == UnitOptionMode.select}">
+								<select data-url="${base}/unit/${unit.id}/option/${opt}" 
+										data-update="#unit${unit.id},#title"
+										name="value" class="ajax">
+									<option value="NULL">${opt.name}</option>
+									<c:forEach items="${army.model.options(opt)}" var="r">
+										<option value="${r.id}" <c:if test="${unit.get(opt).id == r.id}">selected="selected"</c:if>>${r.name}</option>
+									</c:forEach>
+								</select>
 							</c:if>
 						</c:if>
 					</c:forEach>
 				</div>
-				<c:forEach items="${unit.rules}" var="rule">
+				<c:forEach items="${unit.allRules}" var="rule">
 					<t:rule rule="${rule}"></t:rule>
 				</c:forEach>
 			</main>

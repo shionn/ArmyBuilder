@@ -13,6 +13,7 @@ import armybuilder.db.dbo.Keyword;
 import armybuilder.db.dbo.army.Army;
 import armybuilder.db.dbo.army.ArmyModel;
 import armybuilder.db.dbo.option.ArmyOptionModel;
+import armybuilder.db.dbo.rule.Rule;
 import armybuilder.db.dbo.unit.Unit;
 import armybuilder.db.dbo.unit.UnitModel;
 import armybuilder.db.dbo.unit.UnitModelRule;
@@ -34,15 +35,20 @@ public interface ArmyReadDao extends ReadRuleFragDao {
 	@Results({ //
 			@Result(column = "model", property = "model", one = @One(select = "readUnitModel")),
 			@Result(column = "id", property = "id"),
+			@Result(column = "id", property = "rules", many = @Many(select = "readUnitRules")),
 			@Result(column = "id", property = "options", many = @Many(select = "readUnitOptionValues"))
 	})
 	List<Unit> readUnits(int army);
+
+	@Select("SELECT * FROM Rule WHERE id IN (SELECT value FROM UnitOptionValue WHERE unit = #{unit})")
+	List<Rule> readUnitRules(int unit);
 
 	@Select("SELECT * FROM ArmyModel WHERE id = #{id}")
 	@Results({ 
 			@Result(column = "id", property = "id"),
 			@Result(column = "id", property = "units", many = @Many(select = "readUnitModels")),
 			@Result(column = "id", property = "options", many = @Many(select = "readArmyOptionModels")), 
+			@Result(column = "id", property = "unitOptionRules", one = @One(select = "readUnitOptionRules")),
 	})
 	ArmyModel readModel(int id);
 
@@ -78,4 +84,7 @@ public interface ArmyReadDao extends ReadRuleFragDao {
 
 	@Select("SELECT * FROM ArmyOptionModel WHERE id IN (SELECT model FROM ArmyOption WHERE army = #{army})")
 	List<ArmyOptionModel> readArmyOptions(int army);
+
+	@Select("select * FROM Rule WHERE option_army = #{army} ORDER BY name")
+	List<Rule> readUnitOptionRules(int army);
 }
