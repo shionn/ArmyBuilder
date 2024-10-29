@@ -6,7 +6,7 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="t"%>
 <t:template>
 <jsp:attribute name="content">
-<h1>Liste Option</h1>
+<h1>Liste Army Option</h1>
 <table>
 	<c:forEach items="${options}" var="option">
 		<tr>
@@ -19,7 +19,7 @@
 </table>
 
 <c:if test="${not empty option}">
-<h1>Édition Option</h1>
+<h1>Édition Army Option</h1>
 <spring:url value="/admin/army/option/edit/${option.id}" var="url"/>
 <form:form action="${url}" method="POST" class="row">
 	<div>
@@ -55,7 +55,7 @@
 </form:form>
 </c:if>
 
-<h1>Creation</h1>
+<h1>Creation Army Option</h1>
 <spring:url value="/admin/army/option/create" var="url"/>
 <form:form action="${url}" method="POST" class="row">
 	<div>

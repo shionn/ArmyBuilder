@@ -1,6 +1,6 @@
 package armybuilder.db.dbo.unit.option;
 
-import armybuilder.db.dbo.option.Option;
+import armybuilder.db.dbo.option.UnitOptionType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UnitOptionValue {
-	private Option option;
+	private UnitOptionType option;
 	private String value;
 }

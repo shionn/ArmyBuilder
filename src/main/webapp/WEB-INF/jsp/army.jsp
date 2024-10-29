@@ -1,7 +1,7 @@
 <%@ page pageEncoding="UTF-8"%>
 <%@ page import="armybuilder.db.dbo.unit.WeaponType" %>
-<%@ page import="armybuilder.db.dbo.option.Option" %>
-<%@ page import="armybuilder.db.dbo.option.OptionType" %>
+<%@ page import="armybuilder.db.dbo.option.UnitOptionType" %>
+<%@ page import="armybuilder.db.dbo.option.UnitOptionMode" %>
 <%@ page import="armybuilder.db.dbo.option.ArmyOptionType" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>

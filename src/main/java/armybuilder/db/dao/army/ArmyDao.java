@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 
 import armybuilder.db.dbo.option.ArmyOptionType;
-import armybuilder.db.dbo.option.Option;
+import armybuilder.db.dbo.option.UnitOptionType;
 
 public interface ArmyDao {
 
@@ -18,7 +18,7 @@ public interface ArmyDao {
 
 	@Insert("REPLACE INTO UnitOptionValue (unit, `option`, value) " //
 			+ "VALUES (#{unit}, #{option}, #{value}) ")
-	int setUnitOptionValue(@Param("unit") int unit, @Param("option") Option option, @Param("value") String value);
+	int setUnitOptionValue(@Param("unit") int unit, @Param("option") UnitOptionType option, @Param("value") String value);
 
 	@Insert("REPLACE INTO ArmyOption (army, `type`, model) " //
 			+ "VALUES (#{army}, #{option}, #{model}) ")

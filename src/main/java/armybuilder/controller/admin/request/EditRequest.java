@@ -31,6 +31,7 @@ public class EditRequest {
 	private EditRequest[] rules = {};
 	private EditRequest army;
 	private EditRequest rule;
+	private EditRequest option;
 
 	public List<Keyword> keywords() {
 		if (StringUtils.isNotBlank(keywords)) {

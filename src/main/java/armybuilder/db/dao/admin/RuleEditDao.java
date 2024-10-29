@@ -11,10 +11,11 @@ import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import armybuilder.db.dao.admin.frag.ListArmiesEditFragDao;
 import armybuilder.db.dbo.Keyword;
 import armybuilder.db.dbo.rule.Rule;
 
-public interface RuleEditDao {
+public interface RuleEditDao extends ListArmiesEditFragDao {
 
 	@Insert("INSERT INTO Rule (name) VALUES (#{name})")
 	@Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
@@ -25,18 +26,25 @@ public interface RuleEditDao {
 	int addKeyword(@Param("rule") Rule rule, @Param("keyword") Keyword keyword);
 
 	@Select("SELECT * FROM Rule ORDER BY name")
-	@Results({ @Result(property = "id", column = "id"),
-			@Result(property = "keywords", column = "id", many = @Many(select = "listRuleKeywords")) })
+	@Results({ //
+			@Result(property = "id", column = "id"), //
+			@Result(property = "keywords", column = "id", many = @Many(select = "listRuleKeywords")) //
+	})
 	List<Rule> list();
 
 	@Select("SELECT keyword FROM RuleKeyword WHERE rule = #{rule}")
 	List<Keyword> listRuleKeywords(int rule);
 
 	@Select("SELECT * FROM Rule WHERE id = #{id}")
+	@Results({
+		@Result(column = "option_army", property = "optionArmy.id"),
+	})
 	Rule read(int id);
 
-	@Update("UPDATE Rule SET announce = #{announce}, `condition` = #{condition}, description = #{description}, "
-			+ "effect = #{effect}, name = #{name}, timing = #{timing}, cost = #{cost} " //
+	@Update("UPDATE Rule " //
+			+ "SET announce = #{announce}, `condition` = #{condition}, description = #{description}, "
+			+ "effect = #{effect}, name = #{name}, timing = #{timing}, cost = #{cost}, option_army = #{optionArmy.id}, "
+			+ "option_unit_type = #{optionUnitType} " //
 			+ "WHERE id = #{id}")
 	int updateRule(Rule rule);
 

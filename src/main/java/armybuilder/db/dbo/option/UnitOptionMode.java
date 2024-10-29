@@ -1,6 +1,6 @@
 package armybuilder.db.dbo.option;
 
-public enum OptionType {
+public enum UnitOptionMode {
 	checkbox,
 	select
 

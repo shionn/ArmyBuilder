@@ -10,6 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import armybuilder.controller.admin.request.EditRequest;
 import armybuilder.db.dao.admin.RuleEditDao;
+import armybuilder.db.dbo.army.ArmyModel;
+import armybuilder.db.dbo.option.UnitOptionType;
 import armybuilder.db.dbo.rule.Rule;
 import armybuilder.db.dbo.rule.Timing;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +31,9 @@ public class RuleEditController {
 	@GetMapping("/admin/rule/edit/{id}")
 	public ModelAndView open(@PathVariable("id") int id) {
 		RuleEditDao dao = session.getMapper(RuleEditDao.class);
-		return new ModelAndView("admin/rule-edit").addObject("rules", dao.list()).addObject("rule", dao.read(id));
+		return new ModelAndView("admin/rule-edit").addObject("rules", dao.list())
+				.addObject("rule", dao.read(id))
+				.addObject("armies", dao.listArmies());
 	}
 
 	@PostMapping("/admin/rule/edit/{id}")
@@ -44,12 +48,14 @@ public class RuleEditController {
 				.announce(request.getAnnounce())
 				.effect(request.getEffect())
 				.keywords(request.keywords())
+				.optionArmy(ArmyModel.builder().id(request.getOption().getArmy().getId()).build())
+				.optionUnitType(UnitOptionType.from(request.getOption().getType()))
 				.build();
 		RuleEditDao dao = session.getMapper(RuleEditDao.class);
 		dao.updateRule(rule);
 		rule.getKeywords().forEach(k -> dao.addKeyword(rule, k));
 		session.commit();
-		return "redirect:/admin/rule/edit";
+		return "redirect:/admin/rule/edit/" + rule.getId();
 	}
 
 	@PostMapping("/admin/rule/create")

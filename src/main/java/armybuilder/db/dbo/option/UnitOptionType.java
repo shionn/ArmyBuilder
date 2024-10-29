@@ -9,16 +9,26 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum Option {
+public enum UnitOptionType {
 	Reinforced("Réenforcée", u -> u.getModel().is(Keyword.Infanterie) && u.getModel().getSize() > 1,
-			OptionType.checkbox);
+			UnitOptionMode.checkbox),
+	HeroicAspect("Traits Héroiques", u -> u.getModel().is(Keyword.Heros), UnitOptionMode.select),;
 
-	private final String displayName;
+
+	private final String name;
 	private final Predicate<Unit> available;
-	private final OptionType type;
+	private final UnitOptionMode type;
 
 	public boolean isAvailable(Unit unit) {
 		return available.test(unit);
+	}
+
+	public static UnitOptionType from(String value) {
+		try {
+			return valueOf(value);
+		} catch (IllegalArgumentException e) {
+			return null;
+		}
 	}
 
 }

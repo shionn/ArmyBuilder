@@ -12,7 +12,7 @@ import armybuilder.db.dao.army.ArmyDao;
 import armybuilder.db.dao.army.ArmyReadDao;
 import armybuilder.db.dbo.army.Army;
 import armybuilder.db.dbo.option.ArmyOptionType;
-import armybuilder.db.dbo.option.Option;
+import armybuilder.db.dbo.option.UnitOptionType;
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -48,7 +48,7 @@ public class ArmyControler {
 
 	@PostMapping("/army/{army}/unit/{unit}/option/{option}")
 	public String changeUnitOption(@PathVariable("army") int army, @PathVariable("unit") int unit,
-			@PathVariable("option") Option option, @RequestHeader("value") String value) {
+			@PathVariable("option") UnitOptionType option, @RequestHeader("value") String value) {
 		ArmyDao dao = session.getMapper(ArmyDao.class);
 		dao.setUnitOptionValue(unit, option, value);
 		session.commit();
