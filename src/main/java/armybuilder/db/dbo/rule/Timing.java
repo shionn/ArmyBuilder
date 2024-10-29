@@ -18,7 +18,7 @@ public enum Timing {
 
 	Deploy("Phase de Déploiement", "passif", "wind-rose"),
 
-	Passif_Shield("Passif", "drak-green", "shield"),
+	Passif_Shield("Passif", "dark-green", "shield"),
 	Passif_WindRose("Passif", "hero", "wind-rose"),
 	PassifBattle("Passif", "battle", "shield"),
 	PassifMovement("Passif", "passif", "movement"),
@@ -28,6 +28,8 @@ public enum Timing {
 	ReactionMovement("Réaction", "grey", "movement"),
 	ReactionShot("Réaction", "shot", "bow"),
 	
+	OnceBattleAnyBattle("Une Fois Par Bataille, N’importe Quelle Phase de Mêlée", "battle", "battle"),
+
 	OnceRoundStartRound("Une Fois par Round de Bataille (Armée), Début du Round de Bataille", "passif", "wind-rose"),
 
 	OnceTurnAnyBattle("Une Fois Par Tour (Armée), N’importe Quelle Phase de Mêlée", "battle", "battle"),
@@ -40,7 +42,6 @@ public enum Timing {
 	OnceTurnYourHero("Une Fois Par Tour (Armée), Votre Phase des Héros", "hero", "wind-rose"),
 	OnceTurnYourShot("Une Fois Par Tour (Armée), Votre Phase de Tir", "shot", "bow"),
 	OnceTurnYourEndTurn("Une Fois Par Tour (Armée), Fin de Votre Tour", "end", "flag"),
-
 
 	YourCharge("Votre Phase de Charge", "charge", "movement"),
 	YourHero("Votre Phase des Héros", "hero", "wind-rose"),

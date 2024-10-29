@@ -58,8 +58,9 @@ article.unit {
 			margin: 0 0 8px 0;
 			padding-left: 20px;
 		}
-		
-		div.composition, div.options {
+
+		div.composition,
+		div.options {
 			margin: 5px;
 		}
 
@@ -74,7 +75,7 @@ article.unit {
 					margin: 1px 5px 1px 3px;
 					float: left;
 				}
-				
+
 				span.cost {
 					float: right;
 					background-color: white;
@@ -90,11 +91,13 @@ article.unit {
 
 			&.shot {
 				border: 1px solid #053d53;
+
 				span.cost {
 					border: 1px solid #053d53;
 				}
 
-				header,footer {
+				header,
+				footer {
 					background-color: #053d53;
 					color: $color-theme-white;
 				}
@@ -102,11 +105,13 @@ article.unit {
 
 			&.hero {
 				border: 1px solid #886e29;
+
 				span.cost {
 					border: 1px solid #886e29;
 				}
 
-				header,footer {
+				header,
+				footer {
 					background-color: #886e29;
 					color: $color-theme-white;
 				}
@@ -114,11 +119,13 @@ article.unit {
 
 			&.charge {
 				border: 1px solid #9d4d1f;
+
 				span.cost {
 					border: 1px solid #9d4d1f;
 				}
 
-				header,footer {
+				header,
+				footer {
 					background-color: #9d4d1f;
 					color: $color-theme-white;
 				}
@@ -126,11 +133,13 @@ article.unit {
 
 			&.end {
 				border: 1px solid #502e5b;
+
 				span.cost {
 					border: 1px solid #502e5b;
 				}
 
-				header,footer{
+				header,
+				footer {
 					background-color: #502e5b;
 					color: $color-theme-white;
 				}
@@ -138,11 +147,13 @@ article.unit {
 
 			&.passif {
 				border: 1px solid #12100d;
+
 				span.cost {
 					border: 1px solid #12100d;
 				}
 
-				header,footer {
+				header,
+				footer {
 					background-color: #12100d;
 					color: $color-theme-white;
 				}
@@ -150,23 +161,42 @@ article.unit {
 
 			&.battle {
 				border: 1px solid #731516;
+
 				span.cost {
 					border: 1px solid #731516;
 				}
 
-				header,footer {
+				header,
+				footer {
 					background-color: #731516;
 					color: $color-theme-white;
 				}
 			}
+
 			&.movement {
 				border: 1px solid #686361;
+
 				span.cost {
 					border: 1px solid #686361;
 				}
 
-				header,footer {
+				header,
+				footer {
 					background-color: #686361;
+					color: $color-theme-white;
+				}
+			}
+
+			&.dark-green {
+				border: 1px solid #33431a;
+
+				span.cost {
+					border: 1px solid #33431a;
+				}
+
+				header,
+				footer {
+					background-color: #33431a;
 					color: $color-theme-white;
 				}
 			}
@@ -176,7 +206,8 @@ article.unit {
 	footer {
 		background-color: $color-theme;
 		color: $color-theme-white;
-		padding:0px 1px 3px 5px;;
+		padding: 0px 1px 3px 5px;
+		;
 
 		span:not(:last-child)::after {
 			content: ',';
@@ -188,5 +219,5 @@ article.unit {
 			text-align: center;
 		}
 	}
-	
+
 }
