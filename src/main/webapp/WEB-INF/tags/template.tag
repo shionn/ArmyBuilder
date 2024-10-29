@@ -33,6 +33,8 @@
 				</c:forEach>
 				<li>Admin
 					<ul>
+						<spring:url value="/admin/army/edit" var="url"/>
+						<li><a href="${url}">Army</a></li>
 						<spring:url value="/admin/unit/edit" var="url"/>
 						<li><a href="${url}">Unit</a></li>
 						<spring:url value="/admin/rule/edit" var="url"/>

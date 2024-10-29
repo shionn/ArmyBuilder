@@ -26,6 +26,7 @@ public class EditRequest {
 	private String cost;
 	private String size;
 	private String composition;
+	private String script;
 	private EditRequest[] weapons = {};
 	private EditRequest[] rules = {};
 	private EditRequest army;

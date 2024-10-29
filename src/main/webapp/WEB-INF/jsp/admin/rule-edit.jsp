@@ -13,17 +13,16 @@
 	<c:forEach items="${rules}" var="rule">
 		<tr>
 			<spring:url value="/admin/rule/edit/${rule.id}" var="url"/>
-			<td>${rule.timing}</td>
+			<td>${rule.id}</td>
 			<td><a href="${url}">${rule.name}</a></td>
-			<td>${fn:substring(rule.announce,0,40)}...</td>
-			<td>${fn:substring(rule.effect,0,40)}...</td>
-			<td><a href="${url}">Edit</a></td>
+			<td>${rule.timing}</td>
+			<td>${fn:substring(rule.description,0,40)}...</td>
 		</tr>
 	</c:forEach>
 </table>
 
 <c:if test="${not empty rule}">
-<h1>Édition</h1>
+<h1>Édition ${rule.id}</h1>
 <spring:url value="/admin/rule/edit/${rule.id}" var="url"/>
 <form:form action="${url}" method="POST" class="row">
 	<input type="hidden" name="id" value="${rule.id}"/>

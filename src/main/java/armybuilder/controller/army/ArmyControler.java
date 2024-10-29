@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.servlet.ModelAndView;
 
 import armybuilder.db.dao.army.ArmyDao;
+import armybuilder.db.dao.army.ArmyReadDao;
+import armybuilder.db.dbo.army.Army;
+import armybuilder.db.dbo.option.ArmyOptionType;
 import armybuilder.db.dbo.option.Option;
 import lombok.RequiredArgsConstructor;
 
@@ -17,11 +20,14 @@ import lombok.RequiredArgsConstructor;
 public class ArmyControler {
 
 	private final SqlSession session;
+	private final Decoration decorator;
 
 	@GetMapping("/army/{army}")
-	public ModelAndView open(@PathVariable("army") int army) {
-		ArmyDao dao = session.getMapper(ArmyDao.class);
-		return new ModelAndView("army").addObject("army", dao.read(army));
+	public ModelAndView open(@PathVariable("army") int id) {
+		ArmyReadDao dao = session.getMapper(ArmyReadDao.class);
+		Army army = dao.read(id);
+		decorator.decorate(army);
+		return new ModelAndView("army").addObject("army", army);
 	}
 
 	@PostMapping("/army/{army}/add-unit")
@@ -41,12 +47,22 @@ public class ArmyControler {
 	}
 
 	@PostMapping("/army/{army}/unit/{unit}/option/{option}")
-	public String changeOption(@PathVariable("army") int army, @PathVariable("unit") int unit,
+	public String changeUnitOption(@PathVariable("army") int army, @PathVariable("unit") int unit,
 			@PathVariable("option") Option option, @RequestHeader("value") String value) {
 		ArmyDao dao = session.getMapper(ArmyDao.class);
-		dao.setOptionValue(unit, option, value);
+		dao.setUnitOptionValue(unit, option, value);
 		session.commit();
 		return "redirect:/army/" + army;
 	}
+
+	@PostMapping("/army/{army}/option/{option}")
+	public String changeArmyOption(@PathVariable("army") int army, @PathVariable("option") ArmyOptionType option,
+			@RequestHeader("model") int model) {
+		ArmyDao dao = session.getMapper(ArmyDao.class);
+		dao.setArmyOptionValue(army, option, model);
+		session.commit();
+		return "redirect:/army/" + army;
+	}
+
 
 }

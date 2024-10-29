@@ -17,7 +17,7 @@ import armybuilder.v3.model.army.UnitGroupDisplay;
 import armybuilder.v3.model.rule.desc.DescriptionMode;
 
 @Controller
-public class ArmyEditController {
+public class ArmyEditControllerV3 {
 
 	@Autowired
 	private SqlSession session;

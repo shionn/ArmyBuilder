@@ -13,6 +13,7 @@ import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import armybuilder.db.dao.admin.frag.ListArmiesEditFragDao;
 import armybuilder.db.dbo.Keyword;
 import armybuilder.db.dbo.army.ArmyModel;
 import armybuilder.db.dbo.rule.Rule;
@@ -20,7 +21,7 @@ import armybuilder.db.dbo.unit.UnitModel;
 import armybuilder.db.dbo.unit.UnitModelRule;
 import armybuilder.db.dbo.unit.UnitModelWeapon;
 
-public interface UnitModelEditDao {
+public interface UnitModelEditDao extends ListArmiesEditFragDao {
 
 	@Select("SELECT unit.id, unit.name, army.name AS army_name " //
 			+ "FROM UnitModel unit " //
@@ -79,9 +80,6 @@ public interface UnitModelEditDao {
 
 	@Select("SELECT * FROM ArmyModel WHERE id = #{army}")
 	ArmyModel readArmy(int army);
-
-	@Select("SELECT * FROM ArmyModel ORDER BY name")
-	List<ArmyModel> listArmies();
 
 	@Select("SELECT model.id, rule.id AS rule_id, rule.name AS rule_name " //
 			+ "FROM UnitModelRule model " //
