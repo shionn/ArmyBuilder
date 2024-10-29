@@ -21,7 +21,7 @@ public interface RuleEditDao extends ListArmiesEditFragDao {
 	@Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
 	int createRule(Rule rule);
 
-	@Insert("INSERT INTO RuleKeyword (rule,keyword) " //
+	@Insert("REPLACE INTO RuleKeyword (rule,keyword) " //
 			+ "VALUES (#{rule.id}, #{keyword})")
 	int addKeyword(@Param("rule") Rule rule, @Param("keyword") Keyword keyword);
 
@@ -36,8 +36,10 @@ public interface RuleEditDao extends ListArmiesEditFragDao {
 	List<Keyword> listRuleKeywords(int rule);
 
 	@Select("SELECT * FROM Rule WHERE id = #{id}")
-	@Results({
-		@Result(column = "option_army", property = "optionArmy.id"),
+	@Results({ //
+			@Result(column = "option_army", property = "optionArmy.id"),
+			@Result(column = "id", property = "id"),
+			@Result(column = "id", property = "keywords", many = @Many(select = "listRuleKeywords"))
 	})
 	Rule read(int id);
 
