@@ -1,5 +1,6 @@
 package armybuilder.db.dbo.army;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -57,6 +58,13 @@ public class Army {
 				return compare ;
 			}
 		}).toList();
+	}
+
+	public void addRule(List<Rule> rules) {
+		if (this.rules == null) {
+			this.rules = new ArrayList<Rule>();
+		}
+		this.rules.addAll(rules);
 	}
 
 }

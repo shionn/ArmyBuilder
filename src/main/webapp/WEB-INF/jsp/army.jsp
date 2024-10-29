@@ -13,13 +13,15 @@
 <spring:url value="/army/${army.id}" var="base"/>
 <div>
 	<c:forEach items="${ArmyOptionType.values()}" var="opt">
-		<select name="model" class="ajax" data-url="${base}/option/${opt}" data-update="#title" >
-			<option>${opt.name}</option>
-			<c:forEach items="${army.model.options(opt)}" var="v">
-				<option value="${v.id}" <c:if test="${army.get(opt).id == v.id}">selected="selected"</c:if>>${v.name}</option>
-			</c:forEach>
-			
-		</select>
+		<c:if test="${opt.editable}">
+			<select name="model" class="ajax" data-url="${base}/option/${opt}" data-update="#title" >
+				<option>${opt.name}</option>
+				<c:forEach items="${army.model.options(opt)}" var="v">
+					<option value="${v.id}" <c:if test="${army.get(opt).id == v.id}">selected="selected"</c:if>>${v.name}</option>
+				</c:forEach>
+				
+			</select>
+		</c:if>
 	</c:forEach>
 	<select class="ajax" name="model" data-url="${base}/add-unit" data-update="#units">
 		<option value="-1">Add Unit</option>

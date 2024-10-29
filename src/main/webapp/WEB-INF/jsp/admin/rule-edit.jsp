@@ -1,6 +1,7 @@
 <%@ page pageEncoding="UTF-8"%>
 <%@ page import="armybuilder.db.dbo.Keyword" %>
 <%@ page import="armybuilder.db.dbo.option.UnitOptionType" %>
+<%@ page import="armybuilder.db.dbo.option.ArmyOptionType" %>
 <%@ page import="armybuilder.db.dbo.rule.Timing" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -70,8 +71,17 @@
 		</select>
 	</div>
 	<div>
+		<label>Type d'Option d'armée</label>
+		<select name="option.army.type">
+			<option value="NULL">--</option>
+			<c:forEach items="${ArmyOptionType.values()}" var="type">
+				<option value="${type}" <c:if test="${rule.optionArmyType == type}">selected="selected"</c:if>>${type.name}</option>
+			</c:forEach>
+		</select>
+	</div>
+	<div>
 		<label>Type d'Option d'unité</label>
-		<select name="option.type">
+		<select name="option.unit.type">
 			<option value="NULL">--</option>
 			<c:forEach items="${UnitOptionType.values()}" var="type">
 				<option value="${type}" <c:if test="${rule.optionUnitType == type}">selected="selected"</c:if>>${type.name}</option>

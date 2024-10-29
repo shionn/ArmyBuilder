@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import armybuilder.controller.admin.request.EditRequest;
 import armybuilder.db.dao.admin.RuleEditDao;
 import armybuilder.db.dbo.army.ArmyModel;
+import armybuilder.db.dbo.option.ArmyOptionType;
 import armybuilder.db.dbo.option.UnitOptionType;
 import armybuilder.db.dbo.rule.Rule;
 import armybuilder.db.dbo.rule.Timing;
@@ -49,7 +50,8 @@ public class RuleEditController {
 				.effect(request.getEffect())
 				.keywords(request.keywords())
 				.optionArmy(ArmyModel.builder().id(request.getOption().getArmy().getId()).build())
-				.optionUnitType(UnitOptionType.from(request.getOption().getType()))
+				.optionUnitType(UnitOptionType.from(request.getOption().getUnit().getType()))
+				.optionArmyType(ArmyOptionType.from(request.getOption().getArmy().getType()))
 				.build();
 		RuleEditDao dao = session.getMapper(RuleEditDao.class);
 		dao.updateRule(rule);

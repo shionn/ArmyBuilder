@@ -6,6 +6,23 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="t"%>
 <t:template>
 <jsp:attribute name="content">
+<h1>Liste Army</h1>
+<table>
+	<c:forEach items="${armies}" var="army">
+		<tr>
+			<spring:url value="/admin/army/edit/${army.id}" var="url"/>
+			<td><a href="${url}">${army.name}</a></td>
+			<td><a href="${url}">Edit</a></td>
+		</tr>
+	</c:forEach>
+</table>
+
+<h1>Édition Army ${army.name} (${army.id})</h1>
+<spring:url value="/admin/army/edit/${army.id}" var="url"/>
+<form:form action="${url}" method="POST" class="row">
+	TODO
+</form:form>
+
 <h1>Liste Army Option</h1>
 <table>
 	<c:forEach items="${options}" var="option">

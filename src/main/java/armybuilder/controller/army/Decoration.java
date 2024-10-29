@@ -1,6 +1,6 @@
 package armybuilder.controller.army;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.apache.ibatis.session.SqlSession;
 import org.mozilla.javascript.Context;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 import armybuilder.db.dao.decoration.DecorationDao;
 import armybuilder.db.dbo.army.Army;
-import armybuilder.db.dbo.rule.Rule;
+import armybuilder.db.dbo.option.ArmyOptionType;
 import lombok.RequiredArgsConstructor;
 
 @Component
@@ -21,6 +21,7 @@ public class Decoration {
 	private final SqlSession session;
 
 	public void decorate(Army army) {
+		army.addRule(army.getModel().getOptionRules().stream().filter(r -> r.is(ArmyOptionType.BattleAspect)).toList());
 		Context cx = Context.enter();
 		try {
 			DecorationDao dao = session.getMapper(DecorationDao.class);
@@ -42,10 +43,7 @@ public class Decoration {
 		private final Army army;
 
 		public void addRule(int id) {
-			if (army.getRules() == null) {
-				army.setRules(new ArrayList<Rule>());
-			}
-			army.getRules().add(dao.readRule(id));
+			army.addRule(Arrays.asList(dao.readRule(id)));
 		}
 	}
 

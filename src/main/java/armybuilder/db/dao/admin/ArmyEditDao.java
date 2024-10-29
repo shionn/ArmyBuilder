@@ -38,5 +38,4 @@ public interface ArmyEditDao extends ListArmiesEditFragDao {
 	})
 	List<ArmyOptionModel> listOption();
 
-
 }

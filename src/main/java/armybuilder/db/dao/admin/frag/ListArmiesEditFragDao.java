@@ -11,4 +11,7 @@ public interface ListArmiesEditFragDao {
 	@Select("SELECT * FROM ArmyModel ORDER BY name")
 	List<ArmyModel> listArmies();
 
+	@Select("SELECT * FROM ArmyModel WHERE id = #{id}")
+	ArmyModel readArmy(int id);
+
 }

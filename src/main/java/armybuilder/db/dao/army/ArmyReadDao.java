@@ -48,7 +48,7 @@ public interface ArmyReadDao extends ReadRuleFragDao {
 			@Result(column = "id", property = "id"),
 			@Result(column = "id", property = "units", many = @Many(select = "readUnitModels")),
 			@Result(column = "id", property = "options", many = @Many(select = "readArmyOptionModels")), 
-			@Result(column = "id", property = "unitOptionRules", one = @One(select = "readUnitOptionRules")),
+			@Result(column = "id", property = "optionRules", one = @One(select = "readOptionRules")),
 	})
 	ArmyModel readModel(int id);
 
@@ -86,5 +86,6 @@ public interface ArmyReadDao extends ReadRuleFragDao {
 	List<ArmyOptionModel> readArmyOptions(int army);
 
 	@Select("select * FROM Rule WHERE option_army = #{army} ORDER BY name")
-	List<Rule> readUnitOptionRules(int army);
+	List<Rule> readOptionRules(int army);
+
 }

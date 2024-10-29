@@ -24,7 +24,22 @@ public class ArmyEditController {
 	@GetMapping("/admin/army/edit")
 	public ModelAndView open() {
 		ArmyEditDao dao = session.getMapper(ArmyEditDao.class);
-		return new ModelAndView("admin/army-edit").addObject("options", dao.listOption());
+		return new ModelAndView("admin/army-edit").addObject("options", dao.listOption())
+				.addObject("armies", dao.listArmies());
+	}
+
+	@GetMapping("/admin/army/edit/{id}")
+	public ModelAndView openArmy(@PathVariable("id") int id) {
+		ArmyEditDao dao = session.getMapper(ArmyEditDao.class);
+		return new ModelAndView("admin/army-edit").addObject("options", dao.listOption())
+				.addObject("armies", dao.listArmies())
+				.addObject("army", dao.readArmy(id));
+	}
+
+	@PostMapping("/admin/army/edit/{id}")
+	public String editArmy(@PathVariable("id") int id, @ModelAttribute EditRequest request) {
+
+		return "redirect:/admin/army/edit/" + id;
 	}
 
 	@GetMapping("/admin/army/option/edit/{id}")
@@ -56,5 +71,6 @@ public class ArmyEditController {
 		session.commit();
 		return "redirect:/admin/army/option/edit/" + option.getId();
 	}
+
 
 }

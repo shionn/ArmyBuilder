@@ -30,6 +30,7 @@ public class EditRequest {
 	private EditRequest[] weapons = {};
 	private EditRequest[] rules = {};
 	private EditRequest army;
+	private EditRequest unit;
 	private EditRequest rule;
 	private EditRequest option;
 

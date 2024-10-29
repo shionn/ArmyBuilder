@@ -5,6 +5,7 @@ import java.util.List;
 import armybuilder.db.dbo.Keyword;
 import armybuilder.db.dbo.army.ArmyModel;
 import armybuilder.db.dbo.aspect.HaveKeywords;
+import armybuilder.db.dbo.option.ArmyOptionType;
 import armybuilder.db.dbo.option.UnitOptionType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,9 +27,15 @@ public class Rule implements HaveKeywords {
 	private String effect;
 	private ArmyModel optionArmy;
 	private UnitOptionType optionUnitType;
+	private ArmyOptionType optionArmyType;
 	private List<Keyword> keywords;
 
 	public boolean is(UnitOptionType option) {
 		return option == this.optionUnitType;
 	}
+
+	public boolean is(ArmyOptionType type) {
+		return optionArmyType == type;
+	}
+
 }

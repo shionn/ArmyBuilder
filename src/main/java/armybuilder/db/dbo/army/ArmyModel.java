@@ -22,7 +22,7 @@ public class ArmyModel {
 	private String name;
 	private List<UnitModel> units;
 	private List<ArmyOptionModel> options;
-	private List<Rule> unitOptionRules;
+	private List<Rule> optionRules;
 
 	public List<ArmyOptionModel> options(ArmyOptionType type) {
 		return options.stream().filter(o -> o.getType() == type).toList();
@@ -30,7 +30,7 @@ public class ArmyModel {
 
 
 	public List<Rule> options(UnitOptionType type) {
-		return unitOptionRules.stream().filter(r -> r.getOptionUnitType() == type).toList();
+		return optionRules.stream().filter(r -> r.getOptionUnitType() == type).toList();
 	}
 
 }
