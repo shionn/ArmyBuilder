@@ -23,7 +23,7 @@ import armybuilder.db.dbo.unit.UnitModelWeapon;
 
 public interface UnitModelEditDao extends ListArmiesEditFragDao {
 
-	@Select("SELECT unit.id, unit.name, army.name AS army_name " //
+	@Select("SELECT unit.id, unit.name, army.name AS army_name, unit.cost, unit.size " //
 			+ "FROM UnitModel unit " //
 			+ "LEFT JOIN ArmyModel army ON unit.army_model = army.id " //
 			+ "ORDER BY name")

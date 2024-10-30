@@ -12,19 +12,20 @@
 <table>
 	<c:forEach items="${units}" var="unit">
 		<tr>
-			<td>${unit.army.name}</td>
-			<td>${unit.name}</td>
-			<td>${unit.keywords}</td>
 			<spring:url value="/admin/unit/edit/${unit.id}" var="url"/>
-			<td><a href="${url}">Edit</a></td>
+			<td>${unit.id}</td>
+			<td>${unit.army.name}</td>
+			<td><a href="${url}">${unit.name}</a></td>
+			<td>${unit.cost}</td>
+			<td>${unit.size}</td>
 		</tr>
 	</c:forEach>
 </table>
 
 <c:if test="${not empty unit}">
-<h1>Édition</h1>
+<h1>Édition ${unit.name} (${unit.id})</h1>
 <spring:url value="/admin/unit/edit/${unit.id}" var="url"/>
-<form:form action="${url}" method="POST" class="row">
+<form:form action="${url}" method="POST" class="row" id="form">
 	<div>
 		<label>Name</label>
 		<input type="text" name="name" value="${unit.name}"/>
@@ -32,7 +33,7 @@
 	<div>
 		<label>Armée</label>
 		<select name="army.id">
-			<option value="--">--</option>
+			<option value="0">--</option>
 			<c:forEach items="${armies}" var="a">
 				<option value="${a.id}"
 				<c:if test="${a.id == unit.army.id}">selected="selected"</c:if>>${a.name}</option>
@@ -89,7 +90,7 @@
 						</td>
 						<td>
 							<select name="weapons[${s.index}].type">
-								<option value="--">--</option>
+								<option value="0">--</option>
 								<c:forEach items="${WeaponType.values()}" var="type">
 									<option value="${type}" <c:if test="${w.type == type}">selected="selected"</c:if>>${type}</option>
 								</c:forEach>
@@ -127,9 +128,9 @@
 						<td>
 							<input type="hidden" name="rules[${s.index}].id" value="${m.id}"/>
 							<select name="rules[${s.index}].rule.id">
-								<option value="--">--</option>
+								<option value="0">--</option>
 								<c:forEach items="${rules}" var="rule">
-									<option value="${rule.id}" <c:if test="${m.rule.id == rule.id}">selected="selected"</c:if>>${rule.name}</option>
+									<option value="${rule.id}" <c:if test="${m.rule.id == rule.id}">selected="selected"</c:if>>${rule.name} (${rule.id})</option>
 								</c:forEach>
 							</select>
 						</td>

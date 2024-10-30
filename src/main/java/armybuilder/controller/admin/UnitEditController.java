@@ -83,7 +83,7 @@ public class UnitEditController {
 		unit.getWeapons().forEach(dao::updateWeapon);
 		unit.getRules().forEach(dao::updateRule);
 		session.commit();
-		return "redirect:/admin/unit/edit/" + id;
+		return "redirect:/admin/unit/edit/" + id + "#form";
 	}
 
 	@PostMapping("/admin/unit/create")
@@ -92,7 +92,7 @@ public class UnitEditController {
 		UnitModelEditDao dao = session.getMapper(UnitModelEditDao.class);
 		dao.create(model);
 		session.commit();
-		return "redirect:/admin/unit/edit/" + model.getId();
+		return "redirect:/admin/unit/edit/" + model.getId() + "#form";
 	}
 
 	@PostMapping("/admin/unit/edit/{unit}/add-weapon")
@@ -100,7 +100,7 @@ public class UnitEditController {
 		UnitModelEditDao dao = session.getMapper(UnitModelEditDao.class);
 		dao.addWeapon(unit);
 		session.commit();
-		return "redirect:/admin/unit/edit/" + unit;
+		return "redirect:/admin/unit/edit/" + unit + "#form";
 	}
 
 	@PostMapping("/admin/unit/edit/{unit}/rm-weapon/{weapon}")
@@ -108,7 +108,7 @@ public class UnitEditController {
 		UnitModelEditDao dao = session.getMapper(UnitModelEditDao.class);
 		dao.rmWeapon(unit, weapon);
 		session.commit();
-		return "redirect:/admin/unit/edit/" + unit;
+		return "redirect:/admin/unit/edit/" + unit + "#form";
 	}
 
 	@PostMapping("/admin/unit/edit/{unit}/add-rule")
@@ -116,7 +116,7 @@ public class UnitEditController {
 		UnitModelEditDao dao = session.getMapper(UnitModelEditDao.class);
 		dao.addRule(unit);
 		session.commit();
-		return "redirect:/admin/unit/edit/" + unit;
+		return "redirect:/admin/unit/edit/" + unit + "#form";
 	}
 
 	@PostMapping("/admin/unit/edit/{unit}/rm-rule/{model}")
@@ -124,7 +124,7 @@ public class UnitEditController {
 		UnitModelEditDao dao = session.getMapper(UnitModelEditDao.class);
 		dao.rmRule(rule);
 		session.commit();
-		return "redirect:/admin/unit/edit/" + unit;
+		return "redirect:/admin/unit/edit/" + unit + "#form";
 	}
 
 }

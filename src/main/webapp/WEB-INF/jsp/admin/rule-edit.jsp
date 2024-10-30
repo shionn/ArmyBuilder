@@ -24,9 +24,9 @@
 </table>
 
 <c:if test="${not empty rule}">
-<h1>Édition ${rule.id}</h1>
+<h1>Édition ${rule.name} (${rule.id})</h1>
 <spring:url value="/admin/rule/edit/${rule.id}" var="url"/>
-<form:form action="${url}" method="POST" class="row">
+<form:form action="${url}" method="POST" class="row" id="form">
 	<input type="hidden" name="id" value="${rule.id}"/>
 	<div>
 		<label>Name</label>

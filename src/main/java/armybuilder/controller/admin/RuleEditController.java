@@ -58,7 +58,7 @@ public class RuleEditController {
 		dao.updateRule(rule);
 		rule.getKeywords().forEach(k -> dao.addKeyword(rule, k));
 		session.commit();
-		return "redirect:/admin/rule/edit/" + rule.getId();
+		return "redirect:/admin/rule/edit/" + rule.getId() + "#form";
 	}
 
 	@PostMapping("/admin/rule/create")
@@ -67,7 +67,7 @@ public class RuleEditController {
 		RuleEditDao dao = session.getMapper(RuleEditDao.class);
 		dao.createRule(rule);
 		session.commit();
-		return "redirect:/admin/rule/edit/" + rule.getId();
+		return "redirect:/admin/rule/edit/" + rule.getId() + "#form";
 	}
 
 }

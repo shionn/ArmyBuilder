@@ -17,6 +17,7 @@ public enum Keyword {
 
 	Cavalerie,
 	Champion,
+	Convocation,
 	Heros("Héros"),
 	Illimite("Illimité"),
 	Infanterie,
@@ -31,15 +32,16 @@ public enum Keyword {
 	Protection_6("Protection(6+)"),
 	Pretre_1("Prêtre(1)"),
 	Pretre_2("Prêtre(2)"),
-	Saccage("Saccage"),
+	Saccage,
 	Sorcier_1("Sorcier(1)"),
 	Sorcier_2("Sorcier(2)"),
 	Sorcier_3("Sorcier(3)"),
 	Sorcier_4("Sorcier(4)"),
-	Sort("Sort"),
+	Sort,
 	SortPersistant("Sort Persistant"),
 	TerrainDeFaction("Terrain de Faction"),
 	Unique,
+	Vol,
 
 	// Grande Allegiance
 	Chaos,

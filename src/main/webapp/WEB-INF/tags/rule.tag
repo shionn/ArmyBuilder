@@ -5,7 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ attribute name="rule" type="armybuilder.db.dbo.rule.Rule"%>
 <c:if test="${not empty rule.timing}">
-	<article class="rule ${rule.timing.color}">
+	<article class="rule ${rule.timing.color} hidden">
 		<header>
 			<img src="<spring:url value='/img/${rule.timing.icon}.png'/>">
 			${rule.timing.displayName}

@@ -48,7 +48,7 @@ public class Army {
 					compare = Boolean.compare(o1.is(Keyword.TerrainDeFaction), o2.is(Keyword.TerrainDeFaction));
 				}
 				if (compare == 0) {
-					compare = o1.getModel().getName().compareTo(o2.getModel().getName());
+					compare = o2.getModel().getName().compareTo(o1.getModel().getName());
 				}
 				if (compare == 0) {
 					compare = Integer.compare(o1.getId(), o2.getId());
@@ -74,6 +74,12 @@ public class Army {
 				int compare = Boolean.compare(o1.getTiming() != null, o2.getTiming() != null);
 				if (compare == 0 && o1.getTiming() != null && o2.getTiming() != null) {
 					compare = Integer.compare(o1.getTiming().getStep().ordinal(), o2.getTiming().getStep().ordinal());
+				}
+				if (compare == 0) {
+					compare = Boolean.compare(o1.is(Keyword.Sort), o2.is(Keyword.Sort));
+				}
+				if (compare == 0) {
+					compare = Boolean.compare(o1.is(Keyword.Convocation), o2.is(Keyword.Convocation));
 				}
 				if (compare == 0) {
 					compare = o1.getName().compareTo(o2.getName());

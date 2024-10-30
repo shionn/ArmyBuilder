@@ -152,4 +152,7 @@
 	</c:forEach>
 </div>
 </jsp:attribute>
+<jsp:attribute name="scripts">
+	<script type="text/javascript" src='<spring:url value="/js/army.js"/>'></script>
+</jsp:attribute>
 </t:template>

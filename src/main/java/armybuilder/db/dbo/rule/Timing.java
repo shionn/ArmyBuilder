@@ -23,6 +23,7 @@ public enum Timing {
 	PassifBattle_Shield("Passif", TimingStep.Battle, "shield"),
 	PassifMovement("Passif", TimingStep.Movement),
 	PassifMovement_Shield("Passif", TimingStep.Movement, "shield"),
+	PassifShot("Passif", TimingStep.Passif, "shot"),
 	PassifWeapon("Passif", TimingStep.Passif, "skull"),
 
 //	ReactionBattle("Réaction", "battle"),
