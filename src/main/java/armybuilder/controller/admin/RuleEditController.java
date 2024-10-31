@@ -34,7 +34,7 @@ public class RuleEditController {
 		RuleEditDao dao = session.getMapper(RuleEditDao.class);
 		return new ModelAndView("admin/rule-edit").addObject("rules", dao.list())
 				.addObject("rule", dao.read(id))
-				.addObject("armies", dao.listArmies());
+				.addObject("armies", dao.listArmyModels());
 	}
 
 	@PostMapping("/admin/rule/edit/{id}")

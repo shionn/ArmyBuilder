@@ -6,12 +6,12 @@ import org.apache.ibatis.annotations.Select;
 
 import armybuilder.db.dbo.army.ArmyModel;
 
-public interface ListArmiesEditFragDao {
+public interface ListArmyModelsEditFragDao {
 
 	@Select("SELECT * FROM ArmyModel ORDER BY name")
-	List<ArmyModel> listArmies();
+	List<ArmyModel> listArmyModels();
 
 	@Select("SELECT * FROM ArmyModel WHERE id = #{id}")
-	ArmyModel readArmy(int id);
+	ArmyModel readArmyModel(int id);
 
 }

@@ -36,7 +36,7 @@ public class UnitEditController {
 		UnitModelEditDao dao = session.getMapper(UnitModelEditDao.class);
 		return new ModelAndView("admin/unit-edit").addObject("units", dao.list())
 				.addObject("unit", dao.read(id))
-				.addObject("armies", dao.listArmies())
+				.addObject("armies", dao.listArmyModels())
 				.addObject("rules", dao.listRules());
 	}
 

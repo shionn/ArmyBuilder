@@ -13,15 +13,14 @@ import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import armybuilder.db.dao.admin.frag.ListArmiesEditFragDao;
+import armybuilder.db.dao.admin.frag.ListArmyModelsEditFragDao;
 import armybuilder.db.dbo.Keyword;
-import armybuilder.db.dbo.army.ArmyModel;
 import armybuilder.db.dbo.rule.Rule;
 import armybuilder.db.dbo.unit.UnitModel;
 import armybuilder.db.dbo.unit.UnitModelRule;
 import armybuilder.db.dbo.unit.UnitModelWeapon;
 
-public interface UnitModelEditDao extends ListArmiesEditFragDao {
+public interface UnitModelEditDao extends ListArmyModelsEditFragDao {
 
 	@Select("SELECT unit.id, unit.name, army.name AS army_name, unit.cost, unit.size " //
 			+ "FROM UnitModel unit " //
@@ -38,7 +37,7 @@ public interface UnitModelEditDao extends ListArmiesEditFragDao {
 			@Result(column = "id", property = "keywords", many = @Many(select = "listKeywords")),
 			@Result(column = "id", property = "weapons", many = @Many(select = "listWeapons")),
 			@Result(column = "id", property = "rules", many = @Many(select = "listUnitRules")),
-			@Result(column = "army_model", property = "army", one = @One(select = "readArmy")),
+			@Result(column = "army_model", property = "army", one = @One(select = "readArmyModel")),
 	})
 	UnitModel read(int id);
 
@@ -77,9 +76,6 @@ public interface UnitModelEditDao extends ListArmiesEditFragDao {
 	@Delete("INSERT INTO UnitModelKeyword (unit_model, keyword) " //
 			+ "VALUES (#{id}, #{keyword})")
 	int addKeywords(@Param("id") int id, @Param("keyword") Keyword keyword);
-
-	@Select("SELECT * FROM ArmyModel WHERE id = #{army}")
-	ArmyModel readArmy(int army);
 
 	@Select("SELECT model.id, rule.id AS rule_id, rule.name AS rule_name " //
 			+ "FROM UnitModelRule model " //

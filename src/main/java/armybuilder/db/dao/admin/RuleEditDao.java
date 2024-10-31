@@ -11,11 +11,11 @@ import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import armybuilder.db.dao.admin.frag.ListArmiesEditFragDao;
+import armybuilder.db.dao.admin.frag.ListArmyModelsEditFragDao;
 import armybuilder.db.dbo.Keyword;
 import armybuilder.db.dbo.rule.Rule;
 
-public interface RuleEditDao extends ListArmiesEditFragDao {
+public interface RuleEditDao extends ListArmyModelsEditFragDao {
 
 	@Insert("INSERT INTO Rule (name) VALUES (#{name})")
 	@Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
