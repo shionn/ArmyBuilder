@@ -46,11 +46,12 @@
 <div id="units">
 	<c:forEach items="${army.sortedUnits}" var="unit">
 		<article class="unit" id="unit${unit.id}">
-			<header>${unit.model.name} - ${unit.cost} <a href="${base}/rm-unit/${unit.id}"><i class="fa fa-trash"></i></a>
+			<header>
+				<span>${unit.model.name} - ${unit.cost} <a href="${base}/rm-unit/${unit.id}"><i class="fa fa-trash"></i></a></span>
 				<span>
 					<i class="fa fa-arrows"></i> ${unit.model.mvt}&quot;
 					<i class="fa fa-heart"></i> ${unit.model.life}
-					<i class="fa fa-flag"></i> ${unit.model.control}
+					<i class="fa fa-circle"></i> ${unit.model.control}
 					<i class="fa fa-shield"></i> ${unit.model.save}
 				</span>
 			</header>
