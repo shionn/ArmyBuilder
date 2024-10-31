@@ -13,10 +13,13 @@ public enum UnitOptionType {
 	Reinforced("Réenforcée", u -> u.getModel().is(Keyword.Infanterie) && u.getModel().getSize() > 1,
 			UnitOptionMode.checkbox),
 	General("Général", u -> u.getModel().is(Keyword.Heros), UnitOptionMode.checkbox),
+	RegimentLeader("Chef de Régiment", u -> u.getModel().is(Keyword.Heros), UnitOptionMode.checkbox),
 	HeroicAspect("Traits Héroiques", u -> u.getModel().is(Keyword.Heros), UnitOptionMode.select),
 	// MountAspect("Traits de Monture", u -> u.getModel().is(Keyword.Heros),
 	// UnitOptionMode.select),
 	Artefact("Artefact de Pouvoir", u -> u.getModel().is(Keyword.Heros), UnitOptionMode.select),
+	Regiment("Régiment", u -> !u.is(RegimentLeader) && !u.is(Keyword.TerrainDeFaction) && !u.is(Keyword.Manifestation),
+			UnitOptionMode.select),
 
 	//
 	;

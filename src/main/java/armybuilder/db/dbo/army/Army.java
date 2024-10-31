@@ -5,6 +5,8 @@ import java.util.List;
 
 import armybuilder.controller.Comparators;
 import armybuilder.db.dbo.option.ArmyOptionType;
+import armybuilder.db.dbo.option.UnitOptionType;
+import armybuilder.db.dbo.option.UnitOptionnable;
 import armybuilder.db.dbo.rule.Rule;
 import armybuilder.db.dbo.unit.Unit;
 import lombok.AllArgsConstructor;
@@ -47,4 +49,10 @@ public class Army {
 		return this.rules.stream().sorted(Comparators.rule).toList();
 	}
 
+	public List<? extends UnitOptionnable> options(UnitOptionType type) {
+		if (type == UnitOptionType.Regiment) {
+			return units.stream().filter(u -> u.is(UnitOptionType.RegimentLeader)).toList();
+		}
+		return model.options(type);
+	}
 }

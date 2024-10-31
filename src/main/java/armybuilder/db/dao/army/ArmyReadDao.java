@@ -12,12 +12,12 @@ import armybuilder.db.dao.frag.ReadRuleFragDao;
 import armybuilder.db.dbo.Keyword;
 import armybuilder.db.dbo.army.Army;
 import armybuilder.db.dbo.army.ArmyModel;
+import armybuilder.db.dbo.option.UnitOptionValue;
 import armybuilder.db.dbo.rule.Rule;
 import armybuilder.db.dbo.unit.Unit;
 import armybuilder.db.dbo.unit.UnitModel;
 import armybuilder.db.dbo.unit.UnitModelRule;
 import armybuilder.db.dbo.unit.UnitModelWeapon;
-import armybuilder.db.dbo.unit.option.UnitOptionValue;
 
 public interface ArmyReadDao extends ReadRuleFragDao {
 
@@ -35,7 +35,8 @@ public interface ArmyReadDao extends ReadRuleFragDao {
 			@Result(column = "model", property = "model", one = @One(select = "readUnitModel")),
 			@Result(column = "id", property = "id"),
 			@Result(column = "id", property = "rules", many = @Many(select = "readUnitRules")),
-			@Result(column = "id", property = "options", many = @Many(select = "readUnitOptionValues"))
+			@Result(column = "id", property = "options", many = @Many(select = "readUnitOptionValues")),
+			@Result(column = "army", property = "army", one = @One(select = "read")),
 	})
 	List<Unit> readUnits(int army);
 

@@ -7,6 +7,7 @@ import armybuilder.db.dbo.army.ArmyModel;
 import armybuilder.db.dbo.aspect.HaveKeywords;
 import armybuilder.db.dbo.option.ArmyOptionType;
 import armybuilder.db.dbo.option.UnitOptionType;
+import armybuilder.db.dbo.option.UnitOptionnable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Rule implements HaveKeywords {
+public class Rule implements HaveKeywords, UnitOptionnable {
 	private int id;
 	private Timing timing;
 	private String cost;

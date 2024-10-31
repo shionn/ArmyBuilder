@@ -4,6 +4,7 @@ import java.util.List;
 
 import armybuilder.db.dbo.option.ArmyOptionType;
 import armybuilder.db.dbo.option.UnitOptionType;
+import armybuilder.db.dbo.option.UnitOptionnable;
 import armybuilder.db.dbo.rule.Rule;
 import armybuilder.db.dbo.unit.UnitModel;
 import lombok.AllArgsConstructor;
@@ -27,7 +28,7 @@ public class ArmyModel {
 	}
 
 
-	public List<Rule> options(UnitOptionType type) {
+	public List<? extends UnitOptionnable> options(UnitOptionType type) {
 		return optionRules.stream().filter(r -> r.getOptionUnitType() == type).toList();
 	}
 

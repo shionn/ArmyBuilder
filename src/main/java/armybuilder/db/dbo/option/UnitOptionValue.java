@@ -1,6 +1,5 @@
-package armybuilder.db.dbo.unit.option;
+package armybuilder.db.dbo.option;
 
-import armybuilder.db.dbo.option.UnitOptionType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

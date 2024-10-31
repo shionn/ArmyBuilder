@@ -132,7 +132,7 @@
 										data-update="#unit${unit.id},#title"
 										name="value" class="ajax">
 									<option value="NULL">${opt.name}</option>
-									<c:forEach items="${army.model.options(opt)}" var="r">
+									<c:forEach items="${army.options(opt)}" var="r">
 										<option value="${r.id}" <c:if test="${unit.get(opt).id == r.id}">selected="selected"</c:if>>${r.name}</option>
 									</c:forEach>
 								</select>
