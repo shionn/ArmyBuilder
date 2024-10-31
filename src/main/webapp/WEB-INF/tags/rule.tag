@@ -21,6 +21,9 @@
 			<c:if test="${not empty rule.announce}">
 				${markdown.format("__Annonce:__ ".concat(rule.announce))}
 			</c:if>
+			<c:if test="${not empty rule.useby}">
+				${markdown.format("__Utilisé par:__ ".concat(rule.useby))}
+			</c:if>
 			<c:if test="${not empty rule.effect}">
 				${markdown.format("__Effet:__ ".concat(rule.effect))}
 			</c:if>

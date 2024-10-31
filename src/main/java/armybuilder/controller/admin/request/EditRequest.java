@@ -13,13 +13,11 @@ import lombok.Data;
 public class EditRequest {
 
 	private int id;
-	private String announce;
-	private String description;
-	private String effect;
-	private String keywords;
 	private String name;
 	private String timing;
 	private String condition;
+	private String description, announce, useby, effect;
+	private String keywords;
 	private String mvt, life, control, save;
 	private String type;
 	private String range, atk, hit, str, perf, deg, aptitude;

@@ -9,15 +9,19 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum Keyword {
+
 	Attaque,
 	Base,
-	Deploiement,
-	DeploiementDeTerrain,
-	Tir,
-
+	Bannissement,
 	Cavalerie,
 	Champion,
+	Charge,
 	Convocation,
+	CorpACorp("Corp à Corp"),
+	Course,
+	Deploiement,
+	DeploiementDeTerrain,
+	Dissipation,
 	Heros("Héros"),
 	Illimite("Illimité"),
 	Infanterie,
@@ -26,12 +30,14 @@ public enum Keyword {
 	Musicien_1_10("Musicien(1/10)"),
 	Musicien_1_20("Musicien(1/20)"),
 	Monstre,
+	Mouvement,
 	MorteEtendard_1_10("Porte-Etendard(1/10)"),
 	MorteEtendard_1_20("Porte-Etendard(1/20)"),
 	Protection_5("Protection(5+)"),
 	Protection_6("Protection(6+)"),
 	Pretre_1("Prêtre(1)"),
 	Pretre_2("Prêtre(2)"),
+	Repli,
 	Saccage,
 	Sorcier_1("Sorcier(1)"),
 	Sorcier_2("Sorcier(2)"),
@@ -40,6 +46,7 @@ public enum Keyword {
 	Sort,
 	SortPersistant("Sort Persistant"),
 	TerrainDeFaction("Terrain de Faction"),
+	Tir,
 	Unique,
 	Vol,
 

@@ -46,7 +46,8 @@ public interface RuleEditDao extends ListArmiesEditFragDao {
 	@Update("UPDATE Rule " //
 			+ "SET announce = #{announce}, `condition` = #{condition}, description = #{description}, "
 			+ "effect = #{effect}, name = #{name}, timing = #{timing}, cost = #{cost}, option_army = #{optionArmy.id}, "
-			+ "option_unit_type = #{optionUnitType}, option_army_type = #{optionArmyType}, script = #{script} " //
+			+ "option_unit_type = #{optionUnitType}, option_army_type = #{optionArmyType}, script = #{script}, "
+			+ "useby = #{useby} " //
 			+ "WHERE id = #{id}")
 	int updateRule(Rule rule);
 

@@ -45,6 +45,7 @@ public class RuleEditController {
 				.timing(Timing.from(request.getTiming()))
 				.cost(request.getCost())
 				.condition(request.getCondition())
+				.useby(request.getUseby())
 				.description(request.getDescription())
 				.announce(request.getAnnounce())
 				.effect(request.getEffect())

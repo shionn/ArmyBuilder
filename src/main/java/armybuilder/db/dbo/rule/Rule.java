@@ -24,6 +24,7 @@ public class Rule implements HaveKeywords {
 	private String name;
 	private String description;
 	private String announce;
+	private String useby;
 	private String effect;
 	private String script;
 	private ArmyModel optionArmy;

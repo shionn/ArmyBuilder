@@ -3,6 +3,7 @@ package armybuilder.db.dbo.unit;
 import java.util.ArrayList;
 import java.util.List;
 
+import armybuilder.controller.Comparators;
 import armybuilder.db.dbo.Keyword;
 import armybuilder.db.dbo.option.UnitOptionType;
 import armybuilder.db.dbo.rule.Rule;
@@ -39,6 +40,7 @@ public class Unit {
 		List<Rule> all = new ArrayList<Rule>();
 		all.addAll(rules);
 		all.addAll(model.getRules().stream().map(m -> m.getRule()).toList());
+		all.sort(Comparators.rule);
 		return all;
 	}
 

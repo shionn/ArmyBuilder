@@ -104,7 +104,7 @@ article.unit {
 				} 
 			}
 
-			&.shot {
+			&.shot, &.passifblue {
 				border: 1px solid #053d53;
 
 				span.cost {
@@ -160,7 +160,7 @@ article.unit {
 				}
 			}
 
-			&.passif, &.deploy, &.startround {
+			&.passif, &.deploy, &.startround, &.startturn {
 				border: 1px solid #12100d;
 
 				span.cost {
@@ -202,7 +202,7 @@ article.unit {
 				}
 			}
 
-			&.passifgreen {
+			&.passifgreen, &.battlegreen {
 				border: 1px solid #33431a;
 
 				span.cost {

@@ -6,14 +6,17 @@ import lombok.RequiredArgsConstructor;
 public enum TimingStep {
 	Deploy("wind-rose"),
 	Passif(null),
-	PassifGreen(null),
 	StartRound("wind-rose"),
+	StartTurn("wind-rose"),
 	Hero("wind-rose"),
 	Movement("movement"),
 	Shot("bow"),
 	Charge("movement"),
 	Battle("battle"),
-	End("flag");
+	BattleGreen("shield"),
+	PassifGreen("shield"),
+	End("flag"),
+	;
 
 	private final String icon;
 

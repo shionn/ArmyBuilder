@@ -14,7 +14,7 @@
 <table>
 	<c:forEach items="${rules}" var="rule">
 		<tr>
-			<spring:url value="/admin/rule/edit/${rule.id}" var="url"/>
+			<spring:url value="/admin/rule/edit/${rule.id}#form" var="url"/>
 			<td>${rule.id}</td>
 			<td><a href="${url}">${rule.name}</a></td>
 			<td>${rule.timing}</td>
@@ -56,6 +56,10 @@
 	<div>
 		<label>Annonce</label>
 		<textarea rows="5" cols="50" name="announce">${rule.announce}</textarea>
+	</div>
+	<div>
+		<label>Utilisé par</label>
+		<textarea rows="5" cols="50" name="useby">${rule.useby}</textarea>
 	</div>
 	<div>
 		<label>Effet</label>

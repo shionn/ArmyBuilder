@@ -31,6 +31,10 @@
 						</ul>
 					</li>
 				</c:forEach>
+				<li>
+					<spring:url value="/army/0" var="url"/>
+					<a href="${url}">Référence</a>
+				</li>
 				<li>Admin
 					<ul>
 						<spring:url value="/admin/army/edit" var="url"/>
