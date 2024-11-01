@@ -12,7 +12,10 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <meta name="mobile-web-app-capable" content="yes" />
-<link rel="shortcut icon" type="image/x-icon" href='<spring:url value="/img/favicon.ico"/>'/>
+<spring:url value="/img/" var="base"/>
+<link rel="apple-touch-icon" sizes="180x180" href="${base}apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="${base}favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="${base}favicon-16x16.png">
 <link rel="stylesheet" href="<spring:url value="/css/style.css"/>" />
 <link rel="stylesheet" href="<spring:url value="/css/font-awesome.css"/>" />
 <title>AoS v4 Army Builder - by Shionn</title>
